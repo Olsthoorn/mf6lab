@@ -1,0 +1,1 @@
+crange = get_orderly_levels(cmin, cmax, 20); crange = crange[crange > 0.1]

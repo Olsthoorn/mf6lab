@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../tools/mf6lab"
+		},
+		{
+			"path": "../tools"
+		}
+	],
+	"settings": {}
+}

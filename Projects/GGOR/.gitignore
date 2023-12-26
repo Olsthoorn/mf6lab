@@ -1,0 +1,5 @@
+**/.DS_Store
+**/*.pyc
+**/_pycache_
+**/~$*
+/cases/**

@@ -1,0 +1,40 @@
+function [xx,yy]=MeasureOnPhoto(str)
+% [xx,yy[=MeasureOnPhoto(str)
+% Select anything on phote from list in photostruct.mat using searchstr str
+% by clicking. ENTER to stop. The coordinates are then given.
+%
+% Olsthoorn 100721 100727
+
+load('photostruct');
+
+if nargin==0,
+    fprintf('Select one of the following photos using unique combination of first letters\n');
+    for instance
+        fprintf('[xx,y]=MeasureOnPhoto(''Series_01'')\n');
+        fprintf('When the corring harlines appear on the photo select\n');
+        fprintf('point you want. Stop by pressing enter.\n');
+        fprintf('The selected coordinates will be in the output of the function.\n');
+    for i=1:length(d)
+    if strmatchi(a,d(i).name)
+    fprintf('PhoteNr %2d, %-20s u=[%3d %3d]  v=[%3d %3d]  Dx=%.1f Dz=%.1f cm\n',...
+        i,d(i).name,round(d(i).uMdl),round(d(i).vMdl),d(i).DX,d(i).DY);
+    end
+end
+
+    
+    
+   str='Series_01_p10';
+end
+
+i=strmatchi(str,{d.name});
+
+for i=1:length(d)
+    if strmatchi(a,d(i).name)
+    fprintf('PhoteNr %2d, %-20s u=[%3d %3d]  v=[%3d %3d]  Dx=%.1f Dz=%.1f cm\n',...
+        i,d(i).name,round(d(i).uMdl),round(d(i).vMdl),d(i).DX,d(i).DY);
+    end
+end
+
+fig=ImageModel(d(i).name,d(i).uMdl,d(i).vMdl,d(i).DX,d(i).DY); hold on;
+xlabel('x cm'); ylabel('z cm'); title(sprintf('photo %s, click [ENTER=stop]',d(i).name));
+[xx,yy]=gingput;
