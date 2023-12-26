@@ -1,0 +1,1022 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrreprt
+\begin_preamble
+% Any characters can be typed directly from the keyboard, eg éçñ
+% provide lots of new symbols
+% Add graphics capabilities
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}% Don't place floats before their definition
+%\usepackage{topcapt}   % Define \topcation for placing captions above tables (not in gwTeX)
+%\usepackage{natbib} % use author/date bibliographic citations
+\@ifundefined{definecolor}
+ {\usepackage{color}}{}
+% necessary to use colos
+% Better maths support & more symbols
+\usepackage{bm}% Define \bm{} to use bold math fonts
+\usepackage[pdftex,bookmarks,colorlinks,breaklinks]{hyperref}% PDF hyperlinks, with coloured links
+\definecolor{dullmagenta}{rgb}{0.4,0,0.4}% #660066
+\definecolor{darkblue}{rgb}{0,0,0.4}\hypersetup{linkcolor=red,citecolor=blue,filecolor=dullmagenta,urlcolor=darkblue}% coloured links
+%\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} % black links, for printed output
+\usepackage{memhfixc}% remove conflict between the memoir class & hyperref
+% \usepackage[activate]{pdfcprot}  % Turn on margin kerning (not in gwTeX)
+\usepackage{pdfsync}% enable tex source and pdf output syncronicity
+\usepackage{hyperref}
+
+\usepackage{alltt}
+\usepackage{color}
+\definecolor{string}{rgb}{0.7,0.0,0.0}
+\definecolor{comment}{rgb}{0.13,0.54,0.13}
+\definecolor{keyword}{rgb}{0.0,0.0,1.0}
+
+\usepackage{listings}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+\newtheorem{issue}{Issue}
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language dutch
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language polish
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+GGOR tool in Python
+\end_layout
+
+\begin_layout Author
+T.N.Olsthoorn
+\end_layout
+
+\begin_layout Date
+6 Oktober 2017
+\end_layout
+
+\begin_layout Abstract
+Hier de samenvatting
+\end_layout
+
+\begin_layout Chapter
+Inleiding
+\end_layout
+
+\begin_layout Standard
+De GGOR tool heeft tot doel om de GxG (GLG, GVG en GHG) en de waterbalans
+ berekenen voor een gebied, waarbij een gebied is gedefinieerd als een verzameli
+ng percelen.
+ Van elke perceel wordt een dwarsdoorsnede model gemaakt loodrecht op zijn
+ de lange as.
+ Alle dwarsdoorsnedes worden in een blokvormig, 3D, rekenmodelnetwerk geplaatst,
+ zodanig dat elke rij hiervan een dwarsdoorsnede voorstelt.
+ Deze dwarsdoorsnedes, de percelen dus, zijn onafhankelijk van elkaar, wat
+ modelmatig gerealiseerd wordt door de doorlatendheid in de richting van
+ de kolommen van het netwerk op nul te zetten.
+ Het gevolg is dat steeds alle percelen tegelijkertijd worden doorgerekend,
+ dit kunnen er duizenden zijn.
+\end_layout
+
+\begin_layout Standard
+Het model en dus elke dwarsdoorsnede bestaat uit twee modellagen, die respectiev
+elijk de deklaag en de regionale aquifer voorstellen.
+ Tussen deze twee modellagen bevindt zich een slecht doorlatende laag met
+ op de geven weerstand.
+ Hiernaast kan de verticale doorlatendheid van de modellagen worden gekozen,
+ zodat ook binnen de deklaag en de regionale aquifer verticale weerstand
+ mogelijk is.
+\end_layout
+
+\begin_layout Standard
+De percelen worden symmetrisch beschouwd, wat impliceert dat ervan wordt
+ uitgegaan dat de percelen aan beide zijden worden begrensd door een sloot
+ met dezelfde afmetingen, eigenschappen en hetzelfde slootpeil.
+ Het midden van de sloten worden als waterscheidingen opgevat.
+ Dit impliceert dat steeds slechts de helft van elke dwarsdoorsnede hoeft
+ te worden gesimuleerd, en zo gebeurt het ook in het model.
+\end_layout
+
+\begin_layout Standard
+Elke dwarsdoorsnede, dus elke rij in het model, heeft aan de linkerzijde
+ (eerste cel) een sloot en is aan de rechterzijde gesloten, voorstellende
+ de waterscheiding in het midden van het perceel.
+ De perceelbreedte verschilt per perceel.
+ In het model wordt dit als volgt opgelost.
+ De breedte van het model is gelijk aan de helft van de breedte van het
+ breedste perceel.
+ De cellen aan rechterkant die buiten de halve breedte van de afzonderlijke
+ percelen vallen worden inactief gemaakt.
+ Zo krijgt elk perceel zijn eigen breedte.
+ De nauwkeurigheid hiervan is gelijk aan de halve kolombreedte die in het
+ model wordt aangehouden.
+ Deze is aanpasbaar, maar wordt standaard op 1 m gesteld, wat voldoende
+ is in praktisch alle voorkomende situaties.
+ 
+\end_layout
+
+\begin_layout Standard
+De sloten hebben elk een eigen breedte, diepte en slootweerstand, waarbij
+ die van de bodem en de zijkanten van de sloot gelijk worden genomen.
+ De sloten hebben een infiltratieweerstand die groter is dan de exfiltratieweers
+tand.
+\end_layout
+
+\begin_layout Standard
+De percelen hebben alle een drainage over hun volle breedte.
+ De drainage wordt beschouwd als een vlak, uniform binnen elk perceel.
+ Afzonderlijke drains worden niet meegenomen; dat kan ook niet, want die
+ zouden evenwijdig aan de doorsnede lopen, en kunnen niet afzonderlijk in
+ een doorsnede worden gemodelleerd.
+ In het geval daadwerkelijk drainage aanwezig is, is het peil van deze drainage
+ gelijk aan de daarvoor opgegeven waarde.
+ Voor percelen zonder drainage is het peil gelijk aan het maaiveld.
+ Dat wil zeggen dat de drainage water afvoert zodra het grondwater tot boven
+ maaiveld zou stijgen.
+ De aanname is hierbij dat in gedraineerde percelen het grondwater nooit
+ tot aan het maaiveld zal stijgen.
+ De drainageweerstand wordt voor gedraineerde percelen opgegeven en voor
+ niet gedraineerde perceel wordt een standaardwaarde aangehouden.
+ Drainageweerstand wordt opgegeven in d, conceptueel is deze voor te stellen
+ als het stijghoogteniveau boven de drainagebasis waarbij een gegeven kwelflux,
+ bijv.
+ 10 mm/d optreedt.
+\end_layout
+
+\begin_layout Standard
+Tegenwoordig wordt voor veengebieden meer en meer overgestapt op onderwaterdrain
+age.
+ Deze kan behalve draineren ook voeden.
+ De GGOR kan ook deze simuleren.
+\end_layout
+
+\begin_layout Standard
+Percelen zijn vaak voorzien van greppels.
+ Hiervan wordt in de GGOR tool aangenomen dat deze in de langsrichting van
+ de betreffende percelen lopen, dus loodrecht op de gesimuleerde doorsnedes.
+ Greppels worden in de GGOR gemodelleerd als drain met een niveau op 30
+ cm beneden maaiveld.
+ 
+\end_layout
+
+\begin_layout Standard
+De stroming van het grondwater wordt aangedreven door neerslag, makkink-verdampi
+ng, slootpeil, drainagepeil, en opgelegde kwel vanuit de regionale aquifer.
+ Deze kwel is negatief zijn in het geval van wegzijging.
+\end_layout
+
+\begin_layout Standard
+Alle zo gemodelleerde dwarsdoorsnedes worden tegelijkertijd dynamisch op
+ dagbasis doorgerekend, over een periode van minimaal 9 jaar, noodzakelijk
+ om de GxG te kunnen berekenen; het eerste jaar wordt gebruikt als inloopjaar
+ voor de dynamische berekening, de laatste 8 jaar voor de bepaling van de
+ GxG.
+ Deze GLG, GVG en GHG kunnen in het GIS worden weergegeven op een kaart.
+\end_layout
+
+\begin_layout Standard
+Ook wordt van alle percelen de waterbalans op dagbasis berekend.
+ Deze kan worden weergegeven als een doorgaande grafiek, per perceel of
+ gesommeerd over een aantal percelen of het gehele gebied, waarbij de componente
+n van de waterbalans worden getoond als functie van de tijd.
+\end_layout
+
+\begin_layout Standard
+Technisch geschiedt de simulatie met eindige differentie code MODFLOW (USGS)
+ in een rechthoek grid bestaande uit twee modellagen, net zoveel rijen als
+ er percelen zijn en net zoveel kolommen als overeenkomt met de helft van
+ de breedte van het breedste perceel.
+\end_layout
+
+\begin_layout Standard
+Details worden verderop uitgelegd.
+\end_layout
+
+\begin_layout Chapter
+Opzet
+\end_layout
+
+\begin_layout Section
+Overzicht
+\end_layout
+
+\begin_layout Standard
+De GGOR-applicatie is opgezet in Python (versie 3, zie https://docs.python.org/3/,
+ implementatie https://anaconda.org/anaconda/python, interface Spyder) en
+ maakt gebruik van de modules van Flopy (https://github.com/modflowpy/flopy,
+ zie voor documentatie: http://modflowpy.github.io/flopydoc/) van de USGS,
+ waarmee de grondwatercodes van de USGS (https://water.usgs.gov/ogw/modflow/)
+ kunnen worden aangestuurd en waarmee de berekende grondwaterstanden en
+ -stijghoogtes, alsmede de berekende waterbalanscomponenten kunnen worden
+ uitgelezen.
+ Voor de simulatie wordt de code MODFLOW 2005 gebruikt (https://water.usgs.gov/ogw
+/modflow/mf2005.html) die werkt met een gestructureerd, dat wil zeggen regelmatig
+ netwerk bestaande uit blokvormige cellen geordend in lagen, rijen en kolommen.
+\end_layout
+
+\begin_layout Standard
+De gebruiker heeft weinig of niets met Flopy en MODFLOW te maken, want de
+ GGOR-applicatie roept deze aan, waarna het aanmaken van de bestanden voor
+ MODFLOW en het rekenen met MODFLOW op de achtergrond gebeurt.
+\end_layout
+
+\begin_layout Standard
+De GGOR-applicatie leest de gegevens betreffende de percelen en zet het
+ model op en geeft dit door aan de betreffende Flopy modules.
+ De GGOR-applicatie leest voorts het bestand in met de te gebruiken dagwaarden
+ van de neerslag en de Makkink-verdamping en geeft ook deze gegevens aan
+ de betreffende Flopy modules door.
+ Vervolgens wordt opdracht gegeven aan de Flopy om de invoer bestanden van
+ MODFLOW aan de maken en MODFLOW te starten.
+\end_layout
+
+\begin_layout Standard
+Het verloop van de berekening is op het scherm te volgen.
+ Na afloop wordt gemeld of de simulatie succesvol was.
+ Zo ja dan neemt de GGOR-applicatie het stokje weer over, leest het bestand
+ met de door MODFLOW berekende stijghoogtes uit en berekent voor alle percelen
+ daaruit de GHG, GVG en GLG.
+ De GGOR-applicatie leest vervolgens het door MODFLOW aangemaakte bestand
+ uit met de waterbalanscomponenten en geeft de resultaten grafisch weer
+ opgeteld voor alle percelen.
+ Het doet dit als een doorgaande grafiek van de dagcijfers waarbij alle
+ componenten van de waterbalans worden getoond, en ook wordt gedemonstreerd
+ dat de som van de componenten van de waterbalans altijd gelijk aan nul
+ is.
+\end_layout
+
+\begin_layout Standard
+De resultaten van de gesimuleerde stijghoogten, de GHG, GVG en GLG kunnen
+ verder statistisch worden geanalyseerd en in GIS worden weergegeven.
+ Ook kan voor geselecteerde percelen het verloop van de gesimuleerde grondwaters
+tanden en -stijghoogtes grafisch worden weergegeven samen met de punten
+ waaruit de GxG zijn berekend.
+ 
+\end_layout
+
+\begin_layout Standard
+De resultaten van de gesimuleerde waterbalans van alle percelen kunnen eveneens
+ statistisch worden geanalyseerd.
+ Ook dit kan op basis van aparte percelen.
+ Maar waterbalansen zijn vaak zinvoller wanneer berekend voor een groter
+ gebied.
+ Dit kan door de waterbalanscomponenten van de percelen die binnen het te
+ onderzoeken gebied vallen samen te nemen.
+\end_layout
+
+\begin_layout Section
+Structuur van de GGOR-applicatie
+\end_layout
+
+\begin_layout Standard
+De GGOR-applicatie bestaat uit twee modules
+\end_layout
+
+\begin_layout Description
+GGOR.py Het hoofdscript waarin gegevens worden ingelezen, het model opgezet,
+ gedraaid en waarin de gegevens worden uitgelezen en gepresenteerd.
+\end_layout
+
+\begin_layout Description
+ggor_tools.py De module waaraan het GGOR.py script het feitelijke datailwerk
+ uitbesteedt.
+\end_layout
+
+\begin_layout Description
+fdm_tools Tools voor het omgaan met Finite Differtie Modellen, waarin de
+ Grid module voor het effectief en efficient omgaan met een gestructureerd
+ MODFLOW netwerk.
+\end_layout
+
+\begin_layout Standard
+De gebruiker zou alleen met het GGOR.py script te maken moeten hebben om
+ de werken aan te passen aan zijn of haar wensen.
+\end_layout
+
+\begin_layout Section
+Het GGOR.py script
+\end_layout
+
+\begin_layout Standard
+Wanneer het script door de editor van Spyer is ingelezen, blijkt het te
+ zijn opgedeeld en cellen, die logische blokken vormen en helpen bij het
+ structureren en, indien gewenst, het blok na blok apart doorrekenen van
+ het script.
+\end_layout
+
+\begin_layout Standard
+De navolgende beschrijving is per blok, zoals aangeduid met de bloktitels
+ uit het script.
+\end_layout
+
+\begin_layout Paragraph
+Imports.
+\end_layout
+
+\begin_layout Standard
+Dit blok importeert de modules en functionaliteit die voor de uitvoering
+ van het script noodzakelijk zijn.
+\end_layout
+
+\begin_layout Paragraph
+Read the GGOR database.
+\end_layout
+
+\begin_layout Standard
+Dit blok leest het dbf bestand in met de gegevens van de percelen.
+ Dit dbf bestand is afkomstig van uit het GIS.
+\end_layout
+
+\begin_layout Standard
+Ook wordt het bestand met de dag gegevens van de neerslag en de verdamping
+ ingelezen.
+\end_layout
+
+\begin_layout Standard
+Vervolgens kan in plaats van de werkelijke een test simulatie worden gedaan
+ door de waarde van parameter Test op True in plaats van False te zetten.
+ De berekening gebeurt dan met standaard waarden voor een aantal parameters
+ in plaats van die uit de database.
+ Dit is nuttig om bepaald gedrag van het model te simuleren wat veel moeilijker
+ of helemaal niet te ontdekken is uit de resultaten van simulatie met de
+ werkelijke gegevens.
+\end_layout
+
+\begin_layout Paragraph
+Model domain and grid definition.
+\end_layout
+
+\begin_layout Standard
+Dit blok genereert het rekennetwerk waar MODFLOW straks mee gaat rekenen.
+ Het bepaalt de met de functie gg.grid() in de module Ggor_tools, de coordinaten
+ van de gridcellen op basis van de gegevens uit de database van de percelen.
+ Het blok specificeert met LAYTYP=[1, 0] voorts dat zich onder modellaag
+ 1 een slecht doorlatende laag bevindt.
+ Tenslotte genereert het met ft.Grid(xGr, yGr, zGr) het MODFLOW grid, of
+ exacter, een Grid object dat allerlei gridinformatie kan berekenen en verschaff
+en en ook tekenen.
+\end_layout
+
+\begin_layout Paragraph
+Model data and parameter values.
+\end_layout
+
+\begin_layout Standard
+Dit blok genereerd de 3 dimensionale arrays (geallenblokken) elk met een
+ waarde voor elke rekencel.
+ Dit zijn de horizontale doorlatendheid (HK), de verticale doorlatendheid
+ (VKA), de freatische bergingscoëfficiënt (SY) en de specifieke bergingscoëffici
+ënt (SS) en de verticale doorlatendheid van de slechtdoorlatende laag tussen
+ modellagen 1 en 2 (VKCB = Vertical K of Confining Bed).
+\end_layout
+
+\begin_layout Standard
+De IBOUND arrray is een 3D array die aangeeft welke cellen moeten worden
+ berekend, welke een vaste stijghoogte hebben en welke inactief zijn.
+ Cellen met IBOUND > 0 worden berekend , cellen met IBOUND < 0 hebben vaste
+ stijghoogten, cellen met IBOUND = 0 zijn inactief.
+\end_layout
+
+\begin_layout Standard
+In dit geval zijn alleen de cellen inactief die buiten de doorsnedes vallen
+ die smaller zijn dan de breedste.
+\end_layout
+
+\begin_layout Standard
+De STRT array bevat de startwaarde van de stijghoogte voor elke cel voorafgaand
+ aan de simulatie.
+\end_layout
+
+\begin_layout Standard
+LAYTYP geeft aan of de waterstand in een cel van een laag onder zijn top
+ kan zakken of dat de cel altijd vol water wordt geacht.
+ Bij LAYTYP = 0 worden de cellen als altijd vol beschouwd zodat hun doorlaatverm
+ogen niet hoeft te worden bijgesteld tijden de simulatie, wat het model
+ een stuk sneller maakt en convergentie praktische garandeert.
+ Het omgekeerde is het geval bij LAYTYP > 0.
+ De voorkeur is rekenen met LAYTYP = 0.
+ MODFLOW gebruikt dan alleen de specifieke bergingscoëfficiënt SS.
+ Om toch de freatische berging goed te berekenen moet de SS van de freatische
+ laag gelijk worden genomen aan Sy/D, waarbij Sy de freatische bergingscoëfficië
+nt en D de dikte van de freatische modellaag.
+\end_layout
+
+\begin_layout Paragraph
+Stress period data.
+\end_layout
+
+\begin_layout Standard
+Dit blok specificeert de tijdsafhankelijke gegevens.
+ Modflow deelt de tijd op in zogenoemde 
+\begin_inset Quotes pld
+\end_inset
+
+
+\emph on
+stress periods
+\emph default
+
+\begin_inset Quotes prd
+\end_inset
+
+.
+ De randvoorwaarden zijn per stress period vast.
+ De GGOR-applicatie werkt met stress periods van 1 dag.
+ MODFLOW deelt stress periods op in time steps.
+ In de GGOR-applicatie bestaat elke stress period uit 1 tijdstap.
+ Beide vallen hier dus samen.
+ Het aantal stress periods en hun lengte worden uit het meteo-bestand afgeleid.
+ Vervolgens worden de neerslag (RECH), de evapotranspiratie (EVTR) uit het
+ meteo-bestand getrokken en omgezet naar de vorm die Flopy nodig heeft.
+ Dit is een python dictionary met als sleutel het nummer van de stress period
+ (isp) 
+\end_layout
+
+\begin_layout Standard
+De slootpeilen worden op dagbasis bepaalt uit het voor de elk perceel in
+ de database opgegeven zomerpeil en winterpeil.
+ De zomer wordt hier genomen van 1 april t/m 30 september en de winter van
+ 1 oktober tot en met 31 maart.
+ De uitwisseling tussen sloot en het grondwater worden in MODFLOW berekend
+ met het GHB (General Head Boundary) pakket.
+ Hier wordt een python dictionary gegenereerd met de naam GHB, welke als
+ sleutel de 
+\emph on
+stress period
+\emph default
+ heeft en als waarden steeds een array met voor elk van de betroffen cellen
+ het nummer van de laag, rij en kolom, en voorts de slootwaterstand en de
+ zogenoemde 
+\emph on
+conductance
+\emph default
+.
+ Deze conductance is stroming vanuit de cel naar de sloot [m3/d] bij een
+ peilverschil van 1 m.
+ De dimensie van conductance is dus [m2/d].
+ Hij wordt berekend uit de slootweerstand.
+\end_layout
+
+\begin_layout Standard
+SEEP geeft op dagbasis de kwel vanuit de regionale aquifer.
+ De kwel is opgegeven in de database op jaarbasis.
+ Dit kan in de toekomst worden aangepast naar maandcijfers verkregen uit
+ een regionale modellering buiten de GGOR-applicatie).
+ Deze kwel wordt geïmplementeerd als een injectie in de cellen van de regionale
+ aquifer.
+ Dit water vindt vanzelf zijn weg naar het bovenliggende pakket.
+ De details van de berekening zijn uitbesteed aan functie 
+\emph on
+set_seepage(..)
+\emph default
+ de module 
+\emph on
+GGOR_tools.py
+\emph default
+ (afgkort tot 
+\emph on
+gg
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+OC specificeert welke uitvoer van MODFLOW gevraagd wordt.
+ Deze hoeft alleen voor de eerste stress periode te worden opgegeven; voor
+ de overige wordt dan door Flopy hetzelfde aangenomen.
+\end_layout
+
+\begin_layout Paragraph
+Model and packages added to it.
+\end_layout
+
+\begin_layout Standard
+Dit blok is waar Flopy optreedt.
+ Eerst wordt een Flopy-Modflow object gegenereerd.
+ Opgegeven worden de modelnaam en de specifieke MODFLOW versie waarvoor
+ Flopy de bestanden zal aanmaken.
+ Hierna genereert Flopy voor elk te gebruiken MODFLOW pakket een specifiek
+ python object en koppelt dat aan het zojuist gegenereerde MOFLOW object.
+ Nog niet genoemd is 
+\emph on
+pcg, Proconditioned Conjugated Gradient
+\emph default
+ pakket, het feitelijk rekenhart waarmee MODFLOW de grondwaterstanden en
+ debieten moet gaan uitrekenen.
+\end_layout
+
+\begin_layout Paragraph
+Write the model input files and running MODFLOW.
+\end_layout
+
+\begin_layout Standard
+Dit blokt geeft Flopy de opdracht om de invoerbestanden voor MODFLOW te
+ genereren en klaar te zetten voor gebruik door MODFLOW.
+\end_layout
+
+\begin_layout Standard
+Vervolgens wordt MODFLOW gedraaid en wordt een melding gegeven indien de
+ simulatie niet succesvol is afgelopen.
+\end_layout
+
+\begin_layout Paragraph
+Showing results.
+\end_layout
+
+\begin_layout Standard
+Start van het weergeven van de berekende resulaten.
+\end_layout
+
+\begin_layout Paragraph
+Plot average head in the cross section.
+\end_layout
+
+\begin_layout Standard
+In dit blok worden de berekende stijghoogtes ingelezen uit het binaire bestand
+ dat MODFLOW zojuist heeft gegeneerd.
+\end_layout
+
+\begin_layout Standard
+Vervolgens de berekende verloop van de grondwaterstand voor een aantal geselecte
+erde percelen grafisch weergegeven.
+\end_layout
+
+\begin_layout Standard
+Dan wordt voor alle percelen de GHG, GVG en de GLG bereken, waarna die voor
+ de geselecteerde percelen als bolletjes in de grafiek worden geplaatst,
+ zodat helder is en gecontroleerd kan worden uit welke grondwaterstanden
+ de GxG is bepaald.
+\end_layout
+
+\begin_layout Paragraph
+Water Balance.
+\end_layout
+
+\begin_layout Standard
+Dit blok leest het door MODFLOW gegenereerde bestand met de waterbalanscomponent
+en uit.
+\end_layout
+
+\begin_layout Standard
+Vervolgens wordt de waterbalans, gesommeerd over alle percelen, getekend
+ als functie van de tijd.
+\end_layout
+
+\begin_layout Chapter
+Gegevens
+\end_layout
+
+\begin_layout Standard
+De basisinformatie is een database bestand in dfb-formaat, of een shapefile
+ dat in een GIS is aangemaakt.
+ Het bestand bevat de benodigde gegevens van alle simultaan te simuleren
+ percelen.
+ Van elk perceel wordt een dwarsdoorsnede gesimuleerd die loodrecht staat
+ op de lange as van het perceel.
+ De gegevens die aanwezig moeten zijn staan in onderstaande python dictionary,
+ met links de naam van het veld in de database en rechts de naam zoals die
+ binnen de GGOR-applicatie wordt gebruikt.
+ De namen in de linker kolom kunnen worden aangepast aan het GIS-bestand;
+ zij kunnen vrij worden vervangen, maar de namen in de rechter kolom zijn
+ essentieel voor de goede werking van de GGOR-applicatie.
+ Verandering daarvan vergt aanpassing van de code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+colDict = {'AANID': 'AANID',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Bodem': 'Bodem',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Bofek': 'Bofek',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'FID1': 'FID1',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Gem_Cdek': 'Gem_Cdek',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Gem_Ddek': 'Gem_Ddek',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Gem_Kwel': 'Gem_Kwel',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Gem_Phi2': 'Gem_Phi2',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Gem_mAHN3': 'Gem_mAHN3',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Greppels': 'nGrep',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Grondsoort': 'Grondsoort',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'LGN': 'LGN',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'LGN_CODE': 'LGN_CODE',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Med_Cdek': 'Cdek',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Med_Ddek': 'Ddek',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Med_Kwel': 'q',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Med_Phi2': 'Phi',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Med_mAHN3': 'AHN',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'OBJECTID_1': 'OBJECTID_1',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Omtrek': 'O',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Oppervlak': 'Oppervlak',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Shape_Area': 'A',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Shape_Leng': 'L',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Winterpeil': 'wp',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'X_Midden': 'xC',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Y_Midden': 'yC',
+\end_layout
+
+\begin_layout Plain Layout
+
+             'Zomerpeil': 'zp'}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De lijst met gegevens wordt binnen de GGOR-applicatie uitgebreid met namen
+ die voor de modellering noodzakelijk zijn, maar die in het GIS-bestand
+ ontbreken.
+ Uiteraard is het beter om alle in de modellering gebuikte gegevens via
+ het GIS-bestand aan te leveren, en zo de software volledig los te koppelen
+ van de gegevens.
+ Hiervoor is het nodig dat de gebruiker ervoor zorgt dat de betreffende
+ gegevens in het GIS-bestand op perceelbasis aanwezig zijn.
+ Dit valt buiten het bestek van de GGOR-applicatie.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Lijst met namen die (nog) niet in het GIS-bestand zijn gegeven:
+\end_layout
+
+\begin_layout Plain Layout
+
+....
+\end_layout
+
+\begin_layout Plain Layout
+
+w = 1.0 # weerstand van de slootbodems
+\end_layout
+
+\begin_layout Plain Layout
+
+VKA = 1.0 # verticale anisotropy van de modellagen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hiernaast is er een aantal uitgangsparameters dat voor alle percelen geldt
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+BMIN=5.
+      # minimum perceelbreedte
+\end_layout
+
+\begin_layout Plain Layout
+
+BMAX=1000    # maximum perceelbreedte
+\end_layout
+
+\begin_layout Plain Layout
+
+LAYCBD=0     # specificatie van slechtdoorlatende lagen onder elke modellaag
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Sloten
+\end_layout
+
+\begin_layout Standard
+Nu een verticaal muurtje met weerstand w.
+\end_layout
+
+\begin_layout Standard
+De weerstand tussen grondwater en sloot kan men zich voorstellen als een
+ damwandje in de modellaag met weerstand w.
+ Dit is het basis concept.
+ De weerstand in een actuele situatie kan worden omgerekend naar de equivalente
+ weerstand van deze damwand.
+ Dit is in het model een aparte stap.
+ We beschouwen nu de weerstand tussen sloot als zou daar een damwand staan
+ met weerstand w, wat de analyse overzichtelijk houdt.
+\end_layout
+
+\begin_layout Standard
+We gaan er in de GGOR-applicatie vanuit dat de intredeweerstand 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+, die actief is wanneer water vanuit de sloot treedt de grond intreedt groter
+ is dan de uittredeweerstand 
+\begin_inset Formula $w_{o}$
+\end_inset
+
+, die actief is als het slootwater uit de grond treedt en zich mengt met
+ het slootwater.
+ De dimensie van deze weerstand is L/T of m/d.
+\end_layout
+
+\begin_layout Standard
+In MODFLOW kunnen we de twee intredeweerstanden invoeren door het RIV package
+ te combineren met het GHB pakkage.
+ Bij infiltratie is dan alleen GHB actief en bij exfiltratie werken GHB
+ en RIV in parallel.
+ We noemen 
+\begin_inset Formula $w_{RIV}$
+\end_inset
+
+ de onbekende weerstand, 
+\begin_inset Formula $w_{GHB}=w_{i}$
+\end_inset
+
+ de intrede weerstand en 
+\begin_inset Formula $w_{o}$
+\end_inset
+
+ de uittredeweerstand.
+\end_layout
+
+\begin_layout Standard
+Infiltratie
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q_{i}=D\frac{h_{sloot}-\phi}{w_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+exfiltratie met deGHB en RIV in parallel
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+q_{o} & =D\frac{h_{sloot}-\phi}{w_{i}}+D\frac{h_{sloot}-\phi}{w_{RIV}}\\
+ & =\frac{D}{w_{o}}\left(h_{sloot}-\phi\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En dus,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{w_{o}} & =\frac{1}{w_{i}}+\frac{1}{w_{RIV}}\\
+w_{RIV} & =\frac{w_{i}w_{o}}{w_{i}-w_{o}},\,\,\,w_{i}>w_{o}\\
+w_{GHB} & =w_{i}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met de 
+\begin_inset Formula $w_{GHB}$
+\end_inset
+
+ en 
+\begin_inset Formula $w_{RIV}$
+\end_inset
+
+ worden de conductances van de GHB en RIV pakcages berekend uit de opgegeven
+ waarden van de intredeweerstand 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ en de uittredeweerstand 
+\begin_inset Formula $w_{o}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Werkgroep Afvoerberekeningen (1980)"
+key "WA80"
+
+\end_inset
+
+Werkgroep Afvoerberekeningen (1980) Richtlijnen voor het berekenen van afwaterin
+gsstelsels in landelijke gebieden.
+ Werkgroep afvoerberekeningen.
+ p35.
+ (ca.
+ 1980) (http://edepot.wur.nl/188158)
+\end_layout
+
+\end_body
+\end_document

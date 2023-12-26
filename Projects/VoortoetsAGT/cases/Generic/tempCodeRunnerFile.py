@@ -1,0 +1,1 @@
+ax.plot(gr.xm, np.ma.masked_array(hTop, mask=hTop > 1e10), label=f'h in layer {0}')

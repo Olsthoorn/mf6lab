@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../../../tools/flopy_mf6"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}

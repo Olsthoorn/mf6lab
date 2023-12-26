@@ -1,0 +1,43 @@
+% The photo's are shown one after the other.
+% You must click the LL and the UR conner of the model on the photo.
+% Then the photo with the correct realworld axis is shown for 3 seconds.
+% The photos disappear and the series starts with the next photo.
+% After the last photo all are shown with a cross through the model.
+% The data file photostuct.mat is saved with the data struct d
+% Finally the photos are copied to the different photo directories
+% together with the modelstruct.mat
+%
+% Olsthoorn 100721
+
+if 0
+    d=dir('*.jpg');
+
+    for i=1:length(d)
+        fprintf('%d\n',d(i).name);
+        n=sscanf(d(i).name,'Series%d_',1);
+        if n>=4, d(i).DX=97; d(i).DY=96;
+        else     d(i).DX=65; d(i).DY=65; end
+        [d(i).uMdl,d(i).vMdl]=ImageModel(d(i).name,d(i).DX,d(i).DY);
+        pause(1);
+        close all
+    end
+
+    save photostruct d
+end
+
+for i=1:length(d)
+    fig=ImageModel(d(i).name,d(i).uMdl,d(i).vMdl,d(i).DX,d(i).DY); hold on;
+    plot([0 d(i).DX d(i).DX 0 0 d(i).DX 0 d(i).DX],[0 0 d(i).DY d(i).DY 0 d(i).DY d(i).DY 0],'y');
+end
+
+
+if 0
+load photostruct
+    for i=1:length(d)
+        n=sscanf(d(i).name,'Series%d_',1);
+        if n>0
+            eval(['copyfile ' d(i).name    ' ../Series' sprintf('%d',n) '/Photos']);
+            eval(['copyfile photostruct.mat  ../Series' sprintf('%d',n) '/Photos']);
+        end
+    end
+end
