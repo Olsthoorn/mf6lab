@@ -16,28 +16,17 @@ import os
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
-from mf6lab import mf6tools
+from src import mf6tools
 from moervaarSectionData import gr
+import settings
 import pandas as pd
-import mf_adapt
 
-HOME = '/Users/Theo/GRWMODELS/python/VoortoetsAGT/'
-
-LENGTH_UNITS = 'meters'
-TIME_UNITS = 'days'
-
-dirs = mf6tools.Dirs(HOME)
-
-sim_name = 'MoervaarDpr'
-dirs = dirs.add_case(sim_name)
+dirs = settings.dirs
+sim_name = settings.sim_name
 
 # Parameters workbook
 params_wbk = os.path.join(dirs.case, sim_name + '.xlsx')
 assert os.path.isfile(params_wbk), "Params_wbk not found: {}".format(params_wbk)
-
-# chdir to case directory
-os.chdir(dirs.case)
-sys.path.insert(0, dirs.case)
 
 ## Get section data
 
@@ -55,7 +44,7 @@ sp_start_times = np.datetime64(start_date_time) + np.cumsum(
 Simtdis = {'perioddata': period_data,
            'nper': len(period_data),
            'start_date_time': start_date_time,
-           'time_units': TIME_UNITS,
+           'time_units': settings.TIME_UNITS,
            }
 
 # Conductivities
@@ -68,7 +57,7 @@ IDOMAIN[gr.DZ < 0.25] = -1
 
 Gwfdis = {'gr': gr,
           'idomain': IDOMAIN,
-          'length_units': LENGTH_UNITS}
+          'length_units': settings.LENGTH_UNITS}
 
 
 # %% ==== STO ===============
