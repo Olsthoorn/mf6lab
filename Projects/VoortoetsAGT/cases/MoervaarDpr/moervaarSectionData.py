@@ -10,22 +10,19 @@
 
 # %%
 
+import settings
 import os
 import numpy as np
 from coords import fromPlotdigitizerXML
 import matplotlib.pyplot as plt
-from etc import newfig, attr, color_cycler
+from etc import newfig, color_cycler
 from fdm.mfgrid import Grid
-from mf6lab.mf6tools import Dirs
 
-case = 'MoervaarDpr'
-HOME = '/Users/Theo/GRWMODELS/python/VoortoetsAGT'
-dirs = Dirs(HOME)
-dirs.add_case(case)
+dirs = settings.dirs
 
 #%% Row data, from plotdigitzer web app
 
-xmlfile = os.path.join(dirs.Data, 'MoervaarDepressieDekzandrugMaldegemStekene.xml')
+xmlfile = os.path.join(dirs.data, 'MoervaarDpr.xml')
 assert os.path.isfile(xmlfile), "Can't find file {}".format(xmlfile)
 
 data, meta = fromPlotdigitizerXML(xmlfile)

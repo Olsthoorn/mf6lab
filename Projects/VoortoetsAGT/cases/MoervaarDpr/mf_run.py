@@ -2,13 +2,10 @@
 import os
 import logging
 
-cws = '/Users/Theo/GRWMODELS/python/Pennink-Model/cases/Fremont/'
-os.chdir(cws)
-
 import mf_adapt
-from mf6lab import mf_setup
+from src import mf_setup
 
-logging.info("Running from {}".format(cws))
+logging.info("Running from {}".format(os.getcwd()))
 
 gr = mf_adapt.gr
 

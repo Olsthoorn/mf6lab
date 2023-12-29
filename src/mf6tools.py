@@ -143,7 +143,7 @@ class Dirs():
             
         # Add subdirs 'mf6_files, Photos, Images'
         
-        for subd in ['SIM', 'GWF', 'GWT', 'Photos', 'Images', 'Data']:
+        for subd in ['SIM', 'GWF', 'GWT', 'photos', 'images', 'data', 'doc']:
             subdir =  os.path.join(self.case, subd)           
             exec("self.{} = '{}'".format(subd, subdir))
             if not os.path.isdir(subdir):
