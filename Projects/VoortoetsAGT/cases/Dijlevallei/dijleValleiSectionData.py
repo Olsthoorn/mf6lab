@@ -1,12 +1,6 @@
-# Section data from MoervaarDepressieDekzandrugMaldegemStekene.xml
-#
-# The data have been digitized from the image
-#
-# MoervaarDepressieDekzandrugMaldegemStekene.png
-#
-# with the free app plotdigitizer and then exported to xml (only possible with the free app).
-#
-# TO 20231223
+# Section data from for (see settings.sim_name) in .xml file exported from plotDigitizer app.
+##
+# TO 20231230
 
 # %%
 
@@ -15,14 +9,14 @@ import os
 import numpy as np
 from coords import fromPlotdigitizerXML
 import matplotlib.pyplot as plt
-from etc import newfig, color_cycler
+from etc import newfig
 from fdm.mfgrid import Grid
 
 dirs = settings.dirs
 
 #%% Row data, from plotdigitzer web app
 
-xmlfile = os.path.join(dirs.data, 'MoervaarDpr.xml')
+xmlfile = os.path.join(dirs.data, settings.sim_name + '.xml')
 assert os.path.isfile(xmlfile), "Can't find file {}".format(xmlfile)
 
 data, meta = fromPlotdigitizerXML(xmlfile)
@@ -35,15 +29,17 @@ for i1, i2 in zip(I[:-1], I[1:]):
         print(i1, i2)
         print(data[i1:i2])
         elev.append(data[i1:i2])
-        
-x = np.linspace(0, 8400, 8401)
+
+L = 11800 # Width of cross section
+x = np.linspace(0, L, int(L + 1))
 xm = 0.5 * (x[:-1] + x[1:])
 Z = np.zeros((len(elev), len(xm)))
 ztol = 0.01 # m
 for iz, e in enumerate(elev):
         Z[iz] = np.interp(xm, e['xw'], e['yw'])
-        if iz > 0:
-                Z[iz][Z[iz] >= Z[iz-1]] = Z[iz-1][Z[iz] >= Z[iz - 1]] - ztol
+        if iz  > 0:
+            check = Z[iz] >= Z[iz-1] - ztol
+            Z[iz][check] = Z[iz-1][check] - ztol
             
 gr = Grid(x, [-0.5, 0.5], Z[:, np.newaxis, :], axial=False, min_dz=1e-6)
 
@@ -52,25 +48,29 @@ gr = Grid(x, [-0.5, 0.5], Z[:, np.newaxis, :], axial=False, min_dz=1e-6)
 if __name__ == '__main__':
 
     # Show the results
-    ax = newfig("The cross section lines", "x [m]", "z [m]")
+    ax = newfig("Cross section {}".format(settings.sim_name), "Lijnafstand [m]", "mTWA [m]")
 
     layer_patches = gr.layer_patches_x(row=0) # Get layer patches
     
-    colors = ['yellow', 'orange', 'gold', 'lightskyblue',
-              'lightsalmon', 'violet', 'chocolate', 'yellowgreen']
+    colors = settings.lay['Color']
+    codes  = settings.lay['Code']
+    names  = settings.lay['Name']
     
-    for p, clr in zip(layer_patches, color_cycler(colors)):
+    ax.plot(gr.x[[0, -1]], [36, 36], 'darkblue', label='test water table')
+
+        
+    for p, clr, code, name in zip(layer_patches, colors, codes, names):
         p.set_fc(clr)
         p.set_ec('k')
         p.set_alpha(1.0)
         p.set_lw(0.25)
+        p.set_label(code + ' ' + name)
         ax.add_patch(p)
 
     #for i, (e, clr) in enumerate(zip(elev, color_cycler(colors))):
     #    ax.plot(e['xw'], e['yw'], 'k', label=f'digitized layer {i}')
 
-    ax.plot([0, 8000], [0, 0], 'c', label='test line')
-    #ax.legend()
+    ax.legend()
     plt.show()
     
     # %%
