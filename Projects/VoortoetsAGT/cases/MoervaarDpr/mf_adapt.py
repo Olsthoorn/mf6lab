@@ -13,9 +13,7 @@ which is fed by recharge and drained where the water table reaches ground surfac
 # TO 20231223
 
 import os
-import sys
 import numpy as np
-import matplotlib.pyplot as plt
 from src import mf6tools
 from moervaarSectionData import gr
 import settings
@@ -23,15 +21,15 @@ import pandas as pd
 
 dirs = settings.dirs
 sim_name = settings.sim_name
+section_name = settings.section_name
 
 # Parameters workbook
-params_wbk = os.path.join(dirs.case, sim_name + '.xlsx')
-assert os.path.isfile(params_wbk), "Params_wbk not found: {}".format(params_wbk)
+params_wbk = settings.params_wbk
 
 ## Get section data
 
 # %% === tdis ==========  Period Data:
-start_date_time = '2023-12-22' # Must be a string.
+start_date_time = '2024-01-01' # Must be a string.
 
 perDF = mf6tools.get_periodata_from_excel(params_wbk, sheet_name='PER')
 period_data = [tuple(sp) for sp in perDF[['PERLEN', 'NSTP', 'TSMULT']].values]
@@ -48,7 +46,7 @@ Simtdis = {'perioddata': period_data,
            }
 
 # Conductivities
-lay = pd.read_excel(params_wbk, sheet_name='LAY', header=0, index_col=0)
+lay = settings.lay
 
 # %% === DIS ========== Grid
 
@@ -68,7 +66,8 @@ Gwfsto = {'sy': gr.const(lay['Ss'].values),
 # %% === Gwfnpf =========== Horizontal and vertical conductivity
 
 Gwfnpf = {  'k':   gr.const(lay['k'].values),
-            'k33': gr.const(lay['k33'].values)
+            'k33': gr.const(lay['k33'].values),
+            'icelltype': gr.const(lay['ICELLTYPE'].values),
             }
 
 # %% === Gwfic ======== Initial condictions (head)
@@ -93,14 +92,19 @@ Gwfic = {'strt': strthd}
 # q = dh /c [m/d] --> Q = dh dx dy  /c [m2/s] --> Cdr = Q /dh = dx dy / c
 c = 100 # d # drainage resistance [d]
 
-hDr = gr.Z[0] - 0.5
-Cdr = gr.Area / c
-Iz = np.zeros(gr.shape[1:], dtype=int)
+hDr = gr.Z[0, 0] - 0.5
+Cdr = gr.Area[0] / c
+Iz = np.zeros(gr.nx, dtype=int)
 
-for i in range(1, gr.nz):
-      Iz[hDr < gr.Z[i]] += 1
+J = np.arange(gr.nx, dtype=int)
+for i in range(gr.nz):
+      z = gr.Z[i + 1, 0]
+      J = J[np.logical_or(hDr[J] < z[J], IDOMAIN[i, 0, J] < 0)]
+      # print(i, len(J))
+      if len(J) > 0:
+            Iz[J] += 1
       
-DRN = [((iz, 0, i), h_, C_) for i, (iz, h_, C_) in enumerate(zip(Iz[0], hDr[0], Cdr[0]))]
+DRN = [((iz, 0, i), h_, C_) for i, (iz, h_, C_) in enumerate(zip(Iz, hDr, Cdr))]
 
 Gwfdrn = {'stress_period_data': {0: DRN}}
 
@@ -108,7 +112,7 @@ Gwfdrn = {'stress_period_data': {0: DRN}}
 
 rch = 0.001 # m/d
 
-RCH = [((iz, 0, i), rch) for i, iz in enumerate(Iz[0])]
+RCH = [((iz, 0, i), rch) for i, iz in enumerate(Iz)]
 
 Gwfrch = {'stress_period_data': {0: RCH}}
 

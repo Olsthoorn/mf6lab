@@ -15,10 +15,12 @@ import os
 import numpy as np
 from coords import fromPlotdigitizerXML
 import matplotlib.pyplot as plt
-from etc import newfig, color_cycler
+from etc import newfig
 from fdm.mfgrid import Grid
 
 dirs = settings.dirs
+sim_name = settings.sim_name
+lay = settings.lay
 
 #%% Row data, from plotdigitzer web app
 
@@ -35,8 +37,9 @@ for i1, i2 in zip(I[:-1], I[1:]):
         print(i1, i2)
         print(data[i1:i2])
         elev.append(data[i1:i2])
-        
-x = np.linspace(0, 8400, 8401)
+       
+L = 8400 
+x = np.linspace(0, L, int(L / 10 + 1 ))
 xm = 0.5 * (x[:-1] + x[1:])
 Z = np.zeros((len(elev), len(xm)))
 ztol = 0.01 # m
@@ -56,21 +59,20 @@ if __name__ == '__main__':
 
     layer_patches = gr.layer_patches_x(row=0) # Get layer patches
     
-    colors = ['yellow', 'orange', 'gold', 'lightskyblue',
-              'lightsalmon', 'violet', 'chocolate', 'yellowgreen']
-    
-    for p, clr in zip(layer_patches, color_cycler(colors)):
+    ax.plot([0, L], [0, 0], 'darkblue', label='test watertafel')
+        
+    for p, clr, code, name in zip(layer_patches, lay['Color'], lay['Code'], lay['Name']):
         p.set_fc(clr)
         p.set_ec('k')
         p.set_alpha(1.0)
         p.set_lw(0.25)
+        p.set_label(code + ' ' + name)
         ax.add_patch(p)
 
     #for i, (e, clr) in enumerate(zip(elev, color_cycler(colors))):
     #    ax.plot(e['xw'], e['yw'], 'k', label=f'digitized layer {i}')
 
-    ax.plot([0, 8000], [0, 0], 'c', label='test line')
-    #ax.legend()
+    ax.legend()
     plt.show()
     
     # %%

@@ -22,7 +22,7 @@ gwf = sim.get_model('{}Gwf'.format(sim.name).lower()) # list(sim.model_names)[0]
 headsObj = gwf.output.head()
 budObj   = gwf.output.budget()
 
-h = headsObj.get_alldata()
+h = headsObj.get_data(kstpkper=headsObj.get_kstpkper()[-1])
 
 gr = mf_adapt.gr
 
@@ -33,23 +33,21 @@ fflows = get_struct_flows([flowjas], grb_file=grb_file, verbose=False)
 
 datetimes = np.datetime64(mf_adapt.start_date_time) + np.array(headsObj.times) * np.timedelta64(1, 'D')
 
-iper = -1
-
 # %% Get psi and suitable levels
 P =  mf_adapt.rch * gr.dx.sum() / 4 # estimate of psi extremes
-psi = gr.psi_row(fflows['frf'][iper], row=0)
+psi = gr.psi_row(fflows['frf'][-1], row=0)
 levels = get_contour_levels(-P, P, 100)
 dpsi = np.diff(levels)[0]
 rch = mf_adapt.rch
 
-htop = np.array([h[iper, iz, 0, ix] for ix, iz in enumerate(mf_adapt.Iz[0])])
+htop = np.array([h[iz, 0, ix] for ix, iz in enumerate(mf_adapt.Iz)])
 
 Zpx = gr.Zpx_limited_to_water_table(htop)
 layer_patches = gr.layer_patches_x(row=0) # Get layer patches
 
 # Plot the cross section
 title = "{} voor rch = {:.1f} mm/d. Tussen 2 stroomlijnen = {:.2f} m2/d = rch over {:.0f} m".format(
-    sim.name, rch * 1000, dpsi, dpsi / rch)
+    mf_adapt.section_name, rch * 1000, dpsi, dpsi / rch)
 ax = newfig(title, 'x along section [m]', 'elevation [m]', figsize=(15, 8))
 
 # Set patch colors and add to the axis before anything else
@@ -77,12 +75,10 @@ for p, clr, code, name in zip(layer_patches, colors, codes, names):
     p.set_label(code + ' ' + name)
     ax.add_patch(p)
 
-# TODO:
+# Logo:
 ax.text(0.85, 0.05, str(np.datetime64('today')),
         fontsize=10, fontweight='normal', va='bottom', transform=plt.gcf().transFigure) # ax.transAxis
 
-# add logo and date.
-# More text about Psi.
 ax.legend(loc='lower left')
 
 plt.savefig(os.path.join(dirs.images, sim.name + '.png'))

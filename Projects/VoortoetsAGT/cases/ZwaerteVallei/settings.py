@@ -11,6 +11,7 @@ TIME_UNITS = 'days'
 
 dirs = Dirs(HOME)
 
+section_name = 'Zwaertebeek Vallei Kempisch Plateau'
 sim_name = 'ZwaerteVallei'
 dirs = dirs.add_case(sim_name)
 os.chdir(dirs.case)

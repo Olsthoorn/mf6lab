@@ -15,12 +15,12 @@ which is fed by recharge and drained where the water table reaches ground surfac
 import os
 import numpy as np
 from src import mf6tools
-from zwaerteBeekvalleiSectionData import gr, ztol
+from zwaerteBeekvalleiSectionData import gr
 import settings
-import pandas as pd
 
 dirs = settings.dirs
 sim_name = settings.sim_name
+section_name = settings.section_name
 
 # Parameters workbook
 params_wbk = settings.params_wbk
@@ -28,7 +28,7 @@ params_wbk = settings.params_wbk
 ## Get section data
 
 # %% === tdis ==========  Period Data:
-start_date_time = '2023-12-22' # Must be a string.
+start_date_time = '2024-01-01' # Must be a string.
 
 perDF = mf6tools.get_periodata_from_excel(params_wbk, sheet_name='PER')
 period_data = [tuple(sp) for sp in perDF[['PERLEN', 'NSTP', 'TSMULT']].values]
