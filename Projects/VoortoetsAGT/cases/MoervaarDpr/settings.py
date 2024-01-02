@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 
 from src.mf6tools import  Dirs
 
@@ -10,6 +11,13 @@ TIME_UNITS = 'days'
 
 dirs = Dirs(HOME)
 
+section_name = "Moervaar Depressie Dekzandrug Maldegem Stekene"
 sim_name = 'MoervaarDpr'
 dirs = dirs.add_case(sim_name)
 os.chdir(dirs.case)
+
+params_wbk = os.path.join(dirs.case, sim_name + '.xlsx')
+assert os.path.isfile(params_wbk), "Params_wbk not found: {}".format(params_wbk)
+
+lay = pd.read_excel(params_wbk, sheet_name='LAY', header=0, index_col=0)
+

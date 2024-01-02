@@ -280,7 +280,7 @@ def get_periodata_from_excel(wbk_name, sheet_name='PER'):
     p_data.index = p_data.index.astype(int)
     
     # Remove any dummy stress period lines (index <= 0)
-    p_data = p_data.loc[p_data.index > 0]
+    p_data = p_data.loc[p_data.index >= 0]
 
     # Set type of stress period data
     p_data = p_data.astype({'PERLEN': int, 'NSTP': int, 'TSMULT': float})

@@ -15,7 +15,7 @@ import os
 import numpy as np
 from coords import fromPlotdigitizerXML
 import matplotlib.pyplot as plt
-from etc import newfig, color_cycler
+from etc import newfig
 from fdm.mfgrid import Grid
 
 sim_name = settings.sim_name
@@ -37,8 +37,8 @@ for i1, i2 in zip(I[:-1], I[1:]):
         print(i1, i2)
         print(data[i1:i2])
         elev.append(data[i1:i2])
-     
-L = 10600 # m   
+
+L = 10700
 x = np.linspace(0, L, int(L / 10 + 1))
 xm = 0.5 * (x[:-1] + x[1:])
 Z = np.zeros((len(elev), len(xm)))
@@ -55,12 +55,12 @@ gr = Grid(x, [-0.5, 0.5], Z[:, np.newaxis, :], axial=False, min_dz=1e-6)
 if __name__ == '__main__':
 
     # Show the results
-    title = sim_name
+    title = settings.section_name
     ax = newfig(title, "Lijnafstand (m)", "mTAW")
 
     layer_patches = gr.layer_patches_x(row=0) # Get layer patches
     
-    ax.plot([0, L], [0, 0], 'darkblue', label='test line')
+    ax.plot([0, L], [0, 0], 'darkblue', label='test watertafel')
     
     for p, clr, code, name in zip(layer_patches, lay['Color'], lay['Code'], lay['Name']):
         p.set_fc(clr)

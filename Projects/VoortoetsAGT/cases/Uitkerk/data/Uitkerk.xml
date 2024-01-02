@@ -4,7 +4,6 @@
 <image file='UitkerksePolderDuinenBlankenberge.png' />
 <axesnames x='Lijnafstand (m)'  y='mTAW' />
 <calibpoints minXaxisX='64.0' minXaxisY='752.0' maxXaxisX='1360.0' maxXaxisY='751.3333333333334' minYaxisX='64.0' minYaxisY='752.0' maxYaxisX='64.0' maxYaxisY='174.0' aX1='0.0' aX2='9000.0' aY1='-52.0' aY2='18.0' isXLog='false' isYLog='false' />
-<point n='0' x='594.6666666666666' y='305.3333333333333' dx='3686.779812428075' dy='2.0615195485117326' />
 <point n='1' x='79.33333333333333' y='268.0' dx='108.2104194687833' dy='6.614961719376694' />
 <point n='2' x='90.0' y='270.6666666666667' dx='182.2749479576949' dy='6.291344497130737' />
 <point n='3' x='108.0' y='268.6666666666667' dx='307.28205936963906' dy='6.532437666424592' />
