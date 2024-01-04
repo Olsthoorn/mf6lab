@@ -66,8 +66,8 @@ if __name__ == '__main__':
         p.set_label(code + ' ' + name)
         ax.add_patch(p)
 
-    #for i, (e, clr) in enumerate(zip(elev, color_cycler(colors))):
-    #    ax.plot(e['xw'], e['yw'], 'k', label=f'digitized layer {i}')
+    #for e, clr in zip(elev, lay['Color']):
+    #    ax.plot(e['xw'], e['yw'], clr, marker='.') #, label=f'digitized layer {i}')
 
     ax.legend()
     plt.show()

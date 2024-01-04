@@ -34,9 +34,9 @@ fflows = get_struct_flows([flowjas], grb_file=grb_file, verbose=False)
 datetimes = np.datetime64(mf_adapt.start_date_time) + np.array(headsObj.times) * np.timedelta64(1, 'D')
 
 # %% Get psi and suitable levels
-P =  mf_adapt.rch * gr.dx.sum() / 4 # estimate of psi extremes
+P =  mf_adapt.rch * gr.dx.sum() # estimate of psi extremes
 psi = gr.psi_row(fflows['frf'][-1], row=0)
-levels = get_contour_levels(-P, P, 100)
+levels = get_contour_levels(-P / 2, P / 2, 100)
 dpsi = np.diff(levels)[0]
 rch = mf_adapt.rch
 
