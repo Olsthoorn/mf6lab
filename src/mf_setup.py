@@ -305,44 +305,43 @@ def mf_setup():
             
     ### Gwtdis ==================
         if 'Gwtdis' in use_packages:
-            logging.info('Gwtdis')
+            logging.info('Gwtdis')            
+            model_dict['Gwtdis'].update(**mf_adapt.Gwfdis)
+            gr = model_dict['Gwtdis'].pop('gr')
             model_dict['Gwtdis'].update(nlay=gr.nlay, nrow=gr.nrow, ncol=gr.ncol,
-                        delr=gr.dx, delc=gr.dy,
-                        top=gr.Z[0], botm=gr.Z[1:],
-                        length_units=mf_adapt.LENGTH_UNITS,
-                        idomain=mf_adapt.IDOMAIN,                                 
+                                        delr=gr.dx, delc=gr.dy,
+                                        top=gr.Z[0], botm=gr.Z[1:]                              
             )
             fp_packages['Gwtdis'] = flopy.mf6.ModflowGwtdis(gwt, **model_dict['Gwtdis'])
     
     ### Gwtdisu ==================
         if 'Gwtdisu' in use_packages:
             logging.info('Gwtdisu')
-            model_dict['Gwtdisu'].update()
+            model_dict['Gwtdisu'].update(**mf_adapt.Gwtdisu)
             fp_packages['Gwtdisu'] = flopy.mf6.ModflowGwtdisu(gwt, **model_dict['Gwtdisu'])
     
     ### Gwtdisv ==================
         if 'Gwtdisv' in use_packages:
             logging.info('Gwtdisv')
-            model_dict['Gwtdisv'].update()
+            model_dict['Gwtdisv'].update(**mf_adapt.Gwtdisv)
             fp_packages['Gwtdisv'] = flopy.mf6.ModflowGwtdisv(gwt, **model_dict['Gwtdisv'])
             
     ### Gwtadv ==================
         if 'Gwtadv' in use_packages:
             logging.info('Gwtadv')
-            model_dict['Gwtadv'].update(scheme=mf_adapt.SCHEME)
+            model_dict['Gwtadv'].update(**mf_adapt.Gwtadv)
             fp_packages['Gwtadv'] = flopy.mf6.ModflowGwtadv(gwt, **model_dict['Gwtadv'])
     
     ### Gwtcnc ==================
         if 'Gwtcnc' in use_packages:
             logging.info('Gwtcnc')
-            model_dict['Gwtcnc'].update(stress_period_data=mf_adapt.CONSTCONC,
-                                        maxbound = len(mf_adapt.CONSTCONC))
+            model_dict['Gwtcnc'].update(**mf_adapt.Gwtcnc)
             fp_packages['Gwtcnc'] = flopy.mf6.ModflowGwtcnc(gwt, **model_dict['Gwtcnc'])
     
     ### Gwtdsp ==================
         if 'Gwtdsp' in use_packages:
             logging.info('Gwtdsp')
-            model_dict['Gwtdsp'].update(**mf_adapt.DISPERSIVITIES)
+            model_dict['Gwtdsp'].update(**mf_adapt.Gwtdsp)
             fp_packages['Gwtdsp'] = flopy.mf6.ModflowGwtdsp(gwt, **model_dict['Gwtdsp'])
     
     ### Gwtfmi ==================
@@ -354,19 +353,19 @@ def mf_setup():
     ### Gwtic ==================
         if 'Gwtic' in use_packages:
             logging.info('Gwtic')
-            model_dict['Gwtic'].update(strt=mf_adapt.STRTC)
+            model_dict['Gwtic'].update(**mf_adapt.Gwtic)
             fp_packages['Gwtic'] = flopy.mf6.ModflowGwtic(gwt, **model_dict['Gwtic'])
     
     ### Gwtist ==================
         if 'Gwtist' in use_packages:
             logging.info('Gwtist')
-            model_dict['Gwtist'].update()
+            model_dict['Gwtist'].update(**mf_adapt.Gwtist)
             fp_packages['Gwtist'] = flopy.mf6.ModflowGwtist(gwt, **model_dict['Gwtist'])
     
     ### Gwtlkt ==================
         if 'Gwtlkt' in use_packages:
             logging.info('Gwtlkt')
-            model_dict['Gwtlkt'].update()
+            model_dict['Gwtlkt'].update(**mf_adapt.Gwtlkt)
             fp_packages['Gwtlkt'] = flopy.mf6.ModflowGwtlkt(gwt, **model_dict['Gwtlkt'])
     
     ### Gwtmst ==================
@@ -378,49 +377,49 @@ def mf_setup():
     ### Gwtmvt ==================
         if 'Gwtmvt' in use_packages:
             logging.info('Gwtmvt')
-            model_dict['Gwtmvt'].update()
+            model_dict['Gwtmvt'].update(**mf_adapt.Gwtmvt)
             fp_packages['Gwtmvt'] = flopy.mf6.ModflowGwtmvt(gwt, **model_dict['Gwtmvt'])
     
     ### Gwtmwt ==================
         if 'Gwtmwt' in use_packages:
             logging.info('Gwtmwt')
-            model_dict['Gwtmwt'].update()
+            model_dict['Gwtmwt'].update(**mf_adapt.Gwtmwt)
             fp_packages['Gwtmwt'] = flopy.mf6.ModflowGwtmwt(gwt, **model_dict['Gwtmwt'])
     
     ### Gwtobs ==================
         if 'Gwtobs' in use_packages:
             logging.info('Gwtobs')
-            model_dict['Gwtobs'].update()
+            model_dict['Gwtobs'].update(**mf_adapt.Gwtobs)
             fp_packages['Gwtobs'] = flopy.mf6.ModflowGwtobs(gwt, **model_dict['Gwtobs'])
     
     ### Gwtoc ==================
         if 'Gwtoc' in use_packages:
             logging.info('Gwtoc')
-            model_dict['Gwtoc'].update(**mf_adapt.GWTOC)
+            model_dict['Gwtoc'].update(**mf_adapt.Gwtoc)
             fp_packages['Gwtoc'] = flopy.mf6.ModflowGwtoc(gwt, **model_dict['Gwtoc'])
     
     ### Gwtsft ==================
         if 'Gwtsft' in use_packages:
             logging.info('Gwtsft')
-            model_dict['Gwtsft'].update()
+            model_dict['Gwtsft'].update(**mf_adapt.Gwtsft)
             fp_packages['Gwtsft'] = flopy.mf6.ModflowGwtsft(gwt, **model_dict['Gwtsft'])
     
     ### Gwtsrc ==================
         if 'Gwtsrc' in use_packages:
             logging.info('Gwtsrc')
-            model_dict['Gwtsrc'].update()
+            model_dict['Gwtsrc'].update(**mf_adapt.Gwtsrc)
             fp_packages['Gwtsrc'] = flopy.mf6.ModflowGwtsrc(gwt, **model_dict['Gwtsrc'])
     
     ### Gwtssm ==================
         if 'Gwtssm' in use_packages:
             logging.info('Gwtssm')
-            model_dict['Gwtssm'].update()
+            model_dict['Gwtssm'].update(**mf_adapt.Gwtssm)
             fp_packages['Gwtssm'] = flopy.mf6.ModflowGwtssm(gwt, **model_dict['Gwtssm'])
     
     ### Gwtuzt ==================
         if 'Gwtuzt' in use_packages:
             logging.info('Gwtuzt')
-            model_dict['Gwtuzt'].update()
+            model_dict['Gwtuzt'].update(**mf_adapt.Gwtuzt)
             fp_packages['Gwtuzt'] = flopy.mf6.ModflowGwtuzt(gwt, **model_dict['Gwtuzt'])
 
 
@@ -434,7 +433,6 @@ def mf_setup():
                                     exgmnameb=model_dict['Gwtgwt']['modelname'])
         exchange = flopy.mf6.ModflowGwfgwt(sim, **model_dict['Gwfexc'])
         fp_packages['Gwfexc'] = exchange
-
 
     return fp_packages, model_dict, use_models, use_packages
 

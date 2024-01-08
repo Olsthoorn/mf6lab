@@ -229,6 +229,11 @@ Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name
 
 # %% ============ T R A N S P O R T ====================
 
+#%% Gwtdis ===============================
+
+# Uses gr above, don't specify
+
+
 # %% === Gwtfmi ===== Flow model interface
 pd = [("GWFHEAD",   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name))),
       ("GWFBUDGET", os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)))
@@ -244,7 +249,7 @@ SCHEME = 'TVD' # upstream, central, TVD
 # %% === Gwtdsp === dispersion ========
 # diffc = 1e-10 m2/s 1e4 cm2/m2 60 s/min = 6e-5 m2/min
 diffc = 6e-5
-#diffc = 0.0 # test
+
 DISPERSIVITIES = {'alh': 1.0, 'ath1': 0.01, 'ath2': 0.01, 'atv': 0.1, 'diffc': diffc}
 
 # %% Gwtic === initial concentration ===
