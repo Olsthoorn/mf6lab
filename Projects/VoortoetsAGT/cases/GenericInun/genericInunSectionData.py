@@ -9,7 +9,6 @@
 # TO 20231223
 
 # %%
-
 import settings
 import os
 import numpy as np
@@ -31,9 +30,9 @@ data, meta = fromPlotdigitizerXML(xmlfile)
 
 # split the data upon jump back of x
 dx = np.diff(data['x'])
-I = np.hstack((0, np.array(np.where(dx < -250)[0]) + 1, len(data)))
+L = np.hstack((0, np.array(np.where(dx < -250)[0]) + 1, len(data)))
 elev = []
-for i1, i2 in zip(I[:-1], I[1:]):
+for i1, i2 in zip(L[:-1], L[1:]):
         print(i1, i2)
         print(data[i1:i2])
         elev.append(data[i1:i2])
@@ -49,15 +48,16 @@ for iz, e in enumerate(elev):
             check = Z[iz] >= Z[iz-1] - ztol
             Z[iz][check] = Z[iz-1][check] - ztol
             
-gr = Grid(x, [-0.5, 0.5], Z[:, np.newaxis, :], axial=False, min_dz=1e-6)
+gr = Grid(x, [-0.5, 0.5], Z[:, np.newaxis, :], axial=False, min_dz=2.5)
+gr_old = gr
+gr_new = gr.refine_vertically([(iL, n) for iL, n in enumerate(lay['Split'].values)], verbose=False)
 
-# layer can be exported
 
 if __name__ == '__main__':
 
-    # Show the results
+    # Show the results with orginal, digitized layers
     title = settings.section_name
-    ax = newfig(title, "Lijnafstand (m)", "mTAW")
+    ax = newfig(title + ' Original layers', "Lijnafstand (m)", "mTAW")
 
     layer_patches = gr.layer_patches_x(row=0) # Get layer patches
     
@@ -74,6 +74,25 @@ if __name__ == '__main__':
     #for i, (e, clr) in enumerate(zip(elev, color_cycler(colors))):
     #    ax.plot(e['xw'], e['yw'], 'k', label=f'digitized layer {i}')
 
+    # %% Show the results with layer split
+    title = settings.section_name
+    ax = newfig(title + 'Refined layering', "Lijnafstand (m)", "mTAW")
+    
+    layer_patches = gr_old.layer_patches_x(row=0) # Get layer patches
+    
+    ax.plot([0, L], [0, 0], 'darkblue', label='test watertafel')
+    
+    for p, clr, code, name in zip(layer_patches, lay['Color'], lay['Code'], lay['Name']):
+        p.set_fc(clr)
+        p.set_ec('k')
+        p.set_alpha(1.0)
+        p.set_lw(0.25)
+        p.set_label(code + ' ' + name)
+        ax.add_patch(p)
+        
+    for z in gr_new.Z[:, 0, :]:
+        ax.plot(xm, z, 'r')
+    
     ax.legend()
     plt.show()
     

@@ -9,7 +9,7 @@ import matplotlib.path as path
 import flopy
 import mf_adapt
 from mf_adapt import gr
-from mf6lab.mf6contourtools import get_contour_levels
+from src.mf6contourtools import get_contour_levels
 from fdm.mf6_face_flows import get_struct_flows # (flowjas, grb_file=None, verbose=False)
 from PIL import Image
 import matplotlib.animation as animation

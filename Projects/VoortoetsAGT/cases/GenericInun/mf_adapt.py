@@ -47,31 +47,41 @@ Simtdis = {'perioddata': period_data,
 # Conductivities
 lay = settings.lay
 
+# IDOMAIN[gr.DZ < 0.25] = -1 # Does not work with Transport, We have to avoid pass-through cells.
+params_dict = {'sy':  gr.const(lay['Ss'].values),
+               'ss':  gr.const(lay['Ss'].values),
+               'k':   gr.const(lay['k'].values),
+               'k33': gr.const(lay['k33'].values),
+               'icelltype': gr.const(lay['ICELLTYPE'].values),
+               'idomain': gr.const(1, dtype=int),
+            }
+
+layers = np.array([(i, n) for i, n in enumerate(lay['Split'].values)])
+gr_new, new_params = gr.refine_vertically(layers=layers, params_dict=params_dict)
+
+
 # %% === DIS ========== Grid
 
-IDOMAIN = gr.const(1, dtype=int)
-IDOMAIN[gr.DZ < 0.25] = -1
-
-Gwfdis = {'gr': gr,
-          'idomain': IDOMAIN,
+Gwfdis = {'gr': gr_new,
+          'idomain': new_params['idomain'],
           'length_units': settings.LENGTH_UNITS}
 
 
 # %% ==== STO ===============
-Gwfsto = {'sy': gr.const(lay['Ss'].values),
-          'ss': gr.const(lay['Ss'].values)
+Gwfsto = {'sy': new_params['sy'],
+          'ss': new_params['ss'],
           }
 
 # %% === Gwfnpf =========== Horizontal and vertical conductivity
 
-Gwfnpf = {  'k':   gr.const(lay['k'].values),
-            'k33': gr.const(lay['k33'].values),
-            'icelltype': gr.const(lay['ICELLTYPE'].values),
+Gwfnpf = {  'k':   new_params['k'],
+            'k33': new_params['k33'],
+            'icelltype': new_params['icelltype'],
             }
 
 # %% === Gwfic ======== Initial condictions (head)
 
-strthd = gr.const(0.)
+strthd = gr_new.const(0.)
 
 Gwfic = {'strt': strthd}
 
@@ -79,7 +89,6 @@ Gwfic = {'strt': strthd}
 # Location of wells
 # Rwvp1, Rwvp2
 # Extraction by wells
-
 
 # %% === WEL, required to lower head to measured  value
 # Location of wells
@@ -91,14 +100,16 @@ Gwfic = {'strt': strthd}
 # q = dh /c [m/d] --> Q = dh dx dy  /c [m2/s] --> Cdr = Q /dh = dx dy / c
 c = 100 # d # drainage resistance [d]
 
-hDr = gr.Z[0, 0] - 0.5
-Cdr = gr.Area[0] / c
-Iz = np.zeros(gr.nx, dtype=int)
+hDr = gr_new.Z[0, 0] - 0.5
+Cdr = gr_new.Area[0] / c
+# Put the drains and the recharge in the second layer or below if inactive
+k = 0
+Iz = np.zeros(gr_new.nx, dtype=int) + k
 
-J = np.arange(gr.nx, dtype=int)
-for i in range(gr.nz):
-      z = gr.Z[i + 1, 0]
-      J = J[np.logical_or(hDr[J] < z[J], IDOMAIN[i, 0, J] < 0)]
+J = np.arange(gr_new.nx, dtype=int)
+for i in range(k, gr_new.nz):
+      z = gr_new.Z[i + 1, 0]
+      J = J[np.logical_or(hDr[J] < z[J], new_params['idomain'][i, 0, J] < 0)]
       # print(i, len(J))
       if len(J) > 0:
             Iz[J] += 1
@@ -122,8 +133,72 @@ Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name
          'saverecord': [("HEAD", "ALL"), ("BUDGET", "ALL")],
 }
 
+# %% === Gwfbuy (boyancy) ====
+FRESH, SALT, rhomin, rhomax = 0.0, 18000.0, 1000, 1025
+
+irhospec = 0,
+drhdc = (rhomax - rhomin) / SALT # kg/m3 / (mf/l) (conc FRESH to SALT)
+crhoref = FRESH
+modelname = sim_name + 'GWT'
+auxspeciesname = None
+
+Gwfbuy = {'nrhospecies': 1,
+          'packagedata': [irhospec, drhdc, crhoref, modelname, auxspeciesname],
+ }
+
+Gwfbuy = {}
+
+# %% ============ T R A N S P O R T ====================
+
+# %% === Gwtfmi ===== Flow model interface
+pd = [("GWFHEAD",   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name))),
+      ("GWFBUDGET", os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name))),
+]
+Gwtfmi = {'packagedata': pd}
+
+# %% === Gwtmst ===== Mobile storage and transfer
+
+Gwtmst = {'porosity': 0.25}
+ 
+# %% === Gwtadv === advection =========
+
+Gwtadv = {'scheme' : 'TVD'} # choose from: upstream, central, TVD
+
+# %% === Gwtdsp === dispersion ========
+# diffc = 1e-10 m2/s 1e4 cm2/m2 60 s/min = 6e-5 m2/min
+ahl, ath1, ath2, atv, diffc = 1.0, 0.1, 0.1, 0.1, 6e-5
+# ahl, ath1, ath2, atv, diffc = 10.0, 1.0, 1.0, 0.1, 6e-5
+
+Gwtdsp = {'alh': ahl, 'ath1': ath1, 'ath2': ath2, 'atv': atv, 'diffc': diffc}
+
+# %% Gwtic === initial concentration ===
+
+STRT = gr_new.const(FRESH)
+STRT[gr_new.ZM < -30] = SALT
+Gwtic = {'strt': STRT}
+
+# %% Gwtcnc === const conc. ====
+
+# Gwtcnc = {} # Use for sea conc
+
+# %% Gwtoc === output control
+Gwtoc = {
+      'concentration_filerecord' : os.path.join(dirs.SIM, '{}Gwt.ucn'.format(sim_name)),
+      'budget_filerecord':         os.path.join(dirs.SIM, '{}Gwt.cbc'.format(sim_name)),
+      'saverecord' : [("CONCENTRATION", "ALL"),
+                      ("BUDGET", "ALL")],
+}
+
+# %% Gwtssm === source-sink module
+
+Gwtssm = {}
+
 print('Done mf_adapt')
 
 if __name__ == '__main__':
    
-   print(dirs)     
+   print(dirs)  
+   
+   # Start only with displacing fresh water (modeling transport, but leaving out the density)
+   # Only then add denisty.
+   # May be introduces a fixed salinity boundary at the shore.
