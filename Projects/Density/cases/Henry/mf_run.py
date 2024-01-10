@@ -25,6 +25,4 @@ if not success:
     logging.critical("Buffer printed because MODFLOW did not terminate normally.")
     raise Exception('MODFLOW did not terminate normally.')
 
-# TODO Indicate the seepage zone.
-
 print("Done")
