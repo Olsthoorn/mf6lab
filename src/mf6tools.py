@@ -283,7 +283,7 @@ def get_periodata_from_excel(wbk_name, sheet_name='PER'):
     p_data = p_data.loc[p_data.index >= 0]
 
     # Set type of stress period data
-    p_data = p_data.astype({'PERLEN': int, 'NSTP': int, 'TSMULT': float})
+    p_data = p_data.astype({'PERLEN': float, 'NSTP': int, 'TSMULT': float})
     
     # IPER (=index) in PER sheet are one-based, keep it that way.
     #p_data.index = np.asarray(p_data.index, dtype=int) - 1
