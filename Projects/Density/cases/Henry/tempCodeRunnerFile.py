@@ -1,0 +1,1 @@
+np.linspace(-abs(P) * 10, abs(P) * 10, 50)

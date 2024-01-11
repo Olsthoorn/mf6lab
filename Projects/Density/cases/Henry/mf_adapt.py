@@ -47,12 +47,9 @@ Simtdis = {'perioddata': period_data,
            'time_units': settings.TIME_UNITS,
            }
 
-# Conductivities
-lay = settings.lay
-
 # %% === DIS ========== Grid
 
-dx, dz, L, H =  0.05, 0.05, 2., 1.
+dx, dz, L, H =  pr['dx'], pr['dz'], pr['L'], pr['H']
 x = np.arange(-dx/2, L + dx, dx)
 z = np.arange(H, -dz/2, -dz)
 y = [-0.5, 0.5]
@@ -63,30 +60,36 @@ Gwfdis = {'gr': gr,
           'length_units': settings.LENGTH_UNITS}
 
 # %% ==== STO ===============
-Gwfsto = {'sy': gr.const(lay['Ss'].values),
-          'ss': gr.const(lay['Ss'].values),
+Gwfsto = {'sy': gr.const(pr['sy']),
+          'ss': gr.const(pr['ss']),
           }
 
 # %% === Gwfnpf =========== Horizontal and vertical conductivity
-Gwfnpf = {  'k':   gr.const(lay['k'].values),            
-            'icelltype': gr.const(lay['ICELLTYPE'].values),
+Gwfnpf = {  'k':   gr.const(pr['k']),            
+            'icelltype': gr.const(pr['icelltype']),
             }
 
 # %% === Gwfic ======== Initial condictions (head)
-strthd = gr.const(settings.props['hR'])
+strthd = gr.const(pr['hStrt'])
 
 Gwfic = {'strt': strthd}
 
-# %% === CHD, Fixed head period data (Only specify the first period)
+# %% === Gwfchd, Fixed head period data (Only specify the first period)
 Idx = gr.NOD[:, :, -1].flatten()
 Gwfchd ={'auxiliary': 'relconc',
-         'stress_period_data': [(lrc, settings.props['hR'], pr['SALT']) for lrc in gr.LRC(Idx)]}
+         'stress_period_data': [
+               (lrc, pr['hStrt'], pr['cSalt']) for lrc in gr.LRC(Idx)]}
 
-# %% === WEL ====
+# %% === Gwfwel ==== Well
 Idx = gr.NOD[:, :, 0].flatten()
-QL = settings.props['qL'] * gr.dz.ravel()
+
+Qin = pr['Qin_a']
+
+qin = Qin / pr['H'] * gr.dz
 Gwfwel = {'auxiliary': 'relconc',
-          'stress_period_data': [(lrc, ql, pr['FRESH']) for lrc, ql in zip(gr.LRC(Idx), QL)]}
+          'stress_period_data': [
+                (lrc, ql, pr['cFresh']) for lrc, ql in zip(gr.LRC(Idx), qin)]
+          }
           
 # %% === DRN,
 
@@ -96,21 +99,20 @@ Gwfwel = {'auxiliary': 'relconc',
 
 Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name)),
          'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)),
-         'saverecord': [("HEAD", "ALL"), ("BUDGET", "ALL")],
+         'saverecord': [("HEAD", *pr['oc_frequency']),
+                        ("BUDGET", *pr['oc_frequency'])],
 }
 
 # %% === Gwfbuy (boyancy) ====
-FRESH, SALT, rhomin, rhomax = pr['FRESH'], pr['SALT'], pr['rhomin'], pr['rhomax']
 
 irhospec = 0
-denseref = 1000. # kg/m3
-drhdc = (rhomax - rhomin) / (SALT - FRESH)
-crhoref = FRESH
+drhdc = (pr['rhoSalt'] - pr['rhoFresh']) / (pr['cSalt'] - pr['cFresh'])
+crhoref = pr['cFresh']
 modelname = sim_name + 'GWT'
 auxspeciesname = "relconc"
 
 Gwfbuy = {'nrhospecies': 1,
-          'denseref': denseref,
+          'denseref': pr['rhoFresh'],
           'density_filerecord': os.path.join(dirs.SIM, sim_name + 'Gwf.rho'),
           'packagedata': [irhospec, drhdc, crhoref, modelname, auxspeciesname],
  }
@@ -137,21 +139,18 @@ Gwtdsp = {**settings.props['disp']}
 
 # %% Gwtic === initial concentration ===
 
-strtconc = gr.const(pr['FRESH'])
-strtconc[:, :, -1] = pr['SALT']
+strtconc = gr.const(pr['cSalt'])
 Gwtic = {'strt': strtconc}
-# Gwtic = {'strt': gr.const(pr['SALT'] / 2.0)} # Test
 
 # %% Gwtcnc === const conc. ====
-
-# Gwtcnc = {} # Use for sea conc
 
 # %% Gwtoc === output control
 Gwtoc = {
       'concentration_filerecord' : os.path.join(dirs.SIM, '{}Gwt.ucn'.format(sim_name)),
       'budget_filerecord':         os.path.join(dirs.SIM, '{}Gwt.cbc'.format(sim_name)),
-      'saverecord' : [("CONCENTRATION", "ALL"),
-                      ("BUDGET", "ALL")],
+      'saverecord' : [("CONCENTRATION", *pr['oc_frequency']),
+                      ("BUDGET", *pr['oc_frequency'])
+                      ],
 }
 
 # %% Gwtssm === source-sink module
@@ -164,7 +163,3 @@ print('Done mf_adapt')
 if __name__ == '__main__':
    
    print(dirs)  
-   
-   # Start only with displacing fresh water (modeling transport, but leaving out the density)
-   # Only then add denisty.
-   # May be introduces a fixed salinity boundary at the shore.

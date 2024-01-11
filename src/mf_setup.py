@@ -344,7 +344,7 @@ def mf_setup():
             model_dict['Gwtdsp'].update(**mf_adapt.Gwtdsp)
             fp_packages['Gwtdsp'] = flopy.mf6.ModflowGwtdsp(gwt, **model_dict['Gwtdsp'])
     
-    ### Gwtfmi ==================
+    ### Gwtfmi ================== Flow model interface (for using data from previously run flow model)
         if 'Gwtfmi' in use_packages:
             logging.info('Gwtfmi')
             model_dict['Gwtfmi'].update(**mf_adapt.Gwtfmi)
@@ -424,15 +424,19 @@ def mf_setup():
 
 
 
-### ==== Dynamic exchange ===========================================
-        
+### ==== Dynamic exchange between GWF and GWT model ===========================================
+
+# This dynamic exchange is autoamtic:
+# Gwf model is on when any of the Gwf packages are on.
+# Gwt model is on when any of the GWt packages are on.
+# Dynamic exchange is on when both Gwf and Gwt model are on.
+     
     if 'Gwf' in use_models and 'Gwt' in use_models:
         logging.info("Dynamic exchange GWF-GWT active")
         model_dict['Gwfexc'].update(exgtype='GWF6-GWT6',
                                     exgmnamea=model_dict['Gwfgwf']['modelname'],
                                     exgmnameb=model_dict['Gwtgwt']['modelname'])
-        exchange = flopy.mf6.ModflowGwfgwt(sim, **model_dict['Gwfexc'])
-        fp_packages['Gwfexc'] = exchange
+        fp_packages['Gwfexc'] = flopy.mf6.ModflowGwfgwt(sim, **model_dict['Gwfexc'])
 
     return fp_packages, model_dict, use_models, use_packages
 
