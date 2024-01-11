@@ -79,7 +79,7 @@ ax.text(0.85, 0.05, str(np.datetime64('today')),
 frame = 0
 
 #h = headsObj.get_data(kstpkper=kstpkper[frame])[:, 0, :]
-psi = gr.psi_row(fflows['frf'][frame], row=0, warning=False)
+psi = gr.psi_row(fflows['frf'][frame], row=0)
 c   = concObj.get_data(kstpkper=kstpkper[frame])[:, 0, :]
 c[c < pr['cFresh']] = pr['cFresh']
 c[c > pr['cSalt' ]] = pr['cSalt']
@@ -112,7 +112,7 @@ def update(frame):
     ttl.set_text(title + ' frame={}, sim time={:.3f} d'.format(frame + 1, sim_time[frame]))
         
     # Update psi
-    psi = gr.psi_row(fflows['frf'][frame], warning=False)
+    psi = gr.psi_row(fflows['frf'][frame])
     for coll in caxP.collections:
         coll.remove()
     caxP = ax.contour(gr.Xp, gr.Zpx(), psi, levels=pLevels, linewidths=0.5)
