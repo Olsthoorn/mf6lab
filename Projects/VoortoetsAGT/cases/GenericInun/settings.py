@@ -13,6 +13,7 @@ dirs = Dirs(HOME)
 
 section_name = 'Generic hand-drawn cross section met inundatielaag'
 sim_name = 'GenericInun'
+
 dirs = dirs.add_case(sim_name)
 os.chdir(dirs.case)
 

@@ -56,6 +56,7 @@ params_dict = {'sy':  gr.const(lay['Ss'].values),
                'idomain': gr.const(1, dtype=int),
             }
 
+# Vertically refine the model layers
 layers = np.array([(i, n) for i, n in enumerate(lay['Split'].values)])
 gr_new, new_params = gr.refine_vertically(layers=layers, params_dict=params_dict)
 
@@ -130,7 +131,7 @@ Gwfrch = {'stress_period_data': {0: RCH}}
 
 Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name)),
          'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)),
-         'saverecord': [("HEAD", "ALL"), ("BUDGET", "ALL")],
+         'saverecord': [("HEAD", "FREQUENCY", 10), ("BUDGET", "FREQUENCY", 10)],
 }
 
 # %% === Gwfbuy (boyancy) ====
@@ -185,8 +186,8 @@ Gwtic = {'strt': STRT}
 Gwtoc = {
       'concentration_filerecord' : os.path.join(dirs.SIM, '{}Gwt.ucn'.format(sim_name)),
       'budget_filerecord':         os.path.join(dirs.SIM, '{}Gwt.cbc'.format(sim_name)),
-      'saverecord' : [("CONCENTRATION", "ALL"),
-                      ("BUDGET", "ALL")],
+      'saverecord' : [("CONCENTRATION", "FREQUENCY", 10),
+                      ("BUDGET", "FREQUENCY", 10)],
 }
 
 # %% Gwtssm === source-sink module
