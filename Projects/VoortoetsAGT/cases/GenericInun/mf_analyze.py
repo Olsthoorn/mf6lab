@@ -30,6 +30,7 @@ def h_water_table(h, Iz):
     return h.ravel()[Iz]
 
 SAVE_ANIMATION = True
+cmap = 'RdYlBu_r' # 'seismic', 'viridis_r'
 
 dirs     = mf_adapt.dirs
 grb_file = os.path.join(dirs.GWF, mf_adapt.sim_name + 'Gwf.dis.grb')
@@ -139,12 +140,12 @@ Zmx = gr.Zmx_limited_to_water_table(hwt)
 #caxH = ax.contour( gr.xc, gr.zc,  np.ma.array(  h, mask=np.isnan(h)), levels=hLevels)
 caxP = ax.contour( gr.Xp, Zpx, psi, levels=pLevels, lw=0.5, label='Psi') 
 caxC = ax.contourf(gr.XM[:, 0, :], Zmx,  np.ma.array( c, mask=np.isnan(c)),
-                   levels=cLevels, cmap=mpl.colormaps['viridis_r'])
+                   levels=cLevels, cmap=mpl.colormaps[cmap])
 
 # Animation function
 def update(frame):
     """Animation update function."""
-    global kstpkper, ttl, wt, caxP, caxC, ax
+    global kstpkper, ttl, wt, caxP, caxC, ax, cmap
 
     # Update title
     ttl.set_text(title + ' frame={}, datetime={}'.format(frame, datetimes[frame]))
@@ -174,7 +175,7 @@ def update(frame):
         coll.remove()
     Zmx = gr.Zmx_limited_to_water_table(hwt)
     caxC = ax.contourf(gr.XM[:, 0, :], Zmx,  np.ma.array( c, mask=np.isnan(c)),
-                       levels=cLevels, cmap=mpl.colormaps['viridis_r'])
+                       levels=cLevels, cmap=mpl.colormaps[cmap])
     
     return ttl, wt, caxP, caxC # Return affected artists (caxH removed)
 
