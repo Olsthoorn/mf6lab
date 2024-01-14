@@ -117,6 +117,7 @@ def update(frame):
         coll.remove()
     caxP = ax.contour(gr.Xp, gr.Zpx(), psi, levels=pLevels, linewidths=0.5)
 
+    # Update c
     c = concObj.get_data(kstpkper=kstpkper[frame])[ :, 0, :]
     c[c < pr['cFresh']] = pr['cFresh']
     c[c > pr['cSalt']]  = pr['cSalt']
