@@ -14,7 +14,7 @@ TIME_UNITS = 'minutes'
 dirs = Dirs(HOME)
 
 sim_name = 'Series2'
-section_name = 'Pennink (1915). Case {}'.format(sim_name)
+section_name = 'Pennink (1915) {}.'.format(sim_name)
 dirs = dirs.add_case(sim_name)
 os.chdir(dirs.case)
 
@@ -24,19 +24,25 @@ assert os.path.isfile(params_wbk), "Params_wbk not found: {}".format(params_wbk)
 # lay = pd.read_excel(params_wbk, sheet_name='LAY', header=0, index_col=0)
 
 props = {
-    'oc_frequency': ['FREQUENCY', 25], # Saving frequency for budget heads and concentrations
+    'oc_frequency': ['FREQUENCY', 1], # Saving frequency for budget heads and concentrations
+    'Qdim': 'cm3/min',
     'L': 65, # [cm]
     'H': 65, # [cm]
     'D': 1.8, # [cm]
-    'dx': 1.0, #[cm]
-    'dz': 1.0, #[cm]
+    'dx': 0.5, #[cm]
+    'dz': 0.5, #[cm]
     'zCapZone': 51.0,  # [cm] Top of full capillary zone (see descripition)
     'icelltype': 0,
     'k_mpd': 650., # [m/d] calbrated from data in Pennink's series 1 experiments 
     'k': 65000 / (24 * 60), # [cm/min] 
     'sy': 0.2,
     'ss': 1e-4,
-    'disp' : {'alh': 0.1, 'ath1': 0.01, 'ath2': 0.01, 'atv': 0.01, 'diffc': 3.96e-4}, # Diffc in cm2/min
+    # 'disp' : {'alh': 0.1, 'ath1': 0.01,
+    #           'ath2': 0.01, 'atv': 0.01,
+    #           'diffc': 3.96e-4}, # Diffc in cm2/min
+    'disp' : {'alh': 0.2, 'ath1': 0.02,
+              'ath2': 0.02, 'atv': 0.02,
+              'diffc': 3.96e-4}, # Diffc in cm2/min
     'hCanL': 45.2, # [cm] head in left canal
     'hCanR': 45.7, # [cm] head in right canal
     'por': 0.35, # [-] porosity
@@ -46,6 +52,7 @@ props = {
     'rhoSalt': 1.0245, # [g/cm3]  not used in this model
     'cFresh': 0.0, # [g/cm3]      not used in this model
     'cSalt': 0.035,  # [g/cm3]    not used in this model
+    'cNoInk' : 0.0,
     'cInk': 1.0, # ink concentration (relative)
     'IDCL': 2, # IDOMAIN value for cells in Canal Left (For easy finding of cells.)
     'IDCR': 3, # IDOMAIN value for cells in Canal Right (For easy finding of cells.)
@@ -75,25 +82,25 @@ props = {
                       [ 5.2, 42. ],
                       [ 3.9, 40.7],
                       [ 2.2, 40.6],
-                      [ 0.5, 40.8],
-                      [ 0. ,  0.0]]),
-    'canalL': np.array([[ 0.0, 65.00], # Contour of canal on the left side
-                       [ 0.0, 41.99],
-                       [1.80, 40.72],
-                       [3.95, 40.83],
-                       [5.61, 42.71],
-                       [6.68, 47.54],
-                       [7.17, 52.26],
-                       [8.33, 57.87],
-                       [9.01, 65.00],
-                       [ 0.0, 65.00]]),
+                      [ 0.,  40.8],
+                      [ 0.,  0.0]]),
+    'canalL': np.array([[0.0, 65.00], # Contour of canal on the left side
+                        [ 0.0, 41.99],
+                        [1.80, 40.72],
+                        [3.95, 40.83],
+                        [5.61, 42.71],
+                        [6.68, 47.54],
+                        [7.17, 52.26],
+                        [8.33, 57.87],
+                        [9.01, 65.00],
+                        [ 0.0, 65.00]]),
     'canalR': np.array([[60.79, 65.00], # Contour canal on right side
-                       [61.39, 57.70],
-                       [61.59, 52.29],
-                       [61.99, 48.46],
-                       [62.29, 45.32],
-                       [62.98, 44.53],
-                       [65.00, 44.74],
-                       [65.00, 65.00],
-                       [60.89, 65.00]]),
+                        [61.39, 57.70],
+                        [61.59, 52.29],
+                        [61.99, 48.46],
+                        [62.29, 45.32],
+                        [62.98, 44.53],
+                        [65.00, 44.74],
+                        [65.00, 65.00],
+                        [60.89, 65.00]]),
 }

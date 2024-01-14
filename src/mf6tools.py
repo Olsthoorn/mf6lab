@@ -285,8 +285,9 @@ def get_periodata_from_excel(wbk_name, sheet_name='PER'):
     # Set type of stress period data
     p_data = p_data.astype({'PERLEN': float, 'NSTP': int, 'TSMULT': float})
     
-    # IPER (=index) in PER sheet are one-based, keep it that way.
-    #p_data.index = np.asarray(p_data.index, dtype=int) - 1
+    p_data = p_data.loc[p_data['PERLEN'] > 0]
+    
+    # IPER (=index) in PER sheet are zero based, keep it that way.
     
     p_index = np.asarray(p_data.index)
     period_data = pd.DataFrame(index=np.arange(p_index[-1] + 1), columns=p_data.columns)
@@ -302,6 +303,23 @@ def get_periodata_from_excel(wbk_name, sheet_name='PER'):
 
 # Same for PER and LAY
 
+def show_animation_progress(frame, nbreak=50, ntot=None):
+    """"Show progress of animation.
+    
+    Parameters
+    ----------
+    frame: int
+        anaimation frame
+    nbreak: int
+        Print "frame counts and newline each nbreak frames.
+    ntot: int
+        total number of frames in the animation.
+        Print frame count and newline after last frame was done.
+    """
+    print('.', end="")
+    if (frame + 1) % nbreak == 0 or (frame + 1) == ntot:
+        print('{} frames\n'.format(frame + 1))
+
 
 if __name__ == '__main__':
     folder = '/Users/Theo/GRWMODELS/python/Pennink_model'
@@ -316,4 +334,7 @@ if __name__ == '__main__':
     perioddata = get_periodata_from_excel(wbk_name, sheet_name='PER')
     
     print(sim_name)
+    
+    
+    
     

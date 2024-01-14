@@ -85,9 +85,9 @@ Gwfsto = {'sy': gr.const(pr['sy']),
 # %% === Gwfnpf ======= Horizontal and vertical conductivity
 k = gr.const(pr['k'])
 
-k[np.logical_and(IDOMAIN > 0, gr.ZM > pr['zCapZone'])] /= 10 # Unsat zone cond. above full capillary zone
+k[gr.ZM > pr['zCapZone']] /= 5 # Unsat zone cond. above full capillary zone
 
-Gwfnpf = { 'k':   gr.const(pr['k']),            
+Gwfnpf = { 'k':   k,            
             'icelltype': pr['icelltype'],
 }
 
@@ -104,8 +104,8 @@ Gwfic = {'strt': hstrt}
 IcanL = gr.NOD[IDOMAIN == pr['IDCL']]
 IcanR = gr.NOD[IDOMAIN == pr['IDCR']]
 
-stress_period_data = [(lrc, pr['hCanL'], pr['cCanL']) for lrc in gr.LRC(IcanL)] +\
-                     [(lrc, pr['hCanR'], pr['cCanR']) for lrc in gr.LRC(IcanR)]
+stress_period_data = [(lrc, pr['hCanL'], pr['cCanL']) for lrc in gr.LRC(IcanL, astuples=True)] +\
+                     [(lrc, pr['hCanR'], pr['cCanR']) for lrc in gr.LRC(IcanR, astuples=True)]
                      
 Gwfchd ={'auxiliary': 'relconc',
          'stress_period_data': stress_period_data}
@@ -152,6 +152,7 @@ Gwtic = {'strt': pr['cFresh']}
 # %% === Gwtssm ====== Source-Sink mixing
 
 Gwtssm = {'sources': [['chd', 'AUX', 'relconc']]}
+Gwtssm = {}
 
 # %% === Gwtcnc ====== constant concentraction
 
