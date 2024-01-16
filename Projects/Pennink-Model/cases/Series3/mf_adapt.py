@@ -81,7 +81,7 @@ gr = Grid(x, y, z)
 IDOMAIN = gr.const(-1, dtype=int) # Inactive cells are vertially pass-through cells
 
 # Only where sand --> active
-IDOMAIN[:, 0, :][gr.inpoly(pr[  'sand'], row=0)] =  pr['IDSD']
+IDOMAIN[:, 0, :][gr.inpoly(pr[  'sand'], row=0)] = pr['IDSD']
 IDOMAIN[:, 0, :][gr.inpoly(pr['canalL'], row=0)] = pr['IDCL'] # Cells in Canal Left
 IDOMAIN[:, 0, :][gr.inpoly(pr['canalR'], row=0)] = pr['IDCR'] # Cells in Canal Right
 
@@ -91,12 +91,11 @@ IDOMAIN[np.logical_and(IDOMAIN == pr['IDCR'], gr.ZM > pr['hCanR'])] = 0
 
 IDOMAIN[gr.ZM < pr['zIface']] = pr['IDMK']
 
-lrcInk   = gr.lrc(*np.array(pr['xyzInk']).T) # global coords of injection points
-lrcMilk  = gr.lrc(*np.array(pr['milkInjPnt']).T) # global coords milk injection point
+lrcInk   = gr.lrc_recarray(*np.array(pr['xyzInk']).T) # global coords of injection points
+lrcMilk  = gr.lrc_recarray(*np.array(pr['milkInjPnt']).T) # global coords milk injection point
 
-IDOMAIN.ravel()[gr.I(lrcInk)] = pr['iInk'] # mark ink injection cells
-IDOMAIN.ravel()[gr.I(lrcMilk)] = pr['iMlkInjPnt'] # mark milk injection cells
-
+IDOMAIN.ravel()[gr.Iglob(lrcInk)]  = pr['iInk'] # mark ink injection cells
+IDOMAIN.ravel()[gr.Iglob(lrcMilk)] = pr['iMlkInjPnt'] # mark milk injection cells
 
 Gwfdis = {'gr': gr,
           'idomain':      IDOMAIN,
@@ -145,8 +144,8 @@ Gwfchd ={'auxiliary': 'relconc',
 
 # %% === Gwfwel === wel (milk injection point)
 
-milkOn  = [(tuple(lrc_), pr['Qmilk'], pr['cSalt']) for lrc_ in lrcMilk]
-milkOff = [(tuple(lrc_),  0.0,        pr['cSalt']) for lrc_ in lrcMilk]
+milkOn  = [(tuple(lrc_), pr['Qmilk'], pr['cSalt']) for lrc_ in lrcMilk['ic']]
+milkOff = [(tuple(lrc_),  0.0,        pr['cSalt']) for lrc_ in lrcMilk['ic']]
 
 stress_period_data = dict()
 for isp, im in enumerate(perDF['Milk']):
@@ -169,10 +168,26 @@ RCH = [((iz, 0, ix), rch) for ix, iz in zip(IxRch, IzRch)]
 
 Gwfrch = {'stress_period_data': {0: RCH}}
 
+# %% === Gwfbuy (boyancy) ====
+
+irhospec = 0
+drhdc = (pr['rhoSalt'] - pr['rhoFresh']) / (pr['cSalt'] - pr['cFresh'])
+crhoref = pr['cFresh']
+modelname = sim_name + 'GWT'
+auxspeciesname = "relconc"
+
+Gwfbuy = {'nrhospecies': 1,
+          'denseref': pr['rhoFresh'],
+          'density_filerecord': os.path.join(dirs.SIM, sim_name + 'Gwf.rho'),
+          'packagedata': [irhospec, drhdc, crhoref, modelname, auxspeciesname],
+ }
+
+
 # %% === Gwfoc ==== Output control for flow model
 Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name)),
          'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)),
-         'saverecord': [("HEAD", *pr['oc_frequency']), ("BUDGET", *pr['oc_frequency'])],
+         'saverecord': [("HEAD",   "FREQUENCY", pr['oc_frequency']),
+                        ("BUDGET", "FREQUENCY", pr['oc_frequency'])],
 }
 
 # %% ============ T R A N S P O R T ====================
@@ -217,8 +232,8 @@ Gwtssm = {'sources': [['chd', 'AUX', 'relconc'],
 # Ink injection points (constant concentration at injection locations)
 
 # Concentration cells [(l, r, c) conc] of ink injection points.
-concOn  = [(tuple(lrc_), pr['cInk'])  for lrc_ in lrcInk]
-concOff = [(tuple(lrc_),  0.0)        for lrc_ in lrcInk]
+concOn  = [(tuple(lrc_), pr['cInk'])  for lrc_ in lrcInk['ic']]
+concOff = [(tuple(lrc_),  0.0)        for lrc_ in lrcInk['ic']]
 
 stress_period_data = dict()
 for isp, ink in enumerate(perDF['Ink']):
@@ -234,8 +249,8 @@ Gwtcnc = {'stress_period_data': stress_period_data}
 Gwtoc = {
       'concentration_filerecord' : os.path.join(dirs.SIM, '{}Gwt.ucn'.format(sim_name)),
       'budget_filerecord':         os.path.join(dirs.SIM, '{}Gwt.cbc'.format(sim_name)),
-      'saverecord' : [("CONCENTRATION", *pr['oc_frequency']),
-                      ("BUDGET", *pr['oc_frequency'])],
+      'saverecord' : [("CONCENTRATION", "FREQUENCY", pr['oc_frequency']),
+                      ("BUDGET",        "FREQUENCY", pr['oc_frequency'])],
 }
 print('Done mf_adapt')
 

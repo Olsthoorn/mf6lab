@@ -22,6 +22,7 @@ SAVE_ANIMATION = True
 cmap = 'binary_r'
 
 colors = ['gray', 'black']
+colors = ['gray', 'white']
 cmap = LinearSegmentedColormap.from_list("GrBl", colors)
 
 dirs     = mf_adapt.dirs
@@ -100,6 +101,8 @@ ax.set_ylabel = 'y [cm]'
 ttl =  ax.set_title(mf_adapt.section_name)
 
 extent = (-20, 85, -10, 82)
+extent = (-19.5, 84.5, -10.3, 82.3)
+
 ax.imshow(foto, extent=extent)
 
 # Box around model (only to check coordinates of extent)
@@ -125,8 +128,8 @@ frame = 0
 # Data for the the first frame
 psi = gr.psi_row(fflows['frf'][frame], row=0)
 c   = concObj.get_data(kstpkper=kstpkper[frame])[:, 0, :]
-c[c < pr['cNoInk']] = pr['cNoInk']
-c[c > pr['cInk'  ]] = pr['cInk']
+c[c < pr['cFresh']] = pr['cFresh']
+c[np.logical_and(c > pr['cSalt'  ], c <= cmax)] = pr['cSalt']
 
 # caxH = ax.contour( gr.xc, gr.zc,  np.ma.array(  h, mask=(h=hInactive)), levels=hLevels)
 caxP = ax.contour( gr.Xp, gr.Zpx(), psi, levels=pLevels, linewidths=0.5) 
@@ -189,6 +192,7 @@ def update(frame):
 
     # Update c
     c = concObj.get_data(kstpkper=kstpkper[frame])[ :, 0, :]
+    c[np.logical_and(c > pr['cSalt'  ], c <= cmax)] = pr['cSalt']
     for coll in caxC.collections:
         coll.remove()
     caxC = ax.contourf(gr.XM[:, 0, :], gr.ZM[:, 0, :],  np.ma.array(c, mask=(c == cInactive)),
