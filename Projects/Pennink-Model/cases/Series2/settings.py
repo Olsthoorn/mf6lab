@@ -51,7 +51,7 @@ props = {
     'rhoFresh': 1., # [g/cm3]     not used in this model
     'rhoSalt': 1.0245, # [g/cm3]  not used in this model
     'cFresh': 0.0, # [g/cm3]      not used in this model
-    'cSalt': 0.035,  # [g/cm3]    not used in this model
+    'cSalt': 35.0,  # [g/cm3]    not used in this model
     'cNoInk' : 0.0,
     'cInk': 1.0, # ink concentration (relative)
     'IDCL': 2, # IDOMAIN value for cells in Canal Left (For easy finding of cells.)
