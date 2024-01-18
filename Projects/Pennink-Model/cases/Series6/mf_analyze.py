@@ -109,6 +109,9 @@ ax.imshow(foto, extent=extent)
 # Box around model (only to check coordinates of extent)
 ax.plot((0, pr['L'], pr['L'], 0, 0), (0, 0, pr['H'], pr['H'], 0), 'k')
 
+# Plot the well:
+ax.plot([pr['L'] / 2, pr['L'] / 2], pr['zScreen'],'c', lw=3, label='well')
+
 if False:     
     p1 = patches.PathPatch(mf_adapt.sand, alpha=0.5, fc='brown', ec='none')
     p2 = patches.PathPatch(mf_adapt.canalL, alpha=0.5, fc='Blue', ec='black')
