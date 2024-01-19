@@ -48,7 +48,7 @@ props = {
     'IDSD': 2,         # IDOMAIN value for initial area with sand.
     'IDMK': 3,         # IDOMAIN value for intial area with milk. 
     'iMlkInjPnt': 4, # IDOMAIN value for milk injection point.
-    'milkInjPnt': [(91.5, 0., 1.5)],     # xyz-Coords of milk injection point
+    'milkInjPnt': np.array([(91.5, 0., 1.5)]),     # xyz-Coords of milk injection point
     'hMid': 91.0, # head in the center top of model (drain point)
     'hStrt' : 94.0, # Uniform start head.
     'hfMilk': 92.0, # cm, head in milk injection point.
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     foto = Image.open(os.path.join(dirs.photos, 'Series4_01_p64.jpg'))
     
     if True:
-        extent = (-24.3, 155.2, -22.8, 128.8)
+        extent = pr['extent']
         ax.imshow(foto, extent=extent)
         plt.plot([0, pr['L'], pr['L'], 0., 0.], [0., 0., pr['H'], pr['H'], 0.], label='model outer size')
         

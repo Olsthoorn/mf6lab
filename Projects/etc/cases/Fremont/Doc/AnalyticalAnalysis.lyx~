@@ -1,0 +1,1080 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrreprt
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine biblatex
+\cite_engine_type authoryear
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\biblatex_bibstyle authoryear
+\biblatex_citestyle authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=none,% left,line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},%,stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Fluctuating radial flow in a confined or water-table aquifer
+\end_layout
+
+\begin_layout Author
+T.N.
+ Olsthoorn
+\end_layout
+
+\begin_layout Date
+18-12-2023
+\end_layout
+
+\begin_layout Section*
+Introduction
+\end_layout
+
+\begin_layout Standard
+This analysis is inspired by a groundwater flow situation around the Quarry
+ Lakes in Fremont (Ca) (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situation-Quarry-Lake"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The flow is in the two-aquifer system seems driven by the stage in the
+ Quarry lakes, which shows a more or less sinuoidal fluctuation during the
+ year.
+ The lakes intersect the first aquifer and part of the aquitard between
+ the first and the ssecond aquifer (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Aquifers-with-Quarry"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename SituationFremontQuarryLakes.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Situation-Quarry-Lake"
+
+\end_inset
+
+Situation Quarry Lake aquifers extent (schematic)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pasted1.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Aquifers-with-Quarry"
+
+\end_inset
+
+Aquifers with Quarry Lakes penetration and piezometer depths and signals
+ of Quarry Lakes stage and observation well at about 1000 SW of the lakes,
+ also showing the absolute height of the heads relative to that of the water
+ level in the lakes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The head in the upper aquifer registered at some distance from the lakes
+ follows this stage in a damped and delayed fashion as expected.
+ The overall head is, however lower, which is believed to be due to mainly
+ more ore less constant extractions from the aquifer in the area.
+ The head in the second aquifer is even lower than that in the first aquifer,
+ due to year-round more ore less constnat extractions in the second aquifer,
+ but it closely follows that dynamics of the water level in the lakes.
+ The pattern in the second aqufier is less delayed than that in the first
+ aquifer as expected.
+ On the other hand, the lakes-induced fluctuaiton of the head in the second
+ aquifer ir larger than that of the head in the first aquifer.
+ This seems counter intuitive, because the lakes is said to not penetrate
+ the aquitard between the first and the second aquifer and, hence, the fluctuati
+on of the head in the second aquifer should be less than that in the first
+ aquifer, while the contrary is the case.
+ What is likely the groundwater setting of which the measured pattern is
+ the result?
+\end_layout
+
+\begin_layout Section*
+Analysis
+\end_layout
+
+\begin_layout Standard
+The most simple setting would be that of the lakes penetrating through the
+ aquitard into the second aquifer, or that the lower part of the aquitard
+ that the lakes have not pnetrated has far less resistance than the top
+ of the aquitard that the lakes have pentrated.
+\end_layout
+
+\begin_layout Standard
+In this case the (almost) full stage signal is present under the lakes in
+ both the first and the second aquifer and thus forms a head boundary condition
+ near the outer circumference of the Quarry Lakes.
+ Then due to a much higher storage coefficient in the first (water table)
+ aquifier than in the second (semi-)confined aqufier, the lakes signal travels
+ faster and with less damping through the second aquifer than it does through
+ the first aquifer.
+ The higher the resistance of the aquitard the farther the signal reaches
+ in the second aquifer and the less mututal influence the two aquifers have.
+ The larger lakes stage signal at distance in the second aquifer, despite
+ the lower lakes stage signal in the first aquifer, the larger must be the
+ resistance between the two aquifers and the lower must be the (elastic)
+ storage coefficient in the second aquifer.
+ Up to and beyond the distance between the lakes circumference and the observati
+on wells where this is the case, the top aquifer seems to have negligle
+ influence on the second aquifer.
+\end_layout
+
+\begin_layout Standard
+Given that the signal of the stage of the Quarry Lakes as that of the head
+ in the aquifers is more or less sinuoidal, an analytic analysis is possible
+ that takes advantage of this dyanmic.
+ Any sine-like fluctuation of head of discharge creates an effect at distances
+ that is both damped and delayed, two fundamental parameters that are open
+ for analysis.
+ The actual damping and delay of the head signals relative to that of the
+ lakes can be obtained from overlapping the graphs.
+ This is done by vertically stretching the measured head curve such that
+ it best matches that of the stage of the lakes and finding the damping
+ from the amount of stretching the vertical axis of the head needed to fit
+ the signal of the lakes.
+ The delay is obtaind by shifting the compressed curve of the measured head
+ along the time axis until it best matches that of the stage of the lakes.
+ This exercise is done for each and every piezometer with sufficient head
+ data.
+\end_layout
+
+\begin_layout Standard
+In a further step, the analytic analysis is done, after which the analytic
+ formulas for damping and delay are matched with the field-derived damping
+ and delays as described.
+ The transmissivity and the storage coefficient should be derived from the
+ comparison.
+\end_layout
+
+\begin_layout Standard
+In a last step a model is made in which the derived paramter values are
+ put to see whether the model matches the dynamic head data as expected.
+\end_layout
+
+\begin_layout Standard
+Building the model may be tricky, because the results will be impacted by
+ the shape of the aquifers.
+ One obvious factor is the closed boundary formed by the mountain range
+ just to the east of the Quarry Lakes.
+ Another boundary will be present to the west of the lakes where a small
+ mountain or hill ridge outcrops.
+ This North-South running ridge may also proof almost impermeable to groundwater
+ flow, and so the aquifer impacted by the Quarry Lakes may be close both
+ to the east as to the west.
+\end_layout
+
+\begin_layout Standard
+For this analysis we will consider the combined Quarry Lakes to be a half
+ circle attached to the impermeable boundary formed by the mountain range
+ to the east and open to the west.
+ More accurate analysis can then be done numerically by taking into account
+ the real shape of the aquifers.
+\end_layout
+
+\begin_layout Section*
+Field data
+\end_layout
+
+\begin_layout Standard
+The field data are given in the figures consisting of the dynamic stage
+ in the lakes and at about 1000 m south of them.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Lake-stage-signal-1000m"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the overlap of the lakes stage with that of the head at the observation
+ well at about 1000 m from the lakes.
+ The lake stage signal has been compressed as to best fit the measured head
+ signal, and shifted downward to fit the aveage head and shifted along the
+ time axis to fit the delay.
+ The graphically obtained field values are shown in the figure.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename SignalHeadsAquifers1000mFromQL.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Lake-stage-signal-1000m"
+
+\end_inset
+
+Lake stage signal overlayed on the head signal.
+ Best match by vertically stretching the lake signal and horizontally shifing
+ to obtain the delay of the head with respect to the lakes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Analytical analysis
+\end_layout
+
+\begin_layout Standard
+Given the approximation of the aquifers as half infinite, bounded by the
+ mountains in the east and the Quarry lakes as a half circle with its center
+ at this impervious boundary, we can regard the case to be analyzed as axially
+ symmetric.
+\end_layout
+
+\begin_layout Standard
+Bruggeman (1999) presents an analytic solution for sinusoidal discharge
+ by a well in an axially symmetric setting.
+ Every sinusoidal discharge at frequency 
+\begin_inset Formula $\omega$
+\end_inset
+
+ yields sinusoidal head and discharge fluctuations at any distance from
+ the well which are damped and delayed depending on the aquifer parameters
+ 
+\begin_inset Formula $\beta=\sqrt{\frac{S}{kD}}$
+\end_inset
+
+ and the frequency.
+ These are, in fact, the only parmaters that matter in a confined aquifer,
+ which is what we're focussing on, given that the mutual influence between
+ the two aquifer seems negligible, at least somewhat beyond the distance
+ of the obervation wells of which we obtained the dynamic head data.
+ For the analysis of damping and delay between points at different distances,
+ the actual discharge drops out of the equation as well has the difference
+ between a circular lake penetrating the aqufier at a given radius and the
+ head at a different radius.
+ If we consider the lake stage as a boundary condition at distance 
+\begin_inset Formula $R_{lake}$
+\end_inset
+
+ then what happens for 
+\begin_inset Formula $r<R_{lake}$
+\end_inset
+
+ stays out of the equation and does not affect the following analysis.
+\end_layout
+
+\begin_layout Standard
+Bruggeman's (1999) solution number 215.08 (p.
+ 158) considers a well with sinusoidally fluctuation discharge with a maximum
+ amplitude of 
+\begin_inset Formula $Q_{0}$
+\end_inset
+
+ and frequency 
+\begin_inset Formula $\omega=2\pi/T$
+\end_inset
+
+ where 
+\begin_inset Formula $T$
+\end_inset
+
+is the cycle time, in our case 365 days.
+ The solution uses complex numbers to deal with the cycling and reads
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi\left(r,t\right)\text{=}\frac{Q_{0}}{2\pi kD}\Im\left[e^{i\omega t}K_{0}\left(\beta r\sqrt{i\omega}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This implies that the amplitude of the head at 
+\begin_inset Formula $r=r$
+\end_inset
+
+ is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi\left(r\right)=\frac{Q_{0}}{2\pi kD}\left|K_{0}\left(\beta r\sqrt{i\omega}\right)\right|=\frac{Q_{0}}{2\pi kD}K_{0}\left(\beta r\sqrt{\omega}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Furthermore, the delay is then obtaind from the angle of
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+angle=-\angle\left[K_{0}\left(\beta r\sqrt{i\omega}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Expressed in days, the delay 
+\begin_inset Formula $T_{delay}\left(r\right)$
+\end_inset
+
+ is then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T_{delay}\left(r\right)=\frac{\angle\left[K_{0}\left(\beta r\sqrt{i\omega}\right)\right]}{\omega}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi\left(r\right)=\frac{Q_{0}}{2\pi kD}\left|K_{0}\left(\beta r\sqrt{i\omega}\right)\right|=\frac{Q_{0}}{2\pi kD}K_{0}\left(\beta r\sqrt{\omega}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Intermezzo.
+ One may compare the declining curve of the envelope with that to the steady-sta
+te drawdown in a semi-confined aquifer.
+ The envelope
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\Phi\left(r\right)\frac{2\pi kD}{Q_{0}}=K_{0}\left(\beta r\sqrt{\omega}\right)=K_{0}\left(\frac{r}{\lambda}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ may be named spreadingslength exactly as in the case of semi-confined flow.
+ Compare this envelope with the stationary head in a semi-confined then
+ gives the following spreadings length for the current dynamic head dampoing:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\frac{r}{\lambda}=\beta r\sqrt{\omega}=\lambda=\frac{1}{\beta\sqrt{\omega}}=\sqrt{\frac{kD}{\omega S}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\lambda=\sqrt{\frac{kD}{\omega S}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This clearly show that the damping increases with frequency and storage
+ coefficient and decreases with transmissivty.
+ From semi-confined flow we know that the bessel fucntion is essentially
+ zero for 
+\begin_inset Formula $r>3\lambda$
+\end_inset
+
+, which, therefore is also the case in this dynamic situation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Using the field data
+\end_layout
+
+\begin_layout Standard
+Taking into account the field data for which only 
+\begin_inset Formula $\beta$
+\end_inset
+
+ must be estimated, then if we assume the situation in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situation-Quarry-Lake"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is sufficiently representative and the uncertain impervious boundary in
+ the west can be ignored.
+ We have a circular lakes area with a radius of about 600 m.
+ Then the first observation well is at about 
+\begin_inset Formula $r=1600$
+\end_inset
+
+ m, i.e.
+ about 1000 m from the circumference of the Lake area and the second observation
+ wel at about 
+\begin_inset Formula $r=5000$
+\end_inset
+
+ m, in the order of 4200 m from the circumference of the lake area.
+ Using 
+\begin_inset Formula $kD=500$
+\end_inset
+
+ m2/d as an estimate, we can then compute both the amplitude of the signal
+ in the aquifer as a function of 
+\begin_inset Formula $r$
+\end_inset
+
+ for different values of the storagen coefficient.
+ The compression of the signal between points, i.e.
+ the damping then is the ratio of the signal at different distances.
+ The damping between the face of the Lakes at 
+\begin_inset Formula $r=600$
+\end_inset
+
+ m and the first observation well at 
+\begin_inset Formula $r=1600$
+\end_inset
+
+ m is shown in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Damping-of-the-amplitude"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Also the damping between 
+\begin_inset Formula $r=1600$
+\end_inset
+
+ m and 
+\begin_inset Formula $r=5000$
+\end_inset
+
+ m is shown in the figure.
+\end_layout
+
+\begin_layout Standard
+As the actual damping derived from overlaying the signal in the first observatio
+n well and the lakes was found to be 0.56 (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Lake-stage-signal-1000m"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), we see that this matches with a storage coefficient a little above 0.1
+ for the first aquifer, which is reasonable.
+\end_layout
+
+\begin_layout Standard
+Futhermmore, the damping in the second aquifer was found to be 0.74 (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Lake-stage-signal-1000m"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), which corresponds with a storage coefficient of about 
+\begin_inset Formula $S=10^{-4}$
+\end_inset
+
+, which is also reasonable for the second aquifer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename DampingFactor.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Damping-of-the-amplitude"
+
+\end_inset
+
+Damping of the amplitude as a function of 
+\begin_inset Formula $r$
+\end_inset
+
+ and relative damping between 1000 and 2000 m and between 2000 and 5200
+ m (1000 and 5200 m from the lakes area circumference.
+ For instance, the amplitude declines by a factor of 0.65 from 1000 to 2000
+ m (0 to 1000 m from the Lakes face for storage coefficient 
+\begin_inset Formula $S$
+\end_inset
+
+ = 0.001 and transmissivity 
+\begin_inset Formula $kD$
+\end_inset
+
+=500 m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Delay-of-the-signal"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives the comuputed delay of the signal with respect to the well at 
+\begin_inset Formula $r=0$
+\end_inset
+
+, also as a funtion of 
+\begin_inset Formula $r$
+\end_inset
+
+ for different storage coefficients.
+ The delay between the signal in the lakes at 
+\begin_inset Formula $r=600$
+\end_inset
+
+ m and that in the firs to bservation well at 
+\begin_inset Formula $r=1600$
+\end_inset
+
+ m is then obtained by taking the difference.
+ The values are shown in the figure for the the delay between 
+\begin_inset Formula $r=600$
+\end_inset
+
+ m and 
+\begin_inset Formula $r=1600$
+\end_inset
+
+ m and between 
+\begin_inset Formula $r=1600$
+\end_inset
+
+ m and 
+\begin_inset Formula $r=5000$
+\end_inset
+
+ m.
+ The actual delay between the Lake siginal and the observation well in the
+ first aquifer at 
+\begin_inset Formula $r=1600$
+\end_inset
+
+ m is about 33 days (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Lake-stage-signal-1000m"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for the first aquifer and about 5 days (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Lake-stage-signal-1000m"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for the second aquifer.
+ The graph shows that the corresponding strorage coefficient in the shallow
+ aquifer is between 0.05 and 0.1, which is reasonable for the shallow aquifer.
+ The graph aso shows that the elastic storage coeffiicent of the second
+ aquifer must be between 
+\begin_inset Formula $10^{-5}$
+\end_inset
+
+ (delay 2.6 d) and 
+\begin_inset Formula $10^{-3}$
+\end_inset
+
+ (delay 10.2 d) to obtain a delay of 5 days as obtained from Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Lake-stage-signal-1000m"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which is also quite reasonable for the deeper aquifer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Delay.png
+	lyxscale 70
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Delay-of-the-signal"
+
+\end_inset
+
+Delay of the signal in days as a function of the distance 
+\begin_inset Formula $r$
+\end_inset
+
+ to the center of the Quarry Lakes for different stroage coefficients.
+ The numbers are the delay between the dots in days.
+ The face of the lakes is assumed at 
+\begin_inset Formula $r=600$
+\end_inset
+
+ m.
+ The first observation well at 
+\begin_inset Formula $r=1600$
+\end_inset
+
+ m and the seond at 
+\begin_inset Formula $r=5000$
+\end_inset
+
+ m
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We did not look at the actual data of the observation well at 
+\begin_inset Formula $r=5000$
+\end_inset
+
+ m (data not available to me).
+ Nevertheless, the analysis as presented by be applied to that one as well
+ and by comparing the damping and delay with Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Damping-of-the-amplitude"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Delay-of-the-signal"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, a proper storage coefficient for the first and the second aquifer can
+ be found.
+ Of course, the correct value for the transmissivity should be use for each
+ aquifer to be more accurate.
+\end_layout
+
+\begin_layout Section*
+Conclusion
+\end_layout
+
+\begin_layout Standard
+The signals (stage-time or head-time series) of the stage (water level)
+ of the lakes and the piezometer values (heads) in an observation well at
+ about 1000 m from the lakes were compared to derive the actual damping
+ and delay between that of the lakes and that in the groundwater.
+ The analysis can be done analytically to obtain an estimate of the strorage
+ coefficient.
+ In this case this is true for that of the first and that of the second
+ aquifer, because the aquifers hardly influence each other so that the signal
+ is fully dominated by the fluctuation of the water level in the lakes.
+ Since the water level in the lakes fluctuates almost like a yearly sine-wave,
+ analytical analysis was possible assuming the lake signal spreads radially
+ outward.
+ This axially symmetric situation is distorted by at least one impervious
+ boundary to the aquifer, caused by the presensce of the mountain rainge
+ passing closely by the lakes.
+ This permits to see the situation as half-infinite which still allows an
+ axially symmetric analysis.
+ It may be that there is also an impervious boundary about 6 km to the west
+ of the lakes, as an small north-south outcrop parallel to the Bay can be
+ seen on Google Earth.
+ This would hamper applying the analytical analysis to observation wells
+ farther to the west and at larger distances from the lakes.
+ Such details to be taken into account requires a numerical model.
+\end_layout
+
+\begin_layout Standard
+The conclusion that can be drawn from this analysis is, that to transform
+ the signal of the water level in the lakes to that of the head in the observati
+on well at 1000 m from the lakes circumference, a damping and delay is required
+ that stems from normal subsurface parameter values, i.e.
+ transmissivity and storage coefficent.
+ This is true for both the signal in the shallow first aquifer and for that
+ in the deeper second aquifer.
+ The observation that the fluctuation in the second aquifer at 1000 m from
+ the lakes is larger than that in the first aquifer, is, therefore, perfectly
+ consistent with normal groundwater hydraulics.
+\end_layout
+
+\begin_layout Standard
+The point to doubt, though, is the allegaton that the lakes do not penetrate
+ the second aquifer.
+ If this assertion is true, then it is likely that the the lakes either
+ at least partially penetrate the aquitard or that vertical resistance of
+ the aquitard between the two aquifers is dominantly in its penetrated top
+ rather than in its unpenetrated bottom.
+\end_layout
+
+\begin_layout Standard
+The higher signal amplitue in the second aquifer at 1000 m from the lakes
+ compared to that in the first aquifer, shows that the resitance of the
+ aquitard is so large that the two aquifers behave virtually independently.
+ This resistance cannot be present below the lakes, as it would make the
+ large siginal in the second aquifer below the lakes impossible.
+\end_layout
+
+\end_body
+\end_document

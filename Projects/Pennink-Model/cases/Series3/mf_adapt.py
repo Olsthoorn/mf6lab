@@ -91,11 +91,11 @@ IDOMAIN[np.logical_and(IDOMAIN == pr['IDCR'], gr.ZM > pr['hCanR'])] = 0
 
 IDOMAIN[gr.ZM < pr['zIface']] = pr['IDMK']
 
-lrcInk   = gr.lrc_recarray(*np.array(pr['xyzInk']).T) # global coords of injection points
-lrcMilk  = gr.lrc_recarray(*np.array(pr['milkInjPnt']).T) # global coords milk injection point
+lrcInk   = gr.lrc_from_xyz(pr['xyzInk'])['ic'] # global coords of injection points
+lrcMilk  = gr.lrc_from_xyz(pr['milkInjPnt'])['ic'] # global coords milk injection point
 
-IDOMAIN.ravel()[gr.Iglob(lrcInk)]  = pr['iInk'] # mark ink injection cells
-IDOMAIN.ravel()[gr.Iglob(lrcMilk)] = pr['iMlkInjPnt'] # mark milk injection cells
+IDOMAIN.ravel()[gr.Iglob_from_lrc(lrcInk)]  = pr['iInk'] # mark ink injection cells
+IDOMAIN.ravel()[gr.Iglob_from_lrc(lrcMilk)] = pr['iMlkInjPnt'] # mark milk injection cells
 
 Gwfdis = {'gr': gr,
           'idomain':      IDOMAIN,
@@ -144,8 +144,8 @@ Gwfchd ={'auxiliary': 'relconc',
 
 # %% === Gwfwel === wel (milk injection point)
 
-milkOn  = [(tuple(lrc_), pr['Qmilk'], pr['cSalt']) for lrc_ in lrcMilk['ic']]
-milkOff = [(tuple(lrc_),  0.0,        pr['cSalt']) for lrc_ in lrcMilk['ic']]
+milkOn  = [(tuple(lrc_), pr['Qmilk'], pr['cSalt']) for lrc_ in lrcMilk]
+milkOff = [(tuple(lrc_),  0.0,        pr['cSalt']) for lrc_ in lrcMilk]
 
 stress_period_data = dict()
 for isp, im in enumerate(perDF['Milk']):
@@ -232,8 +232,8 @@ Gwtssm = {'sources': [['chd', 'AUX', 'relconc'],
 # Ink injection points (constant concentration at injection locations)
 
 # Concentration cells [(l, r, c) conc] of ink injection points.
-concOn  = [(tuple(lrc_), pr['cInk'])  for lrc_ in lrcInk['ic']]
-concOff = [(tuple(lrc_),  0.0)        for lrc_ in lrcInk['ic']]
+concOn  = [(tuple(lrc_), pr['cInk'])  for lrc_ in lrcInk]
+concOff = [(tuple(lrc_),  0.0)        for lrc_ in lrcInk]
 
 stress_period_data = dict()
 for isp, ink in enumerate(perDF['Ink']):

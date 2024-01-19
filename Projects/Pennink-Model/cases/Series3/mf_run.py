@@ -25,5 +25,5 @@ if not success:
     print(buff)
     logging.critical("Buffer printed because MODFLOW did not terminate normally.")
     raise Exception('MODFLOW did not terminate normally.')
-
-print("Done")
+else:
+    print("MF6 finished normally.")

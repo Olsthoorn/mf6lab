@@ -1,1 +1,2 @@
-crange = get_orderly_levels(cmin, cmax, 20); crange = crange[crange > 0.1]
+
+                        ("BUDGET", "FREQUENCY", pr['oc_frequency'])],

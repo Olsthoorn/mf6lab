@@ -8,12 +8,14 @@ import matplotlib.animation as animation
 import matplotlib.patches as patches
 import matplotlib.path as path
 from matplotlib.colors import LinearSegmentedColormap
+from PIL import Image
+
 import flopy
+
 import mf_adapt
 from src.mf6contourtools import get_contour_levels
 from src import mf6tools
 from fdm.mf6_face_flows import get_struct_flows # (flowjas, grb_file=None, verbose=False)
-from PIL import Image
 
 use_models, use_packages  = mf6tools.get_models_and_packages_from_excel(
                                                 mf_adapt.params_wbk, sheet_name='NAM')

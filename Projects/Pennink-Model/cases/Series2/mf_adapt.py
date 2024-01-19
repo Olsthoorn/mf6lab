@@ -23,7 +23,7 @@ import os
 import numpy as np
 from src import mf6tools
 import settings
-from fdm.mfgrid import Grid
+from fdm.mfgrid import Grid, index
 
 dirs = settings.dirs
 sim_name = settings.sim_name
@@ -116,7 +116,8 @@ Gwfchd ={'auxiliary': 'relconc',
 # %% === Gwfoc ==== Output control for flow model
 Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name)),
          'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)),
-         'saverecord': [("HEAD", *pr['oc_frequency']), ("BUDGET", *pr['oc_frequency'])],
+         'saverecord': [("HEAD", "FREQUENCY", pr['oc_frequency']),
+                        ("BUDGET", "FREQUENCY", pr['oc_frequency'])],
 }
 
 # %% ============ T R A N S P O R T ====================
@@ -158,9 +159,9 @@ Gwtssm = {}
 
 # Ink injection points (constant concentration at injection locations)
 
-lrc  = gr.lrc(*np.array(pr['xyzInk']).T) # global coords of injection points
+lrc  = gr.lrc_from_xyz(pr['xyzInk'])['ic'] # global coords of injection points
 
-IDOMAIN.ravel()[gr.I(lrc)] = pr['iInk'] # mark the cells in IDOMAIN where ink injection takes place
+IDOMAIN.ravel()[gr.Iglob_from_lrc(lrc)] = pr['iInk'] # mark the cells in IDOMAIN where ink injection takes place
 
 # Concentration cells [(l, r, c) conc] of ink injection points.
 concOn  = [(tuple(lrc_), pr['cInk']) for lrc_ in lrc]
@@ -180,8 +181,8 @@ Gwtcnc = {'stress_period_data': stress_period_data}
 Gwtoc = {
       'concentration_filerecord' : os.path.join(dirs.SIM, '{}Gwt.ucn'.format(sim_name)),
       'budget_filerecord':         os.path.join(dirs.SIM, '{}Gwt.cbc'.format(sim_name)),
-      'saverecord' : [("CONCENTRATION", *pr['oc_frequency']),
-                      ("BUDGET", *pr['oc_frequency'])],
+      'saverecord' : [("CONCENTRATION", "FREQUENCY", pr['oc_frequency']),
+                      ("BUDGET", "FREQUENCY", pr['oc_frequency'])],
 }
 print('Done mf_adapt')
 
