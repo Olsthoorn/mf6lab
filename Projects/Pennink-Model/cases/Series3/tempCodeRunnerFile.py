@@ -1,0 +1,1 @@
+foto = Image.open(os.path.join(dirs.photos, pr['photo']))

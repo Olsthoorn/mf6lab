@@ -1,293 +1,190 @@
-""" Pennink1 - density flow in Pennnink's (1905) sand box model
-   Experiments series 1
-   The computation takes about 50 sec on a 2 GHz mac
-   ee http://www.citg.tudelft.nl/live/pagina.jsp?id=68e12562-a4d2-489a-b82e-deca5dd32c42&lang=en
-   in his sand-box experiment, Pennink studies freshwater flow between from
-   rainwater recharge to aa extraction canal at the left.
-   He then injects ink at 2 points at the top of the model
-   and shows in a series of photos the movement of the ink.
-   This model can be run by mt3dms as well as by seawat.
-   To easier match the actual times of the tests, we will use time in minutes
-   instead of days.
+'''Series 2 of Pennink(1915)'s 1903 - 1905 sand box model experiments.
+Experiments series 2 (Septemner 1904)
 
-TO 090312 100523 100722
-"""
+See http://www.citg.tudelft.nl/live/pagina.jsp?id=68e12562-a4d2-489a-b82e-deca5dd32c42&lang=en
+
+In this experiment, Pennink(1915) studies freshwater flow between a recharge
+canal on the right of the model to an extraction canal at the left.
+
+Pennink then injects ink at different depths near the recharge canal and
+shows in a series of photos the movement of the ink.
+
+The flow is from the right to the left canal and the flow is
+1.25 L/h (Pennink (1905) p485 with a (water table) gradient of 1:130
+
+To easier match the actual times of the tests, we will use time in minutes
+instead of days.
+
+@TO 090312 (in mflab using Seawat)
+@TO 240112 (in mf6lab using USGS's `flopy` and `Modflow 6`)
+'''
 
 import os
-import sys
 import numpy as np
-from fdm import Grid
-from mf6lab import mf6tools
-import pandas as pd
+from src import mf6tools
+import settings
+from fdm.mfgrid import Grid
 
-HOME = '/Users/Theo/GRWMODELS/python/Pennink-Model/'
+dirs = settings.dirs
+sim_name = settings.sim_name
+section_name = settings.section_name
 
-LENGTH_UNITS = 'centimeters'
-TIME_UNITS = 'minutes'
+# Parameters workbook
+params_wbk = settings.params_wbk
 
-dirs = mf6tools.Dirs(HOME)
+# %% Parameters of the model and simulation
+pr = settings.props
 
-sim_name = 'Series1' # Should match with the excel workbook with the parameters
-dirs = dirs.add_case(sim_name)
+## Get section data
 
+# %% === tdis ======  time discretization
 
-params_wbk = os.path.join(dirs.case, sim_name + '.xlsx')
-
-# chdir to case directory
-os.chdir(dirs.case)
-sys.path.insert(0, dirs.case)
-
-print('Pennink (1915), series 1, 2 Sep 1904')
-
-
-# %% Countour of sand mass obtained form photo by ginput
-xSand =[
-   -2.8568
-   68.3082
-   68.6354
-   55.7112
-   21.8465
-   20.3741
-   13.8302
-    7.6135
-   -1.2208
-]
-
-zSand =[
-   -2.6501
-   -3.0078
-   65.3106
-   58.6934
-   57.6204
-   56.3684
-   50.8243
-   44.7436
-   44.2071
-   ]
-
-xCanL =[
-   -2.3660
-    5.6503
-    6.7955
-    8.4314
-    9.2494
-    9.2494
-   -2.8568
-   ];
-
-zCanL =[
-   37.4110
-   37.5898
-   43.1340
-   53.1493
-   59.4088
-   63.8799
-   64.5953
-   ]
-
-xCanR=[
-   68.6354
-   60.7827
-   61.6007
-   62.2551
-   62.7459
-   63.4003
-   68.4718
-]
-
-zCanR =[
-   65.3106
-   62.4491
-   51.1820
-   46.1743
-   43.3128
-   41.5244
-   41.3456
-]
-
-# %% Times of the photos in Pennink (1915) 2 sept 1904
-#  these times are used in workbook, sheet PER
-year = 1904; month=5;  # day unknown, first day in known month assumed
-TIMES = datenum([
-    year,month,1, 9,22,0;   % ink added    year,month,1,10,19;   % opname p12
-    year,month,1,10,39,0;   % p14
-    year,month,1,11,09,0;   % p16
-    year,month,1,11,12,0;   % some ink drops added to show flow path
-    year,month,1,11,39,0;   % p18
-])
-
-
-# %% Parameters
-por = 0.38       # calibrated
-k = 65000/24/60  # [cm/min] Conductivity calbrated from data in Pennink's series 1 experiments 
-FRESHWATER = 0   # Freshwater concentration
-SEAWATER   = 1   # not used in this simulation
-
-k = 86500 / (24 * 60) # [cm/min] calibrated
-peff = 0.38           # [-] effective porosity, calibrated
-
-# %% The grid, the box is 96x96 cm and the sand-box model is 1.8 cm thick
-
-MW    = 65.0  # [cm] Width of sand-box model, see Pennink p6
-MH    = 65.0  # [cm] Top of model
-D     =  1.8  # [cm] Thickness of model
-
-zCapZone  = 51.0  # [cm] Top of full capillary zone (see descripition)
-hCanL = 45.2  # [cm] Stage canal left side, see photo p32
-hCanR = 45.7  # [cm] Stage right-hand canal, from given gradient and left canal stage
-
-
-# %% === tdis ==========  Period Data:
-"""The period data are determined by the fixed period length and the moments on which
-a photo was taken. The period numbers are computed from the photo times. It is at these times that one or more the boundary conditions may change, i.e. switching on or off of the ink to
-show the stream lines.
-"""
 perDF = mf6tools.get_periodata_from_excel(params_wbk, sheet_name='PER')
-nper = len(perDF)
 period_data = [tuple(sp) for sp in perDF[['PERLEN', 'NSTP', 'TSMULT']].values]
 
-# Stress period start times
-sp_start_times = np.datetime64(Times[0]) + np.cumsum(
-                  np.hstack((0., np.array([p[0] for p in period_data])[:-1]))
-                  ) * np.timedelta64(1, 'm')
+start_date_time = perDF['StartTime'][0] # Must be string
 
-# %% === Gwfdis ========== Grid everything in cm
-dx = 1.0 # [cm] model grid cell width
-dy =   D # [cm] model grid cell in row direciton
-dz = 1.0 # [cm] model grid cell heigth
+Simtdis = {'perioddata': period_data,
+           'nper': len(period_data),
+           'start_date_time': start_date_time,
+           'time_units': settings.TIME_UNITS,
+           }
 
-xGr = np.arange(0, MW + dx, dx) # mesh grid lines
-yGr = [-D/2, D/2]               # mesh grid lines, however the real model was 1.8 cm thick
-zGr = np.arange(MH, -dz, -dz)   # mesh grid lines
+# %% === Gwfdis ====== spatial discritization of flow model
 
-gr = Grid(xGr,yGr,zGr) # mesh houskeeping
+x = np.arange(0, pr['L'] + pr['dx'] / 2, +pr['dx'])
+z = np.arange(pr['H'], 0 - pr['dz'] / 2, -pr['dz'])
+y = [-pr['D'] / 2, pr['D'] / 2]
 
-# %% ==== IDOMAIN ===============
-# IDOMAIN cell values of the canal left and right
-IDCL, IDCR = 2, 3 
+gr = Grid(x, y, z)
 
+# IDOMAIN
 # Start all cells inactive
-IDOMAIN = gr.const(0, dtype=int)
+IDOMAIN = gr.const(-1, dtype=int) # Inactive cells are vertially pass-through cells
 
 # Only where sand --> active
-IDOMAIN[:, 0, :][gr.inpoly(sand, row=0)] =  1
-
-# Boundary cells are indacted for later recognition
-IDOMAIN[:, 0, :][gr.inpoly(canalL, row=0)] = IDCL
-IDOMAIN[:, 0, :][gr.inpoly(canalR, row=0)] = IDCR
+IDOMAIN[:, 0, :][gr.inpoly(pr[  'sand'], row=0)] =  1
+IDOMAIN[:, 0, :][gr.inpoly(pr['canalL'], row=0)] = pr['IDCL'] # Cells in Canal Left
+IDOMAIN[:, 0, :][gr.inpoly(pr['canalR'], row=0)] = pr['IDCR'] # Cells in Canal Right
 
 # Inactive cells are within canals but above their stage level
-IDOMAIN[np.logical_and(IDOMAIN == IDCL, gr.ZM > hCanL)] = 0
-IDOMAIN[np.logical_and(IDOMAIN == IDCR, gr.ZM > hCanR)] = 0
+IDOMAIN[np.logical_and(IDOMAIN == pr['IDCL'], gr.ZM > pr['hCanL'])] = 0
+IDOMAIN[np.logical_and(IDOMAIN == pr['IDCR'], gr.ZM > pr['hCanR'])] = 0
 
-# %% === Gwfnpf =========== Horizontal and vertical conductivity
-HK = gr.const(k)
-VK = gr.const(k)
+Gwfdis = {'gr': gr,
+          'idomain':      IDOMAIN,
+          'length_units': settings.LENGTH_UNITS,
+}
 
-# === Unsaturated zone conductivity (above full capillary zone)
-# HK = 0 above full capillary zone, but VK > 0 to let recharge seep through
-# We could also use flowthrough cells in mf6
-HK[np.logical_and(HK > 0, gr.ZM > zCapZone)] = k / 10
+# %% === Gwfsto ======= Storage coefficients
 
-# %% Unsaturated zone
-PEFF = gr.const(por)
-PEFF[gr.ZM > zCapZone] = por / 3 # My estimate for the unsaturated zone
+Gwfsto = {'sy': gr.const(pr['sy']),
+          'ss': gr.const(pr['ss']),
+          }
+
+# %% === Gwfnpf ======= Horizontal and vertical conductivity
+k = gr.const(pr['k'])
+
+k[gr.ZM > pr['zCapZone']] /= 5 # Unsat zone cond. above full capillary zone
+
+Gwfnpf = { 'k':   k,            
+            'icelltype': pr['icelltype'],
+}
 
 # %% === Gwfic ======== Initial condictions (head)
-STRTHD = gr.const(1) * (hCanL + hCanR) / 2. + 5 # Average between the two canal levels, extra to avoid useless first contour
-STRTHD[IDOMAIN == IDCL] = hCanL # in left canal
-STRTHD[IDOMAIN == IDCR] = hCanR # in right canal
 
-# %% === CHD, Fixed head period data (Only specify the first period)
-IcanL = gr.NOD.ravel()[IDOMAIN.ravel() == IDCL] # Left canal
-IcanR = gr.NOD.ravel()[IDOMAIN.ravel() == IDCR] # Right canal
-chd = [(lrc, hCanL) for lrc in gr.LRC(IcanL, astuples=True)] +\
-      [(lrc, hCanR) for lrc in gr.LRC(IcanR, astuples=True)]
-CHD = {0: chd}
+hstrt = pr['hCanL'] + gr.XM / pr['L'] * (pr['hCanR'] - pr['hCanL']) # Reasonalble hstrt
+hstrt[IDOMAIN == pr['IDCL']] = pr['hCanL'] # in left canal
+hstrt[IDOMAIN == pr['IDCR']] = pr['hCanR'] # in right canal
 
-# %% === DRN === for seepage face.
+Gwfic = {'strt': hstrt}
+
+# %% === Gwfchd ======= fixed head
+
+IcanL = gr.NOD[IDOMAIN == pr['IDCL']]
+IcanR = gr.NOD[IDOMAIN == pr['IDCR']]
+
+stress_period_data = [(lrc, pr['hCanL'], pr['cCanL']) for lrc in gr.LRC(IcanL, astuples=True)] +\
+                     [(lrc, pr['hCanR'], pr['cCanR']) for lrc in gr.LRC(IcanR, astuples=True)]
+                     
+Gwfchd ={'auxiliary': 'relconc',
+         'stress_period_data': stress_period_data}
+
+# %% === Gwfdrn === drains (can also be used for seepage face).
 # TODO
 
-# %% === OC ====
+# %% === Gwfoc ==== Output control for flow model
 Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name)),
          'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)),
-         'saverecord': [("HEAD", "ALL"), ("BUDGET", "ALL")],
+         'saverecord': [("HEAD", "FREQUENCY", pr['oc_frequency']), ("BUDGET", "FREQUENCY", pr['oc_frequency'])],
 }
 
 # %% ============ T R A N S P O R T ====================
 
+#%% === Gwtdis ======= discritization for transport model
+
+# Uses gr above, don't specify
+
+
 # %% === Gwtfmi ===== Flow model interface
-pd = [("GWFHEAD",   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name))),
-      ("GWFBUDGET", os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)))
-]
-Gwtfmi = {'packagedata': pd}
+
+# simultaneous exchange is automatic (see mf_setup.py)
 
 # %% === Gwtmst ===== Mobile storage and transfer
-Gwtmst = {'porosity': 0.2}
- 
-# %% === Gwtadv === advection =========
-SCHEME = 'TVD' # upstream, central, TVD
 
-# %% === Gwtdsp === dispersion ========
-# diffc = 1e-10 m2/s 1e4 cm2/m2 60 s/min = 6e-5 m2/min
-diffc = 6e-5
-#diffc = 0.0 # test
-DISPERSIVITIES = {'alh': 1.0, 'ath1': 0.01, 'ath2': 0.01, 'atv': 0.1, 'diffc': diffc}
+por = gr.const(pr['por'])
+por[gr.ZM > pr['zCapZone']] /= 3 # My estimate for the unsaturated zone
 
-# %% Gwtic === initial concentration ===
+Gwtmst = {'porosity': por}
 
-STRTC = gr.const(FRESHWATER)
+# %% === Gwtadv ====== advection
 
-# %% Gwtcnc === const conc. ====
+Gwtadv = {'scheme': 'TVD'} # upstream, central, TVD
+
+# %% === Gwtdsp ====== dispersion & diffusion
+
+Gwtdsp ={**pr['disp']}
+
+# %% === Gwtic ====== initial concentration
+
+Gwtic = {'strt': pr['cFresh']}
+
+# %% === Gwtssm ====== Source-Sink mixing
+
+Gwtssm = {'sources': [['chd', 'AUX', 'relconc']]}
+Gwtssm = {}
+
+# %% === Gwtcnc ====== constant concentraction
 
 # Ink injection points (constant concentration at injection locations)
 
-lrc  = gr.lrc(*np.array(xyzInk).T) # global coords of injection points
-IDOMAIN.ravel()[gr.I(lrc)] = iInk # For convenence, mark the cells with ink injection
+lrc  = gr.lrc_from_xyz(pr['xyzInk'])['ic'] # global coords of injection points
+
+IDOMAIN.ravel()[gr.Iglob_from_lrc(lrc)] = pr['iInk'] # mark the cells in IDOMAIN where ink injection takes place
 
 # Concentration cells [(l, r, c) conc] of ink injection points.
-concOn  = [(lrc_, cInk) for lrc_ in lrc]
-concOff = [(lrc_,  0.0) for lrc_ in lrc]
+concOn  = [(tuple(lrc_), pr['cInk']) for lrc_ in lrc]
+concOff = [(tuple(lrc_),  0.0)       for lrc_ in lrc]
 
-CONSTCONC = {     perDF.index[sp_start_times <=  t_inkOn][-1]: concOn,
-                  perDF.index[sp_start_times <= t_inkOff][-1]: concOff
-                  }
+stress_period_data = dict()
+for isp, ink in enumerate(perDF['Ink']):
+      if ink == 0:
+            stress_period_data[isp] = concOff
+      else:
+            stress_period_data[isp] = concOn
 
-# %% Gwtoc === output control
-GWTOC = {
+Gwtcnc = {'stress_period_data': stress_period_data}
+
+# %% === Gwtoc ====== output control
+
+Gwtoc = {
       'concentration_filerecord' : os.path.join(dirs.SIM, '{}Gwt.ucn'.format(sim_name)),
       'budget_filerecord':         os.path.join(dirs.SIM, '{}Gwt.cbc'.format(sim_name)),
-      'saverecord' : [("CONCENTRATION", "ALL"),
-                      ("BUDGET", "ALL")],
+      'saverecord' : [("CONCENTRATION", "FREQUENCY", pr['oc_frequency']),
+                      ("BUDGET", "FREQUENCY", pr['oc_frequency'])],
 }
 print('Done mf_adapt')
 
 if __name__ == '__main__':
    
    print(dirs)     
-%% Point sources locations
-xyzInk=[
-    54.5 0 55
-    38.5 0 55 ]
-
-idx = xyzindex(xyzInk,gr)
-
-
-ink1 = 5; IBOUND(idx(1)) = ink1
-ink2 = 6; IBOUND(idx(2)) = ink2 
-
-zoneVals = {ink1 0 0;ink2 0 0};
-zoneConc = {'C_Ink1';'C_ink2'};
-
-[~,PNTSRC] = bcnZone(basename,'CCC',IBOUND,zoneVals,zoneConc);
-
-%% RCH is 4.2 L/h, converted to cm3/min
-
-W=45; % [cm] width of rain added to top of model
-M=37; % [cm] center of rain added to top of model (mid between 2 screws see photo)
-N=4.2*1e3/60/W/dy;  % [cm/min]
-
-
-RECH=zeros(gr.Ny,gr.Nx);                  % specify recharge for all stress periods
-RECH(:,gr.Xm>=M-0.5*W & gr.Xm<=M+0.5*W,:)=N;   % only where rain is applied in model
-RECH = bsxfun(@times,RECH,YS(1:NPER));

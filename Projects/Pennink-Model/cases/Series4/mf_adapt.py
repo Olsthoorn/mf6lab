@@ -94,9 +94,9 @@ IDOMAIN[:, 0, :][gr.inpoly(pr[  'sand'], row=0)] = pr['IDSD']
 
 IDOMAIN[gr.ZM < pr['zIface']] = pr['IDMK']
 
-lrcMilk  = gr.lrc_recarray(*np.array(pr['milkInjPnt']).T) # global coords milk injection point
+lrcMilk  = gr.lrc_from_xyz(pr['milkInjPnt'])['ic'] # global coords milk injection point
 
-IDOMAIN.ravel()[gr.Iglob(lrcMilk)] = pr['iMlkInjPnt'] # mark milk injection cells
+IDOMAIN.ravel()[gr.Iglob_from_lrc(lrcMilk)] = pr['iMlkInjPnt'] # mark milk injection cells
 
 Gwfdis = {'gr': gr,
           'idomain':      IDOMAIN,
@@ -132,20 +132,19 @@ lrcTopActive = np.vstack((IzTopActive, np.zeros(gr.nx, dtype=int), gr.NOD[0, 0])
 
 hMilkPnt = pr['zIface'] + (pr['hStrt'] - pr['zIface']) * pr['rhoFresh'] / pr['rhoSalt']
 
-stress_period_data = {0: [(tuple(lrcMilk['ic'][0]), hMilkPnt, pr['cSalt'])],
+stress_period_data = {0: [(lrcMilk[0], hMilkPnt, pr['cSalt'])],
                       1: [(lrc, zt, pr['cFresh']) for lrc, zt in zip(lrcTopActive, zTop)] +\
-                         [(tuple(lrcMilk['ic'][0]), hMilkPnt, pr['cSalt'])],
-                      2: [(tuple(lrcMilk['ic'][0]), hMilkPnt, pr['cSalt'])]}
+                         [(lrcMilk[0], hMilkPnt, pr['cSalt'])],
+                      2: [(lrcMilk[0], hMilkPnt, pr['cSalt'])]}
 
-# stress_period_data = {0: [(tuple(lrcMilk['ic'][0]), hMilkPnt, pr['cSalt'])],
-#                       1: [(tuple(lrcMilk['ic'][0]), hMilkPnt, pr['cSalt'])],
-#                       2: [(tuple(lrcMilk['ic'][0]), hMilkPnt, pr['cSalt'])]}
+# stress_period_data = {0: [(lrcMilk[0], hMilkPnt, pr['cSalt'])],
+#                       1: [(lrcMilk[0], hMilkPnt, pr['cSalt'])],
+#                       2: [(lrcMilk[0], hMilkPnt, pr['cSalt'])]}
 
 stress_period_data = {0: [],
                       1: [(lrc, zt, pr['cFresh']) for lrc, zt in zip(lrcTopActive, zTop)],
                       2: []}
-
-                     
+                    
 Gwfchd ={'auxiliary': 'relconc',
          'stress_period_data': stress_period_data}
 

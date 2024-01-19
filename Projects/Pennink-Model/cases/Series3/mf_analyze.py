@@ -9,11 +9,13 @@ import matplotlib.patches as patches
 import matplotlib.path as path
 from matplotlib.colors import LinearSegmentedColormap
 import flopy
+from PIL import Image
+
 import mf_adapt
 from src.mf6contourtools import get_contour_levels
 from src import mf6tools
 from fdm.mf6_face_flows import get_struct_flows # (flowjas, grb_file=None, verbose=False)
-from PIL import Image
+
 
 use_models, use_packages  = mf6tools.get_models_and_packages_from_excel(
                                                 mf_adapt.params_wbk, sheet_name='NAM')
@@ -30,8 +32,8 @@ grb_file = os.path.join(dirs.GWF, mf_adapt.sim_name + 'Gwf.dis.grb')
 gr       = mf_adapt.gr
 pr       = mf_adapt.pr # properties from settings
 dirs.photos = (os.path.join(dirs.case, 'photos'))
-foto = Image.open(os.path.join(dirs.photos, 'Series3_01_p50.jpg'))
 
+foto = Image.open(os.path.join(dirs.photos, pr['photo']))
 
 def addPatch(pgcoords, alpha=0.2, fc='none', ec='none', ax=None):
     codes = np.zeros(len(pgcoords), dtype=int) + path.Path.LINETO

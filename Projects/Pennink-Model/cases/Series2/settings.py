@@ -1,6 +1,7 @@
 import os
-import pandas as pd
+import matplotlib.pyplot as plt
 import numpy as np
+from PIL import Image
 
 from src.mf6tools import  Dirs
 
@@ -24,13 +25,15 @@ assert os.path.isfile(params_wbk), "Params_wbk not found: {}".format(params_wbk)
 # lay = pd.read_excel(params_wbk, sheet_name='LAY', header=0, index_col=0)
 
 props = {
-    'oc_frequency': ['FREQUENCY', 1], # Saving frequency for budget heads and concentrations
+    'oc_frequency': 1, # Saving frequency for budget heads and concentrations
+    'photo': 'Series2_01_p30.jpg', # background photo
+    'extent': (-20.5, 85.5, -10, 82), # extent of photo
     'Qdim': 'cm3/min',
     'L': 65, # [cm]
     'H': 65, # [cm]
     'D': 1.8, # [cm]
-    'dx': 0.5, #[cm]
-    'dz': 0.5, #[cm]
+    'dx': 1.0, #[cm]
+    'dz': 1.0, #[cm]
     'zCapZone': 51.0,  # [cm] Top of full capillary zone (see descripition)
     'icelltype': 0,
     'k_mpd': 650., # [m/d] calbrated from data in Pennink's series 1 experiments 
@@ -57,10 +60,10 @@ props = {
     'IDCL': 2, # IDOMAIN value for cells in Canal Left (For easy finding of cells.)
     'IDCR': 3, # IDOMAIN value for cells in Canal Right (For easy finding of cells.)
     'iInk': 4, # IDOMAIN value for ink injection points (For easy finding of cells.)
-    'xyzInk': [[50.6, 0, 50.0],
-               [52.6, 0, 44.9],
-               [53.8, 0, 33.7],
-               [56.1, 0, 23.0]],
+    'xyzInk': np.array([[50.6, 0, 50.0],
+                        [52.6, 0, 44.9],
+                        [53.8, 0, 33.7],
+                        [56.1, 0, 23.0]]),
     'sand' :np.array([[ 0.0,  0.0], # Contour sand mass cm vs LL of model
                       [66.0,  0.0],
                       [65.0, 44.3],
@@ -104,3 +107,24 @@ props = {
                         [65.00, 65.00],
                         [60.89, 65.00]]),
 }
+
+
+if __name__ == '__main__':
+    
+    pr = props
+    
+    print('Props')
+    fig, ax = plt.subplots(figsize=(10, 10))
+    ax.set_title("Matching the size of the model to the photo.")
+    ax.set_xlabel('x [cm]')
+    ax.set_ylabel('z [cm]')
+    
+    foto = Image.open(os.path.join(dirs.photos, pr['photo']))
+    ax.imshow(foto, extent=pr['extent'])
+
+    ax.plot([0, pr['L'], pr['L'], 0,  0], [0, 0, pr['H'], pr['H'], 0], 'b', label='bbox around model')
+    ax.plot(*pr['sand'].T, 'brown', label='sand')
+    ax.plot(*pr['canalL'].T, 'black', label='canalL')
+    ax.plot(*pr['canalR'].T, 'black', label='canalR')
+    ax.plot(pr['xyzInk'][:, 0], pr['xyzInk'][:, 2], 'ro', label='Inkk injection points')
+    plt.show()
