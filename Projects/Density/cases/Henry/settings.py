@@ -23,9 +23,10 @@ assert os.path.isfile(params_wbk), "Params_wbk not found: {}".format(params_wbk)
 lay = pd.read_excel(params_wbk, sheet_name='LAY', header=0, index_col=0)
 
 props = {
+    'start_date_time': '2024-01-09',
     'NPER':  1,
     'NSTP': 500,
-    'oc_frequency': ['FREQUENCY', 5], # Saving frequency for budget heads and concentrations
+    'oc_frequency': 5, # Saving frequency
     'tmax': 0.5, # [d]
     'L': 2.0, # [m]
     'H': 1.0, # [m]

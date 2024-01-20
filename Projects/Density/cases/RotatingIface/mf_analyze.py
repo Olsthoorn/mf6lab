@@ -12,7 +12,6 @@ from etc import newfig
 from src.mf6contourtools import get_contour_levels
 from fdm.mf6_face_flows import get_struct_flows # (flowjas, grb_file=None, verbose=False)
 
-
 # ==== Local settings ===
 SAVE_ANIMATION = True
 DENSITY = True
@@ -57,7 +56,7 @@ pLevels = get_contour_levels(10 * P_min, 10 * P_max, 50)  # Levels for stream fu
 cLevels = np.linspace(pr['cR'],   pr['cL'],   50) # Levels for concentration contours (if DENSITY == False)
 dLevels = np.linspace(pr['rhoR'], pr['rhoL'], 50) # Levels for density contours (if DENSITY == True)
 
-# Flow between each pair of stream lines
+# Flow between sucessive stream lines
 dpsi = np.diff(pLevels)[0]
 
 startdatetime = np.datetime64(sim.tdis.start_date_time.get_data().replace('t', ' '))
@@ -65,7 +64,7 @@ datetimes = startdatetime + np.array(concObj.times) * np.timedelta64(1, 'D')
 
 title = "{} dPsi = {:.4g} m2/s".format(mf_adapt.section_name, dpsi)
 
-# %% ========= Set up initial plot of cross section with contouring ============
+# %% === Set up initial plot of cross section with contouring =====
 
 ax  = newfig("", 'x [m]', 'z [m]', figsize=(15, 8))
 fig = plt.gcf()

@@ -25,7 +25,7 @@ lay = pd.read_excel(params_wbk, sheet_name='LAY', header=0, index_col=0)
 props = {
     'NPER':  1,
     'NSTP': 500,
-    'oc_frequency': ['FREQUENCY', 100], # Saving frequency for budget heads and concentrations
+    'oc_frequency': 100, # Saving frequency
     'tmax': 0.5, # [d]
     'L': 300, # [m]
     'H': 40, # [m]
