@@ -15,7 +15,6 @@ which is fed by recharge and drained where the water table reaches ground surfac
 import os
 import numpy as np
 from src import mf6tools
-from genericSectionData import gr
 import settings
 
 INACTIVE =[-1, 0]
@@ -24,12 +23,10 @@ dirs = settings.dirs
 sim_name = settings.sim_name
 section_name = settings.section_name
 pr = settings.props
+gr = settings.gr
+params_wbk = settings.params_wbk # Parameters workbook
 
-# Parameters workbook
-params_wbk = settings.params_wbk
-
-# %% === tdis ==========  Period Data:
-
+# === tdis ===== period data:
 start_date_time = pr['start_date_time'] # Must be a string.
 
 perDF = mf6tools.get_periodata_from_excel(params_wbk, sheet_name='PER')
@@ -42,71 +39,61 @@ sp_start_times = np.datetime64(start_date_time) + np.cumsum(
 
 Simtdis = {'perioddata': period_data,
            'nper': len(period_data),
-           'start_date_time': pr['start_date_time'],
+           'start_date_time': start_date_time,
            'time_units': settings.TIME_UNITS,
            }
 
-# Conductivities
-lay = settings.lay
-
-# %% === Gwfdis ========== Grid definition
+# === DIS ===== Grid, structured
 
 IDOMAIN = gr.const(1, dtype=int)
-IDOMAIN[gr.DZ < pr['minDz']] = -1 # Make vertical flow-through cell.
+IDOMAIN[gr.DZ < pr['minDz']] = -1
 
 Gwfdis = {'gr': gr,
           'idomain': IDOMAIN,
           'length_units': settings.LENGTH_UNITS}
 
-# %% ==== Gwfsto ====== Storage (transient)
+# ==== Gwfsto ===== Storage, transient
+
 Gwfsto = {'sy': gr.const(lay['Ss'].values),
           'ss': gr.const(lay['Ss'].values)
           }
 
-# %% === Gwfnpf =========== Horizontal and vertical conductivity
+# === Gwfnpf ===== Horizontal and vertical conductivity
 
 Gwfnpf = {  'k':   gr.const(lay['k'].values),
             'k33': gr.const(lay['k33'].values),
-            'icelltype': gr.const(lay['ICELLTYPE'].values, dtype=int),
+            'icelltype': gr.const(lay['ICELLTYPE'].values),
             }
 
+#  === Gwfic ===== Initial condictions (head)
 
-# %% === Gwfic ======== Initial condictions (head)
+strthd = gr.const(pr['strthd'])
 
-strthd = gr.const(0.)
+Gwfic = {'strt': strthd}
 
-Gwfic = {'strt': pr['strthd']}
+# === Gwfchd ===== Fixed head period data
 
-# %% === Gwfchd ====== Given head cells
-# Location of cells with given head
+# === Gwfwel ===== wells
 
-
-# %% === Gwfwel ===== Wells
-# Location of wells
-
-# %% === Gwfdrn ==== Drains
-
-# Drain elevation
+# === Gwfdrn ===== drains
 hDr = gr.Z[0, 0] - pr['drain_depth']
+drn_xyz = np.vstack((gr.xm, np.zeros(gr.nx), hDr)).T
+Iz = gr.lrc_from_xyz(drn_xyz)['ic'][:, 0]
+gr.top_active_cells(IDOMAIN, Iz)
 
-# Drdain conductance
 Cdr = gr.Area[0] / pr['cDrainage']
-
-# Layer of top active cells
-Iz = gr.top_active_cells(IDOMAIN)
-
+      
 DRN = [((iz, 0, i), h_, C_) for i, (iz, h_, C_) in enumerate(zip(Iz, hDr, Cdr))]
 
 Gwfdrn = {'stress_period_data': {0: DRN}}
 
-# %% === Rch ===== Recharge
+# === Gwfrch ===== recharge
 
-# Recharge into top active cells
 RCH = [((iz, 0, i), pr['rch']) for i, iz in enumerate(Iz)]
 
 Gwfrch = {'stress_period_data': {0: RCH}}
 
-# %% === Gwfoc ==== output control
+# === Gwfoc ====== Output control for flow model
 
 Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name)),
          'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)),
@@ -114,7 +101,3 @@ Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name
 }
 
 print('Done mf_adapt')
-
-if __name__ == '__main__':
-   
-   print(dirs)     
