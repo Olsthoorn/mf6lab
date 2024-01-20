@@ -51,7 +51,6 @@ props = {
     'diffc': 6e-5, # [m2/d] diffusion coefficient
     'drainDepth': 0.5, # [m]
     'cDrainage': 100, # [d]
-    'rch': 0.001, # [m/d]
 }
 
 # === Get the digitized coordinates ======= the free plotdigitizder app was used.
