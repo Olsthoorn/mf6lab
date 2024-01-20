@@ -2,14 +2,11 @@
 import os
 import logging
 
-import mf_adapt
-from src import mf_setup
+from src.mf_setup import mf_setup
 
 logging.info("Running from {}".format(os.getcwd()))
 
-gr = mf_adapt.gr
-
-fp_packages, model_dict, use_models, use_packages = mf_setup.mf_setup()
+fp_packages, model_dict, use_models, use_packages = mf_setup()
 
 sim = fp_packages.get('Simsim')
 
@@ -24,5 +21,5 @@ if not success:
     print(buff)
     logging.critical("Buffer printed because MODFLOW did not terminate normally.")
     raise Exception('MODFLOW did not terminate normally.')
-
-print("Done")
+else:
+    print("MF6 terminated sucessfully.")

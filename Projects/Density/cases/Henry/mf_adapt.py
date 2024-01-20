@@ -22,16 +22,12 @@ import settings
 dirs = settings.dirs
 sim_name = settings.sim_name
 section_name = settings.section_name
-
 pr = settings.props
-
-# Parameters workbook
 params_wbk = settings.params_wbk
+lay = settings.lay
 
-## Get section data
-
-# %% === tdis ==========  Period Data:
-start_date_time = '2024-01-09' # Must be a string.
+# === tdis =====  Period Data:
+start_date_time = pr['start_date_time'] # Must be a string.
 
 perDF = mf6tools.get_periodata_from_excel(params_wbk, sheet_name='PER')
 period_data = [tuple(sp) for sp in perDF[['PERLEN', 'NSTP', 'TSMULT']].values]
@@ -47,7 +43,7 @@ Simtdis = {'perioddata': period_data,
            'time_units': settings.TIME_UNITS,
            }
 
-# %% === DIS ========== Grid
+# === Gwfdis ===== Grid (structured)
 
 dx, dz, L, H =  pr['dx'], pr['dz'], pr['L'], pr['H']
 x = np.arange(-dx/2, L + dx, dx)
@@ -59,51 +55,54 @@ Gwfdis = {'gr': gr,
           'idomain':      gr.const(1, dtype=int),
           'length_units': settings.LENGTH_UNITS}
 
-# %% ==== STO ===============
+# ==== Gwfsto ===== Storage (transient)
+
 Gwfsto = {'sy': gr.const(pr['sy']),
           'ss': gr.const(pr['ss']),
           }
 
-# %% === Gwfnpf =========== Horizontal and vertical conductivity
+# === Gwfnpf ===== Layer properties
+
 Gwfnpf = {  'k':   gr.const(pr['k']),            
             'icelltype': gr.const(pr['icelltype']),
             }
 
-# %% === Gwfic ======== Initial condictions (head)
+# === Gwfic ===== Initial head
+
 strthd = gr.const(pr['hStrt'])
 
 Gwfic = {'strt': strthd}
 
-# %% === Gwfchd, Fixed head period data (Only specify the first period)
+# === Gwfchd ===== Fixed heads
+
 Idx = gr.NOD[:, :, -1].flatten()
 Gwfchd ={'auxiliary': 'relconc',
          'stress_period_data': [
                (lrc, pr['hStrt'], pr['cSalt']) for lrc in gr.LRC(Idx)]}
 
-# %% === Gwfwel ==== Well
+# === Gwfwel ==== Wells (given flow at vertical boundary)
+
 Idx = gr.NOD[:, :, 0].flatten()
-
 Qin = pr['Qin_a']
-
 qin = Qin / pr['H'] * gr.dz
 Gwfwel = {'auxiliary': 'relconc',
           'stress_period_data': [
                 (lrc, ql, pr['cFresh']) for lrc, ql in zip(gr.LRC(Idx), qin)]
           }
           
-# %% === DRN,
+# === Gwfdrn ===== Drains
 
-# %% === Rch
+# === Gwfrch ===== Recharge
 
-# %% === OC ====
+# === Gwfoc ====
 
 Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name)),
          'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)),
-         'saverecord': [("HEAD", *pr['oc_frequency']),
-                        ("BUDGET", *pr['oc_frequency'])],
+         'saverecord': [("HEAD", "FREQUENCY", pr['oc_frequency']),
+                        ("BUDGET", "FREQUENCY", pr['oc_frequency'])],
 }
 
-# %% === Gwfbuy (boyancy) ====
+# === Gwfbuy ====== Buoyancy
 
 irhospec = 0
 drhdc = (pr['rhoSalt'] - pr['rhoFresh']) / (pr['cSalt'] - pr['cFresh'])
@@ -117,49 +116,51 @@ Gwfbuy = {'nrhospecies': 1,
           'packagedata': [irhospec, drhdc, crhoref, modelname, auxspeciesname],
  }
 
-# %% ============ T R A N S P O R T ====================
+# ============ T R A N S P O R T ====================
 
-# %% === Gwtfmi ===== Flow model interface
+# === Gwtfmi ===== Flow model interface
+
 pd = [("GWFHEAD",   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name))),
       ("GWFBUDGET", os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name))),
 ]
 Gwtfmi = {'packagedata': pd}
 
-# %% === Gwtmst ===== Mobile storage and transfer
+# === Gwtmst ===== Mobile storage and transfer
 
 Gwtmst = {'porosity': settings.props['por']}
  
-# %% === Gwtadv === advection =========
+# === Gwtadv ===== Advection
 
 Gwtadv = {'scheme' : 'TVD'} # choose from: upstream, central, TVD
 
-# %% === Gwtdsp === dispersion ========
+# === Gwtdsp ===== Dispersion and diffusion
 
 Gwtdsp = {**settings.props['disp']}
 
-# %% Gwtic === initial concentration ===
+# === Gwtic ===== Initial concentration
 
 strtconc = gr.const(pr['cSalt'])
 Gwtic = {'strt': strtconc}
 
-# %% Gwtcnc === const conc. ====
+# === Gwtcnc ===== Const concentration
 
-# %% Gwtoc === output control
+# === Gwtoc ===== Transport model output control
 Gwtoc = {
       'concentration_filerecord' : os.path.join(dirs.SIM, '{}Gwt.ucn'.format(sim_name)),
       'budget_filerecord':         os.path.join(dirs.SIM, '{}Gwt.cbc'.format(sim_name)),
-      'saverecord' : [("CONCENTRATION", *pr['oc_frequency']),
-                      ("BUDGET", *pr['oc_frequency'])
+      'saverecord' : [("CONCENTRATION", "FREQUENCY", pr['oc_frequency']),
+                      ("BUDGET", "FREQUENCY", pr['oc_frequency'])
                       ],
 }
 
-# %% Gwtssm === source-sink module
+# === Gwtssm ===== Source-sink module
 
 Gwtssm = {'sources': [['chd', 'AUX', 'relconc'],
                       ['wel', 'AUX', 'relconc']]}
+
 
 print('Done mf_adapt')
 
 if __name__ == '__main__':
    
-   print(dirs)  
+   print(dirs)
