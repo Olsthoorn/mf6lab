@@ -15,7 +15,7 @@ which is fed by recharge and drained where the water table reaches ground surfac
 import os
 import numpy as np
 from src import mf6tools
-from genericInunSectionData import gr
+
 import settings
 
 dirs = settings.dirs
@@ -23,9 +23,10 @@ sim_name = settings.sim_name
 section_name = settings.section_name
 pr = settings.props
 lay = settings.lay
+gr = settings.gr
 params_wbk = settings.params_wbk
 
-# %% === tdis ==========  Period Data:
+# === tdis ===== period data:
 start_date_time = '2024-01-01' # Must be a string.
 
 perDF = mf6tools.get_periodata_from_excel(params_wbk, sheet_name='PER')
@@ -56,20 +57,18 @@ params_dict = {'sy':  gr.const(lay['Ss'].values),
 layers = np.array([(i, n) for i, n in enumerate(lay['Split'].values)])
 gr_new, new_params = gr.refine_vertically(layers=layers, params_dict=params_dict)
 
-
-# %% === DIS ========== Grid
+# === DIS ===== Grid, structured
 
 Gwfdis = {'gr': gr_new,
           'idomain': new_params['idomain'],
           'length_units': settings.LENGTH_UNITS}
 
-
-# %% ==== STO ===============
+# ==== Gwfsto ===== Storage, transient
 Gwfsto = {'sy': new_params['sy'],
           'ss': new_params['ss'],
           }
 
-# %% === Gwfnpf =========== Horizontal and vertical conductivity
+# === Gwfnpf ===== Horizontal and vertical conductivity
 
 Gwfnpf = {  'k':   new_params['k'],
             'k33': new_params['k33'],
@@ -87,12 +86,15 @@ Gwfic = {'strt': strthd}
 # === Gwfwel ===== wells
 
 # === Gwfdrn =====
+hDr = gr_new.Z[0, 0] - pr['drain_depth']
+drn_xyz = np.vstack((gr_new.xm, np.zeros(gr_new.nx), hDr)).T
+Iz = gr_new.lrc_from_xyz(drn_xyz)['ic'][:, 0]
+gr_new.top_active_cells(IDOMAIN, Iz)
 
-hDr = gr_new.Z[0, 0] - pr['drainDepth']
 Cdr = gr_new.Area[0] / pr['cDrainage']
 
-Iz = gr.top_active_cells(IDOMAIN)  
-Iglob_wt = gr.Iglob_from_lrc(np.vstack((Iz, np.zeros(gr.nx, dtype=int), gr.NOD[0, 0])).T)    
+Iz = gr_new.top_active_cells(IDOMAIN)  
+Iglob_wt = gr_new.Iglob_from_lrc(np.vstack((Iz, np.zeros(gr_new.nx, dtype=int), gr_new.NOD[0, 0])).T)    
 DRN = [((iz, 0, i), h_, C_) for i, (iz, h_, C_) in enumerate(zip(Iz, hDr, Cdr))]
 
 Gwfdrn = {'stress_period_data': {0: DRN}}

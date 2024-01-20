@@ -15,9 +15,9 @@ dirs = mf_adapt.dirs
 sim_name = mf_adapt.sim_name
 start_date_time = mf_adapt.start_date_time
 gr = mf_adapt.gr
-rch = mf_adapt.rch
 Iz = mf_adapt.Iz
 lay = mf_adapt.lay
+pr = mf_adapt.pr
 
 # === load the model with simulation results. =====
 sim = flopy.mf6.MFSimulation.load(sim_name=sim_name,
@@ -35,13 +35,13 @@ h = headsObj.get_data(kstpkper=headsObj.get_kstpkper()[-1])
 datetimes = np.datetime64(start_date_time) + np.array(headsObj.times) * np.timedelta64(1, 'D')
 
 # === Get suitable levels for the stream function
-P =  rch * gr.dx.sum() # estimate of psi extremes
+P =  pr['rch'] * gr.dx.sum() # estimate of psi extremes
 levels = get_contour_levels(-P, P, 200)
 dpsi = np.diff(levels)[0] # flow between successive stream lines
 
 # === Plot the cross section =====
 title = "{} voor rch = {:.1f} mm/d. Tussen 2 stroomlijnen = {:.2f} m2/d = rch over {:.0f} m".format(
-    mf_adapt.section_name, rch * 1000, dpsi, dpsi / rch)
+    mf_adapt.section_name, pr['rch'] * 1000, dpsi, dpsi / pr['rch'])
 
 ax = newfig(title, 'x along section [m]', 'elevation [m]', figsize=(15, 8))
 
@@ -86,4 +86,3 @@ ax.text(0.85, 0.05, str(np.datetime64('today')),
 plt.savefig(os.path.join(dirs.images, sim.name + '.png'))
 
 plt.show()
-

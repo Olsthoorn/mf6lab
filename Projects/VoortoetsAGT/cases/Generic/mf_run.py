@@ -20,4 +20,4 @@ if not success:
     logging.critical("Buffer printed because MODFLOW did not terminate normally.")
     raise Exception('MODFLOW did not terminate normally.')
 else:
-    print("MF6 finished normally.")
+    print("MF6 terminated successfully.")
