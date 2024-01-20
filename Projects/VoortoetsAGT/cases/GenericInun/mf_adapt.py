@@ -21,11 +21,9 @@ import settings
 dirs = settings.dirs
 sim_name = settings.sim_name
 section_name = settings.section_name
-
-# Parameters workbook
+pr = settings.props
+lay = settings.lay
 params_wbk = settings.params_wbk
-
-## Get section data
 
 # %% === tdis ==========  Period Data:
 start_date_time = '2024-01-01' # Must be a string.
@@ -44,16 +42,14 @@ Simtdis = {'perioddata': period_data,
            'time_units': settings.TIME_UNITS,
            }
 
-# Conductivities
-lay = settings.lay
+IDOMAIN = gr.const(1, dtype=int)
 
-# IDOMAIN[gr.DZ < 0.25] = -1 # Does not work with Transport, We have to avoid pass-through cells.
 params_dict = {'sy':  gr.const(lay['Ss'].values),
                'ss':  gr.const(lay['Ss'].values),
                'k':   gr.const(lay['k'].values),
                'k33': gr.const(lay['k33'].values),
                'icelltype': gr.const(lay['ICELLTYPE'].values),
-               'idomain': gr.const(1, dtype=int),
+               'idomain': IDOMAIN,
             }
 
 # Vertically refine the model layers
@@ -80,119 +76,101 @@ Gwfnpf = {  'k':   new_params['k'],
             'icelltype': new_params['icelltype'],
             }
 
-# %% === Gwfic ======== Initial condictions (head)
+# === Gwfic ======== Initial condictions (head)
 
-strthd = gr_new.const(0.)
+strthd = gr_new.const(pr['hStrt'])
 
 Gwfic = {'strt': strthd}
 
-# %% === CHD, Fixed head period data (Only specify the first period)
-# Location of wells
-# Rwvp1, Rwvp2
-# Extraction by wells
+# === Gwfchd ===== fixed head
 
-# %% === WEL, required to lower head to measured  value
-# Location of wells
-# Rwvp1, Rwvp2
-# Extraction by wells
+# === Gwfwel ===== wells
 
-# %% === DRN,
-# Drain Cr [m2/d] is established from dh [m] head loss for c resistance [d].
-# q = dh /c [m/d] --> Q = dh dx dy  /c [m2/s] --> Cdr = Q /dh = dx dy / c
-c = 100 # d # drainage resistance [d]
+# === Gwfdrn =====
 
-hDr = gr_new.Z[0, 0] - 0.5
-Cdr = gr_new.Area[0] / c
-# Put the drains and the recharge in the second layer or below if inactive
-k = 0
-Iz = np.zeros(gr_new.nx, dtype=int) + k
+hDr = gr_new.Z[0, 0] - pr['drainDepth']
+Cdr = gr_new.Area[0] / pr['cDrainage']
 
-J = np.arange(gr_new.nx, dtype=int)
-for i in range(k, gr_new.nz):
-      z = gr_new.Z[i + 1, 0]
-      J = J[np.logical_or(hDr[J] < z[J], new_params['idomain'][i, 0, J] < 0)]
-      # print(i, len(J))
-      if len(J) > 0:
-            Iz[J] += 1
-      
+Iz = gr.top_active_cells(IDOMAIN)  
+Iglob_wt = gr.Iglob_from_lrc(np.vstack((Iz, np.zeros(gr.nx, dtype=int), gr.NOD[0, 0])).T)    
 DRN = [((iz, 0, i), h_, C_) for i, (iz, h_, C_) in enumerate(zip(Iz, hDr, Cdr))]
 
 Gwfdrn = {'stress_period_data': {0: DRN}}
 
-# %% === Rch
+# === Gwfrch =====
 
-rch = 0.001 # m/d
-
-RCH = [((iz, 0, i), rch) for i, iz in enumerate(Iz)]
+RCH = [((iz, 0, i), pr['rch']) for i, iz in enumerate(Iz)]
 
 Gwfrch = {'stress_period_data': {0: RCH}}
 
-# %% === OC ====
+# === Gwfoc ======
 
 Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name)),
          'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)),
-         'saverecord': [("HEAD", "FREQUENCY", 10), ("BUDGET", "FREQUENCY", 10)],
+         'saverecord': [("HEAD", "FREQUENCY", pr['oc_frequency']),
+                        ("BUDGET", "FREQUENCY", pr['oc_frequency'])],
 }
 
-# %% === Gwfbuy (boyancy) ====
-FRESH, SALT, rhomin, rhomax = 0.0, 18000.0, 1000, 1025
+# === Gwfbuy =====  (boyancy)
 
-irhospec = 0,
-drhdc = (rhomax - rhomin) / SALT # kg/m3 / (mf/l) (conc FRESH to SALT)
-crhoref = FRESH
+irhospec = 0
+drhdc = (pr['rhoSalt'] - pr['rhoFresh']) / (pr['cSalt'] - pr['cFresh'])
+crhoref = pr['cFresh']
 modelname = sim_name + 'GWT'
-auxspeciesname = None
+auxspeciesname = "relconc"
 
 Gwfbuy = {'nrhospecies': 1,
+          'denseref': pr['rhoFresh'],
+          'density_filerecord': os.path.join(dirs.SIM, sim_name + 'Gwf.rho'),
           'packagedata': [irhospec, drhdc, crhoref, modelname, auxspeciesname],
  }
 
-Gwfbuy = {}
+# ============ T R A N S P O R T ====================
 
-# %% ============ T R A N S P O R T ====================
-
-# %% === Gwtfmi ===== Flow model interface
+# === Gwtfmi ===== Flow model interface
 pd = [("GWFHEAD",   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name))),
       ("GWFBUDGET", os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name))),
 ]
 Gwtfmi = {'packagedata': pd}
 
-# %% === Gwtmst ===== Mobile storage and transfer
+# === Gwtmst ===== Mobile storage and transfer
 
-Gwtmst = {'porosity': 0.25}
+Gwtmst = {'porosity': pr['por']}
  
-# %% === Gwtadv === advection =========
+# === Gwtadv ===== advection =========
 
 Gwtadv = {'scheme' : 'TVD'} # choose from: upstream, central, TVD
 
-# %% === Gwtdsp === dispersion ========
-# diffc = 1e-10 m2/s 1e4 cm2/m2 60 s/min = 6e-5 m2/min
-ahl, ath1, ath2, atv, diffc = 1.0, 0.1, 0.1, 0.1, 6e-5
-# ahl, ath1, ath2, atv, diffc = 10.0, 1.0, 1.0, 0.1, 6e-5
+# === Gwtdsp ===== dispersion ========
 
-Gwtdsp = {'alh': ahl, 'ath1': ath1, 'ath2': ath2, 'atv': atv, 'diffc': diffc}
+Gwtdsp = {'alh': pr['ahl'],
+          'ath1': pr['ath1'],
+          'ath2': pr['ath2'],
+          'atv': pr['atv'],
+          'diffc': pr['diffc']}
 
-# %% Gwtic === initial concentration ===
+# === Gwtic ===== initial concentration ===
 
-STRT = gr_new.const(FRESH)
-STRT[gr_new.ZM < -30] = SALT
-Gwtic = {'strt': STRT}
+cStart= gr_new.const(pr['cFresh'])
+cStart[gr_new.ZM < pr['zIface']] = pr['cSalt']
+Gwtic = {'strt': cStart}
 
-# %% Gwtcnc === const conc. ====
+# === Gwtcnc ===== const conc.
 
-# Gwtcnc = {} # Use for sea conc
 
-# %% Gwtoc === output control
+# === Gwtoc ===== output control
 Gwtoc = {
       'concentration_filerecord' : os.path.join(dirs.SIM, '{}Gwt.ucn'.format(sim_name)),
       'budget_filerecord':         os.path.join(dirs.SIM, '{}Gwt.cbc'.format(sim_name)),
-      'saverecord' : [("CONCENTRATION", "FREQUENCY", 10),
-                      ("BUDGET", "FREQUENCY", 10)],
+      'saverecord' : [("CONCENTRATION", "FREQUENCY", pr['oc_frequency']),
+                      ("BUDGET", "FREQUENCY", pr['oc_frequency'])],
 }
 
-# %% Gwtssm === source-sink module
+# === Gwtssm ====== source sink mixing
 
 Gwtssm = {}
+
+# =====================================
 
 print('Done mf_adapt')
 
