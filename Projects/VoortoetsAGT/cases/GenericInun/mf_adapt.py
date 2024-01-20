@@ -27,7 +27,7 @@ gr = settings.gr
 params_wbk = settings.params_wbk
 
 # === tdis ===== period data:
-start_date_time = '2024-01-01' # Must be a string.
+start_date_time = pr['start_date_time'] # Must be a string.
 
 perDF = mf6tools.get_periodata_from_excel(params_wbk, sheet_name='PER')
 period_data = [tuple(sp) for sp in perDF[['PERLEN', 'NSTP', 'TSMULT']].values]
@@ -86,7 +86,7 @@ Gwfic = {'strt': strthd}
 # === Gwfwel ===== wells
 
 # === Gwfdrn =====
-hDr = gr_new.Z[0, 0] - pr['drain_depth']
+hDr = gr_new.Z[0, 0] - pr['drainDepth']
 drn_xyz = np.vstack((gr_new.xm, np.zeros(gr_new.nx), hDr)).T
 Iz = gr_new.lrc_from_xyz(drn_xyz)['ic'][:, 0]
 gr_new.top_active_cells(IDOMAIN, Iz)

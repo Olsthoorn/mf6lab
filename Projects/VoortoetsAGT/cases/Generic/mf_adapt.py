@@ -22,6 +22,7 @@ INACTIVE =[-1, 0]
 dirs = settings.dirs
 sim_name = settings.sim_name
 section_name = settings.section_name
+lay = settings.lay
 pr = settings.props
 gr = settings.gr
 params_wbk = settings.params_wbk # Parameters workbook
