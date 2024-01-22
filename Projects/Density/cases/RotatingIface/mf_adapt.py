@@ -77,12 +77,12 @@ Gwfic = {'strt': strthd}
 
 if True:
       IdxL = gr.NOD[-1, :,  -1].flatten()
-      IdxR = np.array([])
+      IdxR = np.array([], dtype=int)
 else:
       IdxL = gr.NOD[:, :,  0].flatten()
       IdxR = gr.NOD[:, :, -1].flatten()
-stress_period_data = [(lrc, pr['hStrt'], pr['cL']) for lrc in gr.LRC(IdxL)] +\
-       [(lrc, pr['hStrt'], pr['cR']) for lrc in gr.LRC(IdxR)]
+stress_period_data = ([(lrc, pr['hStrt'], pr['cL']) for lrc in gr.lrc_from_iglob(IdxL)] +
+                     [(lrc, pr['hStrt'], pr['cR']) for lrc in gr.lrc_from_iglob(IdxR)])
 Gwfchd ={'auxiliary': 'relconc',
          'stress_period_data': stress_period_data}
 

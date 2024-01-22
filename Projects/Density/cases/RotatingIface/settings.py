@@ -23,25 +23,22 @@ assert os.path.isfile(params_wbk), "Params_wbk not found: {}".format(params_wbk)
 lay = pd.read_excel(params_wbk, sheet_name='LAY', header=0, index_col=0)
 
 props = {
-    'NPER':  1,
-    'NSTP': 500,
-    'oc_frequency': 100, # Saving frequency
-    'tmax': 0.5, # [d]
+    'start_date_time': '2024-01-16',
+    'oc_frequency': 50, # Saving frequency
+    'icelltype': 0,
     'L': 300, # [m]
     'H': 40, # [m]
     'dx': 1.0, #[m]
     'dz': 0.5, #[m]
-    'Lsys': 150, # [m]
     'k': 2.0, # [m/d]
+    'sy': 0.2, # [-]
+    'ss': 1e-4, # [1/m]
     'rhoref': 1000., # [kg/m3]
     'crhoref': 0.,
-    'drhodc': 0.7,
-    'rhoR': 1000.,
-    'rhoM': 1012.5,
-    'rhoL': 1025.,
-    'cR': 0.0, # [kg/m3]
-    'cM': 17.5,
-    'cL': 35.,
+    'rhoFresh': 1000.,
+    'rhoSalt': 1025.,
+    'cFresh': 0.0, # [kg/m3]
+    'cSalt': 35.0, # [kg/m3]
     'IeRM': 40.0, # [m] Interface extent between zone 1 and zone 2
     'IeML': 40.0, # [m] Interface extent between zone 2 and zone 3
     'xmRM': 170.0, # [m] X-midpoing for zone 1 and 2 interface
@@ -50,3 +47,9 @@ props = {
     'por': 0.2,
     'disp' : {'alh': .1, 'ath1': .01, 'ath2': .0, 'atv': .01, 'diffc': 1.89e-5 * 86400}, # [m] and [m2/d]
 }
+
+props.update(cL=props['cSalt'], cR=props['cFresh'], rhoL=props['rhoSalt'], rhoR=props['rhoFresh'])
+props.update(cM=(props['cL'] + props['cR'])/ 2,
+             rhoM=(props['rhoL'] + props['rhoR']) / 2
+             )
+
