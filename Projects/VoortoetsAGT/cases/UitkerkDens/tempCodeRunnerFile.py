@@ -1,0 +1,1 @@
+np.array([(i, n) for i, n in enumerate(lay['Split'].values)])

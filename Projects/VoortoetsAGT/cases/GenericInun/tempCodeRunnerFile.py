@@ -1,1 +1,0 @@
-lay = settings.lay
