@@ -63,6 +63,7 @@ layers = np.array([(i, n) for i, n in enumerate(lay['Split'].values)])
 gr_new, new_params = gr.refine_vertically(layers=layers, params_dict=params_dict)
 
 # === DIS ===== Grid, structured
+new_params['idomain'][gr_new.DZ <= pr['dz_pinched_out']] = -1
 
 Gwfdis = {'gr': gr_new,
           'idomain': new_params['idomain'],
@@ -71,6 +72,7 @@ Gwfdis = {'gr': gr_new,
 # ==== Gwfsto ===== Storage, transient
 Gwfsto = {'sy': new_params['sy'],
           'ss': new_params['ss'],
+          'iconvert': 1,
           }
 
 # === Gwfnpf ===== Horizontal and vertical conductivity

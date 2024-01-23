@@ -109,6 +109,7 @@ Gwfdis = {'gr': gr,
 
 Gwfsto = {'sy': gr.const(pr['sy']),
           'ss': gr.const(pr['ss']),
+          'iconvert': 1,
           }
 
 # %% === Gwfnpf ======= Horizontal and vertical conductivity

@@ -1,0 +1,14 @@
+@TO 20240122
+
+Contouring concentraties en stijghoogten met flow-through cells geïnterpoleerd
+Conoturing met top en basis model geïncorporeerd.
+
+Effect van neerslagoverschot op drainage systems laten zien in een flimiplje
+Daarbij ook het effect van het opvullen van de ondergrond.
+
+Cursus IHE op readthedocs.
+
+GGOR --> mf6lab
+BUZA --> mf6lag
+Coert --> mf6lab
+Dan Qatar >> mf6lab.
