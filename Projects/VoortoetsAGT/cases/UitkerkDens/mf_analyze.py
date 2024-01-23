@@ -25,7 +25,7 @@ sim_name = mf_adapt.sim_name
 gr       = mf_adapt.gr_new
 lay      = mf_adapt.lay
 pr       = mf_adapt.pr
-IDOMAIN  = mf_adapt.IDOMAIN
+IDOMAIN  = mf_adapt.new_params['idomain']
 
 Iglob_wt = gr.Iglob_from_lrc(np.vstack((mf_adapt.Iz, np.zeros(gr.nx, dtype=int), gr.NOD[0, 0])).T)
 
@@ -51,6 +51,9 @@ kstpkper = np.array(headsObj.get_kstpkper())
 # %% Get the range needed for contouring
 hmin, hmax, hInactive = np.unique(headsObj.get_alldata())[[0, -2, -1]] # the last one may be 1e30 (inactive)
 cmin, cmax, cInactive = np.unique(concObj.get_alldata())[[ 0, -2, -1]] # the last one may be 1e30 (inactive)
+
+# For interpolating over flow through cells which are otherwise inactive with c = 1e30.
+IA = gr.inactive_cells_array(IDOMAIN)
 
 #  === flow right face for computing the stream function =====
 flowjas = budObj.get_data(text='FLOW-JA')
@@ -81,6 +84,7 @@ psi = gr.psi_row(fflows['frf'][frame], row=0)
 c   = concObj.get_data(kstpkper=kstpkper[frame])[:, 0, :]
 c[c < pr['cFresh']] = pr['cFresh']
 c[c > pr['cSalt']]  = pr['cSalt']
+c.ravel()[IA['inact']] = 0.5 * (c.ravel()[IA['itop']] + c.ravel()[IA['ibot']])
 
 ax  = newfig("", 'Lijnafstand [m]', 'mTAW', figsize=(15, 8))
 fig = plt.gcf()
@@ -142,6 +146,7 @@ def update(frame):
     c = concObj.get_data(kstpkper=kstpkper[frame])[ :, 0, :]
     c[c < pr['cFresh']] = pr['cFresh']
     c[c > pr['cSalt']]  = pr['cSalt']
+    c.ravel()[IA['inact']] = 0.5 * (c.ravel()[IA['itop']] + c.ravel()[IA['ibot']])
     
     for coll in caxC.collections:
         coll.remove()

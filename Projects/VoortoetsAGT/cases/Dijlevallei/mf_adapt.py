@@ -54,8 +54,9 @@ Gwfdis = {'gr': gr,
 
 
 # ==== Gwfsto ===== storage (transient)
-Gwfsto = {'sy': gr.const(lay['Ss'].values),
-          'ss': gr.const(lay['Ss'].values)
+Gwfsto = {'sy': gr.const(lay['Sy'].values),
+          'ss': gr.const(lay['Ss'].values),
+          'iconvert': gr.const(lay['ICELLTYPE'].values),
           }
 
 # === Gwfnpf ====== layer properties

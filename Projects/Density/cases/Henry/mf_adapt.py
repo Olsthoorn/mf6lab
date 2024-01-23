@@ -59,6 +59,7 @@ Gwfdis = {'gr': gr,
 
 Gwfsto = {'sy': gr.const(pr['sy']),
           'ss': gr.const(pr['ss']),
+          'iconvert': 0,
           }
 
 # === Gwfnpf ===== Layer properties

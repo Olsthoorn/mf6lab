@@ -66,6 +66,7 @@ Gwfdis = {'gr': gr_new,
 # ==== Gwfsto ===== Storage, transient
 Gwfsto = {'sy': new_params['sy'],
           'ss': new_params['ss'],
+          'iconvert': 1,
           }
 
 # === Gwfnpf ===== Horizontal and vertical conductivity
