@@ -51,15 +51,15 @@ Gwfdis = {'gr': gr,
 
 # ==== Gwfsto ===== Storage, transient
 
-Gwfsto = {'sy': gr.const(lay['Sy'].values),
-          'ss': gr.const(lay['Ss'].values),
+Gwfsto = {'sy': gr.const(lay['Sy'].values, axial=True),
+          'ss': gr.const(lay['Ss'].values, axial=True),
           'iconvert': gr.const(lay['ICELLTYPE'].values),
           }
 
 # === Gwfnpf ===== Horizontal and vertical conductivity
 
-Gwfnpf = {  'k':   gr.const(lay['k'].values),
-            'k33': gr.const(lay['k33'].values),
+Gwfnpf = {  'k':   gr.const(lay['k'].values,   axial=True),
+            'k33': gr.const(lay['k33'].values, axial=True),
             'icelltype': gr.const(lay['ICELLTYPE'].values),
             }
 
