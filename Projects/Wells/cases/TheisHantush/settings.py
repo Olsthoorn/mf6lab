@@ -38,7 +38,7 @@ props = { 'start_date_time': '2024-01-24',
           'rch': 0.001, # m/d
           'strthd': 0.0, # m initial head
           'dz_pinched_out': 0.01, # [m] thickness of pinched out layers"
-          'Q' : -1200.0, # m3/d'
+          'Q' : -12000.0, # m3/d'
           'ztop': 1.0,
 }
 

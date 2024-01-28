@@ -16,7 +16,7 @@ from src.mf6contourtools import get_contour_levels
 from fdm.mf6_face_flows import get_structured_flows_as_dict
 from settings import props as pr
 
-SAVE_ANIMATION = False
+SAVE_ANIMATION = True
 
 # === From mf_adapt =====
 dirs = mf_adapt.dirs
@@ -65,7 +65,7 @@ def init_func(ax=None, gr=None, lay=None,
     
     frame = 0
     Qactual = 0.0
-    title = (". {} dpsi = {:.3f} m3/d, Q actual = {:.1f} m3/d, frame={}, sim_time = {:.1f} d"
+    title = (". {} dpsi = {:.3f} m2/d, Q actual = {:.1f} m2/d, frame={}, sim_time = {:.1f} d"
              .format(section_name, dpsi, Qactual, frame, sim_times[frame]))
     ttl = ax.set_title(title)
     
@@ -140,7 +140,7 @@ def animate(frame, budObj=None, fflows=None, headsObj=None, kstpkper=None,
       
     # === Update title =====
     Qactual = budObj.get_data(text='wel', kstpkper=kstpkper[frame])[0]['q'].sum()
-    ttl.set_text(". {} dpsi = {:.3f} m3/d, Q actual = {:.1f} m3/d, frame={}, sim_time = {:.1f} d".format(section_name, dpsi, Qactual, frame, sim_times[frame]))
+    ttl.set_text(". {} dpsi = {:.3f} m2/d, Q actual = {:.1f} m2/d, frame={}, sim_time = {:.1f} d".format(section_name, dpsi, Qactual, frame, sim_times[frame]))
 
     # === water table =====
     hds = headsObj.get_data(kstpkper=kstpkper[frame])
