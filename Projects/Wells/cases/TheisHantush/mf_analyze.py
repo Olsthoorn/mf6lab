@@ -16,7 +16,7 @@ from src.mf6contourtools import get_contour_levels
 from fdm.mf6_face_flows import get_structured_flows_as_dict
 from settings import props as pr
 
-SAVE_ANIMATION = False
+SAVE_ANIMATION = True
 
 # === From mf_adapt =====
 dirs = mf_adapt.dirs
@@ -53,7 +53,7 @@ dpsi = np.diff(p_levels)[0]
 
 # === Get h_levels =====
 hmin, hmax = np.unique(headsObj.get_alldata())[[0, -1]]
-h_levels = get_contour_levels(-5, hmax, n=51)
+h_levels = get_contour_levels(hmin, hmax, n=51)
 
 
 def init_func(ax=None, gr=None, lay=None,
