@@ -48,12 +48,12 @@ fflows = get_structured_flows_as_dict(budObj, grb_file=grb_file)
 
 #  === Stream function ===== Stream function is called psi.
 P =  abs(pr['Q'])    # estimate extremes of the stream function
-p_levels = get_contour_levels(-P, P, 100)
+p_levels = get_contour_levels(-P, P, 51)
 dpsi = np.diff(p_levels)[0]
 
 # === Get h_levels =====
 hmin, hmax = np.unique(headsObj.get_alldata())[[0, -1]]
-h_levels = get_contour_levels(-5, hmax, n=51)
+h_levels = get_contour_levels(hmin, hmax, n=21)
 
 
 def init_func(ax=None, gr=None, lay=None,
@@ -65,7 +65,7 @@ def init_func(ax=None, gr=None, lay=None,
     
     frame = 0
     Qactual = 0.0
-    title = (". {} dpsi = {:.2f} m3/d, Q actual = {:.1f} m3/d, frame={}, sim_time = {:.1f} d"
+    title = (". {} dpsi = {:.3f} m3/d, Q actual = {:.1f} m3/d, frame={}, sim_time = {:.1f} d"
              .format(section_name, dpsi, Qactual, frame, sim_times[frame]))
     ttl = ax.set_title(title)
     
@@ -140,7 +140,7 @@ def animate(frame, budObj=None, fflows=None, headsObj=None, kstpkper=None,
       
     # === Update title =====
     Qactual = budObj.get_data(text='wel', kstpkper=kstpkper[frame])[0]['q'].sum()
-    ttl.set_text(". {} dpsi = {:.2f} m3/d, Q actual = {:.1f} m3/d, frame={}, sim_time = {:.1f} d".format(section_name, dpsi, Qactual, frame, sim_times[frame]))
+    ttl.set_text(". {} dpsi = {:.3f} m3/d, Q actual = {:.1f} m3/d, frame={}, sim_time = {:.1f} d".format(section_name, dpsi, Qactual, frame, sim_times[frame]))
 
     # === water table =====
     hds = headsObj.get_data(kstpkper=kstpkper[frame])
@@ -186,7 +186,8 @@ def animate(frame, budObj=None, fflows=None, headsObj=None, kstpkper=None,
 if True:
 
     # === New figure =====
-    ax = newfig(mf_adapt.section_name, 'distance r [m]', 'elevation [m]', xscale='linear', xlim=(0, 200), figsize=(15, 8))
+    ax = newfig(mf_adapt.section_name, 'distance r [m]', 'elevation [m]', xscale='linear',
+                xlim=(0, 0.8 * pr['L']), figsize=(15, 8))
     fig = plt.gcf()
 
 
