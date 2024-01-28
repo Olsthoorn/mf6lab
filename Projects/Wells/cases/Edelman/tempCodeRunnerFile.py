@@ -1,0 +1,1 @@
+caxh = ax.contour(gr.xm[np.newaxis, :] * np.ones((gr.nz + 1, gr.nx)), gr.Z[:, 0, :], hZ[:, 0, :], levels=h_levels)
