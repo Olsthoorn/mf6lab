@@ -1,0 +1,1 @@
+ax.plot(filters[:, 0], filters[:, -1], 'r.')

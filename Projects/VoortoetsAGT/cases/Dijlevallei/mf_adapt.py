@@ -32,10 +32,6 @@ start_date_time = settings.start_date_time # Must be a string.
 perDF = mf6tools.get_periodata_from_excel(params_wbk, sheet_name='PER')
 period_data = [tuple(sp) for sp in perDF[['PERLEN', 'NSTP', 'TSMULT']].values]
 
-# Stress period start times
-sp_start_times = np.datetime64(pr['start_date_time']) + np.cumsum(
-                  np.hstack((0., np.array([p[0] for p in period_data])[:-1]))
-                  ) * np.timedelta64(1, 'D')
 
 Simtdis = {'perioddata': period_data,
            'nper': len(period_data),
@@ -80,19 +76,9 @@ Gwfic = {'strt': strthd}
 hDr = gr.Z[0, 0] - pr['drain_depth']
 drn_xyz = np.vstack((gr.xm, np.zeros(gr.nx), hDr)).T
 Iz = gr.lrc_from_xyz(drn_xyz)['ic'][:, 0]
-gr.top_active_cells(IDOMAIN, Iz)
+Iz = gr.top_active_cells(IDOMAIN, Iz)
 
-Cdr = gr.Area[0] / pr['cDrainage']
-Iz = np.zeros(gr.nx, dtype=int)
-
-J = np.arange(gr.nx, dtype=int)
-for i in range(gr.nz):
-      z = gr.Z[i + 1, 0]
-      J = J[np.logical_or(hDr[J] < z[J], IDOMAIN[i, 0, J] < 0)]
-      # print(i, len(J))
-      if len(J) > 0:
-            Iz[J] += 1
-      
+Cdr = gr.Area[0] / pr['cDrainage']      
 DRN = [((iz, 0, i), h_, C_) for i, (iz, h_, C_) in enumerate(zip(Iz, hDr, Cdr))]
 
 Gwfdrn = {'stress_period_data': {0: DRN}}
