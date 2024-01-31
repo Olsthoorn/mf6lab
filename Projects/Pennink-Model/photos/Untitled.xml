@@ -1,0 +1,11 @@
+<?xml version = '1.0'  encoding = 'ISO-8859-1'  standalone = 'yes' ?>
+<!-- PlotDigitizer data file: created on Wed Jan 31 00:03:43 CET 2024 -->
+<data>
+<image file='PenninkBoogkan1.jpg' />
+<axesnames x='X'  y='Y' />
+<calibpoints minXaxisX='550.0' minXaxisY='2793.0' maxXaxisX='3791.0' maxXaxisY='2788.0' minYaxisX='550.0' minYaxisY='2793.0' maxYaxisX='454.0' maxYaxisY='120.0' aX1='-19.01' aX2='19.53' aY1='-18.95' aY2='12.8' isXLog='false' isYLog='false' />
+<point n='0' x='545.0' y='2790.0' dx='-19.069401780598938' dy='-18.914276237110982' />
+<point n='1' x='3791.666666666667' y='2786.666666666667' dx='19.53795203577218' dy='-18.934175707000954' />
+<point n='2' x='3816.666666666667' y='68.33333333333334' dx='19.88510450484793' dy='13.352048430652141' />
+<point n='3' x='451.6666666666667' y='118.33333333333334' dx='-20.130250071733855' dy='12.819838391099633' />
+</data>
