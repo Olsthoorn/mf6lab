@@ -1,1 +1,1 @@
-foto
+plt.show()

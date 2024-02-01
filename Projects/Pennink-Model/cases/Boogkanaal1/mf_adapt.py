@@ -54,9 +54,17 @@ Simtdis = {'perioddata': period_data,
 
 xMin, xMax = np.unique(pr['sand'][:, 0])[[0, -1]]
 zMin, zMax = np.unique(pr['sand'][:, 1])[[0, -1]]
-zMax = pr['hL'] + pr['dz']
-x = np.arange(xMin, xMax + pr['dx'] / 2, +pr['dx'])
-z = np.arange(np.ceil(zMax), np.floor(zMin) - pr['dz'] / 2, -pr['dz'])
+zMax = pr['hL']
+xMin, xMax = pr['sand'][:, 0].min(), pr['sand'][:, 0].max()
+xcMin, xcMax = pr['canal'][:, 0].min(), pr['canal'][:, 0].max()
+
+x = np.hstack((np.arange(xMin, xcMin -0.5, pr['dx']),               
+               np.arange(xcMin - 0.5, xcMax + 0.5, pr['dx1']),               
+               np.arange(xcMin + 0.5, xMax + pr['dx'] / 2, pr['dx'])               
+               ))
+z = np.hstack((np.arange(zMax, zMax - 2.0, -pr['dz1']),
+               np.arange(zMax - 2, zMin - pr['dz1'], -pr['dz'])
+            ))
 y = [-0.5, 0.5]
 
 gr = Grid(x, y, z, min_dz=pr['min_dz'])
@@ -85,6 +93,10 @@ Gwfsto = {'sy': gr.const(pr['sy']),
 k   = gr.const(pr['k'])
 k33 = gr.const(pr['k33'])
 
+k_water = 1000.
+k[  IDOMAIN == pr['IDC']] = k_water
+k33[IDOMAIN == pr['IDC']] = k_water
+
 Gwfnpf = { 'k':   k,
           'k33': k33,          
           'icelltype': pr['icelltype'],
@@ -97,10 +109,10 @@ Gwfic = {'strt': hstrt}
 
 # === Gwfchd ======= fixed head
 active = IDOMAIN > 0
-Izwt = np.arange(gr.nz)[gr.Z[1:, 0, 0] < pr['hL']]
-lrcL = gr.lrc_from_iglob(gr.NOD[Izwt, 0,  0][active[Izwt, 0,  0]])
-lrcR = gr.lrc_from_iglob(gr.NOD[Izwt, 0, -1][active[Izwt, 0, -1]])
+
 lrcC = gr.lrc_from_iglob(gr.NOD[IDOMAIN == pr['IDC']])
+lrcL = gr.lrc_from_iglob(gr.NOD[:, 0,  0])
+lrcR = gr.lrc_from_iglob(gr.NOD[:, 0, -1])
 stress_period_data = [(lrc, pr['hL']) for lrc in lrcL] +\
                      [(lrc, pr['hR']) for lrc in lrcR] +\
                      [(lrc, pr['hC']) for lrc in lrcC]
@@ -113,7 +125,7 @@ Gwfchd ={ #'auxiliary': 'relconc',
 # Here just to get the top active cells
 hDr = gr.Z[0, 0] - pr['drain_depth']
 drn_xyz = np.vstack((gr.xm, np.zeros(gr.nx), hDr)).T
-Iz = gr.lrc_from_xyz(drn_xyz)['ic'][:, 0]
+Iz = np.zeros(gr.nx, dtype=int)
 Iz = gr.top_active_cells(IDOMAIN, Iz)
 
 # Do nothing with drains for now

@@ -1,6 +1,8 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.path import Path
+import matplotlib.patches as patches
 from PIL import Image
 
 from src.mf6tools import  Dirs
@@ -9,12 +11,12 @@ from src.mf6tools import  Dirs
 HOME = '/Users/Theo/GRWMODELS/python/mf6lab/Projects/Pennink-Model/'
 assert os.path.isdir(HOME), "Can't find the directory {}".format(HOME)
 
-LENGTH_UNITS = 'cm'
-TIME_UNITS = 'minutes'
+LENGTH_UNITS = 'm'
+TIME_UNITS = 'days'
 
 dirs = Dirs(HOME)
 
-sim_name = 'Series1'
+sim_name = 'Boogkanaal2'
 section_name = 'Pennink (1915) {}.'.format(sim_name)
 dirs = dirs.add_case(sim_name)
 os.chdir(dirs.case)
@@ -22,99 +24,167 @@ os.chdir(dirs.case)
 params_wbk = os.path.join(dirs.case, sim_name + '.xlsx')
 assert os.path.isfile(params_wbk), "Params_wbk not found: {}".format(params_wbk)
 
-date_times = [
-    "1904-05-01T09:22:00",   # ink added    year,month,1,10,19;   % opname p12
-    "1904-05-01T10:39:00",   # p14
-    "1904-05-01T11:09:00",   # p16
-    "1904-05-01T11:12:00",   # some ink drops added to show flow path
-    "1904-05-01T11:39:00",   # p18
-]
-
 props = {
-    'start_date_time': '1905-05-01T09:22:00',
-    'photo': 'Series1_01_p10.jpg', # background phohto
-    'extent': (-19.0, 79.5, -10, 82), # extent of photo
-    'oc_frequency': 3, # Saving frequency for budget heads and concentrations
-    'Qdim': 'cm3/min',
-    'L': 65, # [cm]
-    'H': 65, # [cm]
-    'D': 1.8, # [cm]
-    'dx': 1.0, #[cm]
-    'dz': 1.0, #[cm]
-    'zCapZone': 51.0,  # [cm] Top of full capillary zone (see descripition)
-    'icelltype': 0,
-    'k_mpd': 650., # [m/d] calbrated from data in Pennink's series 1 experiments 
-    'k': 65000 / (24 * 60), # [cm/min] 
-    'sy': 0.2,
-    'ss': 1e-4,
-    # 'disp' : {'alh': 0.1, 'ath1': 0.01,
-    #           'ath2': 0.01, 'atv': 0.01,
-    #           'diffc': 3.96e-4}, # Diffc in cm2/min
-    'disp' : {'alh': 0.2, 'ath1': 0.02,
-              'ath2': 0.02, 'atv': 0.02,
-              'diffc': 3.96e-4}, # Diffc in cm2/min
-    'hCanL': 45.2, # [cm] head in left canal
-    'hCanR': 45.7, # [cm] head in right canal
-    'por': 0.38, # [-] porosity
-    'cCanL': 0.0, # concentration in canal left side
-    'cCanR': 0.0, # concentration in canal right side
-    'rhoFresh': 1., # [g/cm3]     not used in this model
-    'rhoSalt': 1.0245, # [g/cm3]  not used in this model
-    'cFresh': 0.0, # [g/cm3]      not used in this model
-    'cSalt': 35.0,  # [g/cm3]    not used in this model
-    'cNoInk' : 0.0,
-    'cInk': 1.0, # ink concentration (relative)
-    'IDCL': 2, # IDOMAIN value for cells in Canal Left (For easy finding of cells.)
-    'IDCR': 3, # IDOMAIN value for cells in Canal Right (For easy finding of cells.)
-    'iInk': 4, # IDOMAIN value for ink injection points (For easy finding of cells.)
-    'xyzInk': np.array([[50.6, 0, 50.0],
-                        [52.6, 0, 44.9],
-                        [53.8, 0, 33.7],
-                        [56.1, 0, 23.0]]),
-    'sand' :np.array([[ 0.0,  0.0], # Contour sand mass cm vs LL of model
-                      [65.0,  0.0],
-                      [65.0, 44.7],
-                      [62.6, 44.7],
-                      [62. , 47.5],
-                      [61.5, 53. ],
-                      [61. , 62.9],
-                      [55. , 62.1],
-                      [48.8, 62.2],
-                      [39.8, 61.7],
-                      [34.5, 62. ],
-                      [26.5, 60.8],
-                      [19.2, 58.9],
-                      [13.4, 56.7],
-                      [ 8.5, 53. ],
-                      [ 7.1, 51.9],
-                      [ 6.5, 47. ],
-                      [ 6. , 44. ],
-                      [ 5.2, 42. ],
-                      [ 3.9, 40.7],
-                      [ 2.2, 40.6],                      
-                      [1.80, 40.7],
-                      [ 0.0, 42.0],
-                      [ 0.0,  0.0]]),
-    'canalL': np.array([[0.0, 65.00], # Contour of canal on the left side
-                        [ 0.0, 41.99],
-                        [1.80, 40.72],
-                        [3.95, 40.83],
-                        [5.61, 42.71],
-                        [6.68, 47.54],
-                        [7.17, 52.26],
-                        [8.33, 57.87],
-                        [9.01, 65.00],
-                        [ 0.0, 65.00]]),
-    'canalR': np.array([[60.79, 65.00], # Contour canal on right side
-                        [61.39, 57.70],
-                        [61.59, 52.29],
-                        [61.99, 48.46],
-                        [62.29, 45.32],
-                        [62.98, 44.53],
-                        [65.00, 44.74],
-                        [65.00, 65.00],
-                        [60.89, 65.00]]),
-}
+    'start_date_time': '1905-01-01',
+    'photo': 'PenninkBoogkanaal2_correct.jpg', # background phohto
+    'extent': np.array([-0.35, 10.35, -9.31, 2.00]), # extent of photo [L, R, B, T]
+    
+    'oc_frequency': 1, # Saving frequency for budget heads and concentrations
+    'Qdim': 'm2/d',
+    'dx':   0.25, # [m]
+    'dz':   0.20, # [m]
+    'dx1': 0.05, # [m] dx where grid is refined
+    'dz1': 0.05, # [m] dz where grid is refined
+    'min_dz': 0.001, # [m]
+    'icelltype': 1,
+    'k':   10.0, # [m/d]
+    'k33': 10.0, #  [m/d]
+    'sy': 0.2,  # [-1]
+    'ss': 1e-4, # [1/m]
+    'drain_depth': 0.1, # Used to determine top active cells
+    'hL': 1.00, # [m] head left boundary
+    'hC': 0.00, # [m] head canal
+    'hR': 1.00, # [m] head ricgt boundary
+    'IDL': 2, # IDOMAIN value for fixed head cells left boundary
+    'IDC': 3, # IDOMAIN value for fixed head in canal
+    'IDR': 4, # IDOMAIN value for fixed head cells right boundary
+    'hTop': np.array([
+                [ 0.00, 1.00],
+                [ 0.42, 1.00],
+                [ 0.47, 1.52],
+                [ 0.57, 1.52],
+                [ 0.72, 1.50],
+                [ 0.98, 1.46],
+                [ 1.51, 1.42],
+                [ 1.89, 1.39],
+                [ 2.40, 1.40],
+                [ 2.66, 1.39],
+                [ 2.98, 1.32],
+                [ 3.44, 1.27],
+                [ 4.12, 1.28],
+                [ 4.32, 1.23],
+                [ 4.52, 1.25],
+                [ 4.63, 0.00],
+                [ 5.37, 0.00],
+                [ 5.48, 1.21],
+                [ 5.63, 1.28],
+                [ 5.87, 1.30],
+                [ 6.43, 1.33],
+                [ 7.03, 1.35],
+                [ 7.41, 1.40],
+                [ 7.90, 1.51],
+                [ 8.45, 1.56],
+                [ 8.92, 1.57],
+                [ 9.22, 1.62],
+                [ 9.49, 1.60],
+                [ 9.55, 1.00],
+                [10.00, 1.00]]),
+    'hBot': np.array([
+                [ 0.0,-8.58],
+                [10.0,-8.58]]),
+    'sand': np.array([
+                [ 0.00, 1.00],
+                [ 0.42, 1.00],
+                [ 0.47, 1.52],
+                [ 0.57, 1.52],
+                [ 0.72, 1.50],
+                [ 0.98, 1.46],
+                [ 1.51, 1.42],
+                [ 1.89, 1.39],
+                [ 2.40, 1.40],
+                [ 2.66, 1.39],
+                [ 2.98, 1.32],
+                [ 3.44, 1.27],
+                [ 4.12, 1.28],
+                [ 4.32, 1.23],
+                [ 4.52, 1.25],
+                [ 4.63, 0.00],
+                [ 5.37, 0.00],
+                [ 5.48, 1.21],
+                [ 5.63, 1.28],
+                [ 5.87, 1.30],
+                [ 6.43, 1.33],
+                [ 7.03, 1.35],
+                [ 7.41, 1.40],
+                [ 7.90, 1.51],
+                [ 8.45, 1.56],
+                [ 8.92, 1.57],
+                [ 9.22, 1.62],
+                [ 9.49, 1.60],
+                [ 9.55, 1.00],
+                [10.00, 1.00],
+                [10.00,-8.62],
+                [ 0.00,-8.62],
+                [ 0.00, 1.00]]),
+    'canalL': np.array([
+                [0.00,1.00],
+                [0.00,0.35],
+                [0.07,0.35],
+                [0.18,0.40],
+                [0.28,0.48],
+                [0.36,0.59],
+                [0.39,0.70],
+                [0.41,0.85],
+                [0.42,1.00],
+                [0.00,1.00]]),
+    'canalC': np.array([
+                [4.63, 0.00],
+                [4.64,-0.05],
+                [4.68,-0.15],
+                [4.74,-0.24],
+                [4.82,-0.30],
+                [4.91,-0.34],
+                [4.99,-0.35],
+                [5.11,-0.33],
+                [5.21,-0.27],
+                [5.28,-0.21],
+                [5.33,-0.13],
+                [5.36,-0.06],
+                [5.37, 0.00],
+                [4.63, 0.00]]),
+    'canalR': np.array([
+                [ 9.56,1.00],
+                [ 9.57,0.96],
+                [ 9.59,0.80],
+                [ 9.63,0.70],
+                [ 9.68,0.62],
+                [ 9.75,0.55],
+                [ 9.83,0.51],
+                [ 9.92,0.48],
+                [10.00,0.47],
+                [10.00,1.00],
+                [ 9.56,1.00]]),
+    'frame': np.array([
+                [ 0.00, 1.62],
+                [ 0.00,-8.58],
+                [10.00,-8.58],
+                [10.00, 1.62],
+                [ 0.00, 1.62]]),
+    'photoExtent': np.array([
+                [-0.35, 2.00],
+                [-0.35,-9.31],
+                [10.35,-9.31],
+                [10.35, 2.00],
+                [-0.35, 2.00]])
+    }
+
+
+def canal_patches(props, alpha=None):
+    """Return a list of patches for the canals."""
+    # Build patches
+    ptchs = []
+    # Set left and  right most points equal to gr.x[0] and gr.x[-1]
+    for canal in ['canalL', 'canalC', 'canalR']:
+        xy = props[canal]
+        codes = np.zeros(len(xy), dtype=int) + Path.LINETO
+        codes[0] = Path.MOVETO
+        codes[-1] = Path.CLOSEPOLY
+        pth = Path(xy, codes)
+        ptchs.append(patches.PathPatch(pth, fc='blue', ec='k', lw=0.25, alpha=alpha, zorder=5))        
+    return ptchs
+
+props['canalPatches'] = canal_patches(props)
+
 
 if __name__ == '__main__':
     
@@ -128,12 +198,16 @@ if __name__ == '__main__':
     
     foto = Image.open(os.path.join(dirs.photos, pr['photo']))
     ax.imshow(foto, extent=pr['extent'])
-
-    ax.plot([0, pr['L'], pr['L'], 0,  0], [0, 0, pr['H'], pr['H'], 0], 'b', label='bbox around model')
+    
+    ax.plot(*pr['frame'].T,  'red',  label='frame')
+    ax.plot(*pr['photoExtent'].T, 'blue', label='photoExtent')
     ax.plot(*pr['sand'].T, 'brown', label='sand')
     ax.plot(*pr['canalL'].T, 'black', label='canalL')
+    ax.plot(*pr['canalC'].T, 'black', label='canalC')
     ax.plot(*pr['canalR'].T, 'black', label='canalR')
-    ax.plot(pr['xyzInk'][:, 0], pr['xyzInk'][:, 2], 'ro', label='Inkk injection points')
+    
+    ax.legend(loc='best')
+    
     plt.show()
     
     
