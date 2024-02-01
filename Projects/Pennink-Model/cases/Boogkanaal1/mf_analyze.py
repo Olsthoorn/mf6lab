@@ -37,6 +37,7 @@ budObj   = gwf.output.budget()
 h = headsObj.get_data(kstpkper=headsObj.get_kstpkper()[-1])
 hMin, hMax, hInact = np.unique(h)[[0, -2, -1]]
 hlevels = get_contour_levels(hMin, hMax, 50)
+dh = np.diff(hlevels)[0]
 
 datetimes = np.datetime64(start_date_time) + np.array(headsObj.times) * np.timedelta64(1, 'D')
 
@@ -46,12 +47,12 @@ plevels = get_contour_levels(np.sum(P[P<0]), np.sum(P[P>0]), 50)
 dpsi = np.diff(plevels)[0] # flow between successive stream lines
 
 # === Plot the cross section =====
-title = "{} Tussen 2 stroomlijnen = {:.2f} m2/d, Qtotal = {:.2} m2/d".format(
-    mf_adapt.section_name, dpsi, P[P > 0].sum())
+title = "{}, dh = {:.3f} m, dpsi = {:.2f} m2/d, Qtotal = {:.2} m2/d".format(
+    mf_adapt.section_name, dh, dpsi, P[P > 0].sum())
 
-ax = newfig(title, 'x along section [m]', 'elevation [m]', figsize=(15, 8))
+ax = newfig(title, 'x along section [m]', 'elevation [m]', figsize=(17, 10))
 
-ax.imshow(photo, extent=pr['extent'], alpha=0.5)
+ax.imshow(photo, extent=pr['extent'], alpha=0.75)
 
 # ==== Stream function and contouring it. =====
 flowjas = budObj.get_data(text='FLOW-JA')
@@ -61,7 +62,7 @@ psi = gr.psi_row(fflows['frf'][-1], row=0) # Stream function
 
 # === Water table =====
 htop = np.array([h[iz, 0, ix] for ix, iz in enumerate(Iz)])
-ax.plot(gr.xm, htop, 'b-', lw=1, label='water tafel')
+ax.plot(gr.xm, htop, 'b-', lw=1, label='water tafel', zorder=5)
 
 Zpx = gr.Zpx_limited_to_water_table(htop) # Adapt grid to water table
 ax.contour(gr.Xp, Zpx, psi, levels=plevels, lw=0.5, label='Psi',  colors='orange')
@@ -76,14 +77,27 @@ caxh = ax.contour(gr.XM_on_zplanes[:, 0, :],
 # for iL, zp in enumerate(gr.Z):
 # f   ax.plot(gr.xm, zp[0], 'k-', lw=0.5) # , label=f'layer {iL}')
 
-filters = np.vstack((pr['filters_15'], pr['filters_10'], pr['filters_05'], pr['filters_00']))
-filters = np.vstack((filters[:, 0], np.zeros(len(filters)), filters[:, 1])).T
-hfilters = h.ravel()[gr.Iglob_from_xyz(filters)]
-ax.plot(filters[:, 0], filters[:, -1], 'r.')
-for filter, hfilter in zip(filters, hfilters):
-    ax.text(filter[0],  filter[-1], f"  {hfilter:.2f}",  fontsize=10, color='black')
-    
-          
+filters = np.vstack((pr['filters_15'],
+                     pr['filters_10'],
+                     pr['filters_05'],
+                     pr['filters_00'][:-1, :], # skip last no data in Pennink's figure
+                     ))
+IglobFilters = gr.Iglob_from_xyz(
+    np.vstack((filters[:, 0], np.zeros(len(filters)), filters[:, 1])).T)
+hPennink = filters[:, 2]
+hModel   = h.ravel()[IglobFilters]
+
+ax.plot(filters[:, 0], filters[:, 1], 'r.')
+for filter, hPen, hMdl in zip(filters[:, :2], hPennink, hModel):
+    ax.text(filter[0],  filter[1] + 0.15, f"  {hPen:.2f}",  fontsize=10, color='black', zorder=5)
+    ax.text(filter[0],  filter[1] - 0.35, f"  {hMdl:.2f}",  fontsize=10, color='red', zorder=5)
+
+print(np.vstack((hPennink, hModel, hPennink - hModel, (hPennink - hModel) ** 2)).T)
+print("rmsq hPennink - hModel = {:.4f}".format(np.sqrt((hPennink - hModel) ** 2).mean()))
+  
+for p in pr['canalPatches']:
+    ax.add_patch(p)
+  
 
 ax.legend(loc='lower left')
 
