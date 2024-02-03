@@ -39,7 +39,6 @@ import sys
 import numpy as np
 import pandas as pd
 import shapefile
-from inspect import signature
 import matplotlib.pyplot as plt
 from KNMI import knmi
 from fdm import mfgrid
@@ -47,89 +46,79 @@ import flopy
 import flopy.utils.binaryfile as bf
 from collections import OrderedDict
 import logging
-
-from get_fff import get_flow_lower_face
+import src.mf6tools
 
 logging.basicConfig(level=logging.WARNING, format=' %(asctime)s - %(levelname)s - %(message)s')
 
 NOT = np.logical_not
 AND = np.logical_and
-OR  = np.logical_or
-
-# User settings to change execution behavior at runtime
-user_settings = {
-    'case_name': 'AAN_GZK',    # Name of read contained in available database.
-    'use_w_not_c': False, # Use anal. form. instead of entry resistance and circumf.
-    'modflow' : flopy.mf6,
-    'd_drn': 0.,  # m, Drain depth for surface runoff.
-    'use_packages': ['wel', 'drn',  'ghb', 'riv', 'rcha', 'evta'],
-    'silent': False,
-    'dx': 1.
-}
 
 #% Names in the databbase and their replacements used in GGOR
 # Names not mentioned are not replaced.
-colDict = {  'Bofek'     : 'bofek',
-             'Greppels'  : 'n_trench',
-             'Med_Cdek'  : 'c_CB',
-             'Med_Ddek'  : 'D1',
-             'Med_Kwel'  : 'q_up',
-             'Med_Phi2'  : 'phi',
-             'Med_mAHN3' : 'AHN',
-             'Shape_Area': 'A_parcel',
-             'Shape_Leng': 'O_parcel',
-             'Winterpeil': 'h_winter',
-             'Zomerpeil' : 'h_summer',
-             }
+colDict = {
+        'Bofek'     : 'bofek',
+        'Greppels'  : 'n_trench',
+        'Med_Cdek'  : 'c_CB',
+        'Med_Ddek'  : 'D1',
+        'Med_Kwel'  : 'q_up',
+        'Med_Phi2'  : 'phi',
+        'Med_mAHN3' : 'AHN',
+        'Shape_Area': 'A_parcel',
+        'Shape_Leng': 'O_parcel',
+        'Winterpeil': 'h_winter',
+        'Zomerpeil' : 'h_summer',
+}
 
 #% Defaults used for required parameters that, however, are not in the databse.
 # They will be used when not in the database.
-defaults = {'d_drain': 0,  # [m] Tile drainage depth below local ground elevation
+defaults = {
+        'd_drain': 0,  # [m] Tile drainage depth below local ground elevation
                            #, may be zero if no drains are present.
-            'd_trench': 0.3, # [m] Trench depth in case present.
-            'c_drain': 5., # [d] Tile drainage areal resistance. Also used for trenches.
-            'wi_ditch' : 2.,  # [d] Ditch resist. for flow from ditch to ground. (analytical)
-            'wi_ditch2' : 2.,  # [d] Ditch resis. reg. aquif. for flow to ground. (analytical)
-            'wo_ditch' : 1.,  # [d] Ditch resis. when flow is to ditch. (anlaytical)
-            'wo_ditch2' : 1.,  # [d] Ditch resis. reg. aquif. for flow to ditch. (analytical)
-            'ci_ditch' : 2.,  # [d] Ditch bottom and side entry resistance (applied to Omega)
-            'co_ditch' : 1.,  # [d] Ditch bottom and side entry resistance (applied to Omega)
-            'd_ditch' : 1.0, # [m] depth of ditch below ground surface
-            'b_ditch' : 0.75, # [m] half-width of the ditch
-            'D_CB' : 0.1, # [m] (dummy thickness) van basisveenlaag (CB=confining bed)
-            'D2' : 40., # [m] thickness of regional aquifer
-            'S2' : 1e-3,# [-] total (elastic) storage coeff. of regional aquifer
-            'kh2': 30., # [m/d]  horizontal condutivity of regional aquifer
-            'kv2':  6., #[ m/d]  vertical conductivity of regional aquifer
-            'ET_surfd': 1.0, # [m] depth of surf in ET below ground surface.
-            'ET_exdp': 2.5, # [m] Modflow's extinction depth (see ET package)
-            }
+        'd_trench': 0.3, # [m] Trench depth in case present.
+        'c_drain': 5., # [d] Tile drainage areal resistance. Also used for trenches.
+        'wi_ditch' : 2.,  # [d] Ditch resist. for flow from ditch to ground. (analytical)
+        'wi_ditch2' : 2.,  # [d] Ditch resis. reg. aquif. for flow to ground. (analytical)
+        'wo_ditch' : 1.,  # [d] Ditch resis. when flow is to ditch. (anlaytical)
+        'wo_ditch2' : 1.,  # [d] Ditch resis. reg. aquif. for flow to ditch. (analytical)
+        'ci_ditch' : 2.,  # [d] Ditch bottom and side entry resistance (applied to Omega)
+        'co_ditch' : 1.,  # [d] Ditch bottom and side entry resistance (applied to Omega)
+        'd_ditch' : 1.0, # [m] depth of ditch below ground surface
+        'b_ditch' : 0.75, # [m] half-width of the ditch
+        'D_CB' : 0.1, # [m] (dummy thickness) van basisveenlaag (CB=confining bed)
+        'D2' : 40., # [m] thickness of regional aquifer
+        'S2' : 1e-3,# [-] total (elastic) storage coeff. of regional aquifer
+        'kh2': 30., # [m/d]  horizontal condutivity of regional aquifer
+        'kv2':  6., #[ m/d]  vertical conductivity of regional aquifer
+        'ET_surfd': 1.0, # [m] depth of surf in ET below ground surface.
+        'ET_exdp': 2.5, # [m] Modflow's extinction depth (see ET package)
+}
 
 
 #% Modflow cell-by-cell flow labels: Translates short labels to those in the CBC file.
 cbc_labels = {
-    'STO': 'STORAGE',
-    'FLF': 'FLOW LOWER FACE ',
-    'WEL': 'WELLS',              # used for seepage. Are in second layer.
-    'EVT': 'ET',
-    'GHB': 'HEAD DEP BOUNDS',
-    'RIV': 'RIVER LEAKAGE',
-    'DRN': 'DRAINS',             # to capture surface runoff, also used for actual drains and for trenches.
-    'RCH': 'RECHARGE',
-    }
+        'STO': 'STORAGE',
+        'FLF': 'FLOW LOWER FACE ',
+        'WEL': 'WELLS',         # used for seepage. Are in second layer.
+        'EVT': 'ET',
+        'GHB': 'HEAD DEP BOUNDS',
+        'RIV': 'RIVER LEAKAGE',
+        'DRN': 'DRAINS',        # to capture surface runoff, or actual drains and trenches.
+        'RCH': 'RECHARGE',
+}
 
 # For legend when of running water budget plot
 #leg is legend for this label in the graph
 #clr is the color of the filled graph
 watbal_label = OrderedDict({
-                'RCH': {'leg': 'RCH', 'clr': 'green'},
-                'EVT': {'leg': 'EVT', 'clr': 'gold'},
-                'WEL': {'leg': 'WEL(in wvp2)' , 'clr': 'blue'},
-                'DRN': {'leg': 'DRN(drn/trenches/runoff)', 'clr': 'lavender'},
-                'RIV': {'leg': 'RIV(ditch out)', 'clr': 'magenta'},
-                'GHB': {'leg': 'GHB(ditch in+out)', 'clr': 'indigo'},
-                'FLF': {'leg': 'FLF(leakage)', 'clr': 'gray'},
-                'STO': {'leg': 'STO', 'clr': 'cyan'}})
+        'RCH': {'leg': 'RCH', 'clr': 'green'},
+        'EVT': {'leg': 'EVT', 'clr': 'gold'},
+        'WEL': {'leg': 'WEL(in wvp2)' , 'clr': 'blue'},
+        'DRN': {'leg': 'DRN(drn/trenches/runoff)', 'clr': 'lavender'},
+        'RIV': {'leg': 'RIV(ditch out)', 'clr': 'magenta'},
+        'GHB': {'leg': 'GHB(ditch in+out)', 'clr': 'indigo'},
+        'FLF': {'leg': 'FLF(leakage)', 'clr': 'gray'},
+        'STO': {'leg': 'STO', 'clr': 'cyan'}}
+)
 
 def selection_check(parcels=None, n=None):
     """Returns selected parcels after verification of the selection.
@@ -214,130 +203,6 @@ def gen_testdata(tdata, **kwargs):
         # Add or replace column in tdata copy
         tdata[key] = np.array(values[I])
     return tdata
-
-
-class Dir_struct:
-    """GGOR directory structure.
-
-    Expected directory structure
-
-    GGOR_home/ # GGOR_home is the GGOR_home directory specified above.
-            bin/
-                {modflowname}.exe
-                {modflowname}.mac
-            src/
-                 analytic/
-                 numeric/
-            data/
-                 mf_parameters
-                    mf_parameters.xlsx
-                 bofek/
-                 meteo/
-                 spatial/
-                         AAN_GZK # Stores QGIS data (shapefiles etc)
-                         ....
-            doc/
-            notebooks/
-            cases/ # Stores MODFLOW input and output files
-                  AAN_GZK
-                  ....
-    [tools] i.e. ~/python/tools in the PYTHONPATH, see ~/.zshrc
-    """    
-    def __init__(self, home='.', case=user_settings['case_name'] ):
-        """Generate GGOR directory structure.
-
-        Parameters
-        ----------
-        home: str
-            path to GGOR home directory
-        case: str
-            the name of the current case
-        """
-        self.case_name = case
-        
-        self.home = os.path.abspath(os.path.expanduser(home))        
-        self.bin = os.path.join(self.home, 'bin') # Binary folder
-        self.src = os.path.join(self.home, 'src')
-        self.data = os.path.join(self.home, 'data')
-        self.cases = os.path.join(self.home, 'cases') # folder where cases are stored."""
-        self.mf_parameters = os.path.join(self.data, 'mf_parameters', 'mf_parameters.xlsx') # mf6 params wbk
-        self.meteo = os.path.join(self.data, 'meteo') # meteo data folder
-        self.spatial = os.path.join(self.data, 'spatial') # folder with spatial data.
-        self.bofek = os.path.join(self.data, 'bofek') # Folder of bofek units.
-        self.case = os.path.join(self.spatial, self.case_name) # Folder of current case        
-        self.mf6 = os.path.join(self.case, 'mf6')  # Folder where case output goes
-
-        if not os.path.isdir(self.cases):
-            os.mkdir(self.cases)
-        if not os.path.isdir(self.mf6):
-            os.mkdir(self.mf6)
-            
-        self.wd = os.path.join(self.cases, self.case_name)
-        
-        if os.name == 'posix':
-            # Version 2021 mf6.2.1. Compiled on Mac using pymake.
-            self.exe = os.path.join(self.bin, 'mf6.mac')            
-        else:
-            self.exe = os.path.join(self.bin, 'mf2005.exe') # Version 2021 mf6.2.1
-                
-        #### verify existance of required folders and files ###################
-        for folder_name in [self.home, self.bin, self.src, self.data, self.cases,
-                     self.meteo, self.spatial,
-                     self.bofek, self.wd, self.case, self.mf6]:
-            assert os.path.isdir(folder_name), "Folder not found: {}".format(folder_name)
-        
-        for file_name in [self.mf_parameters, self.exe]:
-            assert os.path.isfile(file_name), "File not found: {}".format(file_name)
-        
-        os.chdir(self.wd)
-        print("Current working directory: {}".format(os.getcwd()))
-        return
-
-def get_mf6_params_from_excel(wbk):
-    """Read mf6 parameters from workbook (sheetname='mf6').
-    
-    Read mf6 parameters from Excel workbook as a pd.DataFrame.
-    Turn that DataFrame into a dicionary where the keys are the modflow packages
-    and the subkeys are the variable names.
-    All values are read as strings. The colun "type" is used to convert
-    values that should not be strings into the desired type.
-    
-    The headers in the sheet 'MF6' of the workbook are:
-    ['package', 'parameter', 'value', 'type', 'Meaning']
-    
-    Parameters
-    ----------
-    wbk: str (path)
-        Excel workbook name that holds the mf6 parameters in sheet 'MF6'
-        
-    Returns
-    -------
-    params: dictionary
-        a dict with package name as key, in which each item is a dictionary
-        specifying the values for this key.
-        
-    @TO 220413
-    """
-    paramsDf = pd.read_excel(wbk, 'MF6', header=0, usecols="A:D", engine="openpyxl").dropna(axis=0)
-    mf6_params = dict()
-    for pkg in np.unique(paramsDf['package'].values):
-        mf6_params[pkg]=dict()
-        
-    ### Convert specified strings to correct type
-    for i in paramsDf.index:
-        pkg, parameter, value, type = paramsDf.loc[i]
-        if value == 'None':   continue # Skip (emtpy line)
-        elif type == 'None':  value = None
-        elif type == 'str':   pass
-        elif type == 'float': value = float(value)
-        elif type == 'int':   value = int(value)
-        elif type == 'bool':  value = True if value == 'True' or value == 1 else False
-        elif type == 'list':  value = exec(value)
-        else: # Immediately verify unknown types
-            raise ValueError("Unknown parameter type pkg={}, {}, {}, {}".format(
-                            pkg, parameter, value, type))
-        mf6_params[pkg][parameter]=value
-    return mf6_params
 
 
 def handle_meteo_data(meteo_data=None, summer_start=4, summer_end=9):
@@ -469,7 +334,7 @@ def set3D(layvals, shape=None):
     return vals if len(shape)==3 else vals.reshape((nz, ny, nx))
 
 
-def get_drain_elev_with_trenches(pdata=None, gr=None):
+def get_drain_elev_with_trenches(pdata=None, gr=None, d_drn=None):
     """Retrun drain elevations corrected for trenches.
 
     Parcels with 1 or more trenches are assumed to have no tile drainage.
@@ -490,7 +355,6 @@ def get_drain_elev_with_trenches(pdata=None, gr=None):
         elevation is set to groundsurface minus the trench depth.
         The trench locations follows from the number of trenches in the parcel ntr.
     """
-    d_drn = user_settings['d_drn']
     
     elev = ((pdata['AHN'] - pdata['d_drain']).values[:, np.newaxis]
                                                     * np.ones((1, gr.nx)))
@@ -525,7 +389,7 @@ def get_cond_DRN(pdata=None, gr=None):
     return condDRN # Conductance for all cells in top layer as an Ny * Nx array
 
 
-def get_cond_GHB(pdata=None, gr=None):
+def get_cond_GHB(pdata=None, gr=None, use_w_not_c=None):
     """Retrun conductance for use by GHB for two layers first column.
     
     Parameters
@@ -535,7 +399,7 @@ def get_cond_GHB(pdata=None, gr=None):
     gr: structured Grid object
         Class that holds the grid
     """
-    if user_settings['use_w_not_c']:
+    if use_w_not_c:
         wi = np.vstack((pdata['wi_ditch'], pdata['wi_ditch2']))
     else: # Use the real ditch resistance, dicth circumference
         # TODO use either two or three layer grid it's now inconsistent
@@ -549,7 +413,7 @@ def get_cond_GHB(pdata=None, gr=None):
     return cond
 
 
-def get_RIV_Cond(pdata=None, gr=None):
+def get_RIV_Cond(pdata=None, gr=None, use_w_not_c=None):
     """Return the Conductances of ditches for use by RIV package.
     
     parameters
@@ -557,7 +421,7 @@ def get_RIV_Cond(pdata=None, gr=None):
     pdata: dict
         parameter data
     """
-    if user_settings['use_w_not_c']:
+    if use_w_not_c:
         # Use analytic ditch resistance with layer thickness and no partial penetration
         wi = np.vstack((pdata['wi_ditch'], pdata['wi_ditch2'])) # Same value for both layers
         wo = np.vstack((pdata['wo_ditch'], pdata['wo_ditch2'])) # Same value for both layers
@@ -585,16 +449,13 @@ def get_RIV_Cond(pdata=None, gr=None):
 class GGOR_data:
     """Cleaned parcel data object. Only its self.parcel_data will be used (pd.DataFrame)."""
 
-    def __init__(self, GGOR_home=None, case=None,  bofek=None, BMINMAX=(5., 500.), defaults=None):
+    def __init__(self, dirs=None, bofek=None, BMINMAX=(5., 500.), defaults=None):
         """Get parcel data for use by GGOR.
 
         Parameters
         ----------
-        GGOR_home: str
-            path to the GGOR+home directory
-        case: str
-            name of the case. Must correspond with folder in numeric and with folder in cases
-            foldder in cases will be made if necessary.
+        dors: mf6tools.Dirs object
+            holds paths to current case directories
         bofek: pd.DataFrame
             bofek values for ['kh', 'Sy', 'staring', 'ksat_cmpd'], the index
             is the bofek_id number.
@@ -602,10 +463,10 @@ class GGOR_data:
         BMINMAX: tuple of 2 floats
             min and max halfwidth value for parcels to be considered.
         """
-        dirs = Dir_struct(home=GGOR_home, case=case)
 
         # read dbf file into pd.DataFrame
-        self.data = data_from_dbffile(os.path.join(dirs.case, case + '.dbf'))
+        sim_name = os.path.basename(dirs.case)
+        self.data = data_from_dbffile(os.path.join(dirs.data, sim_name + '.dbf'))
 
         # replace column names to more generic ones
         self.data.columns = [colDict[h] if h in colDict else h
@@ -628,8 +489,8 @@ class GGOR_data:
     def compute_and_set_omega(self):
         """Compute and set the half wetted ditch circumference in the two model layers.
 
-        ditch_omega1  [m] is half the width of the ditch plus its wetted sided.
-        ditch_omega2 [m] ia the same for the regional aquifer.
+        ditch_omega1 [m] is half the width of the ditch plus its wetted sided.
+        ditch_omega2 [m] ia the same for the underlying regional aquifer.
 
         calls normal function to allow using it with test data
         """
@@ -650,9 +511,9 @@ class GGOR_data:
     def compute_parcel_width(self, BMINMAX=(5., 10000.)):
         """Add computed parcel width to the to dataFrame self.data.
         
-        The parcel width is computed fromt the parcel area A and parcel cirumference Om
-        available in the database. It's the longest axis of a rectangulre area
-        deduced from A and Om.
+        The parcel width is computed fromt the parcel area A and parcel cirumference
+        present in in the original database. It's the longest axis of a rectangle area
+        deduced from the given area and circumference of each parcel.
 
         Parameters
         ----------
@@ -665,28 +526,28 @@ class GGOR_data:
         """
         A     = np.asarray(self.data['A_parcel'])  # Parcel area
         Om    = np.asarray(self.data['O_parcel'])  # Parcel cifcumference
-        det   = Om ** 2 - 16 * A             # determinant
-        I     = (det>=0);                   # determinant>0 ? --> real solution
-        B     = np.nan * np.zeros_like(I)   # init paracel width
-        L     = np.nan * np.zeros_like(I)   # init parcel length
-        B[ I] = (Om[I] - np.sqrt(det[I]))/4  # width, smallest of the two values
-        L[ I] = (Om[I] + np.sqrt(det[I]))/4  # length, largest of the two values
-        B[NOT(I)] = np.sqrt(A[NOT(I)])      # if no real solution --> assume square
-        L[NOT(I)] = np.sqrt(A[NOT(I)])      # same, for both width and length
+        det   = Om ** 2 - 16 * A            # determinant
+        L     = det>=0                    # determinant>0 ? --> real solution
+        PW    = np.nan * np.zeros_like(L)   # init paracel width
+        PL    = np.nan * np.zeros_like(L)   # init parcel length
+        PW[ L] = (Om[L] - np.sqrt(det[L]))/4  # width, smallest of the two values
+        PL[ L] = (Om[L] + np.sqrt(det[L]))/4  # length, largest of the two values
+        PW[NOT(L)] = np.sqrt(A[NOT(L)])      # if no real solution --> assume square
+        PL[NOT(L)] = np.sqrt(A[NOT(L)])      # same, for both width and length
 
-        B = np.fmin(B, max(BMINMAX)) # Arbitrarily limit the width of any parcel to BMAX.
-        B = np.fmax(B, min(BMINMAX))
+        PW = np.fmin(PW, max(BMINMAX)) # Arbitrarily limit the width of any parcel to BMAX.
+        PW = np.fmax(PW, min(BMINMAX))
 
         # Add column 'b' to Data holding half the parcel widths.
-        self.data['b'] = B/2
+        self.data['b'] = PW/2
 
         # Use only the parcles that have with > BMIN and that have bofek data
-        I=np.where(AND(B > min(BMINMAX), NOT(self.data['bofek']==0)))
+        L=np.where(AND(PW > min(BMINMAX), NOT(self.data['bofek']==0)))
 
-        self.data = self.data.iloc[I]
+        self.data = self.data.iloc[L]
 
         # Any data left?
-        assert len(I) > 0, "Cleaned parcel database has length 0, check this."
+        assert len(L) > 0, "Cleaned parcel database has length 0, check this."
 
 
     def apply_bofek(self, bofek=None):
@@ -837,40 +698,6 @@ def data_from_dbffile(dbfpath):
         else:        tt.append(object)
 
     return data.astype({h: t for h, t in zip(data.columns, tt)}) # set column types and return DataFrame
-
-
-def newfig2(titles=['title1', 'title2'], xlabel='time',
-            ylabels=['heads [m]', 'flows [m2/d]'],
-            xscale='linear',
-            yscale=['linear', 'linear'],
-            sharex=True,
-            sharey=False,
-            xlims=None,
-            ylims=None,
-            size_inches=(12, 6),
-            **kwargs):
-    """Return ax[0], ax[1] for new plot.
-    
-    This function conveniently sets up a figure and axis for showing results.
-    """
-    fig, ax = plt.subplots(2, 1, sharex=sharex, sharey=sharey)
-    fig.set_size_inches(size_inches)
-    for a, title, ylabel in zip(ax, titles, ylabels):
-        a.set_title(title)
-        a.set_xlabel(xlabel)
-        a.set_ylabel(ylabel)
-        a.grid()
-    ax[0].set_xscale(xscale)
-    ax[1].set_xscale(xscale)
-    ax[0].set_yscale(yscale[0])
-    ax[1].set_yscale(yscale[1])
-    if xlims is not None:
-        ax[0].set_xlim(xlims[0])
-        ax[1].set_xlim(xlims[1])
-    if ylims is not None:
-        ax[0].set_ylim(ylims[0])
-        ax[1].set_ylim(ylims[1])
-    return ax
 
 
 def model_parcel_areas(gr=None, IBOUND=None):
@@ -1236,9 +1063,7 @@ class Watbal_obj:
         # Area of each cross section
         A_xsec = np.sum(gr.Dx * gr.Dy * active[0], axis=-1)
          
-        # Contribution of each true parcel area to total of the modeled region
-        Arel = (parcel_data['A_parcel'] / parcel_data['A_parcel'].sum()).values
-                
+        # Contribution of each true parcel area to total of the modeled region                
         self.W = dict() # keys are watbal labels,  values are float (nlay, nrow, nper)
         _vals3D = np.zeros(gr.shape).ravel()
         print('Setting up Watbal_Obj ...')
@@ -1363,322 +1188,6 @@ class Watbal_obj:
 
         return ax
 
-def generate_model_dict(dirs=None, parcel_data=None, tdata=None):
-    """Return default and case parameters for all packages."""
-    
-    gr = grid_from_parcel_data(parcel_data=parcel_data, dx=user_settings['dx'])
-    
-    always_packages = {'sim', 'gwf', 'dis', 'ic', 'ims', 'npf', 'oc', 'sto', 'tdis'}
-    use_packages = [p.lower() for p in user_settings['use_packages']]
-    use_packages = always_packages.union(use_packages)
-
-    model_dict = get_mf6_params_from_excel(dirs.mf_parameters)
-    
-    fp_packages = dict()
-    
-    ### sim =================================
-    if True:    # Simulation
-        logging.info("sim")
-
-        model_dict['sim'].update(sim_name=user_settings['case_name'], sim_ws=dirs.wd, exe_name=dirs.exe)
-        sim = flopy.mf6.MFSimulation(**model_dict['sim'])
-        fp_packages['sim'] = sim
-
-
-    ### tdis ===============================
-    if True:     # Stress period parameters.
-        logging.info("tdis")
-        start_date_time = str(tdata.index[0])
-
-        nper, nstep, tsmult = len(tdata), 1, 1.0
-
-        if nper == 1:
-            dt = np.array([1.])
-        else:
-            # dt in days, where dt may vary over time.
-            dt = np.diff(tdata.index - tdata.index[0]) / np.timedelta64(1, 'D')
-
-            # dt of day 0: assume zero is t[1] - t[0])
-            dt = np.hstack((dt[0], dt))
-
-        perioddata = [[sp_time, nstep, tsmult] for sp_time in dt]
-
-        model_dict['tdis'].update(  nper=nper,
-                                    perioddata=perioddata,
-                                    start_date_time=start_date_time)
-        fp_packages['tdis'] = flopy.mf6.ModflowTdis(sim, **model_dict['tdis'])
-
-    ### ims ===============================
-    if True: # Solver, geneally use defaults from workbook.
-        # model_dict['ims'].update(...=..., )
-        logging.info("ims")
-        fp_packages['ims'] = flopy.mf6.ModflowIms(sim, **model_dict['ims'])
-        
-    ### gwf ===============================
-    if True: # Groundwater flow model, use name from 'sim').
-        logging.info("gwf")
-        model_dict['gwf'].update(modelname=model_dict['sim']['sim_name'],
-                         exe_name=model_dict['sim']['exe_name'])
-        gwf = flopy.mf6.ModflowGwf(sim, **model_dict['gwf'])
-        fp_packages['gwf'] = gwf
-    
-
-    ### dis ==============================
-    if 'dis' in use_packages: # Structured grid like in old MODFLOW
-        logging.info("dis")
-        idomain = np.ones(gr.shape)
-        for iy, b in zip(range(gr.ny), parcel_data['b']):
-            idomain[:, iy, gr.Xm[iy] > b] = 0
-
-        model_dict['dis'].update(nlay=gr.nlay, nrow=gr.nrow, ncol=gr.ncol,
-                                 delr=gr.dx, delc=gr.dy,
-                                top=gr.Z[0], botm=gr.Z[1:],
-                                idomain=idomain,
-        )
-        fp_packages['dis'] = flopy.mf6.ModflowGwfdis(gwf, **model_dict['dis'])
-
-    ### sto ================================
-    if 'sto' in use_packages:
-        logging.info("sto")
-        laytype = np.zeros(gr.nlay); laytype[0] = 1
-
-        # Elastic storage coefficients
-        S = set3D(parcel_data[['sy', 'S2']], gr.shape)
-        S[[0, 1], :] = 0. # No elastic storage above regional aquifer
-        Sy = set3D(parcel_data[['sy', 'sy']], gr.shape)
-        # TODO make Sy for regional aquifer explicit
-
-        model_dict['sto'].update(
-            save_flows=True,
-            storagecoefficient=True, # Interprete as S instead of Ss if confined
-            # ss_confined_only=True,   # elastic only when confined
-            iconvert=gr.const(laytype), # convertible cell indices # TODO how define ?
-            ss=S,
-            sy=Sy,
-            transient={i: True for i in range(nper)}
-           )
-        fp_packages['sto'] = flopy.mf6.ModflowGwfsto(gwf, **model_dict['sto'])
-    
-    ### npf =================================
-    if 'npf' in use_packages: # Node properties
-        # Add resistance between cover layer and regional aquifer to parcel_data DataFrame
-        logging.info("npf")
-        parcel_data['kc'] = parcel_data['D_CB'] / parcel_data['c_CB']
-
-        model_dict['npf'].update(
-            k=set3D(parcel_data[['kh', 'kh2']], gr.shape),
-            k22=1.e-20, # no flow along y=axis
-            k33=set3D(parcel_data[['kv', 'kv2']], gr.shape),
-        )
-        fp_packages['npf'] = flopy.mf6.ModflowGwfnpf(gwf, **model_dict['npf'])
-
-    ### ic ==================================
-    if 'ic' in use_packages: # Initial conditions (Initial heads)
-        model_dict['ic'].update(strt=set3D(parcel_data['h_winter'], gr.shape))
-        fp_packages['ic'] = flopy.mf6.ModflowGwfic(gwf, **model_dict['ic'])
-
-    #### Boundary conditions ####
-
-    ### rcha(recharge)     
-    if 'rcha' in use_packages:
-        logging.info("Evalutation rcha.")
-        print("Evalutation rcha.")
-        rch_spd = {isp: tdata['RH'].iloc[isp] for isp in range(len(tdata))}
-        model_dict['rcha'].update(readasarrays=True, print_input=True, recharge=rch_spd)
-        fp_packages['rcha'] = flopy.mf6.ModflowGwfrcha(gwf, **model_dict['rcha'])
-    
-    ### evta ================================
-    if 'evta' in use_packages: # Evapotranspiration    
-        model_dict['evta'].update(readasarrays=True,
-            ievt=None,
-            surface={0: set3D(parcel_data['AHN'] - parcel_data['ET_surfd'], shape=gr.shape)[0]},
-            depth={0: set3D(parcel_data['ET_exdp'], shape=gr.shape)[0]},
-            rate={isp: tdata['EV24'].iloc[isp] for isp in range(len(tdata))},
-        )
-        logging.info("Evalutation evta.")
-        print("Evalutation evta ... some patience please")
-        fp_packages['evta'] = flopy.mf6.ModflowGwfevta(gwf, **model_dict['evta'])
-
-    active = model_dict['dis']['idomain'] > 0
-    
-    ### Prepare boundary conditions ==========
-    mon = np.array([dt.month for dt in tdata.index])
-    day = np.array([dt.day for dt in tdata.index])
-    
-    Isp_start_summer = np.where(np.logical_and(mon ==  4, day == 1))[0]
-    Isp_start_winter = np.where(np.logical_and(mon == 10, day == 1))[0]
-        
-    pdata = parcel_data
-
-    ### wel ===============Is used to model given seepage from regional aquifer
-    if 'wel' in use_packages:
-        # (Used for given seepage from second aquifer)
-        # qup is still given per parcel and not as a function of time !!
-        # The cells are those in the second layer where idomain > 0
-        logging.info("wells")
-        mask = model_dict['dis']['idomain'][-1] > 0
-        LRC_wel = gr.LRC(gr.NOD[-1, :, :][mask], astuples=True)
-
-        Q = (pdata['q_up'].values[:, np.newaxis] * np.ones(gr.shape[1:]) * gr.Area)[mask]
-        spd = [(lrc, _Q) for lrc, _Q in zip(LRC_wel, Q)]
-        
-        # Only the first SP needs data, as long as seepage is constant.
-        # TODO: this likely changes in the future, to monthly seepage values.
-        # TODO: Specify how monthly seepage values for all parcels are inported.
-        # TODO: This import may require an extended data file originating from a regional model.
-        # TODO: its dimensions should be (nparcel x months in time series)
-        stress_period_data = {0: spd}
-        model_dict['wel'].update(stress_period_data=stress_period_data, maxbound=len(LRC_wel))
-        fp_packages['wel'] = flopy.mf6.ModflowGwfwel(gwf, **model_dict['wel'])
-    
-
-    ### ghb ================Is used for flow from and toward ditches
-    if 'ghb' in use_packages:
-        # First cell of top and bottom layer (always). Conduction of bottom layer may be zero.
-        LRC_ghb = gr.LRC(gr.NOD[0, :, [0, -1]][active[0, :, [0, -1]]], astuples=True) # GHB cells
-
-        # Get conductance for the GHB (connection soil Ditch in top and bottom layer)
-        # i.e. one value per parcel in the top layer and one value in the bottom layer.
-
-        # Use analytic ditch resistance with layer thickness and no partial penetration
-        logging.info("ghb")
-        condGHB = get_cond_GHB(pdata=parcel_data, gr=gr)
-
-        # Get the GHB heads for summer and winter for these ditches
-        hw = np.vstack((pdata['h_winter'], pdata['h_winter']))
-        hs = np.vstack((pdata['h_summer'], pdata['h_summer']))
-
-        ghb_winter = [(lrc, head, cond) for lrc, head, cond in
-                                zip(LRC_ghb, hw.ravel(), condGHB.ravel())]
-        ghb_summer = [(lrc, head, cond) for lrc, head, cond in
-                                zip(LRC_ghb, hs.ravel(), condGHB.ravel())]
-
-        # Input for the first stress period
-        stress_period_data = {0: ghb_summer if tdata.iloc[0]['summer'] == True else ghb_winter}
-
-        # Only generates input when summer changes to wintor or vice versa
-        for isp in Isp_start_summer:
-            stress_period_data[isp] = ghb_summer
-        for isp in Isp_start_winter:
-            stress_period_data[isp] = ghb_winter
-
-        model_dict['ghb'].update(stress_period_data=stress_period_data, maxbound=len(LRC_ghb))
-        fp_packages['ghb'] = flopy.mf6.ModflowGwfghb(gwf, **model_dict['ghb'])
-
-     
-    ### riv ==============Is used for extra flow toward ditch (lower flow to than from)
-    if 'riv' in use_packages:
-        # TODO used identifyable numers in idomain for layer use in budget file.
-        # Riv cells are the same as GHB cells
-        logging.info("riv")
-        LRC_riv = gr.LRC(gr.NOD[0, :, [0, -1]][active[0, :, [0, -1]]], astuples=True) # RIV cells
-
-        condRIV = get_RIV_Cond(pdata=parcel_data, gr=gr)
-
-        riv_winter = [(lic, stage, cond, rbot) for lic, stage, cond, rbot in
-                                zip(LRC_riv, hw.ravel(), condRIV.ravel(), hw.ravel())]
-        riv_summer = [(lic, stage, cond, rbot) for lic, stage, cond, rbot in
-                                zip(LRC_riv, hs.ravel(), condRIV.ravel(), hs.ravel())]
-
-        # Input for the first stress period
-        stress_period_data = {0: riv_summer if tdata.iloc[0]['summer'] == True else riv_winter}
-
-        # Only generates input when summer changes to winter and vice versa.
-        for isp in Isp_start_summer:
-            stress_period_data[isp] = riv_summer
-        for isp in Isp_start_winter:
-            stress_period_data[isp] = riv_winter
-
-        model_dict['riv'].update(stress_period_data=stress_period_data, maxbound=len(LRC_riv))
-        fp_packages['riv'] = flopy.mf6.ModflowGwfriv(gwf, **model_dict['riv'])
-
-
-    ### drn ==============Is used for drains, surface runoff and trenches
-    if 'drn' in use_packages: # For trenches and surface runoff by means of drains.
-        # Drains on top layer, but not in first column and not in inactive cells
-        logging.info("drn")
-        I  = gr.NOD[0, :, 1:][active[0, :, 1:]]
-        LRC_drn = gr.LRC(I, astuples=True)
-
-        # Get drain elevation and drain conductance as Ny * Nx array (top layer)
-        elevation = get_drain_elev_with_trenches(pdata=parcel_data, gr=gr).ravel()[I]
-        condDRN = get_cond_DRN(pdata=parcel_data, gr=gr).ravel()[I]
-
-        # Stress period data
-        #dtype = flopy.modflow.ModflowDrn.get_default_dtype()
-        #spd = np.recarray(gr.nod, dtype=dtype)
-        spd = [(lrc, elev, cond) for lrc, elev, cond in zip(LRC_drn, elevation, condDRN)]
-
-        # Input is required only for the first SP, because drain data are constant.
-        stress_period_data = {0: spd}
-        model_dict['drn'].update(stress_period_data=stress_period_data, maxbound=len(LRC_drn))
-        fp_packages['drn'] = flopy.mf6.ModflowGwfdrn(gwf, **model_dict['drn'])
-    
-    ### oc (output control)
-    if 'oc' in use_packages:
-        logging.info("oc")
-        model_dict['oc'].update(head_filerecord="{}.hds".format(model_dict['sim']['sim_name']),
-                         budget_filerecord="{}.cbc".format(model_dict['sim']['sim_name']),
-                         saverecord=[("HEAD", "ALL"), ("BUDGET", "ALL")])
-        fp_packages['oc'] = flopy.mf6.ModflowGwfoc(gwf, **model_dict['oc'])
-
-    return gr, fp_packages, model_dict, use_packages
-
-
-def run_modflow(dirs=None, parcel_data=None, tdata=None):
-        """Simulate GGOR using MODFLOW.
-
-        Parameters
-        ----------
-        dirs: DirStruct object
-            directory structure object, containing home and case information
-        parcel_data: pd.DataFrame
-            parcel data. Each row representing one parcel.
-        tdata: pd.DataFrame
-            time data with columns ['RH', 'EV24', 'summer', 'hyear', 'hand']
-            and index datetime.
-        dx: float
-            uniform cell width of the model (x-direction, perpendicular to long axis of parcel)
-        """
-        # Build the model dict and flopy packages
-        gr, fp_packages, model_dict, use_packages= generate_model_dict(dirs=dirs,
-                            parcel_data=parcel_data, tdata=tdata)
-    
-        sim = fp_packages['sim']
-        # Write simulation
-        sim.write_simulation(silent=user_settings['silent'])
-        
-        # Run simulation
-        success, buff = sim.run_simulation(silent=user_settings['silent'])
-        
-
-        print('Running success = {}'.format(success))
-        if not success:
-            print(buff)
-            logging.critical("Buffer printed because MODFLOW did not terminate normally.")
-            raise Exception('MODFLOW did not terminate normally.')
-
-        return gr, fp_packages, model_dict, use_packages
-
-
-def data_to_excel(dirs=None, data=None, fname=None):
-    """Save the current parcel_data DataFrame to an excel file.
-
-    Parameters
-    ----------
-    dirs: Dir_struct object
-        directory structure current case
-    data: pd.DataFrame
-        data to be written to excel
-    fname: str
-        name of local excel file to be saved
-    """
-    fname = os.path.join(dirs.case, os.path.splitext(fname)[0] + '.xlsx')
-    parcel_data.to_excel(fname, index=False, engine='openpyxl')
-    print("parcel_data saved to '{}'".format(fname))
-
-    return None
-
 
 def get_test_parcels(path, sheet_name, test_id_col='Test'):
     """Return the parcel test data from given workbook and worksheet.
@@ -1707,42 +1216,17 @@ def get_test_parcels(path, sheet_name, test_id_col='Test'):
 
     return parcel_data
 
-
-def save_parcel_data_to_excel(dirs,
-                start='pdata_start.xlsx', end='pdata_end.xlsx'):
-    """Save the parcel_data to Excel to generate test_data.
-
-    Parameters
-    ----------
-    dirs: DIr_struct
-        GGOR directory structure.
-    start: str
-        workbook name to store the initial parcel_data
-    end: str
-        workbook name to store the final/current parcel_dadta
-    """
-    pdata_start = data_from_dbffile(os.path.join(dirs.case, case + '.dbf'))
-
-    data_to_excel(dirs, pdata_start, start=start)
-    data_to_excel(dirs, parcel_data, end=end)
-
-#%% main
+# === if __main__ =====
 
 if __name__ == "__main__":
     
-    logging.warning(sys.version)
-    logging.warning(sys.executable)
-
-    test=False
-
-    # Parameters to generate the model. Well use this as **kwargs
-    GGOR_home = os.path.expanduser('~/GRWMODELS/python/GGOR') # home directory
-    case = 'AAN_GZK'
-
-    #GGOR directory structure
-    dirs = Dir_struct(GGOR_home, case=case)
+    test = True
+    
+    HOME = '~/GRWMODELS/python/mf6lab/Projects/GGOR/'
     
     logging.warning("cwd = {}".format(os.getcwd()))
+    dirs = mf6tools.Dirs(HOME)
+    dirs.add_case('AAN_GZK')
 
     mf_parameters_wbk = os.path.join(dirs.mf_parameters, 'mf_parameters.xlsx')
 
@@ -1774,67 +1258,10 @@ if __name__ == "__main__":
 
         # Create a GGOR_modflow object and get the upgraded parcel_data from it,
         # excluding parcels that are too small or too wide
-        parcel_data = GGOR_data(defaults=defaults, bofek=bofek, BMINMAX=(5, 250),
-                GGOR_home=GGOR_home, case=case).data
+        parcel_data = GGOR_data(
+            dirs=dirs, defaults=defaults, bofek=bofek, BMINMAX=(5, 250)).data
     
-    # MODFLOW input arrays are int the returned dicts
-    if False: # Run Modflow
-        gr, fp_packages, model_dict, use_packages = run_modflow(
-                    dirs=dirs, parcel_data=parcel_data, tdata=tdata)  
-    else:
-        gr = grid_from_parcel_data(parcel_data=parcel_data, dx=user_settings['dx']) 
+    # MODFLOW grid
+    gr = grid_from_parcel_data(parcel_data=parcel_data, dx=1.0) 
 
-    sim = flopy.mf6.MFSimulation.load(user_settings['case_name'])
-    ml = sim.get_model(list(sim.model_names)[0])
-
-
-    #%% Get the modflow-computed heads and cell by cell flows
-
-    heads_obj = Heads_obj(sim=sim, tdata=tdata, gr=gr)
-    
-    budObj = ml.output.budget()
-
-    watbal = Watbal_obj(sim=sim, gr=gr)
-
-    #%% Open HDS file and plot heads (with GXG)
-    if test:
-        for tst in set(parcel_data['Test'].values):
-            parcels = list(parcel_data.index[parcel_data['Test'] == tst])
-            test_vals_str = '{}'.format(', '.join(
-                [str(tv) for tv in parcel_data[tst].iloc[parcels]]))
-
-            titles=['Parcel averaged heads, testvar {} in [{}]'.format(tst, test_vals_str),
-                    'Parcel averaged heads, testvar {} in [{}]'.format(tst, test_vals_str)]
-            ax = heads_obj.plot(tdata=tdata,
-                           parcel_data=parcel_data,
-                           parcels=parcels,
-                           titles=titles,
-                           size_inches=(14, 8))
-            if False:
-                ax = watbal.plot(parcel_data=parcel_data,
-                                 tdata=tdata,
-                                 parcels=parcels[0],
-                                 sharey=True)
-    else:
-        parcels = [0, 1, 2, 3]
-        titles=['Parcel averaged heads', 'Parcel averaged heads']
-        ax = heads_obj.plot(tdata=tdata,
-               parcel_data=parcel_data,
-               parcels=parcels,
-               titles=titles,
-               size_inches=(14, 8))
-        ax = watbal.plot(parcel_data=parcel_data,
-                         tdata=tdata,
-                         parcels=parcels,   # over all parcels
-                         sharey=True)
-
-#%%
-    ax = watbal.plot(parcel_data=parcel_data,
-                         tdata=tdata,
-                         parcels=None,   # over all parcels
-                         sharey=True)
-
-    plt.show()
-
-#%%
     print('---- All done ! ----')

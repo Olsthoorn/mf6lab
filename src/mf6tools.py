@@ -154,6 +154,27 @@ class Dirs():
             assert os.path.isdir(subdir), "Directory '{}' does not exist".format(subdir)
         return self
     
+    def add_to_home(self, dirname):
+        """Add a directory to the current HOME directory (self.HOME)."""
+        folder = os.path.join(self.HOME, dirname)
+        if os.path.exists(folder):
+            print("{} already exists.".format(folder))
+        else:
+            os.mkdir(folder)
+            print("{} now exists.".format(folder))
+        exec("self.{} = '{}'".format(dirname.replace('/','_'), folder))
+        
+    def add_to_case(self, dirname):
+        """Add a directory to the current project directory."""
+        folder = os.path.join(self.case, dirname)
+        if os.path.exists(folder):
+            print("{} already exists.".format(folder))
+        else:
+            os.mkdir(folder)
+            print("{} now exists.".format(folder))
+        exec("self.{} = '{}'".format(dirname, folder))
+
+    
     def __str__(self):
         return self.__doc__
 
