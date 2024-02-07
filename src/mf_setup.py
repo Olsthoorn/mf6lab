@@ -173,11 +173,17 @@ def mf_setup():
             model_dict['Gwfdrn'].update(**mf_adapt.Gwfdrn)
             fp_packages['Gwfdrn'] = flopy.mf6.ModflowGwfdrn(gwf, **model_dict['Gwfdrn'])
     
-    ### Gwfevt ==================
+    ### Gwfevt ================== list-based input
         if 'Gwfevt' in use_packages:
             logging.info('Gwfevt')
             model_dict['Gwfevt'].update(**mf_adapt.Gwfevt)
             fp_packages['Gwfevt'] = flopy.mf6.ModflowGwfevt(gwf, **model_dict['Gwfevt'])
+    
+    ### Gwfevta ================== array-based input
+        if 'Gwfevta' in use_packages:
+            logging.info('Gwfevta')
+            model_dict['Gwfevta'].update(**mf_adapt.Gwfevta)
+            fp_packages['Gwfevta'] = flopy.mf6.ModflowGwfevta(gwf, **model_dict['Gwfevta'])
     
     ### Gwfghb ==================
         if 'Gwfghb' in use_packages:
@@ -244,6 +250,12 @@ def mf_setup():
             logging.info('Gwfrch')
             model_dict['Gwfrch'].update(**mf_adapt.Gwfrch)
             fp_packages['Gwfrch'] = flopy.mf6.ModflowGwfrch(gwf, **model_dict['Gwfrch'])
+    
+    ### Gwfrcha ==================
+        if 'Gwfrcha' in use_packages:
+            logging.info('Gwfrcha')
+            model_dict['Gwfrcha'].update(**mf_adapt.Gwfrcha)
+            fp_packages['Gwfrcha'] = flopy.mf6.ModflowGwfrcha(gwf, **model_dict['Gwfrcha'])
     
     ### Gwfriv ==================
         if 'Gwfriv' in use_packages:

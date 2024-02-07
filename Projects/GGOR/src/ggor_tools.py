@@ -34,6 +34,7 @@ Need demo using the portion if __name__ == __main__: converted to Jupyter for ea
 There each step should be demonstrated and verified, graphically if possible.
 
 """
+
 import os
 import sys
 import numpy as np
@@ -42,11 +43,20 @@ import shapefile
 import matplotlib.pyplot as plt
 from KNMI import knmi
 from fdm import mfgrid
-import flopy
-import flopy.utils.binaryfile as bf
 from collections import OrderedDict
 import logging
-import src.mf6tools
+from fdm.mf6_face_flows import get_structured_flows_as_dict
+from etc import newfigs
+
+MF6LAB = '~/GRWMODELS/python/mf6lab/'
+GGOR = os.path.join(MF6LAB, '/Projects/GGOR/')
+
+HOME = '~/GRWMODELS/python/mf6lab/Projects/GGOR/'
+
+sys.path.insert(0, MF6LAB)
+sys.path.insert(0, GGOR)
+
+import src.mf6tools as mf6tools
 
 logging.basicConfig(level=logging.WARNING, format=' %(asctime)s - %(levelname)s - %(message)s')
 
@@ -137,7 +147,7 @@ def selection_check(parcels=None, n=None):
     in the parcel DataFrame.
     """
     if parcels is None:
-        parcels = slice(0, None, 1)
+        parcels = slice(0, n, 1)
     elif isinstance(parcels, int):
         parcels = slice(0, parcels, 1)
     elif isinstance(parcels, (tuple, list, np.ndarray, range, slice)):
@@ -145,7 +155,7 @@ def selection_check(parcels=None, n=None):
     else:
         raise ValueError("parcels must be None (for all), an int or a sequence")
     if isinstance(parcels, slice):
-        parcels = np.arange(n)[parcels]
+        pass
     else:
         parcels = np.array(parcels)
     return parcels
@@ -747,7 +757,7 @@ class Heads_obj:
     def plot(self, ax=None, tdata=None, parcel_data=None,
                    parcels=[0, 1, 2, 3, 4],
                    titles=None, xlabel='time', ylabels=['m', 'm'],
-                   size_inches=(14, 8), loc='best', GXG=True,  **kwargs):
+                   figsize=(14, 8), loc='best', GXG=True,  **kwargs):
         """Plot the running heads in both layers.
 
         Parameters
@@ -767,14 +777,14 @@ class Heads_obj:
             The xlabel
         ylabels: str
             The ylabels of the 2 charts.
-        size_inches: tuple of two
+        figsize: tuple of two
             Width and height om image in inches if image is generated and ax is None.
         loc: str (default 'best')
             location to put the legend
         GXG: boolean
             whether or not to plot the GXG also.
         kwargs: Dict
-            Extra parameters passed to newfig or newfig2 if present.
+            Extra parameters passed to newfig or newfigs if present.
 
         Returns
         -------
@@ -783,7 +793,7 @@ class Heads_obj:
         parcels = selection_check(parcels, n=self.gr.ny)
 
         if ax is None:
-            ax = newfig2(titles, xlabel, ylabels, size_inches=size_inches, **kwargs)
+            ax = newfigs(titles, xlabel, ylabels, figsize=figsize, **kwargs)
             for a in ax:
                 plot_hydrological_year_boundaries(a, tdata.index)
         else:
@@ -976,7 +986,7 @@ class GXG_object:
         return ax
     
 
-def show_boundary_locations(lbls=None, CBC=None, iper=0, size_inches=(10,8.5)):
+def show_boundary_locations(lbls=None, CBC=None, iper=0, figsize=(10,8.5)):
     """Show the location of the nodes in recarray given CBC data.
 
     The refers to ['WEL', 'DRN', 'GHB', 'RIV', 'CHD'] for which the data
@@ -990,7 +1000,7 @@ def show_boundary_locations(lbls=None, CBC=None, iper=0, size_inches=(10,8.5)):
         CBC file handle
     iper: int
         stress period number
-    size_inches: 2 tuple of floats
+    figsize: 2 tuple of floats
         size of the resulting figure.
     """
     if lbls is None:
@@ -1005,8 +1015,8 @@ def show_boundary_locations(lbls=None, CBC=None, iper=0, size_inches=(10,8.5)):
 
         titles=['Top layer, lbl={}, iper={}'.format(lbl, iper),
                 'Bottom layer, lbl={}, iper={}'.format(lbl, iper)]
-        ax = newfig2(titles=titles, xlabel='column', ylabels=['row', 'row'],
-                     sharx=True, sharey=True, size_inches=size_inches)
+        ax = newfigs(titles=titles, xlabel='column', ylabels=['row', 'row'],
+                     sharx=True, sharey=True, figsize=figsize)
         ax[0].spy(IB[0], marker='.', markersize=2)
         ax[1].spy(IB[1], marker='.', markersize=2)
 
@@ -1014,16 +1024,18 @@ def show_boundary_locations(lbls=None, CBC=None, iper=0, size_inches=(10,8.5)):
 class Watbal_obj:
     """Water balance object."""
 
-    def __init__(self, sim=None, gr=None):
+    def __init__(self, sim=None, dirs=None, gr=None):
         """Return Watbal object carrying the water budget for all cross sections in m/d.
 
         Parameters
         ----------
-        gr: fdm_tools.mfgrid.Grid Object
-            holds the structured model grid
         sim: flopy sim object
             simulation object, model = model.get_model(sim.model_name) object
             holds the simulation with access to all its models and packages
+        dirs: mf6tools.Dirs object
+            Holds the paths to the directories involbed in this simulation.
+        gr: fdm_tools.mfgrid.Grid Object
+            holds the structured model grid
 
         Generates
         ---------
@@ -1032,6 +1044,9 @@ class Watbal_obj:
             Each row has the cross sectional discharge in m/d.
 
         Note that labels must be adapted if new CBC packages are to be included.
+        
+        If everything is ok, then the water balance should add up to zero.
+        We should check this.
 
         @TO 20170823 as function
         @TO 20200907 turned Watbal into class Wabal_Obj
@@ -1046,6 +1061,12 @@ class Watbal_obj:
         model = sim.get_model(list(sim.model_names)[0])
         self.CBC = model.output.budget()
         
+        # Get structured flows because we need the flow_lower_face
+        grb_file = os.path.join(dirs.GWF, sim.name + 'Gwf.dis.grb') # Flopy's grid 
+        fflows = get_structured_flows_as_dict(self.CBC, grb_file=grb_file)
+
+        kstpkper = self.CBC.get_kstpkper()
+        
         # To get the CBC values in m/d for the entire region represented in the database:
         # Because each modeled parcel is only a cross of the real parcel, the model
         # does not know the parcel's true, only the database knows it.
@@ -1057,11 +1078,11 @@ class Watbal_obj:
         # The parcel's true area. The region's true area is the sum over all parcels true area.
         
         # Multiply array with active cells. Active is 1 and inactive is 0
-        active = ml.get_package('DIS').idomain.data
+        active = model.get_package('DIS').idomain.data
         active[active !=0 ] = 1
 
         # Area of each cross section
-        A_xsec = np.sum(gr.Dx * gr.Dy * active[0], axis=-1)
+        A_xsec = (gr.Area * active[0]).sum(axis=-1)
          
         # Contribution of each true parcel area to total of the modeled region                
         self.W = dict() # keys are watbal labels,  values are float (nlay, nrow, nper)
@@ -1074,6 +1095,7 @@ class Watbal_obj:
             # For these labels, the packages of which CBC values are obtained
             # in a recarray with 'node' and 'q' with:
             # dtype = [('node', '<i4'), ('node2', '<i4'), ('q', '<f8')])
+            # The dimension will be [L3/T]
             if lbl in ['WEL', 'GHB', 'RIV', 'DRN', 'RCH', 'EVT']:
                 
                 vals = self.CBC.get_data(text=lbl) # as recarray with given dtype
@@ -1087,24 +1109,20 @@ class Watbal_obj:
                     _vals3D[Ivals] = Q
                     
                     # Sum _vals3D over the columns of the model strutured grid
-                    self.W[lbl][:, :, iper] = np.sum(_vals3D.reshape(gr.shape), axis=-1)
+                    self.W[lbl][:, :, iper] = _vals3D.reshape(gr.shape).sum(axis=-1)
                     
                     # Show progress
                     if iper % 100 == 0: print('.',end='')                
-            elif lbl[:3] == 'STO': # in ['STO-SY', 'STO-SS']:
+            elif lbl in ['STO-SY', 'STO-SS']:
                 vals = self.CBC.get_data(text=lbl) # as a full 3D arrwy over the grid
                 for iper in range(self.CBC.nper):
                     self.W[lbl[:3]][:, :, iper] += np.sum(vals[iper], axis=-1) # W['STO']
                     if iper % 100 == 0: print('.', end='') # Show progress                
-            elif lbl in ['FLF']:
-                flowja=self.CBC.get_data(text='FLOW-JA-FACE')
-                grb_file = sim.name + '.dis.grb'
-                
-                # Get flf as a full 2D array over a grid layer
-                flfs = get_flow_lower_face(flowja=flowja, grb_file=grb_file)
+            elif lbl in ['FLF']:                
                 for iper in range(self.CBC.nper):
-                    self.W[lbl][-1, :, iper] = +flfs[iper][0].sum(axis=-1)
-                    self.W[lbl][ 0, :, iper] = -flfs[iper][0].sum(axis=-1)
+                    self.W[lbl][-1, :, iper] = +fflows[kstpkper[iper]]['flf'][0][0].sum(axis=-1)
+                    self.W[lbl][ 0, :, iper] = -fflows[kstpkper[iper]]['flf'][0][0].sum(axis=-1)
+                    if iper % 100 == 0: print('.', end='') # Show progress                
             else:
                 raise ValueError("Illegal label {}".format(lbl))
             print('Last iper for {}: {}'.format(lbl, iper))
@@ -1159,10 +1177,10 @@ class Watbal_obj:
         # Two axes, one for the running budget of the top layer
         # and one for the running budget of the bottom layer
         if ax is None:
-            ax = newfig2(titles=(
+            ax = newfigs(titles=(
                     'Water balance top layer. '   + ttl,
                     'Water balance botom layer. ' + ttl), xlabel='time', ylabels=['mm/d', 'mm/d'],
-                         size_inches=(14, 8), sharey=False, sharex=True)
+                         figsize=(14, 8), sharey=False, sharex=True)
 
         if not isinstance(ax, (list, tuple, np.ndarray)):
             raise ValueError("Given ax must be an sequence of 2 axes.")
