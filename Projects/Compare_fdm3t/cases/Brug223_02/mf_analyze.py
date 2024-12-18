@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from scipy.signal import lfilter
 from scipy.special import exp1
 import flopy
+import ttim
 import mf_adapt
 import settings
 from analytic.hantush_convolution import Wh
@@ -72,6 +73,15 @@ for i, ksp in enumerate(kstpkper):
 
 HDS = headsObj.get_alldata()
 
+# TTIM
+tmin, tmax = 1e-2, 1e3
+rw = settings.props['r'][1]
+ml = ttim.ModelMaq(kaq=settings.props['kr'],
+                   z=-np.cumsum(np.hstack((0, settings.props['D']))),
+                   Saq= settings.props['ss'], tmin=tmin, tmax=tmax)
+hwel = ttim.HeadWell(ml, rw=rw, tsandh=[(tmin, settings.hb)], label='well')
+ml.solve()
+
 # Plotting
 fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(14, 10))
 
@@ -90,20 +100,38 @@ ax2.set_ylabel('head change [m] m')
 
 ttl =  ax1.set_title(settings.title)
 
+Ittim = np.arange(len(settings.t))[settings.t > 10 * tmin]
+tttim = settings.t[Ittim]
+Qttim =  -ml.elementdict['well'].discharge(tttim)[0]
+
+ax1.plot(tttim, Qttim, 's', color='k', mfc='none', label=f"TTIM,   Q[{gr.xm[0]:.4g}] m")
 ax1.plot(settings.t[1:], FRF[:, 0, 0, 0], '--', color='k', label=f"MF6,   Q[{gr.xm[0]:.4g}] m")
 ax2.plot(settings.t[1:], HDS[:, 0, 0, 0], '--', color='k', label=f"MF6,   Q[{gr.xm[0]:.4g}] m")
 
+
 clrs = color_cycler()
+
 for ir in range(1, gr.nx, 20):
+    if gr.xm[ir] > 10000:
+        continue
     clr = next(clrs)
-    Q = FRF[:, 0, 0, ir]
-    ax1.plot(settings.t[1:], Q, '.-', color=clr, label=f"MF6,   Q[{gr.xm[ir]:.4g}] m")
+    # Flows
+    Qmf6 = FRF[:, 0, 0, ir]
+    ax1.plot(settings.t[1:], Qmf6, '.-', color=clr, label=f"MF6,   Q[{gr.xm[ir]:.4g}] m")
     ax1.plot(settings.t[1:], out['Qx'][:, 0, 0, ir], 'x-', color=clr, label=f"fdm3t: Q[{gr.xm[ir]:.4G}] m")
-    print(ir, Q[0], out['Qx'][0, 0, 0, 0])
+
+    #Qttim =  -ml.elementdict['well'].discharge(settings.t)[0]
+    qrttim =  ml.disvec(gr.xm[ir], 0., tttim, layers=[0])[0][0]
+    Qrttim = 2 * np.pi * gr.xm[ir] * qrttim
+    ax1.plot(tttim, Qrttim, 's', color=clr, mfc='none', label=f"TTIM,  Q[{gr.xm[ir]:.4g}] m")
     
+    # Heads
     ax2.plot(settings.t[1:],    HDS[:, -1, 0, ir], '.-', color=clr, label=f"MF6:   r={gr.xm[ir]:.4g} m")
     ax2.plot(settings.t, out['Phi'][:, -1, 0, ir], 'x-', color=clr, label=f"fdm3t: r={gr.xm[ir]:.4g} m")
-
+    
+    httimr = ml.head(gr.xm[ir], 0, tttim, layers=0)[0]
+    ax2.plot(tttim, httimr, 's', color=clr, mfc='none', label=f"fdm3t: r={gr.xm[ir]:.4g} m")
+    
 # logo:
 
 fstr= f"_nt{len(settings.t)-1}_gr{'-'.join([str(s) for s in gr.shape])}_eps{settings.props['epsilon']*100:.0f}perc"

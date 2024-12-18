@@ -1,1 +1,1 @@
-out['Qx'][:, 0, 0, ir]
+Qrttim = 2 * np.pi * gr.xm[ir] * qrttim
