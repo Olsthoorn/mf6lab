@@ -1,0 +1,1 @@
+ax.plot(xm, props['zIface'] + 50 * np.exp(-((xm / L) ** 2)), 'cyan', lw=2.5, label='interface')

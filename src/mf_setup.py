@@ -453,6 +453,38 @@ def mf_setup():
     return fp_packages, model_dict, use_models, use_packages
 
 
+### === Modpath 7 ===================================================
+
+    if 'MP7' in use_models:
+    ### MP7 =====================
+        if True: # Groundwater path model, use name from 'sim').
+            logging.info("MP7")
+            MP7_model_name = sim.name + 'MP7'
+            model_dict['MP7mp7'].update(modelname=MP7_model_name,
+                                    model_rel_path=mf_adapt.dirs.MP7,
+                                    exe_name=sim.exe_name,
+                                    )
+            mp7 = flopy.modpath.Modpath7.create_mp7(sim, **model_dict['Gwfgwf'])
+            fp_packages['MP7mp7'] = mp7
+            
+            ### Ims =====================
+            model_dict['Gwfims'].update()
+            logging.info("Gwfims")
+            Gwfims = flopy.mf6.ModflowIms(sim, **model_dict['Gwfims'])
+            fp_packages['Gwfims'] = Gwfims
+            sim.register_ims_package(Gwfims, [Gwf_model_name])    
+
+
+    ### mp7 ==================
+        if 'MP7' in use_packages:
+            logging.info('MP7')
+            model_dict['MP7'].update(**mf_adapt.MP7)
+            fp_packages['MP7'] = flopy.modpath.Modpath7.create_mp7(mp7, **model_dict['Gwtsrc'])
+
+
+
+
+
 def run_modflow(sim=None):
         """Simulate GGOR using MODFLOW.
 

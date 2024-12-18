@@ -211,6 +211,7 @@ class ExecValue:
     def __init__(self, value):
         exec('self.value = {}'.format(value))
 
+
 def get_mf6_params_from_excel(wbk_name, sheet_name='GWF6'):
     """Read mf6 parameters from workbook (sheetname='GWF6').
     
@@ -295,7 +296,6 @@ def get_periodata_from_excel(wbk_name, sheet_name='PER'):
         line with IPER = 8, etc. Hence, the last line is the last period number and
         the total number of stress periods is one more than this.
     """
-    
     p_data = pd.read_excel(wbk_name, sheet_name=sheet_name, header=1,
                                 index_col='IPER')
     p_data.index = p_data.index.astype(int)
@@ -323,6 +323,7 @@ def get_periodata_from_excel(wbk_name, sheet_name='PER'):
     return period_data
 
 # Same for PER and LAY
+
 
 def show_animation_progress(frame, nbreak=50, ntot=None):
     """"Show progress of animation.
