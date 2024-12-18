@@ -1,0 +1,740 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrreprt
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine biblatex
+\cite_engine_type authoryear
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\biblatex_bibstyle authoryear
+\biblatex_citestyle authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=none,% left,line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},%,stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Pennink's models
+\end_layout
+
+\begin_layout Author
+T.N.Olsthoorn
+\end_layout
+
+\begin_layout Date
+2023-11-08
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Pennink wanted to estimate the capacity of the dune area nowadays called
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Amsterdam Water Supply Dunes
+\begin_inset Quotes erd
+\end_inset
+
+ for the drinking water supply of the Dutch capital.
+ He also feared complete loss of the area for drinking water supply due
+ to intrusion and upconing of salt water present in the adjacent North sea
+ and below a depth of around 80 to 120 m, if the area was overexploited
+ due to ever growing demand for good water.
+ Since the water extraction started in 1853 with pumping from a dug pond
+ an ever extending network of extraction canals had been dug in the due
+ area to keep up with demand.
+ Already around 1880 the capacity limit was hit as virtually all yearly
+ precipitation surplus was captured by the canal system.
+ A decades long intense discussion on what to do about is set in.
+ It led among others to forced measures like dug drains below some canal
+ bottoms, but without avail.
+ Pennink, how became director of the Amsterdam Water Supply in 1998 was
+ also civil engineer interested in groundwater hydrology.
+ He took it upon himself to figure out the true capacity of the dune area
+ and the risk of saltwater intrusion to prevent loss of the area due to
+ salinization.
+\end_layout
+
+\begin_layout Standard
+From the then recent work by Badon-Ghijben and Herzberg, Pennink knew about
+ the behavior of salt water in direct contact with fresh water under extraction.
+ Quantifying it, however was a different matter, which might be solved by
+ doing tests in the laboratory with a physical cross section model.
+\end_layout
+
+\begin_layout Standard
+To quantify the potential water extraction from the dune area it was necessary
+ to understand groundwater flow towards the recovery canals.
+ Pennnink's computations of this flow did not match with the know hydraulic
+ conductivity of the dune sand and the flow depth that was then thought
+ not to extend below the bottom of the extraction canals.
+ At the beginning of the 20th century, it was neither generally known nor
+ accepted that groundwater should stream below canal bottoms, let alone
+ that it would flow upward near them.
+ The confusion is said to be due to a then important book called 
+\begin_inset Quotes eld
+\end_inset
+
+Die Wasserversorgung der Städte
+\begin_inset Quotes erd
+\end_inset
+
+ (The water supply for cities) (ref ###) in which the author, professor
+ at ###, 
+\begin_inset Quotes eld
+\end_inset
+
+proved mathematically
+\begin_inset Quotes erd
+\end_inset
+
+ that groundwater flowing towards canals could not flow below their bottom
+ elevation.
+ However, the actual flow extracted by the recovery canals in the Amsterdam
+ Dune Area, turned out the be much larger than what would match with the
+ flow through thickness between groundwater table and canal bottom and the
+ known hydraulic condutivity.
+ It is believed that this descrepancy between the then standing theory and
+ practical experience triggered Pennink to persue this riddle by physical
+ modeling in the laboratory and with field measurements around a recovery
+ canal in the due area, rather than to challenge the widely used renowned
+ German book on the basis of theoretical arguments alone.
+\end_layout
+
+\begin_layout Section
+Pennink's models
+\end_layout
+
+\begin_layout Standard
+Pennink had two physical cross-sectional models made; one for single-density
+ flow had a size of 60x60 cm and one for dual density flow which was 90x90
+ cm, both filled with fine gravel between two glass plates that were 2 cm
+ apart.
+ Boundary heads could be maintained at one or two sides using a gazed ditch
+ inserted in the gravel, while precipitation was introduced by means of
+ a gutter on top with a series of equidistant holes to let the water drop
+ on top of the gravel.
+ To show the flow, ink could be injected at certain points using small tubes
+ injected into the gravel to given depths.
+ On the other hand, density flow was visualized by using milk as the heavier
+ fluid, which happens to have about the same density as salt water, while
+ being clearly visible through the glass.
+ The milk hardly mixed with the fresh water on top, which is likely due
+ to the milk being fatty.
+\end_layout
+
+\begin_layout Section
+Pennink's first set of model runs
+\end_layout
+
+\begin_layout Standard
+Pennink ran various series of runs with his models.
+ The first series of experiments focused on single density flow and on the
+ paths of precipitation travelling underground towards extraction canals.
+ Further series simulated the simultaneous behavior of fresh water and salt
+ water, for which Pennink used milk.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pennink's-first-cross"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows Pennink's first cross sectional model filled with sand (fine gravel
+ or coarse sand).
+ The water flow from canal 
+\begin_inset Formula $B$
+\end_inset
+
+ to the outflowing canal 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ The maintained water levels in the canals are connected by a white line.
+ There must be a full capillary zone a few cm above line AB, which was ignored
+ by Pennink.
+ However, its top is vaguely visible on the photo, delimting a lighter unsaturat
+ed and the darker colored saturated zone.
+ Maintaining a head difference in both 
+\begin_inset Quotes eld
+\end_inset
+
+canals
+\begin_inset Quotes erd
+\end_inset
+
+ forced the flow from B to A through the model.
+ To show the streamlines, 5 small glass tubes were inserted in the sand
+ from above to different depth, allowing black ink to be infiltrated.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pennink's-first-cross"
+
+\end_inset
+
+Pennink's first cross sectional model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Development-0h55"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the flow from the ends of the five glass tubes 55 minutes after ink
+ was introduced.
+ The patterns shows that the bottom of the shallowest tube ends in the unsaturat
+ed zone while that of the second tube ends at the top of the full capillary
+ zone.
+ The flow in the full capillary zone is as fast as around the line AB, while
+ that in the unsaturated zone is much less, lower the lower the saturation.
+ The spot made by the shallowest tube is also less dark due to the presence
+ of air in the unsaturated zone.The thickness of the full capillary zone
+ 
+\begin_inset Formula $h$
+\end_inset
+
+ also gives us an indication about the size of the sand grains.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2\pi r\tau\approx\pi r^{2}\rho gh
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h\approx\frac{2}{r}\frac{\tau}{\rho g}\rightarrow r\approx\frac{2}{h}\frac{\tau}{\rho g}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $\tau\approx75\times10^{-3}N/m$
+\end_inset
+
+ surface trension of water, which is sufficiently accurate due to the fact
+ that the angle of the water surface and the grains is generally small,
+ 
+\begin_inset Formula $\rho g\approx10^{4}N/m^{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $h\approx0.04m$
+\end_inset
+
+.
+ With this, we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r\approx\frac{2}{0.04}\frac{75\times10^{-3}}{10^{4}}=0.000375m\approx0.4mm
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r$
+\end_inset
+
+ being the radius of an equivalent glass tube in which the suction height
+ 
+\begin_inset Formula $h$
+\end_inset
+
+ is computed.
+ The diameter of equivalent glass grains with around 35% porosity would
+ be around 10 times this size, i.e.
+ around 4 mm.
+ This indeed, implies that Pennink used very coarse sand to very find gravel,
+ as one may already have guessed given the visible grains in the Photo.
+ The hydraulic conductivity of the medium in Penninks laboratory model is,
+ therefore, much higher than that of fine dune sand of around 8-10 m/d.
+ We will determine the conductivity of the laboratory model later one from
+ modelling Pennink's experiments.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Development-0h55"
+
+\end_inset
+
+Flow paths made visible by introducing ink through the small glass tubes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The next two figures show the futher development of the penetration of the
+ ink.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Development-1h20"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 1 h 20 minutes after the ink was introduced more clearly shows the lagging
+ behind of the ink in the unsaturated zone, where there is vertually no
+ flow.
+ The sharp contrast of the water velocity at the boundary of the unsaturated
+ and the saturated zone is also indicative of the coarse material used in
+ the model, there is hardly a transition zone.
+ The figure allows to estimate the horizontal flow velocity in the unsaturated
+ zone to be about 1/4th to 1/5th of that of the top of the saturated zone.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Development-1h20"
+
+\end_inset
+
+Development of the penetration of the ink after 1 hour 20 minutes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By this time, 1h 55 minutes after introducing the ink, the ink from the
+ second and third tube have reached the 
+\begin_inset Quotes eld
+\end_inset
+
+extraction canal
+\begin_inset Quotes erd
+\end_inset
+
+ at 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ The flow lines lower in the model lag behind due to the lower velocities
+ there.
+ Notice that the water level in the 
+\begin_inset Quotes eld
+\end_inset
+
+canal
+\begin_inset Quotes erd
+\end_inset
+
+ at 
+\begin_inset Formula $A$
+\end_inset
+
+ is indicated by the white line at 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ The inflow at the canal of the streamline approaching along the op of the
+ saturated zone, which is above the canal level at 
+\begin_inset Formula $A$
+\end_inset
+
+, clearly demonstrates the development of a seepage zone.
+ A seepage face is special boundary outflow condition along which head and
+ elevation are the same.
+ A seepage zone needs some attention when modeling it.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Development-1h55"
+
+\end_inset
+
+Development of the penetration of the ink after 1 h 55 minutes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Development-5h15"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is taken 5 h 15 minutes after the ink was first released and 55 minutes
+ after the ink introduction ceased.
+ After 55 minutes, the ink from the second glass tube released at the top
+ of the fully capillary zone has been fully washed away.
+ However, that in the unsaturated zone has not due to its low verlocity,
+ but it has reached the outlet after 5 hours.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Development-5h15"
+
+\end_inset
+
+Development of the flow 5 h 15 minutes after the ink was first released
+ and 55 minutes after the release of ink ceased.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Upward flow below extraction canals
+\end_layout
+
+\begin_layout Standard
+Pennink's book thus starts with field observations which he used to verify
+ the the laboratory experiments with his physical cross sectional model,
+ which had just shown that flow lines near an extraction canal point upward.
+ Pennink had three series of 5 to 5 small piezometers installed vertically
+ 1 to 1.5 m apart, at 0, 5, 10 and 15 m from the center line of 4 m wide
+ extracting canal.
+ A rather impervious clay layer prevented vertical flow at about 8 below
+ the canal stage.
+ This setup of 19 piezometers allowed mapping the spatial head distribution
+ near the canal with great accuracy.
+ Pennink used these measurements to draw lines of equal head in the cross
+ section and also drow streamlines more or less perpendicular to them.
+ This way, the upward flow near the canal, due to contracting streamlines,
+ was demonstrated to exist in the field as it did in the laboratory model.
+\end_layout
+
+\begin_layout Standard
+It is tempting with the tools of today, to regenerate the flow field that
+ Pennink came up with.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pennink's flowfield (top) modelled flow field (bottom)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Numerically modeling Pennnink's laboratory model
+\end_layout
+
+\begin_layout Standard
+Nowadays, modeling the flow in and streamlines in the Pennink's lab model
+ is more or less straightforward.
+ It can be done with the widely used groundwater model Modflow made publicly
+ available by the USGS.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Pennink (1915)"
+key "Pen15"
+literal "false"
+
+\end_inset
+
+Pennink, JMK (1915) Grondwateer Stroombanen.
+ (Groundwater Flow Paths) De uitkomsten van een onderzoek verricht in de
+ jaren 1904 en 1905 naar de vorm der Stroombanen van Grondwater zich bewegend
+ in zuiver zand.
+ (The outcomes of a study carried out in the years 1904 and 1905 after the
+ shape of flow paths of groundwater, moving through pure sand).
+ Amsterdam, Stadsdrukkerij 1915.
+ 151pp.
+ The text is in Dutch , French, German and English with many photos.
+\end_layout
+
+\begin_layout Standard
+Pennink ran various tests
+\end_layout
+
+\end_body
+\end_document
