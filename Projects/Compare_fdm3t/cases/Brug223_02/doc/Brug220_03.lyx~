@@ -1,0 +1,1440 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine biblatex
+\cite_engine_type authoryear
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\biblatex_bibstyle authoryear
+\biblatex_citestyle authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=none,% left,line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},%,stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Bruggeman solution 223_02
+\end_layout
+
+\begin_layout Section
+Intro,
+ aanleiding
+\end_layout
+
+\begin_layout Standard
+Ik zocht het verloop van de onttrekking rond een cikelvormige bouwput in een oneindig uitgestrekt pakket bij vaste verlaging op zijn rand 
+\begin_inset Formula $r=R$
+\end_inset
+
+.
+ Ik heb dit probleem gereduceerd tot een onttrekking op een cilinder met radius 
+\begin_inset Formula $R$
+\end_inset
+
+ als gevolg van een plotselinge verandering met gegeven 
+\begin_inset Formula $h$
+\end_inset
+
+ op 
+\begin_inset Formula $t=0$
+\end_inset
+
+.
+ De oplossing voor dit probleem wordt gegeven door Bruggeman (1999) als oplosing 223_02,
+ p163:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi(r,t)=h\left\{ 1-\frac{2}{\pi}\int_{u=0}^{\infty}\frac{1}{u}h(u,r)\exp\left(-\frac{u^{2}t}{\beta^{2}R^{2}}\right)du\right\} 
+\]
+
+\end_inset
+
+met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h(u,r/R)=\frac{J_{0}(u)Y_{0}(\frac{r}{R}u)-Y_{0}(u)J_{0}(\frac{r}{R}u)}{J_{0}^{2}(u)+Y_{0}^{2}(u)}
+\]
+
+\end_inset
+
+en 
+\begin_inset Formula $Y_{0}$
+\end_inset
+
+ en 
+\begin_inset Formula $J_{0}$
+\end_inset
+
+ de bekende oscilerende Besselfuncties.
+\end_layout
+
+\begin_layout Standard
+Het debiet 
+\begin_inset Formula $Q\left(t,r\right)$
+\end_inset
+
+ wordt op de standaard wijze verkregen als
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q\left(t,r\right)=-2\pi rT\frac{\partial\phi\left(t,r\right)}{\partial r}
+\]
+
+\end_inset
+
+met 
+\begin_inset Formula $T$
+\end_inset
+
+ [L^2/T] het doorlaatvermogen.
+\end_layout
+
+\begin_layout Standard
+De 
+\begin_inset Formula $r$
+\end_inset
+
+ komt alleen voor in 
+\begin_inset Formula $h\left(u,r/R\right)$
+\end_inset
+
+.
+ Differentiatie naar 
+\begin_inset Formula $r$
+\end_inset
+
+ daarvan levert
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial h(u,r/R)}{\partial r} & =\frac{u}{R}\frac{Y_{0}(u)J_{1}(\frac{r}{R}u)-J_{0}(u)Y_{1}(\frac{r}{R}u)}{J_{0}^{2}(u)+Y_{0}^{2}(u)}
+\end{align*}
+
+\end_inset
+
+waarin met 
+\begin_inset Formula $\frac{dJ_{0\left(x\right)}}{dx}=-J_{1}\left(x\right)$
+\end_inset
+
+ en 
+\begin_inset Formula $\frac{dY_{0}\left(x\right)}{dx}=-Y_{1}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Het debiet kan dan als volgt worden bepaald
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+Q\left(t,r\right) & =-2\pi rT\frac{\partial\phi(t,r)}{\partial r}\\
+ & =-(2\pi rT)(-h\frac{2}{\pi})\int_{u=0}^{\infty}\frac{1}{u}\frac{\partial h(u,r/R)}{\partial r}\exp\left(-\frac{u^{2}t}{\beta^{2}R^{2}}\right)du\\
+ & =h\,4rT\int_{u=0}^{\infty}\frac{1}{u}\frac{\partial h(u,r/R)}{\partial r}\exp\left(-\frac{u^{2}t}{\beta^{2}R^{2}}\right)du\\
+ & =h\,4rT\int_{u=0}^{\infty}\frac{1}{u}\frac{u}{R}\frac{Y_{0}(u)J_{1}(\frac{r}{R}u)-J_{0}(u)Y_{1}(\frac{r}{R}u)}{J_{0}^{2}(u)+Y_{0}^{2}(u)}\exp\left(-\frac{u^{2}t}{\beta^{2}R^{2}}\right)du\\
+ & =4Th\frac{r}{R}\int_{u=0}^{\infty}\frac{Y_{0}(u)J_{1}(\frac{r}{R}u)-J_{0}(u)Y_{1}(\frac{r}{R}u)}{J_{0}^{2}(u)+Y_{0}^{2}(u)}\exp\left(-\frac{u^{2}t}{\beta^{2}R^{2}}\right)du\\
+ & =4Th\frac{r}{R}\int_{z=-\infty}^{+\infty}u\frac{Y_{0}(u)J_{1}(\frac{r}{R}u)-J_{0}(u)Y_{1}(\frac{r}{R}u)}{J_{0}^{2}(u)+Y_{0}^{2}(u)}\exp\left(-\frac{u^{2}t}{\beta^{2}R^{2}}\right)dz,\,\,\,\,u=e^{z}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In de laatste regel ga ik integreren langs de logaritmische schaal door te schrijven
+\begin_inset Formula $d\ln u=dz=\frac{du}{u}$
+\end_inset
+
+ zodat 
+\begin_inset Formula $du=u\,dz$
+\end_inset
+
+,
+ vandaar de u voor de uitdrukking met de Besselfuncties.
+ Uiteraard geldt in de laatste regel 
+\begin_inset Formula $u=\exp\left(z\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Dus voor het debiet op de rand van de cilinder zet 
+\begin_inset Formula $r=R$
+\end_inset
+
+,
+ wat de uitdrukking iets eenvoudiger maakt.
+ Voor het berekenen moeten we de integraal uitrekenen;
+ of dat lukt hangt deels af van het gedrag van de uitdrukking onder de integraal.
+ Hetzelde geldt uiteraard voor het uitrekenen van de integraal in de uitdrukking van 
+\begin_inset Formula $\phi\left(t,r\right).$
+\end_inset
+
+ Figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ArgPhi"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het verloop van het argument onder de integraal van 
+\begin_inset Formula $\phi$
+\end_inset
+
+ voor 4 verschillende waarden van 
+\begin_inset Formula $r/R$
+\end_inset
+
+.
+ Uiteraard is dat argument idendiek aan nu voor 
+\begin_inset Formula $r/R=1$
+\end_inset
+
+.
+ Voor waarden an 
+\begin_inset Formula $r/R>1$
+\end_inset
+
+ is het argument ongelijk aan nul en heeft de te oscillaties die uit de besselfuncties voortkomen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename arg_phi.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ArgPhi"
+
+\end_inset
+
+Argument onder de integraal van 
+\begin_inset Formula $\phi\left(t,r\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ArgQ"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het argument onder de ingegraal voor de uitdrukking van het debiet.
+ Voor dezelfde uitgangspunten en voor waarden voor 
+\begin_inset Formula $r/R$
+\end_inset
+
+ als figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ArgPhi"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Ook hier krijgen we de te verwachten oscillaties,
+ althans voor waarden van 
+\begin_inset Formula $r/R>1$
+\end_inset
+
+.
+ Hoe groter 
+\begin_inset Formula $r/R$
+\end_inset
+
+ hoe meer oscilaties optreden en hoe moeilijker de (numerieke) integratie zal zijn.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename arg_Q.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ArgQ"
+
+\end_inset
+
+Argument onder de integraal van 
+\begin_inset Formula $Q\left(t,r\right)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Echter,
+ het verloop van het argument van Q voor 
+\begin_inset Formula $r=R$
+\end_inset
+
+,
+ dus precies op de rand van de cilinder,
+ heeft geen enkele oscillatie en zou daarom zonder problemen integreerbaar moeten zijn.
+ Dus zou het berekenen van 
+\begin_inset Formula $Q\left(t,r=R\right)$
+\end_inset
+
+ probleemloos moeten verlopen.
+ De integratie verloopt ook verder probleemloos,
+ echter de uitkomst klopt niet zoals blijkt uit figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:phi_and_Q"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename phi_and_Q.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:phi_and_Q"
+
+\end_inset
+
+Berekende 
+\begin_inset Formula $\phi\left(t,r\right)$
+\end_inset
+
+ en 
+\begin_inset Formula $Q\left(t,r\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Het is duidelijk dat de uitkomst niet kan kloppen want de grafieken van 
+\begin_inset Formula $\phi$
+\end_inset
+
+ moeten voor elke 
+\begin_inset Formula $r>R$
+\end_inset
+
+ op nul beginnen en asymptotisch naar de eindwaarde (1) lopen.
+ De grafieken voor 
+\begin_inset Formula $Q$
+\end_inset
+
+ moeten voor elke 
+\begin_inset Formula $r>R$
+\end_inset
+
+ op 0 beginnen en dan aansluiten op die voor 
+\begin_inset Formula $r=R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Tenslotte de juiste uitkomst,
+ die heel veel verschilt van die van Bruggeman zoals ik die berekend heb.
+ In figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Q_Phi_modellen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ staan de resultaten die ik heb berekend met Modflow,
+ met mijn eigen fdm3t,
+ met ttim,
+ met mijn benadering met convolutie en,
+ tenslotte,
+ in oranje,
+ wat ik kreeg met de formule van Bruggeman voor 
+\begin_inset Formula $\phi$
+\end_inset
+
+ en de daaruit afgeleide formule van 
+\begin_inset Formula $Q$
+\end_inset
+
+,
+ beide voor 
+\begin_inset Formula $r=R$
+\end_inset
+
+.
+ De met Bruggeeman berekende stijghoogte voor 
+\begin_inset Formula $r=R$
+\end_inset
+
+ is uiteraard goed (1),
+ maar triviaal.
+ De met de afgeleide formule voor het debiet berekende debiet wijkt echter enorm af van de juiste waarde die overtuigend met de 4 andere methoden is berekend.
+ Ik heb geen idee hoe dat komt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Q_phi_numeriek_analytisch.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Q_Phi_modellen"
+
+\end_inset
+
+Uitkomsten van:
+ Modflow,
+ fdm3t,
+ TTIM,
+ benaderd met convolutie en analytische Bruggeman 223_02.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hieronder nog even hoe ik de formules van Bruggeman bereken
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Listing
+\end_layout
+
+\begin_layout Plain Layout
+
+# Solution of Bruggeman 220_03,
+ flow from cylinder of given R after sudden head change at t=0.
+\end_layout
+
+\begin_layout Plain Layout
+
+import numpy as np
+\end_layout
+
+\begin_layout Plain Layout
+
+import matplotlib.pyplot as plt
+\end_layout
+
+\begin_layout Plain Layout
+
+from scipy.special import j0 as J0,
+ y0 as Y0,
+ j1 as J1,
+ y1 as Y1
+\end_layout
+
+\begin_layout Plain Layout
+
+from scipy.integrate import quad
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+import settings
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def h(u=None,
+ r=None,
+ R=None,
+ **_):
+\end_layout
+
+\begin_layout Plain Layout
+
+    rho = r / R
+\end_layout
+
+\begin_layout Plain Layout
+
+    return (J0(u) * Y0(u * rho) - Y0(u) * J0(u * rho)) / (J0(u) ** 2 + Y0(u) ** 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def dhdr(u=None,
+ r=None,
+ R=None,
+ **_):
+\end_layout
+
+\begin_layout Plain Layout
+
+    """Return partial h/ partial r."""
+\end_layout
+
+\begin_layout Plain Layout
+
+    rho = r / R
+\end_layout
+
+\begin_layout Plain Layout
+
+    return u / R * ((Y0(u) * J1(rho * u) - J0(u) * Y1(rho * u))) / (J0(u) ** 2 + Y0(u) ** 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def argFi(z=None,
+ r=None,
+ R=None,
+ beta=None,
+ t=None,
+ **_):
+\end_layout
+
+\begin_layout Plain Layout
+
+    u = np.exp(z)
+\end_layout
+
+\begin_layout Plain Layout
+
+    return h(u,
+ r,
+ R) * np.exp(- (u / (beta * R)) ** 2 * t)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def Fint(a,
+ b,
+ args=None):
+\end_layout
+
+\begin_layout Plain Layout
+
+    """Return phi(t,
+ r).
+\end_layout
+
+\begin_layout Plain Layout
+
+    Parameters
+\end_layout
+
+\begin_layout Plain Layout
+
+    ----------
+\end_layout
+
+\begin_layout Plain Layout
+
+    a,
+ b:
+ limit of integration (should be -inf,
+ inf)
+\end_layout
+
+\begin_layout Plain Layout
+
+    args:
+ tuple of floats of remaining parameters.
+\end_layout
+
+\begin_layout Plain Layout
+
+        args = (r,
+ R,
+ beta,
+ t)    
+\end_layout
+
+\begin_layout Plain Layout
+
+    """
+\end_layout
+
+\begin_layout Plain Layout
+
+    return 1.
+ - 2.
+ / np.pi * quad(argFi,
+ a,
+ b,
+ args=args,
+ limit=200)[0]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def argQ(z=None,
+ r=None,
+ R=None,
+ beta=None,
+ t=None,
+ **kw):
+\end_layout
+
+\begin_layout Plain Layout
+
+    u = np.exp(z)
+\end_layout
+
+\begin_layout Plain Layout
+
+    return u * dhdr(u,
+ r,
+ R) * np.exp(- (u / (beta * R)) ** 2 * t)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def Qint(a,
+ b,
+ args=None):
+\end_layout
+
+\begin_layout Plain Layout
+
+    """Return Q(t,
+ r).
+\end_layout
+
+\begin_layout Plain Layout
+
+    Parameters
+\end_layout
+
+\begin_layout Plain Layout
+
+    ----------
+\end_layout
+
+\begin_layout Plain Layout
+
+    a,
+ b:
+ floats,
+ limits of the integration
+\end_layout
+
+\begin_layout Plain Layout
+
+    args:
+ tuple of parameters
+\end_layout
+
+\begin_layout Plain Layout
+
+        args = (r,
+ R,
+ beta,
+ t)    
+\end_layout
+
+\begin_layout Plain Layout
+
+    """
+\end_layout
+
+\begin_layout Plain Layout
+
+    return quad(argQ,
+ a,
+ b,
+ args=args,
+ limit=200)[0]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+kD = np.sum(settings.props['kr'] * settings.props['D'])
+\end_layout
+
+\begin_layout Plain Layout
+
+S  = np.sum(settings.props['ss'] * settings.props['D'])
+\end_layout
+
+\begin_layout Plain Layout
+
+beta = np.sqrt(S / kD)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+z = np.linspace(-7.5,
+ 5.,
+ 1001)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+R = settings.props['r'][1]
+\end_layout
+
+\begin_layout Plain Layout
+
+rs = np.array([1.0,
+ 2.0,
+ 3.0,
+ 4.0]) * R
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+figsize = (10.,
+ 10.)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+times = settings.props['t']
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+fig,
+ axs = plt.subplots(2,
+ 2,
+ sharex=True,
+ sharey=True,
+ figsize=figsize)
+\end_layout
+
+\begin_layout Plain Layout
+
+fig.suptitle(f"argFi,
+ R={R:.4g} m,kD={kD:.4g} m2d,
+ S={S:.4g},
+ beta={beta:.4g}")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for r,
+ ax in zip(rs,
+ axs.ravel()):
+\end_layout
+
+\begin_layout Plain Layout
+
+    ax.set_title(f"argFi,
+ r={r:.4g} m,
+ r/R={r/R:.4g}")
+\end_layout
+
+\begin_layout Plain Layout
+
+    ax.set_ylabel('argFi')
+\end_layout
+
+\begin_layout Plain Layout
+
+    ax.grid(True)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    for t in times[::10]:
+\end_layout
+
+\begin_layout Plain Layout
+
+        ax.plot(z,
+ argFi(z=z,
+ r=r,
+ R=R,
+ beta=beta,
+ t=t),
+ label=f't={t:4g} d')
+\end_layout
+
+\begin_layout Plain Layout
+
+    if np.isclose(r,
+ 30):
+\end_layout
+
+\begin_layout Plain Layout
+
+        ax.legend(loc='upper left')
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+fig,
+ axs = plt.subplots(2,
+ 2,
+ sharex=True,
+ sharey=True,
+ figsize=figsize)
+\end_layout
+
+\begin_layout Plain Layout
+
+fig.suptitle(f"argFi,
+ R={R:.4g} m,kD={kD:.4g} m2d,
+ S={S:.4g},
+ beta={beta:.4g}")
+\end_layout
+
+\begin_layout Plain Layout
+
+for r,
+ ax in zip(rs,
+ axs.ravel()):
+\end_layout
+
+\begin_layout Plain Layout
+
+    ax.set_title(f"argQ,
+ r={r:.4g} m,
+ r/R={r/R:.4g}")
+\end_layout
+
+\begin_layout Plain Layout
+
+    ax.set_ylabel('argQ')
+\end_layout
+
+\begin_layout Plain Layout
+
+    ax.set_xlabel('z = np.exp(u)')
+\end_layout
+
+\begin_layout Plain Layout
+
+    ax.grid(True)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    for t in times[::10]:
+\end_layout
+
+\begin_layout Plain Layout
+
+        ax.plot(z,
+ argQ( z=z,
+ r=r,
+ R=R,
+ beta=beta,
+ t=t),
+ label=f't={t:.3g} d')
+\end_layout
+
+\begin_layout Plain Layout
+
+    if np.isclose(r,
+ 30):
+\end_layout
+
+\begin_layout Plain Layout
+
+        ax.legend(loc='upper left')
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+_,
+ (ax1,
+ ax2) = plt.subplots(2,
+ 1,
+ sharex=True,
+ figsize=figsize)
+\end_layout
+
+\begin_layout Plain Layout
+
+ax1.set_title(f"Bruggeman 220_03,
+ head R={R:.4g} m,
+ kD={kD:.4g} m2d,
+ S={S:.4g},
+ beta={beta:.4g}")
+\end_layout
+
+\begin_layout Plain Layout
+
+ax1.set_xlabel('t [d]')
+\end_layout
+
+\begin_layout Plain Layout
+
+ax1.set_ylabel('phi [m]')
+\end_layout
+
+\begin_layout Plain Layout
+
+ax1.set_yscale('log')
+\end_layout
+
+\begin_layout Plain Layout
+
+ax1.set_xscale('log')
+\end_layout
+
+\begin_layout Plain Layout
+
+ax1.grid(True)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ax2.set_title(f"Bruggeman 220_03 Q,
+ R={R:.4g} m,kD={kD:.4g} m2d,
+ S={S:.4g},
+ beta={beta:.4g}")
+\end_layout
+
+\begin_layout Plain Layout
+
+ax2.set_xlabel('t [d]')
+\end_layout
+
+\begin_layout Plain Layout
+
+ax2.set_ylabel('Q [m3/d]')
+\end_layout
+
+\begin_layout Plain Layout
+
+ax2.set_yscale('log')
+\end_layout
+
+\begin_layout Plain Layout
+
+ax2.set_xscale('log')
+\end_layout
+
+\begin_layout Plain Layout
+
+ax2.grid(True)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Dit stuk is wat ingewikkeld omdat ik de uitkomst als een dictonary in een ander bestand
+\end_layout
+
+\begin_layout Plain Layout
+
+# importeer om deze daar over de grafiek van de numerieke uitkomsten te tekenen.
+\end_layout
+
+\begin_layout Plain Layout
+
+B = dict()
+\end_layout
+
+\begin_layout Plain Layout
+
+B['Q'] = dict()
+\end_layout
+
+\begin_layout Plain Layout
+
+B['F'] = dict()
+\end_layout
+
+\begin_layout Plain Layout
+
+B['t'] = dict()
+\end_layout
+
+\begin_layout Plain Layout
+
+F = dict()
+\end_layout
+
+\begin_layout Plain Layout
+
+a,
+ b = -7.5,
+ 5
+\end_layout
+
+\begin_layout Plain Layout
+
+for r in rs:
+\end_layout
+
+\begin_layout Plain Layout
+
+    ri = np.round(r)
+\end_layout
+
+\begin_layout Plain Layout
+
+    B['Q'][ri] = np.zeros_like(times)
+\end_layout
+
+\begin_layout Plain Layout
+
+    B['F'][ri] = np.zeros_like(times)
+\end_layout
+
+\begin_layout Plain Layout
+
+    B['t'][ri] = np.zeros_like(times)
+\end_layout
+
+\begin_layout Plain Layout
+
+    for it,
+ t in enumerate(times):
+\end_layout
+
+\begin_layout Plain Layout
+
+        args = (r,
+ R,
+ beta,
+ t)
+\end_layout
+
+\begin_layout Plain Layout
+
+        B['Q'][ri][it] = 4 * kD * settings.hb * Qint(a,
+ b,
+ args=args)
+\end_layout
+
+\begin_layout Plain Layout
+
+        B['F'][ri][it] = settings.hb * Fint(a,
+ b,
+ args=args)
+\end_layout
+
+\begin_layout Plain Layout
+
+        B['t'][ri][it] = t
+\end_layout
+
+\begin_layout Plain Layout
+
+    ax1.plot(times,
+ B['F'][ri],
+ label=f'Brug220_00 r={r:.4g} m')
+\end_layout
+
+\begin_layout Plain Layout
+
+    ax2.plot(times,
+ B['Q'][ri],
+ label=f'Brug220_00 r={r:.4g} m')
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ax1.legend()
+\end_layout
+
+\begin_layout Plain Layout
+
+ax2.legend()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#plt.show()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

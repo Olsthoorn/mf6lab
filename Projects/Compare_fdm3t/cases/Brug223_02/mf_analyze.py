@@ -10,6 +10,7 @@ import flopy
 import ttim
 import mf_adapt
 import settings
+from Brug223_02 import B
 from analytic.hantush_convolution import Wh
 from etc import color_cycler
 from src import mf6tools
@@ -125,12 +126,18 @@ for ir in range(1, gr.nx, 20):
     Qrttim = 2 * np.pi * gr.xm[ir] * qrttim
     ax1.plot(tttim, Qrttim, 's', color=clr, mfc='none', label=f"TTIM,  Q[{gr.xm[ir]:.4g}] m")
     
+    ri = list(B['Q'].keys())[0]
+    ax1.plot(B['t'][ri], B['Q'][ri], '*', color='orange', label=f'Q Brug223_03, r={ri:.4g} m')
+
     # Heads
     ax2.plot(settings.t[1:],    HDS[:, -1, 0, ir], '.-', color=clr, label=f"MF6:   r={gr.xm[ir]:.4g} m")
     ax2.plot(settings.t, out['Phi'][:, -1, 0, ir], 'x-', color=clr, label=f"fdm3t: r={gr.xm[ir]:.4g} m")
     
     httimr = ml.head(gr.xm[ir], 0, tttim, layers=0)[0]
     ax2.plot(tttim, httimr, 's', color=clr, mfc='none', label=f"fdm3t: r={gr.xm[ir]:.4g} m")
+    
+    ri = list(B['F'].keys())[0]
+    ax2.plot(B['t'][ri], B['F'][ri], '*', color='orange', label=f'Q Brug223_03, r={ri:.4g} m')
     
 # logo:
 
@@ -153,8 +160,8 @@ ax2.plot(tau[1:], s, 'o', color='k', mfc='none', label="appr. by convolution")
 ax1.text(0.85, 0.05, str(np.datetime64('today')),
         fontsize=10, fontweight='normal', va='bottom', transform=fig.transFigure) # ax.transAxis
 
-ax1.legend(fontsize=8)
-ax2.legend(fontsize=8)
+ax1.legend(loc='upper center', fontsize=6)
+ax2.legend(loc='upper center', fontsize=6)
 
 plt.savefig(os.path.join(dirs.images, sim.name + f"{fstr}"+'.png'))
 
