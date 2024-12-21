@@ -47,6 +47,7 @@ def Qint(a, b, args=None):
 kD = np.sum(settings.props['kr'] * settings.props['D'])
 S  = np.sum(settings.props['ss'] * settings.props['D'])
 beta = np.sqrt(S / kD)
+T = kD
 
 z = np.linspace(-7.5, 5., 1001)
 
@@ -113,7 +114,7 @@ for r in rs:
     B['t'][ri] = np.zeros_like(times)
     for it, t in enumerate(times):
         args = (r, R, beta, t)
-        B['Q'][ri][it] = 4 * kD * settings.hb * Qint(a, b, args=args)
+        B['Q'][ri][it] = 4 * T * r / R * settings.hb * Qint(a, b, args=args)
         B['F'][ri][it] = settings.hb * Fint(a, b, args=args)
         B['t'][ri][it] = t
     ax1.plot(times, B['F'][ri], label=f'Brug220_00 r={r:.4g} m')
