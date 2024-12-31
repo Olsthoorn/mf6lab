@@ -124,7 +124,7 @@
 \begin_body
 
 \begin_layout Title
-Bruggeman solution 223_02
+Bruggeman's solution 223_02
 \end_layout
 
 \begin_layout Section
@@ -133,17 +133,17 @@ Intro,
 \end_layout
 
 \begin_layout Standard
-Ik zocht het verloop van de onttrekking rond een cikelvormige bouwput in een oneindig uitgestrekt pakket bij vaste verlaging op zijn rand 
+Gezocht is het verloop van de onttrekking rond een cikelvormige (bouw)put in een oneindig uitgestrekt pakket bij vaste verlaging op de rand 
 \begin_inset Formula $r=R$
 \end_inset
 
 .
- Ik heb dit probleem gereduceerd tot een onttrekking op een cilinder met radius 
+ Dit probleem is hier gereduceerd tot een onttrekking op een cilinder met radius 
 \begin_inset Formula $R$
 \end_inset
 
- als gevolg van een plotselinge verandering met gegeven 
-\begin_inset Formula $h$
+ als gevolg van een plotselinge verandering van de stijghoogte 
+\begin_inset Formula $h_{R}$
 \end_inset
 
  op 
@@ -265,7 +265,8 @@ Q\left(t,r\right) & =-2\pi rT\frac{\partial\phi(t,r)}{\partial r}\\
 \end_layout
 
 \begin_layout Standard
-In de laatste regel ga ik integreren langs de logaritmische schaal door te schrijven
+In de laatste regel wordt de integratie variabele vervangen om te vermijden over een logaritmische as te moeten integreren,
+ dus door te schrijven
 \begin_inset Formula $d\ln u=dz=\frac{du}{u}$
 \end_inset
 
@@ -274,28 +275,20 @@ In de laatste regel ga ik integreren langs de logaritmische schaal door te schri
 \end_inset
 
 ,
- vandaar de u voor de uitdrukking met de Besselfuncties.
+ vandaar de 
+\begin_inset Formula $u$
+\end_inset
+
+ voor de uitdrukking met de Besselfuncties in de laatse vergelijking.
  Uiteraard geldt in de laatste regel 
 \begin_inset Formula $u=\exp\left(z\right)$
 \end_inset
 
- 
+.
 \end_layout
 
 \begin_layout Standard
-Dus voor het debiet op de rand van de cilinder zet 
-\begin_inset Formula $r=R$
-\end_inset
-
-,
- wat de uitdrukking iets eenvoudiger maakt.
- Voor het berekenen moeten we de integraal uitrekenen;
- of dat lukt hangt deels af van het gedrag van de uitdrukking onder de integraal.
- Hetzelde geldt uiteraard voor het uitrekenen van de integraal in de uitdrukking van 
-\begin_inset Formula $\phi\left(t,r\right).$
-\end_inset
-
- Figuur 
+In de figuren
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ArgPhi"
@@ -306,25 +299,152 @@ nolink "false"
 
 \end_inset
 
- geeft het verloop van het argument onder de integraal van 
+ en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ArgQ"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ is het argument onder de integraal uitzetten tegen 
+\begin_inset Formula $z=\ln u$
+\end_inset
+
+.
+ In figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ArgPhi"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ is dit gedaan voor de uitdrukking voor 
 \begin_inset Formula $\phi$
 \end_inset
 
- voor 4 verschillende waarden van 
-\begin_inset Formula $r/R$
+ en voor het argument onder de integraal en in figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ArgQ"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ voor de uittdrukking van 
+\begin_inset Formula $Q$
 \end_inset
 
 .
- Uiteraard is dat argument idendiek aan nu voor 
-\begin_inset Formula $r/R=1$
+ Uiteraard is het argument voor 
+\begin_inset Formula $\phi$
+\end_inset
+
+ identiek aan 0 voor 
+\begin_inset Formula $r=R$
 \end_inset
 
 .
- Voor waarden an 
-\begin_inset Formula $r/R>1$
+ Voor andere 
+\begin_inset Formula $r>R$
 \end_inset
 
- is het argument ongelijk aan nul en heeft de te oscillaties die uit de besselfuncties voortkomen.
+ onstaan oscillaties.
+ Ook laten de grafieken zien dat het argument onder de integraal in de uittdrukking van 
+\begin_inset Formula $\phi$
+\end_inset
+
+ maar heel langzaam daalt voor kleine 
+\begin_inset Formula $z=\ln u$
+\end_inset
+
+.
+ Het plaatje gaat tot 8 logcycli links van 
+\begin_inset Formula $z=0,$
+\end_inset
+
+
+\begin_inset Formula $u=1$
+\end_inset
+
+.
+ Dat is nogal wat.
+ Het argument onder de integraal van de uitdrukking van 
+\begin_inset Formula $Q$
+\end_inset
+
+ heeft blijkbaar geen oscillaties voor 
+\begin_inset Formula $r=R$
+\end_inset
+
+,
+ maar wel voor 
+\begin_inset Formula $r>R$
+\end_inset
+
+.
+ Hier lijkt integratie tussen 
+\begin_inset Formula $-8<z<4$
+\end_inset
+
+ voldoende om de integraal nauwkeurig uit te rekenen.
+ Dit blijkt echter een illusie.
+ Het argument voor kleine 
+\begin_inset Formula $z$
+\end_inset
+
+ lijkt nul,
+ maar blijkt dat niet te zijn.
+ Om een goede waarde van de integraal te krijgen moeten we bijvoorbeeld integreren over 
+\begin_inset Formula $-1000<z<4$
+\end_inset
+
+,
+ dus over ruim 104 logcycli wat 
+\begin_inset Formula $u$
+\end_inset
+
+ betreft.
+ Het verrraderlijke van deze integraal zit hem dus in de linkerstaart van de grafieken in de figuren 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ArgPhi"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ArgQ"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ die eindeloos naar links doorlopen zonder echt nul te worden.
+ Zonder integratie over het gehele brede traject komt het berekende debiet te laag uit,
+ en bij een ondergrens van 
+\begin_inset Formula $z=-8$
+\end_inset
+
+ zelfs veel te laag.
 \end_layout
 
 \begin_layout Standard
@@ -379,48 +499,6 @@ Argument onder de integraal van
 \end_layout
 
 \begin_layout Standard
-Figuur 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ArgQ"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- geeft het argument onder de ingegraal voor de uitdrukking van het debiet.
- Voor dezelfde uitgangspunten en voor waarden voor 
-\begin_inset Formula $r/R$
-\end_inset
-
- als figuur 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ArgPhi"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- Ook hier krijgen we de te verwachten oscillaties,
- althans voor waarden van 
-\begin_inset Formula $r/R>1$
-\end_inset
-
-.
- Hoe groter 
-\begin_inset Formula $r/R$
-\end_inset
-
- hoe meer oscilaties optreden en hoe moeilijker de (numerieke) integratie zal zijn.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement document
 alignment center
@@ -471,118 +549,35 @@ Argument onder de integraal van
 \end_layout
 
 \begin_layout Standard
-Echter,
- het verloop van het argument van Q voor 
-\begin_inset Formula $r=R$
+Wat boven is beschreven bleek door vergelijking met de juiste verloop van het debiet zoals dat is verkregen (al zij het bij benadering) uit een simulatie met Modflow,
+ het mijn eigen axiaal-symetrische fdm3t,
+ en uit het resultaat van TTIM,
+ en verder uit vergelijking met de inverse van de Laplace transform van de oplossing.
+ De laatste kwam,
+ na numerieke terugtransformatie met Graver-Stehfest,
+ overeen met de andere numerieke resultaten.
+ Na uitbreiding van het integratietraject tot 
+\begin_inset Formula $-100<z<4$
 \end_inset
 
-,
- dus precies op de rand van de cilinder,
- heeft geen enkele oscillatie en zou daarom zonder problemen integreerbaar moeten zijn.
- Dus zou het berekenen van 
-\begin_inset Formula $Q\left(t,r=R\right)$
-\end_inset
-
- probleemloos moeten verlopen.
- De integratie verloopt ook verder probleemloos,
- echter de uitkomst klopt niet zoals blijkt uit figuur 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:phi_and_Q"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename phi_and_Q.png
-	lyxscale 50
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:phi_and_Q"
-
-\end_inset
-
-Berekende 
-\begin_inset Formula $\phi\left(t,r\right)$
-\end_inset
-
- en 
-\begin_inset Formula $Q\left(t,r\right)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Het is duidelijk dat de uitkomst niet kan kloppen want de grafieken van 
-\begin_inset Formula $\phi$
-\end_inset
-
- moeten voor elke 
-\begin_inset Formula $r>R$
-\end_inset
-
- op nul beginnen en asymptotisch naar de eindwaarde (1) lopen.
- De grafieken voor 
+ kwam ook de uitdrukking voor 
 \begin_inset Formula $Q$
 \end_inset
 
- moeten voor elke 
-\begin_inset Formula $r>R$
+ en de stijghoogte 
+\begin_inset Formula $\phi$
 \end_inset
 
- op 0 beginnen en dan aansluiten op die voor 
-\begin_inset Formula $r=R$
-\end_inset
+ met de integraal overeen alle andere berekenmethoden;
+ alleen werkte µGraver-Stehfast niet voor de stijghoogte.
+\end_layout
 
-.
+\begin_layout Section
+Resultaten
 \end_layout
 
 \begin_layout Standard
-Tenslotte de juiste uitkomst,
- die heel veel verschilt van die van Bruggeman zoals ik die berekend heb.
- In figuur 
+Het resultaat van deze uitgebreide exercitie is weergegeven in figuur 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Q_Phi_modellen"
@@ -593,48 +588,101 @@ nolink "false"
 
 \end_inset
 
- staan de resultaten die ik heb berekend met Modflow,
- met mijn eigen fdm3t,
- met ttim,
- met mijn benadering met convolutie en,
- tenslotte,
- in oranje,
- wat ik kreeg met de formule van Bruggeman voor 
-\begin_inset Formula $\phi$
+.
+ De legenda vertelt welk lijntype bij welke berekeningsmethode hoort,
+ en de kleur vertelt voor welke afstand 
+\begin_inset Formula $r$
 \end_inset
 
- en de daaruit afgeleide formule van 
-\begin_inset Formula $Q$
+ de grafieken zijn gegeven.
+ De radius van de cirkel met gegeven stijghoogte is vast,
+ 
+\begin_inset Formula $R=30$
+\end_inset
+
+m.
+ De afstanden zijn geen mooie rond getallen omdat een aantal afstanden is gekozen uit het numerieke grid,
+ dat logarithmisch oploopt.
+ De afzonderlijke lijnmarkers zijn de tijdstippen waarvoor elk puntje is berekend.
+\end_layout
+
+\begin_layout Standard
+Allereerst,
+ de numerieke uitkomsten van Modflow (MF6) het eigen eindige differentiemodel (fdm3t) en Mark Bakker's TTIM komen alle drie goed met elkaar overeen,
+ waarbij fdm3t gezien de overeenkomst met TTIM bij kleine tijden nauwkeuriger is dan Modflow.
+ Dit laatste is te wijten aan het feit dat Modflow volledig impliciet rekent en fdm3t de mate van impliciet rekenen (
+\begin_inset Formula $epsilon$
+\end_inset
+
+) kan instellen tussen 0 en 1 (de gebruikte epsilong staat in de titel van de figuur).
+\end_layout
+
+\begin_layout Standard
+Vervolgens blijkt de terugtransformatie van de Laplace getransformeerde functie met Graver-Stehfest,
+ op een 
+\begin_inset Quotes pld
+\end_inset
+
+hik
+\begin_inset Quotes prd
+\end_inset
+
+ na aan het begin van elke curve,
+ voor het debiet goed te werken (paarse lijn met puntjes).
+ Voor de berekening van de stijghoogte,
+ werkt Graver-Stehfest helemaal niet.
+ Daar moet blijkbaar een (geheel) andere methode voor de terugtransformatie worden gekozen.
+ Cohen(2007) geeft enkele tientallen methoden,
+ en verwijst naar een website op zijn universiteit waar de code te vinden is.
+ Ik heb geen poging gedaan.
+\end_layout
+
+\begin_layout Standard
+Tenslotte blijkt het direct numeriek integreren van de door Bruggeman gegeven oplossing 223.03 goed te werken voor zowel de stijghoogte (behalve de allereerste puntjes) als het debiet (gehele traject),
+ echter geldt dit alleen onder de voorwaarde dat het integratietraject heel breed wordt gekozen,
+ hier tussen 
+\begin_inset Formula $-100\le z\le4$
+\end_inset
+
+ oftwel voor u 
+\begin_inset Formula $e^{-100}\le u\le e^{4}$
 \end_inset
 
 ,
- beide voor 
-\begin_inset Formula $r=R$
+ waarbij aangetekend zij,
+ dat het traject is opgebroken in het stuk 
+\begin_inset Formula $-100\le z\le-8$
 \end_inset
 
-.
- De met Bruggeeman berekende stijghoogte voor 
-\begin_inset Formula $r=R$
+ en het traject 
+\begin_inset Formula $-8\le z\le4$
 \end_inset
 
- is uiteraard goed (1),
- maar triviaal.
- De met de afgeleide formule voor het debiet berekende debiet wijkt echter enorm af van de juiste waarde die overtuigend met de 4 andere methoden is berekend.
- Ik heb geen idee hoe dat komt.
+ om zowel hoofd te kunnen bieden aan de uiterst traag naar nul dalende tak links,
+ als de oscillaties in de tweede tak rechts.
+ De standaard functie `scipy.integrate.quad` heeft er dan geen moeite mee.
+ Volgens de hulp bij de functie quad mag ook 
+\begin_inset Formula $-np.inf$
+\end_inset
+
+ worden gebruikt als ondergrens,
+ waarbij quad dan op een Fourrier-transformatie overschakelt,
+ maar dat werkt bij deze functie helemaal niet.
+ Vandaar dat het beste gewoon een voldoend breed integratietraject kan worden gekozen.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement document
-alignment document
+alignment center
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Q_phi_numeriek_analytisch.png
-	lyxscale 50
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Compare_fdm3t/cases/Brug223_02/images/Brug223_02_nt140_gr1-1-160_eps60perc.png
+	lyxscale 75
 	width 100text%
 
 \end_inset
@@ -656,7 +704,9 @@ Uitkomsten van:
  Modflow,
  fdm3t,
  TTIM,
- benaderd met convolutie en analytische Bruggeman 223_02.
+ Laplace,
+ directe numerieke integratie van de integraal (Fiquad,
+ Qquad) en benaderd met convolutie en analytische Bruggeman 223_02.
 \end_layout
 
 \end_inset
@@ -674,756 +724,63 @@ Uitkomsten van:
 \end_layout
 
 \begin_layout Standard
-Hieronder nog even hoe ik de formules van Bruggeman bereken
+Ter verduidelijking geeft figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vergelijking-uitkomsten-integratietraject"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ een vergelijking tussen de uitkomst van de directe numerieke integratie van oplossing 223.03 afhankelijk van de breedte van het integratietraject zoals aangegeven met 
+\begin_inset Formula $a=z[0]$
+\end_inset
+
+ en 
+\begin_inset Formula $b=z[-1]$
+\end_inset
+
+ in de legenda.
+ Zowel de berekende stijghoogte als het berekende debiet wijken af van de juiste uitkomst bij een te geringe overspanning van dit traject.
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-inline false
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Compare_fdm3t/cases/Brug223_02/images/CompareIntegration.png
+	width 100text%
 
-Listing
-\end_layout
-
-\begin_layout Plain Layout
-
-# Solution of Bruggeman 220_03,
- flow from cylinder of given R after sudden head change at t=0.
-\end_layout
-
-\begin_layout Plain Layout
-
-import numpy as np
-\end_layout
-
-\begin_layout Plain Layout
-
-import matplotlib.pyplot as plt
-\end_layout
-
-\begin_layout Plain Layout
-
-from scipy.special import j0 as J0,
- y0 as Y0,
- j1 as J1,
- y1 as Y1
-\end_layout
-
-\begin_layout Plain Layout
-
-from scipy.integrate import quad
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-import settings
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-def h(u=None,
- r=None,
- R=None,
- **_):
-\end_layout
-
-\begin_layout Plain Layout
-
-    rho = r / R
-\end_layout
-
-\begin_layout Plain Layout
-
-    return (J0(u) * Y0(u * rho) - Y0(u) * J0(u * rho)) / (J0(u) ** 2 + Y0(u) ** 2)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-def dhdr(u=None,
- r=None,
- R=None,
- **_):
-\end_layout
-
-\begin_layout Plain Layout
-
-    """Return partial h/ partial r."""
-\end_layout
-
-\begin_layout Plain Layout
-
-    rho = r / R
-\end_layout
-
-\begin_layout Plain Layout
-
-    return u / R * ((Y0(u) * J1(rho * u) - J0(u) * Y1(rho * u))) / (J0(u) ** 2 + Y0(u) ** 2)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-def argFi(z=None,
- r=None,
- R=None,
- beta=None,
- t=None,
- **_):
-\end_layout
-
-\begin_layout Plain Layout
-
-    u = np.exp(z)
-\end_layout
-
-\begin_layout Plain Layout
-
-    return h(u,
- r,
- R) * np.exp(- (u / (beta * R)) ** 2 * t)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-def Fint(a,
- b,
- args=None):
-\end_layout
-
-\begin_layout Plain Layout
-
-    """Return phi(t,
- r).
-\end_layout
-
-\begin_layout Plain Layout
-
-    Parameters
-\end_layout
-
-\begin_layout Plain Layout
-
-    ----------
-\end_layout
-
-\begin_layout Plain Layout
-
-    a,
- b:
- limit of integration (should be -inf,
- inf)
-\end_layout
-
-\begin_layout Plain Layout
-
-    args:
- tuple of floats of remaining parameters.
-\end_layout
-
-\begin_layout Plain Layout
-
-        args = (r,
- R,
- beta,
- t)    
-\end_layout
-
-\begin_layout Plain Layout
-
-    """
-\end_layout
-
-\begin_layout Plain Layout
-
-    return 1.
- - 2.
- / np.pi * quad(argFi,
- a,
- b,
- args=args,
- limit=200)[0]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-def argQ(z=None,
- r=None,
- R=None,
- beta=None,
- t=None,
- **kw):
-\end_layout
-
-\begin_layout Plain Layout
-
-    u = np.exp(z)
-\end_layout
-
-\begin_layout Plain Layout
-
-    return u * dhdr(u,
- r,
- R) * np.exp(- (u / (beta * R)) ** 2 * t)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-def Qint(a,
- b,
- args=None):
-\end_layout
-
-\begin_layout Plain Layout
-
-    """Return Q(t,
- r).
-\end_layout
-
-\begin_layout Plain Layout
-
-    Parameters
-\end_layout
-
-\begin_layout Plain Layout
-
-    ----------
-\end_layout
-
-\begin_layout Plain Layout
-
-    a,
- b:
- floats,
- limits of the integration
-\end_layout
-
-\begin_layout Plain Layout
-
-    args:
- tuple of parameters
-\end_layout
-
-\begin_layout Plain Layout
-
-        args = (r,
- R,
- beta,
- t)    
-\end_layout
-
-\begin_layout Plain Layout
-
-    """
-\end_layout
-
-\begin_layout Plain Layout
-
-    return quad(argQ,
- a,
- b,
- args=args,
- limit=200)[0]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-kD = np.sum(settings.props['kr'] * settings.props['D'])
-\end_layout
-
-\begin_layout Plain Layout
-
-S  = np.sum(settings.props['ss'] * settings.props['D'])
-\end_layout
-
-\begin_layout Plain Layout
-
-beta = np.sqrt(S / kD)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-z = np.linspace(-7.5,
- 5.,
- 1001)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-R = settings.props['r'][1]
-\end_layout
-
-\begin_layout Plain Layout
-
-rs = np.array([1.0,
- 2.0,
- 3.0,
- 4.0]) * R
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-figsize = (10.,
- 10.)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-times = settings.props['t']
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-fig,
- axs = plt.subplots(2,
- 2,
- sharex=True,
- sharey=True,
- figsize=figsize)
-\end_layout
-
-\begin_layout Plain Layout
-
-fig.suptitle(f"argFi,
- R={R:.4g} m,kD={kD:.4g} m2d,
- S={S:.4g},
- beta={beta:.4g}")
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
+\end_inset
 
-\begin_layout Plain Layout
-
-for r,
- ax in zip(rs,
- axs.ravel()):
-\end_layout
-
-\begin_layout Plain Layout
-
-    ax.set_title(f"argFi,
- r={r:.4g} m,
- r/R={r/R:.4g}")
-\end_layout
-
-\begin_layout Plain Layout
-
-    ax.set_ylabel('argFi')
-\end_layout
-
-\begin_layout Plain Layout
-
-    ax.grid(True)
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    for t in times[::10]:
-\end_layout
-
-\begin_layout Plain Layout
-
-        ax.plot(z,
- argFi(z=z,
- r=r,
- R=R,
- beta=beta,
- t=t),
- label=f't={t:4g} d')
-\end_layout
-
-\begin_layout Plain Layout
-
-    if np.isclose(r,
- 30):
-\end_layout
-
-\begin_layout Plain Layout
-
-        ax.legend(loc='upper left')
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-        
-\end_layout
-
-\begin_layout Plain Layout
-
-fig,
- axs = plt.subplots(2,
- 2,
- sharex=True,
- sharey=True,
- figsize=figsize)
-\end_layout
-
-\begin_layout Plain Layout
-
-fig.suptitle(f"argFi,
- R={R:.4g} m,kD={kD:.4g} m2d,
- S={S:.4g},
- beta={beta:.4g}")
-\end_layout
-
-\begin_layout Plain Layout
-
-for r,
- ax in zip(rs,
- axs.ravel()):
-\end_layout
-
-\begin_layout Plain Layout
-
-    ax.set_title(f"argQ,
- r={r:.4g} m,
- r/R={r/R:.4g}")
-\end_layout
-
-\begin_layout Plain Layout
-
-    ax.set_ylabel('argQ')
-\end_layout
-
-\begin_layout Plain Layout
-
-    ax.set_xlabel('z = np.exp(u)')
-\end_layout
-
-\begin_layout Plain Layout
-
-    ax.grid(True)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-    for t in times[::10]:
-\end_layout
-
-\begin_layout Plain Layout
-
-        ax.plot(z,
- argQ( z=z,
- r=r,
- R=R,
- beta=beta,
- t=t),
- label=f't={t:.3g} d')
-\end_layout
-
-\begin_layout Plain Layout
-
-    if np.isclose(r,
- 30):
-\end_layout
-
-\begin_layout Plain Layout
-
-        ax.legend(loc='upper left')
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-_,
- (ax1,
- ax2) = plt.subplots(2,
- 1,
- sharex=True,
- figsize=figsize)
-\end_layout
-
-\begin_layout Plain Layout
-
-ax1.set_title(f"Bruggeman 220_03,
- head R={R:.4g} m,
- kD={kD:.4g} m2d,
- S={S:.4g},
- beta={beta:.4g}")
-\end_layout
-
-\begin_layout Plain Layout
-
-ax1.set_xlabel('t [d]')
-\end_layout
-
-\begin_layout Plain Layout
-
-ax1.set_ylabel('phi [m]')
-\end_layout
-
-\begin_layout Plain Layout
-
-ax1.set_yscale('log')
-\end_layout
-
-\begin_layout Plain Layout
-
-ax1.set_xscale('log')
-\end_layout
-
-\begin_layout Plain Layout
-
-ax1.grid(True)
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
 
-ax2.set_title(f"Bruggeman 220_03 Q,
- R={R:.4g} m,kD={kD:.4g} m2d,
- S={S:.4g},
- beta={beta:.4g}")
-\end_layout
-
-\begin_layout Plain Layout
-
-ax2.set_xlabel('t [d]')
-\end_layout
-
-\begin_layout Plain Layout
-
-ax2.set_ylabel('Q [m3/d]')
-\end_layout
-
-\begin_layout Plain Layout
-
-ax2.set_yscale('log')
-\end_layout
-
-\begin_layout Plain Layout
-
-ax2.set_xscale('log')
-\end_layout
-
-\begin_layout Plain Layout
-
-ax2.grid(True)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-# Dit stuk is wat ingewikkeld omdat ik de uitkomst als een dictonary in een ander bestand
-\end_layout
-
-\begin_layout Plain Layout
-
-# importeer om deze daar over de grafiek van de numerieke uitkomsten te tekenen.
-\end_layout
-
-\begin_layout Plain Layout
-
-B = dict()
-\end_layout
-
-\begin_layout Plain Layout
-
-B['Q'] = dict()
-\end_layout
-
-\begin_layout Plain Layout
-
-B['F'] = dict()
-\end_layout
-
-\begin_layout Plain Layout
-
-B['t'] = dict()
-\end_layout
-
-\begin_layout Plain Layout
-
-F = dict()
-\end_layout
-
-\begin_layout Plain Layout
-
-a,
- b = -7.5,
- 5
-\end_layout
-
-\begin_layout Plain Layout
-
-for r in rs:
-\end_layout
-
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Vergelijking-uitkomsten-integratietraject"
 
-    ri = np.round(r)
-\end_layout
-
-\begin_layout Plain Layout
-
-    B['Q'][ri] = np.zeros_like(times)
-\end_layout
-
-\begin_layout Plain Layout
-
-    B['F'][ri] = np.zeros_like(times)
-\end_layout
-
-\begin_layout Plain Layout
-
-    B['t'][ri] = np.zeros_like(times)
-\end_layout
-
-\begin_layout Plain Layout
-
-    for it,
- t in enumerate(times):
-\end_layout
-
-\begin_layout Plain Layout
-
-        args = (r,
- R,
- beta,
- t)
-\end_layout
-
-\begin_layout Plain Layout
-
-        B['Q'][ri][it] = 4 * kD * settings.hb * Qint(a,
- b,
- args=args)
-\end_layout
-
-\begin_layout Plain Layout
-
-        B['F'][ri][it] = settings.hb * Fint(a,
- b,
- args=args)
-\end_layout
-
-\begin_layout Plain Layout
+\end_inset
 
-        B['t'][ri][it] = t
+Vergelijking uitkomsten integratie Bruggeman (1999) oplossing 223.03 afhankelijk de breedte van het integratietraject.
 \end_layout
 
-\begin_layout Plain Layout
-
-    ax1.plot(times,
- B['F'][ri],
- label=f'Brug220_00 r={r:.4g} m')
-\end_layout
-
-\begin_layout Plain Layout
-
-    ax2.plot(times,
- B['Q'][ri],
- label=f'Brug220_00 r={r:.4g} m')
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-ax1.legend()
-\end_layout
-
-\begin_layout Plain Layout
-
-ax2.legend()
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-#plt.show()
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
+\end_inset
 
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -1434,6 +791,567 @@ ax2.legend()
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vergelijking-uitkomsten-integratie-detail-Q"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft dezelfde figuur,
+ maar nu met detail voor Q.
+ Hieruit blijkt dat 
+\begin_inset Formula $Q$
+\end_inset
+
+steevast (veel) te laag uitkomt als een te kleine breedte van het integratietraject wordt gekozen.
+ Dit was de reden waarom de uitkomsten van deze directe wijze van het berekenen van de integraal veel lager uitkwamen dan de numerieke waarden en de waarden van TTIM.
+\end_layout
+
+\begin_layout Standard
+De grafieken voor Q bevatten ook de waarden van de berekening van de integraal met een eenvoudige Simpson methode (trapezium regel),
+ daarbij het traject eveneens opgesplitst en gebruik makend van 100000 puntjes.
+ Bij dit aantal puntjes is de uitkomst van de eenvoudige Simpsonmethode in 6 significante cijfers gelijk aan de quadmethode.
+\end_layout
+
+\begin_layout Standard
+Ook is in de figuur te zien dat de numerieke Laplace investie met Graver Stehfest voor de 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename CompareIntegrationTrajectDetial.png
+	lyxscale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Vergelijking-uitkomsten-integratie-detail-Q"
+
+\end_inset
+
+Vergelijking uitkomsten integratie Bruggeman (1999) als boven met detail voor Q goed werkt althans voor 
+\begin_inset Formula $r<4R$
+\end_inset
+
+.
+ De numerieke Laplace inverse werkt niet goed voor de stijghoogte (hier niet opgenomen).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Integraal direct numeriek berekenen
+\end_layout
+
+\begin_layout Standard
+De integraal berekenen blijkt moeilijk door het uiterst trage dalen van het argument voor afnemende 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ Dit was voor het debiet het geval,
+ maar geldt evenzeer voor het arugment onder integraal voor de uitdrukking van de stijghoogte (zie figuren).
+ Om dit effect te compenseren en met quad toch een goede integratie over het gehele traject te krijgen is het traject opgedeeld in een stuk links met 
+\begin_inset Formula $-100\le z\le-8$
+\end_inset
+
+ en een stuk rechts over het traject 
+\begin_inset Formula $-8\le z\le4$
+\end_inset
+
+.
+ Het stuk links rijkt dus over 92 logcycli van 
+\begin_inset Formula $u$
+\end_inset
+
+,
+ is zeer glad en kan zo met quad goed worden berekend.
+ Het stuk rechts is waar de functie sterk verandert en mogelijk een beperkt aantal oscillaties heeft,
+ die quad gemakkelijk aan kan.
+ Dit bijkt goed te werken.
+\end_layout
+
+\begin_layout Standard
+Een eenvoudige integratie met de Simpson (trapezium) methode,
+ ook opgesplitsts en over het zelfde traject genomen met 100000 punten levert in 6 significante cijfers dezelfde uitomst als de standaard functie `scipy.integrate.quad`.
+\end_layout
+
+\begin_layout Section
+De Laplace transformatie
+\end_layout
+
+\begin_layout Subsection
+De stijghoogte
+\end_layout
+
+\begin_layout Standard
+Ed Veling stuurde me de Laplace getransformeerde op van de oplossing van de pde met zijn randvoorwaarde.
+ Ik leid die hier nu zelf af,
+ en kom daarmee ook op zijn uitkomst:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial^{2}\phi}{\partial r^{2}}+\frac{1}{r}\frac{\partial\phi}{\partial r}=\beta^{2}\frac{\partial\phi}{\partial t},\,\,\,\beta^{2}=\frac{S}{kD},\,\,\phi\left(0,r\ge R\right)=0,\,\,\phi\left(t,R\right)=h
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L\left\{ \frac{\partial^{2}\phi}{\partial r^{2}}\right\} +L\left\{ \frac{1}{r}\frac{\partial\phi}{\partial r}\right\} =L\left\{ \beta^{2}\frac{\partial\phi}{\partial t}\right\} ,\,\,\,\beta^{2}=\frac{S}{kD},\,\,L\left\{ \phi\left(0,r\ge R\right)\right\} =0,\,\,L\left\{ \phi\left(t,R\right)\right\} =L\left\{ h\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d^{2}\overline{\phi}}{dr^{2}}+\frac{1}{r}\frac{d\overline{\phi}}{dr}=\beta^{2}\intop_{0}^{\infty}e^{-st}\frac{\partial\phi}{\partial t}dt=\beta^{2}\left[e^{-st}\phi\right]_{0}^{\infty}-\beta^{2}\intop_{0}^{\infty}\phi de^{-st}=-\beta^{2}\phi_{(r,0)}+\beta^{2}s\intop_{0}^{\infty}e^{-st}\phi dt=0+\frac{\beta^{2}}{s}\overline{\phi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d^{2}\overline{\phi}}{dr^{2}}+\frac{1}{r}\frac{d\overline{\phi}}{dr}=\beta^{2}s\overline{\phi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deze gewone differentiaalvergelijking heeft als algemene oplossing 
+\begin_inset Formula $\overline{\phi}=AK_{0}\left(r\beta\sqrt{s}\right)+BI_{0}\left(r\beta\sqrt{s}\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $B=0$
+\end_inset
+
+ omdat 
+\begin_inset Formula $I_{0}$
+\end_inset
+
+ geen asymptotisch verloop naar nul heeft voor grote 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ Zodat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\phi}=AK_{0}\left(r\beta\sqrt{s}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A volgt uit de randvoorwaarde,
+ 
+\begin_inset Formula $\phi=h$
+\end_inset
+
+ voor 
+\begin_inset Formula $r=R$
+\end_inset
+
+ dus 
+\begin_inset Formula $L\left\{ \phi\right\} =L\left\{ h\right\} $
+\end_inset
+
+ voor 
+\begin_inset Formula $r=R$
+\end_inset
+
+ zodat 
+\begin_inset Formula $L\left\{ \phi\right\} =\overline{\phi}=\frac{h}{s}$
+\end_inset
+
+ voor 
+\begin_inset Formula $r=R$
+\end_inset
+
+.
+ Dit levert
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{h}{s}=AK_{0}\left(R\beta\sqrt{s}\right)\,\,\rightarrow A=\frac{h}{s}\frac{1}{K_{0}\left(R\beta\sqrt{s}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en,
+ tenslotte,
+ de gezochte laplace getransformeerde 
+\begin_inset Formula $\overline{\phi}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\phi}=\frac{h}{s}\frac{K_{0}\left(r\beta\sqrt{s}\right)}{K_{0}\left(R\beta\sqrt{s}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit is de oplossing die Ed me toestuurde.
+\end_layout
+
+\begin_layout Subsection
+Det debiet
+\end_layout
+
+\begin_layout Standard
+Het debiet over een ring met straal 
+\begin_inset Formula $r$
+\end_inset
+
+ is gelijk aan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q\left(r,t\right)=-2\pi rkD\frac{\partial\phi}{\partial r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De Laplace transform hiervan is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L\left\{ Q\left(r,t\right)\right\} =L\left\{ -2\pi rkD\frac{\partial\phi}{\partial r}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{Q}\left(r,s\right)=2\pi rkD\beta\sqrt{s}\frac{h}{s}\frac{K_{1}\left(r\beta\sqrt{s}\right)}{K_{0}\left(R\beta\sqrt{s}\right)},\,\,\beta=\sqrt{\frac{S}{kD}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{Q}\left(r,s\right)=2\pi r\sqrt{kDS}\frac{h}{\sqrt{s}}\frac{K_{1}\left(r\beta\sqrt{s}\right)}{K_{0}\left(R\beta\sqrt{s}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deze 
+\begin_inset Formula $\overline{Q}$
+\end_inset
+
+ kan numeriek worden terug getransformeerd.
+\end_layout
+
+\begin_layout Subsection
+Terugtranformatie
+\end_layout
+
+\begin_layout Standard
+Er bestaan minstens enkele tientallen procedures om functies vanuit het Laplace domain terug te transformeren naar de gewone domein (zie literatuur).
+ Cohen (2007) die de meest uitgebreide beschrijving van deze methoden geeft,
+ waarschuwt voor cijferverlies bij grote 
+\begin_inset Formula $t$
+\end_inset
+
+ en de onvoorspelbaarheid dat een bepaalde methode altijd een goed antwoord geeft.
+ Hij beveelt dan ook sterk aan om altijd verschillende methoden toe te passen om te controleren of de antwoorden consistent zijn en met elkaar overeen komen.
+ Een van de meest wijd verbreide methoden en vaak ook robuust,
+ mits het aantal termen niet groter wordt dan ca.
+ 18 is de methode van Graver-Stehfest (Cohen (2007),
+ p178).
+ Ik heb die hier toegepast op zowel de Laplace getransformeerde stijghoogte en het debiet.
+ De terugvertaling van de Laplace getransformeerde stijghoogte leverde geen zinvol resultaat.
+ Voor het debiet lukte dat wel.
+ Het terug transformatie van het debiet levert een debietsverloop dat overeen komt met dat van de andere berekeningsmethoden.
+ Dit was ook het geval voor 
+\begin_inset Formula $r>R$
+\end_inset
+
+ ondanks het feit dat er dan oscillaties ontstaan.
+ Dat het toch werkt,
+ is te wijten aan het feit dat het aantal oscillaties zeer beperkt is omdat voor grotere waarden van 
+\begin_inset Formula $z$
+\end_inset
+
+ of 
+\begin_inset Formula $u$
+\end_inset
+
+ het argument (expoonentieel) snel naar nul gaat en de verder oscillaties dan geen rol meer spelen.
+\end_layout
+
+\begin_layout Subsection
+Graver-Stehfest algorithm
+\end_layout
+
+\begin_layout Standard
+Beide methoden hieronder leveren dezelfde coëfficiënten op.
+ Let daarbij op dat de coefficienten floats zijn en geen ints.
+ De som van de coefficienten is steeds exact (in alle significante cijfers op de computer) gelijk aan 0.0.
+ See 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AW"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{g}\left(t,M\right)=\frac{\ln2}{t}\sum_{k=1}^{2M}\zeta_{k}\hat{f}\left(\frac{\ln2}{t}k\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Een elegante formulering van de coefficienten is deze (Abte and Whitt (20??)):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\zeta_{k} & =\left(-1\right)^{M+k}\sum_{j=\left(k+1\right)//2}^{min(k,M)}\frac{j^{M+1}}{M!}\left(\begin{array}{c}
+M\\
+j
+\end{array}\right)\left(\begin{array}{c}
+2j\\
+j
+\end{array}\right)\left(\begin{array}{c}
+j\\
+k-j
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alternative formulering (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Egon2012"
+literal "false"
+
+\end_inset
+
+),
+ exactly as in Cohen (2007) en in Hemker's (2000) PhD.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(t,N\right)=\frac{\ln2}{t}\sum_{i=1}^{N}G_{i}\hat{f}\left(\frac{\ln2}{t}i\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G_{i}=\left(-1\right)^{N/2-i}\sum_{j=\left(i+1\right)//2}^{min(i,N/2)}\frac{j^{N/2}\left(2j\right)1}{\left(N/2-j\right)!j!\left(j-1\right)!\left(i-j\right)!\left(2j-1\right)!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Integratie langs de log as in situaties if integration is to be done to infinity
+\end_layout
+
+\begin_layout Standard
+Wanneer het integratietraject voor u over a groot aantal log cycli kan lopen,
+ is het vaak te verkiezen om dan langs een log-as te integreren.
+ Dit blijkt ook noodzakelijk om met de standaard numerieke integratiefunctie scipy.integrate.quad zinvolle uitkomsten te krijgen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\intop_{u=u_{0}}^{u_{1}}f\left(u\right)du
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\intop_{u=u_{0}}^{u_{1}}f\left(u\right)ud\ln u=\intop_{z=ln\left(u_{0}\right)}^{z=\ln\left(u_{1}\right)}f\left(u=e^{z}\right)dz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Abte and Whitt (20??)"
+key "AW"
+literal "false"
+
+\end_inset
+
+Abate,
+ J and Whitt,
+ W (????) Unified framework for numerically inverting Laplace Transforms.
+ .J oseph Abate,
+ 900 Hammond Rd,
+ Ridgewood,
+ New Jersey 07450-2908,
+ USA.,
+ Ward Whitt,
+ Dept of Industrial Eng.
+ and Operations,
+ Clumbia Univ.,
+ New YOrdk,
+ New York 10027-6699,
+ USA,
+ ww2040@Columbia.edu.
+ Pdf document,
+ Internet.
+ 30pp.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Egonmwan (2012)"
+key "Egon2012"
+literal "false"
+
+\end_inset
+
+ Egonmwan,
+ A.O.
+ (2012) The numerical inversion of the Laplace transform.
+ MSc report.
+ Eindhoven University of Technology.
+ Esp.
+ Chapter 6.
 \end_layout
 
 \end_body
