@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.special import j0 as J0, y0 as Y0, j1 as J1, y1 as Y1
 from scipy.special import k0 as K0, k1 as K1
-from scipy.integrate import quad, quad_explain
+from scipy.integrate import quad # , quad_explain
 from math import factorial as fac
 import settings
 from etc import color_cycler
@@ -114,15 +114,13 @@ def sf_coefs(N):
         z[i - 1] *= (-1) ** (N // 2 + i)
     return z
 
-def fhat(p, args):
+def fhat(p, hb=None, r=None, R=None, S=None, kD=None):
     """Laplace transform of Phi Burgeman 223_02"""
-    hb, r, R, S, kD = args
     beta = np.sqrt(S / kD)
     return hb / p * K0(beta * r * np.sqrt(p) / K0(beta * R * np.sqrt(p)))
 
-def qhat(p, args):
+def qhat(p, hb=None, r=None, R=None, S=None, kD=None):
     """Lapace transform of Q of Bruggeman 223_02"""
-    hb, r, R, S, kD = args
     beta = np.sqrt(S / kD)
     return 2 * np.pi * r * np.sqrt(S * kD) * hb  / np.sqrt(p) * K1(beta * r * np.sqrt(p)) /K0(beta * R * np.sqrt(p))
     
@@ -136,7 +134,7 @@ def Fback(lapl_func, times, N, args):
     for it, t in enumerate(times):
         for k in range(1, N + 1):            
             p = k * np.log(2) / t
-            s[it] += zeta[k - 1] * lapl_func(p, args)
+            s[it] += zeta[k - 1] * lapl_func(p, *args)
         s[it] *= np.log(2) / t
     return s
 
