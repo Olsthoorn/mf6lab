@@ -834,9 +834,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename CompareIntegrationTrajectDetial.png
 	lyxscale 40
+	width 80text%
 
 \end_inset
 

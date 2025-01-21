@@ -4,12 +4,13 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.special import j0 as J0, y0 as Y0, j1 as J1, y1 as Y1
-from scipy.special import k0 as K0, k1 as K1
+from scipy.special import k0 as K0, k1 as K1, kv as Kv
 from scipy.integrate import quad # , quad_explain
-from math import factorial as fac
 import settings
 from etc import color_cycler
 from mf_adapt import dirs
+from analytic.laplace.inverselaplace import dehoog
+from functools import partial
 
 # Integral solution
 def h(u=None, r=None, R=None, **_):
@@ -93,51 +94,18 @@ def Qint_z_simpson(a, b, Np=None, hb=None, r=None, R=None, S=None, kD=None, t=No
     return  4 * kD * hb * r * integral
 
 
-# Stehfest for numerical back transformation of the Laplace transform
-def sf_coefs(N):
-    """Graver-Stehfest coefficients to numerically invert laplace transform.
-    
-    Paraneters:
-    -----------
-    N: int, must be even and rather <= 18 to prevent los of digits
-        Stehfests number of coefficients
-    """
-    assert N % 2 == 0, "N must be even integer <= 18"
-    z = np.zeros(N, dtype=float)
-    for i in range(1, N + 1):                
-        j1, j2 = int((i + 1) // 2), int(min(i, N // 2))        
-        for j in range(j1, j2 + 1):
-            z[i - 1] += (j ** (N // 2) * fac(2 * j) /
-                (fac(N // 2 - j) * fac(j) * fac(j - 1) *
-                 fac(i - j) * fac(2 * j - i))
-            )                                        
-        z[i - 1] *= (-1) ** (N // 2 + i)
-    return z
-
 def fhat(p, hb=None, r=None, R=None, S=None, kD=None):
     """Laplace transform of Phi Burgeman 223_02"""
     beta = np.sqrt(S / kD)
-    return hb / p * K0(beta * r * np.sqrt(p) / K0(beta * R * np.sqrt(p)))
+    return hb / p * Kv(1, beta * r * np.sqrt(p) / Kv(0, beta * R * np.sqrt(p)))
 
 def qhat(p, hb=None, r=None, R=None, S=None, kD=None):
     """Lapace transform of Q of Bruggeman 223_02"""
     beta = np.sqrt(S / kD)
-    return 2 * np.pi * r * np.sqrt(S * kD) * hb  / np.sqrt(p) * K1(beta * r * np.sqrt(p)) /K0(beta * R * np.sqrt(p))
+    return (2 * np.pi * r * np.sqrt(S * kD) * hb  / np.sqrt(p) * 
+            Kv(1, beta * r * np.sqrt(p)) /Kv(0, beta * R * np.sqrt(p))
+    )
     
-                      
-def Fback(lapl_func, times, N, args):
-    """Stehfest back transformation."""
-    zeta = sf_coefs(N)
-    if np.isscalar(times):
-        times = np.array([times])
-    s = np.zeros_like(times)
-    for it, t in enumerate(times):
-        for k in range(1, N + 1):            
-            p = k * np.log(2) / t
-            s[it] += zeta[k - 1] * lapl_func(p, *args)
-        s[it] *= np.log(2) / t
-    return s
-
 if __name__ == '__main__':
     #if True:
     kD = np.sum(settings.props['kr'] * settings.props['D'])
@@ -222,7 +190,7 @@ h={hb:.4g}, R= {R:.4g}, S={S:.4g}, kD={kD:.4g}
         ax2.plot(times, Qsimpson, 'x-', color=clr, label=f"Q simpson, r={r:.4g}, (a, b)=({aL:.4g}, {b:.4g}), Np={Np}")
         ax2.plot(times, Qquad,    '+-', color=clr, label=f"Q quad,    r={r:.4g}, (a, b)=({a:.4g}, {b:.4g})")
         ax2.plot(times, Qquad2,   '.-', color=clr, mfc='none', label=f"Q quad2,    r={r:.4g}, (a, b)=({aL:.4g}, {b:.4g})")
-        ax2.plot(times, Fback(qhat, times, Nstehfest, (hb, r, R, S, kD)),
+        ax2.plot(times, dehoog(partial(qhat, hb, r, R, S, kD), times),
                  'o-', color=clr, mfc='none', label=f"Laplace, r={r:.4g} m")
     ax1.legend(loc="lower right", fontsize="xx-small")
     ax2.legend(loc='upper right', fontsize="xx-small") 
