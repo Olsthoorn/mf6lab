@@ -31,7 +31,10 @@ import Brug223_02 as b223
 from src import mf6tools
 from fdm.fdm3t import fdm3t, dtypeH
 from fdm.mf6_face_flows import get_structured_flows_as_dict # (flowjas,grb_file=None, verbose=False)
+from analytic.laplace.inverselaplace import dehoog, talbot
+from functools import partial
 
+# MODFLOW6 ===================================================
 use_models, use_packages  = mf6tools.get_models_and_packages_from_excel(
                                                 mf_adapt.params_wbk, sheet_name='NAM')
 
@@ -54,7 +57,7 @@ gwf = sim.get_model(f'{sim_name}Gwf') # list(sim.model_names)[0])
 headsObj = gwf.output.head()
 budObj   = gwf.output.budget()
 
-hds = headsObj.get_alldata()
+HDS = headsObj.get_alldata()
 
 # %% the date times at the end of each time step
 kstpkper = headsObj.get_kstpkper()
@@ -64,11 +67,15 @@ sim_time =  np.array(headsObj.get_times())
 # fflows: dict with face flows (keys: kstpkper with tuples 3 3D arrays: frf, fff and flf') as in MF5 
 fflows = get_structured_flows_as_dict(budObj, grb_file=grb_file, verbose=False)
 
+FRF = np.zeros((len(times) - 1, gr.nz, gr.ny, gr.nx))
+for i, ksp in enumerate(kstpkper):
+    FRF[i] = fflows[ksp][0]['frf']
+
 # %% Get suitable levels for contouring the stream function psi [m2/d]
 hmin, hmax, hInactive = np.unique(headsObj.get_alldata())[[0, -2, -1]]
 
 # %% Set up initial plot of cross section with contouring
-# fdm3t
+# fdm3t =======================================
 Icyl = gr.NOD[-1, :, 0]
 cellid = gr.I2LRC(Icyl)
 fh = np.zeros(len(Icyl), dtype=dtypeH)
@@ -85,13 +92,8 @@ idomain = grAx.const(1, dtype=int)
 
 out = fdm3t(gr=grAx, t=times, k=(kr, kr, kz), ss=ss, fh=fh, hi=hi, idomain=idomain, epsilon=settings.props['epsilon'])
 
-FRF = np.zeros((len(times) - 1, gr.nz, gr.ny, gr.nx))
-for i, ksp in enumerate(kstpkper):
-    FRF[i] = fflows[ksp][0]['frf']
 
-HDS = headsObj.get_alldata()
-
-# TTIM
+# TTIM =======================================
 tmin, tmax = 1e-2, 1e3
 rw = settings.props['r'][1]
 ml = ttim.ModelMaq(kaq=settings.props['kr'],
@@ -111,44 +113,45 @@ a, b = z[[0, -1]]
 
 
 # Plotting
-fig, (ax2, ax1) = plt.subplots(2, 1, sharex=True, figsize=(14, 10))
+fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(14, 10))
 
 # Flows Q(r)
-ax1.grid(True)
-ax1.set_xlabel('t [d]')
-ax1.set_ylabel('Q m3/d')
-ax1.set_yscale('log')
-ax1.set_xscale('log')
-ax1.set_ylim(1e-1, 1e5)
-ax2.set_ylim(-0.05, 1.05)
 ax2.grid(True)
 ax2.set_xlabel('t [d]')
-ax2.set_ylabel('head change [m] m')
-#ax2.set_xscale('log')
+ax2.set_ylabel('Q m3/d')
+ax2.set_yscale('log')
+ax2.set_xscale('log')
+
+ax2.set_ylim(1e-1, 1e5)
+ax1.set_ylim(-0.05, 1.2)
+ax1.grid(True)
+ax1.set_xlabel('t [d]')
+ax1.set_ylabel('head change [m] m')
+#ax1.set_xscale('log')
+ax1.set_xlim(1e-2, 1e3)
 
 suptitle = settings.title + '\n' + f"hb={hb:.4g} m, R={R:.4g} m, S={S:.4g}, kD={kD:.4g} m"
 fig.suptitle(suptitle)
 
-ttl =  ax2.set_title("Verloop van de stijghoogten voor verschillende afstanden r")
-ttl =  ax1.set_title("Verloop van het debiet voor verschillende afstanden r")
+ttl =  ax1.set_title("Verloop van de stijghoogten voor verschillende afstanden r")
+ttl =  ax2.set_title("Verloop van het debiet voor verschillende afstanden r")
 Ittim = np.arange(len(times))[times > 10 * tmin]
 tttim = times[Ittim]
 Qttim =  -ml.elementdict['well'].discharge(tttim)[0]
 
-ax1.plot(tttim, Qttim, 's', color='k', mfc='none', label=f"TTIM,   Q[{gr.xm[0]:.4g}] m")
-ax1.plot(times[1:], FRF[:, 0, 0, 0], '--', color='k', label=f"MF6,   Q[{gr.xm[0]:.4g}] m")
-ax2.plot(times[1:], HDS[:, 0, 0, 0], '--', color='k', label=f"MF6,   Q[{gr.xm[0]:.4g}] m")
-
-Nstehfest = 10
+ax2.plot(tttim, Qttim, 's', color='k', ms=12, mfc='none', label=f"TTIM,   Q[{gr.xm[0]:.4g}] m")
+ax2.plot(times[1:], FRF[:, 0, 0, 0], '--', lw=3, color='k', label=f"MF6,   Q[{gr.xm[0]:.4g}] m")
+ax1.plot(times[1:], HDS[:, 0, 0, 0], '--', lw=3, color='k', label=f"MF6,   Q[{gr.xm[0]:.4g}] m")
 
 clrs = color_cycler()
 
-for ir in range(1, gr.nx, 20):
+for ir in range(0, gr.nx, 10)[1:]:
     if gr.xm[ir] > 10000:
         continue
     
     r, R = gr.xm[ir], gr.x[1]
     
+    # Numerical integration in the time domain ======================
     Fiquad2 = np.zeros_like(times)
     Qquad2 = np.zeros_like(times)
     for it, t in enumerate(times):
@@ -158,53 +161,54 @@ for ir in range(1, gr.nx, 20):
     args = (hb, r, R, S, kD)
     
     clr = next(clrs)
-    # Flows
+    # Flows MF6 ==================================
     Qmf6 = FRF[:, 0, 0, ir]
-    ax1.plot(times[1:], Qmf6, '.-', color=clr, label=f"MF6,   Q[{gr.xm[ir]:.4g}] m")
-    ax1.plot(times[1:], out['Qx'][:, 0, 0, ir], 'x-', color=clr, label=f"fdm3t: Q[{gr.xm[ir]:.4G}] m")
+    ax2.plot(times[1:], Qmf6, '.-', color=clr, label=f"MF6,   Q[{gr.xm[ir]:.4g}] m")
+    ax2.plot(times[1:], out['Qx'][:, 0, 0, ir], 'x-', color=clr, label=f"fdm3t: Q[{gr.xm[ir]:.4G}] m")
 
-    #Qttim =  -ml.elementdict['well'].discharge(times)[0]
+    # Flows ttim =  -ml.elementdict['well'].discharge(times)[0] =====================
     qrttim =  ml.disvec(gr.xm[ir], 0., tttim, layers=[0])[0][0]
     Qrttim = 2 * np.pi * gr.xm[ir] * qrttim
-    ax1.plot(tttim, Qrttim, '*', color=clr, mfc='none', label=f"TTIM,  Q[{gr.xm[ir]:.4g}] m")
+    ax2.plot(tttim, Qrttim, 's', color=clr, mfc='none', ms=8, label=f"TTIM,  Q[{gr.xm[ir]:.4g}] m")
     
-    ax1.plot(times, b223.Fback(b223.qhat, times, Nstehfest, args), '.-', color=clr, mfc='none', label=f"laplace, r={gr.xm[ir]:.4g} m")
+
     
-    ax1.plot(times, Qquad2,'s-', color=clr, mfc='none', label=f"Q quad2, r={gr.xm[ir]:.4g}")
+    ax2.plot(times, dehoog(partial(b223.qhat, hb, r, R, S, kD), times, degree=20), '+-', color=clr, mfc='none', label=f"laplace, r={gr.xm[ir]:.4g} m")
+    
+    # ax2.plot(times, Qquad2,'s-', color=clr, mfc='none', label=f"Q quad2, r={gr.xm[ir]:.4g}")
 
     # Heads
-    ax2.plot(times[1:],    HDS[:, -1, 0, ir], '.-', color=clr) # , label=f"MF6:   r={gr.xm[ir]:.4g} m")
-    ax2.plot(times, out['Phi'][:, -1, 0, ir], 'x-', color=clr) # , label=f"fdm3t: r={gr.xm[ir]:.4g} m")
+    ax1.plot(times[1:],    HDS[:, -1, 0, ir], '.-', color=clr) # , label=f"MF6:   r={gr.xm[ir]:.4g} m")
+    ax1.plot(times, out['Phi'][:, -1, 0, ir], 'x-', color=clr) # , label=f"fdm3t: r={gr.xm[ir]:.4g} m")
     
     httimr = ml.head(gr.xm[ir], 0, tttim, layers=0)[0]
-    ax2.plot(tttim, httimr, '*', color=clr, mfc='none') #, label=f"fdm3t: r={gr.xm[ir]:.4g} m")
-    ax2.plot(times, b223.Fback(b223.fhat, times, Nstehfest, args), '.-', color=clr, mfc='none') #, label=f"laplace    r={gr.xm[ir]:.4g} m")
+    ax1.plot(tttim, httimr, 's', ms=12, color=clr, mfc='none') #, label=f"fdm3t: r={gr.xm[ir]:.4g} m")
+    ax1.plot(times, dehoog(partial(b223.fhat, hb, r, R, S, kD), times, degree=20), '+-', color=clr, mfc='none') #, label=f"laplace    r={gr.xm[ir]:.4g} m")
     
-    ax2.plot(times, Fiquad2, 's-', color=clr, mfc='none') # , label=f"Fi quad2, r={gr.xm[ir]:.4g}")
+    # ax1.plot(times, Fiquad2, 's-', color=clr, mfc='none') # , label=f"Fi quad2, r={gr.xm[ir]:.4g}")
     
 # logo:
 
 fstr= f"_nt{len(times)-1}_gr{'-'.join([str(s) for s in gr.shape])}_eps{settings.props['epsilon']*100:.0f}perc"
 
-# Approximate by convolution
+# Approximate by convolution ============================================
 # Q that generates the desired head change at the radius of the cylinder at any time
 # For convolution we must use equal time steps
 tau = np.linspace(0, 1000., 1001)
 u = gr.x[1] ** 2 * settings.S / (4 * settings.kD * tau)
 Q = settings.hb * (4 * np.pi * settings.kD) / Wh(u[1:], 0.)[0]
-ax1.plot(tau[1:], Q, 'o', color='k', mfc='none', label="appr. by convolution")
+ax2.plot(tau[1:], Q, 'o', color='k', mfc='none', label="appr. by convolution")
 
 # Compute the head at the cylinder by well in center with Q computed above
 SR = np.hstack((0., 1 / (4 * np.pi * settings.kD) * Wh(u[1:], 0.)[0]))
 BR = np.hstack((0., SR[1:] - SR[:-1]))
 s = lfilter(BR, 1, Q)
-ax2.plot(tau[1:], s, 'o', color='k', mfc='none', label="appr. by convolution")
+ax1.plot(tau[1:], s, 'o', color='k', mfc='none', label="appr. by convolution")
 
-ax1.text(0.85, 0.05, str(np.datetime64('today')),
-        fontsize=10, fontweight='normal', va='bottom', transform=fig.transFigure) # ax.transAxis
+ax2.text(0.85, 0.05, str(np.datetime64('today')),
+        fontsize=10, fontweight='normal', va='bottom', transform=fig.transFigure) # ax2.transAxis
 
-fig.legend(bbox_to_anchor=(0.15, 0.45, 0.2, 0.4), fontsize='small')
-
+fig.legend(loc ="center right", fontsize='small')
 
 plt.savefig(os.path.join(dirs.images, sim.name + f"{fstr}"+'.png'))
 

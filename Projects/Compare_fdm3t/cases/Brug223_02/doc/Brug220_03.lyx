@@ -1140,6 +1140,175 @@ Deze
 \end_layout
 
 \begin_layout Subsection
+Limiet 
+\begin_inset Formula $\phi$
+\end_inset
+
+ en 
+\begin_inset Formula $Q$
+\end_inset
+
+ voor 
+\begin_inset Formula $t\downarrow0$
+\end_inset
+
+ en 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De limiet van 
+\begin_inset Formula $\phi$
+\end_inset
+
+ voor 
+\begin_inset Formula $t\downarrow0$
+\end_inset
+
+ kan worden verkregen door vergelijking met de oplossing voor een plotselinge stijghoogte verandering in de eendimensionale situatie
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi=h\mbox{erfc \left(u\right),\,\,\,u=\ensuremath{\sqrt{\frac{x^{2}S}{4kDt}}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en wel door voor 
+\begin_inset Formula $x=r-R$
+\end_inset
+
+ te kiezen met 
+\begin_inset Formula $r-R\le\delta$
+\end_inset
+
+ met 
+\begin_inset Formula $\delta$
+\end_inset
+
+ een kleine lengte zodat het effect van de radius 
+\begin_inset Formula $r$
+\end_inset
+
+ ten opzichte van 
+\begin_inset Formula $R$
+\end_inset
+
+ verwaarloosbaar is.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi_{R+\delta,\,t\downarrow0}\approx h\mbox{erfc \left(u\right),\,\,\,u=\ensuremath{\sqrt{\frac{\delta^{2}S}{4kDt}}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en 
+\begin_inset Formula $\phi_{t\rightarrow\infty}=h$
+\end_inset
+
+ voor elke 
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hetzelfde kan worden gedaan voor 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ Voor de eendimensionale situatie geldt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q=h\sqrt{\frac{kDS}{\pi t}}\exp\left(-\frac{x^{2}S}{4kDt}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en voor 
+\begin_inset Formula $x\downarrow0$
+\end_inset
+
+ wordt dit
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q=h\sqrt{\frac{kDS}{\pi t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zodat voor de radiale situatie voor 
+\begin_inset Formula $t\downarrow0$
+\end_inset
+
+,
+ wanneer de invloed van 
+\begin_inset Formula $r$
+\end_inset
+
+ ten opzichte van 
+\begin_inset Formula $R$
+\end_inset
+
+ nog geen rol speelt geldt dan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q_{R,r\downarrow0}=2\pi Rh\sqrt{\frac{kDS}{\pi t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor 
+\begin_inset Formula $r\rightarrow\infty$
+\end_inset
+
+ geldt in alle gevallen 
+\begin_inset Formula $Q\rightarrow0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
 Terugtranformatie
 \end_layout
 
