@@ -28,7 +28,7 @@ IDOMAIN  = mf_adapt.IDOMAIN
 
 Iglob_wt = gr.Iglob_from_lrc(np.vstack((mf_adapt.Iz, np.zeros(gr.nx, dtype=int), gr.NOD[0, 0])).T)
 
-# === load the the model with the simulation results ===== 
+# === load the model with the simulation results ===== 
 sim = flopy.mf6.MFSimulation.load(
     sim_name=mf_adapt.sim_name, version='mf6', sim_ws=dirs.SIM)
 
@@ -72,7 +72,7 @@ datetimes = startdatetime + np.array(headsObj.times) * np.timedelta64(1, 'D')
 
 frame = 0
 
-title = "{}. Tussen 2 stroomlijnen = {:.2f} m2/d m. ".format(
+title = "{}. Tussen 2 stroomlijnen = {:.2f} m2/d. ".format(
     mf_adapt.section_name, dpsi)
 
 # === Get initial values for animation =====
