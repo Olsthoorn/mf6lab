@@ -137,13 +137,13 @@ class Dirs():
             print("dirs.case = '{}' now exists".format(self.case))
             print("dirs.{} = '{}' now exists.".format(case_name, self.case))
         else:
-            print("dirs.case = '{}' aready exists".format(self.case))
+            print("dirs.case = '{}' already exists".format(self.case))
             print("dirs.{} = '{}' already exists.".format(case_name, self.case))
         assert os.path.isdir(self.case), "Directory '{}' does not exist".format(self.case)
             
         # Add subdirs 'mf6_files, Photos, Images'
         
-        for subd in ['SIM', 'GWF', 'GWT', 'photos', 'images', 'data', 'doc']:
+        for subd in ['SIM', 'GWF', 'GWT', 'MP7', 'photos', 'images', 'data', 'doc']:
             subdir =  os.path.join(self.case, subd)           
             exec("self.{} = '{}'".format(subd, subdir))
             if not os.path.isdir(subdir):
@@ -319,7 +319,8 @@ def get_periodata_from_excel(wbk_name, sheet_name='PER'):
         while ip <= idx:
             period_data.loc[ip] = p_data.loc[idx]
             ip += 1
-    
+   
+    period_data['NSTP'] = period_data['NSTP'].astype(int)
     return period_data
 
 # Same for PER and LAY

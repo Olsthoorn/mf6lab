@@ -1,0 +1,140 @@
+## Run Modpath7
+import os
+import numpy as np
+import subprocess
+import flopy
+import settings
+
+from importlib import reload
+
+
+reload(settings)
+
+pr = settings.props
+gr = pr['gr']
+sim_name = pr['sim_name']
+
+dirs = settings.dirs
+
+os.chdir(dirs.case)
+
+mf6_exe = '/Users/Theo/GRWMODELS/USGS/mf6.4.2_mac/bin/mf6' # mf6 executable
+if not os.path.isfile(mf6_exe):
+    raise FileNotFoundError(f"Can't open file <{mf6_exe}>")
+
+mp7_exe = '/Users/Theo/GRWMODELS/USGS/modpath_7_2_001/bin/mpath7gf.mac' # mp7 executable
+if not os.path.isfile(mp7_exe):
+    raise FileNotFoundError(f"Can't open file <{mp7_exe}>")
+
+# Assuming you already have a MODFLOW model called 'mf'
+
+sim = flopy.mf6.MFSimulation.load(sim_name=sim_name,
+                                  version="mf6",
+                                  exe_name=mf6_exe,
+                                  sim_ws="SIM"
+                                  )
+
+flowmodel_name = sim_name + "gwf"
+flowmodel = sim.get_model(flowmodel_name)
+mp7model_name = sim_name + "mp7"
+
+# Create a MODPATH7 object
+os.chdir(dirs.MP7)
+print("Create a MODPATH7 object")
+mp7 = flopy.modpath.Modpath7(mp7model_name,
+                             flowmodel=flowmodel,
+                             exe_name=mp7_exe,
+                             model_ws="MP7",
+                             )
+
+mpbas = flopy.modpath.Modpath7Bas(
+    mp7,
+    porosity=0.35,
+)
+
+mpsim = flopy.modpath.Modpath7Sim(
+    mp7,
+    simulationtype="combined",
+    trackingdirection="forward",
+    weaksinkoption="pass_through",
+    weaksourceoption="pass_through",
+    budgetoutputoption="summary",
+    budgetcellnumbers=[1049, 1259],
+    traceparticledata=[1, 1000],
+    referencetime=[0, 0, 0.0],
+    stoptimeoption="extend",
+    timepointdata=[500, 1000.0],
+    zonedataoption="on",
+    zones=zones,
+    particlegroups=particlegroups,
+)
+
+
+# Define particle tracking parameters
+start_row = 0
+start_col = 45  # middle column, for example
+particle_locations = [(start_row, start_col, laypos) for laypos in np.linspace(-0.3, gr.nlay -1 + 0.3, 3 * gr.nlay)]
+num_particles = len(particle_locations)
+
+# You can define particle tracking options
+track_options = {
+    'num_particles': num_particles,
+    'start_coords': particle_locations,
+    'tracking_distance': 1000,  # how far particles should be tracked
+    'time_step': 1000,  # tracking for 100 time steps
+}
+
+# Add a particle budget tracking (optional, gives insight into where particles are moving)
+mp7.write_input()  # Writes the MODPATH input file
+
+old_name = os.path.join(mp7.model_ws, mp7model_name + ".mpnam")
+new_name = os.path.join(mp7.model_ws, mp7model_name + ".mpsim")
+os.rename(old_name, new_name)
+
+# Debug print to check the value of dirs.MP7
+print(f"dirs.MP7: {dirs.MP7}")
+print(f"old_name: {old_name}")
+print(f"old_name: {new_name}")
+
+
+# Pad naar de mpnam file
+mpnam_file = os.path.join(dirs.MP7, new_name)
+if not os.path.isfile(mpnam_file):
+    raise FileNotFoundError(f"Can't find file <{mpnam_file}>")
+
+print(f"Running sed on {mpnam_file} to replace multiple spaces with a single space...")
+
+# Maak een tijdelijke file voor de bewerkte versie
+temp_file = mpnam_file + '.tmp'
+
+# Gebruik sed om meerdere spaties te vervangen door één enkele spatie
+try:
+    # Run sed command
+    result = subprocess.run(['sed', '-E', 's/ +/ /g', mpnam_file], stdout=open(temp_file, 'w'), stderr=subprocess.PIPE)
+    
+    # Check if there was any error
+    if result.returncode != 0:
+        print(f"Error running sed: {result.stderr.decode()}")
+    else:
+        print(f"Temp file created: {temp_file}")
+
+except Exception as e:
+    print(f"An error occurred while running sed: {e}")
+
+# Controleren of de tijdelijke file is aangemaakt
+if os.path.isfile(temp_file):
+    print(f"Temporary file successfully created: {temp_file}")
+else:
+    print(f"Temporary file was not created. Please check the command execution.")
+
+os.replace(temp_file, mpnam_file)
+
+# Nu kun je het model draaien
+mp7.run_model()    # Runs MODPATH7 simulation
+
+# Now, you can access the results of particle tracking
+# For example, you can load the particle locations or travel times from MODPATH output
+particle_data = mp7.get_particle_data()  # Retrieve particle data (positions, times, etc.)
+
+# Example: inspect the first particle’s information
+print(particle_data[0])
