@@ -84,7 +84,12 @@ mpbas = flopy.modpath.Modpath7Bas(
 
 psi = np.load(os.path.join(dirs.GWF, "psi.npy"))
 psi_max = psi[0, 0]
-psi_ = np.linspace(0, psi_max, 101)
+num_particles = 1000
+
+# Psi values marking the regions of dPsi
+psi_ = np.linspace(0, psi_max, num_particles + 1)
+
+# Psi values for the release of the particles
 psim_ = 0.5 * (psi_[:-1] + psi_[1:])
 
 Zp = np.interp(psim_, psi[::-1, 0], gr.Z[::-1, 0, 0])[::-1]
@@ -193,6 +198,10 @@ for i, arr in enumerate(data_pl):
     pass_times['id'][i] = arr['particleid'][0]
     pass_times['xObs'][i] = xObs
     pass_times['time'][i] = np.interp(xObs, arr['x'], arr['time'])
+ 
+fpt ='pass_times_' + pr['k_field_pars']['name'] + '.npy'
+print(f"Saving  pass_times array to <{fpt}>")
+np.save(fpt, pass_times)
  
 # Fig header line:
 kfield_str = pr['k_field_pars']['k_field_str']

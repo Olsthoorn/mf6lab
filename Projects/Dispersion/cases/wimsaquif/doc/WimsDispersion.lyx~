@@ -2247,7 +2247,7 @@ nolink "false"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -2301,7 +2301,7 @@ Generated ln(k) field using exponential model with variance and
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -2346,7 +2346,7 @@ Stream function and head contours after simulating the cross section with the co
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -2409,7 +2409,7 @@ Breakthorugh curves compute using Modpath.
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -2581,7 +2581,7 @@ nolink "false"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -2626,7 +2626,7 @@ Conductivity field with background and facies data given in the header.
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -2672,7 +2672,7 @@ Streamlines and head contours for the simulated cross section.
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -2717,7 +2717,7 @@ Cumulative breakthrough curves at different locations along the cross section
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -2761,7 +2761,7 @@ Histograms of different breakthrough points along the cross section
 \end_layout
 
 \begin_layout Section
-Summary as how I look at the entire discussion on dispersion
+Summarizing the discussion on dispersion
 \end_layout
 
 \begin_layout Standard
@@ -3206,6 +3206,288 @@ status open
 
 \backslash
 addcontentsline{toc}{section}{Referenties}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analysis of the lognormal distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathtt{if}\,T\sim LogNormal\left(\mu,\sigma\right)\rightarrow\log T\sim N\left(\mu,\sigma\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When retrieving the lognormal distribution or generating it,
+ it has three parameters scale,
+ loc,
+ shape,
+ where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu=\ln\left(scale\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sigma=shape$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $loc$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\ln\left(\mathtt{mean}\left(t\right)-\mathtt{loc}\right) & =\mu+\frac{\sigma^{2}}{2}\\
+\mathtt{mean}\left(t\right) & =\mathtt{loc}+\exp\left(\mu+\frac{\sigma^{2}}{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Head and tail quantiles may be useful,
+ but more so in log-space than in real-space due to the skewness of the lognormal distribution.
+ The quantile times s 
+\begin_inset Formula $t_{05}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $t_{16}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $t_{50}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $t_{84}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{95}$
+\end_inset
+
+ can also easily obtained from a given cdf or pdf distribution,
+ but these too are less informative for the lognormal distribution than for the normal distribution.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Head and tail quantiles
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Region
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Log-space range
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time space rang
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Head
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu-2\sigma\,\mathtt{to}\,\mu-\sigma$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left[e^{\mu-2\sigma},e^{\mu-\sigma}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bulk
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu-\sigma\,\mathtt{to}\,\mu+\sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left[e^{\mu-\sigma},e^{\mu+\sigma}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tail
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu+\sigma\,\mathtt{to}\,\mu+2\sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\left[e^{\mu+\sigma},e^{\mu+2\sigma}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset

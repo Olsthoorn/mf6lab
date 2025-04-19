@@ -3254,18 +3254,78 @@ When retrieving the lognormal distribution or generating it,
 \begin_inset Formula $loc$
 \end_inset
 
-
+=linear shift in the time domain (real world domain)
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-\ln\left(\mathtt{mean}\left(t\right)-\mathtt{loc}\right) & =\mu+\frac{\sigma^{2}}{2}
-\end{align*}
+\[
+t\sim LogNormal\left(\mu,\sigma,\mathtt{loc}\right)
+\]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+is equivalent to saying
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ln\left(t-\mathtt{loc}\right)\sim N\left(\mu,\sigma^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or,
+ rearranged
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t=\mathtt{loc}+\exp\left(X\right),\,\,\,\,X\sim N\left(\mu,\sigma^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Hence,
+ 
+\begin_inset Formula $\mathtt{loc}$
+\end_inset
+
+ acts as a shift in the time domain.
+\end_layout
+
+\begin_layout Enumerate
+It's the minimum value the variable 
+\begin_inset Formula $t$
+\end_inset
+
+ can take – the distribution is defined for 
+\begin_inset Formula $t>\mathtt{loc}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+It's ofteh use to delya th eonset of the lognormal process.
+\end_layout
+
+\begin_layout Standard
+Further properties of the lognormal distribution
 \end_layout
 
 \begin_layout Standard
@@ -3295,31 +3355,6 @@ When retrieving the lognormal distribution or generating it,
 \[
 \mathtt{mode}\left(t\right)=\mathtt{loc}+\exp\left(\mu-\sigma^{2}\right)
 \]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The 
-\begin_inset Formula $\mathtt{loc}$
-\end_inset
-
- parameter shifts the normal distribution in its entirety of multiplies (scales) the lognormal distribution on the real-world axis.
- This 
-\begin_inset Formula $\ln\left(\mathtt{loc}\right)$
-\end_inset
-
- is the multiplier of the realworld time axis:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\mathtt{mode}\left(t\right) & =\exp\left(\ln\left(\mathtt{loc}\right)\right)+\exp\left(\mu-\sigma^{2}\right)\\
- & =\exp\left(\ln\left(\mathtt{loc}\right)\times\left(\mu-\sigma^{2}\right)\right)
-\end{align*}
 
 \end_inset
 
@@ -3737,6 +3772,254 @@ The mean velocity is equal to the surface to the left of the cdf.
 The model is the time at which the cdf is steepest,
  i.e.
  its first derivative peaks (this is obviously the top of the pdf).
+\end_layout
+
+\begin_layout Standard
+An easy and informative criterion for early and late arrivals may be built on 
+\begin_inset Formula $\mathtt{loc}$
+\end_inset
+
+ as the earlies possible moment of arrival of particles and 
+\begin_inset Formula $t_{mode}$
+\end_inset
+
+ as the most probable time of arrival.
+ We may select point based on the ratio of these two times.
+ Let's,
+ just for convenience rename 
+\begin_inset Formula $\mathtt{loc}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{0}=\mathtt{loc}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+then we can base arrival time criteria on the ratio
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha=\frac{t-t_{0}}{t_{mode}-t_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and so
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t=t_{0}+\left(t_{mode}-t_{0}\right)\alpha
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and use the following arrival criteria
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Arrival criteria
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+-range 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Arrival type
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.0\,-\,0.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Very early arrivals
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.2\,-\,0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Early arrivals
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5\,-\,2.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Normal arrivals
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.0\,-\,5.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Late arrivals
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $>5.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Very late arrivals
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography

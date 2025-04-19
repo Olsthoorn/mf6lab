@@ -26,12 +26,12 @@ gr = Grid(x, None, z, axial=False)
 extent = (gr.x[0], gr.x[-1], gr.z[-1], gr.z[0])
 
 # %% Variogram parameters
-name = 'gaus'
-name = 'wim'
+name = 'gaus1000'
+# name = 'wim'
 KG = 0.89 # m/d
 mu = np.log(KG)
 var_ln_k = 6.6          # variance (sill)
-# var_ln_k = 1.5          # variance (sill) homogeneous
+# var_ln_k = 1.2          # variance (sill) homogeneous
 
 len_x = 10.2       # correlation length in x (range)
 len_z = 1.5        # correlation length in y (range)
@@ -72,7 +72,7 @@ if name == 'wim':
             mim_ln_k[j1:j2, i1:i2] = np.log(k2)
     k_field_str = fr"$k1={k1}\,m/d,\,k_2={k2}\,m/d$, nx,nz blocks=({nx_block},{nz_block}), nx, nz inclusions=({nx_incl},{nz_incl})"
     kfp['k_field_str'] = k_field_str    
-elif name != 'gaus':
+elif name == 'mim':
     for iz in range(gr.nz):
         X = -np.random.rand(1) * 2 * len_x + np.arange(0, x[-1] + 2 * len_x, 2 * len_x)
         Idx = np.searchsorted(gr.xm, X)
