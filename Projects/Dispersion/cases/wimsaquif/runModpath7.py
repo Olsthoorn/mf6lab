@@ -8,9 +8,16 @@ import matplotlib.pyplot as plt
 import flopy
 import settings
 
+def round_up_nice(x, m=1):
+    return 10 ** (np.floor(np.log10(x)) - m) * np.ceil(
+        np.round(10 ** (np.log10(x) + m - np.floor(np.log10(x))), 2))
+
 pr = settings.props
 gr = pr['gr']
 sim_name = pr['sim_name']
+case_name = pr['k_field_pars']['name']
+kfield_str = pr['k_field_pars']['k_field_str']
+
 
 # === 1. Settings and paths ===
 dirs = settings.dirs
@@ -199,40 +206,99 @@ for i, arr in enumerate(data_pl):
     pass_times['xObs'][i] = xObs
     pass_times['time'][i] = np.interp(xObs, arr['x'], arr['time'])
  
-fpt ='pass_times_' + pr['k_field_pars']['name'] + '.npy'
+fpt =os.path.join(dirs.data, 'pass_times_' + case_name + '.npy')
 print(f"Saving  pass_times array to <{fpt}>")
 np.save(fpt, pass_times)
- 
-# Fig header line:
-kfield_str = pr['k_field_pars']['k_field_str']
 
-# === Plot the cumulative curves:
+# %% === Ploting the cumulative time curves:
 fig, ax = plt.subplots(figsize=(10, 6))
-ax.set(title="Cumulative breakthrough curves.\n" + kfield_str, xlabel="time [d]", ylabel="Frac")
+ax.set(title="Cumulative breakthrough curves (case " + case_name + ")\n" + kfield_str, xlabel="time [d]", ylabel="Frac")
 for j, xo in enumerate(xObs):
     idx = np.argsort(pass_times['time'][:, j])    
     t = pass_times['time'][:, j][idx]
     ax.plot(t, psim_ / psi_.max(), label=f"x = {xObs[j]} m")
+
+t_last = t[int(0.995 * len(t))]
+tlim = (0, round_up_nice(t_last, m=2))
+
+ax.set_xlim(tlim)
 ax.grid()
 ax.legend()
-# ax.set_xlim(ax.get_xlim()[0], 112000.)
-fig.savefig(os.path.join(dirs.images, "cumulatives_" + pr['k_field_pars']['name'] +".png"))
 
-# === Plot the cumulative curves:
+fig.savefig(os.path.join(dirs.images, "cumul_t_" + case_name +".png"))
+
+# %% === Compute and plot breakthrough (x locations at a given time) ===
+
+t_last = round_up_nice(data_pl[-1]['time'][-1], m=0)
+tObs = np.arange(0, t_last / 100, t_last / 1000)[1:]
+
+# The the locations of the particles at a set of times
+# Determine where they are and make a cumulative probability density graph
+# Save that
+dtype = np.dtype([('id', '<i4'), ('tObs', '<f8', len(tObs)), ('x', '<f8', len(tObs))])
+
+pass_xvals = np.zeros(len(data_pl), dtype=dtype)
+
+# With as many data_pl arrays as there are particles:
+# Each obs time now has all particles but not sorted yet
+# Once sorted, the id column looses its significance! (not done here)!
+for iptcl, arr in enumerate(data_pl):
+    pass_xvals['id'][iptcl] = arr['particleid'][0]
+    pass_xvals['tObs'][iptcl] = tObs
+    pass_xvals['x'][iptcl] = np.interp(tObs, arr['time'], arr['x'])
+ 
+fpx =os.path.join(dirs.data, 'pass_xvals_' + case_name + '.npy')
+print(f"Saving  pass_xvals array to <{fpx}>")
+np.save(fpx, pass_xvals)
+
+# %% === Ploting the cumulative curves for x-vals:
 fig, ax = plt.subplots(figsize=(10, 6))
-ax.set(title="Histograms of breakthrough curves.\n" + kfield_str, xlabel="time [d]", ylabel="Frac")
+ax.set(title="Cumulative location curves (case " + case_name + ")\n" + kfield_str, xlabel="x [m]", ylabel="Frac")
+for j, to in enumerate(tObs):
+    idx = np.argsort(pass_xvals['x'][:, j])    
+    x = pass_xvals['x'][:, j][idx]
+    ax.plot(x, psim_ / psi_.max(), label=f"t = {tObs[j]} d")
+
+x_last = x[int(0.995 * len(x))]
+xlim = (0, round_up_nice(x_last, m=2))
+
+ax.set_xlim(xlim)
+ax.grid()
+ax.legend()
+
+fig.savefig(os.path.join(dirs.images, "cumul_x_" + case_name +".png"))
+
+# %% === Ploting the histograms curves t:
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.set(title="Histograms of breakthrough curves, (case " + case_name + ").\n" + kfield_str, xlabel="time [d]", ylabel="Frac")
 for j, xo in enumerate(xObs):
     idx = np.argsort(pass_times['time'][:, j])    
     t = pass_times['time'][:, j][idx]
-    ax.hist(t, bins=30, alpha=0.5, ec='k', label=f"x = {xObs[j]} m")
+    ax.hist(t, bins=50, alpha=0.5, ec='k', label=f"x = {xObs[j]} m")
+
+ax.set_xlim(tlim)
 ax.grid()
 ax.legend()
 # ax.set_xlim(ax.get_xlim()[0], 112000.)
-fig.savefig(os.path.join(dirs.images, "histograms_" + pr['k_field_pars']['name'] + '.png'))
+fig.savefig(os.path.join(dirs.images, "hist_t_" + case_name + '.png'))
+
+# %% === Ploting the histograms curves x:
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.set(title="Histograms of breakthrough curves, (case " + case_name + ").\n" + kfield_str, xlabel="x [m]", ylabel="Frac")
+for j, to in enumerate(tObs):
+    idx = np.argsort(pass_xvals['x'][:, j])    
+    x = pass_xvals['x'][:, j][idx]
+    ax.hist(x, bins=50, alpha=0.5, ec='k', label=f"x = {tObs[j]} m")
+
+ax.set_xlim(xlim)
+ax.grid()
+ax.legend()
+
+fig.savefig(os.path.join(dirs.images, "hist_x_" + case_name + '.png'))
 
 # %% === Plotting the pathlines ===
 fig, ax = plt.subplots(figsize=(10, 6))
-ax.set(title="Cross section particle tracking, pathlines.\n" + kfield_str,
+ax.set(title="Cross section (case " + case_name + "), particle tracking, pathlines.\n" + kfield_str,
        xlabel="x [m]", ylabel="z [m]")
 
 mm = flopy.plot.PlotCrossSection(ax=ax, model=flowmodel, line={"row": 0}, extent=None)
@@ -242,20 +308,21 @@ mm = flopy.plot.PlotCrossSection(ax=ax, model=flowmodel, line={"row": 0}, extent
 # Use a colormap to assign a color to each particle
 colors = plt.cm.viridis(np.linspace(0, 1, len(data_pl)))
 
+nn = int(num_particles / 20)
 for i, xz in enumerate(data_pl):
-    if np.mod(i, 5) == 0:
+    if np.mod(i, nn) == 0:
         ax.plot(xz['x'], xz['z'], label=f'particle {i}', color=colors[i])
 
 ax.legend(loc='best', title="Particle ID")
-fig.savefig(os.path.join(dirs.images, "pathlines_" + pr['k_field_pars']['name'] + '.png'))
+fig.savefig(os.path.join(dirs.images, "plines_" + case_name + '.png'))
 
-# Plot the k_field (ln(k_field))
+# %% == Plot the k_field (ln(k_field))
 fig, ax = plt.subplots(figsize=(10, 6))
-ax.set(title=f"ln(k)field, vertical cross section, shape={gr.shape}\n" +
+ax.set(title="ln(k) field, (case " + case_name + f") vertical cross section, shape={gr.shape}\n" +
            kfield_str, xlabel='x [m]', ylabel='z [m]')
 kplot = ax.imshow(np.log(pr['k_field']), aspect='auto', extent=pr['extent'])
 plt.colorbar(kplot, label="ln(k)", orientation='horizontal', ax=ax)
-fig.savefig(os.path.join(dirs.images, "kfield_" + pr['k_field_pars']['name'] + '.png'))
+fig.savefig(os.path.join(dirs.images, "kfield_" + case_name + '.png'))
 plt.show()
 
 # %%
