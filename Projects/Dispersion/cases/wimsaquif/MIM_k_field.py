@@ -18,7 +18,7 @@ import gstools as gs
 from fdm.mfgrid import Grid
 
 # %% Grid setup
-nx, nz = 1000, 100
+nx, nz = 1001, 101
 x = np.linspace(0, 1000, nx)
 z = np.linspace(0, 100, nz)
 grid_x, grid_z = np.meshgrid(x, z)
@@ -26,12 +26,15 @@ gr = Grid(x, None, z, axial=False)
 extent = (gr.x[0], gr.x[-1], gr.z[-1], gr.z[0])
 
 # %% Variogram parameters
-name = 'gaus1000'
-# name = 'wim'
+# name = 'gaus'
+name = 'WdL'
+# name = 'mim'
+# name = 'mim_var11'
+# name = 'test_0'
 KG = 0.89 # m/d
 mu = np.log(KG)
 var_ln_k = 6.6          # variance (sill)
-# var_ln_k = 1.2          # variance (sill) homogeneous
+# var_ln_k = 1.1          # variance (sill) homogeneous
 
 len_x = 10.2       # correlation length in x (range)
 len_z = 1.5        # correlation length in y (range)
@@ -46,6 +49,7 @@ k_field_pars = {'name': name,
                 'J': 0.0036 # mean gradient
               }
 
+
 kfp = k_field_pars
 
 k_field_str = fr"$k_G={kfp['kG']:.3g}\,m/d,\,var(\ln(k)={kfp['var_ln_k']:.3g},\,I_h={kfp['Ih']:.3g}\,m,\,I_v={kfp['Iv']:.3g}\,m,\,\theta={kfp['theta']:.2g},\,J={kfp['J']:.2g}$"
@@ -59,7 +63,7 @@ mim_ln_k = np.zeros_like(field_ln_k)
 
 # %% Fill the block_k_field
 
-if name == 'wim':
+if name.startswith('WdL'):
     k1, k2, mu = 5., 500., 0.
     nx_block, nz_block, nx_incl, nz_incl= 100, 5, 20, 1
     mim_ln_k[:, :] = np.log(k1)    
@@ -71,8 +75,12 @@ if name == 'wim':
             j1, j2 = izB + izIncl, izB + izIncl + nz_incl          
             mim_ln_k[j1:j2, i1:i2] = np.log(k2)
     k_field_str = fr"$k1={k1}\,m/d,\,k_2={k2}\,m/d$, nx,nz blocks=({nx_block},{nz_block}), nx, nz inclusions=({nx_incl},{nz_incl})"
-    kfp['k_field_str'] = k_field_str    
-elif name == 'mim':
+    kfp['k_field_str'] = k_field_str
+elif name.startswith('test'):
+    mim_ln_k = np.log(gr.const(gr.NOD[:, 0, 0] // 10000.  + 1))[:, 0, :]
+    mu = 0.
+    kfp['k_field_str'] = "Aquifer = 10 equal with layers, k = [1, 2, 3, ... 10 m/d] m/d"    
+elif name.startswith('mim'):
     for iz in range(gr.nz):
         X = -np.random.rand(1) * 2 * len_x + np.arange(0, x[-1] + 2 * len_x, 2 * len_x)
         Idx = np.searchsorted(gr.xm, X)
@@ -90,6 +98,8 @@ else:
 mim_ln_k += mu
 
 k_field = np.exp(mim_ln_k)
+
+kfp['k_field'] = k_field
 
 # %% Plot
 if __name__ == "__main__":

@@ -79,7 +79,7 @@ for j in range(nxObs):
 last_times = cumul_t['time'][:, -1]
 t_last = last_times[int(0.995 * len(last_times))]
 
-xlim = (0, round_up_nice(t_last, m=2))
+tlim = (0, round_up_nice(t_last, m=2))
 
 
 # %% === Show the raw BTC's breakthrough (p vs sorted times one curve per xObs)
@@ -91,7 +91,7 @@ p = pass_times['id'] / 1000.
 for X, t in zip(cumul_t['xObs'].T, cumul_t['time'].T):
     ax.plot(t, p, label=f'x = {X[0]} m')
     
-ax.set_xlim(-1000, 150000)
+ax.set_xlim(tlim)
 ax.grid()
 ax.legend()
 
@@ -105,8 +105,8 @@ ax1.set(title='cdfs (case ' + case_name + ') with the following k-field paramete
         + k_field_str, xlabel='t', ylabel='p[t < t(p)]') 
 ax2.set(title='pdfs', xlabel='t', ylabel='d(cdf)/dt')
 
-ax1.set_xlim(xlim)
-ax2.set_xlim(xlim)
+ax1.set_xlim(tlim)
+ax2.set_xlim(tlim)
 
 
 bt_cdf_props_t = np.zeros(cumul_t['xObs'].shape[-1], dtype=dtype1t)
@@ -306,9 +306,6 @@ ax1.set(title='cdfs for x (case ' + case_name + ') with the following k-field pa
         + k_field_str, xlabel='x', ylabel='p[x < x(p)]') 
 ax2.set(title='pdfs for x', xlabel='x [m]', ylabel='d(cdf)/dx')
 
-# ax1.set_xlim(xlim)
-# ax2.set_xlim(xlim)
-
 bt_cdf__xprops = np.zeros(cumul_x['tObs'].shape[-1], dtype=dtype1x)
 bt_xvals     = np.zeros(cumul_x['tObs'].shape[-1], dtype=dtype2x) # Breakthrough x-values
 bt_xmode      = np.zeros(cumul_x['tObs'].shape[-1], dtype=dtype3x) # Breakthrough x-values
@@ -352,7 +349,7 @@ for it, (T, x) in enumerate(zip(cumul_x['tObs'].T, cumul_x['x'].T)):
     
     xpvals = (x05, x16, x50, x84, x95)
     
-    # Store them, and for convenience round them in a recarray with dtype2
+    # Store them, and fo    r convenience round them in a recarray with dtype2
     bt_xvals[it] = np.array([(t, x05, x16, x50, x84, x95)], dtype=dtype2x)
 
     # Get the times at fraction alpha between t0 and t_mode    
@@ -371,11 +368,11 @@ for it, (T, x) in enumerate(zip(cumul_x['tObs'].T, cumul_x['x'].T)):
     
     # Plot the results (not all to prevent clutter)
     if t in cumul_x['tObs'][0][::2]:
-        ax1.plot(x, cdf_o, '--', color=clr, label=f"cdf {t} m (original data)")
+        ax1.plot(x, cdf_o, '--', color=clr, label=f"cdf {t} d (original data)")
         ax1.plot(x, cdf_log_x, color=clr,
-                 label=fr"x={t:.0f} m, $\mu,\sigma,\,t_0$,loc=({mu_x:.2f}, {sig_x:.2f}, {loc_x:.3e} d)")
+                 label=fr"t={t:.0f} d, $\mu,\sigma,\,t_0$,loc=({mu_x:.2f}, {sig_x:.2f}, {loc_x:.3e} d)")
         ax2.plot(x, pdf_log_x, color=clr, 
-                 label=fr"t={t:.0f} m, $\mu,\sigma,\,t_0$=({mu_x:.2f}, {sig_x:.2f}, {loc_x:.3e} d)")
+                 label=fr"t={t:.0f} d, $\mu,\sigma,\,t_0$=({mu_x:.2f}, {sig_x:.2f}, {loc_x:.3e} d)")
   
         # ax1.plot(xma, stats.lognorm.cdf(xma, *par_log_x), 'o', mfc=clr, mec='k')
         # ax2.plot(xma, stats.lognorm.pdf(xma, *par_log_x), 'o', mfc=clr, mec='k')

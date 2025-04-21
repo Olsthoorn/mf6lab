@@ -84,7 +84,7 @@ os.chdir(mp7_ws)
 
 mpbas = flopy.modpath.Modpath7Bas(
     mp7,
-    porosity=0.35,
+    porosity=settings.props['por'],
 )
 
 # %% === 4. Define particles and simulation options ===
@@ -229,8 +229,14 @@ fig.savefig(os.path.join(dirs.images, "cumul_t_" + case_name +".png"))
 
 # %% === Compute and plot breakthrough (x locations at a given time) ===
 
-t_last = round_up_nice(data_pl[-1]['time'][-1], m=0)
-tObs = np.arange(0, t_last / 100, t_last / 1000)[1:]
+# %% First determine a suitable set of observation times
+tl = 0
+for d in data_pl:
+    tl = max(tl, d['time'].max())
+tl = round_up_nice(tl, m=0)
+t_last = tl  / 10
+
+tObs = np.arange(0, t_last / 50, t_last / 500)[1:]
 
 # The the locations of the particles at a set of times
 # Determine where they are and make a cumulative probability density graph

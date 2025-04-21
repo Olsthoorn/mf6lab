@@ -1272,7 +1272,7 @@ literal "false"
 The conductivity field in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:log-k-field"
+reference "fig:mim-kfield"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1307,7 +1307,7 @@ m.
  using the values for the mean conductivity and the variance of its logrithm as given in the figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:log-k-field"
+reference "fig:mim-kfield"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1368,7 +1368,7 @@ nolink "false"
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:pathlines"
+reference "fig:mim-paths"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1401,7 +1401,7 @@ nolink "false"
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:cumulatives"
+reference "fig:mim-cum-t"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1429,7 +1429,7 @@ nolink "false"
  m in this cross section can be observed in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:log-k-field"
+reference "fig:mim-kfield"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1446,7 +1446,7 @@ Finally,
  These overlapping histograms are shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:historgrams"
+reference "fig:mim-hist_t"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1461,7 +1461,126 @@ nolink "false"
 
  m clearly shows the asymmetry of the density curve with its steep front and long tail,
  a phenomenon that is characteristic for advection-dominated transport through a hegerogeneous subsurface.
- 
+ To better analyze the outcome,
+ the breakthrough times curves have been fitted by the logrnomal distribution as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mim-BT_t"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The lognormal distribution fits very well.
+ Note that due to the skewness of the lognormal distribution,
+ we have 
+\begin_inset Formula $t_{mode}<t_{median}<t_{mean}$
+\end_inset
+
+,
+ the values of which are also indicated in the figure.
+ Instead of using the usual quantiles (0.05,
+ ...
+ 0.95 of the cdf) to indicate the bulk and outliers,
+ we used 0.2,
+ 0.5,
+ 1.0,
+ 2.0 and 5.0 the 
+\begin_inset Formula $t_{mode}-t_{0}$
+\end_inset
+
+ as more informative values.
+ The pdfs are shown in the bottom figure and clearly demonstrate the skewness of the break-throughtimes.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mim-BT-x"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ shows the position of the particles at given observation times.
+ These particle position were ordered and fitted by the lognormal distribution,
+ of which the cdf is shown together with the outcomes of the simulation.
+ The fit is less good than that for the break-through times.
+ The obvious reason for this is that for the times,
+ every particle has passsed the entire 1000 m length of the model,
+ where for the postioins of any given observation times this is at all the case.
+ Therefore,
+ particles that traveled little at a given time,
+ have seen only a small part of the model's heterogeneity and are thus subject to more randomness.
+ The latter may only be solved by repeated realizations and taking the ensemble at the end.
+ The graphs with the particle positions seem to more resemble the normal distribution than those for the break-through times.
+ However,
+ this may especially be the case for larger observation times.
+ The graphs with the particle positions also make clear,
+ that a portion of th particles hardly moves at all,
+ which is indicative of tail formation.
+ One is tempted to compare the pdf with the particle position with the data for the Made site as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison-models-Made"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ There the mode at 
+\begin_inset Formula $t=503$
+\end_inset
+
+ d was at about 15 m from the source;
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mim-BT-x"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ bottom at 
+\begin_inset Formula $t=600$
+\end_inset
+
+ d it's at about 20 days,
+ which is not too different.
+ Note that in this model the same aquifer and gradient values were used as published for the test at the made site (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fiori13"
+literal "false"
+
+\end_inset
+
+).
+ All in all,
+ I don't see that the result by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fiori13"
+literal "false"
+
+\end_inset
+
+ is too convincing as a travel distance of the mode of 15 m is small with respect of their fixed box size of about 20 m,
+ and therefore,
+ really small with respect to the size of the heterogeneities in their model,
+ implying that chance may play a big role at these outcomes.
 \end_layout
 
 \begin_layout Standard
@@ -1474,7 +1593,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_mim.png
 	width 80text%
 
 \end_inset
@@ -1488,7 +1607,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:log-k-field"
+name "fig:mim-kfield"
 
 \end_inset
 
@@ -1528,7 +1647,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/wimsaquif.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/stream_func_mim.png
 	width 80text%
 
 \end_inset
@@ -1573,7 +1692,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/pathlines.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/plines_mim.png
 	width 80text%
 
 \end_inset
@@ -1587,7 +1706,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:pathlines"
+name "fig:mim-paths"
 
 \end_inset
 
@@ -1618,7 +1737,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumulatives.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_mim.png
 	width 80text%
 
 \end_inset
@@ -1632,11 +1751,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:cumulatives"
+name "fig:mim-cum-t"
 
 \end_inset
 
-Computed comulative break-through curves
+Computed cumulative break-through curves
 \end_layout
 
 \end_inset
@@ -1663,7 +1782,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/histograms.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_x_mim.png
 	width 80text%
 
 \end_inset
@@ -1677,11 +1796,157 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:historgrams"
+name "fig:mim-hist_t"
 
 \end_inset
 
 Computed break-through histograms
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_mim.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mim-BT_t"
+
+\end_inset
+
+Top:
+ Breakthrough curves with fitted cdf for lognormal distrubiton.
+ Bottom their pdf.
+ The median and the mean are given and the points at 0.2,
+ 0.5,
+ 1.0,
+ 2 and 5 times 
+\begin_inset Formula $t_{mode}-t_{0}$
+\end_inset
+
+ which provide a better insght with the lognormal distribution than the usual quantiles of the cdf.
+ Because of the skewness,
+ 
+\begin_inset Formula $t_{mode}<t_{med}<t_{mean}$
+\end_inset
+
+.
+ The skewed character of the breakthrough curves are clearly visible.
+ The maximum time is about 5 times the minimum time in this case.
+ The 
+\begin_inset Formula $t_{mode}$
+\end_inset
+
+ at 
+\begin_inset Formula $xObs=200$
+\end_inset
+
+ m is at about 400 d.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_mim.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mim-BT-x"
+
+\end_inset
+
+Top:
+ Cumulative distribution of particles with their fitted cdf at given observation times.
+ Bottom their pdf.
+ Shown are 
+\begin_inset Formula $x_{median}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{mean}$
+\end_inset
+
+.
+ Notice that 
+\begin_inset Formula $x_{mod}<x_{median}<x_{mean}$
+\end_inset
+
+ for the lognormal distribution.
+ Also show are the points for cdf = 0.05,
+ 0.16,
+ 0.5,
+ 0.84 and 0.95.
+ These work better than the mode-related values above as the distribution for the 
+\begin_inset Formula $x$
+\end_inset
+
+-values is less skewed than for the 
+\begin_inset Formula $t$
+\end_inset
+
+-values.
 \end_layout
 
 \end_inset
@@ -1704,7 +1969,7 @@ The same cross section with the same parameters except for a muck lower variance
 \begin_inset Formula $var(\ln\left(k\right))$
 \end_inset
 
- is 1.5 instead of 6.6
+ is 1.1 instead of 6.6
 \end_layout
 
 \begin_layout Standard
@@ -1724,7 +1989,7 @@ The more homogeneous the aquifer,
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:ln(k)field1.2"
+reference "fig:mim11-kfield"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1735,7 +2000,7 @@ nolink "false"
  looks similar to figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:log-k-field"
+reference "fig:mim-kfield"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1750,7 +2015,7 @@ nolink "false"
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Srteamlines-var1.5"
+reference "fig:mim11-stream"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1775,7 +2040,7 @@ nolink "false"
  the head contours are much more straight in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Srteamlines-var1.5"
+reference "fig:mim11-stream"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1822,7 +2087,7 @@ nolink "false"
  with figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:historgrams"
+reference "fig:mim-hist_t"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1843,7 +2108,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_hom.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_mim_var11.png
 	width 80text%
 
 \end_inset
@@ -1857,7 +2122,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:ln(k)field1.2"
+name "fig:mim11-kfield"
 
 \end_inset
 
@@ -1893,7 +2158,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/wimsaquif_hom.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/stream_func_mim_var11.png
 	width 80text%
 
 \end_inset
@@ -1907,7 +2172,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Srteamlines-var1.5"
+name "fig:mim11-stream"
 
 \end_inset
 
@@ -1938,7 +2203,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/pathlines_hom.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/plines_mim_var11.png
 	width 80text%
 
 \end_inset
@@ -1952,7 +2217,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Pathlines-var1.5"
+name "fig:mim11-paths"
 
 \end_inset
 
@@ -1984,7 +2249,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumulatives_hom.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_mim_var11.png
 	width 80text%
 
 \end_inset
@@ -1998,7 +2263,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Cumulatives-var1.5"
+name "fig:Cumul-var1.1"
 
 \end_inset
 
@@ -2029,7 +2294,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/histograms_hom.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_t_mim_var11.png
 	width 80text%
 
 \end_inset
@@ -2048,6 +2313,138 @@ name "fig:Histogams-var1.5"
 \end_inset
 
 Histogams for the break-through at different locations long the cross section as computed from the cumulatives.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_mim_var11.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BT-t-mim-var1.1"
+
+\end_inset
+
+Top:
+ Breakthrough times and fitted log-normal cdfs for same case as before by 
+\begin_inset Formula $var\left(\ln\left(k\right)\right)=1.2$
+\end_inset
+
+ instead of 
+\begin_inset Formula $6.6$
+\end_inset
+
+.
+ Bottom:
+ pdf's.
+ Note the dots are at 0.2,
+ 0.5,
+ 1.0,
+ 2.0 and 5.0 times 
+\begin_inset Formula $t_{mode}$
+\end_inset
+
+.
+ These are here less insightful because the distrubtions are far less skewed than in the previous case with the much larger 
+\begin_inset Formula $var\left(\ln\left(k\right)\right)$
+\end_inset
+
+ value of 6.6 instead of 1.1.
+ The maximum time is about 3 times the minimum time in this case.
+ 
+\begin_inset Formula $t_{mode}$
+\end_inset
+
+ at 
+\begin_inset Formula $xObs=200$
+\end_inset
+
+ m is about 15000 days,
+ which is about 4 times later than in the previous case.
+ Also the mean time is larger now.
+ At 
+\begin_inset Formula $x_{Obs}=1000$
+\end_inset
+
+ m it is now about 75000 days while in the previous case it was about 38000 days,
+ shorter due to higher conductivities in the longest heterogeneities.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_mim_var11.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BT-x-var1.1"
+
+\end_inset
+
+Distribution curves for the particles and fitted lognormal distribution for cdf and pdf.
 \end_layout
 
 \end_inset
@@ -2135,7 +2532,7 @@ nolink "false"
  which characterizes the cross section of figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:log-k-field"
+reference "fig:mim-kfield"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2186,7 +2583,7 @@ nolink "false"
  the bottom figure is the same as figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:cumulatives"
+reference "fig:mim-cum-t"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2231,7 +2628,7 @@ nolink "false"
  those obtained with the block structure and otherwise the same parameters already shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:historgrams"
+reference "fig:mim-hist_t"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2309,7 +2706,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/wimsaquifgaus.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/stream_func_gaus.png
 	width 80text%
 
 \end_inset
@@ -2358,7 +2755,7 @@ Gaussian Field
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumulatives_gaus.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_gaus.png
 	width 80text%
 
 \end_inset
@@ -2372,7 +2769,7 @@ MIM blocks field
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumulatives.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_mim.png
 	width 80text%
 
 \end_inset
@@ -2421,7 +2818,7 @@ Gaussian Field
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/histograms_gaus.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_t_gaus.png
 	width 80text%
 
 \end_inset
@@ -2435,7 +2832,7 @@ MIM block field
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/histograms.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_t_mim.png
 	width 80text%
 
 \end_inset
@@ -2461,6 +2858,116 @@ plural "false"
 caps "false"
 noprefix "false"
 nolink "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_gaus.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_mim.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BT-t-gaus"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_gaus.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_mim.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BT-x-gaus"
 
 \end_inset
 
@@ -2589,7 +3096,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_wim.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_WdL.png
 	width 80text%
 
 \end_inset
@@ -2634,7 +3141,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/wimsaquif_wim.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/stream_func_WdL.png
 	width 80text%
 
 \end_inset
@@ -2661,10 +3168,6 @@ Streamlines and head contours for the simulated cross section.
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -2680,7 +3183,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumulatives_wim.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_WdL.png
 	width 80text%
 
 \end_inset
@@ -2725,7 +3228,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/histograms_wim.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_t_WdL.png
 	width 80text%
 
 \end_inset
@@ -2744,6 +3247,530 @@ name "fig:Histograms-wim"
 \end_inset
 
 Histograms of different breakthrough points along the cross section
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_WdL.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BT-t-WdL"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_WdL.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Test case
+\end_layout
+
+\begin_layout Standard
+It's important to run a test case that allows verification of the procedures.
+ The chosen test case has the same cross section of 100 rows and 1000 columns with cells of 1x1 m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.
+ The aquifer is,
+ therefore,
+ 100 m thick and 1000 m long.
+ The porosity and the is kept the same as before.
+ The fixed gradient of 
+\begin_inset Formula $J=0.0036$
+\end_inset
+
+ was multiplied by 50 to make sure the fastest particles reach the end of the model within given by letting 
+\begin_inset Formula $hL=180$
+\end_inset
+
+ m instead of 
+\begin_inset Formula $3.6$
+\end_inset
+
+ m and letting 
+\begin_inset Formula $h_{R}=0$
+\end_inset
+
+ m.
+ The section was divided into 10 blocks of 10 model layers each.
+ The conductivity is constant in each block and increases in 10 steps from 1 m/d to 10 m/d.
+ Hence the first 10 model layers all have 
+\begin_inset Formula $k=1$
+\end_inset
+
+ m/d,
+ the model layers 11 through 20 have 
+\begin_inset Formula $k=2$
+\end_inset
+
+ m/d and so on until layers 91 through 100,
+ which all have 
+\begin_inset Formula $k=100$
+\end_inset
+
+ m/d.
+ With this setup,
+ the discharge through each layer and the travel time in them as well as the location of each particle at any time are now know and can be verified in the outcomes.
+\end_layout
+
+\begin_layout Standard
+The mean conductivity equals 
+\begin_inset Formula $k_{mean}=5.5$
+\end_inset
+
+ m/d and the total discharge 
+\begin_inset Formula $Q=k_{mean}\times D\times J=0.55\times100\times0.0036=1.98$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d.
+ The Modflow list file gives 1.98 m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/s.
+ The hand and Modpath compute travel times are also essentially the same as the ones computed by Modflow,
+ for all xObs distances and all layers.
+ Finally the postions of the particles at the chosen observation times.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_test_0.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lnk-test0"
+
+\end_inset
+
+Conductivity field of the test case.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/plines_test_0.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:paths-test0"
+
+\end_inset
+
+Path lines test0.
+ The difference in distance between the path lines is because each path line represents the same fraction of the total discharge through the cross section.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_test_0.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:cum-t-test0"
+
+\end_inset
+
+Break-through curves
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_t_test_0.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Hist-t-test0"
+
+\end_inset
+
+Histograms for breakthrough times
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_x_test_0.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cum-x-test0"
+
+\end_inset
+
+Cumulative location curves.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_x_test_0.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Hist-x-test0"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_test_0.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BT-t-test0"
+
+\end_inset
+
+Fitted cdfs and their pdfs.
+ Fit fails with this data (data that is essentially not random)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_test_0.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BT-x-test0"
+
+\end_inset
+
+Fitted location curves.
+ Works but is useless with this non-random test case.
 \end_layout
 
 \end_inset

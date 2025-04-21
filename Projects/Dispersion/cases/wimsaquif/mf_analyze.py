@@ -20,7 +20,7 @@ dirs     = mf_adapt.dirs
 grb_file = os.path.join(dirs.GWF, mf_adapt.sim_name + 'Gwf.dis.grb')
 gr       = mf_adapt.gr
 pr       = mf_adapt.pr # properties from settings
-               
+case_name = pr['k_field_pars']['name']    
 # %% load the unformatted files with the heads, the concentration and the budget terms
 sim = flopy.mf6.MFSimulation.load(
     sim_name=mf_adapt.sim_name, version='mf6', sim_ws=dirs.SIM)
@@ -84,12 +84,13 @@ Qchd = budObj.get_data(text='chd', kstpkper=kstpkper[frame])[0]['q']
 Qthrough = Qchd[Qchd > 0].sum()
 
 # Update title
-ttl.set_text(mf_adapt.section_name + ' frame={}, sim time={:.0f} min, Qmdl = {:.1f} {} + \n'.format(
-    frame, sim_time[frame], Qthrough, pr['Qdim']) + pr['k_field_pars']['k_field_str'])
+
+ttl.set_text("Stream function (case " + case_name + f') Qmdl = {Qthrough:.1f} {pr['Qdim']}\n'
+             + pr['k_field_pars']['k_field_str'])
 
 ax.grid()
 ax.legend(loc='lower left')
     
-plt.savefig(os.path.join(dirs.images, sim.name + '_' + pr['k_field_pars']['name'] + '.png'))
+plt.savefig(os.path.join(dirs.images, 'stream_func_' + case_name + '.png'))
 
 plt.show()
