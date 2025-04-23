@@ -69,7 +69,7 @@
 \output_sync 0
 \bibtex_command biber
 \index_command default
-\float_placement h
+\float_placement H
 \float_alignment center
 \paperfontsize default
 \spacing single
@@ -136,10 +136,6 @@
 \begin_layout Title
 Dispersion:
  the effects of aquifer heterogeneity
-\begin_inset Newline newline
-\end_inset
-
-c o n c e p t
 \end_layout
 
 \begin_layout Author
@@ -149,13 +145,13 @@ prof.
 \end_layout
 
 \begin_layout Date
-2025-04-18
+2025-04-23
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumulatives.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_mim.png
 	width 70text%
 
 \end_inset
@@ -196,7 +192,7 @@ literal "false"
 \begin_layout Standard
 So what is dispersion as we see it?
  Dispersion can be defined based on the gradual concentration increase,
- the reaching of a peak concentration followed by the slow decrease of a consituent when a well or an observation screen is frequently sampled.
+ the reaching of a peak concentration followed by the slow decrease of a constituent when a well or an observation screen is frequently sampled.
  Dispersion can also be defined based on the average concentration over the height of the aquifer sampled by many vertically arranged small sampling screens or by sampling a fully penetrating well.
  With the latter method,
  using more than one well or series of sampling points at different spatial locations,
@@ -221,7 +217,7 @@ Dispersion has mostly been defined as a process similar to diffusion,
  therefore,
  such advection mechanisms cannot explain spreading of a pollutant perpendicular to streamlines in 2D space.
  Nevertheless streamlines can cross each other in 3D space (e.g.
- in aquifers with hoirzontal layers having main horizontal conductivity axes in different directions 
+ in aquifers with horizontal layers having main horizontal conductivity axes in different directions 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HemBak04"
@@ -255,7 +251,7 @@ However,
  formed in different energetic environments,
  i.e.
  by water that carried different amounts of particles the size of which varied depending on the geologic and climatic circumstances.
- These circumstances have liklely largely varied over the tens of thousands to millions of years,
+ These circumstances have likely largely varied over the tens of thousands to millions of years,
  during which the aquifer was formed.
  Retracting seas during ice ages and rising land cause larger gradients of the earth's surface,
  due to which erosion increases and more and coarser sediments are laid out over extended areas,
@@ -270,7 +266,7 @@ However,
  During cold windy periods with tundras as well as in dry deserts,
  large-scale areal transport and deposition of fine particles have formed often vast regions with moving dunes,
  which now show up in cross sections as often thick layers of overlapping sublayers of fine material.
- They are characterized by their upward curved patterns that witness the original horizonal progress of the dune-type deposits.
+ They are characterized by their upward curved patterns that witness the original horizontal progress of the dune-type deposits.
  Extended clay layers are generally caused by sea transgressions when climate warmed up or land sank.
  Or they were deposited by rivers that broke through their banks creating extended flood areas with little energy,
  which allowed fine particles to settle and to form river-clay deposits.
@@ -284,10 +280,10 @@ However,
  if we study the spread of pollutants within an aquifer,
  the details of the structure of the aquifer do matter.
  And it's obvious that the extremely wide variation of the conductivity within the aquifer,
- caused by the mentioned varyity of sedimentation (and local erosion) processes,
- determine the spread of a pollutant more than velocity variations at the porescale.
+ caused by the mentioned variety of sedimentation (and local erosion) processes,
+ determine the spread of a pollutant more than velocity variations at the pore scale.
  As far as diffusion is concerned,
- it's important over the long run in stagnant situations and to allow consituents to jump between parallel stream lines.
+ it's important over the long run in stagnant situations and to allow constituents to jump between parallel stream lines.
  But on local scales and relative short,
  say sub-century time scales it tends to be of little importance.
 \end_layout
@@ -306,19 +302,19 @@ inclusions
 
  (often called facies) caused by meandering rivers that cut into older layers while eroding their outer bends and at the same time deposing fresh material at their inner bends.
  This way,
- meandering rivers create their charactistic particle-band patterns in cross sections with their associated conductivity patterns.
+ meandering rivers create their characteristic particle-band patterns in cross sections with their associated conductivity patterns.
  But we also encounter existing sediment packages that were disturbed,
  pushed up,
- shifted and partly or toally turned over by the heavy load of progressing land ice.
+ shifted and partly or totally turned over by the heavy load of progressing land ice.
  When retracting and after melting,
  the deep valley space that was left over,
  was subsequently filled up by both erosion material from the pushed-up ridges and filled by fine material,
  especially caused by subsequent sea water rise.
  Of course,
  much more can be,
- and perhaps should be said about the characterisics of the cross sections we encounter in the field.
+ and perhaps should be said about the characteristics of the cross sections we encounter in the field.
  Studying and describing them has been the focus of geologists and especially sedimentologists throughout the world over a long time.
- However using their discriptions to accurately model the hydrogeneous conductivity field remains a challenge and is mostly not universily successful to say the least.
+ However using their descriptions to accurately model the heterogeneous conductivity field remains a challenge and is mostly not universely successful to say the least.
 \end_layout
 
 \begin_layout Standard
@@ -326,7 +322,7 @@ The fundamental consequence of attributing all
 \begin_inset Quotes pld
 \end_inset
 
-disperision
+dispersion
 \begin_inset Quotes prd
 \end_inset
 
@@ -339,11 +335,11 @@ disperision
  no mixing can occur in the subsurface because it implies that every particle will stick to its own original streamline over its entire underground life.
  This would even be true when the streamline changes over time as a result of altered boundary conditions.
  Hence,
- with this asusmption,
+ with this assumption,
  all dispersion,
  i.e.
  mixing,
- occursat the extraction point,
+ occurs at the extraction point,
  where the extracted water is mixed in the screen or the well when pumping or just sampling it.
  Or,
  the water is mixed in the computer when we digitally mix the extracted water along the vertical at some point in the aquifer.
@@ -359,10 +355,10 @@ disperision
  We can also do this over time.
  But in fact,
  when mixing the water vertically at a given point in the aquifer and a given point in time,
- we always mix water from layers with zero consituant concentration with water from layers with non-zero constituent concentration.
+ we always mix water from layers with zero constituant concentration with water from layers with non-zero constituent concentration.
  And,
  under the assumption that only advection is active,
- a streamline either has exacly the same concentration it was given at the point of release after passing the point of none.
+ a streamline either has exactly the same concentration it was given at the point of release after passing the point of none.
  This is a consequence of the assumption of zero mixing within the aquifer,
  which is what happens as particles stick to their streamline and pore-size processes are ignored.
  Hence,
@@ -412,7 +408,7 @@ When we only take advection into account,
 \end_layout
 
 \begin_layout Standard
-No one dan ignore that diffusion acts in groundwater,
+Nobody can ignore that diffusion acts in groundwater,
  as it is caused by molecular movement,
  which is always present.
  The spread 
@@ -459,7 +455,7 @@ No one dan ignore that diffusion acts in groundwater,
 \end_inset
 
  m.
- The latter is of the scale of the vertical exent of the aquifer itself.
+ The latter is of the scale of the vertical extent of the aquifer itself.
  Hence,
  on the long run diffusion as a mechanism to spread out pollutants perpendicularly to the streamlines cannot be ignored and will limit the value of the pure advection approach to tens of years rather than hundreds or even thousands of years.
 \end_layout
@@ -477,7 +473,7 @@ Assuming that dispersion is caused by macroscale velocity variations due to the 
 
 \begin_layout Standard
 Even realizing its limits,
- we will stick with a vertial,
+ we will stick with a vertical,
  i.e.
  2D cross section of uniform height modeled with finite differences using a rectangular mesh with sub layers of equal height.
  The conductivity of each cell may be unique,
@@ -502,13 +498,13 @@ The boundary conditions of the modeled cross section are a fixed but different h
  but also the lines of constant values of the stream function.
  The stream function allows us to determine uniquely the flow density and the flow direction at any point in the aquifer,
  even without particle tracking.
- The stream function permits us to detemrine the elevation of the release points of the particles such that each particle represents the same amount of discharge,
+ The stream function permits us to determine the elevation of the release points of the particles such that each particle represents the same amount of discharge,
  which will guarantee keeping the mass balance also with particle tracking.
 \end_layout
 
 \begin_layout Standard
 Particle tracking is done with Modpath7.
- Modpath guarantees that the governing differential equation of the discharge is fullfilled at every point within every cell of the model.
+ Modpath guarantees that the governing differential equation of the discharge is fulfilled at every point within every cell of the model.
  This implies that,
  although the model is only a limited representation of the actual aquifer,
  particle tracking the Modpath way does guarantee proper distribution of the particles throughout the aquifer while maintaining the mass balance at any point as well as in the aquifer as a whole.
@@ -518,7 +514,7 @@ Particle tracking is done with Modpath7.
 The procedure to follow is to first generate a conductivity field.
  Then use Modflow to compute the flow field in the aquifer,
  with heads and cell-by-cell discharges.
- This is ollows by the computation of the stream function using the flow across the right face of the cells that were computed by Modflow.
+ This is allows by the computation of the stream function using the flow across the right face of the cells that were computed by Modflow.
  The next step is to place particles along a vertical in the aquifer at elevations obtained from the stream function,
  such that each particle represents the same amount of discharge along this vertical.
  After releasing the particles they are tracked with Modpath.
@@ -541,14 +537,14 @@ Literature discussion
 \begin_layout Standard
 A vast number of papers has been written on subsurface transport of pollutants (Gelhar,
  Sudicky ...).
- This mainly started in the 1980s after it became obvious that hunderds of thousands of waste sites were and have been polluting groundwater and groundwater and as avaluable resource for drinking water and public concern skurocketed.
- The study of the subsurface displacement and spreading proved difficult due to the heterogeneity of the subsurace and the interaction between pollutants and subsurface material.
+ This mainly started in the 1980s after it became obvious that hundreds of thousands of waste sites were and have been polluting groundwater and groundwater and as an available resource for drinking water and public concern skyrocketed.
+ The study of the subsurface displacement and spreading proved difficult due to the heterogeneity of the subsurface and the interaction between pollutants and subsurface material.
  The studies were plagued by lack of understanding the complexity of the conductivity field that caused preferential flow paths and the mixing processes known as dispersion as well as the role of diffusion in it.
- The Fickian of Gaussion theory that look so nice on paper,
+ The Fickian of Gaussian theory that look so nice on paper,
  or in math,
  was time and again challenged in practice,
- where samples showed that reality adn theory more often than not did not match.
- Hence long time studies were underrtaken with large-scale and repeated tracer tests to better capture and learn to predict what happens in practice.
+ where samples showed that reality and theory more often than not did not match.
+ Hence long time studies were undertaken with large-scale and repeated tracer tests to better capture and learn to predict what happens in practice.
  The Borden en Made studies,
  both done over 25 years with millions invested in exploring the subsurface structure and sampling the groundwater in great detail were carried out,
  but in the end did not totally solve our lack of insight and modeling capabilities to correctly predict development of pollution plumes in those and other circumstances.
@@ -557,7 +553,7 @@ A vast number of papers has been written on subsurface transport of pollutants (
 \begin_layout Standard
 Sudicky (1986) carefully studied the Borden experiment after others,
  like Dagan and Gelhar went before him.
- Hij gives a cross section in both the longidudinal and perpendicular direction to the grounwater flow.
+ He gives a cross section in both the longitudinal and perpendicular direction to the groundwater flow.
  His paper is more or less a summarizing evaluation of the work that was done at Borden.
  Sudicky considers the flow as fundamentally 3D and finishes with a summary worth citing from it.
 \end_layout
@@ -580,11 +576,11 @@ In spite of tremendous effort and progress over the past three decades,
 .
  They show to expect a lot from future field measurements in a comprehensive suite and carefully designed in a tightly integrated fashion.
  However,
- it's doubtful if these new studies will be ever perfomed,
+ it's doubtful if these new studies will be ever performed,
  given the effort and cost already spent before.
  It seems that the existing data for the Made and Borden will be revisited in new research for a long time into the future.
  The authors stress that future work should focus on mapping the hydraulic conductivity distribution and the resulting preferential pathways far beyond what is currently possible given the existing measurement techniques.
- With this disclamier the authors seem to admit that the problem to fully understand subsurface transport will remain essentially unsolved for a long time in the future.
+ With this disclaimer the authors seem to admit that the problem to fully understand subsurface transport will remain essentially unsolved for a long time in the future.
 \end_layout
 
 \begin_layout Standard
@@ -601,7 +597,7 @@ literal "false"
  like MT3SM.
  The dual domain just discerns between a mobile phase and an immobile phase,
  with kinetic exchange process between them.
- It has been quite succesful in Made as is shown in figure 9 in 
+ It has been quite successful in Made as is shown in figure 9 in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zheng11"
@@ -621,7 +617,7 @@ results from field investigations and modeling analyses suggest that connected n
 \begin_inset Quotes prd
 \end_inset
 
- Thse connected networks are fundamentaly different from the adsorption process that is modeled by the dual domain seems to make no sense to model consituents that do not sorb like chloride,
+ These connected networks are fundamentally different from the adsorption process that is modeled by the dual domain seems to make no sense to model consituents that do not sorb like chloride,
  bromide or tritium.
  
 \begin_inset CommandInset citation
@@ -645,7 +641,7 @@ literal "false"
 \end_inset
 
 .
- They continued the dicussion and tried to model the observed plume dispersion at the Made site.
+ They continued the discussion and tried to model the observed plume dispersion at the Made site.
  To better tackle the large asymmetry of the pollution plume not described by traditional advection-dispersion models,
  they propose a multi-indicator model (MIM).
  With it 
@@ -657,7 +653,7 @@ literal "false"
 \end_inset
 
  essentially subdivide the aquifer into blocks of different independent conductivity drawn from a lognormal distribution.
- The dispersion generated by the flow of particles through their heterogenious model was the resdult of advection alone.
+ The dispersion generated by the flow of particles through their heterogeneous model was the result of advection alone.
  They found that this simple advection model could describe the development of the observed plume 
 \begin_inset Quotes pld
 \end_inset
@@ -674,9 +670,9 @@ remarkebly well
  their MIM model was capable of mimicking the measured bromide distribution sampled at 6 points of time,
  but only reasonably.
  Nevertheless,
- their MIM model did demonstrate that the observed dispersion can be explained just by the flow as it is distored by the heterogeneity of the conductivity field in the aquifer,
+ their MIM model did demonstrate that the observed dispersion can be explained just by the flow as it is distorted by the heterogeneity of the conductivity field in the aquifer,
  even without considering any other processes.
- The results of this advection-dominated model show the charateristic that proved impossible to model with traditional advecton-dispersion models,
+ The results of this advection-dominated model show the characteristic that proved impossible to model with traditional advecton-dispersion models,
  which is the large asymmetry (long tail) of the plume development in the subsurface.
 \end_layout
 
@@ -696,7 +692,7 @@ literal "false"
 
  show that,
  even though their Danish aquifer is very homogeneous,
- the derived longitudinal dispersivity was 500 times larger than the transvese dispersivity and 1000 times larger than the vertical transverse dispersivity.
+ the derived longitudinal dispersivity was 500 times larger than the transverse dispersivity and 1000 times larger than the vertical transverse dispersivity.
  From this,
  we may conclude that velocity variations caused by local small scale conductivity variations are likely the cause of the large contrast between the vertical and transverse dispersivities.
  
@@ -707,7 +703,7 @@ literal "false"
 
 \end_inset
 
- proved this by showing that inceasing refinement of their model better mimicked the small-scale statistics of the aquifer.
+ proved this by showing that increasing refinement of their model better mimicked the small-scale statistics of the aquifer.
 \end_layout
 
 \begin_layout Standard
@@ -721,7 +717,7 @@ literal "false"
  show that,
  even though macrodispersion can be described by velocity variations caused by the conductivity field,
  and result in largely asymmetric plume shapes with a short front and a long tail,
- the bulk of the plume can still be described by a Gaussian model with an equivalent mean velocity and a longitudal dispersivity.
+ the bulk of the plume can still be described by a Gaussian model with an equivalent mean velocity and a longitudinal dispersivity.
  This does not work for the long tail,
  but the tail will be of far less importance in practice as it only holds a small fraction of the total mass of the pollutant.
  Only when the aquifer tends to homogeneity,
@@ -734,7 +730,7 @@ literal "false"
 
 \end_inset
 
- further conclued from their work,
+ further concluded from their work,
  that for very inhomogeneous aquifers,
  the plume behavior does not approach Gaussian / Fickian behavior even for very long travel distances.
 \end_layout
@@ -768,10 +764,10 @@ name "fig:Comparison-models-Made"
 \end_inset
 
 Comparison of the modelled and measured bromide plume extent at the Made site.
- ADM stands for classical Advection-Dispersion-Mass transfor model,
+ ADM stands for classical Advection-Dispersion-Mass transfer model,
  DDSR stands for Dual-Domain Mass Transform Model.
  The graph clearly shows the rapid progress of a small part of the water while the bulk remain near the source.
- The intepretation depends on whether the flow rate hat the sampling elevations was included in the analysis.
+ The interpretation depends on whether the flow rate hat the sampling elevations was included in the analysis.
  This is probably not the case.
 \end_layout
 
@@ -796,12 +792,12 @@ Introduction
 \begin_layout Standard
 A fundamental problem,
  perhaps the most fundamental one,
- is that the flow in a 2D cross section misses the thrid dimension.
+ is that the flow in a 2D cross section misses the third dimension.
  The problem is not that some cross section is bended to follow the curves of a projected streamline,
  nor that the cross section represents an axially symmetric situation.
- The essence is that a plain crosss section does not have flow components perpendicular to it.
+ The essence is that a plain cross section does not have flow components perpendicular to it.
  In theory a 2D section does not require flow components perpendicular to it;
- in practic,
+ in practice,
  this is never fully the case.
  Wherever the flow and the spread of particles is determined by inhomogeneities,
  or,
@@ -810,7 +806,7 @@ A fundamental problem,
  due to which the flow direction continuously deviates from the average flow direction in the cross section,
  one can then be certain that in reality such deviations also occur perpendicular to the 2D plane of the cross section.
  The inhomogeneities of the real world are never limited to the plane of the cross section,
- they are just as strong perpendiular to it.
+ they are just as strong perpendicular to it.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -820,10 +816,10 @@ literal "false"
 \end_inset
 
  and others have shown,
- that exactly this 3rd component of the groundwater velocity makes that stroomlines can cross each other,
+ that exactly this 3rd component of the groundwater velocity makes that streamlines can cross each other,
  and thus cause dispersion,
  what they never can in a 2D situation.
- The analysis of the flow in a flat cross section falls fundamentally short to discribe the full mixing process in an aquifer characterized by its heterogeneous conductivty field in all its 3 dimensions.
+ The analysis of the flow in a flat cross section falls fundamentally short to describe the full mixing process in an aquifer characterized by its heterogeneous conductivity field in all its 3 dimensions.
  The paper of 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -843,7 +839,7 @@ And of course particles (molecules) will jump between adjacent streamlines all t
  which,
  combined by the turnover of streamlines described above,
  triggers transversal spreading at a rate that far exceeds that of molecular diffusion.
- Molecular diffusion tends to be slow and becomes increalingly slower over time as expressed by the formula for the grow of the standard deviation of an initially sharp front,
+ Molecular diffusion tends to be slow and becomes increasingly slower over time as expressed by the formula for the grow of the standard deviation of an initially sharp front,
  i.e.
  
 \begin_inset Formula $\sigma=\sqrt{2Dt}$
@@ -854,8 +850,8 @@ And of course particles (molecules) will jump between adjacent streamlines all t
  in a porous medium like an aquifer,
  in which the velocity varies perpendicular to the stream lines everywhere,
  the concentration gradient perpendicular to the streamlines is kept much sharper.
- This is a consequence of the washing process associated with particles on adjacent streamlines having different volocities.
- This washing process cause molecular spreading to be larger than in the theory valid voor a stagnant groundwater.
+ This is a consequence of the washing process associated with particles on adjacent streamlines having different velocities.
+ This washing process cause molecular spreading to be larger than in the theory valid for a stagnant groundwater.
 \end_layout
 
 \begin_layout Standard
@@ -920,8 +916,8 @@ Cross sections may also be obtained from websites that provide them based on bor
  cores etcetera.
  Such geological sections are exactly those meant above.
  However,
- sites such as Dinoloket.nl provides a full 3D database of the lilelihood of the occurence of a set of materials (sand,
- clay etc.) for blocks (voxels) of some 100x100x0.5 m across a large part of the Netehrlands.
+ sites such as Dinoloket.nl provides a full 3D database of the likelihood of the occurrence of a set of materials (sand,
+ clay etc.) for blocks (voxels) of some 100x100x0.5 m across a large part of the Netherlands.
  It is straightforward to extract colored cross sections form this website and use them in the way described above.
  However,
  these data are also very limited in that the number of voxels is much larger than the resolution of the underlying data,
@@ -934,17 +930,17 @@ Cross sections may also be obtained from websites that provide them based on bor
 \end_layout
 
 \begin_layout Standard
-One can digitally generate borelholes by using transistion probabilities between adjacent materials as obtained from borehole sampling.
+One can digitally generate boreholes by using transition probabilities between adjacent materials as obtained from borehole sampling.
  The resulting borehole is clearly artificial,
  but it will at least have some statistical properties similar to that of the real borehole.
- The problem then becomes how to link manyin this way created boreholes together into a single cross section.
+ The problem then becomes how to link manyi n this way created boreholes together into a single cross section.
  Simple interpolation will not be enough as it then ignores the horizontal transitions or at least the scale of them.
  And it is not clear how to solve this issue without external information,
  which,
  in fact,
  cannot come from boreholes drilled at mutual distances in the order of hundreds to thousands of meters.
  Such information could come from the study of existing real-world cross sections for similar sedimentological environments.
- It is likely that the number of real-world cross sections that actually match the sedimentologial environment in the subsurface in which we drill our boreholes,
+ It is likely that the number of real-world cross sections that actually match the sedimentological environment in the subsurface in which we drill our boreholes,
  is far too small to yield accurate data.
 \end_layout
 
@@ -985,7 +981,7 @@ literal "false"
  
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Cross section according to De Lange
 \end_layout
 
@@ -1014,22 +1010,6 @@ literal "false"
  To simulate a long travel distance,
  many alike blocks are placed next to each other and on top of each other,
  thus filling the entire space of the vertical cross section.
-\end_layout
-
-\begin_layout Standard
-We can generate such cross section by creating a conductivity field that mimics De Lange's multiple block aquifer.
-\end_layout
-
-\begin_layout Subsection
-Cross section between De Lange and 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Fiori13"
-literal "false"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1068,7 +1048,7 @@ Going fully geostatistical
 \end_layout
 
 \begin_layout Standard
-Going fully geostatistical would be a final stap towards more realistic simulations.
+Going fully geostatistical would be a final step towards more realistic simulations.
  However,
  simple semi-variograms of the distribution of conductivities will not be enough;
  generating cross sections from it would smear out the distinct boundaries between facies.
@@ -1081,18 +1061,22 @@ Finally still lacking the third dimension
 \end_layout
 
 \begin_layout Standard
-Even if we go fully geostastical to maximize the match between our digital and real-world cross section,
+Even if we go fully geostatistical to maximize the match between our digital and real-world cross section,
  we still miss the third dimension,
  which may prove essential for mixing by the likely ubiquitous 3D cross-over of streamlines with associated particle exchange.
- This simply implies that we either include the third dimenension in our cross section or we mimic its effects by introducing some vertical mixing process that mimics it,
+ This simply implies that we either include the third dimension in our cross section or we mimic its effects by introducing some vertical mixing process that mimics it,
  like vertical dispersion.
  It's importance may vary though,
  but totally excluding it may prove wrong,
  especially in high-conductance zones.
 \end_layout
 
+\begin_layout Section
+Cross section simulations
+\end_layout
+
 \begin_layout Subsection
-Choice of the cross section type
+Basic properties
 \end_layout
 
 \begin_layout Standard
@@ -1130,10 +1114,10 @@ literal "false"
 \begin_layout Standard
 A rectangular array of conductivity zones is created.
  Then a cell in the array is arbitrarily chosen to center the next zone.
- The height and width of the zone are then chosen to label the area of the overal conductivity array.
+ The height and width of the zone are then chosen to label the area of the overall conductivity array.
  This is done until all cells of the conductivity array have been labeled.
  As a last step,
- the conductivties are randomly selected from a log-normal distribution and associated with each of the labels to generate the final conductivity field.
+ the conductivities are randomly selected from a log-normal distribution and associated with each of the labels to generate the final conductivity field.
 \end_layout
 
 \begin_layout Standard
@@ -1182,7 +1166,7 @@ literal "false"
 \begin_inset Formula $I_{v}=1.5\,m$
 \end_inset
 
- Vertical intgration scale (range of the semi-variogram of 
+ Vertical integration scale (range of the semi-variogram of 
 \begin_inset Formula $k_{v}$
 \end_inset
 
@@ -1226,8 +1210,8 @@ Made cross section as applied by Fiori at al (2012)
 \end_layout
 
 \begin_layout Standard
-Becaus of their success,
- we will mimic the the consturction of cross sections used by 
+Because of their success,
+ we will mimic the the construction of cross sections used by 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "Fiori13"
@@ -1280,7 +1264,7 @@ nolink "false"
 
 \end_inset
 
- has been generated according to the parameters used by 
+ has been generated as an exponential random field according to the parameters used by 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "Fiori13"
@@ -1289,14 +1273,24 @@ literal "false"
 \end_inset
 
 .
- These parameters are in the header of the figure.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{h}=C_{0}\left(1-e^{-\frac{h}{I_{h}}}\right);\,\,\,\,C_{v}=C_{0}\left(1-e^{-\frac{h}{I_{v}}}\right)
+\]
+
+\end_inset
+
+These parameters are in the header of the figure.
  The zones all have the same width,
  equal to 
 \begin_inset Formula $2I_{h}=21$
 \end_inset
 
 m.
- The field was first generated with gstools using an exponetial model with lengths equals to 
+ The field was first generated with gstools using an exponential model with lengths equals to 
 \begin_inset Formula $I_{h}$
 \end_inset
 
@@ -1304,7 +1298,7 @@ m.
 \begin_inset Formula $I_{v}$
 \end_inset
 
- using the values for the mean conductivity and the variance of its logrithm as given in the figure 
+ using the values for the mean conductivity and the variance of its logarithm as given in the figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:mim-kfield"
@@ -1320,7 +1314,7 @@ nolink "false"
 \begin_inset Formula $2I_{h}$
 \end_inset
 
- and the conductiviy value generated at its cente was attribured to the entire block.
+ and the conductiviy value generated at its center was attributed to the entire block.
  The blocks on overlying layers are shifted relative to each other as was done by 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -1455,14 +1449,14 @@ nolink "false"
 \end_inset
 
 .
- The histrogram for 
+ The histogram for 
 \begin_inset Formula $x=1000$
 \end_inset
 
  m clearly shows the asymmetry of the density curve with its steep front and long tail,
- a phenomenon that is characteristic for advection-dominated transport through a hegerogeneous subsurface.
+ a phenomenon that is characteristic for advection-dominated transport through a heterogeneous subsurface.
  To better analyze the outcome,
- the breakthrough times curves have been fitted by the logrnomal distribution as shown in figure 
+ the breakthrough times curves have been fitted by the lognormal distribution as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:mim-BT_t"
@@ -1513,8 +1507,8 @@ nolink "false"
  of which the cdf is shown together with the outcomes of the simulation.
  The fit is less good than that for the break-through times.
  The obvious reason for this is that for the times,
- every particle has passsed the entire 1000 m length of the model,
- where for the postioins of any given observation times this is at all the case.
+ every particle has passed the entire 1000 m length of the model,
+ where for the positions of any given observation times this is at all the case.
  Therefore,
  particles that traveled little at a given time,
  have seen only a small part of the model's heterogeneity and are thus subject to more randomness.
@@ -1523,7 +1517,7 @@ nolink "false"
  However,
  this may especially be the case for larger observation times.
  The graphs with the particle positions also make clear,
- that a portion of th particles hardly moves at all,
+ that a portion of the particles hardly moves at all,
  which is indicative of tail formation.
  One is tempted to compare the pdf with the particle position with the data for the Made site as shown in figure 
 \begin_inset CommandInset ref
@@ -1846,7 +1840,7 @@ name "fig:mim-BT_t"
 \end_inset
 
 Top:
- Breakthrough curves with fitted cdf for lognormal distrubiton.
+ Breakthrough curves with fitted cdf for lognormal distribution.
  Bottom their pdf.
  The median and the mean are given and the points at 0.2,
  0.5,
@@ -1855,7 +1849,7 @@ Top:
 \begin_inset Formula $t_{mode}-t_{0}$
 \end_inset
 
- which provide a better insght with the lognormal distribution than the usual quantiles of the cdf.
+ which provide a better insight with the lognormal distribution than the usual quantiles of the cdf.
  Because of the skewness,
  
 \begin_inset Formula $t_{mode}<t_{med}<t_{mean}$
@@ -1964,7 +1958,7 @@ Top:
 \end_layout
 
 \begin_layout Subsection
-The same cross section with the same parameters except for a muck lower variance of the conductivity,
+The same cross section with the same parameters except for a much lower variance of the conductivity,
  namely 
 \begin_inset Formula $var(\ln\left(k\right))$
 \end_inset
@@ -2073,7 +2067,7 @@ nolink "false"
  asymmetry are essentially absent for all shorter travel distances.
  Hence,
  all breakthrough curves are now essentially Gaussian.
- The symmetry of the breakthough behavior is also reveiled by the histograms and jumps into the eye when comparing figure 
+ The symmetry of the breakthrough behavior is also reveiled by the histograms and jumps into the eye when comparing figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:mim11-t-hist"
@@ -2312,7 +2306,7 @@ name "fig:mim11-t-hist"
 
 \end_inset
 
-Histogams for the break-through at different locations long the cross section as computed from the cumulatives.
+Histograms for the break-through at different locations long the cross section as computed from the cumulatives.
 \end_layout
 
 \end_inset
@@ -2368,16 +2362,30 @@ Top:
 
 .
  Bottom:
- pdf's.
- Note the dots are at 0.2,
- 0.5,
- 1.0,
- 2.0 and 5.0 times 
-\begin_inset Formula $t_{mode}$
+ pdfs.
+ Note the dots are at circles are at 
+\begin_inset Formula $t_{0}+f\left(t_{mode}-t_{0}\right)$
 \end_inset
 
-.
- These are here less insightful because the distrubtions are far less skewed than in the previous case with the much larger 
+ with 
+\begin_inset Formula $f=0.2,\,0.5,\,1.0,\,2.0,\,5.0$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+ is the lowest possible value for the lognormal distribution (
+\begin_inset Formula $t_{0}=loc)$
+\end_inset
+
+ where 
+\begin_inset Formula $loc$
+\end_inset
+
+ is one of the parameters given by the fitting of the computed data.
+ These points are here less insightful because the distributions are far less skewed than in the previous case with the much larger 
 \begin_inset Formula $var\left(\ln\left(k\right)\right)$
 \end_inset
 
@@ -2444,7 +2452,15 @@ name "fig:mim11-BT-x"
 
 \end_inset
 
-Distribution curves for the particles and fitted lognormal distribution for cdf and pdf.
+Top:
+ Cumulative location curves from the model and fitted cdfs..
+ Bottom:
+ companying pdfs.
+ Circles are for 
+\begin_inset Formula $cdf=0.05,\,0.16,\,0.5,\,0.84,\,0.95$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -2462,7 +2478,7 @@ Distribution curves for the particles and fitted lognormal distribution for cdf 
 \end_layout
 
 \begin_layout Subsection
-Regular Gaussian conductivity field with the same parameters as used in the MIM model of section 
+Regular conductivity field as exponential random field with the same parameters as used in the MIM model of section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Made-cross-section"
@@ -2514,7 +2530,7 @@ literal "false"
 
 .
  Instead of using blocks,
- it may be feasible to simply generate a cross-section that fulfills these condictions but without resorting to the blocks of the MIM model.
+ it may be feasible to simply generate a cross-section that fulfills these conditions but without resorting to the blocks of the MIM model.
  The cross section generated this way,
  is shown in figure 
 \begin_inset CommandInset ref
@@ -2605,7 +2621,7 @@ nolink "false"
 \end_inset
 
  makes clear that,
- also with a fully continuous Gaussian field,
+ also with a fully continuous random field with exponential covariance,
  similar breakthrough curves are obtained as with a MIM-type model with blocks.
  Probably it is just the applied range of the horizontal and vertical variograms that matter to get a behavior characteristic of preferential flow path,
  while it does matter little if a block structure is added.
@@ -2652,7 +2668,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_gaus.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_exp.png
 	width 80text%
 
 \end_inset
@@ -2706,7 +2722,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/stream_func_gaus.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/stream_func_exp.png
 	width 80text%
 
 \end_inset
@@ -2750,12 +2766,12 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-Gaussian Field
+Exponential random field field
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_gaus.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_exp.png
 	width 80text%
 
 \end_inset
@@ -2764,7 +2780,7 @@ Gaussian Field
 \end_layout
 
 \begin_layout Plain Layout
-MIM blocks field
+MIM blocks field (using the same exponential field parameters)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2787,7 +2803,7 @@ name "fig:gaus-cum-t"
 
 \end_inset
 
-Breakthorugh curves compute using Modpath.
+Breakthrough curves compute using Modpath.
 \end_layout
 
 \end_inset
@@ -2813,12 +2829,12 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-Gaussian Field
+Exponential random field
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_t_gaus.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_t_exp.png
 	width 80text%
 
 \end_inset
@@ -2827,7 +2843,7 @@ Gaussian Field
 \end_layout
 
 \begin_layout Plain Layout
-MIM block field
+MIM block field with the same exponential random field parameters
 \end_layout
 
 \begin_layout Plain Layout
@@ -2888,17 +2904,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_gaus.png
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_mim.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_exp.png
 	width 80text%
 
 \end_inset
@@ -2916,7 +2922,32 @@ name "fig:gaus-BT-t"
 
 \end_inset
 
+Top:
+ Breakthrough curves and fitted nognormal cdfs.Bottom:
+ pdfs of the same distrubutions.
+ Circles are at 
+\begin_inset Formula $t_{0}+f\left(t_{mode}-t_{0}\right)$
+\end_inset
 
+ with 
+\begin_inset Formula $f=0.2,\,0.5,\,1.0,\,2.0,\,5.0$
+\end_inset
+
+.
+ ,
+ where 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+ is the lowest possible value for the lognormal distribution (
+\begin_inset Formula $t_{0}=loc)$
+\end_inset
+
+ where 
+\begin_inset Formula $loc$
+\end_inset
+
+ is one of the parameters given by the fitting of the computed data.
 \end_layout
 
 \end_inset
@@ -2943,17 +2974,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_gaus.png
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_mim.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_exp.png
 	width 80text%
 
 \end_inset
@@ -2971,6 +2992,14 @@ name "fig:gaus-BT-x"
 
 \end_inset
 
+Top:
+ Cumulative location curves from the model and fitted cdfs.
+ Bottom:
+ companying pdfs.
+ Circles are for 
+\begin_inset Formula $cdf=0.05,\,0.16,\,0.5,\,0.84,\,0.95$
+\end_inset
+
 
 \end_layout
 
@@ -2988,12 +3017,511 @@ name "fig:gaus-BT-x"
 
 \end_layout
 
-\begin_layout Section
-Wim's aquifer
+\begin_layout Subsection
+A purely random field
 \end_layout
 
 \begin_layout Standard
-In his papers,
+The next example is for a purely random conductivity field in which the value for each model cell is sampled from the lognormal distribution with given 
+\begin_inset Formula $k_{G}$
+\end_inset
+
+ and 
+\begin_inset Formula $var\left(\ln k\right)$
+\end_inset
+
+ as stated in the header of the following figures.
+ The idea is that a purely random field has no preferential paths.
+ It should,
+ therefore,
+ generate breakthrough curves that resemble the normal distribution,
+ with symmetrical head and tail.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:random_ln_k_field"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Random-stream"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ clearly show that the field is not purely random.
+ The breakthrough curves in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:random-BT-t"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ indicate the symmetrical character of the breakthrough curves,
+ which leads to almost normal pdfs in bottom image if figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:random-BT-t"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:random-location-breakthrough"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ show the location breakthrough curves for different observation times as obtained from the same pathline computation.
+ These too tend to symmetry with respect to the average particle location over time.
+ The analysis in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:random-location-breakthrough"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ confirm this.
+ Note that the more 
+\begin_inset Formula $t_{mean}$
+\end_inset
+
+and 
+\begin_inset Formula $t_{med}$
+\end_inset
+
+ tend to 
+\begin_inset Formula $t_{mode}$
+\end_inset
+
+ the more the distribution resembles the normal distribution.
+ This is very close in this case with a purely random conductivy field.
+\end_layout
+
+\begin_layout Standard
+As expected from the theory,
+ the asymmetry with the time-breakthroug curves and their pdfs is much less in this case with purely random conductivity than in the previous case with a large horizontal integration length,
+ which generates a tendency to develop preferential pathlines.
+ However with respect to the location breakthrough curves and their pdfs for different observation times,
+ this is much less the case.
+ These curves are actually versy symmetrical in both cases.
+ This is just an observation without being clear what the underlying theory would look like,
+ which predicts breakthrough curves at different observation distances that are far more asymmetrical than the location curves for different observation times.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_random.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:random_ln_k_field"
+
+\end_inset
+
+Random 
+\begin_inset Formula $\ln k$
+\end_inset
+
+ field.
+ Note the parameters in the header,
+ which tell that the integration lengths are both zero in this case.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/stream_func_random.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Random-stream"
+
+\end_inset
+
+Stream function for random conductivity field.
+ Same as pathlines.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTcurves_random.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:random-BT-t"
+
+\end_inset
+
+Breakthrough curves for different observation distances.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_random.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Top:
+ Breakthrough curves with fitted cdfs.
+ Bottom:
+ Companian pdfs.
+ The circles are at 
+\begin_inset Formula $t=t\left(t_{mode}-t_{0}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $f=0.2,0.5,1.0,2.0,5.0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_x_random.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:random-location-breakthrough"
+
+\end_inset
+
+Cumulative location curves for different observation times.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_random.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Top:
+ Cumulative location curves for different observation times with fitted csfs.
+ Bottom:
+ Accompanying pdfs.
+ The circles are at 
+\begin_inset Formula $cdf=p$
+\end_inset
+
+ where 
+\begin_inset Formula $p=0.05,0.16,0.5,0.84,0.95$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aquifer according to De Lange
+\end_layout
+
+\begin_layout Standard
+
+\lang dutch
+To construct a cross section that complies with the concept developed by De Lange (2020,
+ 2022),
+ we have to choose domains A (mixing boxes) with 
+\begin_inset Formula $L$
+\end_inset
+
+ a bout 6 
+\begin_inset Formula $\lambda_{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ about 6 
+\begin_inset Formula $\lambda_{v}$
+\end_inset
+
+,
+ given the hint by De Lange that the scale factor 
+\begin_inset Formula $N$
+\end_inset
+
+ is about 
+\begin_inset Formula $3$
+\end_inset
+
+,
+ while according to his papers 
+\begin_inset Formula $L_{A}=2\lambda_{h}N$
+\end_inset
+
+ and 
+\begin_inset Formula $D_{A}=2\lambda_{v}N$
+\end_inset
+
+ with 
+\begin_inset Formula $\lambda_{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{N}$
+\end_inset
+
+ the horizontal and vertical correlations lengths of the realworld aquifer.
+ But what is not clear,
+ is how to include both the low conductivity zone and the high conductivity zone in a single domain or,
+ for that matter,
+ in a single cross section?
+ Ome could just generate the cross section with two zones in each domain,
+ one low-k and one high-k zone and position them at random within each domain.
+ Or,
+ one could generate mixing boxes with either a high-k or a low-k zone in them and randomly position these boxes in the cross section.
+ Or one could split the aquifer in two parts,
+ an upper half and a lower half,
+ and fill the upper half with high-k domains and the lower half with low-k domains,
+ and afterwards collect all the particles.
+ But at the same time,
+ we would like to maintain the transmissivity of the entire aquifer the same.
+ It is not clear how to do this,
+ except for running the model and use the computed flow to scale back the result.
+ But then we'll loose the link with the lognormal distribution of the real-world aquifer.
+ Therefore,
+ in fact,
+ I have no clue of how to do this.
+ The most logical approach in my opinion,
+ is to simply use a conductivity field that is geostatistically generated with the given real-world aquifer correlation lengths and its lognormal conductivity distribution,
+ which is in fact,
+ what I did already in one of the examples above.
+\end_layout
+
+\begin_layout Standard
+
+\lang dutch
+I conclude,
+ the simulation with the random conductivity field,
+ with the correct correlation lengths and conductivity,
+ probability is the conductivity field that should generate the most realistic breakthrough curves,
+ which then should be in accordance with De Lange's conceptual model.
+\end_layout
+
+\begin_layout Standard
+
+\lang dutch
+Nevertheless,
+ 
+\lang american
+in his papers,
  
 \begin_inset CommandInset citation
 LatexCommand nocite
@@ -3002,11 +3530,12 @@ literal "false"
 
 \end_inset
 
- simulates the dispersion using an artificial aquifer built of blocks,
- he calls domains of given size that are place next to each other and on top of each other as to fill the entire cross section of the aquifer.
+ simulates the dispersion using an artificial aquifer consiting of mixing blocks,
+ he calls domains,
+ of given size that are placed next to each other and on top of each other thus filling up the entire cross section of the aquifer.
  Each block as a low background conductivity and includes an elongated facies with a high conductivity.
  The background and high facies conductivities are the same in each block.
- For this example they are chose to be 5 and 500 m/d respectively.
+ For this example they are chosen to be 5 and 500 m/d respectively.
 \end_layout
 
 \begin_layout Standard
@@ -3066,9 +3595,9 @@ nolink "false"
 \end_inset
 
  shows the cumulative breakthrough curves for different locations along the cross section.
- They are not symmetric due to the hetergeneous character of the aquifer.
+ They are not symmetric due to the heterogeneous character of the aquifer.
  However,
- the asymmetry can be deemed not so high as expectec.
+ the asymmetry of the time-breakthrough curves at different observation locations can be deemed not so high as expected.
  The same conclusion can be drawn from the histograms in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3082,8 +3611,132 @@ nolink "false"
 
  they are far less asymmetric than expected.
  Therefore,
- they might be reasonably modelled by a more tranditional Fickian model.
- Perhaps the number of inclusions or their lengths are to small to deem this aquifer a really heterogeneous despite the large contract between the background and the facies conductivities.
+ they might be reasonably modelled by a more traditional Fickian model.
+ Perhaps the number of inclusions or their lengths are to small to deem this aquifer a really heterogeneous despite the large contrast between the background and the facies conductivities.
+\end_layout
+
+\begin_layout Standard
+The breakthrough curves for the different observation distances in the top of figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gaus-BT-t"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ show that the lognormal distribution fits very well through the modeled breakthrough curves.
+ The corresponding pdfs at the bottom of figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gaus-BT-t"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ also show only moderate skewness.
+ Perhaps strangely enough,
+ the breakthrough curves (or cumulative location curves) for different observation times in the top of figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gaus-BT-x"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ don't fit well to the lognormal distribution.
+ There shape reveils the effect of preferential flow paths in these graphs that show the location of the particles at different moments.
+ The corresponding pdfs are strongly skewed,
+ contrary to those in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gaus-BT-t"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The skewness of the pdfs unveils the preferential flow paths with a limited part of the flow traveling at a high rate and the bulk lagging behind at a low rate caused by the 100 times lower background conductivities applied in this example.
+ Yet figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gaus-BT-x"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ also shows that the distances traveled at the different observation times are small compared to the length of the cross section of 1000 m.
+ This contrasts largely from the distance travelled by the particles captured at the different observation locations which varied from 100,
+ 200,
+ ...
+ 1000 m and was the same for all particles at each given distance.
+ This may imply the for the small distances the mixing as a process is too limited,
+ given the length of the inclusions of 20 m.
+ The very strong skewed character of the pdfs for the different observation times,
+ which represent the most likely distribution of the pollution plume released at 
+\begin_inset Formula $t=0$
+\end_inset
+
+ and 
+\begin_inset Formula $x=0$
+\end_inset
+
+ bare a large comparison to the large skewness in observed plume spreading in heterogeneous locations as the Made site.
+ 
+\end_layout
+
+\begin_layout Standard
+One thing to do is to set up the cross section in this example according to the theory of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lange20,Lange22,Lange25"
+literal "false"
+
+\end_inset
+
+ such that it reflects the properties at the Made site.
+\end_layout
+
+\begin_layout Standard
+The geometric mean conductiviy of the Made site is 
+\begin_inset Formula $k_{G}=0.89$
+\end_inset
+
+ m/d while 
+\begin_inset Formula $\sigma=2.7$
+\end_inset
+
+ on log scale,
+ implying a factor 
+\begin_inset Formula $\exp\left(2.7\right)\approx13$
+\end_inset
+
+ on real-world scale.
+ This implies a high conductiviy 
+\begin_inset Formula $k_{h}\approx11.6$
+\end_inset
+
+ and a low conductivity 
+\begin_inset Formula $k_{l}\approx0.068$
+\end_inset
+
+ m/d.
+ Now we will simply put those zones in the domains pairwise,
+ such that the geometric conductiviy remains about the same.
 \end_layout
 
 \begin_layout Standard
@@ -3096,7 +3749,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_WdL.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/kfield_WdLA.png
 	width 80text%
 
 \end_inset
@@ -3141,7 +3794,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/stream_func_WdL.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/stream_func_WdLA.png
 	width 80text%
 
 \end_inset
@@ -3183,7 +3836,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_WdL.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/cumul_t_WdLA.png
 	width 80text%
 
 \end_inset
@@ -3229,7 +3882,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_t_WdL.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/hist_t_WdLA.png
 	width 80text%
 
 \end_inset
@@ -3274,7 +3927,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_WdL.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_t_WdLA.png
 	width 80text%
 
 \end_inset
@@ -3288,11 +3941,41 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:dwl-BT-t"
+name "fig:wdl-BT-t"
 
 \end_inset
 
+Top:
+ Breakthrough curves from the model and fitted cdfs.
+ Bottom:
+ Pdfs corresponding to the fitted cdfs.
+ Not that for the lognormal distribution 
+\begin_inset Formula $t_{mode}<t_{median}<t_{mean}$
+\end_inset
 
+ as indicated.
+ The circles are plotted at 
+\begin_inset Formula $t=t_{0}+f\left(t_{mode}-t_{0}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $f=0.2,\,0.5,\,1.0,\,2.0,\,5.0$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+ is the lowest possible value for the lognormal distribution (
+\begin_inset Formula $t_{0}=loc)$
+\end_inset
+
+ where 
+\begin_inset Formula $loc$
+\end_inset
+
+ is one of the parameters given by the fitting of the computed data.
 \end_layout
 
 \end_inset
@@ -3319,7 +4002,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_WdL.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/BTanalysis_x_WdLA.png
 	width 80text%
 
 \end_inset
@@ -3337,7 +4020,25 @@ name "fig:wdl-BT-x"
 
 \end_inset
 
+Top:
+ Cumulative distribution of particles for different times as a function of 
+\begin_inset Formula $x$
+\end_inset
 
+.
+ The fit is not very good for this type of cross section,
+ contrary to the break-through curves for different 
+\begin_inset Formula $x$
+\end_inset
+
+ as a function of time.
+ The fitted pdfs clearly show a large skew relative to those for the breakthrough at different values of 
+\begin_inset Formula $x$
+\end_inset
+
+ in the previous figure.
+ Note that the traveled distance at the observation times is really short compared to the length of the cross section,
+ while the particles that were captured at the different observation locations have all traveled a much larger distance through the model.
 \end_layout
 
 \end_inset
@@ -3359,7 +4060,7 @@ Test case
 \end_layout
 
 \begin_layout Standard
-It's important to run a test case that allows verification of the procedures.
+It's important to run a test case that allows verification of the procedures developed for this work.
  The chosen test case has the same cross section of 100 rows and 1000 columns with cells of 1x1 m
 \begin_inset Formula $^{2}$
 \end_inset
@@ -3368,32 +4069,21 @@ It's important to run a test case that allows verification of the procedures.
  The aquifer is,
  therefore,
  100 m thick and 1000 m long.
- The porosity and the is kept the same as before.
+ The porosity is kept the same as before.
  The fixed gradient of 
 \begin_inset Formula $J=0.0036$
 \end_inset
 
- was multiplied by 50 to make sure the fastest particles reach the end of the model within given by letting 
-\begin_inset Formula $hL=180$
-\end_inset
-
- m instead of 
-\begin_inset Formula $3.6$
-\end_inset
-
- m and letting 
-\begin_inset Formula $h_{R}=0$
-\end_inset
-
- m.
- The section was divided into 10 blocks of 10 model layers each.
+ was maintained.
+ The section was divided into 10 blocks each consisting of 10 model layers.
  The conductivity is constant in each block and increases in 10 steps from 1 m/d to 10 m/d.
- Hence the first 10 model layers all have 
+ Hence,
+ the first 10 model layers all have 
 \begin_inset Formula $k=1$
 \end_inset
 
  m/d,
- the model layers 11 through 20 have 
+ the model layers 11 through 20 all have 
 \begin_inset Formula $k=2$
 \end_inset
 
@@ -3404,11 +4094,11 @@ It's important to run a test case that allows verification of the procedures.
 
  m/d.
  With this setup,
- the discharge through each layer and the travel time in them as well as the location of each particle at any time are now know and can be verified in the outcomes.
+ the discharge through each layer and the travel time in them as well as the location of each particle at any time are now known and the model outcomes can now be verified by simple hand calculations.
 \end_layout
 
 \begin_layout Standard
-The mean conductivity equals 
+The mean conductivity of this setup equals 
 \begin_inset Formula $k_{mean}=5.5$
 \end_inset
 
@@ -3421,14 +4111,13 @@ The mean conductivity equals
 \end_inset
 
 /d.
- The Modflow list file gives 1.98 m
+ The Modflow listfile gives 1.98 m
 \begin_inset Formula $^{2}$
 \end_inset
 
-/s.
- The hand and Modpath compute travel times are also essentially the same as the ones computed by Modflow,
- for all xObs distances and all layers.
- Finally the postions of the particles at the chosen observation times.
+/d.
+ The hand-computed travel times are also essentially the same as the ones computed by Modflow for all observation distances and for all layers.
+ Finally the hand-calculated positions of the particles at the chosen observation times are essentially equal to the postions calculated by Modpath.
 \end_layout
 
 \begin_layout Standard
@@ -3801,15 +4490,15 @@ Summarizing the discussion on dispersion
 \begin_layout Standard
 A phenomenon,
  including that of dispersion of a pollutant in moving groundwater,
- can often be best understood by looking at its behavior or results in extreme situations.
+ can often be best understood by looking at its behavior in extreme situations.
  We may,
  therefore,
  ask ourselves how dispersion develops in the following two extreme cases:
 \end_layout
 
 \begin_layout Itemize
-Uniform flow in a perfectly homogenious aquifer,
- with grains as fine as the water molucules themselves.
+Uniform flow in a perfectly homogeneous aquifer,
+ with grains as fine as the water molecules themselves.
  Hence,
  there are no velocity variations.
 \end_layout
@@ -3830,7 +4519,7 @@ Over these cases,
 \begin_layout Standard
 In the first case,
  the only movement of particles is the progress of the front,
- initally flat and pependicular to the flow,
+ initially flat and perpendicular to the flow,
  which will always remain sharp and stay perfectly flat.
  The only thing diffusion does is to cause some spread in longitudinal direction.
  Without diffusion,
@@ -3841,7 +4530,7 @@ In the first case,
 \end_inset
 
 .
- Even if the particles would be subject to some small-scale random velocity varations,
+ Even if the particles would be subject to some small-scale random velocity variations,
  the front will have the same properties,
  with a 
 \begin_inset Formula $\sigma$
@@ -3870,10 +4559,10 @@ In the first case,
 \begin_layout Standard
 In the second extreme case,
  a part,
- may be half of the water will be funelled through the high-conductive layer,
- with the rest lagging far behind.
+ maybe half of the water will be funeled through the high-conductive layer,
+ with the rest lagging far behind in the low-conductivity layer.
  When we call the situation at some point in time also a plume,
- we see that we have a head and a tail completely defined by the velocities in the two layers.
+ we see that we have a head and a tail that are completely defined by the velocities in these two layers.
  Let the velocity in the two layers be 
 \begin_inset Formula $v_{1}$
 \end_inset
@@ -3938,7 +4627,7 @@ With
 \begin_inset Formula $D_{2}$
 \end_inset
 
- the thicknesse of the respective zones and 
+ the thicknesses of the respective zones and 
 \begin_inset Formula $D$
 \end_inset
 
@@ -3946,7 +4635,7 @@ With
 \end_layout
 
 \begin_layout Standard
-Assume that the same amoun of water flows through both zones,
+Assume that the same amount of water flows through both zones,
  so that 
 \begin_inset Formula $D_{1}k_{1}=D_{2}k_{2}$
 \end_inset
@@ -4027,21 +4716,21 @@ k_{m}=2\frac{0.001}{1.001}k_{1}=2\frac{0.999}{1.001}k_{2}\approx0.002k_{1}\appro
 \end_layout
 
 \begin_layout Standard
-in which still half of the discharge flows through the thin conductive layer and the other half through the thick layer with the lower conductivity.
- In these,
- cases,
+in which still half of the discharge flows through the thin conductive layer and the other half through the thick layer with the low conductivity.
+ In these cases,
  even when equal amounts of water pass through both zones,
  the distance traveled in the fast,
  high-conductive zone is more than 5 to 500 times the average traveled distance,
- and that in the low-conductive zone is about 60% to 50% of the average traveled distance,
- where 50% is the limit case.
+ and the distance traveled in the low-conductive zone is about 60% to 50% of the average traveled distance,
+ where 50% is the limiting case.
 \end_layout
 
 \begin_layout Standard
 What happens if we sample the water by means of a well that extracts all the water at a certain point?
  Then,
  as soon as the fast front passed this point,
- the relative concentration would jump to 0.5 to remain constant until the tail passes,
+ the relative concentration would jump to 0.5,
+ to remain constant until the tail passes,
  at which point the relative concentration would jump further to 1.0.
  From these samples one could conclude that the mean of the front would lie half way between the two mentioned times and that its spread would amount to 
 \begin_inset Formula $\sigma=\frac{t_{1}-t_{2}}{\sqrt{2}}$
@@ -4049,8 +4738,16 @@ What happens if we sample the water by means of a well that extracts all the wat
 
 .
  On the other hand,
- if one samples the aquifer without actually extracting water by a well,
- for instance by means of a device that can measure some quality aspect in situ at any depth,
+ if one samples the aquifer without actually extracting water by a well (volume sampling as it is called by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Maas94"
+literal "false"
+
+\end_inset
+
+,
+ for instance by means of a device that measures some quality aspect in situ at any depth,
  and if we then take the mean along the vertical,
  a completely different breakthrough curve would emerge.
  As the fast zone has only one tenth or even one thousandth of the thickness of that of the slow zone,
@@ -4064,37 +4761,52 @@ What happens if we sample the water by means of a well that extracts all the wat
 
 \begin_layout Standard
 What also jumps into mind in this extreme case,
- is that the spread,
+ is,
+ that the spread,
  i.e.
  the distance between head and tail,
  grows proportionally to time and,
- therfore with distance.
- In the case of Fickian disperion it grows proportional to the root of time.
+ therefore,
+ with distance.
+ In the case of Fickian dispersion it grows proportional to the root of time,
+ which is equivalent to the roort of the traelled distance given that 
+\begin_inset Formula $\sigma=\sqrt{2Dt}\approx\sqrt{2avt}=\sqrt{2aL}$
+\end_inset
+
+ .
  Reality will likely pop up somewhere in between.
 \end_layout
 
 \begin_layout Standard
-If we drape diffusion or our ignored random small-scale velocity velocity variations over the last situation,
+If we drape diffusion or our ignored random small-scale velocity variations over the last situation,
  there will be some longitudinal dispersion,
  which may be negligible relative to the fast moving head of the front.
  However,
- we will also see some dispersion across the horziontal line separting the two zones.
+ we will also see some dispersion across the horizontal line that separates the two zones.
  The importance of this sideways spreading depends on the magnitude of the process,
- or perhaps to the absolute speed of the groundwater relative to diffusion.
+ or perhaps on the absolute speed of the groundwater relative to diffusion.
  Nevertheless,
- if one imagines a very large sideways dispersion,
+ if one imagines a very large sideways diffusion,
  it would cause the head of the front to loose concentration to the water in the slow zone.
- The larger this process the more the end result will resemble Fickian behavior.
- Imagine that the fast zone were split into a vast number of subzones spread out over the vertical but still making sure that the combined transmissivity of these fast subzones remains equal to that of the original one.
+ The larger this process,
+ the more the end result will resemble Fickian behavior.
+\end_layout
+
+\begin_layout Standard
+Now imagine that the fast zone were split into a vast number of subzones spread out over the vertical,
+ but still making sure that the combined transmissivity of these fast subzones remains equal to that of the original one.
  This would make diffusion dominant instead of negligible,
  even with the same overal transmissivities,
  conductivities and zone thicknesses;
- it would completely alter the shape of the front.
+ it would,
+ therefore,
+ completely alter the shape of the front.
  Hence,
  size or layering matters.
- This includes time as it affects the size of the spread by diffusion,
+ This also includes time becasue time affects the size of the spread by diffusion,
  which,
- as we have seen will grow to aquifer-height proportions if sufficiently long.
+ as we have seen,
+ will grow to aquifer-height proportions if sufficiently long.
  Even much shorter times may be important if the fast and the slow layers are thin.
  Reality will always be somewhere in between.
  The more homogeneous the aquifer,
@@ -4103,9 +4815,16 @@ If we drape diffusion or our ignored random small-scale velocity velocity variat
  The more heterogeneous in the sense that the flow is more dominated by preferential flow paths,
  the less Fickian the dispersion will be,
  and the more its spread with grow linearly with time and distance.
- Because the streamlines in real-world cases will pass through sequences of zones of higher and lower conductivties of different extent,
+ Because the streamlines in real-world cases will pass through sequences of zones of higher and lower conductivities of different extent,
  the spread may grow towards linear with traveled distance,
- the larger the probability of encountering high-conductivity zones of even larger exent that channel the grounwater along preferential paths.
+ the larger the probability of encountering high-conductivity zones of even larger extent that channel the groundwater along preferential paths.
+\end_layout
+
+\begin_layout Standard
+But in any case,
+ as long as the dispersion is a random process,
+ the breakthrough curves will tend to the normal distribution the longer the travel distance as demanded by the central limit theoreme.
+ The examples given also show this behavior.
 \end_layout
 
 \begin_layout Section
@@ -4113,8 +4832,8 @@ Summary and conclusions
 \end_layout
 
 \begin_layout Standard
-Dispersion during subsurfacde mass transpport was studied based on recent papers as mentioned in the references.
- The phenomemon of dispersion is still not totally tackeled in models as well as in theory.
+Dispersion during subsurface mass transport was studied based on recent papers as mentioned in the references.
+ The phenomenon of dispersion is still not totally tackled in models as well as in theory.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4160,9 +4879,9 @@ It is generally known that in real-world situations flow along preferential path
  Fickian behavior sees dispersion as a Gaussian process,
  which yields symmetrical breakthrough curves and histograms with the spread that grows according to the square root of the traveled distance.
  However,
- non Fickian behavior as observed in hetrogeneous aquifers,
- show asymmetrical breakhrough curves and histograms,
- with early breakthorugh and a large tail,
+ non Fickian behavior as observed in heterogeneous aquifers,
+ show asymmetrical breakthrough curves and histograms,
+ with early breakthrough and a large tail,
  with an associated spread that grows linearly with travel distance.
 \end_layout
 
@@ -4186,7 +4905,7 @@ literal "false"
 \end_inset
 
  were able to reasonably well model the bromide tracer test at the Made site.
- The results show indeed that the breaktrough curves and breakthrough histograms have an early breakthrough with a long tail.
+ The results show indeed that the breakthrough curves and breakthrough histograms have an early breakthrough with a long tail.
  The opposite,
  more Fickian result was obtained by modeling another cross section generated with the same parameters,
  but with a far lower 
@@ -4206,12 +4925,27 @@ literal "false"
  consisted of blocks with a length of around 20 m based on the horizontal integration scale (range of the semi-variogram).
  Each block got a conductivity value chosen from a generated random field with the proper statistical values.
  In the third example,
- we left the block structure out and directly used the statistically generated conductivity field.
- The results show that they are similar to those of the first example,
- generated with the same statistical parameter values (see the header of each figure for the values used).
+ we left the block structure out and directly used the statistically generated conductivity field with the same properties and integration lengths.
+ The results show that the results are similar to those of the first example that was generated with the same statistical parameter values (see the header of each figure for the values used).
  Hence,
  using the block structure does not seem to add much to the results;
- only the horizontal and verticla semi-variograms used to generate the random field seem to matter.
+ only the horizontal and vertical semi-variograms used to generate the random field seem to matter.
+\end_layout
+
+\begin_layout Standard
+As a fourth example,
+ a purely random field was generated with the horizontal and vertical integration length both zero.
+ The conductivity of each model cell as independently selected from the lognormal distribution with the same mean and variance as the previous three examples.
+ This example shows the most symmetrical breakthrough curves the pdfs of which are most similar to the normal distribution.
+\end_layout
+
+\begin_layout Standard
+It was observed that the location curves,
+ i.e.
+ the particle position at given observation times are much more symmetrical than the time-breaktrhough curves obtained from the same simulation.
+ Moreover,
+ those curves are virtually symmetric for both the case with zero as with nonzero integration lengths.
+ This is an observation without underlying theory to explain this behavior.
 \end_layout
 
 \begin_layout Standard
@@ -4229,22 +4963,6 @@ Finally,
  this proved hardly the case.
  So perhaps the cross section was not heterogeneous enough,
  despite the 100-fold conductiviy contrast between the background and the included facies conductivities.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-addcontentsline{toc}{section}{Referenties}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -4355,7 +5073,7 @@ It's the minimum value the variable
 \end_layout
 
 \begin_layout Enumerate
-It's ofteh use to delya th eonset of the lognormal process.
+It's often used to delay the onset of the lognormal process.
 \end_layout
 
 \begin_layout Standard
@@ -4622,7 +5340,7 @@ Let
 \begin_inset Formula $x$
 \end_inset
 
- be the traveled distanc,
+ be the traveled distance,
  then
 \end_layout
 
@@ -4662,7 +5380,7 @@ Time
 \end_layout
 
 \begin_layout Plain Layout
-statitic
+statistic
 \end_layout
 
 \end_inset
@@ -4785,12 +5503,12 @@ The mode reflects the most probable arrival time,
 \end_layout
 
 \begin_layout Itemize
-When the mean velocity remains constant confirms a linear advecton front.
+When the mean velocity remains constant confirms a linear advection front.
 \end_layout
 
 \begin_layout Itemize
 The the mode shifts sublinearly with distance implies that the spread (dispersion) becomes more significant with distance,
- skewing the distributioin more and pushing the peak back.
+ skewing the distribution more and pushing the peak back.
 \end_layout
 
 \begin_layout Itemize
@@ -4813,7 +5531,7 @@ An easy and informative criterion for early and late arrivals may be built on
 \begin_inset Formula $\mathtt{loc}$
 \end_inset
 
- as the earlies possible moment of arrival of particles and 
+ as the earliest possible moment of arrival of particles and 
 \begin_inset Formula $t_{mode}$
 \end_inset
 
@@ -5056,6 +5774,22 @@ Very late arrivals
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{References}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
@@ -5092,9 +5826,9 @@ literal "false"
 \end_inset
 
 Coe,
- AlL.
+ A,L.
  (2003) The sedimentological record of sea-level change.
- Cambridge Univeristy Press,
+ Cambridge Univerity Press,
  Cambridge UK.
  ISBN 0-521-53852-4.
  279p.
@@ -5113,11 +5847,11 @@ Fiori,
  A.,
  Dagan,
  G.,
- Jankovic,
+ Janković,
  I.
  & Zarlenga,
  A (1213) The plume spreading in he Made transport experiment:
- Could it be predicted by stochastiv models?
+ Could it be predicted by stochastic models?
  WRR,
  Vol.
  49,
@@ -5146,6 +5880,98 @@ Hemker,
  Ground Water,
  42(2),
  234–242.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Jankovic et al. (2010)"
+key "Jankovic10"
+literal "false"
+
+\end_inset
+
+Janković,
+ I.,
+ & Fiori,
+ A.
+ (2010).
+ Anomalous transport in highly heterogeneous 3D aquifers:
+ A numerical study.
+ Water Resources Research,
+ 46(10),
+ W10502.
+ https://doi.org/10.1029/2009WR008839
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Jankovic et al. (2006)"
+key "Jankovic06"
+literal "false"
+
+\end_inset
+
+Janković,
+ I,
+ Fiori,
+ A,
+ & D.
+ Dagan (2006) Modeling flow and transport in highly heterogeneous three-dimensional aquifers:
+ Ergodicity,
+ Gaussianity,
+ and anomalous behavior.
+ I Conceptual issues and numerical simulations.
+ WRR,
+ Vol.42,
+ W06D12,
+ doi:10.1029/2005/WR004734.
+ 9p.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Jankovic et al. (2003)"
+key "Jankovic03"
+literal "false"
+
+\end_inset
+
+Janković,
+ I.,
+ Fiori,
+ A.,
+ & Dagan,
+ G.
+ (2003).
+ Flow and transport in highly heterogeneous formations:
+ 3D numerical simulations and the validity of the Boussinesq approximation.
+ Water Resources Research,
+ 39(3),
+ 1045.
+ https://doi.org/10.1029/2001WR001182\SpecialChar allowbreak
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Jensen et al. (1993)"
+key "Jensen93"
+literal "false"
+
+\end_inset
+
+Jensen K.
+ Hogh & Bitsh K.
+ (1993) Large-scale Dispersion Experiments in a Sandy Aquifer in Denmark:
+ Observed Tracer Movements and Numerical Analysis.
+ WRR Vol.29,
+ No.
+ 3,
+ 673-696
 \end_layout
 
 \begin_layout Bibliography
@@ -5199,76 +6025,20 @@ Lange,
 \end_layout
 
 \begin_layout Bibliography
+
+\lang dutch
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Jankovic et al. (2010)"
-key "Jankovic10"
+label "Maas (1994)"
+key "Maas94"
 literal "false"
 
 \end_inset
 
-Janković,
- I.,
- & Fiori,
- A.
- (2010).
- Anomalous transport in highly heterogeneous 3D aquifers:
- A numerical study.
- Water Resources Research,
- 46(10),
- W10502.
- https://doi.org/10.1029/2009WR008839
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Jankovic et al. (2006)"
-key "Jankovic06"
-literal "false"
-
-\end_inset
-
-Jankovic,
- I,
- Fiori,
- A,
- & D.
- Dagan (2006) Modeling flow and transport in highly heterogeneous three-dimensional aquifers:
- Ergodicity,
- Gaussianity,
- and anomalous behavior.
- I Conceptual issues and numerical simulations.
- WRR,
- Vol.42,
- W06D12,
- doi:10.1029/2005/WR004734.
- 9p.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Jankovic et al. (2003)"
-key "Jankovic03"
-literal "false"
-
-\end_inset
-
-Janković,
- I.,
- Fiori,
- A.,
- & Dagan,
- G.
- (2003).
- Flow and transport in highly heterogeneous formations:
- 3D numerical simulations and the validity of the Boussinesq approximation.
- Water Resources Research,
- 39(3),
- 1045.
- https://doi.org/10.1029/2001WR001182\SpecialChar allowbreak
-
+Maas,
+ C (1994) On Convolution Processes and Dispersive Groundwater Flow.
+ PhD Thesis TU-Delft,
+ 13-June 1994.
 \end_layout
 
 \begin_layout Bibliography
@@ -5297,7 +6067,7 @@ literal "false"
 
  Zheng,
  C.,
- Bianhi,
+ Bianchi,
  M.
  & Corelick S.M.
  (2011) Lessons Learned from 25 Years of Research.
@@ -5306,25 +6076,6 @@ literal "false"
  29(5),
  649-662.
  https://doi.org/10.1111/j.1745-6584.2010.00753.x&#8203
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Jensen et al. (1993)"
-key "Jensen93"
-literal "false"
-
-\end_inset
-
-Jensen K.
- Hogh & Bitsh K.
- (1993) Large-scale Dispersion Experiments in a Sandy Aqufier in Denmark:
- Observed Tracer Movements and Numerical Analysis.
- WRR Vol.29,
- No.
- 3,
- 673-696
 \end_layout
 
 \end_body

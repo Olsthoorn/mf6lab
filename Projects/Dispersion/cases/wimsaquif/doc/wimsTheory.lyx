@@ -1,0 +1,1390 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% \lstdefinestyle{mystyle}{
+%   language=Python,
+%   numbers=left
+% }
+
+% Put lstset here, after lstdefinestyle
+% \lstset{style=mystyle}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement H
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=left,% line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Dispersion according to Wim de Lange
+\end_layout
+
+\begin_layout Author
+T.N.
+ Olsthoorn
+\end_layout
+
+\begin_layout Date
+2025-04-23
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The generally assumed theory of dispersion (for simplicity only considering 1D) questioned by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WdL20,WdL22,WdL25"
+literal "false"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Dispersion in 1D starting from a sharp front and assuming the front dilutes accoring to a molecular diffusion process,
+ a process that works on the scale of molecules,
+ but is now assumed that it also works due to pore scale velocity variations.
+ Einstens formula for the increase of the standard deviation 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ [L] of the concentration front with time for molecular diffusion with a melecular diffusion coefficient 
+\begin_inset Formula $D$
+\end_inset
+
+ [L
+\begin_inset Formula $^{2}$
+\end_inset
+
+/T] is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{t}=\sqrt{2Dt}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 1D dispersion 
+\begin_inset Formula $D$
+\end_inset
+
+ becomes the dispersion coefficient,
+ which now also depends on the dispersivity and the velocity of the groundwater
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{t}=\sqrt{2\left(\alpha_{L}v+D\right)t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and with 
+\begin_inset Formula $\alpha_{L}v\gg D$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{t}\approx\sqrt{2\alpha_{L}vt}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{L}\approx\sqrt{2\alpha_{L}L}\sim\sqrt{L}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This implies that if disperision works as in this generally appied theory,
+ that then the dispersive dilution both in front of and behind of average position of the moving front would be similar to molecular diffusion,
+ i.e.
+ as if it was driven by concentration gradients,
+ and that the 
+\begin_inset Formula $\sigma_{L}$
+\end_inset
+
+ would be proportional to the root of the traveled distance.
+ Furthermore,
+ the head and the tail of the front would be symmetrical with respect to the average location of the moving front.
+\end_layout
+
+\begin_layout Standard
+As De Lange found that these aspects do not comply with the findings of most field studies carried out throughout the world,
+ which I demonstrates by comparing the reported values from these studies,
+ he challenges these basic assumptions in his papers.
+\end_layout
+
+\begin_layout Section
+Assumptions
+\end_layout
+
+\begin_layout Standard
+Wim has recognized from his own experience that,
+ in practice,
+ dispersion does not comply with the theory outlined above.
+ He has been inspired by the work of Jankovic (2003,
+ 2006 etc) who focused on dispersion fully based on flow velocity differences caused by heterogeneities present in the aquifer,
+ so velocity differences between subsurface pathlines that are caused only by advective transport through a porous medium with a heterogeneous conductivity field in which the size of the heterogeneities are of the order of meters and not of that of the pores or the size of the grains.
+ He further basis his theory on the obsevation that in natural aquifers,
+ conductivity contrasts that form the hetergeneities,
+ often have lengths of the size of many to to tens of meters,
+ which easily exceed their vertical size by an order of magnitude.
+ From this he concludes that the main subsurface mixing process causing apparent dispersion at the macro scale is advection distored by the presence of such elongated heterogeneities,
+ facies as know to geologists and sedimentologists.
+ These facies,
+ which are repeatedly encountered by groundwater flowing through the subsurace with have different size and conductivities.
+ Part of them will have conductivities higher to perhaps much higher than the average of the aquifer,
+ while another part will have conductivties that are lower to much lower than the average of the aquifer.
+ The range of conductivities present in the aquifer is mostly defined by the lognormal distribution of sampled conductivity values.
+\end_layout
+
+\begin_layout Standard
+The Lange shows how this mixing works for a single elongated heteregeneity with a conductivity that constrasts with the uniform conductivity of the background aquifer.
+ He the shows that impact this heteregeneity has on the shape of the front in the case of a high-conductive heterogeneity differs fundamentally from that of the distortion of the shape of the front caused by the presence of a low-conductive hetergeneity.
+ The high-conductive elongated heterogeneity mainly causes a relatively wide foward bulb of the front with a small slow-down of the rest.
+ The low-conductive elongated heterogeneity leaves the bulk of the front intact but distorts it by generating a long tail.
+ The combined effect of an elongated high conductive heterogeneity and an elongated low-conductive heterogeneity is a distorted front that is higly asymmetrical around its average moving position.
+\end_layout
+
+\begin_layout Standard
+De lange goes on to quantify seperately the two distortions,
+ i.e.
+ that of the head and the tail of the moving front.
+ In his concept the front distortion is stable from some point after the high-conductive heterogeneity,
+ where the flow has regained its unifromity.
+ The tail distortion,
+ however,
+ will extend over potentially much larger distances after the bulk of the groundwater has passed the low-conductive heterogeneity.
+ The lower its conductivity,
+ the longer (and thinner) the tail-distortion of the nitially flat front.
+ This fundamentally different behavior caused by relative conductivity determines the asymmetry of front distortion encountered in real-world situations,
+ and is caused purely by advection.
+\end_layout
+
+\begin_layout Section
+Real-world aquifers
+\end_layout
+
+\begin_layout Standard
+In the real-world situaiton,
+ there are many heterogeneities of these types,
+ each with a different conductivity and with a different length and thickness.
+ Therefore,
+ to generalize the concept,
+ the connection with the actual real-world aquifer conductivity field has to be made.
+ De Lange accepts the idea that,
+ as an approximation to reality,
+ the conductivy sampled in a real-world aquifer generally shows a lognormal probability distribution.
+ 
+\end_layout
+
+\begin_layout Standard
+One way to jump from his concept to the real-world aquifer would be superposition.
+ I.e.
+ super-imposing the effect of many such heterogeneities which got the properties assigned based on the lognormal distribution of the conductivity sampled in the real aquifer while honoring their semi-variograms in both horizontal direction(s).
+ However,
+ it's not clear that superpostion is could be valid when applied to travel-time distortions.
+ But perhaps it is in some sense.
+\end_layout
+
+\begin_layout Standard
+De Lange simply says,
+ without proof,
+ that when the bulk conductivity of the aquifer is taken equal to the geometric mean of the conductivty distribution and that of the elongated k-contrasting heterogeneity is taken equal to that at 
+\begin_inset Formula $+\sigma$
+\end_inset
+
+ for the high-conductive heterogeneity and at 
+\begin_inset Formula $-\sigma$
+\end_inset
+
+ for the low-conductive one,
+ the behavior of his model reflects that of the real-world aquifer.
+ Hence he says,
+ with 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ the standard deviation of the undelying normal distribution of 
+\begin_inset Formula $\ln\left(k\right)$
+\end_inset
+
+ the the geometric mean of 
+\begin_inset Formula $k$
+\end_inset
+
+ equal to 
+\begin_inset Formula $k_{g}$
+\end_inset
+
+,
+ or,
+ equivalently,
+ the additive mean of 
+\begin_inset Formula $\ln k$
+\end_inset
+
+ equal to 
+\begin_inset Formula $\ln k_{g}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ln\frac{k_{+\sigma}}{k_{g}}=\ln k_{+\sigma}-\ln k_{g}=\sigma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and so
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+k_{+\sigma} & =\exp\left(\ln\left(k_{g}\right)+\sigma\right)\\
+k_{-\sigma} & =\exp\left(\ln\left(k_{g}\right)-\sigma\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The other step to be made from reality to model is the translation of real-world integration lengths or semi-variogram ranges to the conceptual model.
+ He describes the plume,
+ where in fact,
+ he is describing the distortion of an initially flat front.
+ The distortion of the front caused by high-conductive zone in domain 
+\begin_inset Formula $A$
+\end_inset
+
+ is 
+\begin_inset Formula $\Delta s_{Af}$
+\end_inset
+
+,
+ that of caused by the low-conductive heterogeneity is 
+\begin_inset Formula $\Delta s_{At}$
+\end_inset
+
+.
+ The length causing the distortion is the length over which the flow across the vertical is 
+\begin_inset Quotes pld
+\end_inset
+
+clearly
+\begin_inset Quotes prd
+\end_inset
+
+ not uniform.
+ The distortion lenght can be derived and estimated by hand-calculation.
+ Dropping index 
+\begin_inset Formula $A$
+\end_inset
+
+ for convenience we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta s_{f}=\left(1-\frac{k_{g}}{k_{+\sigma}}\right)L_{dis,f}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta s_{t}=\left(1-\frac{k_{g}}{k_{-\sigma}}\right)L_{dis,t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With 
+\begin_inset Formula $k_{g}\ll k_{+\sigma}$
+\end_inset
+
+ and 
+\begin_inset Formula $k_{g\gg}k_{-\sigma}$
+\end_inset
+
+ we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta s_{f}\approx L_{dis,f}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta s_{t}\approx-\frac{k_{g}}{k_{-\sigma}}L_{dis,t}=-e^{-\sigma}L_{dis,t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig 3 in de 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WdL22"
+literal "false"
+
+\end_inset
+
+ illustrates that the length of the forward bulge in the front after passing an elongated high-conductive zone is about the length os this zone,
+ whereas it is much longer for the backward tail in the front after passing the low-condutive zone.
+ The length of this tail matches the 5 times lower than bulk conductivity of this latter zone.
+\end_layout
+
+\begin_layout Standard
+In the same way,
+ the thicknes of the wake,
+ or the vertical spread,
+ which can also be derived and hand-calculated.
+ Then,
+ leaving out the ratio of the porisities (assuming this ration 
+\begin_inset Formula $\approx1$
+\end_inset
+
+),
+ then becomes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{W_{f}}{D}=\frac{1}{1+\frac{k_{g}}{k_{+\sigma}}\left(\frac{1}{N}-1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{W_{t}}{D}=\frac{1}{1+\frac{k_{g}}{k_{-\sigma}}\left(\frac{1}{N}-1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With 
+\begin_inset Formula $k_{g}\ll k_{+\sigma}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $W_{f}\rightarrow D$
+\end_inset
+
+ for 
+\begin_inset Formula $k_{g}/k_{+\sigma}\rightarrow0$
+\end_inset
+
+ and with 
+\begin_inset Formula $k_{g}\gg k_{-\sigma}$
+\end_inset
+
+ 
+\begin_inset Formula $W_{t}\rightarrow0$
+\end_inset
+
+ for 
+\begin_inset Formula $k_{k}/k_{-\sigma}\rightarrow0$
+\end_inset
+
+.
+ Hence the 
+\begin_inset Formula $L_{dis,t}\rightarrow L$
+\end_inset
+
+ and 
+\begin_inset Formula $L_{dis,f}\rightarrow L+2D$
+\end_inset
+
+ or any value between 
+\begin_inset Formula $L$
+\end_inset
+
+ and 
+\begin_inset Formula $L+2D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If the length of domain 
+\begin_inset Formula $A$
+\end_inset
+
+ is considered equal to the length over which the mixing is completed,
+ it should equal 
+\begin_inset Formula $L_{dis,f}$
+\end_inset
+
+,
+ but for the tail it would be much larger.
+\end_layout
+
+\begin_layout Standard
+At this point,
+ it's still not clear how the length of the fundamental mixing box,
+ named domain A is determined.
+\end_layout
+
+\begin_layout Standard
+At this point,
+ we still don't know how mixing occurs in the real aquifer with many zones within each zone.
+\end_layout
+
+\begin_layout Section
+Construction of the proper cross section
+\end_layout
+
+\begin_layout Standard
+To construct a cross section that complies with the concept developed by De Lange (2020,
+ 2022),
+ we have to choose domains A with 
+\begin_inset Formula $L$
+\end_inset
+
+ a bout 6 
+\begin_inset Formula $\lambda_{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ about 6 
+\begin_inset Formula $\lambda_{v}$
+\end_inset
+
+,
+ given the hint by De Lange that the scale factor 
+\begin_inset Formula $N$
+\end_inset
+
+ is about 
+\begin_inset Formula $3$
+\end_inset
+
+ while 
+\begin_inset Formula $L_{A}=2\lambda_{h}N$
+\end_inset
+
+ and 
+\begin_inset Formula $D_{A}=2\lambda_{v}N$
+\end_inset
+
+ with 
+\begin_inset Formula $\lambda_{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{N}$
+\end_inset
+
+ the horizontal and vertical correlations lengths.
+ But what is not clear,
+ is how to include both the low conductivity zone and the high conductivity zone in a single domain or,
+ for that matter,
+ a single cross section?
+ I could just generate the cross section with two zones in each domain,
+ one low-k and one high-k zone and position them at random within each domain.
+ Or,
+ generate mixing boxes with either a high-k or a low-k zone in them and randomly position these boxes in the cross section.
+ Of one could split the aquifer in two parts,
+ an upper half and a lower half,
+ and fill the upper half with high-k domains and the lower half with low-k domains,
+ and afterwards collect all the particles.
+ But at the same time,
+ we would like to maintain the transmissivity of the entire aquifer the same.
+ It is not clear how to do this,
+ except for running the model and use the computed flow to scale back the result.
+ But then we'll loose the link with the lognormal distribution of the real-world aquifer.
+ Therefore,
+ in fact,
+ I have no clue of how to do this.
+ The most logical approach in my opinion,
+ is to use a conductivity field that is generated with the given real-world aquifer correlation lengths and its lognormal conductivity distribution,
+ which is in fact,
+ what I did already.
+\end_layout
+
+\begin_layout Standard
+I conclude,
+ the simulation with the random conductivity field,
+ with the correct correlation lengths and conductivity,
+ probability is the conductivity field that should generate the most realistic breakthrough curves,
+ which then should be in accordance with De Lange's conceptual model.
+\end_layout
+
+\begin_layout Section
+Front distortion over large travel distances
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WdL22"
+literal "false"
+
+\end_inset
+
+ writes 
+\begin_inset Quotes pld
+\end_inset
+
+In each domain (mixing box) the dispersion process is averaged leasing to linear growth of the plume.
+\begin_inset Quotes prd
+\end_inset
+
+ I don't yet see that this exactly means.
+ Averaging is mxing,
+ which is what a mixing box is supposed to do.
+ However,
+ the analysis until now just handled what is happening in a single box due to passing an single inhomogeneity.
+ I would expect an analysis of the shape of the cumulative probability density distribution of the pollutant concentration leaving the box,
+ when the shape was sharp at the front of left side of the box.
+ Once we have this,
+ we could place many such boxes next to each other and observe or compute change the shape of the cdf after each box passed.
+ We can then analyze this using the theory developed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Maas94"
+literal "false"
+
+\end_inset
+
+ in his thesis.
+ This would seem to me a straight-forward exercise because the math lies ready,
+ at least for indepent successive mixing boxes.
+ I suspect the variances should be added,
+ same increment after each box.
+\end_layout
+
+\begin_layout Standard
+Maas proves this in chapter 2 of his thesis.
+ He also proves that,
+ with successive mixing boxes passed,
+ the mean distance increases linearly as does the variance of the break-through curves.
+ The result approaches a Gaussian or normal type of breakthrough after an infinite number of boxes passed.
+ On page 16,
+ he addresses the fact that breakthrough curves of practical tests are often considerably skewed.
+ Which,
+ when it happens,
+ implies that the Gaussian limit has not yet been reached.
+ In fact,
+ this is the subject of De Lange's papers.
+ Maas refers to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chat80"
+literal "false"
+
+\end_inset
+
+ who fitted longitudinal dispersion,
+ which he found to be definitivily non-Gaussian.
+ Maas continues to elaborate the skewness of breakthrough functions and finally finds the Pearson type III distribution as a modification of the generalized gamma distribution (Abramowitz and Stegun,
+ 1964,
+ p255).
+ This Pearson III distribution has only 3 degrees of freedom and generates breakthrough curves (i.e.
+ cdfs) that are very skewed for early times and then,
+ with increaring time,
+ gradually evolve towards the normal distribution as the cenral limit theorem demands (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Maas94-fig112"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Maas writes that the gamma distribution along with the lognormal distribution have been proposed earlier by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jury90"
+literal "false"
+
+\end_inset
+
+.
+ They speak about Travel Time Probability Density Functions and regard them as an integral soil property to be measured in the field.
+ I like to agree with their conclusion and I would say that we can measure this propertie also in the model by letting particles flow through a given conductivity field with predescribed properties (and compare it with physical experiments,
+ of course).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/Dispersion/cases/wimsaquif/images/Maas94fig2_12.jpg
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Maas94-fig112"
+
+\end_inset
+
+From 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Maas94"
+literal "false"
+
+\end_inset
+
+,
+ showing time-breakthrough curves according to the Pearson type III distribution.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+ChatGPT
+\end_layout
+
+\begin_layout Subsection
+Question 1 to ChatGPT
+\end_layout
+
+\begin_layout Standard
+W.J.
+ de Lange as published two or three papers since 2020 on dispersion in Journal Groundwater.
+ What is actually his message?
+\end_layout
+
+\begin_layout Paragraph
+Answer from ChatGPT
+\end_layout
+
+\begin_layout Standard
+W.J.
+ de Lange has contributed significantly to the understanding of dispersion in groundwater systems through his publications in the journal Groundwater.
+ His research focuses on the role of advective transport phenomena in explaining dispersion observed in field conditions,
+ challenging traditional reliance on Fickian diffusion models.\SpecialChar allowbreak
+ngwa.onlinelibrary.wiley.com+1ngwa.onlinelibrary.wiley.com+1
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Key Messages from de Lange's Work:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Advective Transport as a Primary Mechanism:
+\end_layout
+
+\begin_layout Standard
+De Lange emphasizes that dispersion in groundwater is predominantly governed by advective processes resulting from aquifer heterogeneity,
+ rather than solely by diffusive mechanisms.
+ He illustrates how variations in hydraulic conductivity within aquifers lead to differences in flow velocities,
+ causing spreading of solute plumes.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Asymmetry in Plume Development:
+\end_layout
+
+\begin_layout Standard
+His studies highlight the asymmetric nature of plume dispersion,
+ where the plume front and tail develop differently due to the presence of high and low conductivity zones.
+ High-conductivity zones tend to accelerate the plume front,
+ while low-conductivity zones retard the tail,
+ leading to an uneven spread that traditional models may not accurately capture.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Introduction of the Macroscale Dispersion Correlation Coefficient (r):
+\end_layout
+
+\begin_layout Standard
+De Lange introduces a correlation coefficient to quantify the degree of dependency in dispersion across successive domains within an aquifer.
+ This parameter helps in understanding whether dispersion processes are independent or correlated,
+ which has implications for predicting plume behavior over larger scales.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Practical Tools for Field Application
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+Recognizing the need for accessible methods in engineering practice,
+ de Lange provides analytical expressions and tools,
+ such as spreadsheets,
+ to calculate dispersivities and plume spreads.
+ These tools are designed to be user-friendly for practitioners dealing with real-world groundwater contamination issues.
+ 
+\end_layout
+
+\begin_layout Standard
+In summary,
+ de Lange's work advocates for a shift towards models that incorporate advective transport phenomena and aquifer heterogeneity to better understand and predict dispersion in groundwater systems.
+ His contributions offer both theoretical insights and practical tools for engineers and hydrogeologists.\SpecialChar allowbreak
+
+\end_layout
+
+\begin_layout Subsection
+Question 2 to ChatGPT
+\end_layout
+
+\begin_layout Standard
+W.J.
+ de Lange in his 2020 and 2020 paper on advective dispersion in journal Ground Water develops a framwork with which he explains and quantifies the development of asymmetric breakthrough curves caused by a heterogeneous conductivity field passed by groundwater.
+ He takes much time to explain is so-called domain A.
+ However,
+ I can’t find on what he basis its size or scale factor N.
+ Can you figure that out for me?
+\end_layout
+
+\begin_layout Paragraph
+Answer from ChatGPT
+\end_layout
+
+\begin_layout Standard
+In W.J.
+ de Lange's 2020 and 2022 publications in Ground Water,
+ he introduces a framework to explain and quantify asymmetric breakthrough curves resulting from groundwater flow through heterogeneous conductivity fields.
+ Central to this framework is the concept of "domain A," a representative volume within the aquifer that encapsulates the effects of local heterogeneities on solute transport.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definition of Domain A and Scale Factor N
+\end_layout
+
+\begin_layout Standard
+Domain 
+\begin_inset Formula $A$
+\end_inset
+
+ is conceptualized as a repeating unit within the aquifer,
+ each containing a discrete,
+ elongated zone with contrasting hydraulic conductivity.
+ These zones are characterized by their horizontal and vertical correlation lengths,
+ denoted as 
+\begin_inset Formula $\lambda_{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{v}$
+\end_inset
+
+,
+ respectively.
+ The dimensions of domain A are directly related to these correlation lengths through a scale factor,
+ N.
+ Specifically:
+ Wiley Online Library
+\end_layout
+
+\begin_layout Standard
+* Length of domain 
+\begin_inset Formula $A(L_{a}):L_{a}=2\lambda_{h}N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+* Thickness of domain 
+\begin_inset Formula $A(D_{a}):D_{a}=2\lambda_{v}N$
+\end_inset
+
+ Wiley Online Library+2hess.copernicus.org+2TU Delft Research Portal+2
+\end_layout
+
+\begin_layout Standard
+This scaling ensures that each domain A encompasses a conductivity zone of size 
+\begin_inset Formula $2\lambda_{h}$
+\end_inset
+
+ by 
+\begin_inset Formula $2\lambda_{v}$
+\end_inset
+
+,
+ effectively capturing the local heterogeneity's influence on flow and transport.
+ Wiley Online Library
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Determination of Scale Factor N
+\end_layout
+
+\begin_layout Standard
+While the mathematical relationship between domain A's dimensions and the correlation lengths is clearly defined,
+ the specific value or method for determining the scale factor N is not explicitly detailed in the available publications.
+ The choice of N likely depends on factors such as the degree of heterogeneity in the aquifer,
+ the scale of interest for modeling,
+ and the desired resolution of the simulation.
+ In practice,
+ N may be selected based on empirical data,
+ calibration against observed breakthrough curves,
+ or sensitivity analyses to ensure that the model accurately captures the dispersion behavior observed in the field.
+\end_layout
+
+\begin_layout Standard
+For a more precise determination of 
+\begin_inset Formula $N$
+\end_inset
+
+,
+ consulting the full texts of de Lange's publications or related supplementary materials would be beneficial.
+ These resources may provide case studies or examples where N is assigned specific values based on empirical observations or modeling requirements.
+\end_layout
+
+\begin_layout Standard
+If you have access to the full articles and can provide more context or specific excerpts,
+ I can assist further in interpreting the methodology for selecting 
+\begin_inset Formula $N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Question 3 to ChatGPT
+\end_layout
+
+\begin_layout Standard
+De Lange in his two papers seems step from the real world from which he gets his lognormal distributed conductivities to his conceptual model,
+ which is definitely not the real world.
+ I would like to know what the underlying logic of plausibility is te make such a step,
+ so that the conceptual model will bear a strong link to reality.
+ The other factors are of course the length scales he uses and the real world origin of those.
+ Can you help me figure this out?
+\end_layout
+
+\begin_layout Paragraph
+Answer from ChatGPT
+\end_layout
+
+\begin_layout Standard
+W.J.
+ de Lange's framework,
+ as presented in his 2020 and 2022 Ground Water publications,
+ bridges real-world aquifer heterogeneity with a conceptual model to elucidate and quantify asymmetric breakthrough curves resulting from groundwater flow through heterogeneous conductivity fields.
+ Central to this framework is the concept of "domain A," a representative volume within the aquifer designed to encapsulate the effects of local heterogeneities on solute transport.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Constructing the Conceptual Model:
+ Domain A
+\end_layout
+
+\begin_layout Standard
+In de Lange's model,
+ the aquifer is partitioned into repeating units termed "domain 
+\begin_inset Formula $A$
+\end_inset
+
+." Each domain contains a discrete,
+ elongated zone with contrasting hydraulic conductivity,
+ reflecting the natural variability observed in real aquifers.
+ The dimensions of these domains are directly linked to the aquifer's statistical properties:
+\end_layout
+
+\begin_layout Standard
+* Horizontal dimension 
+\begin_inset Formula $(L_{a}):L_{a}=2\lambda_{h}N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+* Vertical dimension 
+\begin_inset Formula $(D_{a}):D_{a}=2\lambda_{v}N$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Here,
+ 
+\begin_inset Formula $\lambda_{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{v}$
+\end_inset
+
+ represent the horizontal and vertical correlation lengths of the hydraulic conductivity field,
+ respectively,
+ and N is a scale factor determining the size of domain A relative to these correlation lengths.
+ This scaling ensures that each domain 
+\begin_inset Formula $A$
+\end_inset
+
+ encompasses a conductivity zone of size 
+\begin_inset Formula $2\lambda_{h}$
+\end_inset
+
+ by 
+\begin_inset Formula $2\lambda_{v}$
+\end_inset
+
+,
+ effectively capturing the local heterogeneity's influence on flow and transport.
+ ngwa.onlinelibrary.wiley.com
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Determining the Scale Factor N
+\end_layout
+
+\begin_layout Standard
+While the mathematical relationship between domain 
+\begin_inset Formula $A$
+\end_inset
+
+'s dimensions and the correlation lengths is clearly defined,
+ the specific value or method for determining the scale factor 
+\begin_inset Formula $N$
+\end_inset
+
+ is not explicitly detailed in the available publications.
+ The choice of 
+\begin_inset Formula $N$
+\end_inset
+
+ likely depends on factors such as the degree of heterogeneity in the aquifer,
+ the scale of interest for modeling,
+ and the desired resolution of the simulation.
+ In practice,
+ 
+\begin_inset Formula $N$
+\end_inset
+
+ may be selected based on empirical data,
+ calibration against observed breakthrough curves,
+ or sensitivity analyses to ensure that the model accurately captures the dispersion behavior observed in the field.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Linking the Conceptual Model to Reality
+\end_layout
+
+\begin_layout Standard
+De Lange's approach ensures that the conceptual model maintains a strong connection to real-world aquifer behavior by:
+\end_layout
+
+\begin_layout Standard
+1.
+ Statistical Grounding:
+ Utilizing statistical parameters (mean,
+ variance,
+ correlation lengths) derived from field data to define the properties of domain 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ Physical Representation:
+ Modeling the effects of discrete conductivity zones within each domain to replicate the impact of heterogeneities on solute transport.
+ 
+\end_layout
+
+\begin_layout Standard
+3.
+ Scalable Design:
+ Employing the scale factor 
+\begin_inset Formula $N$
+\end_inset
+
+ to adjust the size of domain 
+\begin_inset Formula $A$
+\end_inset
+
+,
+ allowing the model to be tailored to different scales of heterogeneity and ensuring that it remains representative of the actual aquifer conditions.
+ 
+\end_layout
+
+\begin_layout Standard
+By integrating these elements,
+ the conceptual model serves as a simplified yet robust representation of the complex processes governing solute dispersion in heterogeneous aquifers.
+\end_layout
+
+\begin_layout Standard
+For a more precise determination of 
+\begin_inset Formula $N$
+\end_inset
+
+ and a deeper understanding of the model's application,
+ consulting the full texts of de Lange's publications or related supplementary materials would be beneficial.
+ These resources may provide case studies or examples where 
+\begin_inset Formula $N$
+\end_inset
+
+ is assigned specific values based on empirical observations or modeling requirements.
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{References}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Chatwin (1980)"
+key "Chat80"
+literal "false"
+
+\end_inset
+
+Chatwin,
+ PC (1980) Presentation of Longitudinal Dispersion Data.
+ ASCE Journ.
+ of Hydro.
+ Div.
+ 71-83
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "de Lange (2020)"
+key "WdL20"
+literal "false"
+
+\end_inset
+
+Advective Transport Phenomena to Better Understand Dispersion in Field and Modeling Practice.
+ Groundwater 58,
+ 46–55.
+ https://doi.org/10.1111/gwat.12883
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "De Lange (2022)"
+key "WdL22"
+literal "false"
+
+\end_inset
+
+Lange,
+ WJ de (2022) Quantification of Advective Transport Phenomena to better Understand Dispersion in the Field.
+ Ground Water Vol.
+ 60,
+ No.
+ 3,
+ May-June 2022 (319-329)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "De Lange (2025)"
+key "WdL25"
+literal "false"
+
+\end_inset
+
+Using Advective Transport Phenomena In Modeling To Better Understand Mechanical Dispersion:
+ Step One.
+ Submitted.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Maas (1994)"
+key "Maas94"
+literal "false"
+
+\end_inset
+
+Maas,
+ C (1994) On Convolution Processes and Dispersive Groundwater Flow.
+ PhD Thesis TU-Delft,
+ 13-June 1994.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Jury & Roth (1990)"
+key "Jury90"
+literal "false"
+
+\end_inset
+
+Jury A & K.
+ Roth (1990) Transfer Functions and Solute Movement through Soil.
+ Theory and Applications.
+ Birkhäuser Verlag Basel.
+ (Ref from Maas 1994)
+\end_layout
+
+\end_body
+\end_document

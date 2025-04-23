@@ -62,7 +62,8 @@ case_name = props['k_field_pars']['name']
 # pass_times has the times of each particle (id) for a set of x-locations
 pass_times = np.load(os.path.join(dirs.data, 'pass_times_' + case_name + '.npy'))
 
-nxObs = len(pass_times['xObs'][0])
+xObs = pass_times['xObs'][0]
+nxObs = len(xObs)
 
 # Get just the x and times so we can sort the times (eliminate the ids)
 dtype0t = np.dtype([('xObs', '<i4', (nxObs,)), ('time', '<f8', (nxObs,))])
@@ -114,6 +115,9 @@ bt_times       = np.zeros(cumul_t['xObs'].shape[-1], dtype=dtype2t) # Breakthrou
 bt_tmode      = np.zeros(cumul_t['xObs'].shape[-1], dtype=dtype3t) # Breakthrough times
 clrs = cycle(["blue", "red", "green", "black", "gray", "magenta", "cyan", "orange", "brown", "darkgray"])
 
+dtype4t = np.dtype([('xObs', '<f8'), ('mu', '<f8'), ('sig', '<f8'), ('t0', '<f8')])
+lognorm_t_pars = np.zeros(nxObs, dtype=dtype4t)
+
 print("{:5s} {:10s} {:10s} {:10s}".format('x', 'mu', 'sigma', 'scale'))
 
 for ix, (X, t) in enumerate(zip(cumul_t['xObs'].T, cumul_t['time'].T)):
@@ -124,10 +128,17 @@ for ix, (X, t) in enumerate(zip(cumul_t['xObs'].T, cumul_t['time'].T)):
     par_log_t = stats.lognorm.fit(t)    
     cdf_log_t = stats.lognorm.cdf(t, *par_log_t)
     pdf_log_t = stats.lognorm.pdf(t, *par_log_t)
+    
+    # par_exp_t = stats.expon.fit(t)
+    # cdf_exp_t = stats.expon.cdf(t, *par_exp_t)
+    # pdf_exp_t = stats.expon.pdf(t, *par_exp_t)
+    # loc_exp_t, scale_exp_t = par_exp_t
 
     shape_t, loc_t, scale_t = par_log_t
     mu_t, sig_t, t0 = np.log(scale_t), shape_t, loc_t
-
+    
+    lognorm_t_pars[ix] = (x, mu_t, sig_t, t0)
+    
     print("x = {:5d}, mu = {:10.3g}, sigma = {:10.3g} loc = t0 = {:10.3g}".format(x, mu_t, sig_t, t0))
 
     # Get lognormal distribution properties.
@@ -169,12 +180,18 @@ for ix, (X, t) in enumerate(zip(cumul_t['xObs'].T, cumul_t['time'].T)):
         bt_tmode[ix][nm] = v
     
     # Plot the results (not all to prevent clutter)
-    if x in [200, 400, 600, 800, 1000]:
+    if x in cumul_t['xObs'][0][::2]:
         ax1.plot(t, cdf_o, '--', color=clr, label=f"cdf {x} m (original data)")
         ax1.plot(t, cdf_log_t, color=clr,
                  label=fr"x={x:4d} m, $\mu,\sigma,\,t_0$,loc=({mu_t:.2f}, {sig_t:.2f}, {loc_t:.3e} d)")
         ax2.plot(t, pdf_log_t, color=clr, 
                  label=fr"x={x:4d} m, $\mu,\sigma,\,t_0$=({mu_t:.2f}, {sig_t:.2f}, {loc_t:.3e} d)")
+
+        # ax1.plot(t, cdf_exp_t, color=clr, ls='dashdot',
+        #          label=fr"x={x:4d} m, $scale,\,t_0$,loc=({scale_exp_t:.2f}, {loc_exp_t:.3e} d)")
+        # ax2.plot(t, pdf_exp_t, color=clr, ls='dashdot',
+        #          label=fr"x={x:4d} m, $scale\,t_0$=({scale_exp_t:.2f}, {loc_exp_t:.3e} d)")
+        
   
         ax1.plot(tma, stats.lognorm.cdf(tma, *par_log_t), 'o', mfc=clr, mec='k')
         ax2.plot(tma, stats.lognorm.pdf(tma, *par_log_t), 'o', mfc=clr, mec='k')
@@ -282,6 +299,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 ax.set(title="Cumulative location curves (case " + case_name + ")\n" + k_field_str, xlabel="x [m]", ylabel="Frac")
 
 tObs = pass_xvals['tObs'][0]
+
 N = len(pass_xvals)
 p = (np.arange(N) + 0.5) / N
 for j, to in enumerate(tObs):
@@ -312,6 +330,8 @@ bt_xmode      = np.zeros(cumul_x['tObs'].shape[-1], dtype=dtype3x) # Breakthroug
 clrs = cycle(["blue", "red", "green", "black", "gray", "magenta", "cyan", "orange", "brown", "darkgray"])
 
 print("Data from pass_xvals, properties of fitted lognormal distribution for each tObs:")
+dtype4x = np.dtype([('tObs', '<f8'), ('mu', '<f8'), ('sig', '<f8'), ('x0', '<f8')])
+lognorm_x_pars = np.zeros(len(tObs), dtype=dtype4x)
 
 for it, (T, x) in enumerate(zip(cumul_x['tObs'].T, cumul_x['x'].T)):
     t = T[0].item()
@@ -321,9 +341,16 @@ for it, (T, x) in enumerate(zip(cumul_x['tObs'].T, cumul_x['x'].T)):
     par_log_x = stats.lognorm.fit(x)    
     cdf_log_x = stats.lognorm.cdf(x, *par_log_x)
     pdf_log_x = stats.lognorm.pdf(x, *par_log_x)
+    
+    # par_exp_x = stats.expon.fit(x)    
+    # cdf_exp_x = stats.expon.cdf(x, *par_exp_x)
+    # pdf_exp_x = stats.expon.pdf(x, *par_exp_x)
+    # loc_exp_x, scale_exp_x = par_exp_x
+
 
     shape_x, loc_x, scale_x = par_log_x
     mu_x, sig_x, x0 = np.log(scale_x), shape_x, loc_x
+    lognorm_x_pars[it] = (t, mu_x, sig_x, x0)
 
     print("tObs = {:<.0f} d, mu_x = {:<.3g} m, sigma_x = {:<.3g} m, loc = x0 = {:<.3g} m".format(t, mu_x, sig_x, x0))
 
@@ -370,9 +397,16 @@ for it, (T, x) in enumerate(zip(cumul_x['tObs'].T, cumul_x['x'].T)):
     if t in cumul_x['tObs'][0][::2]:
         ax1.plot(x, cdf_o, '--', color=clr, label=f"cdf {t} d (original data)")
         ax1.plot(x, cdf_log_x, color=clr,
-                 label=fr"t={t:.0f} d, $\mu,\sigma,\,t_0$,loc=({mu_x:.2f}, {sig_x:.2f}, {loc_x:.3e} d)")
+                 label=fr"t={t:.0f} d, $\mu,\sigma,\,t_0$,loc=({mu_x:.2f}, {sig_x:.2f}, {loc_x:.3e} m)")
         ax2.plot(x, pdf_log_x, color=clr, 
-                 label=fr"t={t:.0f} d, $\mu,\sigma,\,t_0$=({mu_x:.2f}, {sig_x:.2f}, {loc_x:.3e} d)")
+                 label=fr"t={t:.0f} d, $\mu,\sigma,\,t_0$=({mu_x:.2f}, {sig_x:.2f}, {loc_x:.3e} m)")
+        
+        # # Exponential distribution:
+        # ax1.plot(x, cdf_exp_x, ls='dashdot', color=clr,
+        #          label=fr"t={t:.0f} d, $scale,\,t_0$=({scale_exp_x:.2f}, {loc_exp_x:.3e} d)")
+        # ax2.plot(x, pdf_exp_x, ls='dashdot', color=clr, 
+        #          label=fr"t={t:.0f} d, $scale,\,t_0$=({scale_exp_x:.2f}, {loc_exp_x:.2f}, {loc_x:.3e} d)")
+
   
         # ax1.plot(xma, stats.lognorm.cdf(xma, *par_log_x), 'o', mfc=clr, mec='k')
         # ax2.plot(xma, stats.lognorm.pdf(xma, *par_log_x), 'o', mfc=clr, mec='k')
@@ -410,7 +444,8 @@ fig. savefig(os.path.join(dirs.images, 'BTanalysis_x_' + case_name + '.png'))
 #  ==== Save the data arrays to dirs.data =====
 # Saved are:  bt_cdf_props_x, bt_times and bt_mode
 fname = os.path.join(dirs.data, "BTarrays_x_" + case_name + '.npz')
-np.savez(fname, bt_cdf__xprops=bt_cdf__xprops, bt_times=bt_xvals, bt_xmode=bt_xmode)  
+np.savez(fname, bt_cdf__xprops=bt_cdf__xprops, bt_times=bt_xvals, bt_xmode=bt_xmode,
+         lognorm_t_pars=lognorm_t_pars, lognorm_x_pars=lognorm_x_pars)  
 
 # %% 
 plt.show()
