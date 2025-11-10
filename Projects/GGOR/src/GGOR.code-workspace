@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../cases/AAN_GZK"
+		}
+	],
+	"settings": {
+		"python-envs.defaultEnvManager": "ms-python.python:system",
+		"terminal.integrated.env.osx": {
+			"PYTHONPATH": "/Users/Theo/GRWMODELS/python/tools:/Users/Theo/GRWMODELS/python/mf6lab/src"
+		}
+	}
+}

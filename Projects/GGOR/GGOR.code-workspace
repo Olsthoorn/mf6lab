@@ -1,7 +1,11 @@
 {
-	"folders": [
-		{
-			"path": "../tools"
-		}
-	]
+  "folders": [
+    {
+      "path": ".",
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv-3.12/bin/python",
+    "python.envFile": "${workspaceFolder}/.env"
+  }
 }

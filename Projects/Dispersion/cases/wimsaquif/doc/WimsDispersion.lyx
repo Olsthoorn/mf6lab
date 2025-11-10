@@ -5110,6 +5110,17 @@ Further properties of the lognormal distribution
 
 \end_inset
 
+Skewness of the lognormal distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma^{1}=\left(e^{\sigma^{2}}+1\right)\sqrt{e^{\sigma^{2}}-1}
+\]
+
+\end_inset
+
 
 \end_layout
 
@@ -5772,6 +5783,11 @@ Very late arrivals
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\SpecialChar allowbreak
+ 
 \end_layout
 
 \begin_layout Standard

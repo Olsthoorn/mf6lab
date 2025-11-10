@@ -34,29 +34,20 @@ Need demo using the portion if __name__ == __main__: converted to Jupyter for ea
 There each step should be demonstrated and verified, graphically if possible.
 
 """
-
 import os
 import sys
 import numpy as np
 import pandas as pd
-import shapefile
 import matplotlib.pyplot as plt
 from KNMI import knmi
-from fdm import mfgrid
+from fdm.src.mfgrid import Grid
+import shapefile
 from collections import OrderedDict
 import logging
-from fdm.mf6_face_flows import get_structured_flows_as_dict
+from fdm.src.mf6_face_flows import get_structured_flows_as_dict
 from etc import newfigs
 
-MF6LAB = '~/GRWMODELS/python/mf6lab/'
-GGOR = os.path.join(MF6LAB, '/Projects/GGOR/')
-
-HOME = '~/GRWMODELS/python/mf6lab/Projects/GGOR/'
-
-sys.path.insert(0, MF6LAB)
-sys.path.insert(0, GGOR)
-
-import src.mf6tools as mf6tools
+import mf6tools as mf6tools
 
 logging.basicConfig(level=logging.WARNING, format=' %(asctime)s - %(levelname)s - %(message)s')
 
@@ -245,18 +236,18 @@ def handle_meteo_data(meteo_data=None, summer_start=4, summer_end=9):
                        "Percipication and or evapotranspiration likely not in m/d!")
 
     # Add boolean column indicating summer (needed to set summer and winter ditch levels)
-    meteo_data['summer'] = [True if t.month in range(summer_start, summer_end) 
+    meteo_data.loc[:, 'summer'] = [True if t.month in range(summer_start, summer_end) 
                                else False
                                for t in meteo_data.index]
 
     # hydrological year column 'hyear'
     hyear_start_month = 3   # Don't change! It's needed in the GXG class
     hyear_start_day   = 14  # Don't change! It's needed in the GXG class
-    meteo_data['hyear'] = [t.year
+    meteo_data.loc[:, 'hyear'] = [t.year
         if t.month >= hyear_start_month and t.day >= hyear_start_day
         else t.year - 1 for t in meteo_data.index]
 
-    meteo_data['hand'] = [t.day % 14 == 0 for t in meteo_data.index]
+    meteo_data.loc[:, 'hand'] = [t.day % 14 == 0 for t in meteo_data.index]
 
     return meteo_data
 
@@ -288,7 +279,7 @@ def grid_from_parcel_data(parcel_data=None, dx=None, laycbd=(1, 0)):
     Z[1] = Z[0] - parcel_data['D1'  ].values[:, np.newaxis] * np.ones((1, nx))
     Z[2] = Z[1] - parcel_data['D2'  ].values[:, np.newaxis] * np.ones((1, nx))
 
-    return mfgrid.Grid(xGr, yGr, Z)
+    return Grid(xGr, yGr, Z)
 
 
 def set3D(layvals, shape=None):
@@ -1240,7 +1231,7 @@ if __name__ == "__main__":
     
     test = True
     
-    HOME = '~/GRWMODELS/python/mf6lab/Projects/GGOR/'
+    HOME = os.getcwd()
     
     logging.warning("cwd = {}".format(os.getcwd()))
     dirs = mf6tools.Dirs(HOME)

@@ -1,0 +1,8 @@
+{
+    "python.defaultInterpreterPath": "/Users/Theo/GRWMODELS/python/mf6lab/.venv-3.12/bin/python",
+    "python.envFile": "${workspaceFolder}/.env",
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "/Users/Theo/GRWMODELS/python/tools:/Users/Theo/GRWMODELS/python/mf6lab/src"
+    },
+
+}

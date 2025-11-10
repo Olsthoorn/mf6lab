@@ -28,8 +28,8 @@ def plot_elev(data, x=None, Znew=None, fault_ix=None,
     return ax
 
 def gen_patch_x(x, zbot, ztop, alpha=None):
-    """Return patch for the layer defined by x and ztop and zbot.
-    
+    """Return vertical patch for the layer defined by x and ztop and zbot.
+    This patch is used to fill the area between the top and bottom of a layer.
     Parameters
     ----------
     x: np.ndarray of x values (not xm values)

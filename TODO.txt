@@ -1,10 +1,11 @@
 @TO 20240122
 
-Contouring concentraties en stijghoogten met flow-through cells geïnterpoleerd
-Conoturing met top en basis model geïncorporeerd.
+Contouring van concentraties en stijghoogten met flow-through cells geïnterpoleerd
+Conoturing met top en basis van het model geïncorporeerd.
 
 Effect van neerslagoverschot op drainage systems laten zien in een flimiplje
 Daarbij ook het effect van het opvullen van de ondergrond.
+ (is gebeurd IHE)
 
 Cursus IHE op readthedocs.
 

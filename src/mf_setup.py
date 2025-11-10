@@ -54,7 +54,7 @@ import numpy as np
 import flopy
 import logging
 import mf_adapt
-from src import mf6tools
+import mf6tools
 logging.basicConfig(level=logging.WARNING, format=' %(asctime)s - %(levelname)s - %(message)s')
 
 NOT = np.logical_not
