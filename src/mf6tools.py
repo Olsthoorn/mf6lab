@@ -2,17 +2,54 @@
 
 import os
 import sys
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import logging
 
-logging.basicConfig(level=logging.WARNING, format=' %(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 class Dirs():
     """
-    Class determining directory structure of the current model cases
+    Class determining directory structure of the current model case
     
-    General project structure:
+    General mf6 directory structure:
+    mf6lab
+        |__bin
+        |__Projects
+        |   |__project1
+        |   |__project2
+        |   |   |__cases
+        |   |   |   |__case1
+        |   |   |   |   |__data (case level data)
+        |   |   |   |   |__doc (case level doc)
+        |   |   |   |   |__GWF (modflow flow)
+        |   |   |   |   |__GWT (modflow transport)
+        |   |   |   |   |__images (case level images)
+        |   |   |   |   |__MP7 (modpath)
+        |   |   |   |   |__notebooks (case level notebooks)
+        |   |   |   |   |__SIM (modflow sim)
+        |   |   |   |   |__src (case level python source code)        
+        |   |   |   |__case2
+        |   |   |__data (project level data)
+        |   |   |__doc (project level doc)
+        |   |   |__images (project level images)
+        |   |   |__notebooks (project level notebooks)
+        |   |   |__src (project level source code)
+        |   |   |__.code-workspace (project level workspace settings)
+        |   |__project3
+        |__src (mflab level source python code)
+        .git (mf6 level .git)
+        .venv (mf6 level virtual environment(s))
+        .env (mf6 level .env (only read by debugger and interactive))
+        .vscode (mf6 level settings)
+           |__settings.json
+           |__launch.json
+        .gitignore (mf6 level .gitignore)
+        LICENSE
+        README.md
+
     
     HOME  # Home directory for this project
         .git   # Git directory should also link to github
@@ -21,44 +58,42 @@ class Dirs():
             ..      # Other runnable code like Zonebudget
         cases   # folder collecting all cases for this projec
             <case_name1>  # First case <..> denote dedicated name.
-                flow
+                data
+                doc
+                GWF (= ground water flow)
                     mfsim.lst
                     ..
                     <case_name1>.lst
                     <case_name1>.dis
                     ..
-                transport
+                GWT (= ground water transport)
                      mfsim.lst
                     ..
                     <case_name1>.lst
                     <case_name1>.dis
                     ..
+                images
+                meteo
+                MP7 (= Modpath)
                 photos
+                SIM (= )
                 __init__.py
                 mf_adapt.py
                 mf_analyze.py
                 <case_name1>.xlx
+            
             <case_name2>  # Second case for this project
-                mf6_files
-                    mfsim.list
-                    ..
-                    <case_name2>.lst
-                    <case_name2>.dis
-                    ...
-                __init__.py
-                mf_adapt.py
-                mf_analyze.py
-                <case_name2>.xlx
+            <case_name3>  # Third case for this project
             ..
         data  # Data for this projec
             gis  # Shapefiles etc. (GIS) for this project
                 <shape_file>.shp
         doc # Documentation for this project
             <documentation>.lyx
-            pictures
+        images
         literature # General backgound references.
-            <ref1>
-            ..
+        lyx
+        notebooks
         src     # Specific for this project
             __init__.py
             <fname1>.py
@@ -66,47 +101,58 @@ class Dirs():
             ..
     Individual cases use the <sim_name> and are placed under cases.
     Each case directory will contain the case-specific python source
-    files among which are `mf_adapt.py`, `mf_analyze.py` and the parameter excel file
-    f'{sim_name}.xlsx' Furthermore, jupyter files may be present
-    that illustrate the case step by step.
-    
-    Doc holds the manual for this modelling project. This is generally the <project>.lyx file and the
-    pictures used in the manual. A compiled manual results in a <project>.pdf file. Look for this file in the doc directory.
-    
-    The src directory should contain more general code specific to this project
-    normally used by all cases.
-        
-    @TO 231112              
+    files among which are
+        `mf_adapt.py`
+        `mf_analyze.py`
+        'settings.py' (if present imported by mf_adapt)
+        and the parameter excel file f'{sim_name}.xlsx'
+           
+    @TO 231112, 25111
     """
 
     
-    def __init__(self, home='.'):
+    def __init__(self, HOME=None):
         """Return project directories class object.
+        
+        HOME must be the path to the project directory holding all the cases
+        or None of VScode is launched from the project directory
         
         Parameters
         ----------
         home: str or path, default '.'
             home directory for this modelling projecta containing all cases.
         """
-                
-        self.HOME = os.path.abspath(home)
-        # Subdirectories
+        if HOME is not None:
+            HOME = Path(os.getcwd())
+        MF6LAB = HOME.parent.parent
+
+        if not str(MF6LAB).endswith('mf6lab'):
+            raise ValueError(
+                """`home` must the project directory
+                or None if you launch VScode from the project directory.
+                Not: {HOME}"""
+                )
+        
+        self.HOME = HOME
+        self.mf6lab = MF6LAB
+        print(f"Project HOME directory: {HOME}")
+
+        # --- Subdirectories
         self.bin = os.path.join(self.HOME, 'bin')
         self.cases =os.path.join(self.HOME, 'cases')
         self.data = os.path.join(self.HOME, 'data')
         self.gis = os.path.join(self.data, 'gis')
         self.doc = os.path.join(self.HOME, 'doc')
-        self.pictures = os.path.join(self.doc, 'pictures')
-        self.literature = os.path.join(self.HOME, 'literature')
+        self.images = os.path.join(self.doc, 'images')
+        self.literature = os.path.join(self.doc, 'literature')
         self.src = os.path.join(self.HOME, 'src')
         
-        # Make sure the src directory is known to Python
+        # --- Make sure the src directory is known to Python
         sys.path.insert(0, self.src)
         
-        # Create the directory if it doesn't yet exist
+        # --- Create the directory if it doesn't yet exist
         self.create()
         
-        print("Project HOME directory: '{}'".format(self.HOME))
         
     def create(self):
         for d in [self.HOME, self.bin,
@@ -114,8 +160,7 @@ class Dirs():
                   self.data,
                   self.gis,
                   self.doc,
-                  self.pictures,
-                  self.literature,
+                  self.images,                  
                   self.src]:
             if not os.path.isdir(d):
                 os.mkdir(d)
@@ -134,53 +179,51 @@ class Dirs():
         self.case = os.path.join(self.cases, case_name)
         if not os.path.isdir(self.case):
             os.mkdir(self.case)
-            print("dirs.case = '{}' now exists".format(self.case))
-            print("dirs.{} = '{}' now exists.".format(case_name, self.case))
+            print(f"dirs.case = '{self.case}' now exists")
+            print(f"dirs.{case_name} = '{self.case}' now exists.")
         else:
-            print("dirs.case = '{}' already exists".format(self.case))
-            print("dirs.{} = '{}' already exists.".format(case_name, self.case))
-        assert os.path.isdir(self.case), "Directory '{}' does not exist".format(self.case)
+            print(f"dirs.case = '{self.case}' already exists")
+            print(f"dirs.{case_name} = '{self.case}' already exists.")
+        assert os.path.isdir(self.case), f"Directory '{self.case}' does not exist."
             
-        # Add subdirs 'mf6_files, Photos, Images'
-        
-        for subd in ['SIM', 'GWF', 'GWT', 'MP7', 'photos', 'images', 'data', 'doc']:
+        # --- Add subdirs to case directory if not already present
+        for subd in ['SIM', 'GWF', 'GWT', 'MP7', 'data', 'doc', 'images', 'src']:
             subdir =  os.path.join(self.case, subd)           
-            exec("self.{} = '{}'".format(subd, subdir))
+            exec(f"self.{subd} = '{subdir}'")
             if not os.path.isdir(subdir):
                 os.mkdir(subdir)                
-                print("dirs.{} = '{}' now exists.".format(subd, subdir))
+                print(f"dirs.{subd} = '{subdir}' now exists.")
             else:
-                print("dirs.{} = '{}' already exists.".format(subd, subdir))
-            assert os.path.isdir(subdir), "Directory '{}' does not exist".format(subdir)
+                print(f"dirs.{subd} = '{subdir}' already exists.")
+            assert os.path.isdir(subdir), f"Directory '{subdir}' does not exist"
         return self
     
     def add_to_home(self, dirname):
         """Add a directory to the current HOME directory (self.HOME)."""
         folder = os.path.join(self.HOME, dirname)
         if os.path.exists(folder):
-            print("{} already exists.".format(folder))
+            print(f"{folder} already exists.")
         else:
             os.mkdir(folder)
-            print("{} now exists.".format(folder))
-        exec("self.{} = '{}'".format(dirname.replace('/','_'), folder))
+            print(f"{folder} now exists.")
+        exec(f"self.{dirname.replace('/','_')} = '{folder}'")
         
     def add_to_case(self, dirname):
         """Add a directory to the current project directory."""
         folder = os.path.join(self.case, dirname)
         if os.path.exists(folder):
-            print("{} already exists.".format(folder))
+            print(f"{folder} already exists.")
         else:
             os.mkdir(folder)
-            print("{} now exists.".format(folder))
-        exec("self.{} = '{}'".format(dirname, folder))
-
+            print(f"{folder} now exists.")
+        exec(f"self.{dirname} = '{folder}'")
     
     def __str__(self):
         return self.__doc__
 
 
 def get_models_and_packages_from_excel(wbk_name, sheet_name='NAM'):
-    """Return which models and packages will be use in the simulation.
+    """Return which models and packages will be used in the simulation.
   
     Parameters
     ----------
@@ -194,22 +237,22 @@ def get_models_and_packages_from_excel(wbk_name, sheet_name='NAM'):
     -------
     dict with models and packages to be used.
     """
-    # Packages is from line with 'Package'
+    # --- Packages is from line with 'Package'
     packages = pd.read_excel(wbk_name, sheet_name=sheet_name, header=0,
                                 index_col='ModelPkg')
 
-    # Only need the first column when ON / OFF is True
+    # --- Only need the first column when ON / OFF is True
     packages = list(packages.index[packages['ON / OFF'] > 0])
     
-    # Return all lower case with first letter capitalized
+    # --- Return all lower case with first letter capitalized
     packages = [m[0:1].upper() + m[1:].lower() for m in packages]
     models = list(np.unique([p[:3] for p in packages])) # keeps order i n list
     return models, packages
     
 class ExecValue:
-    """Class to convert quated string to list or tuple (inloop exec)."""
+    """Class to convert quoted string to list or tuple (inloop exec)."""
     def __init__(self, value):
-        exec('self.value = {}'.format(value))
+        exec(f"self.value = {value}")
 
 
 def get_mf6_params_from_excel(wbk_name, sheet_name='GWF6'):
@@ -243,11 +286,11 @@ def get_mf6_params_from_excel(wbk_name, sheet_name='GWF6'):
     
     params = dict()
     
-    # Each package gets its own subdict with the actual values
+    # --- Each package gets its own subdict with the actual values
     for pkg in np.unique(paramsDf[paramsDf.columns[0]].values):
         params[pkg]=dict()
         
-    # Convert package parameters to correct type using the column "type"
+    # --- Convert package parameters to correct type using the column "type"
     for i in paramsDf.index:
         pkg, param, value = paramsDf.loc[i]
         if isinstance(value, str):
@@ -268,7 +311,7 @@ def get_mf6_params_from_excel(wbk_name, sheet_name='GWF6'):
                 value = float(value)
             else:
                 pass
-        else: # Immediately verify unknown types
+        else: # --- Immediately verify unknown types
             raise ValueError("Unknown parameter type pkg={}, {}, {}, {}".format(
                             pkg, param, value, type))
         params[pkg][param]=value        
@@ -300,7 +343,7 @@ def get_periodata_from_excel(wbk_name, sheet_name='PER'):
                                 index_col='IPER')
     p_data.index = p_data.index.astype(int)
     
-    # Remove any dummy stress period lines (index <= 0)
+    # --- Remove any dummy stress period lines (index <= 0)
     p_data = p_data.loc[p_data.index >= 0]
 
     # Set type of stress period data
@@ -308,7 +351,7 @@ def get_periodata_from_excel(wbk_name, sheet_name='PER'):
     
     p_data = p_data.loc[p_data['PERLEN'] > 0]
     
-    # IPER (=index) in PER sheet are zero based, keep it that way.
+    # --- IPER (=index) in PER sheet are zero based, keep it that way.
     
     p_index = np.asarray(p_data.index)
     period_data = pd.DataFrame(index=np.arange(p_index[-1] + 1), columns=p_data.columns)
@@ -332,7 +375,7 @@ def show_animation_progress(frame, nbreak=50, ntot=None):
     Parameters
     ----------
     frame: int
-        anaimation frame
+        animation frame
     nbreak: int
         Print "frame counts and newline each nbreak frames.
     ntot: int

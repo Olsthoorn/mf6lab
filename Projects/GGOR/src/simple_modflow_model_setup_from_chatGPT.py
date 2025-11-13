@@ -1,0 +1,85 @@
+"""
+ggor main shapefile / database
+===============
+
+Support for reading and showing the basic ggor database provided as a shapefile
+
+Main Components
+---------------
+- Read the shapefile into a GeoDataFrame
+- Inspect the columns
+- Visualize it.
+
+Example
+-------
+>>> import mf6lab.regional as reg
+>>> reg.setup_model("case01")
+>>> reg.run_model("case01")
+>>> reg.plot_results("case01")
+
+@TO 2025-11-11
+"""
+import os
+import sys
+from pathlib import Path
+import numpy as np
+import flopy
+import matplotlib.pyplot as plt
+
+
+# -----------------------------------------------------------------------------
+# Configuration
+# -----------------------------------------------------------------------------
+DEFAULT_GRID_SIZE = 100
+DATA_DIR = Path(__file__).parent.parent  / "cases" / "AAN_GZK" / "data"
+
+# -----------------------------------------------------------------------------
+# Core functions
+# -----------------------------------------------------------------------------
+def setup_model(name: str, grid_size: int = DEFAULT_GRID_SIZE):
+    """
+    Initialize a MODFLOW 6 model with a basic grid.
+
+    Parameters
+    ----------
+    name : str
+        Name of the model (used for file structure).
+    grid_size : int, optional
+        Number of grid cells along one axis, by default 100.
+
+    Returns
+    -------
+    mf : flopy.mf6.MFSimulation
+        The initialized simulation object.
+    """
+    # Create simulation directory
+    sim_dir = Path("projects") / name
+    sim_dir.mkdir(parents=True, exist_ok=True)
+
+    # Define model (simplified example)
+    mf = flopy.mf6.MFSimulation(sim_name=name, sim_ws=sim_dir)
+    return mf
+
+
+def run_model(name: str):
+    """Run the MODFLOW 6 simulation stored under `projects/name`."""
+    sim_dir = Path("projects") / name
+    sim = flopy.mf6.MFSimulation.load(sim_ws=sim_dir)
+    sim.run_simulation()
+
+
+def plot_results(name: str):
+    """Plot head results for the given model name."""
+    sim_dir = Path("projects") / name
+    head_file = sim_dir / f"{name}.hds"
+    # (plotting code goes here)
+    pass
+
+
+# -----------------------------------------------------------------------------
+# Internal helpers
+# ----------------------
+
+# -----
+if __name__ == '__main__':
+    pass

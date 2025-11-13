@@ -4,5 +4,12 @@
     "terminal.integrated.env.osx": {
         "PYTHONPATH": "/Users/Theo/GRWMODELS/python/tools:/Users/Theo/GRWMODELS/python/mf6lab/src"
     },
+    "python-envs.pythonProjects": [
+        {
+            "path": "",
+            "envManager": "ms-python.python:venv",
+            "packageManager": "ms-python.python:pip"
+        }
+    ],
 
 }

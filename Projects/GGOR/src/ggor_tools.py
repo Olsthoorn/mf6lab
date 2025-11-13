@@ -36,20 +36,38 @@ There each step should be demonstrated and verified, graphically if possible.
 """
 import os
 import sys
+import time
+from contextlib import contextmanager
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import geopandas as gpd
 from KNMI import knmi
 from fdm.src.mfgrid import Grid
-import shapefile
-from collections import OrderedDict
-import logging
 from fdm.src.mf6_face_flows import get_structured_flows_as_dict
-from etc import newfigs
+import etc
 
 import mf6tools as mf6tools
 
-logging.basicConfig(level=logging.WARNING, format=' %(asctime)s - %(levelname)s - %(message)s')
+# --- setting up the logger
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        datefmt="%H:%M:%S"
+    )
+    
+# --- Setting up timing
+@contextmanager
+def log_timed(logger, msg):
+    start = time.perf_counter()
+    yield
+    logger.info(f"{msg} in {time.perf_counter() - start:.2f} seconds")
 
 NOT = np.logical_not
 AND = np.logical_and
@@ -73,29 +91,29 @@ colDict = {
 #% Defaults used for required parameters that, however, are not in the databse.
 # They will be used when not in the database.
 defaults = {
-        'd_drain': 0,  # [m] Tile drainage depth below local ground elevation
-                           #, may be zero if no drains are present.
+        'd_drain': 0,    # [m] Tile drai depth below ground ele.; 0 where no drains.
         'd_trench': 0.3, # [m] Trench depth in case present.
-        'c_drain': 5., # [d] Tile drainage areal resistance. Also used for trenches.
-        'wi_ditch' : 2.,  # [d] Ditch resist. for flow from ditch to ground. (analytical)
-        'wi_ditch2' : 2.,  # [d] Ditch resis. reg. aquif. for flow to ground. (analytical)
+        'c_drain': 5.,   # [d] Area tile drainage resistance. Also used for trenches.
+        'wi_ditch' : 2., # [d] Ditch resist, used for flow from ditch to ground. (analytical)
+        'wi_ditch2' : 2., # [d] Ditch resis. reg. aquif. for flow to ground. (analytical)
         'wo_ditch' : 1.,  # [d] Ditch resis. when flow is to ditch. (anlaytical)
-        'wo_ditch2' : 1.,  # [d] Ditch resis. reg. aquif. for flow to ditch. (analytical)
+        'wo_ditch2' : 1., # [d] Ditch resis. reg. aquif. for flow to ditch. (analytical)
         'ci_ditch' : 2.,  # [d] Ditch bottom and side entry resistance (applied to Omega)
         'co_ditch' : 1.,  # [d] Ditch bottom and side entry resistance (applied to Omega)
-        'd_ditch' : 1.0, # [m] depth of ditch below ground surface
+        'd_ditch' : 1.0,  # [m] depth of ditch below ground surface
         'b_ditch' : 0.75, # [m] half-width of the ditch
-        'D_CB' : 0.1, # [m] (dummy thickness) van basisveenlaag (CB=confining bed)
-        'D2' : 40., # [m] thickness of regional aquifer
-        'S2' : 1e-3,# [-] total (elastic) storage coeff. of regional aquifer
-        'kh2': 30., # [m/d]  horizontal condutivity of regional aquifer
-        'kv2':  6., #[ m/d]  vertical conductivity of regional aquifer
-        'ET_surfd': 1.0, # [m] depth of surf in ET below ground surface.
-        'ET_exdp': 2.5, # [m] Modflow's extinction depth (see ET package)
+        'D_CB' : 0.1,     # [m] (dummy thickness) van basisveenlaag (CB=confining bed)
+        'D2' : 40.,       # [m] thickness of regional aquifer
+        'S2' : 1e-3,      # [-] total (elastic) storage coeff. of regional aquifer
+        'kh2': 30.,       # [m/d]  horizontal condutivity of regional aquifer
+        'kv2':  6.,       #[ m/d]  vertical conductivity of regional aquifer
+        'ET_surfd': 1.0,  # [m] depth of surf in ET below ground surface.
+        'ET_exdp': 2.5,  # [m] Modflow's extinction depth (see ET package)
 }
 
 
-#% Modflow cell-by-cell flow labels: Translates short labels to those in the CBC file.
+# --- Modflow cell-by-cell flow labels:
+# --- Translates short labels to those in the CBC file.
 cbc_labels = {
         'STO': 'STORAGE',
         'FLF': 'FLOW LOWER FACE ',
@@ -103,14 +121,14 @@ cbc_labels = {
         'EVT': 'ET',
         'GHB': 'HEAD DEP BOUNDS',
         'RIV': 'RIVER LEAKAGE',
-        'DRN': 'DRAINS',        # to capture surface runoff, or actual drains and trenches.
+        'DRN': 'DRAINS',        # to capture surf. runoff, or actual drains and trenches.
         'RCH': 'RECHARGE',
 }
 
-# For legend when of running water budget plot
-#leg is legend for this label in the graph
-#clr is the color of the filled graph
-watbal_label = OrderedDict({
+# --- For legend when of running water budget plot
+# --- leg is legend for this label in the graph
+# --- clr is the color of the filled graph
+watbal_label = {
         'RCH': {'leg': 'RCH', 'clr': 'green'},
         'EVT': {'leg': 'EVT', 'clr': 'gold'},
         'WEL': {'leg': 'WEL(in wvp2)' , 'clr': 'blue'},
@@ -118,8 +136,8 @@ watbal_label = OrderedDict({
         'RIV': {'leg': 'RIV(ditch out)', 'clr': 'magenta'},
         'GHB': {'leg': 'GHB(ditch in+out)', 'clr': 'indigo'},
         'FLF': {'leg': 'FLF(leakage)', 'clr': 'gray'},
-        'STO': {'leg': 'STO', 'clr': 'cyan'}}
-)
+        'STO': {'leg': 'STO', 'clr': 'cyan'}
+        }
 
 def selection_check(parcels=None, n=None):
     """Returns selected parcels after verification of the selection.
@@ -195,23 +213,24 @@ def gen_testdata(tdata, **kwargs):
     """
     tdata = tdata.copy() # leave tdata intact
     for key in kwargs:
-        # index array telling which of the tuple values to pick
-        # Daynumber since start of tdata.index
+        # --- index array telling which of the tuple values to pick
+        # --- Day number since start of tdata.index
         daynum = (tdata.index - tdata.index[0]) / np.timedelta64(1, 'D')
         period = int(kwargs[key][0]) # days
         values = np.array(kwargs[key][1:])
-        I = np.asarray((daynum // period) % len(values), dtype=int)
-        # Add or replace column in tdata copy
-        tdata[key] = np.array(values[I])
+        Id = np.asarray((daynum // period) % len(values), dtype=int)
+        
+        # --- Add or replace column in tdata copy
+        tdata[key] = np.array(values[Id])
     return tdata
 
 
-def handle_meteo_data(meteo_data=None, summer_start=4, summer_end=9):
-    """Set and store meteo data and add the columns summer, hyear and hand.
+def handle_meteo_data(meteo=None, summer_start=4, summer_end=9):
+    """Add and fill columns []'summer', 'hyear' 'hand'].
 
     Added columns are
         summer: bool
-        hyear: hyddrological year. They atart at March 14 to get proper GVG. Do not change this !
+        hyear: hydrological year. They atart at April 1 and end March 31 to get proper GVG. Do not change this !
             GVG will be the mean of the values on 14/3, 28/3 and 14/4 of each hydological year'
         hand: official groundwater measurement dates: 14th and 28th of every month)
 
@@ -225,31 +244,33 @@ def handle_meteo_data(meteo_data=None, summer_start=4, summer_end=9):
     summer_end: int
         month coinciding with end of hydrologiacl summer. Default 10 (October = start hydrological winter).
     """
-    dcol = {'RH', 'EVT24'}.difference(meteo_data.columns) # Check for existance of both columns in meteo_data.columns.
+     # --- Check for existance of both columns in meteo.columns.
+    dcol = {'RH', 'EVT24'}.difference(meteo.columns)
+    
     if dcol:
         KeyError("Missing column[s] [{}] in meteo DataFrame".format(', '.join(dcol)))
 
-    #verify, data are in m/d
-    if not meteo_data['RH'].median() < 0.01 and meteo_data['EVT24'].median() < 0.01:
+    # --- verify, data are in m/d
+    if not meteo['RH'].median() < 0.01 and meteo['EVT24'].median() < 0.01:
         AssertionError("Median of Precipitration = {:5g} and median evapotranspiration = {:4g}\n"
-                          .format(meteo_data['RH'].median(), meteo_data['EVT24'].median()) +
+                          .format(meteo['RH'].median(), meteo['EVT24'].median()) +
                        "Percipication and or evapotranspiration likely not in m/d!")
 
-    # Add boolean column indicating summer (needed to set summer and winter ditch levels)
-    meteo_data.loc[:, 'summer'] = [True if t.month in range(summer_start, summer_end) 
+    # --- Add boolean column indicating summer (needed to set summer and winter ditch levels)
+    meteo.loc[:, 'summer'] = [True if t.month in range(summer_start, summer_end) 
                                else False
-                               for t in meteo_data.index]
+                               for t in meteo.index]
 
-    # hydrological year column 'hyear'
+    # --- hydrological year column 'hyear'
     hyear_start_month = 3   # Don't change! It's needed in the GXG class
     hyear_start_day   = 14  # Don't change! It's needed in the GXG class
-    meteo_data.loc[:, 'hyear'] = [t.year
+    meteo.loc[:, 'hyear'] = [t.year
         if t.month >= hyear_start_month and t.day >= hyear_start_day
-        else t.year - 1 for t in meteo_data.index]
+        else t.year - 1 for t in meteo.index]
 
-    meteo_data.loc[:, 'hand'] = [t.day % 14 == 0 for t in meteo_data.index]
+    meteo.loc[:, 'hand'] = [t.day % 14 == 0 for t in meteo.index]
 
-    return meteo_data
+    return meteo
 
 
 def grid_from_parcel_data(parcel_data=None, dx=None, laycbd=(1, 0)):
@@ -359,17 +380,24 @@ def get_drain_elev_with_trenches(pdata=None, gr=None, d_drn=None):
     
     elev = ((pdata['AHN'] - pdata['d_drain']).values[:, np.newaxis]
                                                     * np.ones((1, gr.nx)))
-    I = np.arange(gr.nx, dtype=int)
+    Id = np.arange(gr.nx, dtype=int)
     xLeft = gr.X[0][:,:-1] # left side of cells in top layer for all rows)
+    
     for iparcel, (b, ntr, ahn, dtr) in enumerate(
             zip(pdata['b'], pdata['n_trench'], pdata['AHN'], pdata['d_trench'])):
-        elev[iparcel] = ahn - d_drn # default drain depth (simulates surface runoff)
         
-        if ntr: # only if parcel has one or more trenches
+        # --- default drain depth (simulates surface runoff)
+        elev[iparcel] = ahn - d_drn
+        
+        if ntr:
+            # --- only if parcel has one or more trenches
             atr = b / ntr # distance between trenches or trench and ditch
             xtr = np.cumsum(np.ones(ntr) * atr) # locations of trenches
-            Itr = [I[xLeft[iparcel] <= _x][-1] for _x in xtr] # cell row indices of trenches
+            
+            # --- cell row indices of trenches
+            Itr = [Id[xLeft[iparcel] <= _x][-1] for _x in xtr]
             elev[iparcel][Itr] = ahn - dtr
+            
     return elev # Ny * Nx array
 
     for iparcel, (b, ntr, ahn, dtr) in enumerate(
@@ -378,7 +406,7 @@ def get_drain_elev_with_trenches(pdata=None, gr=None, d_drn=None):
 
 
 def get_cond_DRN(pdata=None, gr=None):
-    """Return conducntance for use by DRN (Surface Runoff).
+    """Return conductance for use by DRN (Surface Runoff).
     
     Parameters
     ==========
@@ -402,12 +430,14 @@ def get_cond_GHB(pdata=None, gr=None, use_w_not_c=None):
     """
     if use_w_not_c:
         wi = np.vstack((pdata['wi_ditch'], pdata['wi_ditch2']))
+        
     else: # Use the real ditch resistance, dicth circumference
         # TODO use either two or three layer grid it's now inconsistent
         wi = np.vstack((pdata['ci_ditch'] * pdata['D1'] / pdata['ditch_omega1'],
                         pdata['ci_ditch'] * pdata['D2'] / pdata['ditch_omega2']))
         # extra resistance due to partial penetration of ditch
         wi += np.vstack((pdata['wpp1'], pdata['wpp2']))
+        
     dy    = np.vstack((gr.Dy[:, 0], gr.Dy[:, 0]))
     cond  = np.vstack((pdata['D1'], pdata['D2'])) / wi * dy
     cond[np.isnan(cond)] = 0. # This is where ditch_omega is zero, hence no ditch present (2nd layer)
@@ -441,6 +471,7 @@ def get_RIV_Cond(pdata=None, gr=None, use_w_not_c=None):
                         pdata['D2'] / pdata['ditch_omega2']))
         # Add partial penetration to resistance
         w += np.vstack((pdata['wpp1'], pdata['wpp2']))
+        
     dy    = np.vstack((gr.Dy[:, 0], gr.Dy[:, 0]))
     cond  = np.vstack((pdata['D1'], pdata['D2'])) / w * dy
     cond[np.isnan(cond)] = 0. # When ditch_omega is zero
@@ -455,7 +486,7 @@ class GGOR_data:
 
         Parameters
         ----------
-        dors: mf6tools.Dirs object
+        dirs: mf6tools.Dirs object
             holds paths to current case directories
         bofek: pd.DataFrame
             bofek values for ['kh', 'Sy', 'staring', 'ksat_cmpd'], the index
@@ -465,21 +496,28 @@ class GGOR_data:
             min and max halfwidth value for parcels to be considered.
         """
 
-        # read dbf file into pd.DataFrame
         sim_name = os.path.basename(dirs.case)
-        self.data = data_from_dbffile(os.path.join(dirs.data, sim_name + '.dbf'))
+        
+        # --- read dbf file into pd.DataFrame
+        
+        # --- Obsolete read the .dbf file of the shape file for the case
+        # self.data = data_from_dbffile(os.path.join(dirs.data, sim_name + '.dbf'))
+        
+        # --- Use geopandas read the .pgkg file directly
+        case_gpkg_file = os.path.join(dirs.data, sim_name + '.gpkg')
+        self.data = gpd.read_file(case_gpkg_file)
 
         # replace column names to more generic ones
         self.data.columns = [colDict[h] if h in colDict else h
                                          for h in self.data.columns]
 
-        # compute parcel width to use in GGOR
+        # --- compute parcel width to use in GGOR
         self.compute_parcel_width(BMINMAX=BMINMAX)
 
-        # set kh, kv and Sy from bofek
+        # --- set kh, kv and Sy from bofek
         self.apply_bofek(bofek) # bofek is one of the kwargs a pd.DataFrame
 
-        # add required parameters if not in dbf
+        # --- add required parameters if not in dbf
         self.apply_defaults(defaults)
 
         self.compute_and_set_omega()
@@ -539,7 +577,7 @@ class GGOR_data:
         PW = np.fmin(PW, max(BMINMAX)) # Arbitrarily limit the width of any parcel to BMAX.
         PW = np.fmax(PW, min(BMINMAX))
 
-        # Add column 'b' to Data holding half the parcel widths.
+        # --- Add column 'b' to Data holding half the parcel widths.
         self.data['b'] = PW/2
 
         # Use only the parcles that have with > BMIN and that have bofek data
@@ -547,7 +585,7 @@ class GGOR_data:
 
         self.data = self.data.iloc[L]
 
-        # Any data left?
+        # --- Any data left?
         assert len(L) > 0, "Cleaned parcel database has length 0, check this."
 
 
@@ -565,7 +603,7 @@ class GGOR_data:
             table of bofek data, with bofek id in index column having
             at least the following columns ['kh', 'Sy', 'staring', 'ksat_cmpd']
         """
-        # Verify that the required bofek parameters are in bofek columns
+        # --- Verify that the required bofek parameters are in bofek columns
         required_cols = {'kh', 'Sy', 'staring', 'ksat_cmpd'}
         dset = set.difference(required_cols, set(bofek.columns))
         if not dset:
@@ -573,8 +611,8 @@ class GGOR_data:
         else:
             raise KeyError("missing columns [{}] in bofek DataFrame".format(','.join(dset)))
 
-        # Verify that all self.data['BOFEK'] keys are in bofek.index, so that
-        # all parcels get their values!
+        # --- Verify that all self.data['BOFEK'] keys are in bofek.index,
+        # --- so that all parcels get their values!
         dindex = set(self.data['bofek'].values).difference(set(bofek.index))
         if not dindex:
             pass
@@ -610,6 +648,7 @@ class GGOR_data:
         for dc in defcols: # only for the missing columns
             self.data[dc] = defaults[dc]
 
+# -----------------------------------
 
 def compute_and_set_omega(data=None):
     """Return and set half the wetted ditch circumference in both model layers.
@@ -667,6 +706,9 @@ def compute_and_set_wpp(data=None):
 def data_from_dbffile(dbfpath):
     """Return parcel info shape.dbf file into pandas.DataFrame.
 
+    ------------------------------------------------------    
+    As of Nov 2025, this is obsolete, we now use geopandas
+    ------------------------------------------------------
     Also make sure that the data type is transferred from shapefile to DataFrame.
     
     The original databse is a shpafile with fields that hold the parcel parameters and
@@ -679,17 +721,19 @@ def data_from_dbffile(dbfpath):
     dbfpath: str
         name of path to file with .dbf extension, holding parcel data.
     """
+    import shapefile
+    
     try:
         sf   = shapefile.Reader(dbfpath)
-    except:
-        raise FileNotFoundError("Unable to open '{}'.".format(dbfpath))
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Unable to open '{dbfpath}")
 
-    # Read shapefile data into pd.DataFrame
+    # --- Read shapefile data into pd.DataFrame
     records = [y[:] for y in sf.records()] # turns records into list
     columns=[c[0] for c in sf.fields[1:]]
     data = pd.DataFrame(data=records, columns=columns)
 
-    # Get the dtype of each column of the shapefile
+    # --- Get the dtype of each column of the shapefile
     tp   = [t[1] for t in sf.fields[1:]]
     tt = []
     for t, in tp:
@@ -732,50 +776,154 @@ class Heads_obj:
         gr: fdm.mfgrid.Grid object
             holds the Modflow grid.
         """
+        start = time.perf_counter()
+        logger.info("Creating the heads obj with GXGs")
         self.model =  sim.get_model(list(sim.model_names)[0])
         self.gr = gr
         self.HDS = self.model.output.head() # Flopy heads object
         heads = self.HDS.get_alldata() # (nper, nlay, nrow, ncol)
+        self.tdata = tdata # original GeoDataFrame with extra columns
 
-        # Active cells
+        # --- Active cells
         active = self.model.dis.idomain.get_data(); active[active!=0] = 1
         Arel = gr.AREA * active / (gr.AREA * active).sum(axis=-1)[:, :, np.newaxis]
         
+        # --- Row-average heads (cell width and active cells taken into account)
         self.avgHds = (heads * Arel[np.newaxis, :, :, :]).sum(axis=-1) # (nper, nlay, nrow)
-        self.GXG    = GXG_object(tdata=tdata, avgHds=self.avgHds)
+        self.GXG = self.get_GXG()
+        logger.info(f"Heads_obj + GXG created, in {time.perf_counter() - start:.2f} seconds.")
 
 
-    def plot(self, ax=None, tdata=None, parcel_data=None,
+    def get_GXG(self):
+        """Return GXG_dict with GXG, HG3, VG3, LG3.
+
+        This GXG object holds the GLG, GVG and GHG, i.e. the lowest, hightes and spring
+        groundwater head information and their long-term averaged values based on
+        the number of hydrological years implied in the given tdata (meteo data).
+        
+        (A hydrological year runs form Apriol1 through March 31 the next year.
+        The GHG and GHG are based on the 14th and 28th of each month in hydrological year. But the GVG is the aveage of March 14, March 28 and April 14 of the current year (beginning of the hydrlogical year))
+
+        self.gxg is a recarray with all the individual records. (nyear * 9, nparcel)
+        self.GXG is a recarray with the long-time averaged values (nparcel).
+
+        @TO 2020-08-31
+        """
+        _start = time.perf_counter()
+        
+        logger.info("Computing HG3, LG3, VG3 and GXG")
+        
+        # --- average parcel head if the first layer at the hand-pick dates
+        # --- continue with just these measurements
+        ahds = self.avgHds[self.tdata['hand'], 0, :]   # (nthand, nparcel)
+        nparcel = ahds.shape[-1]
+        
+        # --- meteo with extra columns at the hand-picked dates
+        tdath = self.tdata.loc[self.tdata['hand']]      # just use the hand data
+        tdxh  = tdath.index 
+        
+
+        # --- GLG and GHG
+        nparcel = ahds.shape[-1] # avgHds (nthand, nparcel)
+        hyears = np.asarray(np.unique(self.tdata['hyear'].values), dtype=int)
+
+        # --- Cut off incomplete start and end hydrological years
+        # --- A robust way is to discard hyears with less than 24 hand values
+        # --- Because we have only a point at the 14t adn 28th of each month (24 in total)
+        mask = tdath['hyear'] == hyears[0]
+        if len(tdath.loc[mask]) < 24: # We have 24 'hand' measurements per year
+            hyears = hyears[1:]
+            
+        mask = tdath['hyear'] == hyears[-1]
+        if len(tdath.loc[mask]) < 24: # we have 24 'hand' measurements per year
+            hyears = hyears[:-1]
+        
+        # --- Skip the first hydological year because it's a run-in year for Modflow
+        hyears = hyears[1:]
+                
+        self.VG3 = dict() # per hyear (3, nparcel) heads and (3, nparcel) timestamps
+        self.HG3 = dict() # per hyear (3, nparcel) heads and (3, nparcel) timestamps
+        self.LG3 = dict() # per hyear (3, nparcel) heads and (3, nparcel) timestamps
+
+        for hyear in hyears:
+            ah = ahds[tdath['hyear'] == hyear]
+            td = np.array(tdxh[tdath['hyear'] == hyear])
+
+            # --- indices to select which time data (no argsort here)
+            Ias = np.arange(len(td), dtype=int).reshape(len(td), 1) @ np.ones((1, nparcel), dtype=int)
+            
+            # --- to make this work, our hydrological year starts at March 14th, don't change!
+            self.VG3[hyear] = {'h': np.take_along_axis(ah,          Ias[:3, :], axis=0),
+                               't': np.take_along_axis(td[:, None], Ias[:3, :], axis=0)
+            }
+            
+            # --- argsort along time axes to allow selecting the 3 highest and lowest values in hyear
+            Ias = np.argsort(ah, axis=0)  # Indices of (len(ah), nparcel))
+            
+            self.LG3[hyear] = {'h': np.take_along_axis(ah,          Ias[:3, :], axis=0),
+                               't': np.take_along_axis(td[:, None], Ias[:3, :], axis=0)
+            }
+            
+            self.HG3[hyear] = {'h': np.take_along_axis(ah,          Ias[-3:, :], axis=0),
+                               't': np.take_along_axis(td[:, None], Ias[-3:, :], axis=0)
+            }
+
+        GVG = np.zeros(nparcel)
+        for hyear, vg3 in self.VG3.items():
+            GVG += vg3['h'].mean(axis=0)
+        GVG /= len(self.VG3) # same as len(hyears)
+
+        GLG = np.zeros(nparcel)
+        for hyear, lg3 in self.LG3.items():
+            GLG += lg3['h'].mean(axis=0)
+        GLG /= len(self.LG3) # same as len(hyears)
+
+        GHG = np.zeros(nparcel)
+        for hyear, hg3 in self.HG3.items():
+            GHG += hg3['h'].mean(axis=0)
+        GHG /= len(self.HG3) # same as len(hyears)
+        
+        self.GXG = {'hyears': hyears,
+                    'GHG': GHG,
+                    'GVG': GVG,
+                    'GLG': GLG
+        }
+        
+        logger.info(f"Computing GXG done in {time.perf_counter() - _start:.2f} seconds")
+        return self.GXG
+      
+
+    def plot(self, axs=None, tdata=None, parcel_data=None,
                    parcels=[0, 1, 2, 3, 4],
-                   titles=None, xlabel='time', ylabels=['m', 'm'],
-                   figsize=(14, 8), loc='best', GXG=True,  **kwargs):
+                   titles=['Heads0', 'Heads1'], xlabel='time [d]', ylabels=['head0 [m]', 'head1 [m]'],
+                   figsize=(14, 8), loc='best', plotGXG=True, **kwargs):
         """Plot the running heads in both layers.
 
         Parameters
         ----------
-        ax: plt.Axies
+        ax: plt.Axes
             Axes to plot on.
         tdata: pd.DataFrame with columns 'RH', 'EVT24 and 'summer'
             time datacorresponding to the avgHds data
-        parcel_data: pd.DataFrame
+        parcel_data: geopandas.GeoDataFrame with parcel data
             parcel properties data (used to generate labels)
-        parcels: sequence of ints (tuple, list).
+        parcels: sequence of ints (tuple, list)
             None is all parcels.
-            The parcel nrs to show in the graph.
+            The parcel nrs to show in the graph
         titles: str
-            The titles of the charts.
+            The titles of the 2 charts
         xlabel: str
             The xlabel
         ylabels: str
-            The ylabels of the 2 charts.
+            The ylabels of the 2 charts
         figsize: tuple of two
             Width and height om image in inches if image is generated and ax is None.
         loc: str (default 'best')
             location to put the legend
         GXG: boolean
-            whether or not to plot the GXG also.
+            whether or not to plot the GXG on axs[0]
         kwargs: Dict
-            Extra parameters passed to newfig or newfigs if present.
+            Extra parameters passed to newfig or newfigs if present
 
         Returns
         -------
@@ -783,42 +931,57 @@ class Heads_obj:
         """
         parcels = selection_check(parcels, n=self.gr.ny)
 
-        if ax is None:
-            ax = newfigs(titles, xlabel, ylabels, figsize=figsize, **kwargs)
-            for a in ax:
-                plot_hydrological_year_boundaries(a, tdata.index)
-        else:
-            for a, title, ylabel in ax, titles, ylabels:
-                a.grid(True)
-                a.set_title(title)
-                a.set_xlabel(xlabel)
-                a.set_ylabel(ylabel)
-
-        nt, nLay, ny = self.avgHds.shape
-
-        clrs = 'brgkmcy'
+        if axs is None:
+            axs = etc.newfigs(titles, xlabel, ylabels, figsize=figsize, **kwargs)  
+            
+        clrs = etc.color_cycler()
         lw = 1
-        for ilay, a in zip(range(nLay), ax):
-            for iclr, isel in enumerate(parcels):
-                clr = clrs[iclr % len(clrs)]
-                a.plot(tdata.index, self.avgHds[:, ilay, isel], clr, ls='solid',
-                             lw=lw, label="parcel {}".format(isel))
+        
+        for ilay, ax in enumerate(axs):
+            for ip in parcels:
+                clr = next(clrs)
                 if ilay == 0:
+                    # --- plot DRN height
                     hDr = (parcel_data['AHN'] - parcel_data['d_drain']
-                                           ).loc[isel] * np.ones(len(tdata))
-                    hLR = parcel_data['h_winter' ].loc[isel] * np.ones(len(tdata))
-                    hLR[tdata['summer']] = parcel_data['h_winter'].loc[isel]
+                                           ).loc[ip] * np.ones(len(tdata))
+                    
+                    # --- get h_winter and h_summer
+                    hLR = parcel_data['h_winter' ].loc[ip] * np.ones(len(tdata))                    
+                    hLR[tdata['summer']] = parcel_data['h_winter'].loc[ip]
 
-                    a.plot(tdata.index, hLR, clr, ls='dashed', lw=lw,
-                           label='parcel {}, hLR'.format(isel))
-                    a.plot(tdata.index, hDr, clr, ls='dashdot', lw=lw,
-                           label='parcel {}, zdr'.format(isel))
-            a.legend(loc=loc, fontsize='xx-small')
+                    # --- plot h_winter and h_summer
+                    ax.plot(tdata.index, hLR, clr, ls='dashed', lw=lw,
+                           label=f"parcel {ip}, hLR")
+                    ax.plot(tdata.index, hDr, clr, ls='dashdot', lw=lw,
+                           label=f"parcel {ip}, zdr")
 
-            if GXG:
-                self.GXG.plot(ax[0], parcels=parcels)
+                ax.plot(tdata.index, self.avgHds[:, ilay, ip], clr, ls='solid',
+                             lw=lw, label=f"parcel {ip}")
+                    
+                if plotGXG:
+                    ax = axs[0]
+                    hyears = self.GXG['hyears']
+                    
+                    ax.set_title(ax.get_title() + f" {hyears[0]}-{hyears[-1]}")            
 
-        return ax
+                    ax.axhline(self.GXG['GHG'][ip], c='b', label='GHG')
+                    ax.axhline(self.GXG['GVG'][ip], c='g', label='GVG')
+                    ax.axhline(self.GXG['GLG'][ip], c='r', label='GLG')
+                    
+                    for iy, hyear in enumerate(self.VG3):
+                        if iy == 0:
+                            labels = ["HG3", "VG3", "LG3"]
+                        else:
+                            labels = ["", "", ""]
+                        ax.plot(self.HG3[hyear]['t'][:, ip], self.HG3[hyear]['h'][:, ip], 'b^', label=labels[0])                    
+                        ax.plot(self.VG3[hyear]['t'][:, ip], self.VG3[hyear]['h'][:, ip], 'go', label=labels[1])                    
+                        ax.plot(self.LG3[hyear]['t'][:, ip], self.LG3[hyear]['h'][:, ip], 'rv', label=labels[2])
+                    
+            ax.legend(loc=loc, fontsize='xx-small')
+            
+            plot_hydrological_year_boundaries(ax=ax, tindex=self.tdata.index)
+                        
+        return axs
 
 
 def plot_hydrological_year_boundaries(ax=None, tindex=None):
@@ -836,146 +999,11 @@ def plot_hydrological_year_boundaries(ax=None, tindex=None):
     if isinstance(ax, plt.Axes): ax = [ax]
     for a in ax:
         for yr in years:
-            t = np.datetime64(f'{yr}-03-14')
+            t = np.datetime64(f'{yr}-04-01')
             if t > tindex[0] and t < tindex[-1]:
                 a.axvline(t, color='gray', ls=':')
 
 
-class GXG_object:
-    """Generate GXG object.
-
-    This object hold the GXG (GLG, GVG, GHG)  i.e. the lowest, hightes and spring
-    groundwater head information and their long-term averaged values based on
-    the number of hydrologi al years implied in the given tdata.
-    (A hydrological year runs form March14 through March 13 the next year, but
-     the GXG are based on values of the 14th and 28th of each month only.)
-
-    self.gxg is a recarray with all the individual records. (nyear * 9, nparcel)
-    self.GXG is a recarray with the long-time averaged values (nparcel).
-
-    @TO 2020-08-31
-    """
-
-    def __init__(self, tdata=None, avgHds=None):
-        """Initialize GXG object.
-
-        Parameters
-        ----------
-        tdata: pd.DataFrame
-            tdata, we only need its index
-        avgHds: np.nd_array shape = (nt, nz, nParcel)
-            The xsection-averaged heads for all parcels and all times.
-            Heads aveaged along the x-axis taking into account cel width
-            and ignoring inactive cells.
-        """
-        # The 'hand' data are the values at the 14th and 28th of each month.
-        ahds = avgHds[tdata['hand'], 0, :]   # (nparcel, nthand)
-        tdat = tdata.loc[tdata['hand']]  # just use the hand data
-
-        # GLG and GHG
-        nparcel = ahds.shape[-1] # ny  avgHds (nthand, ny)
-        hyears = np.unique(tdat['hyear'])
-
-        # Cut off incomplete start and end hydological years
-        if tdat.index[ 0].month != 3 or tdat.index[ 0].day != 14: hyears = hyears[ 1:]
-        if tdat.index[-1].month != 2 or tdat.index[-1].day != 28: hyears = hyears[:-1]
-
-        # skip the first hydological year because it's a run-in year for Modflow
-        hyears = hyears[1:]
-        nyear = len(hyears)
-
-        # Format to store the gxg data in a recarray
-        # l=low, h=high, v=spring (voorjaar)
-        gxg_dtype = [('t', pd.Timestamp), ('hd', float), ('hyear', int),
-                 ('l', bool), ('h', bool), ('v', bool)]
-
-        # The gxg recarray has 9 records per hyear (3 glg, 3 ghg, 3 gvg and nparcel layers).
-        # We keep them as individual  values to allow showing them in the time-graph.
-        # These are nine individual values  that contribute to the GXG in a hydrologial year
-        self.gxg = np.zeros((nyear * 9, nparcel), dtype=gxg_dtype)
-
-        T = (True, True, True)    # To tell the 3 vals in hyr are lowest, highest or spring
-        F = (False, False, False) # Same to tell they are not lowest, highest or spring
-
-        for iyr, hyear in enumerate(hyears):
-            ah = ahds[tdat['hyear'] == hyear]
-            td = tdat.loc[tdat['hyear'] == hyear]
-            Ias = np.argsort(ah, axis=0)  # Indices of argsort along time axis
-
-            # Make sure hydrological years start at March 14!!
-            assert td.index[0].month ==3 and td.index[0].day == 14, "hyears must start at 14th of March"
-
-            hyr = (hyear, hyear, hyear)
-
-            for ip in range(nparcel):
-                Iglg = Ias[0:3, ip] # lowest three values in hyr for parcel ip
-                Ighg = Ias[-3:, ip] # highest three values in hyr for parcel ip
-                Igvg = slice(0, 3, 1) # spring values 14/3, 28/3, 14/4 (hyear starts 14/3)
-                # The three lowest values
-                self.gxg[iyr * 9 + 0:iyr * 9 + 3, ip] = np.array(
-                    [(t, hd, yr, l, h, v) for t, hd, yr, l, h, v in zip(
-                        td.index[Iglg], ah[Iglg, ip], hyr, T, F, F)], dtype=gxg_dtype)
-                # The three highest values
-                self.gxg[iyr * 9 + 3:iyr * 9 + 6, ip] = np.array(
-                    [(t, hd, yr, l, h, v) for t, hd, yr, l, h, v in zip(
-                        td.index[Ighg], ah[Ighg, ip], hyr, F, T, F)], dtype=gxg_dtype)
-                # The three spring values
-                self.gxg[iyr * 9 + 6:iyr * 9 + 9, ip] = np.array(
-                    [(t, hd, yr, l, h, v) for t, hd, yr, l, h, v in zip(
-                        td.index[Igvg], ah[Igvg, ip], hyr, F, F, T)], dtype=gxg_dtype)
-
-        # Compute and store the long-term averaged values, the actual GXG
-        dtype = [('id', int), ('GLG', float), ('GHG', float), ('GVG', float)]
-        self.GXG = np.ones(nparcel, dtype=dtype)
-        for ip in range(nparcel):
-            self.GXG[ip] = (
-                ip,
-                self.gxg[self.gxg[:, ip]['v'], ip]['hd'].mean(),
-                self.gxg[self.gxg[:, ip]['l'], ip]['hd'].mean(),
-                self.gxg[self.gxg[:, ip]['h'], ip]['hd'].mean())
-
-
-    def plot(self, ax=None, parcels=[0, 1, 3, 4, 5], **kwargs):
-        """Plot GXG.
-
-        Parameters
-        ----------
-        parcels : np.array of ints
-            sequence of indices to select the parcels for plotting
-            parcels have already been checked. No need to repeat that here.
-        nmax: int
-            maximum number of graphs to plot
-        """
-
-        clrs = 'brgkmcy'
-
-        for iclr, ip in enumerate(parcels):
-            g = self.gxg.T[ip]
-            clr = clrs[iclr % len(clrs)]
-            ax.plot(g['t'][g['v']], g['hd'][g['v']], clr, marker='o',
-                    mfc='none', ls='none', label='vg [{}]'.format(ip))
-            ax.plot(g['t'][g['l']], g['hd'][g['l']], clr, marker='v',
-                    mfc='none', ls='none', label='lg [{}]'.format(ip))
-            ax.plot(g['t'][g['h']], g['hd'][g['h']], clr, marker='v',
-                    mfc='none', ls='none', label='hg [{}]'.format(ip))
-
-        hyears = np.unique(self.gxg.T[0]['hyear'])
-        t = (pd.Timestamp('{}-{:02d}-{:02d}'.format(hyears[ 0], 3, 14)),
-             pd.Timestamp('{}-{:02d}-{:02d}'.format(hyears[-1], 2, 28)))
-
-        lw = 0.5 # line width plot pen
-        for iclr, ip in enumerate(parcels):
-            clr = clrs[iclr % len(clrs)]
-            ax.hlines(self.GXG['GVG'][self.GXG['id']==ip], *t, clr,
-                      ls='solid'  , lw=lw, label='GVG parcel {}'.format(ip))
-            ax.hlines(self.GXG['GLG'][self.GXG['id']==ip], *t, clr,
-                      ls='dashed' , lw=lw, label='GLG parcel {}'.format(ip))
-            ax.hlines(self.GXG['GHG'][self.GXG['id']==ip], *t, clr,
-                      ls='dashdot', lw=lw, label='GHG parcel {}'.format(ip))
-
-        ax.legend(loc='best')
-        return ax
-    
 
 def show_boundary_locations(lbls=None, CBC=None, iper=0, figsize=(10,8.5)):
     """Show the location of the nodes in recarray given CBC data.
@@ -1004,9 +1032,9 @@ def show_boundary_locations(lbls=None, CBC=None, iper=0, figsize=(10,8.5)):
         nodes = CBC.get_data(text=cbc_labels[lbl])[iper]['node'] - 1
         IB.ravel()[nodes] = 1
 
-        titles=['Top layer, lbl={}, iper={}'.format(lbl, iper),
-                'Bottom layer, lbl={}, iper={}'.format(lbl, iper)]
-        ax = newfigs(titles=titles, xlabel='column', ylabels=['row', 'row'],
+        titles=[f"Top layer, lbl={lbl}, iper={iper}",
+                f"Bottom layer, lbl={lbl}, iper={iper}"]
+        ax = etc.newfigs(titles=titles, xlabel='column', ylabels=['row', 'row'],
                      sharx=True, sharey=True, figsize=figsize)
         ax[0].spy(IB[0], marker='.', markersize=2)
         ax[1].spy(IB[1], marker='.', markersize=2)
@@ -1043,6 +1071,10 @@ class Watbal_obj:
         @TO 20200907 turned Watbal into class Wabal_Obj
         @TO 20231023 update to mf6, changed W to dict for easier understanding
         """
+        start_watbal = time.perf_counter()
+        
+        logger.info("Creating the Watbal_obj")
+        
         required_modflow_packages = ['RCH', 'EVT', 'WEL', 'GHB', 'RIV', 'DRN',
                                      'FLF', 'STO-SS', 'STO-SY']
         self.labels = required_modflow_packages #Layer 0 labels
@@ -1050,11 +1082,17 @@ class Watbal_obj:
         self.gr = gr
         
         model = sim.get_model(list(sim.model_names)[0])
-        self.CBC = model.output.budget()
+        
+        logger.info("model.output.budget() takes time ...")
+        
+        with log_timed(logger, 'loading model.output.budget()'):
+            self.CBC = model.output.budget()
         
         # Get structured flows because we need the flow_lower_face
-        grb_file = os.path.join(dirs.GWF, sim.name + 'Gwf.dis.grb') # Flopy's grid 
-        fflows = get_structured_flows_as_dict(self.CBC, grb_file=grb_file)
+        grb_file = os.path.join(dirs.GWF, sim.name + 'Gwf.dis.grb') # Flopy's grid
+        
+        with log_timed(logger, 'computing stuctured flows'): 
+            fflows = get_structured_flows_as_dict(self.CBC, grb_file=grb_file)
 
         kstpkper = self.CBC.get_kstpkper()
         
@@ -1068,15 +1106,16 @@ class Watbal_obj:
         # entire modeled region, divide by the size of the model's region and multiply bye
         # The parcel's true area. The region's true area is the sum over all parcels true area.
         
-        # Multiply array with active cells. Active is 1 and inactive is 0
+        # --- Multiply array with active cells. Active is 1 and inactive is 0
         active = model.get_package('DIS').idomain.data
         active[active !=0 ] = 1
 
-        # Area of each cross section
+        # --- Area of each cross section
         A_xsec = (gr.Area * active[0]).sum(axis=-1)
          
-        # Contribution of each true parcel area to total of the modeled region                
+        # --- Contribution of each true parcel area to total of the modeled region                
         self.W = dict() # keys are watbal labels,  values are float (nlay, nrow, nper)
+        
         _vals3D = np.zeros(gr.shape).ravel()
         print('Setting up Watbal_Obj ...')
         for lbl in self.labels:
@@ -1115,12 +1154,13 @@ class Watbal_obj:
                     self.W[lbl][ 0, :, iper] = -fflows[kstpkper[iper]]['flf'][0][0].sum(axis=-1)
                     if iper % 100 == 0: print('.', end='') # Show progress                
             else:
-                raise ValueError("Illegal label {}".format(lbl))
-            print('Last iper for {}: {}'.format(lbl, iper))
+                raise ValueError(f"Illegal label {lbl}")
+            print(f"Last iper for {lbl}: {iper}")
         for lbl in self.W: # prevents clash with STO-SS and STO-SY            
             self.W[lbl] /= A_xsec[np.newaxis, : , np.newaxis] # from m3/d to m/d # not yet summed over all parcels!
 
         print('Done. See self.CBC and self.W')
+        logger.info(f"Watbal_obj created in {time.perf_counter() - start_watbal:.2f} seconds")
 
 
     def plot(self, parcel_data=None, tdata=None,
@@ -1168,7 +1208,7 @@ class Watbal_obj:
         # Two axes, one for the running budget of the top layer
         # and one for the running budget of the bottom layer
         if ax is None:
-            ax = newfigs(titles=(
+            ax = etc.newfigs(titles=(
                     'Water balance top layer. '   + ttl,
                     'Water balance botom layer. ' + ttl), xlabel='time', ylabels=['mm/d', 'mm/d'],
                          figsize=(14, 8), sharey=False, sharex=True)
@@ -1225,26 +1265,28 @@ def get_test_parcels(path, sheet_name, test_id_col='Test'):
 
     return parcel_data
 
-# === if __main__ =====
-
-if __name__ == "__main__":
+if __name__ == '__main__':
+    start_main = time.perf_counter()
+    
+    logger.info("Runing ggor_tools __main__ section")
+    logger.info("TODO: check this main section")
     
     test = True
     
     HOME = os.getcwd()
     
-    logging.warning("cwd = {}".format(os.getcwd()))
+    logger.warning("cwd = {}".format(os.getcwd()))
     dirs = mf6tools.Dirs(HOME)
     dirs.add_case('AAN_GZK')
 
     mf_parameters_wbk = os.path.join(dirs.mf_parameters, 'mf_parameters.xlsx')
 
     #Get the meteo data from an existing file or directly from KNMI
-    meteo_data = knmi.get_weather(stn=240, start='20100101', end='20191231',
+    meteo = knmi.get_weather(stn=240, start='20100101', end='20191231',
                                   folder=dirs.meteo)
 
     # Add columns "summer' and "hyyear" to it"
-    tdata = handle_meteo_data(meteo_data, summer_start=4, summer_end=10)
+    tdata = handle_meteo_data(meteo, summer_start=4, summer_end=10)
     tdata = tdata.iloc[:1000] # Limits data set just for testing
     if test:
         tdata = gen_testdata(tdata=tdata,
@@ -1273,4 +1315,4 @@ if __name__ == "__main__":
     # MODFLOW grid
     gr = grid_from_parcel_data(parcel_data=parcel_data, dx=1.0) 
 
-    print('---- All done ! ----')
+    logger.info(f"ggor_tools __main__ section done in {time.perf_counter() - start_main:.2f} seconds")
