@@ -2,4 +2,6 @@
 **/*.pyc
 **/_pycache_
 **/~$*
-/cases/**
+doc/literature/*
+
+
