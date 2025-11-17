@@ -1,8 +1,43 @@
-**/mfiles
-**/_pychache_
-**/SIM/*
-**/GWF/*
-**/GWT/*
-.venv*/*
-**/*.mppth
+# Bytecode
+__pycache__/
+*.py[cod]
+*.pyo
 
+# Virtual environments
+.venv*/
+venv/
+venvs/
+*/.venv/
+*/venv/
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build things
+dist/
+build/
+*.egg-info/
+
+# Old mfiles
+mfiles/
+
+# Modflow generated output
+**/SIM/*
+!**/SIM/.gitkeep
+
+**/GWF/*
+!**/GWF/.gitkeep
+
+**/GWT/*
+!**/GWT/.gitkeep
+
+**/MP7/*
+!**/MP7/.gitkeep
+
+# Scratch
+logs/
+tmp/
+scratch/
