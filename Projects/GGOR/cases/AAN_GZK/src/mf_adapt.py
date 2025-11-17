@@ -40,38 +40,19 @@ Modflow 6, they well be used to update the default values for each module.
 # %% --- imports
 import os
 import mf6_bootstrap
-mf6_bootstrap
-
 import numpy as np
 import time
-from contextlib import contextmanager
-
+from timing import log_timed
 from settings import (sim_name, dirs, ggt,
                       get_tdata, get_parcel_data, get_grid,
                       props
                       )
-
-# from settings import params_wbk # will be required by mf_setup.py
-
 import logging
+import logging_setup
 
 # --- setting up the logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
-if __name__ == "__main__":
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [%(levelname)s] %(message)s",
-        datefmt="%H:%M:%S"
-    )
-
-# --- Setting up timing
-@contextmanager
-def log_timed(logger, msg):
-    start = time.perf_counter()
-    yield
-    logger.info(f"{msg} in {time.perf_counter() - start:.2f} seconds")
 
 # --- Rest of the script
 start_script = time.perf_counter()
@@ -299,7 +280,7 @@ parcel_data.to_pickle(pdata_pkl)
 logger.info(f"parcel_data pickled to {pdata_pkl}")
 
 # --- Pickling the tdata pd.DataFrame
-tdata_pkl = os.path.join(dirs.data, 'tdata_pkl')
+tdata_pkl = os.path.join(dirs.data, 'tdata.pkl')
 logger.info(f"tdata pickled to {tdata_pkl}")
 tdata.to_pickle(tdata_pkl)
 

@@ -46,6 +46,7 @@ from KNMI import knmi
 from fdm.src.mfgrid import Grid
 from fdm.src.mf6_face_flows import get_structured_flows_as_dict
 import etc
+import xarray as xr
 
 import mf6tools as mf6tools
 
@@ -230,8 +231,9 @@ def handle_meteo_data(meteo=None, summer_start=4, summer_end=9):
 
     Added columns are
         summer: bool
-        hyear: hydrological year. They atart at April 1 and end March 31 to get proper GVG. Do not change this !
-            GVG will be the mean of the values on 14/3, 28/3 and 14/4 of each hydological year'
+        hyear: hydrological year. From April 1 to March 31 of next year.
+            GVG will be the mean of the values on 14/3, 28/3 and 14/4 of around
+            the start of each hydological year (theoretically April 1)'
         hand: official groundwater measurement dates: 14th and 28th of every month)
 
     Parameters
@@ -262,8 +264,8 @@ def handle_meteo_data(meteo=None, summer_start=4, summer_end=9):
                                for t in meteo.index]
 
     # --- hydrological year column 'hyear'
-    hyear_start_month = 3   # Don't change! It's needed in the GXG class
-    hyear_start_day   = 14  # Don't change! It's needed in the GXG class
+    hyear_start_month = 4  # Don't change! It's needed in the GXG class
+    hyear_start_day   = 1  # Don't change! It's needed in the GXG class
     meteo.loc[:, 'hyear'] = [t.year
         if t.month >= hyear_start_month and t.day >= hyear_start_day
         else t.year - 1 for t in meteo.index]
@@ -781,8 +783,19 @@ class Heads_obj:
         self.model =  sim.get_model(list(sim.model_names)[0])
         self.gr = gr
         self.HDS = self.model.output.head() # Flopy heads object
-        heads = self.HDS.get_alldata() # (nper, nlay, nrow, ncol)
-        self.tdata = tdata # original GeoDataFrame with extra columns
+        
+        heads = xr.DataArray(
+            self.HDS.get_alldata(), # (nper, nlay, nrow, ncol)
+            dims = ['time', 'lay', 'row', 'col'],
+            coords = {
+                'time': tdata.index.values,
+                'lay': np.arange(gr.nlay),
+                'row': np.arange(gr.nrow),
+                'col': np.arange(gr.ncol),                
+            }
+        )
+        
+        self.tdata = tdata # pandas DtaFrame with extra columns
 
         # --- Active cells
         active = self.model.dis.idomain.get_data(); active[active!=0] = 1
@@ -846,16 +859,19 @@ class Heads_obj:
         self.LG3 = dict() # per hyear (3, nparcel) heads and (3, nparcel) timestamps
 
         for hyear in hyears:
-            ah = ahds[tdath['hyear'] == hyear]
-            td = np.array(tdxh[tdath['hyear'] == hyear])
-
-            # --- indices to select which time data (no argsort here)
-            Ias = np.arange(len(td), dtype=int).reshape(len(td), 1) @ np.ones((1, nparcel), dtype=int)
+            # --- GVG first:
+            t_vg3 = np.array([np.datetime64(f"{hyear}-03-14"),
+                              np.datetime64(f"{hyear}-03-28"),
+                              np.datetime64(f"{hyear}-04-14")])            
             
             # --- to make this work, our hydrological year starts at March 14th, don't change!
-            self.VG3[hyear] = {'h': np.take_along_axis(ah,          Ias[:3, :], axis=0),
-                               't': np.take_along_axis(td[:, None], Ias[:3, :], axis=0)
+            vg3 = self.avgHds.sel(time=t_vg3, method='nearest').sel(lay=0)
+            self.VG3[hyear] = {'h': vg3,
+                               't': np.broadcast_to(vg3.time.values[:, None], (3, self.gr.nrow))
             }
+
+            ah = ahds.data[tdath['hyear'] == hyear]
+            td = np.array(tdxh[tdath['hyear'] == hyear])
             
             # --- argsort along time axes to allow selecting the 3 highest and lowest values in hyear
             Ias = np.argsort(ah, axis=0)  # Indices of (len(ah), nparcel))
@@ -894,10 +910,12 @@ class Heads_obj:
       
 
     def plot(self, axs=None, tdata=None, parcel_data=None,
-                   parcels=[0, 1, 2, 3, 4],
+                   parcels=[0, 1],
                    titles=['Heads0', 'Heads1'], xlabel='time [d]', ylabels=['head0 [m]', 'head1 [m]'],
                    figsize=(14, 8), loc='best', plotGXG=True, **kwargs):
         """Plot the running heads in both layers.
+        
+        Don't use more than 1 or two parcels, to prevent a messy graph.
 
         Parameters
         ----------
@@ -979,30 +997,29 @@ class Heads_obj:
                     
             ax.legend(loc=loc, fontsize='xx-small')
             
-            plot_hydrological_year_boundaries(ax=ax, tindex=self.tdata.index)
+            plot_hydrological_year_boundaries(axs=axs, tindex=self.tdata.index)
                         
         return axs
 
 
-def plot_hydrological_year_boundaries(ax=None, tindex=None):
+def plot_hydrological_year_boundaries(axs=None, tindex=None):
     """Plot hydrological year boundaries on a given axis.
 
     Parameters
     ----------
-    ax: plt.Axes
-        an existing axes with a datatime x-axis
+    axs: plt.Axes of a list of plt.Axes
+        an existing axes or a list of axes with a datatime x-axis
     tindex: DateTime index
         tindex to use for this graph.
     """
     years = np.unique(np.array([t.year for t in tindex]))
 
-    if isinstance(ax, plt.Axes): ax = [ax]
-    for a in ax:
+    if isinstance(axs, plt.Axes): axs = [axs]
+    for ax in axs:
         for yr in years:
             t = np.datetime64(f'{yr}-04-01')
             if t > tindex[0] and t < tindex[-1]:
-                a.axvline(t, color='gray', ls=':')
-
+                ax.axvline(t, color='gray', ls=':')
 
 
 def show_boundary_locations(lbls=None, CBC=None, iper=0, figsize=(10,8.5)):
@@ -1276,7 +1293,7 @@ if __name__ == '__main__':
     HOME = os.getcwd()
     
     logger.warning("cwd = {}".format(os.getcwd()))
-    dirs = mf6tools.Dirs(HOME)
+    dirs = mf6tools.Dirs()
     dirs.add_case('AAN_GZK')
 
     mf_parameters_wbk = os.path.join(dirs.mf_parameters, 'mf_parameters.xlsx')
