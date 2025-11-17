@@ -39,6 +39,9 @@ mfiles/
 **/MP7/*
 !**/MP7/.gitkeep
 
+# Pickled files
+*.pkl
+
 # Scratch
 logs/
 tmp/
