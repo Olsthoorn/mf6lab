@@ -1105,10 +1105,10 @@ class Watbal_obj:
         with log_timed(logger, 'loading model.output.budget()'):
             self.CBC = model.output.budget()
         
-        # Get structured flows because we need the flow_lower_face
-        grb_file = os.path.join(dirs.GWF, sim.name + 'Gwf.dis.grb') # Flopy's grid
-        
-        with log_timed(logger, 'computing stuctured flows'): 
+        # --- Flow Lower Face needed        
+        with log_timed(logger, 'computing stuctured flows'):
+            # --- Get structured flows because we need the flow_lower_face
+            grb_file = os.path.join(dirs.GWF, sim.name + 'Gwf.dis.grb') # Flopy's grid
             fflows = get_structured_flows_as_dict(self.CBC, grb_file=grb_file)
 
         kstpkper = self.CBC.get_kstpkper()
@@ -1133,44 +1133,64 @@ class Watbal_obj:
         # --- Contribution of each true parcel area to total of the modeled region                
         self.W = dict() # keys are watbal labels,  values are float (nlay, nrow, nper)
         
-        _vals3D = np.zeros(gr.shape).ravel()
+        # --- vector of len(gr.nod) to store Q-values
+        _vals3D = np.zeros(gr.shape).flatten()
+        
+        
         print('Setting up Watbal_Obj ...')
         for lbl in self.labels:
+            # --- Only use the first 3 characters of the lbl
+            # --- Array is [nlay, nrow, nper]
             self.W[lbl[:3]] = np.zeros((self.CBC.nlay, self.CBC.nrow, self.CBC.nper))
             print(lbl, end='')
             
             # For these labels, the packages of which CBC values are obtained
-            # in a recarray with 'node' and 'q' with:
+            # as a list (nper long) of recarrays (see dtype)
             # dtype = [('node', '<i4'), ('node2', '<i4'), ('q', '<f8')])
             # The dimension will be [L3/T]
+            # The W[labl] array will be [nlay, nrow, nper]
+            
+            # --- Three-character labels (FLF, STO-SY and STO-SS dealt with below)
             if lbl in ['WEL', 'GHB', 'RIV', 'DRN', 'RCH', 'EVT']:
                 
-                vals = self.CBC.get_data(text=lbl) # as recarray with given dtype
+                # --- list of len nper with recarray of non-zero cell values (see dtype)
+                # --- for the given lbl
+                vals = self.CBC.get_data(text=lbl) # as list of recarrays with given dtype
                 
                 for iper in range(self.CBC.nper):
-                    # Vals contains all non-zero node values at once
+                    # --- vals recarray non-zero node values for this stress period
                     Ivals = vals[iper]['node'] - 1 # zero-based Modflow node numbers
                     Q     = vals[iper]['q']
                     
+                    # --- vals3D shape (nod,)
+                    # --- put the non-zero Q values
                     _vals3D[:] = 0. # reset _vals3D to zeros for next loop cycle
                     _vals3D[Ivals] = Q
                     
-                    # Sum _vals3D over the columns of the model strutured grid
+                    # --- Sum _vals3D over the columns of the model's structured grid
                     self.W[lbl][:, :, iper] = _vals3D.reshape(gr.shape).sum(axis=-1)
                     
-                    # Show progress
-                    if iper % 100 == 0: print('.',end='')                
+                    # --- Show progress
+                    if iper % 100 == 0: print('.',end='')
+
             elif lbl in ['STO-SY', 'STO-SS']:
-                vals = self.CBC.get_data(text=lbl) # as a full 3D arrwy over the grid
+                # --- STO-SY and STO-SS not three-character labels, dealt with separately here
+                # --- self.CBC returns a list of nper full 3D arrays of size gr.shape
+                vals = self.CBC.get_data(text=lbl)
                 for iper in range(self.CBC.nper):
                     self.W[lbl[:3]][:, :, iper] += np.sum(vals[iper], axis=-1) # W['STO']
-                    if iper % 100 == 0: print('.', end='') # Show progress                
-            elif lbl in ['FLF']:                
+                    if iper % 100 == 0: print('.', end='') # Show progress
+                                    
+            elif lbl in ['FLF']:
+                # --- FLF not given by MF6, dealt with separately here  
+                # --- fflows has been generated as standard FLF, FLR, FRF.
+                # --- Only FLF (flow lower face) is required.
                 for iper in range(self.CBC.nper):
                     self.W[lbl][-1, :, iper] = +fflows[kstpkper[iper]]['flf'][0][0].sum(axis=-1)
                     self.W[lbl][ 0, :, iper] = -fflows[kstpkper[iper]]['flf'][0][0].sum(axis=-1)
                     if iper % 100 == 0: print('.', end='') # Show progress                
             else:
+                # --- landing here should be impossible
                 raise ValueError(f"Illegal label {lbl}")
             print(f"Last iper for {lbl}: {iper}")
         for lbl in self.W: # prevents clash with STO-SS and STO-SY            
