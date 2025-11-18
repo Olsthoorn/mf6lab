@@ -42,13 +42,14 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import geopandas as gpd
+from pathlib import Path
 from KNMI import knmi
 from fdm.src.mfgrid import Grid
 from fdm.src.mf6_face_flows import get_structured_flows_as_dict
 import etc
 import xarray as xr
 
-import mf6tools as mf6tools
+from mf6tools import Dirs
 
 # --- setting up the logger
 import logging
@@ -275,6 +276,63 @@ def handle_meteo_data(meteo=None, summer_start=4, summer_end=9):
     return meteo
 
 
+def get_tdata(dirs=None, stn=240, start='20100101', end='20191231', folder=None):
+    """Return the meteo data, handle it and return it as a pd.DataFrame
+    
+    Hanling implies adding columns "hyear" and "hand
+    
+    Parameters
+    ----------
+    stn: int
+        KNMI station (240 = De Bilt)
+    start, end: 'yyyymmdd'
+        start and end of the index of tdata
+    folder: path
+        folder with the KNMI meteo data (dirs.meteo)
+    """
+    meteo_data = knmi.get_weather(
+            stn=stn,  # KNMI station number for De Bilt
+            start=start,
+            end=end,
+            folder=folder # dirs.meteo
+    )
+    tdata = handle_meteo_data(meteo_data,
+                                  summer_start=4,
+                                  summer_end=10)
+    return tdata
+
+
+def get_parcel_data(dirs=None, defaults=None, BMINMAX=(5, 250)):
+    """Return the geopandas.GeoDataFrame with the parcel data.
+    
+    Bofek data, converts from Bofek codes to
+    the soil properties kh, kv and sy.
+    The BOFEK column represents a Dutch standardized soil type.
+    The corresponding values for 'kh', 'kv' and 'Sy' are currently read from an Excel worksheet into a pandas DataFrame (thus becoming a table)
+    
+    Parameters
+    ----------
+    defaults: ggr.defaults a dict
+        defaults from ggor_tools
+    BMINMAX: (float, float)
+        minimum and maximum values of parcel half-width
+    """    
+    bofek = pd.read_excel(
+        os.path.join(dirs.bofek, "BOFEK eenheden.xlsx"),
+        sheet_name = 'bofek',
+        index_col=0,
+        engine="openpyxl")
+    
+    # --- Create a GGOR_modflow object and
+    # --- get the upgraded parcel_data from it,
+    # --- excluding parcels that are too small BMIN or too wide BMAX    
+    parcel_data = GGOR_data(dirs=dirs,
+                            defaults=defaults, # ggt.defaults,
+                            bofek=bofek,
+                            BMINMAX=BMINMAX,
+                            ).data
+    return parcel_data
+
 def grid_from_parcel_data(parcel_data=None, dx=None, laycbd=(1, 0)):
     """Get gridobject for GGOR simulation.
 
@@ -479,6 +537,14 @@ def get_RIV_Cond(pdata=None, gr=None, use_w_not_c=None):
     cond[np.isnan(cond)] = 0. # When ditch_omega is zero
     return cond
 
+def get_case_name(dirs):
+    """Return the case_name from dirs.case"""
+    parts = Path(dirs.case).parts
+    try:
+        case_name = parts[parts.index('mf6lab') + 4]
+    except Exception:
+        raise ValueError(f"No case_name in {dirs.case}")
+    return case_name
 
 class GGOR_data:
     """Cleaned parcel data object. Only its self.parcel_data will be used (pd.DataFrame)."""
@@ -496,9 +562,8 @@ class GGOR_data:
             bofek are Dutch standardized soil parameters, see Internet.
         BMINMAX: tuple of 2 floats
             min and max halfwidth value for parcels to be considered.
-        """
-
-        sim_name = os.path.basename(dirs.case)
+        """        
+        sim_name = get_case_name(dirs)
         
         # --- read dbf file into pd.DataFrame
         
@@ -506,7 +571,7 @@ class GGOR_data:
         # self.data = data_from_dbffile(os.path.join(dirs.data, sim_name + '.dbf'))
         
         # --- Use geopandas read the .pgkg file directly
-        case_gpkg_file = os.path.join(dirs.data, sim_name + '.gpkg')
+        case_gpkg_file = os.path.join(dirs.GIS, sim_name + '.gpkg')
         self.data = gpd.read_file(case_gpkg_file)
 
         # replace column names to more generic ones
@@ -1313,7 +1378,7 @@ if __name__ == '__main__':
     HOME = os.getcwd()
     
     logger.warning("cwd = {}".format(os.getcwd()))
-    dirs = mf6tools.Dirs()
+    dirs = Dirs()
     dirs.add_case('AAN_GZK')
 
     mf_parameters_wbk = os.path.join(dirs.mf_parameters, 'mf_parameters.xlsx')

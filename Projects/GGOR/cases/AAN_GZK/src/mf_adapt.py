@@ -39,18 +39,25 @@ Modflow 6, they well be used to update the default values for each module.
 """
 # %% --- imports
 import os
-import mf6_bootstrap
+import sys
+from pathlib import Path
+
+# Set cwd to <case>/src
+os.chdir(Path(__file__).parent) # noqa: F401
+
+import mf6_bootstrap # noqa: F401
 import numpy as np
 import time
 from timing import log_timed
-from settings import (sim_name, dirs, ggt,
-                      get_tdata, get_parcel_data, get_grid,
-                      props
-                      )
+from mf6tools import Dirs
+import ggor_tools as ggt
+from settings import props
 import logging
-import logging_setup
+import logging_setup # noqa: F401
 
 # --- setting up the logger
+case_name = Path(__file__).parent.parent.parts[-1]
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -63,16 +70,21 @@ NOT = np.logical_not
 AND = np.logical_and
 OR  = np.logical_or
 
+dirs = Dirs()
+dirs.meteo = os.path.join(Path(dirs.proj).parent, 'data', 'meteo')
+dirs.bofek = os.path.join(Path(dirs.proj).parent, 'data', 'bofek')
+
+
 # %% --- tdis ======  time discretization
 with log_timed(logger, 'tdata generated and pickled'):
-    tdata = get_tdata(stn=240,
+    tdata = ggt.get_tdata(dirs=dirs,  stn=240,
                   start='20100101', end='20191231',
-                  folder=dirs.data_meteo)
+                  folder=dirs.meteo)
     tdata_file = os.path.join(dirs.data, 'tdata.pkl')
     tdata.to_pickle(tdata_file)
     
 with log_timed(logger, "Parcel_data generated and pickled"):
-    parcel_data = get_parcel_data(defaults=ggt.defaults, BMINMAX=(5, 250))
+    parcel_data = ggt.get_parcel_data(dirs=dirs, defaults=ggt.defaults, BMINMAX=(5, 250))
     pdata_file = os.path.join(dirs.data, 'parcel_data.pkl')
     parcel_data.to_pickle(pdata_file)
 
@@ -93,7 +105,8 @@ Simtdis = {'perioddata': period_data,
            }
 
 with log_timed(logger, "grid generated"):
-    gr = get_grid(parcel_data=parcel_data, dx=props['dx'])
+    gr = ggt.grid_from_parcel_data(parcel_data=parcel_data,
+                                   dx=props['dx'])
 
 
 # %% --- Gwfdis ======
@@ -266,8 +279,8 @@ Gwfdrn = {
 }
 
 # %% --- Gwfoc ==== Output control for flow model
-Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(sim_name)),
-         'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(sim_name)),
+Gwfoc = {'head_filerecord':   os.path.join(dirs.SIM, "{}Gwf.hds".format(case_name)),
+         'budget_filerecord': os.path.join(dirs.SIM, "{}Gwf.cbc".format(case_name)),
          'saverecord': [("HEAD", "FREQUENCY", props['oc_frequency']),
                         ("BUDGET", "FREQUENCY", props['oc_frequency'])],
 }

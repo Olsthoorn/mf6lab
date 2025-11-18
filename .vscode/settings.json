@@ -1,3 +1,4 @@
 {
+    "terminal.integrated.inheritEnv": true,
     "python.envFile": "${workspaceFolder}/.env"
 }
