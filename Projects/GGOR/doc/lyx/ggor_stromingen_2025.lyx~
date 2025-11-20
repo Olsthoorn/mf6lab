@@ -1,0 +1,727 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% \lstdefinestyle{mystyle}{
+%   language=Python,
+%   numbers=left
+% }
+
+% Put lstset here, after lstdefinestyle
+% \lstset{style=mystyle}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement h
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=left,% line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Author
+Theo Olsthoorn
+\end_layout
+
+\begin_layout Date
+Nov.
+ 2025
+\end_layout
+
+\begin_layout Abstract
+1.
+ Motivatie
+\end_layout
+
+\begin_layout Abstract
+Waarom een eigen toolkit bovenop MODFLOW 6?
+\end_layout
+
+\begin_layout Abstract
+Wat ontbrak er in de standaard-tools?
+\end_layout
+
+\begin_layout Abstract
+Wat maakt de benadering uniek (bijv.
+ Numpy-vectorisering,
+ analytische inzichten,
+ consistente datastructuur)?
+\end_layout
+
+\begin_layout Abstract
+2.
+ Globale architectuur
+\end_layout
+
+\begin_layout Abstract
+Zonder codefragmenten —
+ meer als:
+\end_layout
+
+\begin_layout Abstract
+hoe cases zijn opgebouwd (in-/outputstructuur)
+\end_layout
+
+\begin_layout Abstract
+hoe modellen worden opgebouwd (grid,
+ packages)
+\end_layout
+
+\begin_layout Abstract
+het idee achter de src/ modules
+\end_layout
+
+\begin_layout Abstract
+waarom bootstraps exist
+\end_layout
+
+\begin_layout Abstract
+3.
+ De workflow
+\end_layout
+
+\begin_layout Abstract
+Enkele duidelijke diagrammen:
+ input → preprocessing → modelbouw → run → postprocessing → visualisatie
+\end_layout
+
+\begin_layout Abstract
+De typische gebruiker:
+ “maak een case,
+ pas parameters aan,
+ run,
+ inspecteer resultaten”
+\end_layout
+
+\begin_layout Abstract
+4.
+ Technische keuzes die ertoe doen
+\end_layout
+
+\begin_layout Abstract
+Numpy-implementatie (maskers,
+ vectorisaties,
+ performance)
+\end_layout
+
+\begin_layout Abstract
+Structuur van de aquifer-parameters
+\end_layout
+
+\begin_layout Abstract
+Hoe je modellering van drains,
+ line sinks,
+ stream packages,
+ etc.
+ hebt opgezet
+\end_layout
+
+\begin_layout Abstract
+Waar analytische kennis het numerieke werk beïnvloedt
+\end_layout
+
+\begin_layout Abstract
+5.
+ Een kort voorbeeld
+\end_layout
+
+\begin_layout Abstract
+Geen volledige code,
+ gewoon data + figuur
+\end_layout
+
+\begin_layout Abstract
+Bijvoorbeeld:
+ een eenvoudige grondwaterverlaging langs een lijn
+\end_layout
+
+\begin_layout Abstract
+6.
+ Reflectie / Lessons learned
+\end_layout
+
+\begin_layout Abstract
+Wat werkt goed?
+\end_layout
+
+\begin_layout Abstract
+Wat werkt nog niet zoals gewenst?
+\end_layout
+
+\begin_layout Abstract
+Waar ontwikkelt het pakket naartoe?
+\end_layout
+
+\begin_layout Section*
+Motivatie
+\end_layout
+
+\begin_layout Standard
+Waternet bereidt o.a.
+ bestuurlijke peilwijzigingen voor,
+ waartoe eerst de GGOR (gewenst grond- en oppervlaktewater regiem) moet worden vastgesteld.
+ Per peilgebied,
+ zoals een polder,
+ zijn honderden tot duizenden percelen betroffen.
+ Het is dus van belang te beschikken over een flexibel instrumentarium voor het simultaan berekenen van de GXG (GHG,
+ GVG en GLG) van deze percelen.
+ Uiteraard moet het berekende peilregime vervolgens worden doorvertaald naar de invloed op gebiedsfuncties waar een GIS instrumentarium beschikbaar is.
+ Dit artikel beperkt zich tot de simultane berekening van het peilregime van de percelen in een peilgebied.
+\end_layout
+
+\begin_layout Standard
+Waternet gebruikte voor deze berekening een stationaire analytische formule die de stijghoogte in een toppakket beschrijft tussen twee sloten boven een regionale aquifer.
+ Dit legt beperkingen op:
+ De berekening van dag tot dag is hierdoor quasi niet-stationair,
+ met intrede- en uittredeweerstand werd geen rekening gehouden en ook oppervlakteafvoer bleef buiten beschouwing.
+ Maar de berekening was wel efficiënt.
+ Veel van de tekortkomingen kunnen ongedaan worden gemaakt door meer geavanceerde analytische oplossingen te gebruiken,
+ maar volledige flexibiliteit levert dat niet.
+ Omdat er duidelijk behoefte wat aan een instrument dat zulke tekortkomingen niet heeft,
+ is gekozen voor een numerieke aanpak met Modflow.
+\end_layout
+
+\begin_layout Standard
+Het concept is eenvoudig.
+ Reduceer elk perceel tot een (halve) doorsnede,
+ net als de analytische oplossing.
+ Maar vervolgens een Modflow model waarbij elke rij een perceel representeert en reken dit model in een keer door over de gewenste periode van zeg 10 jaar.
+\end_layout
+
+\begin_layout Standard
+De breedte van het model wordt bepaald door de halve breedte van het breedste perceel in het peilgebied en de percelen worden onafhankelijk van elkaar berekend door de doorlatendheid langs de kolommen van het Modflow netwerk gelijk aan nul (of praktisch nul) te kiezen.
+ De specifieke breedte van elke perceel wordt gerealiseerd door kolommen buiten de halve breedte van het perceel in Modflow inactief te maken.
+ Dit is in essentie de opzet van de moderne GGOR-berekening.
+ Eerder is hiervan reeds een versie in Matlab geïmplementeerd,
+ maar hij is er sinds kort ook in Python,
+ gebruik makend van flopy als interface tussen Python en Modflow.
+ De software is vrij beschikbaar op github.
+\end_layout
+
+\begin_layout Standard
+De numerieke GGOR-tool reduceert net als zijn analytische voorganger elk perceel tot een doorsnede.
+ Aangezien verreweg de meeste percelen veel langer zijn dan breed is dat een acceptabele aanpak voor een gebied.
+ Zonder deze beperking wordt de rekenomvang en het geheugengebruik wel heel erg groot.
+ Stel dat het gedetailleerd modelleren van een perceel van 100 bij 500 m en 2 modellagen afhankelijk van de gewenste resolutie zo'n 10000 rekencellen vergt,
+ dan worden dit er met 2000 percelen al 20 miljoen,
+ die ca.
+ 4000 dagen niet-stationair moeten worden doorgerekend,
+ wat 4 ca.
+ 80 miljard stijghoogten en ca.
+ 800 miljard debieten oplevert.
+ We kunnen dit tot ca.
+ 1 stijghoogten en 10 miljard debieten beperken door alleen een doorsnede per perceel door te rekenen,
+ wat met Modflow,
+ goed te doen is.
+ We hebben het dan over een celbreedte van 1 m in de doorsnedes.
+\end_layout
+
+\begin_layout Part*
+Suggesties
+\end_layout
+
+\begin_layout Standard
+* a fresh,
+ clean Python implementation,
+\end_layout
+
+\begin_layout Standard
+* years of accumulated hydrological intuition,
+\end_layout
+
+\begin_layout Standard
+* and now your resurrected “historical archive” of the analytic theory.
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+# 🌊 **Article 1 —
+ mf6lab implementation (±4000 woorden)**
+\end_layout
+
+\begin_layout Standard
+**Goal:** explain *how* the system works,
+ but in a way that hydrologists (not programmers) can follow.
+\end_layout
+
+\begin_layout Standard
+A nice structure could be:
+\end_layout
+
+\begin_layout Standard
+### **1.
+ Motivatie**
+\end_layout
+
+\begin_layout Standard
+* Waarom een eigen toolkit bovenop MODFLOW 6?
+\end_layout
+
+\begin_layout Standard
+* Wat ontbrak er in de standaard-tools?
+\end_layout
+
+\begin_layout Standard
+* Wat maakt de benadering uniek (bijv.
+ Numpy-vectorisering,
+ analytische inzichten,
+ consistente datastructuur)?
+\end_layout
+
+\begin_layout Standard
+### **2.
+ Globale architectuur**
+\end_layout
+
+\begin_layout Standard
+Zonder codefragmenten —
+ meer als:
+\end_layout
+
+\begin_layout Standard
+* hoe cases zijn opgebouwd (in-/outputstructuur)
+\end_layout
+
+\begin_layout Standard
+* hoe modellen worden opgebouwd (grid,
+ packages)
+\end_layout
+
+\begin_layout Standard
+* het idee achter de `src/` modules
+\end_layout
+
+\begin_layout Standard
+* waarom bootstraps exist
+\end_layout
+
+\begin_layout Standard
+### **3.
+ De workflow**
+\end_layout
+
+\begin_layout Standard
+* Enkele duidelijke diagrammen:
+ *input → preprocessing → modelbouw → run → postprocessing → visualisatie*
+\end_layout
+
+\begin_layout Standard
+* De typische gebruiker:
+ “maak een case,
+ pas parameters aan,
+ run,
+ inspecteer resultaten”
+\end_layout
+
+\begin_layout Standard
+### **4.
+ Technische keuzes die ertoe doen**
+\end_layout
+
+\begin_layout Standard
+* Numpy-implementatie (maskers,
+ vectorisaties,
+ performance)
+\end_layout
+
+\begin_layout Standard
+* Structuur van de aquifer-parameters
+\end_layout
+
+\begin_layout Standard
+* Hoe je modellering van drains,
+ line sinks,
+ stream packages,
+ etc.
+ hebt opgezet
+\end_layout
+
+\begin_layout Standard
+* Waar analytische kennis het numerieke werk beïnvloedt
+\end_layout
+
+\begin_layout Standard
+### **5.
+ Een kort voorbeeld**
+\end_layout
+
+\begin_layout Standard
+* Geen volledige code,
+ gewoon data + figuur
+\end_layout
+
+\begin_layout Standard
+* Bijvoorbeeld:
+ een eenvoudige grondwaterverlaging langs een lijn
+\end_layout
+
+\begin_layout Standard
+### **6.
+ Reflectie / Lessons learned**
+\end_layout
+
+\begin_layout Standard
+* Wat werkt goed?
+\end_layout
+
+\begin_layout Standard
+* Wat werkt nog niet zoals gewenst?
+\end_layout
+
+\begin_layout Standard
+* Waar ontwikkelt het pakket naartoe?
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+# 📘 **Article 2 —
+ Analytic Solutions (±4000 woorden)**
+\end_layout
+
+\begin_layout Standard
+Dit artikel kan juist meer “Stromingen-wetenschappelijk” zijn.
+ Een verhaal over grondwaterfysica,
+ niet over software.
+\end_layout
+
+\begin_layout Standard
+### **1.
+ Inleiding:
+ waarom analytische oplossingen?**
+\end_layout
+
+\begin_layout Standard
+* Snelle interpretatie
+\end_layout
+
+\begin_layout Standard
+* Intuïtieve controle op MODFLOW-uitkomsten
+\end_layout
+
+\begin_layout Standard
+* Mechanistische inzichten (bijv.
+ ln-oplossingen,
+ transmissie-eigenschappen,
+ superpositie)
+\end_layout
+
+\begin_layout Standard
+### **2.
+ De kernideeën van de belangrijkste oplossingen**
+\end_layout
+
+\begin_layout Standard
+Bijvoorbeeld:
+\end_layout
+
+\begin_layout Standard
+* De radiale verlaging
+\end_layout
+
+\begin_layout Standard
+* De verlaging van een line sink
+\end_layout
+
+\begin_layout Standard
+* De multi-well superpositie
+\end_layout
+
+\begin_layout Standard
+* Weging en optimalisatie langs een lijn
+\end_layout
+
+\begin_layout Standard
+* Drains en riverbed conductance analytisch versus numeriek
+\end_layout
+
+\begin_layout Standard
+* Discussie:
+ wanneer werkt het goed,
+ wanneer niet?
+\end_layout
+
+\begin_layout Standard
+### **3.
+ Grafische uitleg in plaats van veel wiskunde**
+\end_layout
+
+\begin_layout Standard
+* Een goede grafiek overtuigt veel meer dan 10 vergelijkingen
+\end_layout
+
+\begin_layout Standard
+### **4.
+ Een voorbeeld van superpositie**
+\end_layout
+
+\begin_layout Standard
+* Toon hoe analytiek en MODFLOW elkaar kruisen
+\end_layout
+
+\begin_layout Standard
+* Een mooie figuur maakt dit meteen begrijpelijk
+\end_layout
+
+\begin_layout Standard
+### **5.
+ Praktische relevantie**
+\end_layout
+
+\begin_layout Standard
+* Hoe hydrologen dit kunnen gebruiken voor:
+\end_layout
+
+\begin_layout Standard
+* quick checks
+\end_layout
+
+\begin_layout Standard
+* sensitiviteitsanalyse
+\end_layout
+
+\begin_layout Standard
+* validatie van MODFLOW-simulaties
+\end_layout
+
+\begin_layout Standard
+* ontwerp van putten / drains / stuwen
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+# 🧭 *Hoe* je dit effectief schrijft (zodat het behapbaar blijft)
+\end_layout
+
+\begin_layout Standard
+Drie tips die écht helpen:
+\end_layout
+
+\begin_layout Standard
+### **1.
+ Werk met een “spine” document**
+\end_layout
+
+\begin_layout Standard
+Maak één “skelet-document” per artikel,
+ met alleen kopjes en bullets.
+\end_layout
+
+\begin_layout Standard
+Dan steeds 15–30 minuten per dag vullen.
+\end_layout
+
+\begin_layout Standard
+### **2.
+ Gebruik je oude document als bron —
+ maar niet letterlijk**
+\end_layout
+
+\begin_layout Standard
+Het is goud voor:
+\end_layout
+
+\begin_layout Standard
+* structuur
+\end_layout
+
+\begin_layout Standard
+* figuren
+\end_layout
+
+\begin_layout Standard
+* theoretische uitleg
+\end_layout
+
+\begin_layout Standard
+* voorbeelden
+\end_layout
+
+\begin_layout Standard
+Maar schrijf de tekst opnieuw.
+ Veel vloeit nu anders,
+ met jouw huidige kennis.
+\end_layout
+
+\begin_layout Standard
+### **3.
+ Bouw de figuren eerst**
+\end_layout
+
+\begin_layout Standard
+Stromingen is visueel ingesteld.
+\end_layout
+
+\begin_layout Standard
+Als de figuren mooi zijn,
+ volgt de tekst vanzelf.
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+# 🎯 Tot slot
+\end_layout
+
+\begin_layout Standard
+invalshoek:
+ *praktische grondwatermodellering op basis van moderne scripts zonder complexe GUIs,
+ maar met klassieke analytische fundamenten.*
+\end_layout
+
+\begin_layout Standard
+Dat is precies het soort artikel waar mensen bij Tauw,
+ Artesia,
+ Deltares en waterschappen blij van worden.
+\end_layout
+
+\begin_layout Standard
+* de outline verder aanscherpen
+\end_layout
+
+\begin_layout Standard
+* de figuren ontwerpen
+\end_layout
+
+\begin_layout Standard
+* de wiskunde mooi zetten
+\end_layout
+
+\begin_layout Standard
+* delen van de tekst redigeren
+\end_layout
+
+\begin_layout Standard
+* of zelfs een eerste rough-draft als je bullet lists geeft
+\end_layout
+
+\begin_layout Standard
+Doel is dit document te ontwikkelen tot een artikel van max 4000 woorden in Stromingen.
+\end_layout
+
+\end_body
+\end_document

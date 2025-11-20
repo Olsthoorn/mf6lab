@@ -40,35 +40,34 @@ Modflow 6, they well be used to update the default values for each module.
 # %% --- imports
 import os
 import sys
-from pathlib import Path
-
-# Set cwd to <case>/src
-os.chdir(Path(__file__).parent) # noqa: F401
-
-import mf6_bootstrap # noqa: F401
 import numpy as np
 import time
-from timing import log_timed
-from mf6tools import Dirs
-import ggor_tools as ggt
-from settings import props
+from pathlib import Path
 import logging
-import logging_setup # noqa: F401
+from mf6_bootstrap import activate # noqa: F401
+
+activate(verbose=True) # noqa: RUF100
+
+# --- Imports are not missing after activate(__file__)
+# ruff: noqa: E402
+
+from settings import props      # pyright: ignore[reportMissingImports]      
+from timing import log_timed    # pyright: ignore[reportMissingImports]
+from mf6tools import Dirs       # pyright: ignore[reportMissingImports]
+import ggor_tools as ggt        # pyright: ignore[reportMissingImports]
+from logging_setup import configure_logging # pyright: ignore[reportMissingImports]
 
 # --- setting up the logger
-case_name = Path(__file__).parent.parent.parts[-1]
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+configure_logging()
 
 # --- Rest of the script
+case_name = Path(__file__).parent.parent.parts[-1]
+
 start_script = time.perf_counter()
 
 logger.info("Running module as a script")
-
-NOT = np.logical_not
-AND = np.logical_and
-OR  = np.logical_or
 
 dirs = Dirs()
 dirs.meteo = os.path.join(Path(dirs.proj).parent, 'data', 'meteo')

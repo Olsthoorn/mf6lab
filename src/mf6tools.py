@@ -2,24 +2,16 @@
 
 import os
 import sys
-import mf6_bootstrap
-mf6_bootstrap.activate()
 
 import numpy as np
 import pandas as pd
 from pathlib import Path
 import logging
+from logging_setup import configure_logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
-if __name__ == "__main__":
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [%(levelname)s] %(message)s",
-        datefmt="%H:%M:%S"
-    )
-
+configure_logging()
 
 class Dirs():
     """
