@@ -3,7 +3,6 @@
 # Note that the PYTHONPATH is set in mflab/.env
 # Use VENV flopy by setting it
 
-
 """Simultate GGOR for nparcels using MODFLOW.
 
 * The parcels (area) data are in a shape file.
@@ -14,13 +13,17 @@
 * The results are shown for selected parcels (hds, GXG)
 * The running water budget is shown for all the parcels combined.
 
-Different scenarios can be dealt with as cases. Scenarios are used to simulate
-a regular case or for testing the behavior of the model in given test-circumstances.
+Different scenarios can be dealt with as cases. Scenarios are used
+to simulate a regular case or for testing the behavior of the model
+in given test-circumstances.
 
-A scenario for a test has for instance max 5 parcels. The the number of head
-time series to be plotted for verification is then also limited to 5.
-Hence a DataFrame needs to be generated from the data that define the properties of these parcels.
-This DataFrame can be read from an Excel workbook that bears the name of the case, which allows full control over the parcel properties of the test case.
+A scenario for a test has for instance max 5 parcels. The the number of
+head time series to be plotted for verification is then also limited to 5.
+Hence a DataFrame needs to be generated from the data that define
+the properties of these parcels.
+This DataFrame can be read from an Excel workbook that bears the name
+of the case, which allows full control over the parcel properties of the
+test case.
 
 The next data for a case is the meteo. These data too can be read from
 an excel sheet from the same workbook. The required fields are in the
@@ -28,12 +31,14 @@ example workbook named "test_basic.xlsx".
 
 @ TO 2020-09-06
 
-The GGOR has been converted to mf6 but using the structured grid, which makes best sense
-because we simulate each parcel as a single row of cells in the grid.
+The GGOR has been converted to mf6 but using the structured grid, which
+makes best sense because we simulate each parcel as a single row of
+cells in the grid.
 
-Below, the data for each modflow module to be adapted from the defaults, i.e. from those
-in the Excel workbook are specified below. Before saving the Modflow files and running
-Modflow 6, they well be used to update the default values for each module.
+Below, the data for each modflow module to be adapted from the
+defaults, i.e. from those in the Excel workbook are specified below.
+Before saving the Modflow files and running Modflow 6, they well be
+used to update the default values for each module.
 
 @ TO 2025-07-02
 """
@@ -57,18 +62,22 @@ from mf6tools import Dirs       # pyright: ignore[reportMissingImports]
 import ggor_tools as ggt        # pyright: ignore[reportMissingImports]
 from logging_setup import configure_logging # pyright: ignore[reportMissingImports]
 
-# --- setting up the logger
+# --- Setting up the logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 configure_logging()
 
-# --- Rest of the script
+# --- Rest of the script, building Modflow's intput.
+
+# --- The case_name, same as the directory name for this case
 case_name = Path(__file__).parent.parent.parts[-1]
 
+# --- Timing execution duration
 start_script = time.perf_counter()
 
 logger.info("Running module as a script")
 
+# --- Namespace for the directories involved
 dirs = Dirs()
 dirs.meteo = os.path.join(Path(dirs.proj).parent, 'data', 'meteo')
 dirs.bofek = os.path.join(Path(dirs.proj).parent, 'data', 'bofek')
@@ -225,23 +234,28 @@ for isp in Isp_start_summer:
 for isp in Isp_start_winter:
     stress_period_data[isp] = ghb_winter
 
+# --- Add to the input for the instationation of the GHB by flopy
 Gwfghb = {
     'stress_period_data': stress_period_data,
     'maxbound': len(LRC_ghb),
 }
 
-# %% --- Gwfriv ==============Is used for extra flow toward ditch (lower flow to than from)
-# Riv cells are the same as GHB cells
-LRC_riv = LRC_ghb
+# %% --- Gwfriv ============== Is used for extra flow resistance when flow from the ditch
+# --- The same cells are used for riv as for ghb
+LRC_riv = LRC_ghb  # LRC = Layer, Row, Col tuple or array
 
+# --- Conductance for the RIV packages (for outflow resistance)
 condRIV = ggt.get_RIV_Cond(pdata=parcel_data, gr=gr)
 
+# --- Generate RIV input for start winter using winter ditch stage.
 riv_winter = [(lic, stage, cond, rbot) for lic, stage, cond, rbot in
                             zip(LRC_riv, hw.ravel(), condRIV.ravel(), hw.ravel())]
+
+# --- Generate RIV input for start summer using summer ditch stage.
 riv_summer = [(lic, stage, cond, rbot) for lic, stage, cond, rbot in
                         zip(LRC_riv, hs.ravel(), condRIV.ravel(), hs.ravel())]
 
-# --- Input for the first stress period
+# --- Input for the first stress period, which is summer.
 stress_period_data = {0: riv_summer if tdata.iloc[0]['summer'] is True else riv_winter}
 
 # --- Only generates input when summer changes to winter and vice versa.
@@ -250,6 +264,7 @@ for isp in Isp_start_summer:
 for isp in Isp_start_winter:
     stress_period_data[isp] = riv_winter
 
+# --- Add to input of RIV package of flopy
 Gwfriv = {
     'stress_period_data': stress_period_data,
     'maxbound': len(LRC_riv),

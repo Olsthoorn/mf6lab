@@ -479,7 +479,7 @@ def get_cond_DRN(pdata=None, gr=None):
 
 
 def get_cond_GHB(pdata=None, gr=None, use_w_not_c=None):
-    """Retrun conductance for use by GHB for two layers first column.
+    """Return conductance for use by GHB for two layers first column.
     
     Parameters
     ==========
@@ -487,15 +487,22 @@ def get_cond_GHB(pdata=None, gr=None, use_w_not_c=None):
         parcel properties
     gr: structured Grid object
         Class that holds the grid
+    use_w_not_c: bool
+        use given default entry and outflow resisance of compute it
+        analytically from given entry resistance, ditch circumference
+        and stream-line contraction (partial penetration)
     """
     if use_w_not_c:
         wi = np.vstack((pdata['wi_ditch'], pdata['wi_ditch2']))
         
-    else: # Use the real ditch resistance, dicth circumference
+    else:
+        # Use the real ditch resistance, apply ditch circumference
         # TODO use either two or three layer grid it's now inconsistent
         wi = np.vstack((pdata['ci_ditch'] * pdata['D1'] / pdata['ditch_omega1'],
                         pdata['ci_ditch'] * pdata['D2'] / pdata['ditch_omega2']))
-        # extra resistance due to partial penetration of ditch
+        
+        # --- Add extra resistance due to partial penetration of ditch.
+        #     For this see compute_and_set_wpp(...)
         wi += np.vstack((pdata['wpp1'], pdata['wpp2']))
         
     dy    = np.vstack((gr.Dy[:, 0], gr.Dy[:, 0]))
@@ -507,29 +514,56 @@ def get_cond_GHB(pdata=None, gr=None, use_w_not_c=None):
 def get_RIV_Cond(pdata=None, gr=None, use_w_not_c=None):
     """Return the Conductances of ditches for use by RIV package.
     
+    The RIV package is used to make the outflow-resistance to the ditch
+    less resistant than the inflow resistance. To this end RIV and GHB
+    are combined.
+    
+    The ditch resistance w is conceptually a thin wall of thickness D
+    separating the ground from the ditch. The conductance then becomes
+    C [L2/T] = dz dy / w = A  / w
+    
+    Leaving out dz dy in the derivation of the Criv then with
+    wi [T] the entry resistance and wo [T] the outflow resistance 
+    
+    Cghb = A / wi
+    Cghb + Criv = A / wo
+    Criv = A / wo - Cghb = A/wo - A/wi = A (wi - wo) / (wi wo)
+    
+    Criv = A * (wi - wo) / (wo wi) * dy
+    
+    Below we use  w = wo wi / (wi - wo) to compute Criv
+    
     parameters
     ==========
     pdata: dict
         parameter data
+    use_w_not_c: bool
+        use given default entry and outflow resisance of compute it
+        analytically from given entry resistance, ditch circumference
+        and stream-line contraction (partial penetration)
     """
     if use_w_not_c:
-        # Use analytic ditch resistance with layer thickness and no partial penetration
+        # --- Use analytic ditch resistance with layer thickness and no partial penetration
         wi = np.vstack((pdata['wi_ditch'], pdata['wi_ditch2'])) # Same value for both layers
         wo = np.vstack((pdata['wo_ditch'], pdata['wo_ditch2'])) # Same value for both layers
         assert np.all(wi >= wo), "ditch entry resist. wi must be >= to the ditch exit resist. wo!"
-        dw = wi - wo; eps=1e-10; dw[dw==0] = eps # prevent (handle) division by zero
+        dw = (wi - wo).clip(1e-10, None)  # Prevent division by zero 
         w     = (wo * wi / dw)
         
-    else: # Use real ditch resistance with ditch circumference
+    else:
+        # --- Use real ditch entry and outflow bottom resistance with ditch circumference
         ci = np.vstack((pdata['ci_ditch'], pdata['ci_ditch'])) # Same value for both layers
         co = np.vstack((pdata['co_ditch'], pdata['co_ditch'])) # Same value for both layers
         assert np.all(ci >= co), "ditch entry resist. must be >= the ditch exit resist!"
         dc = ci - co; eps=1e-10; dc[dc==0] = eps # prevent (handle) division by zero
         c     = (co * ci / dc)
-        # To analytic resistance, using the ditch circumference
+        
+        # --- Compute analytic resistance, using the ditch circumference
         w = c * np.vstack((pdata['D1'] / pdata['ditch_omega1'],
-                        pdata['D2'] / pdata['ditch_omega2']))
-        # Add partial penetration to resistance
+                           pdata['D2'] / pdata['ditch_omega2']))
+        
+        # --- Add partial penetration to resistance.
+        #     For this see compute_and_set_wpp(..)
         w += np.vstack((pdata['wpp1'], pdata['wpp2']))
         
     dy    = np.vstack((gr.Dy[:, 0], gr.Dy[:, 0]))
@@ -565,26 +599,27 @@ class GGOR_data:
         """        
         sim_name = get_case_name(dirs)
         
-        # --- read dbf file into pd.DataFrame
+        # --- Read dbf file into pd.DataFrame.
         
-        # --- Obsolete read the .dbf file of the shape file for the case
+        # --- Obsolete: Read the .dbf file of the shape file for the case.
+        #     Replaced  by geopandas.GeoDataFrame to keep the geometry.
         # self.data = data_from_dbffile(os.path.join(dirs.data, sim_name + '.dbf'))
         
-        # --- Use geopandas read the .pgkg file directly
+        # --- Use geopandas read the .pgkg file directly.
         case_gpkg_file = os.path.join(dirs.GIS, sim_name + '.gpkg')
         self.data = gpd.read_file(case_gpkg_file)
 
-        # replace column names to more generic ones
+        # --- Replace column names to more generic ones.
         self.data.columns = [colDict[h] if h in colDict else h
                                          for h in self.data.columns]
 
-        # --- compute parcel width to use in GGOR
+        # --- Compute parcel widths to use in GGOR.
         self.compute_parcel_width(BMINMAX=BMINMAX)
 
-        # --- set kh, kv and Sy from bofek
+        # --- Set kh, kv and Sy from bofek.
         self.apply_bofek(bofek) # bofek is one of the kwargs a pd.DataFrame
 
-        # --- add required parameters if not in dbf
+        # --- Add required parameters not in dbf/shapefile.
         self.apply_defaults(defaults)
 
         self.compute_and_set_omega()
@@ -593,12 +628,12 @@ class GGOR_data:
 
 
     def compute_and_set_omega(self):
-        """Compute and set the half wetted ditch circumference in the two model layers.
+        """Compute and set the wetted half ditch circumference in the two model layers.
 
-        ditch_omega1 [m] is half the width of the ditch plus its wetted sided.
-        ditch_omega2 [m] ia the same for the underlying regional aquifer.
+        ditch_omega1 [m] is half the width of the ditch plus its wetted side face.
+        ditch_omega2 [m] is the same for the underlying regional aquifer.
 
-        calls normal function to allow using it with test data
+        Calls primary function to allow using it with test data
         """
         compute_and_set_omega(self.data)
 
@@ -609,7 +644,7 @@ class GGOR_data:
         dwpp1 is the extra resistance in [d] for the top layer.
         dwpp2 is the extra resistance in [d] for the regional aquifer
 
-        calls normal function to allow using it with test data.
+        Calls primary function to allow using it with test data.
         """
         compute_and_set_wpp(self.data)
 
@@ -632,27 +667,28 @@ class GGOR_data:
         """
         A     = np.asarray(self.data['A_parcel'])  # Parcel area
         Om    = np.asarray(self.data['O_parcel'])  # Parcel cifcumference
-        det   = Om ** 2 - 16 * A            # determinant
-        L     = det>=0                    # determinant>0 ? --> real solution
-        PW    = np.nan * np.zeros_like(L)   # init paracel width
-        PL    = np.nan * np.zeros_like(L)   # init parcel length
-        PW[ L] = (Om[L] - np.sqrt(det[L]))/4  # width, smallest of the two values
-        PL[ L] = (Om[L] + np.sqrt(det[L]))/4  # length, largest of the two values
-        PW[NOT(L)] = np.sqrt(A[NOT(L)])      # if no real solution --> assume square
-        PL[NOT(L)] = np.sqrt(A[NOT(L)])      # same, for both width and length
+        det   = Om ** 2 - 16 * A                   # determinant
+        L     = det>=0                             # determinant>0 ? --> real solution
+        PW    = np.nan * np.zeros_like(L)          # init paracel width
+        PL    = np.nan * np.zeros_like(L)          # init parcel length
+        PW[ L] = (Om[L] - np.sqrt(det[L]))/4       # width, smallest of the two values
+        PL[ L] = (Om[L] + np.sqrt(det[L]))/4       # length, largest of the two values
+        PW[NOT(L)] = np.sqrt(A[NOT(L)])            # if no real solution --> assume square
+        PL[NOT(L)] = np.sqrt(A[NOT(L)])            # same, for both width and length
 
-        PW = np.fmin(PW, max(BMINMAX)) # Arbitrarily limit the width of any parcel to BMAX.
+        # --- Arbitrarily limit the width of any parcel to BMAX.
+        PW = np.fmin(PW, max(BMINMAX))
         PW = np.fmax(PW, min(BMINMAX))
 
         # --- Add column 'b' to Data holding half the parcel widths.
         self.data['b'] = PW/2
 
-        # Use only the parcles that have with > BMIN and that have bofek data
+        # --- Use only the parcels that have width > BMIN and that have bofek data
         L=np.where(AND(PW > min(BMINMAX), NOT(self.data['bofek']==0)))
 
         self.data = self.data.iloc[L]
 
-        # --- Any data left?
+        # --- Any data left? We might have missed some parcels inadvertently
         assert len(L) > 0, "Cleaned parcel database has length 0, check this."
 
 
@@ -679,7 +715,7 @@ class GGOR_data:
             raise KeyError("missing columns [{}] in bofek DataFrame".format(','.join(dset)))
 
         # --- Verify that all self.data['BOFEK'] keys are in bofek.index,
-        # --- so that all parcels get their values!
+        #     so that all parcels get their values!
         dindex = set(self.data['bofek'].values).difference(set(bofek.index))
         if not dindex:
             pass
@@ -735,7 +771,7 @@ def compute_and_set_omega(data=None):
     data: pd.DataFrame
         the parcel data
     """
-    #Omega for the cover layer
+    # --- Compute omega for the cover layer
     hLR  =  0.5 * (data['h_winter'] + data['h_winter'])
     zditch_bottom  = data['AHN'] - data['d_ditch']
     zdeklg_bottom  = data['AHN'] - data['D1']
@@ -743,7 +779,7 @@ def compute_and_set_omega(data=None):
             np.fmin(zditch_bottom - zdeklg_bottom, data['b_ditch']))
     data['ditch_omega1'] = b_effective + (hLR - zditch_bottom)
 
-    # Omega for the regional aquifer
+    # --- Compute omega for the regional aquifer
     zaquif_top     = data['AHN'] - data['D1'] - data['D_CB']
     data['ditch_omega2'] = (data['b_ditch'] +
         (zaquif_top - zditch_bottom)) * (zaquif_top - zditch_bottom >= 0)
@@ -752,20 +788,34 @@ def compute_and_set_omega(data=None):
 def compute_and_set_wpp(data=None):
     """Compute and return extra resistance due to contraction of flow lines.
 
+    Contraction of streamlines also know as partial penetration:
     Partial penetration of the ditch into the layer (first, and or second layer)
-    causes additonal ditch resistance. The resistance is computed analytically.
-    See theory for its defivation.
+    causes additonal ditch resistance. The resistance is computed analytically
+    and takes vertical anisotropy into account.
+    
+    Without anisotropy in this model in which water comes from one side only
+    w_pp = dphi_pp / Q = 2 / (pi k) ln(D/ omega) # see Huisman (1972) p57
+       
+    with vertical anisotropy, assuming circular ditch bottom
+    
+    wpp = 2 / (pi sqrt(kh kv) ln(D / omega)
+    
+    The anisotropy cancels below the log.
+    Note that omega must be the wetted circumference of the full ditch,
+    not the half ditch.
 
     Parameters
     ----------
     data: pd.DataFrame
         parcel properties
     """
-    data['wpp1'] = 2 /  (np.pi * np.sqrt(data['kh'] * data['kv'])) * np.log((
-        data['D1'] * np.sqrt(data['kh'] / data['kv']))/(0.5 * data['ditch_omega1']))
+    # --- For cover layer
+    data['wpp1'] = 2 /  (np.pi * np.sqrt(data['kh'] * data['kv'])) * np.log(data['D1']/data['ditch_omega1'])
 
-    data['wpp2'] = 2 /  (np.pi * np.sqrt(data['kh2'] * data['kv2'])) * np.log((
-        data['D2'] * np.sqrt(data['kh2'] / data['kv2']))/(0.5 * data['ditch_omega2']))
+    # --- For regional aquifer into which ditches penetrate
+    data['wpp2'] = 2 /  (np.pi * np.sqrt(data['kh2'] * data['kv2'])) * np.log(data['D2']/data['ditch_omega2'])
+    
+    # --- Regional aquifer, where ditches do not penetrate.
     data.loc[np.isnan(data['wpp2']), 'wpp2'] = np.inf
     return
 
@@ -804,10 +854,14 @@ def data_from_dbffile(dbfpath):
     tp   = [t[1] for t in sf.fields[1:]]
     tt = []
     for t, in tp:
-        if   t=='N': tt.append(int)
-        elif t=='F': tt.append(float)
-        elif t=='C': tt.append(str)
-        else:        tt.append(object)
+        if   t=='N':
+            tt.append(int)
+        elif t=='F':
+            tt.append(float)
+        elif t=='C':
+            tt.append(str)
+        else:
+            tt.append(object)
 
     return data.astype({h: t for h, t in zip(data.columns, tt)}) # set column types and return DataFrame
 
@@ -818,19 +872,20 @@ def model_parcel_areas(gr=None, IBOUND=None):
     Parameters
     ----------
     gr: mfgrid.Grid object
+        The grid object (all information about the Modflow grid)
     IBOUND: ndarray
         modflow's IBOUND array
 
     Returns
     -------
     Areas: ndarray
-        ndarray of the active cells in each row in the model
+        Area of the active cells in each model row
     """
     return ((IBOUND[0] != 0) * gr.Area).sum(axis=1)
 
 
 class Heads_obj:
-    """Heads object, to store and plot head data."""
+    """Heads object, to store and plot head data computed by Modflow6."""
 
     def __init__(self, sim=None, tdata=None, gr=None):
         """Return Heads_obj.
@@ -849,6 +904,7 @@ class Heads_obj:
         self.gr = gr
         self.HDS = self.model.output.head() # Flopy heads object
         
+        # --- Get the heads from flopy, store in an xr-array for easy retrieval
         heads = xr.DataArray(
             self.HDS.get_alldata(), # (nper, nlay, nrow, ncol)
             dims = ['time', 'lay', 'row', 'col'],
@@ -860,13 +916,15 @@ class Heads_obj:
             }
         )
         
-        self.tdata = tdata # pandas DtaFrame with extra columns
+        # --- tdata is the pandas DtaFrame with time related extra columns
+        self.tdata = tdata
 
-        # --- Active cells
-        active = self.model.dis.idomain.get_data(); active[active!=0] = 1
+        # --- Get the active cells
+        active = self.model.dis.idomain.get_data()
+        active[active!=0] = 1
         Arel = gr.AREA * active / (gr.AREA * active).sum(axis=-1)[:, :, np.newaxis]
         
-        # --- Row-average heads (cell width and active cells taken into account)
+        # --- Compute row-average heads (cell width and active cells taken into account)
         self.avgHds = (heads * Arel[np.newaxis, :, :, :]).sum(axis=-1) # (nper, nlay, nrow)
         self.GXG = self.get_GXG()
         logger.info(f"Heads_obj + GXG created, in {time.perf_counter() - start:.2f} seconds.")
@@ -875,17 +933,20 @@ class Heads_obj:
     def get_GXG(self):
         """Return GXG_dict with GXG, HG3, VG3, LG3.
 
-        This GXG object holds the GLG, GVG and GHG, i.e. the lowest, hightes and spring
+        This GXG object holds the GLG, GVG and GHG, i.e. the lowest, highest and spring
         groundwater head information and their long-term averaged values based on
         the number of hydrological years implied in the given tdata (meteo data).
         
-        (A hydrological year runs form Apriol1 through March 31 the next year.
-        The GHG and GHG are based on the 14th and 28th of each month in hydrological year. But the GVG is the aveage of March 14, March 28 and April 14 of the current year (beginning of the hydrlogical year))
+        A hydrological year runs form April 1 through March 31 the next year.
+        
+        The GHG and GHG are based on the 14th and 28th of each month in hydrological year.
+        But the GVG is the average of March 14, March 28 and April 14 of the current
+        year (beginning of the hydrlogical year))
 
         self.gxg is a recarray with all the individual records. (nyear * 9, nparcel)
         self.GXG is a recarray with the long-time averaged values (nparcel).
 
-        @TO 2020-08-31
+        @TO 2020-08-31, 2025-12-13
         """
         _start = time.perf_counter()
         
@@ -1047,6 +1108,7 @@ class Heads_obj:
                     
                     ax.set_title(ax.get_title() + f" {hyears[0]}-{hyears[-1]}")            
 
+                    # --- Add long-year averages as horizontal lines
                     ax.axhline(self.GXG['GHG'][ip], c='b', label='GHG')
                     ax.axhline(self.GXG['GVG'][ip], c='g', label='GVG')
                     ax.axhline(self.GXG['GLG'][ip], c='r', label='GLG')
@@ -1088,7 +1150,7 @@ def plot_hydrological_year_boundaries(axs=None, tindex=None):
 
 
 def show_boundary_locations(lbls=None, CBC=None, iper=0, figsize=(10,8.5)):
-    """Show the location of the nodes in recarray given CBC data.
+    """Show the location of the nodes in CBC-recarrays in a 2D amp.
 
     The refers to ['WEL', 'DRN', 'GHB', 'RIV', 'CHD'] for which the data
     from the CB files are returned as recarrays with fields 'node' and 'q'
@@ -1178,15 +1240,18 @@ class Watbal_obj:
 
         kstpkper = self.CBC.get_kstpkper()
         
-        # To get the CBC values in m/d for the entire region represented in the database:
-        # Because each modeled parcel is only a cross of the real parcel, the model
-        # does not know the parcel's true, only the database knows it.
+        # Because each modeled parcel is only a X-section of the
+        # real parcel, the model does not know the parcel's true, area,
+        # only the database knows it.
+        #
         # To get the CBC values in m/d for the entire model:
-        # First sum the model's CBC values over the parcel, which yields m3/d, and divide
-        # by the parcel's active model are, which yields the values in m/d for each parcel.
-        # The to get the parcel's contribution to the total CBC  values in m/d for the
-        # entire modeled region, divide by the size of the model's region and multiply bye
-        # The parcel's true area. The region's true area is the sum over all parcels true area.
+        # First sum the model's CBC values over the parcel, which
+        # yields m3/d, and divide by the parcel's active model are,
+        # which yields the values in m/d for each parcel.
+        # The to get the parcel's contribution to the total CBC  values
+        # in m/d for the entire modeled region, divide by the size of
+        # the model's region and multiply by the parcel's true area.
+        # The region's true area is the sum over all parcels true area.
         
         # --- Multiply array with active cells. Active is 1 and inactive is 0
         active = model.get_package('DIS').idomain.data
@@ -1195,27 +1260,27 @@ class Watbal_obj:
         # --- Area of each cross section
         A_xsec = (gr.Area * active[0]).sum(axis=-1)
          
-        # --- Contribution of each true parcel area to total of the modeled region                
-        self.W = dict() # keys are watbal labels,  values are float (nlay, nrow, nper)
+        # --- Contribution of true parcel area the modeled region                
+        self.W = dict() # keys are watbal labels, values are float (nlay, nrow, nper)
         
-        # --- vector of len(gr.nod) to store Q-values
+        # --- Set vector of len(gr.nod) to store Q-values.
         _vals3D = np.zeros(gr.shape).flatten()
         
         
         print('Setting up Watbal_Obj ...')
         for lbl in self.labels:
-            # --- Only use the first 3 characters of the lbl
+            # --- Use only the first 3 characters of the lbl.
             # --- Array is [nlay, nrow, nper]
             self.W[lbl[:3]] = np.zeros((self.CBC.nlay, self.CBC.nrow, self.CBC.nper))
             print(lbl, end='')
             
-            # For these labels, the packages of which CBC values are obtained
+            # For these labels, the packages from which CBC values are obtained
             # as a list (nper long) of recarrays (see dtype)
             # dtype = [('node', '<i4'), ('node2', '<i4'), ('q', '<f8')])
             # The dimension will be [L3/T]
-            # The W[labl] array will be [nlay, nrow, nper]
+            # The W[lbl] array will be [nlay, nrow, nper]
             
-            # --- Three-character labels (FLF, STO-SY and STO-SS dealt with below)
+            # --- Use these 3-character labels; for FLF, STO-SY and STO-SS look further down.
             if lbl in ['WEL', 'GHB', 'RIV', 'DRN', 'RCH', 'EVT']:
                 
                 # --- list of len nper with recarray of non-zero cell values (see dtype)
@@ -1290,8 +1355,9 @@ class Watbal_obj:
 
         tindex = self.CBC.times if tdata is None else tdata.index # time index
 
-        # Sum over all (selected) parcels. The watbal values are in mm/d. To sum over all
-        # parcels multiply by their share of the regional area [-]
+        # --- Sum over all (selected) parcels.
+        #     The watbal values are in mm/d. To sum over all
+        #     parcels multiply by their share of the regional area [-]
         Arel = (parcel_data['A_parcel'].values[parcels] /
                 parcel_data['A_parcel'].values[parcels].sum()
                 ) # (nlay, parcels, nper)
@@ -1299,7 +1365,7 @@ class Watbal_obj:
         clrs = [watbal_label[L]['clr'] for L in watbal_label]
         lbls = [watbal_label[L]['leg'] for L in watbal_label]
 
-        # Axes title ttl
+        # --- Axes title ttl
         if isinstance(parcels, slice):
             ttl = 'Taken over parcels[{}:{}:{}]'.format(
                         parcels.start, parcels.stop, parcels.step)
@@ -1307,8 +1373,8 @@ class Watbal_obj:
             ttl = 'Taken over parcels [{}]'.format(
                 ', '.join(['{}'.format(s) for s in parcels]))
 
-        # Two axes, one for the running budget of the top layer
-        # and one for the running budget of the bottom layer
+        # --- Two axes are used, one for the running budget of the top layer
+        #     and one for the running budget of the bottom layer
         if ax is None:
             ax = etc.newfigs(titles=(
                     'Water balance top layer. '   + ttl,
@@ -1320,7 +1386,8 @@ class Watbal_obj:
 
         V0 = np.zeros((len(watbal_label), self.CBC.nper)) # running budget of top layer
         V1 = np.zeros((len(watbal_label), self.CBC.nper)) # running budget of bot layer
-        # Accumulate to generate an plt.Axes.stackplot
+        
+        # --- Accumulate to generate an plt.Axes.stackplot
         for i, lbl in enumerate(watbal_label):
             V0[i] = (self.W[lbl][ 0, parcels, :] * 
                      Arel[np.newaxis, :, np.newaxis]).sum(axis=1) * m2mm
@@ -1381,13 +1448,14 @@ if __name__ == '__main__':
     dirs = Dirs()
     dirs.add_case('AAN_GZK')
 
+    # --- Get Excel workbook with all modflow parameters.
     mf_parameters_wbk = os.path.join(dirs.mf_parameters, 'mf_parameters.xlsx')
 
-    #Get the meteo data from an existing file or directly from KNMI
+    # --- Get the meteo data from an existing file or directly from KNMI.
     meteo = knmi.get_weather(stn=240, start='20100101', end='20191231',
                                   folder=dirs.meteo)
 
-    # Add columns "summer' and "hyyear" to it"
+    # --- Add columns "summer' and "hyyear" to it".
     tdata = handle_meteo_data(meteo, summer_start=4, summer_end=10)
     tdata = tdata.iloc[:1000] # Limits data set just for testing
     if test:
@@ -1399,22 +1467,22 @@ if __name__ == '__main__':
         parcel_data = get_test_parcels(os.path.join(
                                 dirs.case, 'pdata_test.xlsx'), 'parcel_tests1')
 
-        # Special test
+        # --- Special test
         parcel_data = parcel_data.iloc[0:4]
     else:
-        # Bofek data, coverting from Bofek codes to the soil properties kh, kv and sy.
-        # The BOFEK column represents a Dutch standardized soil type. It is used.
-        # The corresponding values for 'kh', 'kv' and 'Sy' are currently read from
-        # an Excel worksheet into a pandas DataFrame (thus becoming a table)
+        # --- Bofek data, coverting from Bofek codes to the soil properties kh, kv and sy.
+        #     The BOFEK column represents a Dutch standardized soil type. It is used.
+        #     The corresponding values for 'kh', 'kv' and 'Sy' are currently read from
+        #     an Excel worksheet into a pandas DataFrame (thus becoming a table)
         bofek = pd.read_excel(os.path.join(dirs.bofek, "BOFEK eenheden.xlsx"),
                               sheet_name = 'bofek', index_col=0, engine="openpyxl")
 
-        # Create a GGOR_modflow object and get the upgraded parcel_data from it,
-        # excluding parcels that are too small or too wide
+        # --- Create a GGOR_modflow object and get the upgraded parcel_data from it,
+        #     excluding parcels that are too small or too wide
         parcel_data = GGOR_data(
             dirs=dirs, defaults=defaults, bofek=bofek, BMINMAX=(5, 250)).data
     
-    # MODFLOW grid
+    # --- Get the grid object with all info about the MODFLOW grid
     gr = grid_from_parcel_data(parcel_data=parcel_data, dx=1.0) 
 
     logger.info(f"ggor_tools __main__ section done in {time.perf_counter() - start_main:.2f} seconds")

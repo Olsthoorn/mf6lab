@@ -1,0 +1,2586 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% \lstdefinestyle{mystyle}{
+%   language=Python,
+%   numbers=left
+% }
+
+% Put lstset here, after lstdefinestyle
+% \lstset{style=mystyle}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement h
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine biblatex
+\cite_engine_type authoryear
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\biblatex_bibstyle authoryear
+\biblatex_citestyle authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=left,% line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Conforme Afbeeldingen
+\end_layout
+
+\begin_layout Title
+Infiltratie slootbodem in de GGOR-tool
+\end_layout
+
+\begin_layout Author
+T.N.Olsthoorn
+\end_layout
+
+\begin_layout Date
+Nov 2025
+\end_layout
+
+\begin_layout Section
+Intro
+\end_layout
+
+\begin_layout Standard
+De uitwisseling tussen sloot en pakket in de GGOR-tool vraagt nadere aandacht.
+ De uitstroming van vanuit het watervoerende pakket vindt plaats boven en onder de bodem van de sloot.
+ We kunnen deze stroom splitsen op de hoogte van de slootbodem,
+ de lijn 
+\begin_inset Formula $BA$
+\end_inset
+
+.
+ De stroming boven en onder deze lijn is praktisch evenwijdig en dus is de stijghoogte boven en onder deze lijn nagenoeg gelijk.
+ Met dit in gedachte kunnen we de uitstroming onder de slootbodem berekenen met een conforme afbeelding (zie fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Uitstroming-naar-sloot"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Bij uitstroming verwaarlozen we de slootbodemweerstand omdat slechts enkele cm stijghoogte boven het slootpeil elke veenachtige bodemsliblaag zonder meer kan optillen.
+ Bij infiltratie houden we wel rekening met de sliblaag op de slootbodem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/images/sloot0.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Uitstroming-naar-sloot"
+
+\end_inset
+
+Uitstroming naar sloot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Conforme afbeelding van het vak 
+\begin_inset Formula $ABCDE$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De conforme afbeelding naar een strip waarbij de lijn 
+\begin_inset Formula $BC$
+\end_inset
+
+ op de plek 
+\begin_inset Formula $CD$
+\end_inset
+
+ komt is via enkele stappen te maken.
+\end_layout
+
+\begin_layout Standard
+Rotatie 90o om het punt 
+\begin_inset Formula $D$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z=x+iy
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\zeta_{1} & =i\pi\left(\frac{z}{d}+i\frac{1}{2}\right)\\
+\zeta_{1} & =\pi\left(i\frac{z}{d}-\frac{1}{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\zeta_{1}\left(C\right)=-\frac{\pi}{2}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\zeta_{1}\left(D\right)=\frac{\pi}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De volgende stap is het uitklappen zodat 
+\begin_inset Formula $AC$
+\end_inset
+
+ en 
+\begin_inset Formula $DE$
+\end_inset
+
+ op de reële as komen te liggen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\zeta & =\sin\left(\zeta_{1}\right)\\
+\zeta & =\sin\left(\pi\left(i\frac{z}{d}-\frac{1}{2}\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We schuiven 
+\begin_inset Formula $\zeta_{B}=\zeta_{2}\left(B\right)\to-1$
+\end_inset
+
+ en 
+\begin_inset Formula $\zeta_{C}=\zeta_{2}\left(C\right)\to$
+\end_inset
+
+1.
+ De transformatie is als volgt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\zeta_{B}p+q & =-1\\
+\zeta_{C}p+q & =+1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit geeft
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+p & =\frac{-2}{\zeta_{B}-\zeta_{C}}\\
+q & =\left[\frac{\zeta_{B}+\zeta_{C}}{\zeta_{B}-\zeta_{C}}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De volgende stap is terugklappen van de lijnen 
+\begin_inset Formula $AB$
+\end_inset
+
+ en 
+\begin_inset Formula $CE$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{3}=\arcsin\left(\zeta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now points B and C are at 
+\begin_inset Formula $-\pi/2$
+\end_inset
+
+ en 
+\begin_inset Formula $+\pi/2$
+\end_inset
+
+ in the 
+\begin_inset Formula $\zeta_{3}$
+\end_inset
+
+-vlak.
+ We scale back so that these points will be at 
+\begin_inset Formula $\pm1/2$
+\end_inset
+
+ and rotate clockwise over 
+\begin_inset Formula $\pi/2$
+\end_inset
+
+ by multiplying by 
+\begin_inset Formula $i$
+\end_inset
+
+ and we add 
+\begin_inset Formula $i/2$
+\end_inset
+
+ to make sure the imaginary values will be between 0 and 1.
+ And finally multiply by 
+\begin_inset Formula $Q$
+\end_inset
+
+ to get the stream function with values between 0 and 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Omega & =Q\left[-i\frac{1}{\pi}\zeta_{3}+i\frac{1}{2}\right]\\
+ & =-iQ\left[\frac{\zeta_{3}}{\pi}-\frac{1}{2}\right]\\
+ & =-iQ\left[\frac{\arcsin\left(p\,\zeta+q\right)}{\pi}-\frac{1}{2}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $\zeta$
+\end_inset
+
+,
+ 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $q$
+\end_inset
+
+ as defined before.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Omega & =-iQ\left[\frac{1}{\pi}\arcsin\left(p\sin\left(\pi\left(i\frac{z}{d}-\frac{1}{2}\right)\right)+q\right)-\frac{1}{2}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En dan nu de relatie omkeren
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z=-i\frac{H}{2}+\frac{H}{\pi}\arcsin\left(\frac{\sin\left(\pi\left(i\frac{\Omega}{Q}+\frac{1}{2}\right)\right)-q}{p}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wat is de limit voor 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ voor 
+\begin_inset Formula $z\to\infty$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-iQ\left[\frac{1}{\pi}\arcsin\left(p\sin\left(\pi\left(i\frac{z}{d}-\frac{1}{2}\right)\right)+q\right)-\frac{1}{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lim_{x\rightarrow\infty}\sin\left(\pi\left(i\frac{x}{d}-\frac{1}{2}\right)\right)=\cosh(dπx​)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lim_{x\rightarrow\infty}\left[\frac{1}{\pi}\arcsin\left(p\cosh\left(d\pi x\right)+q\right)-\frac{1}{2}\right]=−i\,dx−πi\ln p
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lim_{x\rightarrow\infty}\Omega=-iQ\left[\frac{1}{\pi}\arcsin\left(p\sin\left(\pi\left(\frac{1}{2}+i\frac{x}{d}\right)\right)+q\right)-\frac{1}{2}\right]=Q\left(d\,x-\pi\ln p\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\lim_{x\rightarrow\infty}\Omega & =-iQ\left(−i\,\frac{x}{d}−\frac{i}{\pi}\ln p\right)\\
+ & =Q\left(\frac{x}{d}+\frac{1}{\pi}\ln p\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De extra verlaging als gevolg van de contractie van stroomlijnen naar de sloot is dus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta\Omega=\Delta\Phi=k\phi=Q\frac{1}{\pi}\ln p
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta\phi=\frac{Q}{k\pi}\ln p
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=\frac{-2}{\beta+1}=\frac{-2}{\sin\left(\pi\left(-\frac{1}{2}+i\frac{b}{d}\right)\right)+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Algebra by chatGPT
+\end_layout
+
+\begin_layout Standard
+De algebra stap voor stap.
+\end_layout
+
+\begin_layout Standard
+Start van
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega(x)=\,-\mathrm{i}\,Q\left[\frac{1}{\pi}\arcsin\bigl(p\sin(\pi(i\tfrac{x}{d}-\frac{1}{2}))+q\bigr)-\tfrac{1}{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ Gebruik eerder afgeleide identiteit:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sin\Big(\pi\Big(i\frac{x}{d}-\tfrac{1}{2}\Big)\Big)=\cosh\Big(\frac{\pi x}{d}\Big)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substitueer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=p\cosh\Big(\frac{\pi x}{d}\Big)+q
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Voor grote reële (
+\begin_inset Formula $x$
+\end_inset
+
+) krijgen we (
+\begin_inset Formula $y\to+\infty$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Voor grote reële l (
+\begin_inset Formula $y$
+\end_inset
+
+) met de formule voor de hoofdtak,
+ die hier van toepassing is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\arcsin y=\frac{\pi}{2}-\mathrm{i}\ln\left(y+\sqrt{y^{2}-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor (
+\begin_inset Formula $y\gg1$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y+\sqrt{y^{2}-1}\sim2y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zodat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\arcsin y\sim\frac{\pi}{2}-\mathrm{i}\ln(2y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Nu de volledige uitdrukking tussen de rechte haken:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\pi}\arcsin y-\frac{1}{2}\sim\frac{1}{\pi}\Big(\frac{\pi}{2}-\mathrm{i}\ln(2y)\Big)-\frac{1}{2}=-\frac{\mathrm{i}}{\pi}\ln(2y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ Vermenigvuldig met (
+\begin_inset Formula $-\mathrm{i}Q$
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega(x)\sim-\mathrm{i}Q\left(-\frac{\mathrm{i}}{\pi}\ln(2y)\right)=\left((-\mathrm{i})(-\mathrm{i})\right)\frac{Q}{\pi}\ln(2y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Omdat (
+\begin_inset Formula $(-\mathrm{i})(-\mathrm{i})=i^{2}=-1$
+\end_inset
+
+),
+ wordt dit
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega(x)\sim-\frac{Q}{\pi}\ln(2y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.
+ Substitueer (
+\begin_inset Formula $y\sim p\cosh(\pi x/d)$
+\end_inset
+
+) en gebruik (
+\begin_inset Formula $\cosh(\pi x/d)\sim\tfrac{1}{2}e^{\pi x/d}$
+\end_inset
+
+) voor grote (
+\begin_inset Formula $x$
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2y\sim2\,p\,\frac{e^{\pi x/d}}{2}=p\,e^{\pi x/d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aldus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ln(2y)\sim\ln\left(p\,e^{\pi x/d}\right)=\ln p+\frac{\pi x}{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+6.
+ Stop dit in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega(x)\sim-\frac{Q}{\pi}\left(\ln p+\frac{\pi x}{d}\right)=-\frac{Q}{\pi}\ln p-\frac{Q}{\pi}\cdot\frac{\pi x}{d}=-\frac{Q}{\pi}\ln p-\frac{Qx}{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+7.
+ Mooi raam erom heen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\Omega(x)\sim-Q\left(\frac{x}{d}+\frac{1}{\pi}\ln p\right)\quad(x\to\infty)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit is de volledige algebra:
+ de (
+\begin_inset Formula $\cosh\to\frac{1}{2}e^{\pi x/d}$
+\end_inset
+
+) stap leverde de (
+\begin_inset Formula $\pi x/d$
+\end_inset
+
+) in de log,
+ en de berekening van de factor voor de rechte haken leverde het overkoepelende minteken en de factor (
+\begin_inset Formula $1/\pi$
+\end_inset
+
+) voor (
+\begin_inset Formula $\ln p$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Mooie fysische interpretatie —
+ lineaire groei met (
+\begin_inset Formula $x$
+\end_inset
+
+) met gradiënt (
+\begin_inset Formula $-Q/d$
+\end_inset
+
+) en een constante verschuiving (
+\begin_inset Formula $-\tfrac{Q}{\pi}\ln p$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+De extra verlaging ten opzichte van de rand van de sloot (
+\begin_inset Formula $x=b$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta\phi=-Q\left(\frac{b}{d}+\frac{1}{\pi}\ln p\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+In de situatie met verticale anisotropie
+\end_layout
+
+\begin_layout Standard
+Bij anisotropie moeten we eerst de assen schalen om een isotrope situatie te creëren.
+ En in deze isotrope situatie moet de analyse worden uitgevoerd,
+ waarna pas wordt teruggeschaald.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x'=\sqrt{\frac{k}{k_{x}}}x,\;y'=\sqrt{\frac{k}{k_{y}}}y,\;k=\sqrt{k_{x}k_{y}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta=\sin\left(\pi\left(i\frac{z'}{d'}-\frac{1}{2}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\zeta_{B}p+q & =-1\\
+\zeta_{C}p+q & =+1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=\frac{-2}{\zeta_{B}-\zeta_{C}}q=\left[\frac{\zeta_{B}+\zeta_{C}}{\zeta_{B}-\zeta_{C}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta\phi}{Q}=\left(\frac{b'}{d'}+\frac{1}{\pi}\ln p\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De conductance is just 
+\begin_inset Formula $Q/\Delta\phi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Tekenen van de complexe functies
+\end_layout
+
+\begin_layout Standard
+Voor het afbeelden kunnen we een grid kiezen in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak (de werkelijke doorsnede) en vervolgens voor elke 
+\begin_inset Formula $z$
+\end_inset
+
+-waarde de complexe potentiaal 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ uitrekenen,
+ en tenslotte van de potentiaal 
+\begin_inset Formula $\Phi=\Re(\Omega)$
+\end_inset
+
+ en 
+\begin_inset Formula $\Psi=\Im\left(\Omega\right)$
+\end_inset
+
+ contouren tekenen.
+\end_layout
+
+\begin_layout Standard
+Een andere mogelijkheid is om te beginnen met een grid in het 
+\begin_inset Formula $\Omega$
+\end_inset
+
+-vlak,
+ waar de lijnen van gelijke 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ en 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ de horizontale en verticale gridlijnen zijn,
+ en vervolgens de 
+\begin_inset Formula $z=f\left(\Omega\right)$
+\end_inset
+
+ met bovenstaande formule uitrekenen,
+ waarna voor elke rechte 
+\begin_inset Formula $\Phi$
+\end_inset
+
+-lijn en 
+\begin_inset Formula $\Psi$
+\end_inset
+
+-lijn in het 
+\begin_inset Formula $\Omega$
+\end_inset
+
+-vlak de corresponderende kromme potentiaal en stroomlijnen in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak (door doorsnede) worden verkregen die rechtstreeks kunnen worden getekend zonder contourlijnen te gebruiken.
+\end_layout
+
+\begin_layout Section
+De conforme afbeelding
+\end_layout
+
+\begin_layout Standard
+We hebben nu een half-oneindige aquifer met 
+\begin_inset Formula $0\le x\le\infty$
+\end_inset
+
+ en 
+\begin_inset Formula $-H\le y\le0$
+\end_inset
+
+ en een sloot tussen vaste coördinaten 
+\begin_inset Formula $x_{sL}\le x\le x_{sR}$
+\end_inset
+
+ zodat de slootbreedte 
+\begin_inset Formula $b=x_{sR}-x_{sL}$
+\end_inset
+
+ contant is.
+ Het enige dat we van situatie tot situatie veranderen is de pakketdikte 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ We zorgen ervoor dat 
+\begin_inset Formula $x_{SL}>3H$
+\end_inset
+
+ in alle situaties.
+ Voor de controle zullen we de doorsnedes tekenen en voor de beoordeling berekenen we de potentiaal 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ in het midden van het pakket tegen de linker zijde van de doorsnede.
+ Dit is gelijk aan de stijghoogte die Kees in de sloot berekende,
+ namelijk de waarde boven het vaste peil bij Kees op 
+\begin_inset Formula $x=-\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We nemen de volgende stappen om dit probleem op te lossen.
+\end_layout
+
+\begin_layout Standard
+Eerste kantelen we de doorsnede om de oorsprong een kwart slag tegen de klok in.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{0}=z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dan verschalen we 
+\begin_inset Formula $\zeta_{1}$
+\end_inset
+
+zodanig dat punt 
+\begin_inset Formula $\zeta_{1}=0\rightarrow\zeta_{2}=-\frac{\pi}{2}$
+\end_inset
+
+ en 
+\begin_inset Formula $\zeta_{1}=H\rightarrow\zeta_{2}=+\frac{\pi}{2}$
+\end_inset
+
+ komen te liggen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{1}=\pi\left(i\frac{z}{H}-\frac{1}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Door hiervan de sinus te nemen wordt 
+\begin_inset Formula $\zeta_{1}=-\frac{\pi}{2}\rightarrow\zeta=-1$
+\end_inset
+
+ en 
+\begin_inset Formula $\zeta_{1}=+\frac{\pi}{2}\rightarrow\zeta=+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{2}=\sin\left(\pi\left(i\frac{z}{H}-\frac{1}{2}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De volgende stap is om 
+\begin_inset Formula $\zeta_{2}$
+\end_inset
+
+ te schalen en te verschuiven naar 
+\begin_inset Formula $\zeta_{3}$
+\end_inset
+
+,
+ waarbij linker en rechter oever van de sloot,
+ 
+\begin_inset Formula $\zeta_{2L}$
+\end_inset
+
+ en 
+\begin_inset Formula $\zeta_{2R}$
+\end_inset
+
+ op 
+\begin_inset Formula $\zeta_{3}=-1$
+\end_inset
+
+ en 
+\begin_inset Formula $\zeta_{3}=+1$
+\end_inset
+
+ komen te liggen.
+ Dit kan met een transformatie
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+p\zeta_{2L}+q & =-1\\
+p\zeta_{2R}+q & =+1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit geeft
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+p & =\frac{-2}{\zeta_{2L}-\zeta_{2R}}\\
+q & =\left[\frac{\zeta_{2L}+\zeta_{2R}}{\zeta_{2L}-\zeta_{2R}}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zodat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{3}=p\zeta_{2}+q
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met 
+\begin_inset Formula $\arcsin\left(\zeta_{3}\right)$
+\end_inset
+
+ klappen we de tak rechts van de sloot en de hele rand links van de sloot omhoog en gaan de hoekpunten van de sloot in 
+\begin_inset Formula $\zeta_{3}$
+\end_inset
+
+,
+ namelijk 
+\begin_inset Formula $-1$
+\end_inset
+
+ en 
+\begin_inset Formula $+1$
+\end_inset
+
+ over in 
+\begin_inset Formula $\zeta_{4}\left(\zeta_{3}=-1\right)=-\frac{\pi}{2}$
+\end_inset
+
+ en 
+\begin_inset Formula $\zeta_{4}\left(\zeta_{3}=+1\right)=+\frac{\pi}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{4}=\arcsin\left(\zeta_{3}\right)=\arcsin\left(p\zeta_{2}+q\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nu moeten we 
+\begin_inset Formula $\zeta_{4}$
+\end_inset
+
+ schalen zodanig dat 
+\begin_inset Formula $\zeta_{4L}=-\frac{\pi}{2}$
+\end_inset
+
+ en 
+\begin_inset Formula $\zeta_{4R}=\frac{\pi}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\zeta_{5} & =-i\zeta_{4}\frac{H}{\pi}-i\frac{H}{2}\\
+ & =-iH\left(\frac{\zeta_{4}}{\pi}+\frac{1}{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+overgaan in respectievelijk 
+\begin_inset Formula $-Q$
+\end_inset
+
+ en 0
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{6}=\zeta_{5}\frac{Q}{H}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wanneer we dit vlak rechtsom klappen door vermenigvuldiging met 
+\begin_inset Formula $-i$
+\end_inset
+
+ en hebben we het 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ -vlak verkregen waarin de stroomfunctie oploopt van 0 tot Q and de potentiaal oploopt van 
+\begin_inset Formula $0$
+\end_inset
+
+ tot een zelf gekozen eindwaarde van 
+\begin_inset Formula $nQ$
+\end_inset
+
+.
+ (De dimensie van de potentiaal is gelijk aan die van de stroomfunctie m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d,
+ en gelijke stapgroottes van beide functies garanderen een vierkantennet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-i\zeta_{6}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voegen we al deze stappen samen dan krijgen we de volgende transformatie in een formule
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-i\frac{Q}{\pi}\left(\arcsin\left(p\sin\left(\pi\left(i\frac{z}{H}-\frac{1}{2}\right)\right)+q\right)-\frac{\pi}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarin 
+\begin_inset Formula $p$
+\end_inset
+
+ en 
+\begin_inset Formula $q$
+\end_inset
+
+ berekend worden met de coördinaten van de hoekpunten van de sloot in het 
+\begin_inset Formula $\zeta_{3}$
+\end_inset
+
+-vlak zoals hierboven afgeleid.
+\end_layout
+
+\begin_layout Standard
+De formule hiervoor is handig om de complexe potentiaal te berekenen bij gegeven coördinaten in het vlak van de oorspronkelijke doorsnede.
+ Het omgekeerde is ook mogelijk,
+ namelijk om bij een gegeven complexe potentiaal het bijbehorende punten in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak uit te rekenen.
+ Daarvoor keren we de zojuist afgeleide vergelijking binnenste buiten en maken 
+\begin_inset Formula $z$
+\end_inset
+
+ expliciet
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z=-iH\left(\frac{1}{2}+\frac{1}{\pi}\arcsin\left(\frac{\sin\left(i\frac{\pi}{Q}\Omega+\frac{\pi}{2}\right)-q}{p}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Resultaten
+\end_layout
+
+\begin_layout Standard
+Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:De-doorsneden"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de berekende potentiaal en stroomfunctielijnen in een zestal doorsneden.
+ Elke doorsnede heeft dezelfde sloot van 10 m breedte gelegen op dezelfde afstand van de linker gesloten rand van de doorsnede.
+ De coördinaten van sloot staat steeds aangeven in de koptekst van elke doorsnede.
+ De doorsnedes verschillen alleen in hun dikte,
+ die loopt per doorsnede met 5 m op van 5 tot uiteindelijk 30 m.
+ De totale infiltratie is in elke doorsnede hetzelfde,
+ namelijk Q=1 m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d.
+ De antwoorden gelden dus voor een eenheidsinfiltratie.
+ Omdat de dikte verschillend zijn verschilt ook de schaal per doorsnede,
+ maar de ligging van de sloot ten opzichte van de linkerrand is steeds hetzelfde.
+ De potentiaal in de sloot is steeds nul.
+ De blauwe dikke stip links in de doorsnede,
+ halverwege de hoogte is de plek waar de potentiaal is berekend en de waarde is ernaast geplot.
+\end_layout
+
+\begin_layout Standard
+Zoals Kees maas al aantoonde,
+ zien we dat de potentiaal oploopt met de hoogte van de doorsnede.
+ Zijn argument dat 
+\begin_inset Quotes pld
+\end_inset
+
+Dik freatisch pakket infiltreert niet lekker
+\begin_inset Quotes prd
+\end_inset
+
+ blijkt dan ook hier uit deze resultaten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../../../../tools/Stromingen/Maas_H2O_05_1995/images/sections.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:De-doorsneden"
+
+\end_inset
+
+De doorsneden voor toenemende pakkedikte,
+ vaste slootbreedte en vaste totale infiltratie.
+ Het getal in elke figuur geeft de potentiaal op de plek van de blauwe punt,
+ die in de sloot is gelijk aan nul.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De vraag is nu wel of hier alles mee is gezegd.
+ Immers een dikker pakket bij dezelfde doorlatendheid en hetzelfde infitratiedebiet heeft een kleiner verhang stroomafwaarts.
+ Er is dus altijd een afstand waarop het dikke pakket het wel gaat winnen van de extra weerstand die het nabij de sloot opwekt.
+ We kunnen dit met onze analytische oplossing gemakkelijk controleren door de potentiaal langs de top en de basis van het watervoerend pakket te berekenen.
+ Het resultaat staat in fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Potentiaal-langs-de-top-en-basis"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ De linkerrand van de doorsnede ligt op 
+\begin_inset Formula $x=\Re(z)=0$
+\end_inset
+
+.
+ De sloot ligt tussen 
+\begin_inset Formula $50\le x\le60$
+\end_inset
+
+ en heeft altijd potentiaal 0.
+ De hoogte van de doorsnede staat in de legenda.
+ De getrokken lijn van elke kleur is de potentiaal aan de bovenzijde van de doorsnede;
+ de lijn met de stippen die aan de basis van de doorsnede.
+ De potentiaal is links van de sloot lager dan in de sloot en wordt constant in de richting van de rand,
+ waar geen stroming meer is.
+ De slootweerstand is geijk aan het verschil tussen de potentiaal in de sloot (0) en die nabij 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+ Rechts van de sloot daalt de potentiaal als gevolg van de stroom 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ Hier zien we duidelijk dat de daling sterker is wanneer de vaste stroom 
+\begin_inset Formula $Q$
+\end_inset
+
+ door een dunner pakket wordt afgevoerd.
+ Het is direct duidelijk dat een dun pakket rechts van de sloot beduidend meer weerstand laat zien dan een dik pakket.
+ Al op beperkte afstand van de sloot overstijgt het potentiaalverlies door de afstroming naar rechts die als gevolg van de intrede via de sloot.
+ Hoe dunner het pakket hoe lager dit intredeverlies en hoe groter het afstroomverlies.
+ Verdict,
+ een dun pakket infiltreert bij nader inzien toch niet zo heel lekker,
+ ook al is het intrede verlies daarvan kleiner dan van een dik pakket bij hetzerlfde debiet en dezelfde doorlatendheid.
+ Bij stroming over enige afstand,
+ zoals bij kuntmatige infiltratie het geval is,
+ is het verlies van potentiaal door de geringe dikte van een dun pakket groter dan de winst van een geringere intredeweerstand van het dunnere pakket.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../../../../tools/Stromingen/Maas_H2O_05_1995/images/tob_bot_potential.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Potentiaal-langs-de-top-en-basis"
+
+\end_inset
+
+Potentiaal langs de top en basis van de aquifer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+En formule voor de intredeweerstand
+\end_layout
+
+\begin_layout Standard
+Ik heb ervan afgezien om een expliciete formule af te leiden voor de potentiaal in een gegeven punt.
+ Een handige plek is bij deze aanpak minder eenduidig dan in de oplossing van Kees,
+ die het punt 
+\begin_inset Formula $z=-\infty$
+\end_inset
+
+ tot zijn beschikking had.
+ Wellicht is het hier ook mogelijk om de intredeweerstand expliciet af te leiden door het punt 
+\begin_inset Formula $z=0$
+\end_inset
+
+ op de linkerbovenrand vande doorsnede hiervoor te keizen en daarbij de sloot steeds verder richting oneindig op te schuiven.
+ We krijgen bij de sloot op voldoende afstand van de linkerrand een constante potentiaal voor elke doorsnede.
+ Dit blijkt ook uit de horizontale potentiaalijnen links van de sloot.
+\end_layout
+
+\begin_layout Section
+Tekenen van complexe functies
+\end_layout
+
+\begin_layout Standard
+Stel we hebben een vlak,
+ genaamd 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak en daarin een grid van coördinaten 
+\begin_inset Formula $X$
+\end_inset
+
+ en 
+\begin_inset Formula $Y$
+\end_inset
+
+ zodat 
+\begin_inset Formula $Z=X+iY$
+\end_inset
+
+ die we hebben verkregen door een vector met 
+\begin_inset Formula $x$
+\end_inset
+
+-coördinaten te kruisen met een vector met 
+\begin_inset Formula $y$
+\end_inset
+
+-coördinaten.
+ In Python gaat dit met de functie numpy.mesgrid(x,y):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X,Y=np.meshgrid(x,y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We kunnen nu de verticale lijnen tekenen door
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+plt.plot(X,Y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en de horizontale met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+plt.plot(X.T,Y.T)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit werkt omdat de plot functie de colommen van beide arrays combineert tot lijnen.
+\end_layout
+
+\begin_layout Standard
+Dit wetende kunnen we ook de lijnen tekenen naar een conforme afbeelding van zeg 
+\begin_inset Formula $W=f\left(Z\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Door oorspronkelijk verticale lijnen worden nu
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+plt.plot(W.real(),W.imag())
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en de oorspronkelijk verticale lijnen worden
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+plt.plot(W.T.real(),W.T.imag()
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit werkt beide kanten op.
+ Men kan een grid lijnen in het 
+\begin_inset Formula $z$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-vlak converteren naar lijnen in het 
+\begin_inset Formula $w$
+\end_inset
+
+-vlak en omgekeerd een regelmatig grid van lijnen in het 
+\begin_inset Formula $w$
+\end_inset
+
+-vlak converteren naar lijnen in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak waarbij 
+\begin_inset Formula $z=f^{-1}\left(z\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Bij conforme afbeeldingen van grondwaterstroming zoeken we de lijnen in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak voor een regelmatig grid in het 
+\begin_inset Formula $w$
+\end_inset
+
+-vlak.
+ Het 
+\begin_inset Formula $w$
+\end_inset
+
+-vlak wordt geacht 
+\begin_inset Formula $\Omega=\Phi+i\Psi$
+\end_inset
+
+ af de beelden.
+ Lijnen van gelijke 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ geven stroomijnen in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak en lijnen van gelijke 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ geven potentiaallijnen in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak.
+ De potentiaal is per definitie 
+\begin_inset Formula $\Phi=k\phi$
+\end_inset
+
+ or 
+\begin_inset Formula $\Phi=kD\phi$
+\end_inset
+
+ afhankelijk of we een doorsnede of een aquifer in een platte grond voor ogen hebben.
+ Dus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+Q_{x} & =-kD\frac{\partial\phi}{\partial x}=-\frac{\partial\Phi}{\partial x}\\
+Q_{y} & =-kD\frac{\partial\phi}{\partial y}=-\frac{\partial\Phi}{\partial y}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bovendien
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+Q_{x} & =-\frac{\partial\Psi}{\partial y}\\
+Q_{y} & =+\frac{\partial\Psi}{\partial x}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als we een conforme afbeelding hebben in de zin van 
+\begin_inset Formula $\Omega=f\left(z\right)$
+\end_inset
+
+ dan kunnen we ook de 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ en de 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ contouren.
+ Terwijl als we de transformatie 
+\begin_inset Formula $z=f^{-1}\left(\Omega\right)$
+\end_inset
+
+ hebben kunnen we de 
+\begin_inset Formula $z$
+\end_inset
+
+-lijnen direct tekenen.
+\end_layout
+
+\begin_layout Section
+Enkele conforme transformaties
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w=z^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De transformatie roteert de verticale 
+\begin_inset Formula $iy$
+\end_inset
+
+ as met een factor 
+\begin_inset Formula $n$
+\end_inset
+
+ tegen de klok in en 
+\begin_inset Formula $\left|w\right|=\left|z\right|^{n}$
+\end_inset
+
+.
+ Dus als we coördinaten kiezen van 
+\begin_inset Formula $-a\le x\le a$
+\end_inset
+
+ and blijft de lijn 
+\begin_inset Formula $0\le x\le a$
+\end_inset
+
+ liggen maar de lengen wordt wel verschaald zoals hiervoor is vermeld en wordt de lijn 
+\begin_inset Formula $-a\le x\le0$
+\end_inset
+
+ geroteerd met de factor 
+\begin_inset Formula $\frac{\pi}{4}n$
+\end_inset
+
+.
+ Deze rotatie geldt natuurlijk voor alle voorkomende lijnen 
+\begin_inset Formula $0\rightarrow z$
+\end_inset
+
+ maar die van 
+\begin_inset Formula $0\rightarrow i$
+\end_inset
+
+ is het gemakkelijkst voor te stellen.
+\end_layout
+
+\begin_layout Standard
+Omgekeerd geldt uiteraard
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z=w^{1/n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aangezien elke punt van 
+\begin_inset Formula $z$
+\end_inset
+
+ wordt afgebeeld op een unike punt van 
+\begin_inset Formula $w$
+\end_inset
+
+ kan altijd 
+\begin_inset Formula $w$
+\end_inset
+
+ gecontourd worden in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak en 
+\begin_inset Formula $z$
+\end_inset
+
+ gecontourd worden in het 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $w$
+\end_inset
+
+-vlak
+\end_layout
+
+\begin_layout Section
+Contouren van 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ en 
+\begin_inset Formula $\Psi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=\Phi+i\Psi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarbij 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ en 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ reëel zijn.
+ 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ en dus 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ en 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ zijn functie van 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ Als we een vierkantennet willen in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak zodat geldt 
+\begin_inset Formula $-Q_{x}=k\frac{\partial\phi}{\partial x}=\frac{\partial\Phi}{\partial x}=\frac{\partial\Psi}{\partial y}$
+\end_inset
+
+ en 
+\begin_inset Formula $-Q_{y}=\frac{\partial\Phi}{\partial y}=-\frac{\partial\Psi}{\partial x}$
+\end_inset
+
+ and komen stappen 
+\begin_inset Formula $\Delta\Phi=k\Delta\phi$
+\end_inset
+
+ overeen met stappen 
+\begin_inset Formula $\Delta\Psi$
+\end_inset
+
+ in het 
+\begin_inset Formula $\Omega$
+\end_inset
+
+-vlak.
+ Dus om de contour van 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ en 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ te te tekenen in het z vlak
+\end_layout
+
+\begin_layout Section
+Flow under a pile sheet (Verruijt,
+ p115-117)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-2\alpha F\left(w|b\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\cos^{2}w=\frac{\zeta\left(1-b\right)}{b\left(1-\zeta\right)}
+\]
+
+\end_inset
+
+w
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F\left(w|b\right)=\intop_{0}^{w}\left(1-b\sin^{2}\theta\right)^{-\frac{1}{2}}d\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F\left(w|b\right)=K\left(b\right)=\intop_{0}^{\pi/2}\left(1-b\sin^{2}\theta\right)^{-\frac{1}{2}}d\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-kD\frac{F\left(w|b\right)}{K\left(b\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Contractie met breedte 
+\begin_inset Formula $2p$
+\end_inset
+
+ in een toestroom ter breedte 
+\begin_inset Formula $2a$
+\end_inset
+
+ (Verruijt,
+ p117-188)
+\end_layout
+
+\begin_layout Standard
+De oplossing die leidt tot rechte stroom en potentiaal lijnen in het vlak 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is direct gegeven
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-\frac{2iQ}{\pi}\arcsin\left(\frac{\sin\left(\pi z/\left(2a\right)\right)}{\sin\left(\pi p/\left(2a\right)\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We kunnen dit visualiseren door een raster van z coordinaten te kiezen en dan 
+\begin_inset Formula $\Phi=\Re\left(\Omega\right)$
+\end_inset
+
+ en 
+\begin_inset Formula $\Psi=\Im$
+\end_inset
+
+
+\begin_inset Formula $\left(\Omega\right)$
+\end_inset
+
+ beide te contouren.
+ De isolijnen zijn dan de curves van 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ en 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ in het 
+\begin_inset Formula $z$
+\end_inset
+
+-vlak.
+\end_layout
+
+\begin_layout Section
+Symmetrical flow through a ditch with head and half width a given extraction Q
+\end_layout
+
+\begin_layout Standard
+We have the points D,
+ C,
+ B,
+ A,
+ C with coordinates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+C_{B} & =\infty-iH\\
+D & =0-iH\\
+A & =0\\
+B & =b\\
+C_{T} & =\infty
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We first step is to rotate over 
+\begin_inset Formula $\pi/2$
+\end_inset
+
+ anti-clockwise and to make points A and D match 
+\begin_inset Formula $-\frac{\pi}{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\pi}{2}$
+\end_inset
+
+ respectively and flat the vertical lines forming the top and bottom of the aquifer onto the real axis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\zeta & =\sin\left(\frac{\pi}{H}\left(iz-\frac{H}{2}\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which puts the points 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ on 
+\begin_inset Formula $\zeta=\mp1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\zeta\left(A\right) & \rightarrow-1\\
+\zeta\left(D\right) & \rightarrow+1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So determine 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $q$
+\end_inset
+
+ from the following equations to get that will make sure that 
+\begin_inset Formula $\zeta_{B}$
+\end_inset
+
+ and 
+\begin_inset Formula $\zeta_{D}$
+\end_inset
+
+ will be on the right spot
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+p\zeta_{B}+q & =-1\\
+p\zeta_{D}+q & =+1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+p & =\frac{2}{\zeta_{A}-\zeta_{B}}\\
+q & =-\left[\frac{\zeta_{A}+\zeta_{B}}{\zeta_{A}-\zeta_{B}}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we have a new plane 
+\begin_inset Formula $\zeta_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{1}=p\zeta+q
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The we turn the branches 
+\begin_inset Formula $\zeta=\mp1+iy$
+\end_inset
+
+ upward again by taking the arcsin.
+ This converts 
+\begin_inset Formula $\zeta_{!}\left(B\right)=-\frac{\pi}{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\zeta_{1}\left(A\right)=\frac{\pi}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{2}=\arcsin\zeta_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now make sure that point 
+\begin_inset Formula $\zeta_{1}\left(B\right)=-Q$
+\end_inset
+
+ and 
+\begin_inset Formula $\zeta_{2}\left(A\right)=0$
+\end_inset
+
+ and turn it clockwise over 
+\begin_inset Formula $\frac{\pi}{2}$
+\end_inset
+
+ by multplying by 
+\begin_inset Formula $-i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\zeta_{3}=\Omega=-i\frac{Q}{\pi}\left(\zeta_{2}-\frac{\pi}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-i\frac{Q}{\pi}\left(\arcsin\left(\zeta_{1}\right)-\frac{\pi}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-i\frac{Q}{\pi}\left(\arcsin\left(p\zeta+q\right)-\frac{\pi}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-i\frac{Q}{\pi}\left(\arcsin\left(p\sin\left(\frac{\pi}{H}\left(iz-\frac{H}{2}\right)\right)+q\right)-\frac{\pi}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Combining all that we did before into a single equations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Omega=-i\frac{Q}{\pi}\left(\arcsin\left(p\sin\left(\frac{\pi}{H}\left(iz-\frac{H}{2}\right)\right)+q\right)-\frac{\pi}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To get the 
+\begin_inset Formula $z$
+\end_inset
+
+ from the 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ we take the following steps
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-i\frac{Q}{\pi}\left(\arcsin\left(p\sin\left(\frac{\pi}{H}\left(iz-\frac{H}{2}\right)\right)+q\right)-\frac{\pi}{2}\right)=\Omega
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\arcsin\left(p\sin\left(\frac{\pi}{H}\left(iz-\frac{H}{2}\right)\right)+q\right)-\frac{\pi}{2}=i\frac{\pi}{Q}\Omega
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\arcsin\left(p\sin\left(\frac{\pi}{H}\left(iz-\frac{H}{2}\right)\right)+q\right)=i\frac{\pi}{Q}\Omega+\frac{\pi}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p\sin\left(\frac{\pi}{H}\left(iz-\frac{H}{2}\right)\right)+q=\sin\left(i\frac{\pi}{Q}\Omega+\frac{\pi}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\pi}{H}\left(iz-\frac{H}{2}\right)=\arcsin\left(\frac{\sin\left(i\frac{\pi}{Q}\Omega+\frac{\pi}{2}\right)-q}{p}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z=-iH\left(\frac{1}{2}+\frac{1}{\pi}\arcsin\left(\frac{\sin\left(i\frac{\pi}{Q}\Omega+\frac{\pi}{2}\right)-q}{p}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=\frac{2}{\zeta_{D}-\zeta_{A}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q=-\left[\frac{\zeta_{D}+\zeta_{A}}{\zeta_{D}-\zeta_{A}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
