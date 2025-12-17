@@ -3,7 +3,7 @@
 # Note that the PYTHONPATH is set in mflab/.env
 # Use VENV flopy by setting it
 
-"""Simultate GGOR for nparcels using MODFLOW.
+"""Simultate GGOR for nparcels using MODFLOW 6.
 
 * The parcels (area) data are in a shape file.
 * The attributes are in the dbf
@@ -90,7 +90,8 @@ with log_timed(logger, 'tdata generated and pickled'):
                   folder=dirs.meteo)
     tdata_file = os.path.join(dirs.data, 'tdata.pkl')
     tdata.to_pickle(tdata_file)
-    
+
+# %% --- Get the parcel data    
 with log_timed(logger, "Parcel_data generated and pickled"):
     parcel_data = ggt.get_parcel_data(dirs=dirs, defaults=ggt.defaults, BMINMAX=(5, 250))
     pdata_file = os.path.join(dirs.data, 'parcel_data.pkl')
