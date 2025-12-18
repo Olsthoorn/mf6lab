@@ -97,6 +97,7 @@ with log_timed(logger, "Parcel_data generated and pickled"):
     pdata_file = os.path.join(dirs.data, 'parcel_data.pkl')
     parcel_data.to_pickle(pdata_file)
 
+# %% --- Get the stress periods
 start_date_time = str(tdata.index[0])
 
 nper, nstep, tsmult = len(tdata), 1, 1.0
@@ -113,6 +114,7 @@ Simtdis = {'perioddata': period_data,
            'time_units': props['time_units'],
            }
 
+# %% --- Get the grid object
 with log_timed(logger, "grid generated"):
     gr = ggt.grid_from_parcel_data(parcel_data=parcel_data,
                                    dx=props['dx'])
