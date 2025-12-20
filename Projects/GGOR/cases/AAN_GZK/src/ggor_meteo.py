@@ -1,5 +1,6 @@
 
 import os
+import numpy as np
 import pandas as pd
 from pathlib import Path
 import matplotlib.pyplot as plt
@@ -71,10 +72,8 @@ if __name__ == '__main__':
     # meteo.data.plot(lw=0.5)
     #meteo.recharge.plot(lw=0.5)
     plt.show()
-    
-    import numpy as np
-    fig, ax = plt.subplots()
-    x = np.logspace(-1, 1, 21)
-    ax.plot(x, x / np.tanh(x))
-    plt.show()
+       
+    k = 30
+    for n in range(10):
+        print(k, k * np.sqrt(2) ** n)
     
