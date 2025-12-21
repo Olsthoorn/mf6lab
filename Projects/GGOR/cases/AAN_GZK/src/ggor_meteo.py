@@ -67,13 +67,26 @@ def get_meteo_path():
 
 
 if __name__ == '__main__':
-    metfile = get_meteo_path()
+    #metfile = get_meteo_path()
     #meteo = Meteo(metfile)
     # meteo.data.plot(lw=0.5)
     #meteo.recharge.plot(lw=0.5)
-    plt.show()
-       
-    k = 30
-    for n in range(10):
-        print(k, k * np.sqrt(2) ** n)
+    #plt.show()
+    from scipy.special import erfc
+        
+    n = np.logspace(0, 2, 101)[1:]
     
+    fig, ax = plt.subplots()
+    fig.suptitle("Required terms in series")
+    ax.set_title("Remaining exp series")
+    ax.set(xlabel='n', ylabel='rest of series', xscale='log')
+    for tau in [0.001, 0.01, 0.1, 1]: 
+        y = 0.25 * np.sqrt(np.pi / tau) * erfc((2 * n + 1) * np.sqrt(tau))
+        ax.plot(n, y, label=f"t/T={tau}")
+    ax.grid(True)
+    ax.legend()
+    parts = list(Path(os.getcwd()).parts).index('GGOR')
+    pth = os.path.join(os.getcwd(), 'doc', 'images')
+    fig.savefig(os.path.join(pth, 'needed_terms.png'))
+    
+    plt.show()

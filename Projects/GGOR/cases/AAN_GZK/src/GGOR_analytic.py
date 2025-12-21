@@ -24,6 +24,7 @@ class Aquifer:
     k: float
     D: float
     c: float
+    w: float
     mu: float
     b: float
     
@@ -31,6 +32,7 @@ class Aquifer:
         assert self.k > 0
         assert self.D > 0
         assert self.c > 0
+        assert self.w >= 0
         assert self.mu > 0
         assert self.b > 0
     
@@ -43,6 +45,16 @@ class Aquifer:
     def lam(self) -> float:
         """Spreading length λ = √(k D c)."""
         return np.sqrt(self.k * self.D * self.c)
+    
+    @property
+    def T1L(self):
+        """Return T voor single layer (Dupuit) aquifer"""
+        return self.b**2 / (3 * self.kD) + self.w * self.b / self.D 
+        
+    @property
+    def T2L(self):
+        """Return T for aquifer on top of regional aquifer (base-case)."""
+        return self.c * ((self.w / self.c) * (self.b / self.D) + self.G)
         
     @property
     def G(self)->float:
@@ -65,13 +77,14 @@ class Aquifer:
             D=self.D,
             c=self.c,
             mu=self.mu,
+            w = self.w,
             b=self.b,
             kD = self.kD,
             lam=self.lam,            
             G=self.G,
         )
 
-aq = Aquifer(k=10.0, D=5.0, c=0.2, mu=0.15, b=50)
+aq = Aquifer(k=10.0, D=5.0, c=0.2, mu=0.15, b=50, w=0)
 print(aq)
 print(aq.summary())
 
@@ -121,7 +134,7 @@ class AnalyticalSolution(ABC):
 
 class Dupuit(AnalyticalSolution):
     
-    def steady(self, x: int, hLR: float, R: float, **kwargs)->tuple:
+    def steady(self, x: int, hLR: float, R: float)->tuple:
         """Return steady state solution of cross section x.
         
         x: float | np.ndarray [m] 
@@ -135,10 +148,10 @@ class Dupuit(AnalyticalSolution):
         """
         aq = self.aq
         x = np.atleast_1d(x)    
-        h = hLR + R / (2 * aq.kD) * (aq.b**2 - x**2)
+        h = hLR + R / (2 * aq.kD) * (aq.b**2 - x**2) + R * aq.w * aq.b / aq.D
         return h if len(h) > 1 else h.item()
     
-    def steady_avg(self, hLR: float, R: float, **kwargs)->float:
+    def steady_avg(self, hLR: float, R: float)->float:
         """Return the averages steady-state head.
         
         >>> aq = Aquifer()
@@ -150,7 +163,7 @@ class Dupuit(AnalyticalSolution):
         >>> True
         """
         aq = self.aq
-        return hLR + R * aq.b**2 / (3 * aq.kD)
+        return hLR + R * aq.T1L
 
     def transient(self, rch, h_summer=None, h_winter=None, q=None):
         """Return result of dynamic simulation.
@@ -189,7 +202,7 @@ class Dupuit(AnalyticalSolution):
             # --- allow timesteps to vary
             dt = (t - t0) / np.timedelta64(1, 'D')
             
-            T = aq.b ** 2 / (3 * aq.kD)
+            T = aq.T1L
             
             exp = np.exp(-dt / (aq.mu * T))
             havg = hLR +  (h0 - hLR) * exp +  R * T * (1 - exp)
@@ -205,7 +218,7 @@ class Dupuit(AnalyticalSolution):
             
         return tdata
     
-    def transient_0(self, time=None, R=None, h0=0., hLR=0.):
+    def transient_0(self, time=None, R=None, h0=0, hLR=0):
         """Return result of dynamic simulation for constant inputs.
         
         Inputs are constant, time are an np.ndarray of floats [T].
@@ -227,7 +240,7 @@ class Dupuit(AnalyticalSolution):
         
         aq = self.aq
         
-        T = aq.b ** 2 / (3 * aq.kD)
+        T = aq.T1L
                 
         exp = np.exp(-(time - t0) / (aq.mu * T))
         h =hLR +  (h0 - hLR) * exp +  R * T * (1 - exp)   
@@ -239,14 +252,14 @@ class Dupuit(AnalyticalSolution):
         havg = hLR + R T
         
         """
-        aq = self.aq
-        T = aq.b ** 2 / (3 * aq.kD)
-        return hLR + R * T
+        aq = self.aq        
+        return hLR + R * aq.T1L
 
     
 class Base_case(AnalyticalSolution):
     
-    def steady(self, x: int, phi: float, hLR: float, R: float, **kwargs)->tuple:
+    def steady(self, x: float | np.ndarray,
+                       phi: float, hLR: float, R: float)->tuple:
         """Return steady state solution of cross section x.
         
         x: float | np.ndarray [m] 
@@ -258,14 +271,34 @@ class Base_case(AnalyticalSolution):
         R: float [L/T]
             recharge rate
         """
-        aq = self.aq
-        x = np.atleast_1d(x)    
-        h = (phi + R * aq.c) + (hLR - (phi + R * aq.c)) * (
-            np.cosh(x/aq.lam) / np.cosh(aq.b/aq.lam)
-        )
+        x = np.atleast_1d(x)
+        chx = np.cosh(x / aq.lam)
+        chb = np.cosh(aq.b / aq.lam)
+        shb = np.sinh(aq.b / aq.lam)  
+        h =hLR + (R  + (phi - hLR) / aq.c) * aq.c * (
+            1 - chx /(aq.k * aq.w / aq.lam * shb + chb))
         return h if len(h) > 1 else h.item()
     
-    def steady_avg(self, phi: float, hLR: float, R: float, **kwargs)->float:
+    def steady_q(self, x: float | np.ndarray, hLR: float,
+                                    R: float, q: float)->tuple:
+        """Return steady state solution of cross section x.
+        
+        x: float | np.ndarray [m] 
+            x-coordinates  -b <= x <= b            
+        hLR: float [L]
+            water level in the ditch
+        R: float [L/T]
+            recharge rate
+        q: float [L/T]
+            Upward seepage from regional aquifer
+        """
+        aq = self.aq
+        havg = hLR + (R + q) * aq.T2L
+        phi = q * aq.c + havg
+        
+        return self.steady(x, phi=phi, hLR=hLR, R=R)
+    
+    def steady_avg(self, hLR: float, R: float, q: float)->float:
         """Return the averages steady-state head.
         
         >>> aq = Aquifer()
@@ -277,12 +310,13 @@ class Base_case(AnalyticalSolution):
         >>> True
         """
         aq = self.aq
-        return (phi + R * aq.c) + (hLR - (phi + R * aq.c)) * (
-            np.tanh(aq.b/aq.lam) / (aq.b/aq.lam)
-        )
+        return hLR + (R + q) * aq.T2L        
 
-    def transient(self, rch, h_summer=None, h_winter=None, q=None):
+    def transient(self, rch: pd.Series,
+                  h_summer: float, h_winter: float, q: float)->pd.DataFrame:
         """Return result of dynamic simulation.
+        
+        Notice: hLR is not an input parameters, it's taken form h_winter
 
         Parameters
         ----------
@@ -321,7 +355,7 @@ class Base_case(AnalyticalSolution):
             # --- allow timesteps to vary
             dt = (t - t0) / np.timedelta64(1, 'D')
             
-            T = aq.c * aq.G
+            T = aq.T2L
             
             exp = np.exp(-dt / T)
             havg = hLR +  (h0 - hLR) * exp +  (R + q) * T * (1 - exp)
@@ -338,7 +372,7 @@ class Base_case(AnalyticalSolution):
         tdata['phi'] = tdata['h'] + tdata['q'] * aq.c
         return tdata
     
-    def transient_0(self, time=None, R=None, h0=0., hLR=0., q=None):
+    def transient_0(self, time: float | np.ndarray, R: float, h0: float, hLR: float, q: float)->float | np.ndarray:
         """Return result of dynamic simulation for constant inputs.
         
         Inputs are constant, time are an np.ndarray of floats [T].
@@ -362,11 +396,11 @@ class Base_case(AnalyticalSolution):
         
         aq = self.aq
         
-        T = aq.c * aq.G
+        T = aq.T2L
                 
         exp = np.exp(-(time - t0) / (aq.mu * T))
         h =hLR +  (h0 - hLR) * exp +  (R + q) * T * (1 - exp)   
-        return h
+        return h if h.size > 1 else h.item()
     
     
     def asymptote(self, R:float, q: float, hLR: float)->float:
@@ -376,13 +410,77 @@ class Base_case(AnalyticalSolution):
         
         """
         aq = self.aq
+        return hLR + (R + q) * aq.T2L
         
-        T = aq.c * aq.G        
+class Bruggeman13316():
+    
+    def steady(self, x: float | np.ndarray, R: float) -> float | np.ndarray:
+        x = np.atleast_1d(x)
+        aq=self.aq
+        h = R / (2 * aq.kD) * (aq.b**2 - x**2)
+        return h if h.size > 0 else h.item()
+    
+    def transient(self, p, time, x, R, eps=1e-12):
         
-        return hLR + (R + q) * T
+        assert (   np.isscalar(x) and not np.isscalar(time)
+                or np.isscalar(time) and not np.isscalar(x)
+                or np.isscalar(x) and np.isscalar(time)
+        ), "x and time must be both scalars or (scalar and array) not both arrays"
         
+        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
+        tau = time / T
+        px2b = np.pi * x / (2 * aq.b)
         
-def dupuit_transient0(b=50, R=0.001, h0=0, hLR=0):
+        N = int(np.ceil(np.sqrt(T/(time + eps))))
+        
+        s0 = self.steady(x, R)
+        s = np.zeros_like(s0)
+        F = 16 * p * aq.b**2 / (np.pi**3 * aq.kD)
+        
+        for n in range(N + 1):
+            n2p1 = 2*n + 1
+            s += (
+            (-1)**n / n2p1**3
+            * np.cos(n2p1 * px2b)
+            * np.exp(-n2p1**2 * tau)
+            )
+        return s0 + F * s
+        
+class Brug13302():
+
+    def steady(self, x: float | np.ndarray, dh: float) -> float | np.ndarray:
+        x = np.atleast_1d(x)
+        h = dh * np.zeros_like(x)
+        return h if h.size > 0 else h.item()
+            
+    def transient(self, dh: float, time: float | np.ndarray, x: float | np.ndarray, eps=1e-12) -> float | np.ndarray:
+        
+        assert (   np.isscalar(x) and not np.isscalar(time)
+                or np.isscalar(time) and not np.isscalar(x)
+                or np.isscalar(x) and np.isscalar(time)
+        ), "x and time must be both scalars or (scalar and array) not both arrays"
+        
+        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
+        tau = time / T
+        px2b = np.pi * x / (2 * aq.b)
+        
+        N = int(np.ceil(np.sqrt(T/(time + eps))))
+        
+        s0 = self.steady(x, dh=dh)
+        s = np.zeros_like(s0)
+        F = 4 * dh / np.pi
+        
+        for n in range(N + 1):
+            n2p1 = 2*n + 1
+            s += (
+            (-1)**n / n2p1
+            * np.cos(n2p1 * px2b)
+            * np.exp(-n2p1**2 * tau)
+            )
+        return s0 + F * s
+              
+        
+def example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0, w=0):
     """Show head development for steady inputs together with asymptote
     
     Parameters
@@ -397,14 +495,15 @@ def dupuit_transient0(b=50, R=0.001, h0=0, hLR=0):
         Ditch water level.
     """
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, mu=0.2, b=b)
+    aq = Aquifer(k=10, D=10, c=200, w=w, mu=0.2, b=b)
         
     title1 = str(aq).replace(", c = 200", "").replace(", b = 50", "")
     title2 = f"R={R} m/d, h0={h0} m, hLR={hLR} m"
     
     time = np.logspace(0, 4, 81)
     
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 7.5))
+    fig.suptitle("Dupuit case")
     ax.set_title("Head development voor stationary inputs" + "\n" + 
                  title1 + "\n" + title2)
     ax.set(xlabel='time [d]', ylabel='head [m]', xscale='log')
@@ -415,33 +514,81 @@ def dupuit_transient0(b=50, R=0.001, h0=0, hLR=0):
         aq.b = b
         mdl = Dupuit(aq=aq)
         
-        T = aq.b ** 2 / (3 * aq.kD)
+        T = aq.T1L
         
         h = mdl.transient_0(time=time, R=R, h0=h0, hLR=hLR)
         hinf = mdl.asymptote(R=R, hLR=hLR)
 
-        ax.plot(time[1:], h[1:], color=clr, label=f'b={aq.b:7.0f} d, T={T:8.3g} d')
+        ax.plot(time[1:], h[1:], color=clr, label=f'b={aq.b:7.0f} d, muT={aq.mu * T:8.3g} d')
         ax.plot(time[-1], hinf, 'o', mfc=clr)
     ax.grid(True)
     ax.legend(loc="upper left")    
 
 
+def example_dupuit_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1):
+    """Show transient head development driven by meteo
+    
+    Parameters
+    ----------
+    tdata: pd DataFrame with fields RH (precip) and EV24 (evapotranspiraton)
+        The meteo data
+    b: float [L]
+        half-width of the X-section
+    h0: float
+        Initial head at t=0
+    h_winter: float
+        Ditch water level during winter.
+    h_summer: float
+        Ditch water level during summer.
+    """
+    # --- Input data
+    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.2, b=b)
+        
+    title1 = str(aq).replace(", c = 200", "").replace(", b = 50", "")
+    title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m"
+    
+    # --- Get meteo data
+    if rch is None:
+        meteo = ggor_meteo.Meteo()
+        rch = meteo.recharge
+        
+    fig, ax = plt.subplots(figsize=(10, 7.8))
+    fig.suptitle("Dupuit case")
+    ax.set_title("Head driven by meteo data" + "\n" + 
+                 title1 + "\n" + title2)
+    ax.set(xlabel='time', ylabel='head [m]', xscale='log')
+    
+    clrs = cycle('brgkmcy')
+    for b in [50, 500]:
+        clr = next(clrs)
+        aq.b = b
+        mdl = Dupuit(aq=aq)
+        
+        T = aq.T1L
+        
+        tdata = mdl.transient(rch, h_summer=h_summer, h_winter=h_winter)
+        
+        ax.plot(tdata.index, tdata['h'], color=clr,
+                label=f'muT={aq.mu * T:8.3g} d')
+    ax.grid(True)
+    ax.legend(loc="lower right")
+  
 
-def base_case_steady():
+def example_base_case_steady():
     """Show the base case steady and compare with single layer."""
     
     from itertools import cycle
     
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, mu=0.2, b=50)
+    aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.2, b=50)
     phi, hLR, R = 0., 0., 0.001
 
     # --- Points along X-section
     x = np.linspace(-aq.b, aq.b, 101)
     
     # --- Setup figure
-    fig, ax = plt.subplots(figsize=(10, 10))
-    fig.suptitle("Base case analytical solution, steady-state")
+    fig, ax = plt.subplots(figsize=(10, 7))
+    fig.suptitle("Base case, steady-state")
     
     ax.set_title('Analytial base-case, steady state' + "\n"
                  + str(aq).replace(' c=200,', '')
@@ -473,7 +620,7 @@ def base_case_steady():
     ax.legend(loc='upper right')
     plt.show()
     
-def base_case_transient(b=50, R=0.001, h0=0, hLR=0, q=0):
+def example_base_case_transient0(b=50, R=0.001, h0=0, hLR=0, q=0):
     """Show head development for steady inputs together with asymptote
     
     Parameters
@@ -488,14 +635,15 @@ def base_case_transient(b=50, R=0.001, h0=0, hLR=0, q=0):
         Ditch water level.
     """
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, mu=0.2, b=b)
+    aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.2, b=b)
         
     title1 = str(aq).replace(", c = 200", "")
     title2 = f"R={R} m/d, h0={h0} m, hLR={hLR} m, q={q} m/d"
     
     time = np.logspace(0, 4, 81)
     
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 7))
+    fig.suptitle("Base case, transient 0")
     ax.set_title("Head development voor stationary inputs" + "\n" + 
                  title1 + "\n" + title2)
     ax.set(xlabel='time [d]', ylabel='head [m]', xscale='log')
@@ -511,12 +659,12 @@ def base_case_transient(b=50, R=0.001, h0=0, hLR=0, q=0):
         h = mdl.transient_0(time=time, R=R, h0=h0, hLR=hLR, q=q)
         hinf = mdl.asymptote(R=R, hLR=hLR, q=q)
 
-        ax.plot(time[1:], h[1:], color=clr, label=f'c={aq.c:7.0f} d, T={T:8.3g} d')
+        ax.plot(time[1:], h[1:], color=clr, label=f'c={aq.c:7.0f} d, muT={aq.mu * T:8.3g} d')
         ax.plot(time[-1], hinf, 'o', mfc=clr)
     ax.grid(True)
     ax.legend(loc="lower right")    
 
-def base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
+def example_base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
     """Show transient head development driven by meteo
     
     Parameters
@@ -535,7 +683,7 @@ def base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
         Upward seepage
     """
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, mu=0.2, b=b)
+    aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.2, b=b)
         
     title1 = str(aq).replace(", c = 200", "")
     title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m, q={q} m/d"
@@ -545,7 +693,8 @@ def base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
         meteo = ggor_meteo.Meteo()
         rch = meteo.recharge
         
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 7))
+    fig.suptitle("Base case, transient")
     ax.set_title("Head driven by meteo data" + "\n" + 
                  title1 + "\n" + title2)
     ax.set(xlabel='time', ylabel='head [m]', xscale='log')
@@ -556,10 +705,12 @@ def base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
         aq.c = c
         mdl = Base_case(aq=aq)
         
+        T = aq.c * aq.G
+        
         tdata = mdl.transient(rch, h_summer=h_summer, h_winter=h_winter, q=q)
         
         ax.plot(tdata.index, tdata['h'], color=clr,
-                label=f'c={aq.c:7.0f} d, T={aq.T:8.3g} d')
+                label=f'c={aq.c:7.0f} d, muT={aq.mu * T:8.3g} d')
     ax.grid(True)
     ax.legend(loc="lower right")
     
@@ -598,21 +749,22 @@ def compare_limits():
 
 if __name__ == "__main__":
     if False:
-        base_case_steady()
+        example_base_case_steady()
     if True:
-        dupuit_transient0(b=50, R=0.001, h0=0, hLR=0)
+        example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0)
+        example_dupuit_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1)
     if False:
-        base_case_transient(b=50, R=0.001, h0=0, hLR=0, q=0)
-        base_case_transient(b=500, R=0.001, h0=0, hLR=0, q=0)
-        base_case_transient(b=5000, R=0.001, h0=0, hLR=0, q=0)    
-        base_case_transient(b=50, R=0.0, h0=3, hLR=0, q=0)
-        base_case_transient(b=50, R=0.0, h0=0, hLR=3, q=0)
-        base_case_transient(b=50, R=0.0, h0=0, hLR=0, q=0.001)
+        example_base_case_transient0(b=50, R=0.001, h0=0, hLR=0, q=0)
+        example_base_case_transient0(b=500, R=0.001, h0=0, hLR=0, q=0)
+        example_base_case_transient0(b=5000, R=0.001, h0=0, hLR=0, q=0)    
+        example_base_case_transient0(b=50, R=0.0, h0=3, hLR=0, q=0)
+        example_base_case_transient0(b=50, R=0.0, h0=0, hLR=3, q=0)
+        example_base_case_transient0(b=50, R=0.0, h0=0, hLR=0, q=0.001)
     if False:
         rch = ggor_meteo.Meteo().recharge
         h_summer, h_winter = -0.9, -1.1
         h0, q = 0, 0
-        base_transient(rch, b=50, h0=3, h_summer=0, h_winter=0, q=q)
+        example_base_transient(rch, b=50, h0=3, h_summer=0, h_winter=0, q=q)
     if False:
         compare_limits()
     plt.show()

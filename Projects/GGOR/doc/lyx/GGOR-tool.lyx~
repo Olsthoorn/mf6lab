@@ -1227,1751 +1227,6 @@ q=\frac{\phi-\overline{h}}{c}\,\,\,\rightarrow\,\,\,\phi=qc+\overline{h}
 waaruit onmiddellijk blijkt dat beide randvoorwaarden equivalent zijn.
 \end_layout
 
-\begin_layout Section
-De analytische basisformule van de oude GGOR-tool 
-\end_layout
-
-\begin_layout Standard
-De analytische basisformule van de GGOR-tool gaat uit van stationaire stroming in een top- of deklaag die rust op een slecht doorlatende basis op een regionale aquifer met constante stijghoogte zoals geïllustreerd in figuur 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Perceeldoorsnede-conceptueel"
-nolink "false"
-
-\end_inset
-
-,
- maar zonder weerstand tussen de toplaag en de sloten.
-\end_layout
-
-\begin_layout Standard
-De differentiaalvergelijking voor dit systeem,
- beschouwd als stationair,
- dus zonder berging is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-kD\frac{d^{2}h}{dx^{2}}=-N+\frac{h-\phi}{c}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Anders opgeschreven
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\lambda^{2}\frac{d^{2}\left\{ h-\left(\phi+Nc\right)\right\} }{dx^{2}}=h-\left(\phi+Nc\right)
-\]
-
-\end_inset
-
-met 
-\begin_inset Formula $\lambda=\sqrt{kDc}$
-\end_inset
-
-,
- de karakteristieke lengte voor de toplaag.
-\end_layout
-
-\begin_layout Standard
-De algemene oplossing van deze differentiaalvergelijking is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-\left(\phi+Nc\right)=Ae^{+\frac{x}{\lambda}}+Be^{-\frac{x}{\lambda}}
-\]
-
-\end_inset
-
-Alternatief geschreven,
- maar dan uiteraard met andere waarden voor de coëfficiënten,
- kan de oplossing kan ook als volgt worden uitgedrukt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-\left(\phi+Nc\right)=A\cosh\left(\frac{x}{\lambda}\right)+B\sinh\left(\frac{x}{\lambda}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze analytische oplossing geldt voor de situatie waarin links en rechts van de het perceel een ander slootpeil heerst,
- en wordt verderop afgeleid.
- Binnen de GGOR-tool nemen we echter het slootpeil links en rechts van elk perceel gelijk,
- wat wordt aangegeven door het slootpeil 
-\begin_inset Formula $h_{LR}$
-\end_inset
-
-.
- De grondwaterstand is dan symmetrisch ten opzichte van het midden van de doorsnede,
- waar 
-\begin_inset Formula $x=0$
-\end_inset
-
- wordt gekozen.
- De sloten bevinden zich dus op 
-\begin_inset Formula $x=\pm b$
-\end_inset
-
-,
- met 
-\begin_inset Formula $b$
-\end_inset
-
- de halve breedte van het perceel.
- Vanwege de symmetrie moet 
-\begin_inset Formula $B=0$
-\end_inset
-
- gelden,
- zodat de oplossing,
- met links en rechts hetzelfde slootpeil,
- als volgt is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-\left(\phi+Nc\right)=A\cosh\left(\frac{x}{\lambda}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De coëfficiënt 
-\begin_inset Formula $A$
-\end_inset
-
- moet uit de randvoorwaarden worden bepaald.
- Hier dus 
-\begin_inset Formula $h_{\pm b}=h_{LR}$
-\end_inset
-
-.
- Dit levert als oplossing
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-A & = & \frac{h_{LR}-\left(\phi+Nc\right)}{\cosh\frac{b}{\lambda}}
-\end{eqnarray*}
-
-\end_inset
-
-De stationaire grondwaterstand in de doorsnede wordt dan gelijk aan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-\left(\phi+Nc\right)=\left(h_{LR}-\left(\phi+Nc\right)\right)\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze uitdrukking geeft de grondwaterstand ten opzichte van een referentie 
-\begin_inset Formula $\phi+Nc$
-\end_inset
-
-,
- de waarde waar de grondwaterstand naar toe streeft bij constant neerslagoverschot 
-\begin_inset Formula $N$
-\end_inset
-
-,
- in de situatie dat de sloten oneindig ver uit elkaar zouden liggen,
- dus 
-\begin_inset Formula $b\rightarrow\infty$
-\end_inset
-
-,
- waardoor de rechter term naar nul streeft.
-\end_layout
-
-\begin_layout Standard
-De gemiddelde grondwaterstand in de doorsnede,
- 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
-,
- wordt verkregen door integratie langs de doorsnede
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h}-\left(\phi+Nc\right) & = & \frac{1}{b}\intop_{0}^{b}\left(h_{LR}-\left(\phi+Nc\right)\right)\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}dx
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De doorsnedegemiddelde grondwaterstand,
- 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
-,
- bij gegeven diepe stijghoogte 
-\begin_inset Formula $\phi$
-\end_inset
-
- wordt dan als volgt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\overline{h}-\left(\phi+Nc\right) & = & \left(h_{LR}-\left(\phi+Nc\right)\right)\frac{\tanh\frac{b}{\lambda}}{b/\lambda}\label{eq:h-gem-voor-gegeven-phi}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De afvoer in de doorsnede 
-\begin_inset Formula $Q_{x}$
-\end_inset
-
- [L
-\begin_inset Formula $^{2}$
-\end_inset
-
-//T] kan als volgt worden berekend met Darcy
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q_{x}=-kD\frac{dh}{dx}=-\frac{kD}{\lambda}\left(h_{LR}-\left(\phi+Nc\right)\right)\frac{\sinh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De afvoer naar de sloten is 
-\begin_inset Formula $Q_{L}=Q_{R}=Q_{LR}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-Q_{LR} & = & -kD\frac{dh}{dx}|_{x=b}\nonumber \\
-Q_{LR} & = & -\frac{kD}{\lambda}\left(h_{LR}-\left(\phi+Nc\right)\right)\tanh\left(\frac{b}{\lambda}\right)\label{eq:QLR-GGOR-phi-gegeven}
-\end{eqnarray}
-
-\end_inset
-
-De stijghoogte in de regionale aquifer 
-\begin_inset Formula $\phi$
-\end_inset
-
- moet voldoen aan 
-\begin_inset Formula $\phi=qc+\overline{h}$
-\end_inset
-
-,
- zodat de afvoer naar de sloten gelijk is aan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q_{LR}=-\frac{kD}{\lambda}\left(h_{LR}-\left(\overline{h}-qc+Nc\right)\right)\tanh\left(\frac{b}{\lambda}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-Q_{LR} & = & \frac{kD}{\lambda}\left(\overline{h}-h_{LR}+\left(q+N\right)c\right)\tanh\left(\frac{b}{\lambda}\right)\label{eq:QLR-GGOR-q-gegeven}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze vorm maakt inzichtelijk dat de afvoer wordt gedreven door twee factoren:
-\end_layout
-
-\begin_layout Enumerate
-Het verschil tussen de gemiddelde stijghoogte in de toplaag en het slootpeil
-\end_layout
-
-\begin_layout Enumerate
-De kwel plus het neerslagoverschot.
-\end_layout
-
-\begin_layout Standard
-We kunnen de diepe stijghoogte,
- 
-\begin_inset Formula $\phi$
-\end_inset
-
-,
- elimineren uit vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:h-gem-voor-gegeven-phi"
-nolink "false"
-
-\end_inset
-
- door te schrijven 
-\begin_inset Formula $\phi=qc+\overline{h}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h}-\left(\phi+Nc\right) & = & \frac{\lambda}{b}\left(h_{LR}-\left(\phi+Nc\right)\right)\tanh\left(\frac{b}{\lambda}\right)\\
-\overline{h}-\left(qc+\overline{h}+Nc\right) & = & \frac{\lambda}{b}\left(h_{LR}-\left(qc+\overline{h}+Nc\right)\right)\tanh\left(\frac{b}{\lambda}\right)\\
-\left(Nc+qc\right) & = & \frac{\lambda}{b}\left(\overline{h}-h_{LR}+\left(Nc+qc\right)\right)\tanh\left(\frac{b}{\lambda}\right)\\
-\left(Nc+qc\right)\frac{b}{\lambda}\coth\left(\frac{b}{\lambda}\right) & = & \left(\overline{h}-h_{LR}+\left(Nc+qc\right)\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Hiermee kan uiteindelijk de gemiddelde stijghoogte in de deklaag 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- wordt uitgedrukt in de opgelegde kwel 
-\begin_inset Formula $q$
-\end_inset
-
- en het neerslagoverschot 
-\begin_inset Formula $N$
-\end_inset
-
-,
- terwijl de diepe stijghoogte is geëlimineerd
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(N+q\right)c\,\left(\frac{b}{\lambda}\coth\left(\frac{b}{\lambda}\right)-1\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Door de laatste factor afzonderlijke te schrijven als
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\Gamma=\frac{b}{\lambda}\coth\left(\frac{b}{\lambda}\right)-1\label{eq:Gamma-groot-basisformule}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-kan de oplossing vereenvoudigd worden geschreven als
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\overline{h}-h_{LR} & = & \left(N+q\right)c\Gamma\label{eq:h-gem-voor-gegeven-q}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:h-gem-voor-gegeven-q"
-nolink "false"
-
-\end_inset
-
- kunnen we dus direct de doorsnedegemiddelde grondwaterstand uitrekenen voor gegeven kwel in plaats van gegeven stijghoogte.
-\end_layout
-
-\begin_layout Standard
-Overigens is de limit van 
-\begin_inset Formula $\Gamma$
-\end_inset
-
- voor 
-\begin_inset Formula $b/\lambda\rightarrow0$
-\end_inset
-
- op zichzelf interessant.
- Deze is gelijk aan 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\lim_{z\downarrow0}\left(z\coth z-1\right)=\frac{z^{2}}{3}
-\]
-
-\end_inset
-
-zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\lim_{\frac{b}{\lambda}\downarrow0}\frac{b}{\lambda}\coth\left(\frac{b}{\lambda}\right)=\frac{1}{3}\frac{b^{2}}{\lambda^{2}}=\frac{b^{2}}{3kDc}
-\]
-
-\end_inset
-
-Deze limiet voor 
-\begin_inset Formula $q=0$
-\end_inset
-
- wanneer 
-\begin_inset Formula $c\rightarrow\infty$
-\end_inset
-
- is gelijk aan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\lim_{c\rightarrow\infty}\left(\overline{h}-h_{LR}\right)=\frac{Nb^{2}}{3kD}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit is de exacte oplossing voor de gemiddelde grondwaterstand in de situatie met neerslag op een pakket dat rust op een ondoorlatende bodem.
- We zien dus dat de oplossing voor de situatie met een onderliggende regionale aquifer naadloos overgaat in die voor de situatie waarbij de basis van de deklaag ondoorlatend is,
- en er logischerwijze geen interactie kan zijn met een onderliggende laag.
-\end_layout
-
-\begin_layout Section
-Inbrengen van tijdsafhankelijkheid,
- van dynamiek
-\end_layout
-
-\begin_layout Subsection
-Basis-situatie het grondwatersysteem met slechts 1 laag
-\end_layout
-
-\begin_layout Standard
-Laten we de afleiding doen voor een enkellaags model met alleen neerslag.
- 
-\begin_inset Formula $h$
-\end_inset
-
- is de stijghoogte ten opzichte van de evemwitchtssituatie met nul neerslag.
- De stationaire oplossing hiervan is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h=\frac{N}{2kD}\left(b^{2}-x^{2}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Waarin 
-\begin_inset Formula $h$
-\end_inset
-
- de grondwaterstand ten opzichte van het peil van de sloten op x=
-\begin_inset Formula $\pm b$
-\end_inset
-
-.
- We kunnen dus 
-\begin_inset Formula $h$
-\end_inset
-
- ook schrijven als 
-\begin_inset Formula $h-h_{LR}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-De gemiddelde grondwaterstand in de doorsnede tussen 
-\begin_inset Formula $-b\le x\le b$
-\end_inset
-
- is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h=\frac{N}{2kD}\frac{2}{3}b^{3}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}=\frac{1}{3}\frac{b^{2}}{kD}N=NT
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-met 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-T=\frac{1}{3}\frac{b^{2}}{kD}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Een tijd die karakteristiek is voor dit grondwatersysteem.
-\end_layout
-
-\begin_layout Standard
-Het systeem raakt op 
-\begin_inset Formula $t=0$
-\end_inset
-
- uit evenwicht doordat het neerslagoverschot plotseling verandert.
- We schrijven voor de situatie 
-\begin_inset Formula $t>0$
-\end_inset
-
- de volgende relatie tussen de berging,
- de aanvoer 
-\begin_inset Formula $N$
-\end_inset
-
- en de afvoer naar de sloten die alleen afhangt van de gemiddelde grondwaterstand (ten opzichte van het slootpeil).
- Deze afvoer is gelijk aan 
-\begin_inset Formula $\overline{h}/T$
-\end_inset
-
-.
- Aldus is de berging 
-\begin_inset Formula $\mu d\overline{h}/dt$
-\end_inset
-
- gelijk aan de aanvoer 
-\begin_inset Formula $N$
-\end_inset
-
- en de afvoer naar de sloten 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
-/T die uitsluitend van 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- afhangt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\mu\frac{d\overline{h}}{dt} & =N-\frac{\overline{h}}{T}\\
-\mu T\frac{d\overline{h}}{dt} & =-\left(\overline{h}-NT\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit is gemakkelijk uit te werken
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\frac{d\left(\overline{h}-NT\right)}{\overline{h}-NT} & =-\frac{dt}{\mu T}\\
-\ln\left(\overline{h}-NT\right) & =-\frac{t-t_{0}}{\mu T}+C\\
-\ln\left(\overline{h}-NT\right) & =-\frac{t-t_{0}}{\mu T}+\ln\left(\overline{h}_{0}-NT\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Nemen we de exponent aan beide zijde,
- dan krijgen we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\overline{h}-NT & =\left(\overline{h}_{0}-NT\right)\exp\left(-\frac{t-t_{0}}{\mu T}\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Na herschikking van de termen en het slootpeil 
-\begin_inset Formula $h_{LR}$
-\end_inset
-
- als referentie
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{\overline{h}-h_{LR}=\left(\overline{h}_{0}-h_{LR}\right)\exp\left(-\frac{t-t_{0}}{\mu T}\right)+NT\left(1-\exp\left(-\frac{t-t_{0}}{\mu T}\right)\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-met
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{T=\frac{1}{3}\frac{b^{3}}{kD}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit drukt uit dat de doorsnedegemiddelde grondwaterstand exponentieel vertraagd uitzakt met een karakteristieke tijd 
-\begin_inset Formula $\mu T$
-\end_inset
-
- en tegelijk streeft naar een nieuwe evenwichtsstand die gelijk is aan 
-\begin_inset Formula $NT$
-\end_inset
-
-,
- oftewel de stationaire eindsituatie.
-\end_layout
-
-\begin_layout Standard
-We kijken nu of de stijging van de grondwaterstand op 
-\begin_inset Formula $t=t_{0}$
-\end_inset
-
-,
- het moment overeenkomt met de berging.
- Deze stijging moet gelijk zijn aan 
-\begin_inset Formula $\left(N-Q\right)/\mu=\left(N-\overline{h}/T\right)/\mu$
-\end_inset
-
-.
- Bereken de afgeleide van de gemiddelde grondwaterstand naar de tijd
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\frac{d\overline{h}}{dt} & =-\frac{\overline{h}_{0}}{\mu T}\exp\left(-\frac{t-t_{0}}{\mu T}\right)-\frac{N}{\mu}\exp\left(-\frac{t-t_{0}}{\mu T}\right)\\
-\frac{d\overline{h}}{dt}|_{t=0} & =\frac{N}{\mu}\left(1-\frac{\overline{h}_{0}}{T}\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit is inderdaad wat je verwacht.
-\end_layout
-
-\begin_layout Subsection
-Toplaag met regionale aquifer eronder
-\end_layout
-
-\begin_layout Standard
-De waterbalans voor een doorsnede in evenwicht is als volgt:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-0 & = & in-uit\\
-0 & = & N+q-\frac{Q_{LR}}{b}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Alle termen zijn uitgedrukt in [L/T] dus bijv.
- mm/d over de doorsnede.
- 
-\begin_inset Formula $Q_{LR}$
-\end_inset
-
- reeds in vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:QLR-GGOR-phi-gegeven"
-nolink "false"
-
-\end_inset
-
- uitgewerkt.
- Omdat neerslag en kwel voortdurend veranderen is er doorgaans juist geen evenwicht.
- We houden echter wel vast aan het verband tussen 
-\begin_inset Formula $Q_{LR}$
-\end_inset
-
- en 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- in vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:QLR-GGOR-phi-gegeven"
-nolink "false"
-
-\end_inset
-
-,
- hoewel dat feitelijk alleen geldt voor de stationaire situatie.
- Het niet in evenwicht zijn leidt tot verandering van de berging,
- als volgt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-berging & = & in-uit\\
-\mu\frac{d\overline{h}}{dt} & = & N+q-\frac{Q_{LR}\left(\overline{h}\right)}{b}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De evenwichtssituatie is hiervoor afgeleid
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(N+q\right)c\Gamma
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-met
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Gamma=\frac{b}{\lambda}\coth\left(\frac{b}{\lambda}\right)-1
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In evenwicht is 
-\begin_inset Formula $N+q$
-\end_inset
-
- gelijk aan de afvoer via de sloten die alleen van de gemiddelde grondwaterstand afhangt bij gegeven slootpeil.
- De afvoer van de sloten bij gegeven gemiddelde grondwaterstand is dan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\overline{h}-h_{LR} & =\left(\frac{Q_{LR}}{b}\right)c\Gamma\\
-\frac{Q_{LR}}{b} & =\frac{\overline{h}-h_{LR}}{c\Gamma}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat,
- ingevuld we de volgende gewone differentiaalvergelijking hebben
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mu\frac{d\overline{h}}{dt}=N+q-\frac{\overline{h}-h_{LR}}{c\Gamma}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze vergelijking is gemakkelijk uit te werken
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\mu c\Gamma\frac{d\overline{h}}{dt} & =-\left(\overline{h}-h_{LR}-c\Gamma\left(N+q\right)\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit is te schrijven als
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{d\left(\overline{h}-h_{LR}-\left(N+q\right)c\Gamma\right)}{\overline{h}-h_{LR}-\left(N+q\right)c\Gamma}=-\frac{dt}{\mu c\Gamma}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Zodat na integratie en invulling van de integratieconstante,
- dat 
-\begin_inset Formula $\overline{h}=\overline{h}_{0}$
-\end_inset
-
- op 
-\begin_inset Formula $t=t_{0}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\ln\left(\overline{h}-h_{LR}-\left(N+q\right)c\Gamma\right)=-\frac{\left(t-t_{0}\right)}{\mu c\Gamma}+\ln\left(\overline{h}_{0}-h_{LR}-\left(N+q\right)c\Gamma\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Na de exponent nemen aan beide zijden en wat rangschikken van termen krijgen we de gezochte oplossing
-\end_layout
-
-\begin_layout Standard
-\align block
-\begin_inset Formula 
-\[
-\boxed{\overline{h}-h_{LR}=\left(\overline{h}_{0}-h_{LR}\right)\exp\left(-\frac{t-t_{0}}{\mu T}\right)+\left(N+q\right)T\left(1-\exp\left(-\frac{t-t_{0}}{\mu T}\right)\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-waarin we 
-\begin_inset Formula $T=c\Gamma$
-\end_inset
-
- hebben geschreven
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{T=c\Gamma}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Hebben nu een oplossing die exact hetzelfde is als die voor situatie zonder lek,
- met alleen een toplaag.
- Alleen uitdrukking voor de karakteristieke tijd 
-\begin_inset Formula $T$
-\end_inset
-
- is anders.
-\end_layout
-
-\begin_layout Standard
-Ook hier kunnen we controleren of de veranderingen situatie op 
-\begin_inset Formula $t=t_{0}$
-\end_inset
-
- en 
-\begin_inset Formula $t=\infty$
-\end_inset
-
- voldoet aan de verwachting
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{d\overline{h}}{dt}=-\left(\frac{\overline{h}_{0}-h_{LR}}{\mu T}\right)\exp\left(-\frac{t-t_{0}}{T}\right)+\left(\frac{N+q}{\mu}\right)\left(\exp\left(-\frac{t-t_{0}}{T}\right)\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Voor 
-\begin_inset Formula $t=t_{0}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{d\overline{h}}{dt}|_{t=t_{0}}=\frac{N+q}{\mu}-\left(\frac{\overline{h}_{0}-h_{LR}}{\mu T}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-en voor 
-\begin_inset Formula $t=\infty$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{d\overline{h}}{dt}|_{t=\infty}=0
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit is wat je verwacht voor zowel 
-\begin_inset Formula $t=0$
-\end_inset
-
- als 
-\begin_inset Formula $t=\infty$
-\end_inset
-
-.
- De asymptoot voor 
-\begin_inset Formula $\overline{h}-h_{LR}$
-\end_inset
-
- is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{\overline{h}-h_{LR}=\left(N+q\right)T=\left(N+q\right)c\Gamma}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De vraag is nu of beide vergelijkingen in elkaar over gaan voor 
-\begin_inset Formula $c\rightarrow\infty$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-c\Gamma\rightarrow\frac{b^{2}}{3kD}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Gamma=\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\to\frac{b^{2}}{3\lambda^{2}}=\frac{1}{3}\left(\frac{b}{\lambda}\right)^{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Figuur 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Vergl-lim-1L-vs-2L"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- laat zien dat dit inderdaad het geval is.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/doc/images/limits_1_and_2_layers.png
-	width 60text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Vergl-lim-1L-vs-2L"
-
-\end_inset
-
-Vergelijking tussen de limiet voor 
-\begin_inset Formula $b\to\infty$
-\end_inset
-
- voor de eenlaags en de tweelaags oplossing.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Formele afleiding van de dynamiek in de GGOR-tool zoals voor 2011 toegepast
-\end_layout
-
-\begin_layout Standard
-De berekening van de dynamiek zoals toegepast in de vanaf 2008 bestaande GGOR-tool was niet adequaat gedocumenteerd,
- terwijl het niet is gelukt om het Python-script dat de dynamiek simuleert te ontwarren en uiteindelijk te begrijpen.
- Om deze reden volgt hier een formele afleiding van het principe van de dynamische simulatie zoals toegepast in de oorspronkelijke GGOR-tool.
- Dit hoofdstuk is niet meer relevant voor de huidige en toekomstige GGOR-tool,
- maar is opgenomen om historische redenen.
-\end_layout
-
-\begin_layout Standard
-De oorspronkelijke GGOR-tool gaat uit van de reeds afgeleide stationaire vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:h-gem-voor-gegeven-phi"
-nolink "false"
-
-\end_inset
-
-.
- In waterbalansvorm ziet deze er als volgt uit,
- waarbij het rechter lid de afvoer naar de sloten geeft,
- en het linker lid de aanvoer uit neerslagoverschot en kwel
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-N+q & = & \frac{\overline{h}-h_{LR}}{c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)}\label{eq:h-gem-voor-gegeven-q-1}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Om het uitwerken wat eenvoudiger te maken,
- schrijven we de tweede constante factor in de teller als volgt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Gamma=\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
-\]
-
-\end_inset
-
-zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-N+q & = & \frac{\overline{h}-h_{LR}}{c\Gamma}\label{eq:h-gem-voor-gegeven-q-1-1}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Het redenering in de oorspronkelijke GGOR tool is als volgt.
- We gaan net als hiervoor is toegelicht ervan uit dat de afvoer naar de sloten (rechter lid dus) altijd in overeenstemming is met de stationaire grondwaterstromingsformule.
- Omdat het neerslagoverschot en de kwel gedurende een tijdstap veranderen,
- verandert ook de grondwaterstand gedurende de tijdstap.
- Met andere woorden,
- een deel (fractie 
-\begin_inset Formula $f$
-\end_inset
-
-) van het totaal aan neerslagoverschot en kwel wordt gebruikt om de grondwaterstand te handhaven en een deel wordt gebruikt om de berging te leveren die voortvloeit uit het verschil tussen de grondwaterstand sinds het einde van de voorgaande tijdstap.
- Wiskundig kan dit als volgt worden opgeschreven
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-f\left(N+q\right)_{t_{0}\rightarrow t_{0}+\Delta t} & = & \frac{1}{c\Gamma}\left(\overline{h}-h_{LR}\right)\\
-\left(1-f\right)\Delta t\left(N+q\right)_{t_{0}\rightarrow t_{0}+\Delta t} & = & \mu\left(\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De indices zijn hier essentieel.
- Het begin van de tijdstap wordt aangeduid met 
-\begin_inset Formula $t_{0}$
-\end_inset
-
-;
- het eind van de het beschouwde tijdvak met lengte 
-\begin_inset Formula $\Delta t$
-\end_inset
-
- wordt aangegeven met 
-\begin_inset Formula $t_{0}+\Delta t$
-\end_inset
-
-.
- Het moment gedurende het tijdvak waarop de afvoer gelijk is aan de gemiddelde afvoer gedurende het hele tijdvak is 
-\begin_inset Formula $t_{0}+\epsilon\Delta t$
-\end_inset
-
- met 
-\begin_inset Formula $0\le\epsilon\le1$
-\end_inset
-
-.
- Hierin staat 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- bekend als de mate van 
-\begin_inset Quotes eld
-\end_inset
-
-implicietheid
-\begin_inset Quotes erd
-\end_inset
-
- waarmee we willen rekenen;
- 
-\begin_inset Formula $\epsilon=0$
-\end_inset
-
- is volledig expliciet en 
-\begin_inset Formula $\epsilon=1$
-\end_inset
-
- rekent volledig impliciet.
- Het doel van 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- is een moment te kiezen waarop de afvoer juist het gemiddelde is van de waarde die gedurende het beschouwde tijdvak voortdurend verandert.
- We kennen 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- niet,
- maar 
-\begin_inset Formula $\epsilon=0.5$
-\end_inset
-
- ligt het meest voor de hand en leidt tot een rekenschema volgens Crank-Nicholson,
- dat de hoogste nauwkeurigheid biedt bij indifferente stabiliteit van het rekenschema.
- Dat wil zeggen een door het rekenschema aan het slingeren geraakte grondwaterstand blijft ongedempt slingeren.
- Waarden van 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- kleiner dan 0.5 maken het rekenschema instabiel,
- tenzij uiterst kleine tijdstappen worden gebruikt.
- Waarden van 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- groter dan 0.5 leveren altijd een stabiel rekenschema waarin eventuele reken-oscillaties uitdempen.
- Het meest stabiel is 
-\begin_inset Formula $\epsilon=1$
-\end_inset
-
-,
- het volledig impliciete rekenschema.
- Dit is het schema dat onder andere in MODFLOW is ingebouwd.
- Het is altijd stabiel,
- maar wat onnauwkeurig indien de waterstanden veel veranderen gedurende een tijdstap.
- Vandaar dat bij MODFLOW vaak tijdstappen worden gebruikt die in lengte groeien gedurende een zogenaamde stress periode,
- dat wil zeggen zolang de randvoorwaarden stabiel zijn.
- Zodra die veranderen wordt meestal opnieuw met een kleine tijdstap begonnen.
-\end_layout
-
-\begin_layout Standard
-Als we 
-\begin_inset Formula $\epsilon<1$
-\end_inset
-
-gebruiken,
- dan berekenen we de grondwaterstand gedurende de tijdstap en moeten we nog een aparte slag maken naar die aan het einde van de tijdstap.
- Als we aannemen dat de grondwaterstand lineair verandert gedurende de tijdstap dan geldt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h}-\overline{h}_{t_{0}} & \approx & \epsilon\left(\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-en dus
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}} & \approx & \frac{1}{\epsilon}\left(\overline{h}-\overline{h}_{t_{0}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Hierin is 
-\begin_inset Formula $\overline{h}=\overline{h}_{t_{0}+\Delta t}$
-\end_inset
-
- de voor de stroming representatieve doorsnedegemiddelde grondwaterstand gedurende de tijdstap.
-\end_layout
-
-\begin_layout Standard
-Opnieuw geformuleerd,
- maar nu in termen van de stijghoogte gedurende de tijdstap krijgen we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-f\left(N+q\right) & = & \frac{\epsilon}{c\Gamma}\left(\overline{h}_{t_{0}+\Delta t}-h_{LR}\right)\\
-\left(1-f\right)\left(N+q\right) & = & \frac{\mu}{\Delta t}\left(\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We kunnen nu de onbekende factor 
-\begin_inset Formula $f$
-\end_inset
-
- elimineren.
- Schrijven we kortheidshalve 
-\begin_inset Formula $\overline{h}=\overline{h}_{t_{0}+\epsilon\Delta t}$
-\end_inset
-
-,
- dan volgt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-f\left(N+q\right) & = & \frac{\epsilon}{c\Gamma}\left(\overline{h}_{t_{0}+\Delta t}-h_{LR}\right)\\
-f\left(N+q\right) & = & \left(N+q\right)-\frac{\mu}{\Delta t}\left(\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Uitgewerkt en overbodige indices weglatend,
- en links en rechts met 
-\begin_inset Formula $c\Gamma$
-\end_inset
-
- vermenigvuldigen levert:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{\epsilon}{c\Gamma}\left(\overline{h}_{t_{0}+\Delta t}-h_{LR}\right) & = & \left(N+q\right)-\frac{\mu}{\Delta t}\left(\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met 
-\begin_inset Formula $T=\mu c\left(\Gamma+1\right)$
-\end_inset
-
-,
- zodat 
-\begin_inset Formula $\mu c\Gamma=T-\mu c$
-\end_inset
-
-,
- zie afleiding exacte oplossing (vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:GGOR-exact-dynamisch"
-nolink "false"
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Standard
-De termen met de gezochte 
-\begin_inset Formula $\overline{h}_{t}$
-\end_inset
-
- naar links gebracht geeft
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{\epsilon}{c\Gamma}\left(\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}}+\overline{h}_{t_{0}}-h_{LR}\right) & = & \left(N+q\right)-\frac{\mu}{\Delta t}\left(\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\left(\frac{\epsilon}{c\Gamma}+\frac{\mu}{\Delta t}\right)\left(\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}}\right) & =-\frac{\epsilon}{c\Gamma}\left(\overline{h}_{t_{0}}-h_{LR}\right)+ & \left(N+q\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-en,
- uiteindelijk
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}} & = & \frac{-\frac{\epsilon}{c\Gamma}\left(\overline{h}_{t_{0}}-h_{LR}\right)+\left(N+q\right)}{\left(\frac{\epsilon}{c\Gamma}+\frac{\mu}{\Delta t}\right)}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Boven en onder vermenigvuldigen met 
-\begin_inset Formula $\Gamma c/\epsilon$
-\end_inset
-
- levert uiteindelijk de doorsnede-gemiddelde grondwaterstand aan het einde van de tijdstap
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}} & = & \frac{-\left(\overline{h}_{t_{0}}-h_{LR}\right)+\left(N+q\right)\frac{c\Gamma}{\epsilon}}{\left(1+\frac{\mu c\Gamma}{\epsilon\Delta t}\right)}\label{eq:h-ht0-GGOR-oud}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Wanneer 
-\begin_inset Formula $\Delta t\rightarrow0$
-\end_inset
-
-,
- krijgen we zoals verwacht 
-\begin_inset Formula $\overline{h}_{t_{0}+\Delta t}=\overline{h}_{t_{0}}$
-\end_inset
-
-.
- Voor 
-\begin_inset Formula $\Delta t\rightarrow\infty$
-\end_inset
-
- krijgen we 
-\begin_inset Formula $\overline{h}_{r}=h_{LR}+c\Gamma\left(N+q\right)$
-\end_inset
-
-,
- dus de stationaire oplossing,
- zie vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:h-gem-voor-gegeven-q"
-nolink "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-We hebben nu een vergelijking gekregen waarmee een tijdreeks kan worden gesimuleerd.
- Er is echter wel een verschil met de exacte oplossing die hiervoor is afgeleid,
- in die zin dat de karakteristieke tijdconstante van het systeem nu niet expliciet wordt verkregen.
- Maar het is wel de vergelijking die in de afleiding van de berekeningswijze van de oude GGOR-tool opgenomen zou moeten zijn.
- De exacte oplossing die in het voorgaande hoofdstuk is afgeleid heeft echter de voorkeur,
- juist omdat hij exact is binnen het raamwerk van de eraan ten grondslag liggende aannames.
- In de nieuwe GGOR-tool zal dan ook de exacte vergelijking worden gebruikt.
-\end_layout
-
-\begin_layout Standard
-De zojuist afgeronde afleiding voor de formule in de oude GGOR-tool is beter dan de formule die daadwerkelijk in de oude GGOR-tool zat,
- omdat die de stijghoogte in de onderliggende regionale aquifer bevat en iteratief moest worden berekend om de juiste kwel te krijgen.
- In de afleiding voor gegeven kwel 
-\begin_inset Formula $q$
-\end_inset
-
- komt de regionale stijghoogte 
-\begin_inset Formula $\phi$
-\end_inset
-
- helemaal niet voor en zijn dus ook geen iteraties nodig.
-\end_layout
-
-\begin_layout Subsection
-Nog enige beschouwingen over de optimale waarde van de impliciteit 
-\begin_inset Formula $\epsilon$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We kunnen,
- zoals hiervoor is uitgelegd,
- de waarde van 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- vrij kiezen tussen 0 en 1,
- maar bij voorkeur geldt 
-\begin_inset Formula $\epsilon>0.5$
-\end_inset
-
- vanwege de gewenste rekenstabiliteit.
- We stellen ons nu de vraag,
- bij welke 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- de afgeleide vergelijking dezelfde grondwaterstand aan het einde van elke tijdstap zou berekenen als de exacte oplossing.
- Om dit uit te zoeken,
- stellen we de berekende grondwaterstand aan het eind van de tijdstap volgens de exacte en de benaderde methode aan elkaar gelijk,
- zie vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:GGOR-exact-dynamisch"
-nolink "false"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\left(\overline{h}_{t_{0}}-h_{LR}\right)e^{-\frac{t-t_{0}}{T}}+\left(N+q\right)c\Gamma\left(1-e^{-\frac{t-t_{0}}{T}}\right) & = & \frac{-\epsilon\left(\overline{h}_{t_{0}}-h_{LR}\right)+c\Gamma\left(N+q\right)}{\frac{\mu c\Gamma}{\Delta t}+\epsilon}\\
-\left[\left(\overline{h}_{t_{0}}-h_{LR}\right)-\left(N+q\right)c\Gamma\right]e^{-\frac{t-t_{0}}{T}}+\left(N+q\right)c\Gamma & = & \frac{-\left(\overline{h}_{t_{0}}-h_{LR}\right)+c\Gamma\left(N+q\right)}{\frac{T}{\Delta t}+\epsilon}\\
-\left(h_{LR}-\overline{h}_{t_{0}}+\left(N+q\right)c\Gamma\right)\left(1-e^{-\frac{\Delta t}{T}}\right) & = & \frac{-\left(\overline{h}_{t_{0}}-h_{LR}\right)+\left(N+q\right)c\Gamma}{\left(\frac{T}{\Delta t}+\epsilon\right)}\\
-\left(1-e^{-\frac{\Delta t}{T}}\right) & = & \frac{1}{\left(\frac{T}{\Delta t}+\epsilon\right)}\\
-\epsilon & = & \frac{1}{\left(1-e^{-\frac{\Delta t}{T}}\right)}-\frac{T}{\Delta t}\\
-\epsilon & = & \frac{T}{\Delta t}\left(\frac{\frac{\Delta t}{T}}{\left(1-e^{-\frac{\Delta t}{T}}\right)}-1\right)
-\end{eqnarray*}
-
-\end_inset
-
-waarin gebruik is gemaakt van de relatie
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-T=\mu c\frac{b}{\lambda}\coth\frac{b}{\lambda}=\mu c\left(\Gamma+1\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We hebben dus hiermee een uitdrukking gekregen waarmee in een gegeven situatie de implicietheid 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- zodanig van tevoren kan worden bepaald dat de uitkomst gelijk is aan die van de exacte oplossing.
- Deze waarde hangt echter af van de lengte van de tijdstap ten opzichte van de karakteristieke tijd van het grondwatersysteem.
- Aldus voor de extremen,
- dus voor 
-\begin_inset Formula $\Delta t\ll T$
-\end_inset
-
- en 
-\begin_inset Formula $\Delta t\gg$
-\end_inset
-
-T zien we dat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\lim_{\Delta t/T\rightarrow0}\epsilon & = & \lim_{\Delta t\rightarrow0}\frac{T}{\Delta t}\left(\frac{\frac{\Delta t}{T}}{\left(1-e^{-\frac{\Delta t}{T}}\right)}-1\right)=0.5\\
-\lim_{\Delta t/T\rightarrow\infty}\epsilon & = & \lim_{\Delta t\rightarrow\infty}\left(\frac{1}{\left(1-e^{-\frac{\Delta t}{T}}\right)}-\frac{T}{\Delta t}\right)=1
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met andere woorden,
- bij een oneindig korte tijdstap of een oneindig snel systeem is de gemiddelde grondwaterstand gedurende de tijdstap die in het midden van de tijdstap,
- en bij een oneindig lange tijdstap of een oneindig traag systeem is de gemiddelde grondwaterstand gedurende de tijdstap gelijk aan die aan het einde van de tijdstap.
- Beide resultaten zijn volstrekt logisch.
- Het resultaat 
-\begin_inset Formula $\epsilon=0.5$
-\end_inset
-
- voor tijdvaklengtes veel kleiner dan de karakteristieke tijd van het grondwatersysteem is logisch omdat de grondwaterstand dan nog bijna lineair verandert in de tijd,
- waarbij de grondwaterstand in het midden van de tijdstap dus het dichtst komt bij het exacte gemiddelde over de tijdstap.
- Het resultaat 
-\begin_inset Formula $\epsilon=1$
-\end_inset
-
- bij zeer grote tijdstappen ten opzichte van de karakteristieke tijd het grondwatersysteem is eveneens logisch,
- omdat het systeem zijn stationaire evenwichtswaarde dan bereikt lang voor het einde van het tijdvak,
- zodat dan de stationaire formule juist is.
- Hoe langer het rekentijdvak ten opzichte van de karakteristieke tijd,
- hoe meer de grondwaterstand aan het einde van de tijdstap een goed gemiddelde zal zijn voor de gehele tijdstap.
- Bij snelle grondwatersystemen zoals de meeste van de door te rekenen doorsneden blijkt de optimale waarde van 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- in de buurt van de 0.8-0.9 te liggen.
- 
-\end_layout
-
-\begin_layout Standard
-Hoewel de relatie tussen de aanpak in de GGOR-tool en de exacte oplossing met direct gegeven kwelflux nu eenduidig is,
- en via de parameter 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- ook de aanpak in de oude GGOR-tool is veralgemeniseerd,
- verdient het aanbeveling om altijd de exacte oplossing te implementeren,
- omdat deze geen extra parameter 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- nodig heeft en bovendien een natuurlijker relatie legt tussen de dynamiek van het grondwatersysteem en zijn karakteristieke tijd.
- De karakteristieke tijd ten opzichte van de tijdstaplengte bepaalt tevens de accuratesse van de oplossing,
- dat wil zeggen de mate waarin de stationaire oplossing acceptabel is in een dynamische context,
- zoals hier steeds het geval,
- en ter vermijding waarvan alleen een numeriek model een uitweg biedt.
-\end_layout
-
 \begin_layout Chapter
 Analytische oplossingen
 \end_layout
@@ -3211,47 +1466,140 @@ De standaard doorsnede:
 
 \begin_layout Standard
 De standaard doorsnede,
- die waarop de analytische oplossingen voor de GGOR-tool is gebaseerd is weergegeven in figuur @@@ voor de situatie met één laag en in figuur @@@ voor de situatie met twee lagen.
- De pakketdikte,
- het doorlaatvermogen en de weerstand tussen de deklaag en de regionale aquifer zijn uniform.
- De slootweerstand is conceptueel teruggebracht tot een verticale wand met weerstand 
-\begin_inset Formula $w$
+ die waarop de analytische oplossingen voor de GGOR-tool is gebaseerd is weergegeven in figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Perceeldoorsnede-conceptueel"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
 \end_inset
 
- [T] ter hoogte van de pakketdikte,
- 
+,
+ het betreft een toplaag met aan de onderzijde een regionale aquifer waarvan alleen de stijghoogte is gegeven.
+ Toplaag en regionale aquifer zijn van elkaar gescheiden door een verticale weerstand 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ In de analytische oplossingen wordt de dikte van de toplaag constant verondersteld,
+ dit is nodig omdat er geen analytische oplossing bestaat voor de gegeven situatie waarin deze dikte over de doorsnede varieert.
+ Figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Perceeldoorsnede-conceptueel"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ toont ook een weerstand tussen de toplaag en de sloten.
+ Deze ontbreekt in de oorspronkelijke GGOR-tool,
+ maar die nemen we nu direct mee.
+ De weerstand wordt geconceptualiseerd als een verticaal muurtje op 
+\begin_inset Formula $x=\pm b$
+\end_inset
+
+ met een hoogte 
 \begin_inset Formula $D$
 \end_inset
 
- [L].
- In de eenlaagsoplossingen is de stijghoogte in de regionale aquifer uniform.
- De lek wordt bepaald door het locale verschil tussen de grondwaterstand in de deklaag en de stijghoogte in de regionale aquifer.
- Deze is dus niet uniform,
- maar we zullen zien dat we alleen rekening hoeven te houden met de doorsnedegemiddelde kwel 
+ en met horizontale weerstand 
+\begin_inset Formula $w$
+\end_inset
+
+ [T].
+ De werkelijke situatie met een weerstand langs de omtrek van de sloot en eventueel verticale anisotropie kan altijd worden omgerekend naar deze conceptuele weerstand 
+\begin_inset Formula $w$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We zullen hierna de relaties afleiden voor de eenlaagssituatie,
+ zonder onderliggende regionale aquifer,
+ en voor de situatie met onderliggende regionale aquifer.
+ Aangetoond dat beide naadloos in elkaar overgaan,
+ zo ook de situatie met en zonder slootweerstand.
+\end_layout
+
+\begin_layout Standard
+De grondwaterstand in de basissituatie hangt af van de uniform veronderstelde stijghoogte 
+\begin_inset Formula $\phi$
+\end_inset
+
+ in de regionale aquifer.
+ We willen echter in de regel werken met de kwel 
 \begin_inset Formula $q$
 \end_inset
 
- [L/T] die we naar boven positief rekenen.
- In de tweelaagsoplossing is de stijghoogte van de regionale aquifer niet uniform.
- Ook hier gaat het ons slechts om de doorsnedegemiddelde kwel,
- die we analytisch zullen afleiden.
- In de tweelaagsoplossing houden de rekening met sloten die door de deklaag heen snijden.
- Deze weerstand is conceptueel hetzelfde geformuleerd als in de deklaag,
- namelijk als een verticale wand in de aquifer met weerstand 
-\begin_inset Formula $w$
+ [L/T] vanuit de regionale aquifer (of lek,
+ maar dan is de kwel negatief).
+ Stijhoogte 
+\begin_inset Formula $\phi$
 \end_inset
 
- [T] tegen horizontale stroming.
- De waarde van 
-\begin_inset Formula $w$
+ en kwel 
+\begin_inset Formula $q$
 \end_inset
 
- verschilt uiteraard voor de deklaag en de regionale aquifer.
- De weerstand door contractie van stroomlijnen en intrede- respectievelijk uittredeweerstand van de sloot worden omgerekend naar de conceptuele weerstand 
-\begin_inset Formula $w$
+ kunnen naar elkaar worden omgezet via de doorsnedegemiddelde grondwaterstand 
+\begin_inset Formula $\overline{h}$
 \end_inset
 
- in de analytische oplossing.
+.
+ Hiervoor geldt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi=\overline{h}+qc
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hoewel 
+\begin_inset Formula $\phi$
+\end_inset
+
+ uniform is,
+ hoeft 
+\begin_inset Formula $q$
+\end_inset
+
+ dat niet te zijn;
+ 
+\begin_inset Formula $q$
+\end_inset
+
+ is gewoon de doorsnedegemiddelde kwel.
+\end_layout
+
+\begin_layout Standard
+In de analytische GGOR-tool rekenen we met de doorsnedegemiddelde grondwaterstand 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+.
+ Dit is conceptueel aantrekkelijk en maakt dat alle balanstermen dimensie [L/T] hebben,
+ wat ook conceptueel aantrekkelijk is.
+ De numerieke GGOR-tool is niet aan dergelijke beperkingen onderhevig.
+\end_layout
+
+\begin_layout Standard
+Verderop in dit rapport wordt de situatie uitgewerkt waarin de sloten volledig door de toplaag snijden.
+ Analyse daarvan vergt dat met analytische tweelagenoplossing wordt gewerkt,
+ waarbinnen de stijghoogte in de regionale aquifer niet uniform hoeft te zijn.
 \end_layout
 
 \begin_layout Section
@@ -3339,23 +1687,25 @@ Waarin
 \begin_inset Formula $uit$
 \end_inset
 
- de afvoer is zoals berekend uit de betreffende stationaire grondwaterformule.
- Dus voor de hele doorsnede geldt 
-\begin_inset Formula $uit\left(t\right)=\left(Q_{R}+Q_{L}\right)/\left(2b\right)=\frac{kD}{2b}\left[\frac{dh_{t}}{dx}|_{x=-b}-\frac{dh_{t}}{dx}|_{x=b}\right]$
+ de afvoer is naar de sloten zoals berekend uit de betreffende stationaire grondwaterformule.
+ De afvoer loopt via de sloten en is gelijk aan de toevoer in de stationaire situatie,
+ die uitsluitend afhangt van de doorsnedegemiddelde grondwaterstand,
+ waarvoor geldt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Nb=Q_{L}=Q_{R}
+\]
+
 \end_inset
 
-.
- Aangezien in de symmetrische doorsnede 
-\begin_inset Formula $Q_{R}=Q_{L}=Q_{LR}$
-\end_inset
 
-,
- geldt net zo goed,
- 
-\begin_inset Formula $uit\left(t\right)=\frac{Q_{LR}}{b}=-\frac{kD}{b}\frac{dh}{dt}|_{x=b}$
-\end_inset
+\end_layout
 
-
+\begin_layout Standard
+De stationaire vergelijking voldoet hieraan.
 \end_layout
 
 \begin_layout Standard
@@ -3385,21 +1735,30 @@ We hebben op deze manier dus te maken met een gewone differentiaalvergelijking,
 \end_inset
 
  te schrijven is als de som van twee termen:
- 1) Een uitzakkingsterm,
- die aangeeft hoe de grondwaterstand zonder kwel en wegzijging exponentieel in de tijd uitzakt naar het slootpeil,
- en 2) een tweede term,
+\end_layout
+
+\begin_layout Enumerate
+Een uitzakkingsterm,
+ die aangeeft hoe de grondwaterstand zonder kwel en wegzijging exponentieel in de tijd uitzakt naar het slootpeil
+\end_layout
+
+\begin_layout Enumerate
+een tweede term,
  die aangeeft hoe de grondwaterstand bij constant neerslagoverschot en kwel exponentieel in de tijd streeft naar het bij deze waarden behorende evenwicht ten opzichte van het slootpeil 
 \begin_inset Formula $h_{LR}$
 \end_inset
 
 .
- Het tijdsverloop krijgt met deze twee termen de volgende vorm
+\end_layout
+
+\begin_layout Standard
+Het tijdsverloop krijgt met deze twee termen de volgende vorm
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}_{t-t_{0}}=h_{LR}+A_{1}\left(\overline{h}_{t_{0}}-h_{LR}\right)e^{-\frac{t}{T}}+A_{2}\left(N+q\right)\left(1-e^{-\frac{t}{T}}\right)
+\overline{h}_{t-t_{0}}h_{LR}=\left(\overline{h}_{t_{0}}-h_{LR}\right)e^{-\frac{t}{\mu T}}+\left(N+q\right)T\left(1-e^{-\frac{t}{\mu T}}\right)
 \]
 
 \end_inset
@@ -3408,18 +1767,26 @@ We hebben op deze manier dus te maken met een gewone differentiaalvergelijking,
 \end_layout
 
 \begin_layout Standard
-De e-machten bevatten altijd als noemer een tijd 
+waarin de factor 
 \begin_inset Formula $T$
+\end_inset
+
+ met dimensie tijd afhangt van de grondwatersituatie.
+\end_layout
+
+\begin_layout Standard
+De e-machten bevatten altijd als noemer een tijd 
+\begin_inset Formula $\mu T$
 \end_inset
 
  die voor elke situatie vast is en kan worden opgevat als karakteristieke tijd voor het grondwatersysteem.
  De snelheid van het uitzakken en de tijd tot het bereiken van een nieuw evenwicht worden door deze 
-\begin_inset Formula $T$
+\begin_inset Formula $\mu T$
 \end_inset
 
  bepaald.
  Het verschil met het uiteindelijke evenwicht wordt per eenheid van tijd gelijk aan 
-\begin_inset Formula $T$
+\begin_inset Formula $\mu T$
 \end_inset
 
  terug gebracht met de factor 
@@ -3447,21 +1814,19 @@ Het is duidelijk dat deze formule onbeperkt geldt zolang
  Omdat dit in de werkelijkheid niet het geval is zullen we de simulatieperiode moeten opdelen in perioden waarbinnen dit tenminste bij benadering het geval is.
  Zodra een of meer van deze factoren veranderen begint de volgende periode.
  Deze begint met een grondwaterstand gelijk aan die aan het einde van de vorige periode.
- Omdat we in de praktijk het neerslagoverschot alleen op dagbasis ter beschikking hebben zullen we tijdstappen van een dag nemen waarbinnen de randvoorwaarden constant worden verondersteld.
+ Omdat we in de praktijk het neerslagoverschot alleen op dagbasis ter beschikking hebben,
+ zullen we tijdstappen van een dag nemen,
+ waarbinnen de randvoorwaarden constant worden verondersteld.
  Maar verplicht is het niet,
  de formule laat een willekeurige verdeling van de tijdas toe.
 \end_layout
 
 \begin_layout Standard
-De coëfficiënten 
-\begin_inset Formula $A_{1}$
+De factor 
+\begin_inset Formula $T$
 \end_inset
 
- en 
-\begin_inset Formula $A_{2}$
-\end_inset
-
- in de formule hangen van de specifieke situatie af,
+hangt hangt van de specifieke situatie af,
  met name van de verhouding tussen de karakteristieke lengte van het deklaagsysteem 
 \begin_inset Formula $\lambda=\sqrt{kDc}$
 \end_inset
@@ -3472,7 +1837,7 @@ De coëfficiënten
 
 .
  Net als de karakteristieke tijd 
-\begin_inset Formula $T$
+\begin_inset Formula $\mu T$
 \end_inset
 
  zijn deze afhankelijk van het specifieke grondwatersysteem en constant tijdens de simulatie.
@@ -3489,73 +1854,43 @@ De dynamica bestaat derhalve uit het voortdurende streven naar deze twee toestan
  die echter voortdurend verandert onder invloed van het per tijdstap variërende neerslagoverschot en de per tijdstap opgegeven kwel.
 \end_layout
 
-\begin_layout Section
-Analytische oplossingen zonder lek (één watervoerende laag)
-\end_layout
-
-\begin_layout Standard
-We zullen eerst de oplossingen bespreken die gelden voor één laag zonder lek.
- Zulke oplossingen zijn er met en zonder variabele dikte van het watervoerend pakket.
- Dit zijn basisoplossingen die verder nauwelijks toelichting nodig hebben.
- We geven direct de formulering waarmee we ze niet-stationair aanpakken.
- Daarna gaan we verder met een niet-stationaire oplossing voor de stijghoogte tussen sloten voor de situatie met vast doorlaatvermogen,
- maar nog zonder lek.
- Ten slotte worden brede sloten beschouwd.
- Aangezien deze analytische oplossingen alleen worden gebruikt ter verificatie van de invloed van variabele pakketdikte en de benadering van niet-stationariteit bij gebruik van formules van stationaire stroming,
- laten we in dit hoofdstuk de slootweerstanden buiten beschouwing,
- temeer daar we niet beschikken over een niet-stationaire oplossing met slootweerstanden.
- Slootweerstanden worden in het volgende hoofdstuk ingevoerd.
-\end_layout
-
 \begin_layout Subsection
-Variabele laagdikte
+Basis-situatie het grondwatersysteem met slechts 1 laag (Dupuit)
 \end_layout
 
 \begin_layout Standard
-Voor de doorsnede wordt de stroming opgevat als ééndimensionaal,
- stationair,
- in een freatisch pakket met variabele pakketdikte.
- De overkoepelende differentiaalvergelijking is dan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
--kh\frac{dh}{dx}=Nx
-\]
-
+De GXG kan ook worden berekend met een model voor een enkele laag die stationair voldoet aan Dupuit.
+ Dat wil zeggen 
+\begin_inset Formula $kD$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-waarin de doorlatendheid 
-\begin_inset Formula $k$
+ is constant en er geen onderliggende aquifer.
+ Het lijkt goed om met dit grensgeval te beginnen.
+ Dit model kent alleen een neerslagoverschot 
+\begin_inset Formula $N$
 \end_inset
 
- [L/T] uniform wordt verondersteld,
+ (L/T positief of negatief).
  
 \begin_inset Formula $h$
 \end_inset
 
- de waterdiepte boven de horizontale basis van het pakket en 
-\begin_inset Formula $N$
+ is de stijghoogte ten opzichte van de evenwichtssituatie met nul neerslag.
+ Dit het slootpeil 
+\begin_inset Formula $h_{LR}$
 \end_inset
 
- [L/T] het neerslagoverschot.
- 
-\begin_inset Formula $x$
-\end_inset
+ dat links en rechts van het perceel gelijk wordt genomen.
+\end_layout
 
- is de horizontale coördinaat ten opzichte van het midden van de doorsnede.
- Na integratie
+\begin_layout Standard
+De waterbalans van de stationaire situatie is
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
--h^{2}=\frac{N}{k}x^{2}+C
+-kD\frac{dh}{dx}=Nx
 \]
 
 \end_inset
@@ -3564,28 +1899,535 @@ waarin de doorlatendheid
 \end_layout
 
 \begin_layout Standard
-De integratieconstante volgt uit de randvoorwaarde,
- 
-\begin_inset Formula $x=b\rightarrow h=h_{LR}$
+\begin_inset Formula 
+\[
+h-h_{LR}=-\frac{N}{2kD}x^{2}+C
+\]
+
 \end_inset
 
- met 
+
+\end_layout
+
+\begin_layout Standard
+Op 
+\begin_inset Formula $x=\pm b$
+\end_inset
+
+ geldt vanwege de weerstand naar de sloten met slootpeil 
 \begin_inset Formula $h_{LR}$
 \end_inset
 
- de waterdiepte aan de linker respectievelijk de rechter zijde van de doorsnede ten opzichte van de pakketbasis.
- Dus 
-\begin_inset Formula $C=-h_{LR}^{2}-\frac{Nb^{2}}{k}$
-\end_inset
 
- zodat
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-h^{2}-h_{LR}^{2}=\frac{N}{k}\left(b^{2}-x^{2}\right)\label{eq: freatisch-stationair}
-\end{equation}
+\[
+h_{b}=h_{LR}+\frac{w}{D}Nb
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zodat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C=\frac{b^{2}}{2kD}N+\frac{w}{D}Nb-h_{LR}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met als uiteindelijke oplossing met 
+\begin_inset Formula $-b\le x\le b$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\frac{N}{2kD}\left(b^{2}-x^{2}\right)+\frac{w}{D}Nb
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Binnen de analytische GGOR-tool werken we met de doorsnedegemiddelde grondwaterstand
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}=\frac{1}{b}\intop_{0}^{b}hdx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\frac{1}{3}\frac{b^{2}}{kD}N+\frac{w}{D}bN
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We kunnen dit ook korter schrijven als
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\overline{h}-h_{LR}=NT}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{T=\frac{1}{3}\frac{b^{2}}{kD}+\frac{w}{D}b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T$
+\end_inset
+
+ heeft dimensie tijd,
+ en is karakteristiek is voor dit grondwatersysteem op de freatische bergingscoëfficiënt 
+\begin_inset Formula $\mu$
+\end_inset
+
+ na.
+ Het heeft voordelen om 
+\begin_inset Formula $\mu$
+\end_inset
+
+ buiten de karakteristieke tijd te houden,
+ maar men zou die er evengoed ik kunnen betrekken.
+\end_layout
+
+\begin_layout Subsection
+Niet stationair
+\end_layout
+
+\begin_layout Standard
+De redenering om deze stationaire formules niet-stationair te gebruiken is als volgt.
+ Het systeem raakt op 
+\begin_inset Formula $t=t_{0}$
+\end_inset
+
+ uit evenwicht doordat het neerslagoverschot plotseling verandert.
+ We schrijven voor de situatie 
+\begin_inset Formula $t>t_{0}$
+\end_inset
+
+ de relatie uit tussen de berging,
+ de aanvoer 
+\begin_inset Formula $N$
+\end_inset
+
+ en de afvoer naar de sloten.
+ De afvoer naar de sloten hangt alleen afhangt van de doorsnedegemiddelde grondwaterstand (ten opzichte van het slootpeil).
+ Deze afvoer is gelijk aan 
+\begin_inset Formula $\overline{h}/T$
+\end_inset
+
+.
+ Aldus is de berging 
+\begin_inset Formula $\mu d\overline{h}/dt$
+\end_inset
+
+ gelijk aan de aanvoer 
+\begin_inset Formula $N$
+\end_inset
+
+ verminderd met de afvoer naar de sloten 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+/T
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mu\frac{d\overline{h}-h_{LR}}{dt} & =N-\frac{\overline{h}-h_{LR}}{T}\\
+\mu T\frac{d\overline{h}-h_{LR}}{dt} & =-\left(\overline{h}-h_{LR}-NT\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit is op een standaard manier gemakkelijk uit te werken
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{d\left(\overline{h}-h_{LR}-NT\right)}{\overline{h}-h_{LR}-NT} & =-\frac{dt}{\mu T}\\
+\ln\left(\overline{h}-h_{LR}-NT\right) & =-\frac{t-t_{0}}{\mu T}+C\\
+\ln\left(\overline{h}-h_{LR}-NT\right) & =-\frac{t-t_{0}}{\mu T}+\ln\left(\overline{h}_{0}-h_{LR}-NT\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nemen we de exponent aan beide zijden,
+ dan krijgen we
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\overline{h}-h_{LR}-NT & =\left(\overline{h}_{0}-h_{LR}-NT\right)\exp\left(-\frac{t-t_{0}}{\mu T}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na herschikking van de termen en het slootpeil 
+\begin_inset Formula $h_{LR}$
+\end_inset
+
+ als referentie
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\overline{h}-h_{LR}=\left(\overline{h}_{0}-h_{LR}\right)\exp\left(-\frac{t-t_{0}}{\mu T}\right)+NT\left(1-\exp\left(-\frac{t-t_{0}}{\mu T}\right)\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{T=\frac{1}{3}\frac{b^{3}}{kD}+\frac{w}{D}b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit drukt uit dat de doorsnedegemiddelde grondwaterstand exponentieel vertraagd uitzakt met een karakteristieke tijd 
+\begin_inset Formula $\mu T$
+\end_inset
+
+ (dus niet 
+\begin_inset Formula $T)$
+\end_inset
+
+ en tegelijk streeft naar een nieuwe evenwichtsstand die gelijk is aan 
+\begin_inset Formula $NT$
+\end_inset
+
+.
+ Dit is de stationaire eindsituatie.
+ Het mooie is ook dat we de intredeweerstand als vanzelf hebben meegenomen in de factor 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We kijken nu of de stijging van de grondwaterstand op 
+\begin_inset Formula $t=t_{0}$
+\end_inset
+
+,
+ het moment waarop de aanvoer verandert overeenkomt met de berging.
+ Deze stijging moet gelijk zijn aan 
+\begin_inset Formula $\left(N-Q\right)/\mu=\left(N-\overline{h}/T\right)/\mu$
+\end_inset
+
+.
+ Om dit te onderzoek berekenen we de afgeleide van de gemiddelde grondwaterstand naar de tijd
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d\overline{h}}{dt}=\frac{N}{\mu}\exp\left(-\frac{t-t_{0}}{\mu T}\right)-\frac{\overline{h}_{0}-h_{LR}}{\mu T}\exp\left(-\frac{t-t_{0}}{\mu T}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor 
+\begin_inset Formula $t=t_{0}$
+\end_inset
+
+ wordt dit
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{d\overline{h}}{dt}|_{t=t_{0}} & =\frac{N}{\mu}-\frac{\overline{h}_{0}-h_{LR}}{\mu T}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit is inderdaad wat je verwacht.
+ Als de grondwaterstand in evenwicht is verandert deze plotseling met het neerslagoverschot vermindert met de afvoer gedeeld door de bergingscoëfficiënt.
+ Deze afvoer (via de sloten) hangt alleen van de grondwaterstand af terwijl het neerslagoverschot daarvan volledig onafhankelijk is.
+\end_layout
+
+\begin_layout Standard
+De asymptotische evenwichtsgrondwaterstand wordt verkregen door 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+ te laten toenemen.
+ Het resultaat is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\overline{h}_{t\rightarrow\infty}-h_{LR}=NT}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit is het resultaat van de stationaire oplossing.
+ In al deze oplossingen zit de slootweerstand verdisconteerd in de factor 
+\begin_inset Formula $T$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analytische oplossing met lek (basis-situatie analytische GGOR-tool)
+\end_layout
+
+\begin_layout Standard
+De analytische basisformule van de GGOR-tool gaat uit van stationaire stroming in een top- of deklaag die rust op een slecht doorlatende basis op een regionale aquifer met constante stijghoogte zoals geïllustreerd in figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Perceeldoorsnede-conceptueel"
+nolink "false"
+
+\end_inset
+
+,
+ maar zonder weerstand tussen de toplaag en de sloten.
+\end_layout
+
+\begin_layout Standard
+De differentiaalvergelijking voor dit systeem,
+ beschouwd als stationair,
+ dus zonder berging is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+kD\frac{d^{2}h}{dx^{2}}=-N+\frac{h-\phi}{c}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Anders opgeschreven
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d^{2}\left\{ h-\left(\phi+Nc\right)\right\} }{dx^{2}}=\frac{h-\left(\phi+Nc\right)}{\lambda^{2}}
+\]
+
+\end_inset
+
+met 
+\begin_inset Formula $\lambda=\sqrt{kDc}$
+\end_inset
+
+,
+ de karakteristieke lengte voor de toplaag.
+\end_layout
+
+\begin_layout Standard
+De algemene oplossing van deze differentiaalvergelijking is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-\left(\phi+Nc\right)=Ae^{+\frac{x}{\lambda}}+Be^{-\frac{x}{\lambda}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De oplossing moet symmetrisch zijn ten opzichte van 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+ Hieruit volgt dat 
+\begin_inset Formula $A=B$
+\end_inset
+
+.
+ We kunnen de oplossing dus schrijven als
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-\left(\phi+Nc\right)=A\cosh\left(\frac{x}{\lambda}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De eis is dat de stijghoogte op 
+\begin_inset Formula $x=\pm b$
+\end_inset
+
+ is 
+\begin_inset Formula $h_{b}$
+\end_inset
+
+ (zo direct te bepalen op basis van de uitstroom en de weerstand)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{b}-\left(\phi+Nc\right)=A\cosh\left(\frac{b}{\lambda}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zodat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\frac{h_{b}-\left(\phi+Nc\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De oplossing is dus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In de analytische GGOR-tool werken we met de doorsnedegemiddelde grondwaterstand.
+ Deze kan direct worden berekend door integratie over 
+\begin_inset Formula $0\le x\le b$
+\end_inset
+
+ en deling door 
+\begin_inset Formula $b$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{b}\intop_{0}^{b}\cosh\frac{x}{\lambda}dx=\frac{\lambda}{b}\intop_{0}^{b/\lambda}\cosh\zeta\,d\zeta=\frac{\lambda}{b}\sinh\frac{b}{\lambda}
+\]
 
 \end_inset
 
@@ -3598,46 +2440,8 @@ en dus
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-h=\sqrt{h_{LR}^{2}+\frac{N}{k}\left(b^{2}-x^{2}\right)}\label{eq: freatisch-stationair-2}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De hoogste waterstand in de doorsnede treedt op waar 
-\begin_inset Formula $x=0$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-h_{max}=\sqrt{h_{LR}^{2}+\frac{N}{k}b^{2}}\label{eq: freatisch-stationair-2-1}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De doorsnedegemiddelde waterstand volgt door integratie over de halve doorsnede en deling door 
-\begin_inset Formula $b$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
 \[
-\overline{h}-h_{LR}=\frac{1}{b}\intop_{0}^{b}\sqrt{h_{LR}^{2}+\frac{N}{k}\left(b^{2}-x^{2}\right)}dx
+\overline{h}-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
 \]
 
 \end_inset
@@ -3646,14 +2450,17 @@ De doorsnedegemiddelde waterstand volgt door integratie over de halve doorsnede 
 \end_layout
 
 \begin_layout Standard
-Helaas is hiervan geen oplossing bekend die in gewone wiskundige functies kan worden uitgedrukt.
- Een benadering kan gegeven worden door de oplossing te schrijven als
+Delen door 
+\begin_inset Formula $c$
+\end_inset
+
+ geeft
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left(h-h_{LR}\right)\left(h+h_{LR}\right)=\frac{N}{k}\left(b^{2}-x^{2}\right)
+\frac{\overline{h}-\phi}{c}-N=\left(\frac{h_{b}-\phi}{c}-N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
 \]
 
 \end_inset
@@ -3662,206 +2469,22 @@ Helaas is hiervan geen oplossing bekend die in gewone wiskundige functies kan wo
 \end_layout
 
 \begin_layout Standard
-Wanneer we 
-\begin_inset Formula $h$
+De term 
+\begin_inset Formula $\left(\phi-\overline{h}\right)/c$
 \end_inset
 
- in de tweede factor links van het isgelijkteken als constant beschouwen en deze factor naar rechts brengen,
- en integreren tussen 0 en 
-\begin_inset Formula $b$
-\end_inset
-
-,
- dan krijgen we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h}-h_{LR} & = & \frac{1}{b}\frac{N}{k\left(h+h_{LR}\right)}\intop_{0}^{b}\left(b^{2}-x^{2}\right)dx\\
- & = & \frac{2}{3}\frac{Nb^{2}}{k\left(h+h_{LR}\right)}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De 
-\begin_inset Formula $h$
-\end_inset
-
- in het rechter lid is een of andere representatieve waterdiepte is tussen 
-\begin_inset Formula $h_{LR}$
-\end_inset
-
- en de maximum waterdiepte in.
- De meest logische keuze is 
-\begin_inset Formula $h=\overline{h}$
-\end_inset
-
- als benadering.
- Daarmee is de vergelijking te schrijven als
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h}^{2}-h_{LR}^{2} & = & \frac{2}{3}\frac{Nb^{2}}{k}\\
-\overline{h} & \approx & \sqrt{h_{LR}^{2}+\frac{2}{3}\frac{Nb^{2}}{k}}
-\end{eqnarray*}
-
-\end_inset
-
-We hebben hiermee toch een benadering van de doorsnedegemiddelde freatische grondwaterstand verkregen.
- Hoe goed deze oplossing zal zijn,
- kan bijvoorbeeld worden bepaald door de uitkomst te vergelijking met die van een numeriek model voor het freatische verloop van de grondwaterstand in een doorsnede.
-\end_layout
-
-\begin_layout Standard
-De afvoer naar de sloot in de stationaire situatie wordt verkregen door 
-\begin_inset Formula $N$
-\end_inset
-
- door 
-\begin_inset Formula $Q$
-\end_inset
-
- te vervangen:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q & = & \frac{3}{2}\frac{k}{b^{2}}\left(\overline{h}^{2}-h_{LR}^{2}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De dynamische waterbalans volgt nu door berging gelijk te stellen aan de onbalans tussen neerslag 
-\begin_inset Formula $N$
-\end_inset
-
- en afvoer 
-\begin_inset Formula $Q$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\mu\frac{d\overline{h}}{dt} & = & N-\frac{3}{2}\frac{k}{b^{2}}\left(\overline{h}^{2}-h_{LR}^{2}\right)\\
- & = & -\frac{3}{2}\frac{k}{b^{2}}\overline{h}^{2}+N+\frac{3}{2}\frac{k}{b^{2}}h_{LR}^{2}\\
-\frac{2}{3}\frac{b^{2}}{k}\mu & \frac{d\overline{h}}{dt}= & -\overline{h}^{2}+\left(\frac{2}{3}\frac{Nb^{2}}{k}+h_{LR}^{2}\right)\\
-T\frac{d\overline{h}}{dt} & = & \overline{h}_{N}^{2}-\overline{h}^{2}
-\end{eqnarray*}
-
-\end_inset
-
-waarin 
-\begin_inset Formula $\overline{h}_{N}$
-\end_inset
-
- de doorsnedegemiddelde grondwaterstand is die bij neerslagoverschot 
-\begin_inset Formula $N$
-\end_inset
-
- behoort
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}_{N}=\frac{2}{3}\frac{Nb^{2}}{k}+h_{LR}^{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit is dus een vaste waarde zolang 
-\begin_inset Formula $N$
-\end_inset
-
- een vaste waarde heeft.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $T$
-\end_inset
-
- is de karakteristieke tijd van dit dynamische systeem:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-T=\frac{2}{3}\frac{b^{2}\mu}{k}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We willen nu 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- als functie van de tijd bepalen door links en rechts te integreren
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{d\overline{h}}{\overline{h}_{N}^{2}-\overline{h}^{2}}=\frac{dt}{T}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\tanh^{-1}\left(\frac{\overline{h}}{\overline{h}_{N}}\right)}{\overline{h}_{N}}=\frac{t}{T}+C
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De integratieconstante volgt uit de situatie op 
-\begin_inset Formula $t=t_{0}$
-\end_inset
-
-,
- wanneer 
-\begin_inset Formula $\overline{h}=\overline{h}_{0}$
+ is exact gelijk aan de kwel 
+\begin_inset Formula $q$
 \end_inset
 
 .
- Dus
+ Wanneer we deze term afscheiden krijgen we
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-C=\frac{\tanh^{-1}\frac{\overline{h}_{0}}{\overline{h}_{N}}}{\overline{h}_{N}}-\frac{t_{0}}{T}
+\frac{\overline{h}-\phi}{c}-N=\left(\frac{h_{b}-\overline{h}+\overline{h}-\phi}{c}-N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
 \]
 
 \end_inset
@@ -3870,391 +2493,14 @@ C=\frac{\tanh^{-1}\frac{\overline{h}_{0}}{\overline{h}_{N}}}{\overline{h}_{N}}-\
 \end_layout
 
 \begin_layout Standard
-Hiermee volgt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\tanh^{-1}\frac{\overline{h}}{\overline{h}_{N}}=\tanh^{-1}\frac{\overline{h}_{0}}{\overline{h}_{N}}+\left(\frac{t-t_{0}}{T}\right)\overline{h}_{N}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met deze vergelijking is de doorsnedegemiddelde grondwaterstand te simuleren.
- Het linkerlid kan op elk moment voor 
-\begin_inset Formula $t>t_{0}$
-\end_inset
-
- worden berekend zolang 
-\begin_inset Formula $N$
-\end_inset
-
- en 
-\begin_inset Formula $\overline{h}_{N}$
-\end_inset
-
- constant blijven.
- Zodra een van beide verandert begint de volgende tijdstap met de berekende 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- aan het eind van de tijdstap,
- die dan gelijk aan 
-\begin_inset Formula $\overline{h}_{0}$
-\end_inset
-
- wordt gesteld aan het begin van de volgende tijdstap.
- De doorsnedegemiddelde grondwaterstand 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- kan steeds worden berekend uit het op elke tijdstap bekende linkerlid.
- De tweede term beschrijft hoe snel de grondwaterstand naar zijn nieuwe evenwicht 
-\begin_inset Formula $\overline{h}_{N}$
-\end_inset
-
- streeft.
- We zien dat 
-\begin_inset Formula $T$
-\end_inset
-
- hierin de rol van tijdconstante voor dit systeem vervult.
-\end_layout
-
-\begin_layout Standard
-De waarde van 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- kan direct worden berekend uit de voorgaande uitdrukking
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h} & = & \overline{h}_{N}\,\tanh\left\{ \tanh^{-1}\frac{\overline{h}_{0}}{\overline{h}_{N}}+\left(\frac{t-t_{0}}{T}\right)\overline{h}_{N}\right\} 
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Vaste laagdikte
-\end_layout
-
-\begin_layout Standard
-Voor de situatie met een (veronderstelde) vaste laagdikte kunnen we op dezelfde manier te werk gaan,
- of direct gebruik maken van vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq: freatisch-stationair"
-nolink "false"
-
-\end_inset
-
- door te schrijven
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-h^{2}-h_{LR}^{2} & = & \left(h-h_{LR}\right)\left(h+h_{LR}\right)\\
- & \approx & \left(h-h_{LR}\right)2D
-\end{eqnarray*}
-
-\end_inset
-
-waarin 
-\begin_inset Formula $D$
-\end_inset
-
- de 
-\begin_inset Quotes eld
-\end_inset
-
-effectieve pakketdikte
-\begin_inset Quotes erd
-\end_inset
-
-.
- Aldus
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-h-h_{LR}=\frac{N}{2kD}\left(b^{2}-x^{2}\right)\label{eq: freatisch-stationair-1}
-\end{equation}
-
-\end_inset
-
-met als doorsnedegemiddelde stijghoogte
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h}-h_{LR} & = & \frac{N}{2kD}\frac{1}{b}\intop_{0}^{b}\left(b^{2}-x^{2}\right)dx\\
- & = & \frac{N}{2kD}\left(b^{2}-\frac{b^{2}}{3}\right)\\
- & = & \frac{N}{3kD}b^{2}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De hoogste grondwaterstand,
- in het midden van de doorsnede op 
-\begin_inset Formula $x=0$
-\end_inset
-
- is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{max}-h_{LR}=\frac{Nb^{2}}{2kD}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De waterbalans voor deze doorsnede kunnen we schrijven als
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mu\frac{d\overline{h}}{dt}=N-\frac{Q_{sl}}{b}
-\]
-
-\end_inset
-
-met
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q_{sl} & = & 3\frac{kD}{b^{2}}\left(\overline{h}-h_{LR}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Ingevuld in voorgaande differentiaalvergelijking krijgen we voor de situatie met veronderstelde vaste pakketdikte 
-\begin_inset Formula $D$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\mu\frac{d\overline{h}}{dt} & =N- & 3\frac{kD}{b^{2}}\left(\overline{h}-h_{LR}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze differentiaalvergelijking is op te lossen door ervoor te zorgen dat onder het d-teken van 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- hetzelfde komt te staan als in het rechter lid.
- Dit levert
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{d\left(N-\frac{3kD}{b^{2}}\left(\overline{h}-h_{LR}\right)\right)}{N-3\frac{kD}{b^{2}}\left(\overline{h}-h_{LR}\right)}=-\frac{3kD}{\mu b^{2}}dt
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De factor 
-\begin_inset Formula $T=\frac{\mu b^{2}}{3kD}$
-\end_inset
-
- heeft dimensie tijd en kan worden opgevat als de karakteristieke tijd van dit grondwatersysteem.
-\end_layout
-
-\begin_layout Standard
-Aldus krijgen we na integratie de volgende oplossing
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\ln\left(N-\frac{\mu}{T}\left(\overline{h}-h_{LR}\right)\right)=-\frac{t}{T}+C
-\]
-
-\end_inset
-
-met
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-T=\frac{\mu b^{2}}{3kD}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De integratieconstante wordt opnieuw opgelost uit de beginvoorwaarde,
- 
-\begin_inset Formula $\overline{h}=\overline{h}_{0}$
-\end_inset
-
- wanneer 
-\begin_inset Formula $t=t_{0}$
-\end_inset
-
-,
- zodat 
-\begin_inset Formula 
-\[
-C=\frac{t_{0}}{T}+\ln N-\frac{\mu}{T}\left(\overline{h}_{0}-h_{LR}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Na invulling
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-N-\frac{\mu}{T}\left(\overline{h}-h_{LR}\right)=\left(N-\frac{\mu}{T}\left(\overline{h}_{0}-h_{LR}\right)\right)e^{-\frac{t-t_{0}}{T}}
-\]
-
-\end_inset
-
-zodat uiteindelijk de gezochte simulatieformule wordt verkregen
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(\overline{h}_{0}-h_{LR}\right)e^{-\frac{t-t_{0}}{T}}+N\frac{T}{\mu}\left(1-e^{-\frac{t-t_{0}}{T}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Hiermee hebben we de doorsnedegemiddelde dynamiek gesplitst in exponentiële uitzakking naar het slootpeil en een exponentieel streven naar het evenwichtspeil boven het slootpeil als gevolg van het neerslagoverschot.
- De oplossing geldt zolang het neerslagoverschot en het slootpeil constant zijn.
- Om deze formule te kunnen toepassen verdelen we de tijd in stukjes die klein genoeg zijn om per tijdstap constante 
-\begin_inset Formula $N$
-\end_inset
-
- en 
-\begin_inset Formula $h_{LR}$
-\end_inset
-
- te mogen aannemen.
- We kunnen dan het verloop van de doorsnedegemiddelde grondwaterstand van tijdstap naar tijdstap simuleren.
-\end_layout
-
-\begin_layout Standard
-De dynamische vergelijking voor de doorsnedegemiddelde grondwaterstand is verkregen op basis van de aanname dat de afvoer naar de sloten op elk moment overeenkomt met de stationaire oplossing bij dezelfde doorsnedegemiddelde grondwaterstand.
- Dit is alleen een goede benadering wanneer de tijdstaplengte een stuk groter is dan de karakteristieke tijd voor het grondwatersysteem dat wordt vertegenwoordigd door de doorsnede.
- In de praktijk is dit lang niet altijd het geval.
- Dit impliceert dat de berekende doorsnedegemiddelde grondwaterstand in zijn dynamica wat achter loopt op de werkelijkheid.
- In welke mate dit het geval is kan worden onderzocht met de analytische oplossing voor het dynamische verloop van de grondwaterstand in deze doorsnede.
- Deze formule werken we in de volgende sectie uit.
-\end_layout
-
-\begin_layout Standard
-Voor elk dynamisch grondwatersysteem kan een karakteristieke tijd worden afgeleid op de hierboven beschreven manier.
- Het is zinvol om zich bewust te zijn van de betekenis hiervan.
- De karakteristieke tijd bepaalt de snelheid waarmee het grondwatersysteem naar zijn evenwicht streeft.
- Het is de tijd waarin de discrepantie met de evenwichtsstand daalt met een factor 
-\begin_inset Formula $e$
-\end_inset
-
-.
- Dit is te zien door voor 
-\begin_inset Formula $T=t-t_{0}$
-\end_inset
-
- in te vullen,
- waardoor de e-macht gelijk wordt aan 
-\begin_inset Formula $e^{-1}\approx$
-\end_inset
-
-0.37.
- We zien dan dat voor elke 
-\begin_inset Formula $\Delta t=T$
-\end_inset
-
- de afwijking met de evenwichtsstand,
- 
-\begin_inset Formula $\overline{h}-h_{LR}$
-\end_inset
-
- afneemt door vermenigvuldiging met de factor 0.37.
- Uiteraard is deze karakteristieke tijd direct te herleiden tot de zogenoemde halfwaardetijd 
-\begin_inset Formula $\Delta t_{50\%}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-e^{-\frac{\Delta t_{50\%}}{T}}=0.5
-\]
-
-\end_inset
-
 zodat
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
-\Delta t_{50\%} & = & T\,\ln2\\
- & \approx & 0.7\,T
-\end{eqnarray*}
+\[
+-q-N=\left(-\frac{\overline{h}+h_{b}}{c}-q-N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
+\]
 
 \end_inset
 
@@ -4262,40 +2508,357 @@ zodat
 \end_layout
 
 \begin_layout Standard
-Uiteraard is 
-\begin_inset Formula $\Delta t_{50\%}$
+\begin_inset Formula 
+\[
+N+q=\left(\frac{\overline{h}+h_{b}}{c}+\left(N+q\right)\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
+\]
+
 \end_inset
 
- iets korter dan 
-\begin_inset Formula $T=\frac{\mu b^{2}}{3kD}$
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(N+q\right)\frac{b}{\lambda}\coth\frac{b}{\lambda}=\left(\frac{\overline{h}+h_{b}}{c}+\left(N+q\right)\right)
+\]
+
 \end_inset
 
-.
- Voor doorsnedes met een halve breedte van 
-\begin_inset Formula $b=50$
+
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+
+\begin_inset Formula 
+\[
+\overline{h}+h_{b}=\left(N+q\right)c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
+\]
+
 \end_inset
 
- m,
- een doorlaatvermogen 
-\begin_inset Formula $kD=100$
+
+\end_layout
+
+\begin_layout Standard
+Dit is de stationaire oplossing uitgedrukt in de doorsnedegemiddelde grondwaterstand,
+ waar alleen 
+\begin_inset Formula $h_{b}$
 \end_inset
 
- m
-\begin_inset Formula $^{2}$
+ nog moet worden ingevuld.
+ De eis is dat 
+\begin_inset Formula $h_{\pm b}$
 \end_inset
 
-/d en een bergingscoëfficiënt van 
-\begin_inset Formula $\mu=0.15$
+ voldoet aan de weerstand,
+ dus dat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(h_{b}-h_{LR}\right)=\frac{w}{D}Q_{b}
+\]
+
 \end_inset
 
- volgt 
-\begin_inset Formula $T=1.25$
+
+\end_layout
+
+\begin_layout Standard
+Deze stroming kan formeel worden afgeleid maar de uitstroom naar de sloot 
+\begin_inset Formula $Q_{b}$
 \end_inset
 
- d,
- dus in de buurt van de meestal toegepaste tijdstaplengte van 1 dag.
- De tijdstaplengte van 1 dag is dus feitelijk wat tekort voor de gevolgde benadering.
- Dat betekent dat de berekende dynamiek enigszins achter zal lopen op de werkelijke dynamiek.
+ is ook exact gelijk aan 
+\begin_inset Formula $\left(N+q\right)b$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We hebben hiermee
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+h_{b} & =h_{LR}+\left(N+q\right)b\frac{w}{D}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}+h_{LR}+\left(N+q\right)b\frac{w}{D}=\left(N+q\right)c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met 
+\begin_inset Formula $c$
+\end_inset
+
+ buiten de rechte haken krijgen we het volgende eindresultaat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\overline{h}-h_{LR}=\left(N+q\right)c\left[\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)+\frac{w}{c}\frac{b}{D}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarin de dimensieloze term 
+\begin_inset Formula $\left(\frac{w}{c}\frac{b}{D}\right)$
+\end_inset
+
+ de bijdrage door de intredeweerstand.
+\end_layout
+
+\begin_layout Standard
+Ter veralgemenisering schrijven we
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(N+q\right)c\left[\Gamma+\frac{w}{c}\frac{b}{D}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boxed{\Gamma=\frac{b}{\lambda}\coth\left(\frac{b}{\lambda}\right)-1}\label{eq:Gamma-groot-basisformule}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{T=c\left[\Gamma+\frac{w}{c}\frac{b}{D}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+krijgen we de oplossing tenslotte in zijn meest compacte vorm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boxed{\overline{h}-h_{LR}=\left(N+q\right)T}\label{eq:base-case-stationair-met-weerstand}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deze vergelijking heeft dezelfde vorm als die voor de eenlaagsoplossing;
+ alleen de factor 
+\begin_inset Formula $T$
+\end_inset
+
+ wijkt af.
+\end_layout
+
+\begin_layout Standard
+Met vergelijking 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:base-case-stationair-met-weerstand"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ kan uiteindelijk de doorsnedegemiddelde stijghoogte in de deklaag 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ wordt berekend bij gegeven 
+\begin_inset Formula $q$
+\end_inset
+
+ en het neerslagoverschot 
+\begin_inset Formula $N$
+\end_inset
+
+,
+ terwijl de diepe stijghoogte is geëlimineerd.
+ 
+\end_layout
+
+\begin_layout Standard
+—
+
+\end_layout
+
+\begin_layout Standard
+Overigens is de limit van 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ voor 
+\begin_inset Formula $b/\lambda\rightarrow0$
+\end_inset
+
+,
+ dus wanneer 
+\begin_inset Formula $c\rightarrow\infty$
+\end_inset
+
+,
+ op zichzelf interessant.
+ Omdat de limiet voor 
+\begin_inset Formula $\left(\zeta\coth\zeta-1\right)\to\zeta^{2}/3$
+\end_inset
+
+ voor 
+\begin_inset Formula $\zeta\to0$
+\end_inset
+
+,
+ krijgen we
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+oo
+\begin_inset Formula 
+\[
+\lim_{\frac{b}{\lambda}\downarrow0}\left(c\Gamma\right)=c\lim_{\frac{b}{\lambda}\downarrow0}\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)=\frac{c}{3}\left(\frac{b}{\lambda}\right)^{2}=\frac{b^{2}}{3kD}
+\]
+
+\end_inset
+
+Dat wil zeggen dat in de limiet de oplossing voor de situatie met onderliggende regionale aquifer overgaat in de oplossing voor één laag zonder onderliggende regionale aquifer.
+ Voor de éénlaagsoplossing vonden we
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T=\frac{b^{2}}{3kD}+\frac{w}{D}b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Een voor de situatie met regionale aquifer vonden we
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T=c\left[\Gamma+\frac{w}{c}\frac{b}{D}\right]=c\Gamma+\frac{w}{D}b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zodat het enige resterende verschil tussen de eenlaags en de tweelaagsoplossing gelegen is in de term 
+\begin_inset Formula $b^{3}/(3kD$
+\end_inset
+
+ versus 
+\begin_inset Formula $\Gamma=\frac{b}{\lambda}\coth\frac{b}{\lambda}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Tijdsafhankelijke oplossing
+\end_layout
+
+\begin_layout Standard
+Gezien de strikte mathematische overeenkomst tussen de eenlaags en de tweelaagsoplossing,
+ hoeven we de niet-stationaire oplossing voor de situatie met regionale aquifer niet eens meer af te leiden.
+ Ook deze is van gelijke structuur als die voor de situatie zonder regionale aquifer:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\overline{h}-h_{LR}=\left(\overline{h}_{0}-h_{LR}\right)\exp\left(-\frac{t-t_{0}}{\mu T}\right)+NT\left(1-\exp\left(-\frac{t-t_{0}}{\mu T}\right)\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{T=c\Gamma+w\frac{b}{D}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\Gamma=\frac{b}{\lambda}\coth\frac{b}{\lambda}-1}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -4309,61 +2872,115 @@ Niet-stationaire éénlaagsoplossing zonder lek
 \end_layout
 
 \begin_layout Standard
-De nu volgende analytische oplossing geldt voor de dynamische stroming in een enkel watervoerend pakket met constant doorlaatvermogen en zonder lek.
- De oplossing beschrijft hoe het water in het perceel uitzakt bij een uniform beginpeil gelijk aan 
-\emph on
-
-\begin_inset Formula $A=h_{0}-h_{LR}$
+Dit hoofdstuk gaat voorbij aan wat nodig is voor de analytische GGOR-tool.
+ De hier getoonde oplossingen zijn interessant omdat zij de niet-stationaire situatie exact kunnen berekenen zonder hulp van een stationaire oplossing die voor de niet-stationaire situatie wordt 
+\begin_inset Quotes eld
 \end_inset
 
+misbruikt
+\begin_inset Quotes erd
+\end_inset
 
-\emph default
 ,
- terwijl de stijghoogte ter plaatse van de randen van het perceel worden vastgehouden op de waarde 
-\begin_inset Formula $h_{LR}$
+ zoals in de situaties die hiervoor zijn afgeleid.
+ Deze bestaande oplossingen kunnen worden teruggevonden in verschillende boeken en vooral in Bruggeman (1999).
+ Bruggeman (solution 133.16,
+ p101) is voor de situatie in een doorsnede met een laag met constante dikte en er is geen slootweerstand.
+ De grondwaterstand is initieel overal nul en vanaf 
+\begin_inset Formula $t=0$
+\end_inset
+
+ is er een constant neerslagoverschot 
+\begin_inset Formula $p$
 \end_inset
 
 .
- De stroming is zoals die in alle aangevoerde oplossingen ééndimensionaal,
- dus geldend voor een strip land tussen twee parallelle sloten op afstand 
-\begin_inset Formula $2b$
+ Hierdoor gaat de grondwaterstand omhoog,
+ maar die op 
+\begin_inset Formula $x=\pm b$
 \end_inset
 
- van elkaar die zich loodrecht op de doorsnede (in de 
-\begin_inset Formula $y$
-\end_inset
-
--richting) uitstrekken tussen 
-\begin_inset Formula $-\infty\le y\le+\infty$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-h-h_{LR}=\left(h_{0}-h_{LR}\right)\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{2j-1}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\exp\left[-\left(2j-1\right)^{2}\pi^{2}\frac{kD}{4b^{2}\mu}t\right]\right\} \label{eq:tran-1D-KrVdLeur}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-en met 
-\begin_inset Formula $T=\frac{4b^{2}\mu}{\pi^{2}kD}$
-\end_inset
-
- als karakteristieke tijd,
- kan de uitdrukking iets inzichtelijker worden opgeschreven als
+ wordt daarbij vastgehouden op nul.
+ De oplossing heeft de vorm van een reeks met oneindig veel termen.
+ Echter voor de berekening is het aantal mee te nemen termen altijd beperkt.
+ Deze oplossing luidt:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-h-h_{LR}=\left(h_{0}-h_{LR}\right)\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{2j-1}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} 
+h-h_{LR}=\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{16pb^{2}}{\pi^{3}kD}\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}}{\left(2n+1\right)^{3}}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Het is interessant om de term 
+\begin_inset Formula $\left(2\beta b/pi\right)^{2}$
+\end_inset
+
+ als karakteristieke tijd te beschouwen.
+ Met 
+\begin_inset Formula $\beta^{2}=S/kD$
+\end_inset
+
+ krijgen we dan voor de exponent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T=\left(\frac{2\beta b}{\pi}\right)^{2}=\frac{4b^{2}S}{\pi^{2}kD}\rightarrow\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]\rightarrow\exp\left[-\left(2n+1\right)^{2}\frac{t}{T}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit stelt voor een stationaire oplossing plus een correctie daarop.
+\end_layout
+
+\begin_layout Standard
+Voor het berekenen van de invloed van veranderende slootpeil kan oplossing 133.02 worden gebruikt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\Delta h_{0}-h_{LR}-\frac{4h}{\pi}\sum_{n=0}^{\infty}\left(-1\right)^{n}\frac{1}{2n+1}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+en met 
+\begin_inset Formula $T=\left(\frac{2\beta\,b}{\pi}\right)^{2}$
+\end_inset
+
+ als karakteristieke tijd,
+ kunnen deze uitdrukkingen iets inzichtelijker worden geschreven.
+\end_layout
+
+\begin_layout Standard
+Merk op 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\beta^{2}=\frac{S}{kD}
 \]
 
 \end_inset
@@ -4375,9 +2992,9 @@ h-h_{LR}=\left(h_{0}-h_{LR}\right)\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{
 De oplossing wordt toegeschreven aan aan Kraaijenhof van der Leur (Verruijt,
  1999,
  p87),
- maar hij stond al eerder in @@@Carslaw and Jaeger (1959,
+ maar hij stond al eerder in Carslaw and Jaeger (1959,
  p97,
- vergelijking 8).
+ vergelijking 8) en staan in Bruggeman (1999).
 \end_layout
 
 \begin_layout Standard
@@ -4403,11 +3020,7 @@ Hierin is
 \end_inset
 
 .
- Het verloop weerspiegelt in het algemeen goed wat er in een perceel gebeurt na een fikse bui ter grootte 
-\begin_inset Formula $P$
-\end_inset
-
- [L] op 
+ Het verloop weerspiegelt in het algemeen goed wat er in een perceel gebeurt na een fikse of constante bui of plotselinge slootpeilverandering op 
 \begin_inset Formula $t=0$
 \end_inset
 
@@ -4424,15 +3037,11 @@ h_{0}-h_{LR}=\frac{P}{\mu}\label{eq:tran1D-dh-due-to-sudden-shower}
 \end_layout
 
 \begin_layout Standard
-Vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:tran-1D-hd-avg-KvdL"
-nolink "false"
-
+De eerste vergelijking geldt voor continu neerslagoverschot vanaf 
+\begin_inset Formula $t=0$
 \end_inset
 
-beschrijft dus het uitzakken van de grondwaterstand in een doorsnede ter breedte 
+ en de tweede kan worden geïnterpreteerd als de situatie na een plotselinge bui en beschrijft dus het uitzakken van de grondwaterstand in een doorsnede ter breedte 
 \begin_inset Formula $L=2b$
 \end_inset
 
@@ -4444,53 +3053,7 @@ beschrijft dus het uitzakken van de grondwaterstand in een doorsnede ter breedte
 \end_layout
 
 \begin_layout Standard
-Wanneer we de neerslag (in feite neerslagoverschot) in een reeks buiten ter beschikking hebben in een tijdreeks 
-\begin_inset Formula $\left(P_{i},t_{i}\right)$
-\end_inset
-
- met 
-\begin_inset Formula $P_{i}$
-\end_inset
-
- de grootte van 
-\begin_inset Quotes eld
-\end_inset
-
-bui 
-\begin_inset Formula $i$
-\end_inset
-
-
-\begin_inset Quotes erd
-\end_inset
-
- op tijdstip 
-\begin_inset Formula $t_{i}$
-\end_inset
-
-,
- kunnen we de resulterende grondwaterstandsreeks simuleren door standaard superpositie.
- De tijden 
-\begin_inset Formula $t_{i}$
-\end_inset
-
- zijn hierbij willekeurig,
- niet per se op regelmatige intervallen.
- Meestal beschikken we over een reeks met dagwaarden.
- We kunnen elke dagwaarde van het neerslagoverschot in deze reeks ook interpreteren als een 
-\begin_inset Quotes eld
-\end_inset
-
-bui
-\begin_inset Quotes erd
-\end_inset
-
- die valt aan het begin van de betreffende dag,
- of ergens gedurende de dag.
- Als de uitzakking na een bui traag is ten opzichte van de lengte van de dag,
- of anders gezegd,
- wanneer de karakteristiek tijd groot is ten opzichte van de daglengte,
- dan maakt het weinig uit op welk moment van de dag de bui valt.
+Met deze vergelijkingen kunnen we de niet-stationaire situatie exact uitrekenen op elke plek in de doorsnede.
 \end_layout
 
 \begin_layout Standard
@@ -4694,7 +3257,7 @@ s\left(x,t=\infty\right)=N\frac{T}{\mu}\frac{\pi^{2}}{8}\left(1-\frac{x^{2}}{b^{
 \end_layout
 
 \begin_layout Standard
-Dit is de precies het grondwaterverloop dat onstaat bij constant neerslagoverschot.
+Dit is de precies het grondwaterverloop dat ontstaat bij constant neerslagoverschot.
 \end_layout
 
 \begin_layout Standard
@@ -5029,115 +3592,27 @@ Dit criterium wordt daarom ingebouwd.
 \end_layout
 
 \begin_layout Section
-Analytische oplossingen met lek
-\end_layout
-
-\begin_layout Subsection
-Semi-spanningswater,
- één watervoerende laag,
- zonder intredeweerstand van de sloten
+Analytische oplossingen met slootweerstand
 \end_layout
 
 \begin_layout Standard
-We gaan hier uit van parallelle sloten in een deklaag op een regionale aquifer waarin de stijghoogte constant is.
- De deklaag en de regionale aquifer zijn van elkaar gescheiden door een semi-permeabele laag.
- We zullen eerst de basisoplossing geven die uitgaat van een vaste stijghoogte in de onderliggende aquifer en vervolgens zullen we de vergelijkingen ombouwen naar de situatie waarin de gemiddelde kwel (opwaarts positief) door de deklaag is voorgeschreven in plaats van de stijghoogte.
- De stijghoogte is dan nog steeds ruimtelijk overal gelijk,
- maar zijn hoogte wordt impliciet bepaald door de opgelegde kwel.
-\end_layout
-
-\begin_layout Standard
-De situatie met semi-spanningswater is in verschillende vormen toegepast,
- zowel met gelijk peil in beide randsloten of met verschillend peil.
- We zullen de niet-stationaire situatie echter alleen uitwerken voor de situatie met links en rechts hetzelfde slootpeil,
- hoewel het uiteindelijk niet veel verschil zal blijken te maken.
- Links en rechts hetzelfde peil hanteren houdt alleen de vergelijkingen iets eenvoudiger.
-\end_layout
-
-\begin_layout Paragraph
-Situatie met gegeven stijghoogte (basis-formule in de GGOR-tool)
-\end_layout
-
-\begin_layout Standard
-Hiervoor is deze situatie al besproken.
- We werken nu de oplossing uit voor de situatie met verschillend slootpeil maar zonder intredeweerstand.
- We nemen het nulpunt van de 
-\begin_inset Formula $x$
+De weerstand tussen grond en sloot wordt conceptueel opgevat als een verticaal muurtje (of vlies) in het watervoerend pakket (hoogte 
+\begin_inset Formula $D$
 \end_inset
 
--as in het midden van het perceel.
- De algemene oplossing voor stationaire stroming is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-Nc+\phi-h=A\sinh\frac{x}{\lambda}+B\cosh\frac{x}{\lambda}\label{eq:sc-dd-gensol-hyperbolic}
-\end{equation}
-
+ [L]) met weerstand 
+\begin_inset Formula $w$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-wat gemakkelijk door invulling is te verifiëren.
-\end_layout
-
-\begin_layout Standard
-De integratieconstanten 
-\begin_inset Formula $A$
-\end_inset
-
- en 
-\begin_inset Formula $B$
-\end_inset
-
- moeten worden opgelost door invulling van de randvoorwaarden.
- Bij een sloot aan de linker en de rechterzijde van een perceel zijn de slootpeilen de randvoorwaarden op 
-\begin_inset Formula $x=-b$
-\end_inset
-
- en 
-\begin_inset Formula $x=+b$
-\end_inset
-
- als volgt:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Nc+\phi-h_{L} & = & -A\sinh\frac{b}{\lambda}+B\cosh\frac{b}{\lambda}\\
-Nc+\phi-h_{R} & = & +A\sinh\frac{b}{\lambda}+B\cosh\frac{b}{\lambda}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit levert
-\begin_inset Formula 
-\begin{eqnarray*}
-A & = & \frac{h_{L}-h_{R}}{2\sinh\frac{b}{\lambda}}\\
-B & = & \frac{2Nc+2\phi-h_{L}-h_{R}}{2\cosh\frac{b}{\lambda}}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat
+ [T].
+ Het is altijd mogelijk om de werkelijke situatie waarin de sloot maar voor een deel in de toplaag snijdt en een eigen specifieke breedte en omtrek heeft hiernaar terug te rekenen en bovendien rekening te houden met de altijd aanwezige verticale anisotropie.
+ De stroming van de grond naar de sloot is nu gelijk aan
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-Nc+\phi-h=\frac{h_{L}-h_{R}}{2}\frac{\sinh\frac{x}{\lambda}}{\sinh\frac{b}{\lambda}}+\left(Nc+\phi-\frac{h_{L}+h_{R}}{2}\right)\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}
+Q=\frac{D}{w}\left(h_{b}-h_{LR}\right)
 \]
 
 \end_inset
@@ -5146,1260 +3621,66 @@ Nc+\phi-h=\frac{h_{L}-h_{R}}{2}\frac{\sinh\frac{x}{\lambda}}{\sinh\frac{b}{\lamb
 \end_layout
 
 \begin_layout Standard
-en dus
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-h=Nc+\phi-\left(\frac{h_{L}-h_{R}}{2}\right)\frac{\sinh\frac{x}{\lambda}}{\sinh\frac{b}{\lambda}}-\left(Nc+\phi-\frac{h_{L}+h_{R}}{2}\right)\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}\label{eq:hL-hR-different}
-\end{equation}
-
+In de analytische GGOR wordt met de doorsnedegemiddelde grondwaterstand gerekend.
+ De stijghoogte aan de rand van de sloot is dan niet expliciet gegeven.
+ We kunnen deze uiteraard expliciet afleiden,
+ maar een eenvoudiger aanpak is via de constatering dat deze afvoer in de stationaire situatie gelijk is aan de aanvoer,
+ namelijk 
+\begin_inset Formula $N+q$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../../../../../../../Waternet/3 AGV watersysteem/GGOR-tool/GGOR-doc/hLhRdifferent.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:hL-hL-verschillend"
-
-\end_inset
-
-Vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:hL-hR-different"
-nolink "false"
-
-\end_inset
-
- voor de waarden die in de grafiek zijn vermeld
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Figuur 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:hL-hL-verschillend"
-nolink "false"
-
-\end_inset
-
- geeft een beeld van het verloop van de stijghoogte die met vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:hL-hR-different"
-nolink "false"
-
-\end_inset
-
- is berekend voor de waarden die in de grafiek zijn vermeld.
- De opbolling gaat bij toenemend slootpeil aan de rechterzijde ondanks het neerslagoverschot over in een holle vorm als gevolg van de neerwaartse lek die ontstaat door toenemend slootpeil bij een diepe stijghoogte die wordt vastgehouden op de stand van het linker slootpeil.
-\end_layout
-
-\begin_layout Standard
-De doorsnedegemiddelde grondwaterstand volgt uit
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\overline{h}=\frac{1}{2b}\intop_{-b}^{b}hdx=Nc+\phi-\left(Nc+\phi-\frac{h_{L}+h_{R}}{2}\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}\label{eq:hL-hR-different-1}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We zien dat de term met de 
-\begin_inset Formula $\sinh$
-\end_inset
-
- wegvalt als gevolg van de symmetrie.
- Verder is slechts het gemiddelde van beide slootpeilen relevant.
- Uiteraard wordt de uitkomst niet meer precies symmetrisch wanneer we bijvoorbeeld een slootweerstand inbrengen die links en rechts verschillend is.
-\end_layout
-
-\begin_layout Standard
-De afvoer naar de sloten (of aanvoer wanneer het teken negatief is) volgt uit
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q=-kD\frac{dh}{dx}=\frac{kD}{\lambda}\left(\frac{h_{L}-h_{R}}{2}\right)\frac{\cosh\frac{x}{\lambda}}{\sinh\frac{b}{\lambda}}+\frac{kD}{\lambda}\left(Nc+\phi-\frac{h_{L}+h_{R}}{2}\right)\frac{\sinh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De afvoer naar de linker sloot is 
-\begin_inset Formula $Q_{L}=-Q_{x=-b}$
-\end_inset
-
- en die naar de rechter sloot 
-\begin_inset Formula $Q_{R}=+Q_{x=+b}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q_{L}=-\frac{kD}{\lambda}\left(\frac{h_{L}-h_{R}}{2}\right)\coth\frac{b}{\lambda}+\frac{kD}{\lambda}\left(Nc+\phi-\frac{h_{L}+h_{R}}{2}\right)\tanh\frac{b}{\lambda}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q_{R}=+\frac{kD}{\lambda}\left(\frac{h_{L}-h_{R}}{2}\right)\coth\frac{b}{\lambda}+\frac{kD}{\lambda}\left(Nc+\phi-\frac{h_{L}+h_{R}}{2}\right)\tanh\frac{b}{\lambda}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-En de totale afvoer uit de doorsnede naar de sloten,
- 
-\begin_inset Formula $Q_{sl}=Q_{L}+Q_{R}$
-\end_inset
-
- is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q=2\frac{kD}{\lambda}\left(Nc+\phi-\frac{h_{L}+h_{R}}{2}\right)\tanh\frac{b}{\lambda}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze vergelijkingen zijn ook af te leiden met slootweerstanden.
- Dit wordt hier achterwege gelaten.
- In het vervolg beperken we ons tot situaties met gelijk peil voor beide sloten.
- De reden is dat voor het berekenen van de dynamiek van sloten ter voorbereiding van een te nemen peilbesluit geen rekening wordt gehouden met peilverschillen aan weerszijden van een perceel.
- Voor de totale afvoer maakt dat niet uit,
- evenmin voor de doorsnedegemiddelde grondwaterstand.
- Er ontstaan alleen verschillen bij verschillende slootweerstanden aan beide zijden van een perceel.
-\end_layout
-
-\begin_layout Standard
-We kunnen de vergelijkingen die hier zijn afgeleid voor gegeven diepe,
- uniforme stijghoogte 
-\begin_inset Formula $\phi$
-\end_inset
-
- direct uitdrukken in een voor gegeven doorsnedegemiddelde kwel 
-\begin_inset Formula $q$
-\end_inset
-
-.
- Dit kan door 
-\begin_inset Formula $\phi$
-\end_inset
-
- te schrijven als 
-\begin_inset Formula $\phi=\phi-\overline{h}+\overline{h}=qc+\overline{h}$
-\end_inset
-
-.
- Zo wordt 
-\begin_inset Formula $\phi$
-\end_inset
-
- geëlimineerd ten gunste van de kwel 
-\begin_inset Formula $q$
+ (als kwel aanwezig is).
+ We hebben reeds de vergelijking tussen 
+\begin_inset Formula $N+q$
 \end_inset
 
  en de doorsnedegemiddelde grondwaterstand 
 \begin_inset Formula $\overline{h}$
 \end_inset
 
-.
+ en hiermee dus tevens impliciet voor de afvoer naar de sloten,
+ die alleen afhankelijk is van de doorsnedegemiddelde grondwaterstand waar we mee rekenen.
+\end_layout
+
+\begin_layout Standard
+De stroming naar de sloten,
  
-\end_layout
-
-\begin_layout Paragraph
-Slootpeilen gelijk en regionale stijghoogte gegeven,
- zonder intredeweerstand
-\end_layout
-
-\begin_layout Standard
-We kunnen de relatie opnieuw afleiden dan wel het gelijke slootpeil invullen in de hierboven al verkregen vergelijking.
- Bij opnieuw afleiden geldt dat vanwege de symmetrie 
-\begin_inset Formula $B=0$
-\end_inset
-
-,
- zodat alleen de 
-\begin_inset Formula $\cosh$
-\end_inset
-
- in de uitdrukking overblijft.
- Direct invullen van het gelijke slootpeil 
-\begin_inset Formula $h_{LR}=h_{L}=h_{R}$
-\end_inset
-
- in de hiervoor afgeleide vergelijkingen levert direct het antwoord.
- Deze situatie is onder hiervoor reeds uitvoerig besproken omdat dit de basis situatie is voor de oude GGOR-tool.
- We kunnen de oplossing op verschillende manieren opschrijven,
- bijvoorbeeld om bepaald gedrag te kunnen accentueren.
- Een basisvorm is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{x}=Nc+\phi-\left(Nc+\phi-h_{LR}\right)\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Benadrukken we dat het slootpeil de randvoorwaarde is waar uiteindelijk de grondwaterstand vanaf hangt,
- dan is dit een betere vorm
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{x}-h_{LR}=\left(Nc+\phi-h_{LR}\right)\left(1-\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Om verschillende hydrologisch bijdragen aan het gedrag inzichtelijk te maken,
- kunnen we termen hergroeperen
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{x}-h_{LR}=Nc\left(1-\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}\right)+\left(\phi-h_{LR}\right)\left(1-\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We hebben nu de bijdrage van het neerslagoverschot losgekoppeld van de bijdrage door het peilverschil tussen het regionale pakket en de sloten.
- Zowel 
-\begin_inset Formula $Nc$
-\end_inset
-
- [L] als 
-\begin_inset Formula $\phi-h_{LR}$
-\end_inset
-
- [L] zijn drijvende krachten in de vorm van een opgelegd stijghoogteverschil.
-\end_layout
-
-\begin_layout Standard
-Wanneer 
-\begin_inset Formula $\phi=h_{LR}$
-\end_inset
-
- resteert alleen het neerslagoverschot als drijvende kracht.
- Voor 
-\begin_inset Formula $x=\pm b$
-\end_inset
-
- geldt uiteraard 
-\begin_inset Formula $h_{0}=h_{LR}$
-\end_inset
-
-.
- Maar voor 
-\begin_inset Formula $\lambda\rightarrow\infty$
-\end_inset
-
-,
- doordat 
-\begin_inset Formula $kD\rightarrow\infty$
-\end_inset
-
-,
- maar 
-\begin_inset Formula $c$
-\end_inset
-
- eindig,
- geldt voor elke 
-\begin_inset Formula $-b<x<b$
-\end_inset
-
- dat de breuk 
-\begin_inset Formula $\cosh\frac{x}{\lambda}/\cosh\frac{b}{\lambda}\rightarrow1$
-\end_inset
-
-,
- zodat 
-\begin_inset Formula $h_{x}=h_{LR}$
-\end_inset
-
-.
- De grondwaterstand zal dan altijd horizontaal verlopen en de stijghoogte wordt overal gelijk aan 
-\begin_inset Formula $h_{LR}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Als 
-\begin_inset Formula $\lambda\rightarrow0$
-\end_inset
-
-,
- doordat 
-\begin_inset Formula $kD\rightarrow0$
-\end_inset
-
-,
- maar 
-\begin_inset Formula $c$
-\end_inset
-
- eindig,
- dan geldt voor elke 
-\begin_inset Formula $-b<x<b$
-\end_inset
-
- dat 
-\begin_inset Formula $\cosh\frac{x}{\lambda}\ll\cosh\frac{b}{\lambda}$
-\end_inset
-
-,
- maar beide 
-\begin_inset Formula $\cosh\rightarrow\infty$
-\end_inset
-
- zodat de breuk 
-\begin_inset Formula $\cosh\frac{x}{\lambda}/\cosh\frac{b}{\lambda}\rightarrow0$
-\end_inset
-
- en dus 
-\begin_inset Formula $h_{x}=h_{LR}+Nc$
-\end_inset
-
-.
- De laatste term omdat in dit geval 
-\begin_inset Formula $\phi=h_{LR}$
-\end_inset
-
- als in het begin van deze paragraaf is verondersteld,
- zodat ook geldt 
-\begin_inset Formula $h_{x}=\phi+Nc$
-\end_inset
-
-.
- Hetgeen direct inzichtelijk juist is.
- 
-\begin_inset Formula $\lambda\rightarrow0$
-\end_inset
-
- betekent dat de reikwijdte van de sloten naar nul gaat,
- en deze er dus niet meer toe doen.
- Bij 
-\begin_inset Formula $\lambda\rightarrow\infty$
-\end_inset
-
- zijn de sloten juist alles bepalend.
- 
-\end_layout
-
-\begin_layout Standard
-Voor 
-\begin_inset Formula $N=0$
-\end_inset
-
- resteert alleen de tweede term.
- We zien hier een drijvende kracht 
-\begin_inset Formula $\phi-h_{LR}$
-\end_inset
-
-.
- Bij 
-\begin_inset Formula $\lambda\rightarrow\infty$
-\end_inset
-
- wordt de breuk met de 
-\begin_inset Formula $\cosh\rightarrow1$
-\end_inset
-
-,
- zodat de hele term met 
-\begin_inset Formula $\phi-h_{LR}$
-\end_inset
-
- weg valt,
- zodat 
-\begin_inset Formula $h_{x}=h_{LR}.$
-\end_inset
-
- De sloten zijn dan alles bepalend;
- het komt erop neer dat bij zo'n grote 
-\begin_inset Formula $\lambda$
-\end_inset
-
- bijvoorbeeld als gevolg van 
-\begin_inset Formula $c\rightarrow\infty$
-\end_inset
-
- de diepe stijghoogte geen rol meer kan spelen.
-\end_layout
-
-\begin_layout Standard
-Een alternatieve hergroepering van termen is die waarin 
-\begin_inset Formula $h_{x}$
-\end_inset
-
- is uitgedrukt ten opzichte van de opgegeven diepe stijghoogte 
-\begin_inset Formula $\phi$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{x}-\phi=Nc\left(1-\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}\right)-\left(\phi-h_{LR}\right)\left(\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Voor 
-\begin_inset Formula $\lambda\rightarrow\infty$
-\end_inset
-
- wordt de breuk met 
-\begin_inset Formula $\cosh\rightarrow1$
-\end_inset
-
- zodat 
-\begin_inset Formula $h_{x}=h_{LR}$
-\end_inset
-
-,
- sloten dus alles bepalend,
- terwijl voor 
-\begin_inset Formula $\lambda\rightarrow0$
-\end_inset
-
- deze breuk naar nul gaat,
- zodat 
-\begin_inset Formula $h_{x}=\phi+Nc$
-\end_inset
-
-,
- en de sloten dus geen enkele rol meer spelen.
- 
-\end_layout
-
-\begin_layout Standard
-Voor de duidelijkheid,
- voor 
-\begin_inset Formula $x=\pm b$
-\end_inset
-
- volgt altijd 
-\begin_inset Formula $h_{\pm b}=h_{LR}$
-\end_inset
-
- en voor 
-\begin_inset Formula $x=0$
-\end_inset
-
-,
- in het centrum tussen de sloten geldt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{0}-h_{LR}=\left(Nc+\phi-h_{LR}\right)\left(1-\frac{1}{\cosh\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-Check op de waterbalans van de doorsnede
-\end_layout
-
-\begin_layout Standard
-De stroming naar de sloten volgt uit
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q_{x} & = & -kD\frac{dh_{x}}{dx}=-kD\left(Nc+\phi-h_{LR}\right)\frac{d}{dx}\left(1-\frac{\cosh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q_{x} & = & \frac{kD}{\lambda}\left(Nc+\phi-h_{LR}\right)\frac{\sinh\frac{x}{\lambda}}{\cosh\frac{b}{\lambda}}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De stroming naar de sloot 
-\begin_inset Formula $x\pm b$
-\end_inset
-
- wordt dan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q_{R} & = & \left(Nc+\phi-h_{LR}\right)\frac{kD}{\lambda}\tanh\frac{b}{\lambda}\\
- & = & \frac{kD}{b}\left(Nc+\phi-h_{LR}\right)\left(\frac{b}{\lambda}\tanh\frac{b}{\lambda}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q_{L} & = & \left(Nc+\phi-h_{LR}\right)\frac{kD}{\lambda}\tanh\frac{b}{\lambda}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De totale afvoer naar beide sloten samen bedraagt dan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q_{sl} & =2\frac{kD}{b} & \left(Nc+\phi-h_{LR}\right)\frac{b}{\lambda}\tanh\frac{b}{\lambda}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Voor 
-\begin_inset Formula $\lambda\rightarrow\infty$
-\end_inset
-
- dus 
-\begin_inset Formula $\frac{b}{\lambda}\rightarrow0$
-\end_inset
-
-,
- wordt 
-\begin_inset Formula $\frac{b}{\lambda}\tanh\frac{b}{\lambda}\rightarrow\left(\frac{b}{\lambda}\right)^{2}$
-\end_inset
-
-,
- zodat dan volgt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q_{sl} & \approx & 2\frac{kD}{b}\frac{b^{2}}{\lambda^{2}}\left(Nc+\phi-h_{LR}\right)\\
- & \approx & 2b\left(N+\frac{\phi-h_{LR}}{c}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Zodat de totale stroom uit neerslag en kwel naar de sloten gaat.
-\end_layout
-
-\begin_layout Standard
-Daarentegen voor 
-\begin_inset Formula $\frac{b}{\lambda}\rightarrow\infty$
-\end_inset
-
- wordt 
-\begin_inset Formula $\frac{b}{\lambda}\tanh\frac{b}{\lambda}\rightarrow\frac{b}{\lambda}$
-\end_inset
-
-,
- zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q_{sl} & \approx & 2\frac{kD}{\lambda}\left(Nc+\phi-h_{LR}\right)\\
- & \approx & 2\lambda\left(N+\left(\frac{\phi-h_{LR}}{c}\right)\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Beide limieten zijn hydrologisch direct inzichtelijk.
-\end_layout
-
-\begin_layout Standard
-De gemiddelde grondwaterstand in de doorsnede volgt uit
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(Nc+\phi-h_{LR}\right)\left(1-\frac{\lambda}{b}\intop_{0}^{b/\lambda}\left(\frac{\cosh\zeta}{\cosh\frac{b}{\lambda}}\right)d\zeta\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met als resultaat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\overline{h}-h_{LR} & = & \left(Nc+\phi-h_{LR}\right)\left(1-\frac{\tanh\frac{b}{\lambda}}{\frac{b}{\lambda}}\right)\label{eq:}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-Opgegeven kwel in plaats van diepe stijghoogte
-\end_layout
-
-\begin_layout Standard
-In de praktijk zullen we meestal de kwel gebruiken als randvoorwaarde,
- die doorgaans onafhankelijk is berekend met een regionaal grondwatermodel.
- We kunnen direct overstappen van diepe stijghoogte naar kwel.
- Daartoe schrijven we eerst
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\overline{h}-h_{LR} & = & \left(Nc+\phi-\overline{h}+\overline{h}-h_{LR}\right)\left(1-\frac{\tanh\frac{b}{\lambda}}{\frac{b}{\lambda}}\right)\label{eq:-1}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met 
-\begin_inset Formula $qc=\phi-\overline{h}$
+\begin_inset Formula $Q$
 \end_inset
 
- wordt de diepe stijghoogte geëlimineerd en komt de doorsnedegemiddelde kwel in beeld
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\overline{h}-h_{LR} & = & \left(Nc+qc+\overline{h}-h_{LR}\right)\left(1-\frac{\tanh\frac{b}{\lambda}}{\frac{b}{\lambda}}\right)\label{eq:-2}
-\end{eqnarray}
-
+ [L
+\begin_inset Formula $^{2}$
 \end_inset
-
-
-\end_layout
 
-\begin_layout Standard
-Samen nemen van de termen met 
+/T],
+ hangt uitsluitend af van 
 \begin_inset Formula $\overline{h}-h_{LR}$
 \end_inset
 
- geeft
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\overline{h}-h_{LR} & = & \left(Nc+qc\right)\left(\frac{1-\frac{\tanh\frac{b}{\lambda}}{\frac{b}{\lambda}}}{\frac{\tanh\frac{b}{\lambda}}{\frac{b}{\lambda}}}\right)\label{eq:-2-1}\\
- & = & \left(Nc+qc\right)\left(\frac{\frac{b}{\lambda}-\tanh\frac{b}{\lambda}}{\tanh\frac{b}{\lambda}}\right)\\
- & = & \left(N+q\right)c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We zien dat 
-\begin_inset Formula $N$
-\end_inset
-
- en 
-\begin_inset Formula $q$
-\end_inset
-
- dezelfde rol vervullen.
-\end_layout
-
-\begin_layout Standard
-Zoals ook eerder aangetoond,
- gaat deze vergelijking met lek over in de vergelijking voor stroming door een gespannen watervoerend pakket zonder lek.
- De vraag is dan wat er gebeurt wanneer 
-\begin_inset Formula $c\rightarrow\infty$
-\end_inset
-
- and 
-\begin_inset Formula $q=0$
+ en,
+ uitgedrukt in [L/T] is deze in de stationaire situatie gelijk aan 
+\begin_inset Formula $N+q$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\overline{h}-h_{LR} & = & \left(\frac{N}{kD}kDc\right)\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)\label{eq:-2-1-1-1}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Aangezien 
-\begin_inset Formula $\lim_{z\downarrow0}\left(z\coth z-1\right)=\frac{z^{2}}{3}$
-\end_inset
-
- volgt voor 
-\begin_inset Formula $c\rightarrow\infty$
-\end_inset
-
- dat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\lim_{c\rightarrow\infty}\overline{h}-h_{LR} & = & \frac{N}{kD}\lambda^{2}\frac{1}{3}\frac{b^{2}}{\lambda^{2}}\\
- & = & \frac{Nb^{2}}{3kD}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-wat inderdaad de juiste formule is voor stationaire eendimensionale stroming in een gespannen pakket met randvoorwaarden 
-\begin_inset Formula $\overline{h}=h_{LR}$
-\end_inset
-
- op 
-\begin_inset Formula $x=\pm b$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Paragraph
-Afvoer naar de sloten
-\end_layout
-
-\begin_layout Standard
-De stroming naar de sloten kan worden geschreven in termen van opgegeven kwel en doorsnedegemiddelde grondwaterstand,
- als volgt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-Q_{b} & = & \frac{kD}{b}\left(Nc+\phi-\overline{h}+\overline{h}-h_{LR}\right)\left(\frac{b}{\lambda}\tanh\frac{b}{\lambda}\right)\\
- & = & \frac{kD}{b}\left(Nc+qc+\overline{h}-h_{LR}\right)\left(\frac{b}{\lambda}\tanh\frac{b}{\lambda}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De kwel is doorsnedegemiddeld gelijk aan 
-\begin_inset Formula $q$
-\end_inset
-
- maar varieert langs de doorsnede als gevolg van de stijghoogte die eveneens langs de doorsnede varieert.
- De vraag is dus of de stroming naar de sloten inderdaad gelijk is aan
+ Ingevuld in de hiervoor afgeleide vergelijking
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-Q_{b}=b\left(N+q\right)
+\overline{h}-h_{Lr}=\frac{Q}{b}c\left(\frac{w}{c}\frac{b}{D}+\Gamma\right)
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Aldus ingevuld,
- gebruik makend van 
-\begin_inset Formula $qc=\phi-\overline{h}$
-\end_inset
-
- en de reeds afgeleide uitdrukking voor 
-\begin_inset Formula $\overline{h}-h_{LR}$
-\end_inset
-
-,
- krijgen we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-b\left(N+q\right)=\frac{kD}{b}\left(Nc+qc+\overline{h}-h_{LR}\right)\left(\frac{b}{\lambda}\tanh\frac{b}{\lambda}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De hiervoor afgeleide uitdrukking voor 
-\begin_inset Formula $\overline{h}-h_{LR}$
-\end_inset
-
- invullen geeft
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-b\left(N+q\right)=\frac{kD}{b}\left(Nc+qc+\left(Nc+qc\right)\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)\right)\left(\frac{b}{\lambda}\tanh\frac{b}{\lambda}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Vereenvoudigen leidt dan tot
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-b\left(N+q\right) & = & \frac{kD}{b}\left(Nc+qc\right)\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}\right)\left(\frac{b}{\lambda}\tanh\frac{b}{\lambda}\right)\\
-N+q & = & \frac{kD}{b^{2}}\frac{b^{2}}{\lambda^{2}}\left(Nc+qc\right)\\
-N+q & = & N+q
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Waarmee de juistheid van de waterbalans in aangetoond.
-\end_layout
-
-\begin_layout Subsubsection
-Semi-spanningswater,
- slootpeilen gelijk,
- één laag,
- met intredeweerstand van de sloten
-\end_layout
-
-\begin_layout Paragraph
-Diepe stijghoogte is gegeven
-\end_layout
-
-\begin_layout Standard
-De algemene oplossing in deze situatie is hiervoor al afgeleid (zie vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:sc-dd-gensol-hyperbolic"
-nolink "false"
-
-\end_inset
-
-).
- Voor de symmetrische situatie geldt 
-\begin_inset Formula $B=0$
-\end_inset
-
-,
- zodat alleen de integratieconstante 
-\begin_inset Formula $A$
-\end_inset
-
- onbekend is:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h=Nc+\phi+A\cosh\left(\frac{x}{\lambda}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Om 
-\begin_inset Formula $A$
-\end_inset
-
- te kunnen berekenen,
- eisen we dat de afvoer op 
-\begin_inset Formula $x=\pm b$
-\end_inset
-
- voldoet aan de slootweerstand
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
--kD\frac{dh}{dx}|_{x=b}=\frac{D}{w}\left(h_{b}-h_{LR}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Het water stroomt dus conceptueel door een verticaal muurtje ter hoogte van de pakketdikte 
-\begin_inset Formula $D$
-\end_inset
-
- [L] en met weerstand 
-\begin_inset Formula $w$
-\end_inset
-
- [T] vanuit de grond naar de sloot.
- Ingevuld geeft dit
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
--A\frac{kD}{\lambda}\sinh\left(\frac{b}{\lambda}\right) & =\frac{D}{w} & \left(Nc+\phi+A\cosh\frac{b}{\lambda}-h_{LR}\right)\label{eq:sc-dd-gensol-sym}\\
--A\left(\frac{kD}{\lambda}\sinh\left(\frac{b}{\lambda}\right)+\frac{D}{w}\cosh\left(\frac{b}{\lambda}\right)\right) & = & \frac{D}{w}\left(Nc+\phi-h_{LR}\right)\\
-A & = & -\frac{D}{w}\frac{Nc+\phi-h_{LR}}{\frac{kD}{\lambda}\sinh\frac{b}{\lambda}+\frac{D}{w}\cosh\frac{b}{\lambda}}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat na boven en onder delen door 
-\begin_inset Formula $D$
-\end_inset
-
- de volgende uitdrukking voor 
-\begin_inset Formula $A$
-\end_inset
-
- wordt verkregen
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-A=-\frac{Nc+\phi-h_{LR}}{\frac{kw}{\lambda}\sinh\frac{b}{\lambda}+\cosh\frac{b}{\lambda}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De oplossing met slootweerstand wordt nu
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h=Nc+\phi-\left(Nc+\phi-h_{LR}\right)\frac{\cosh\frac{x}{\lambda}}{\frac{kw}{\lambda}\sinh\frac{b}{\lambda}+\cosh\frac{b}{\lambda}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-of
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-h_{LR}=\left(Nc+\phi-h_{LR}\right)-\left(Nc+\phi-h_{LR}\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\frac{kw}{\lambda}\sinh\frac{b}{\lambda}+\cosh\frac{b}{\lambda}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met als eindresultaat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-h_{LR}=\left(Nc+\phi-h_{LR}\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\frac{kw}{\lambda}\sinh\frac{b}{\lambda}+\cosh\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De doorsnedegemiddelde grondwaterstand kan weer verkregen worden door integratie over de doorsnede en deling door de breedte van de doorsnede:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\frac{1}{b}\intop_{0}^{b}\left(h-h_{LR}\right)dx
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met als resultaat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(Nc+\phi-h_{LR}\right)\left(1-\frac{\frac{\lambda}{b}\sinh\left(\frac{b}{\lambda}\right)}{\frac{kw}{\lambda}\sinh\frac{b}{\lambda}+\cosh\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-of
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(Nc+\phi-h_{LR}\right)\left(1-\frac{1}{\frac{kw}{\lambda}\frac{b}{\lambda}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat,
- met
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{kw}{\lambda^{2}}b=\frac{kwb}{kDc}=\frac{w}{c}\frac{b}{D}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Het volgende resultaat wordt verkregen
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(Nc+\phi-h_{LR}\right)\left(1-\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Overstappen naar gegeven kwel in plaats van diepe stijghoogte gaat opnieuw door te schrijven 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi=\phi-\overline{h}+\overline{h}=qc+\overline{h}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(Nc+qc+\overline{h}-h_{LR}\right)\left(1-\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Brengen we de termen met 
-\begin_inset Formula $\overline{h}-h_{LR}$
-\end_inset
-
- naar links,
- dan krijgen we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left(\overline{h}-h_{LR}\right)\left(1-1-\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)=\left(Nc+qc\right)\left(1-\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-en,
- na vereenvoudigen
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\overline{h}-h_{LR} & =\left(Nc+qc\right)\left(\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)\\
- & =\left(N+q\right)\left(w\frac{b}{D}+c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)\right)
+\frac{Q}{b}= & \frac{\overline{h}-h_{LR}}{c\left(\frac{w}{c}\frac{b}{D}+\Gamma\right)}
 \end{align*}
 
 \end_inset
@@ -6407,614 +3688,22 @@ en,
 
 \end_layout
 
-\begin_layout Standard
-De rechter term in de laatste uitdrukking heeft de vorm en dimensie van een gemiddelde effectieve weerstand die is opgebouwd uit de weerstand van de sloten en van het lek met de regionale aquifer + die door de stroming.
- Maar dit is wellicht wat ingewikkeld.
-\end_layout
-
-\begin_layout Standard
-Of wellicht nog wat eenvoudiger geschreven
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(N+q\right)c\Gamma
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-met 
-\begin_inset Formula $\Gamma$
-\end_inset
-
- de volgende dimensieloze factor
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Gamma=\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}-1
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze vergelijking gaat over in die zonder slootweerstand door 
-\begin_inset Formula $w=0$
-\end_inset
-
- in te vullen (de eerste term in het rechterlid weg te laten vallen.
- De oplossing voor de situatie met slootweerstand is in feite zo eenvoudig dat we die standaard in de GGOR-tool zullen toepassen.
-\end_layout
-
-\begin_layout Subsubsection
-Stroming naar de sloten
-\end_layout
-
-\begin_layout Standard
-De stroming naar de sloten volgt uit de afgeleide van de grondwaterstand naar 
-\begin_inset Formula $x$
-\end_inset
-
- ter plaatse van de sloten
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q_{x}=-kD\frac{dh}{dx}=kD\left(Nc+\phi-h_{LR}\right)\left(\frac{\frac{1}{\lambda}\sinh\left(\frac{x}{\lambda}\right)}{\frac{kw}{\lambda}\sinh\frac{b}{\lambda}+\cosh\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Zodat voor 
-\begin_inset Formula $x=b$
-\end_inset
-
- volgt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q_{x=b}=kD\left(Nc+\phi-h_{LR}\right)\left(\frac{\frac{1}{\lambda}\sinh\left(\frac{b}{\lambda}\right)}{\frac{kw}{\lambda}\sinh\frac{b}{\lambda}+\cosh\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-oftewel
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q_{x=b}=\frac{kD}{\lambda}\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Overstappen op kwel in plaats van stijghoogte,
- met 
-\begin_inset Formula $\phi=qc+\overline{h}$
-\end_inset
-
- levert
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q_{x=b}=\frac{kD}{\lambda}\left(Nc+qc+\overline{h}-h_{LR}\right)\left(\frac{1}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-of
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q_{x=b}=\left(\left(N+q\right)\lambda+\left(\overline{h}-h_{LR}\right)\frac{kD}{\lambda}\right)\left(\frac{1}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De stroming naar de rechter sloot is 
-\begin_inset Formula $Q_{R}=Q_{x=b}$
-\end_inset
-
- en die naar de linker 
-\begin_inset Formula $Q_{L}=-Q_{x=-b}=Q_{R}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-We kunnen nu onderzoeken ook in deze situatie met slootweerstand de afvoer naar de sloten gelijk aan de totale aanvoer
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-Q_{b}=\frac{D}{w}\left(h_{b}-h_{LR}\right)=\frac{kD}{\lambda}\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)\label{eq:Qb=(D/w)(hb-hLR)}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We zullen uit deze vergelijking 
-\begin_inset Formula $h_{b}$
-\end_inset
-
- elimineren via de oplossing voor 
-\begin_inset Formula $h_{x=b}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{b}-h_{LR}=\left(Nc+\phi-h_{LR}\right)\left(1-\frac{\cosh\left(\frac{b}{\lambda}\right)}{\frac{kw}{\lambda}\sinh\frac{b}{\lambda}+\cosh\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{D}{w}\left(Nc+\phi-h_{LR}\right)\left(1-\frac{\cosh\left(\frac{b}{\lambda}\right)}{\frac{kw}{\lambda}\sinh\frac{b}{\lambda}+\cosh\frac{b}{\lambda}}\right)=\frac{kD}{\lambda}\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-en dus
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left(Nc+\phi-h_{LR}\right)\left(1-\frac{1}{\frac{kw}{\lambda}\tanh\frac{b}{\lambda}+1}\right)=\left(Nc+\phi-h_{LR}\right)\left(\frac{\frac{kw}{\lambda}}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met als resultaat een uitdrukking waaruit blijkt dat beide kanten van het isgelijkteken hetzelfde zijn
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left(Nc+\phi-h_{LR}\right)\left(\frac{\frac{kw}{\lambda}}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)=\left(Nc+\phi-h_{LR}\right)\left(\frac{\frac{kw}{\lambda}}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Hiermee de juistheid van vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Qb=(D/w)(hb-hLR)"
-nolink "false"
-
-\end_inset
-
- aangetoond.
-\end_layout
-
-\begin_layout Standard
-En ook moet gelden dat de afvoer via de sloten gelijk is aan de totale aanvoer van neerslag en kwel.
- Aldus moet gelden:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-Q_{R}=Q_{b}=b\left(N+q\right)\label{eq:Qr=b(N+q)}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Invullen van de uitdrukking voor 
-\begin_inset Formula $Q_{b}$
-\end_inset
-
- geeft
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula 
-\[
-b\left(N+q\right)=\frac{kD}{\lambda}\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang english
-Links en rechts vermenigvuldigen met 
-\begin_inset Formula $c$
-\end_inset
-
- en delen door 
-\begin_inset Formula $b$
-\end_inset
-
- geeft
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula 
-\[
-\left(Nc+qc\right)=\frac{kDc}{\lambda b}\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{kw}{\lambda}+\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang english
-\begin_inset Formula $qc$
-\end_inset
-
- vervangen door 
-\begin_inset Formula $\phi-\overline{h}$
-\end_inset
-
- geeft en 
-\begin_inset Formula $kDc$
-\end_inset
-
- door 
-\begin_inset Formula $\lambda^{2}$
-\end_inset
-
- geeft en dan de resulterende 
-\begin_inset Formula $\lambda$
-\end_inset
-
- opnemen in de rechter factor geeft
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula 
-\[
-\left(Nc+\phi-\overline{h}\right)=\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{kw}{\lambda}\frac{b}{\lambda}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang english
-De afgeleide vergelijking voor 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- invullen geeft
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula 
-\[
-\left(Nc+\phi-\left(h_{LR}+\left(Nc+\phi-h_{LR}\right)\left(1-\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)\right)\right)=\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang english
-of
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula 
-\[
-\left(Nc+\phi-h_{LR}-\left(Nc+\phi-h_{LR}\right)\left(1-\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)\right)=\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang english
-en uiteindelijk
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula 
-\[
-\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)=\left(Nc+\phi-h_{LR}\right)\left(\frac{1}{\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Zodat het linkerlid gelijk is aan het rechter lid en waarmee de juistheid van vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Qr=b(N+q)"
-nolink "false"
-
-\end_inset
-
-is aangetoond.
-\end_layout
-
 \begin_layout Subparagraph
 Niet-stationair
 \end_layout
 
 \begin_layout Standard
-We gaan uit van de hiervoor afgeleide stationare oplossing
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(N+q\right)c\Gamma,\,\,\,met\,\,\,\Gamma=\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}-1
-\]
-
+Zoals hiervoor reeds vastgesteld is het enige het toevoegen van de slootweerstand verandert,
+ is de toevoeging van de term 
+\begin_inset Formula $\frac{w}{c}\frac{b}{D}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Dit we als waterbalans schrijven voor de situatie waarin er geen evenwicht is en de disbalans wordt toegekend aan de berging
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mu\frac{d\overline{h}}{dt}=-\frac{\overline{h}-h_{LR}}{c\Gamma}+\left(N+q\right)
-\]
-
+ aan de oorspronkelijke uitdrukking voor 
+\begin_inset Formula $T$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Eerste stap is te zorgen dat de factor onder het d-teken gelijk is aan het rechter lid van de vergelijking
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mu c\Gamma\frac{d\left(\overline{h}-h_{LR}-\left(N+q\right)c\Gamma\right)}{dt}=-\left(\overline{h}-h_{LR}-\left(N+q\right)c\Gamma\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Converteren naar de standaard vorm die direct kan worden geïntegreerd
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{d\left(\overline{h}-h_{LR}-\left(N+q\right)c\Gamma\right)}{\overline{h}-h_{LR}-\left(N+q\right)c\Gamma}=-\frac{dt}{\mu c\Gamma}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Integreren links en rechts naar 
-\begin_inset Formula $t$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\ln\left(\overline{h}-h_{LR}-\left(N+q\right)c\Gamma\right)=-\frac{t}{\mu c\Gamma}+C
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De integratieconstante volgt uit 
-\begin_inset Formula $\overline{h}=\overline{h}_{t=0}$
-\end_inset
-
- als 
-\begin_inset Formula $t=0$
-\end_inset
-
-,
- zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-C=\ln\left(\overline{h}_{t=0}-h_{LR}-\left(N+q\right)c\Gamma\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Ingevuld en de exponent nemen aan beide zijden levert
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\overline{h}-h_{LR}-\left(N+q\right)c\Gamma}{\overline{h}_{t=0}-h_{LR}-\left(N+q\right)c\Gamma}=\exp\left(-\frac{t}{\mu c\Gamma}\right)
-\]
-
-\end_inset
-
-
+.
+ Hiermee is de oplossing voor de niet-stationaire situatie met slootweerstand ook bekend
 \end_layout
 
 \begin_layout Standard
@@ -7024,7 +3713,7 @@ Uitgewerkt
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}-h_{LR}-\left(N+q\right)c\Gamma=\left(\overline{h}_{t=0}-h_{LR}-\left(N+q\right)c\Gamma\right)\exp\left(-\frac{t}{\mu c\Gamma}\right)
+\overline{h}-h_{LR}-\left(N+q\right)T=\left(\overline{h}_{0}-h_{LR}-\left(N+q\right)T\right)\exp\left(-\frac{t}{\mu T}\right)
 \]
 
 \end_inset
@@ -7033,17 +3722,14 @@ Uitgewerkt
 \end_layout
 
 \begin_layout Standard
-en 
-\begin_inset Formula $\overline{h}-h_{LR}$
-\end_inset
-
- expliciet maken aan de linkerzijde geeft uiteindelijk de gezochte standaardvorm van de niet-stationaire oplossing
+of,
+ anders gerangschikt
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}-h_{LR}=\left(\overline{h}_{t=0}-h_{LR}\right)\exp\left(-\frac{t}{T}\right)+\left(\left(N+q\right)c\Gamma\right)\left(1-\exp\left(-\frac{t}{T}\right)\right)
+\overline{h}-h_{LR}=\left(\overline{h}_{0}-h_{LR}\exp\left(-\frac{t}{\mu T}\right)\right)+\left(N+q\right)T\left(1-\exp\left(-\frac{t}{\mu T}\right)\right)
 \]
 
 \end_inset
@@ -7052,7 +3738,18 @@ en
 \end_layout
 
 \begin_layout Standard
-met karakteristieke tijd 
+\begin_inset Formula 
+\[
+\boxed{\overline{h}-h_{LR}=\left(\overline{h}_{t=0}-h_{LR}\right)\exp\left(-\frac{t}{T}\right)+\left(\left(N+q\right)c\Gamma\right)\left(1-\exp\left(-\frac{t}{T}\right)\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met 
 \begin_inset Formula $T$
 \end_inset
 
@@ -7062,12 +3759,16 @@ met karakteristieke tijd
 \begin_layout Standard
 \begin_inset Formula 
 \[
-T=\mu c\Gamma=\mu\left(w\frac{b}{D}+c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)\right)
+\boxed{T=\mu\left(\frac{w}{c}\frac{b}{D}+\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)\right)}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+We kunnen concluderen dat de aanpassing van de base-case aan de situatie met intredeweerstand minimaal is.
 \end_layout
 
 \begin_layout Subsection
