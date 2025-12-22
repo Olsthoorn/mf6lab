@@ -412,15 +412,20 @@ class Base_case(AnalyticalSolution):
         aq = self.aq
         return hLR + (R + q) * aq.T2L
         
-class Bruggeman13316():
+class Brug13316():
+    
+    def __init__(self, aq: Aquifer) -> None:
+        self.aq=aq
     
     def steady(self, x: float | np.ndarray, R: float) -> float | np.ndarray:
         x = np.atleast_1d(x)
         aq=self.aq
         h = R / (2 * aq.kD) * (aq.b**2 - x**2)
-        return h if h.size > 0 else h.item()
+        return h if h.size > 1 else h.item()
     
-    def transient(self, p, time, x, R, eps=1e-12):
+    def transient(self, R: float, time: float | np.ndarray,
+                  x: float | np.ndarray,
+                  eps=1e-12) -> float | np.ndarray:
         
         assert (   np.isscalar(x) and not np.isscalar(time)
                 or np.isscalar(time) and not np.isscalar(x)
@@ -431,27 +436,34 @@ class Bruggeman13316():
         tau = time / T
         px2b = np.pi * x / (2 * aq.b)
         
-        N = int(np.ceil(np.sqrt(T/(time + eps))))
+        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
+        N = 30
         
-        s0 = self.steady(x, R)
-        s = np.zeros_like(s0)
-        F = 16 * p * aq.b**2 / (np.pi**3 * aq.kD)
+        s0 = self.steady(x, R)        
+        F = 16 * R * aq.b**2 / (np.pi**3 * aq.kD)
         
         for n in range(N + 1):
             n2p1 = 2*n + 1
-            s += (
+            ds = (
             (-1)**n / n2p1**3
             * np.cos(n2p1 * px2b)
             * np.exp(-n2p1**2 * tau)
             )
-        return s0 + F * s
+            if n == 0:
+                s = ds
+            else:
+                s += ds
+        return s0 - F * s
         
 class Brug13302():
+    
+    def __init__(self, aq: Aquifer) -> None:
+        self.aq = aq
 
     def steady(self, x: float | np.ndarray, dh: float) -> float | np.ndarray:
         x = np.atleast_1d(x)
         h = dh * np.zeros_like(x)
-        return h if h.size > 0 else h.item()
+        return h if h.size > 1 else h.item()
             
     def transient(self, dh: float, time: float | np.ndarray, x: float | np.ndarray, eps=1e-12) -> float | np.ndarray:
         
@@ -464,22 +476,26 @@ class Brug13302():
         tau = time / T
         px2b = np.pi * x / (2 * aq.b)
         
-        N = int(np.ceil(np.sqrt(T/(time + eps))))
+        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
+        N = 30
         
-        s0 = self.steady(x, dh=dh)
-        s = np.zeros_like(s0)
+        s0 = self.steady(x, dh=dh)        
         F = 4 * dh / np.pi
         
         for n in range(N + 1):
             n2p1 = 2*n + 1
-            s += (
+            ds = (
             (-1)**n / n2p1
             * np.cos(n2p1 * px2b)
             * np.exp(-n2p1**2 * tau)
             )
-        return s0 + F * s
+            if n == 0:
+                s = ds
+            else:
+                s += ds
+        return s0 - F * s
               
-        
+
 def example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0, w=0):
     """Show head development for steady inputs together with asymptote
     
@@ -747,10 +763,48 @@ def compare_limits():
     
     plt.show()
 
+def example_brug13316():
+    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.15, b=50)
+    xs = np.array([0, 0.25, 0.5, 0.75]) * aq.b
+    R = 0.001
+    time = np.linspace(0, 20, 101)
+    
+    brug = Brug13316(aq)
+
+    fig, ax = plt.subplots()
+    
+    ax.set_title("Bruggeman (133.16)")
+    ax.set(xlabel='t d[]', ylabel='h [m]')
+    
+    for x in xs:
+        h = brug.transient(R=R, time=time, x=x)
+        ax.plot(time, h, label=f'x={x} m')
+    ax.grid(True)
+    ax.legend()
+
+def example_brug13302():
+    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.15, b=50)
+    xs = np.array([0, 0.25, 0.5, 0.75]) * aq.b
+    dh = 0.1
+    time = np.linspace(0, 20, 101)
+    
+    brug = Brug13302(aq)
+
+    fig, ax = plt.subplots()
+    
+    ax.set_title("Bruggeman (133.02)")
+    ax.set(xlabel='t d[]', ylabel='h [m]')
+    
+    for x in xs:
+        h = brug.transient(dh=dh, time=time, x=x)
+        ax.plot(time, h, label=f'x={x} m')
+    ax.grid(True)
+    ax.legend()
+    
 if __name__ == "__main__":
     if False:
         example_base_case_steady()
-    if True:
+    if False:
         example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0)
         example_dupuit_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1)
     if False:
@@ -767,6 +821,9 @@ if __name__ == "__main__":
         example_base_transient(rch, b=50, h0=3, h_summer=0, h_winter=0, q=q)
     if False:
         compare_limits()
+    if True:
+        example_brug13316()
+        example_brug13302()
     plt.show()
     
 
