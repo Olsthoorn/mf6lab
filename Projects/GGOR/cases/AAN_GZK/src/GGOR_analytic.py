@@ -1024,7 +1024,7 @@ def compare_limits():
 
 def ex_brug13302():
     aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.95]) * aq.b
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95]) * aq.b
     dh = 0.1
     time = np.linspace(0, 20, 101)
     
@@ -1053,7 +1053,7 @@ def ex_brug13302():
 
 def ex_brug13702():
     aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.95, 0.99]) * aq.b
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95, 0.99]) * aq.b
     dh = 0.1
     time = np.linspace(0, 20, 101)
     
@@ -1089,7 +1089,7 @@ def ex_brug13702():
 
 def ex_brug13316():
     aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.95, 0.99]) * aq.b
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95, 0.99]) * aq.b
     R = 0.001
     time = np.linspace(0, 20, 101)
     
@@ -1120,9 +1120,43 @@ def ex_brug13316():
     ax.legend()
 
 
+def ex_brug13316a():
+    aq = Aquifer(k=10, D=10, c=200, w=0.001, mu=0.15, b=50)
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95, 0.99]) * aq.b
+    R = 0.001
+    time = np.linspace(0, 20, 101)
+    
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.9, 0.95]) * aq.b
+    brug1 = Brug13316(aq)
+    brug2 = Brug13709(aq)
+    dup = Dupuit(aq)
+
+    fig, ax = plt.subplots(figsize=(10, 7.5))
+    
+    fig.suptitle("Bruggeman (1999, solution 133.16 and 137.09)")
+    ax.set_title(f"Constant precipitation of {R} m/d" +
+                 "\n" + str(aq).replace(", c=200",""))
+    ax.set(xlabel='t d[]', ylabel='h [m]')
+    
+    clrs = cycle("brgkmcy")
+    for x in xs:
+        clr = next(clrs)
+        ht1 = brug1.transient(R=R, time=time, x=x)
+        ht2 = brug2.transient(R=R, time=time, x=x)
+        hdup = dup.steady(x=x, hLR=0, R=R)
+        
+        ax.plot(time, ht1, color=clr, label=f'Brug133.16, x={x} m')
+        ax.plot(time, ht2, '.', color=clr, label=f'Brug137.09, x={x} m')
+        ax.plot(time[-1], hdup, 'x', mec=clr, mfc='none', label='Dupuit')
+        
+    ax.grid(True)
+    ax.legend(loc='center')
+
+
+
 def ex_brug13709():
     aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.95, 0.99]) * aq.b
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95, 0.99]) * aq.b
     R = 0.001
     time = np.linspace(0, 20, 101)
     
@@ -1181,6 +1215,8 @@ if __name__ == "__main__":
     if False:
         compare_limits()
     if True:
+        ex_brug13316a()
+    if False:
         ex_brug13302()
         ex_brug13316()
         ex_brug13702()

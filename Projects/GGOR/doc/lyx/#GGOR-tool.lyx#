@@ -2908,9 +2908,9 @@ misbruikt
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-h-h_{LR} & =\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{8pb^{2}}{\pi^{3}kD}\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}}{\left(2n+1\right)^{3}}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
-\end{align*}
+\begin{align}
+h-h_{LR} & =\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{16pb^{2}}{\pi^{3}kD}\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}}{\left(2n+1\right)^{3}}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]\label{eq:brug133.16}
+\end{align}
 
 \end_inset
 
@@ -3009,9 +3009,9 @@ Behalve neerslag en kwel kan ook het slootpeil van tijdstap tot tijdstap verande
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-h-h_{LR}=\Delta h_{0}-h_{LR}-\frac{4h}{\pi}\sum_{n=0}^{\infty}\left(-1\right)^{n}\frac{1}{2n+1}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
-\]
+\begin{equation}
+h-h_{LR}=\Delta h_{0}-h_{LR}-\frac{4h}{\pi}\sum_{n=0}^{\infty}\left(-1\right)^{n}\frac{1}{2n+1}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]\label{eq:brug133.02}
+\end{equation}
 
 \end_inset
 
@@ -3066,7 +3066,7 @@ Voor
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\sin\left[\left(2n+1\right)\frac{\pi}{2}\right]=\frac{1}{\left(2n+1\right)}\frac{1}{\pi}\left(-1\right)^{n}
+\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\sin\left[\left(2n+1\right)\frac{\pi}{2}\right]=\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\left(-1\right)^{n}
 \]
 
 \end_inset
@@ -3075,7 +3075,18 @@ Voor
 \end_layout
 
 \begin_layout Standard
-Hierdoor gaan de vergelijkingen hiervoor over in
+Hierdoor gaat vergelijking 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:brug133.02"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ over in
 \end_layout
 
 \begin_layout Standard
@@ -3087,6 +3098,21 @@ Hierdoor gaan de vergelijkingen hiervoor over in
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+en vergelijking 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:brug133.16"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in
 \end_layout
 
 \begin_layout Standard
@@ -3260,13 +3286,13 @@ De grootte van de rest van de reeks met exp-termen als functie van de start
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Exacte eenlaagsoplossingen met slootweerstand
 \end_layout
 
 \begin_layout Standard
@@ -3283,9 +3309,9 @@ Voor de situatie met plotseling verandering van het slootpeil met
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-h=\delta_{h}-2\delta_{h}\sum_{n=0}^{\infty}\frac{\sin\alpha_{n}}{\alpha_{n}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\cos\left(\frac{\alpha_{n}x}{b}\right)\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
-\]
+\begin{equation}
+h=\delta_{h}-2\delta_{h}\sum_{n=0}^{\infty}\frac{\sin\alpha_{n}}{\alpha_{n}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\cos\left(\frac{\alpha_{n}x}{b}\right)\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}\label{eq:brug137.02}
+\end{equation}
 
 \end_inset
 
@@ -3302,9 +3328,9 @@ En voor neerslag die op
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-h=\frac{p}{2kD}\left(b^{2}-x^{2}\right)+\frac{pbw}{D}-\frac{2pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin\alpha_{n}}{\alpha_{n}^{3}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\cos\left(\frac{\alpha_{n}x}{b}\right)\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
-\]
+\begin{equation}
+h=\frac{p}{2kD}\left(b^{2}-x^{2}\right)+\frac{pbw}{D}-\frac{2pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin\alpha_{n}}{\alpha_{n}^{3}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\cos\left(\frac{\alpha_{n}x}{b}\right)\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}\label{eq:brug137.09}
+\end{equation}
 
 \end_inset
 
@@ -3329,7 +3355,7 @@ Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken wo
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}=\delta_{h}-2\delta_{h}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\overline{h}=\delta_{h}-\delta_{h}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
 \]
 
 \end_inset
@@ -3340,7 +3366,7 @@ Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken wo
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}=\frac{p}{3kD}b^{2}+\frac{pbw}{D}-\frac{2pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\alpha_{n}^{2}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\overline{h}=\frac{p}{3kD}b^{2}+\frac{pbw}{D}-\frac{pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\alpha_{n}^{2}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
 \]
 
 \end_inset
@@ -3395,7 +3421,7 @@ Voor de GGOR-tool is het verschil tussen voedingsweerstand en drainageweerstand 
 \end_layout
 
 \begin_layout Subsection*
-Anlyse voedings- en drainageweerstand
+Analyse voedings- en drainageweerstand
 \end_layout
 
 \begin_layout Standard
@@ -3549,14 +3575,196 @@ Inleiding
 
 \begin_layout Standard
 Tot nu toe is bij alle analytische oplossingen impliciet aangenomen dat de sloten geen of slechts een verwaarloosbare breedte hebben ten opzichte van de breedte van het perceel.
- Voor een adequate berekening van de stroming naar een sloot in de werkelijkheid worden de radiale weerstand en de slootbodem en slootwandweerstand apart in rekening gebracht,
- zodat het model een uitkomst levert die overeenkomt met de geschematiseerde werkelijkheid.
- In de situatie met brede sloten,
- werkt dit niet meer.
- De stroming onder de sloot verschilt dan mogelijk sterk met die aan de rand.
- Bovendien is met soms essentieel om de stroming vanuit het perceel via de slootwand apart in de rekening te brengen.
- Dit zal hierna worden uitgewerkt.
- Deze uitwerking is voor zover ik kan overzien nieuw.
+ In feite is de slootweerstand geconceptualiseerd als een verticaal muurtje tussen het watervoerend pakket en een als volkomen beschouwde sloot.
+ Voor een adequate berekening van de stroming naar een sloot in de werkelijkheid worden de radiale weerstand als gevolg van contractie van stroomlijnen nabij de sloot en de weerstand van de slootbodem en slootwand apart in rekening gebracht.
+ En dan vertaald naar het conceptuele verticale muurtje.
+\end_layout
+
+\begin_layout Standard
+Is de slootafmeting klein ten opzichte van die van het watervoerend pakket,
+ dan kan de radiale weerstand door de contractie van stroomlijnen goed worden benaderd met (Huisman,
+ 1972)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta s=\frac{2q_{0}}{\pi k}\ln\left(\frac{D}{\Omega}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarin 
+\begin_inset Formula $D$
+\end_inset
+
+ de pakketdikte en 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ de gehele natte omtrek van de sloot en 
+\begin_inset Formula $2q_{0}$
+\end_inset
+
+de volledige onttrekking van de sloot per meter lengte.
+ In de GGOR tool stroomt eenzijdig een hoeveelheid 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ naar de sloot,
+ vandaar de factor 2.
+ Voor een sloot met halve breedte 
+\begin_inset Formula $\beta$
+\end_inset
+
+ en diepte 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is de volledige omtrek 
+\begin_inset Formula $\Omega=2\left(\beta+\delta\right)$
+\end_inset
+
+.
+ Wanneer we 
+\begin_inset Formula $\delta$
+\end_inset
+
+ laten toenemen neemt de dikte van de laag onder de sloot af (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sloot-met-verschillende-afmetingen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Wanneer deze dikte heel klein wordt is het niet logisch om de volledige 
+\begin_inset Formula $\beta$
+\end_inset
+
+ in rekening te brengen.
+ Veeleer is het zinvol om de totale lengte van 
+\begin_inset Formula $\beta+\delta$
+\end_inset
+
+ te begrenzen tot de pakketdikte 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ Op deze wijze krijgen we
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta s=\frac{2q_{0}}{\pi k}\ln\left(\frac{D}{2\left(\min\left(\beta+\delta,D\right)\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deze formule voldoet voor zowel kleine 
+\begin_inset Formula $\beta+\delta$
+\end_inset
+
+ als voor grote 
+\begin_inset Formula $\beta+\delta$
+\end_inset
+
+ aan Huisman's formule.
+ Bij grote 
+\begin_inset Formula $\beta+\delta$
+\end_inset
+
+ wordt de weerstand gelijk aan nul.
+ Dit is de situatie van een volkomen sloot.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../images/sloot.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sloot-met-verschillende-afmetingen"
+
+\end_inset
+
+Sloot met verschillende (natte) afmetingen 
+\begin_inset Formula $\beta$
+\end_inset
+
+ en 
+\begin_inset Formula $\delta$
+\end_inset
+
+ binnen het eerste watervoerende pakket.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We kunnen de effectiviteit van de formule controleren met de analytische oplossing,
+ die verkegen kan worden met een conforme afbeelding van de rechthoekige slootdoorsnede.
+ De afbeelding is mogelijk met de Schwarz-Cristoffel-transformatie.
+ Met bodemweerstand werkt de conforme afbeelding niet meer.
+ Men kan de bodemweerstand optellen bij de radiale weerstand die met de conforme afbeelding is verkregen,
+ maar helemaal juist is dit niet.
+ Hoe groter de intredeweerstand,
+ hoe meer uniform de stroming over de slootbodem en slootwand verdeeld zal zijn.
+ Echter zolang we er geen analytische oplossing voor hebben is optelling van de radiale weerstand volgens de conforme afbeelding en de weerstand van de slootbodem het meest redelijke wat we kunnen doen,
+ althans zonder naar een numerieke oplossing te grijpen.
+\end_layout
+
+\begin_layout Standard
+Het onderscheid tussen radiale weerstand en slootbodemweerstand heeft een zeker belang omdat bij stroming van de grond naar de sloot,
+ de slootbodemweerstand in de regel verwaarloosbaar zal zijn (omdat er maar een paar cm stijghoogteoverschot nodig is om elke sliblaag van de slootbodem te drukken),
+ maar bij stroming van de sloot naar de grond is dat niet het geval (omdat de sliblaag op de bodem dan wordt samengedrukt).
+ Het is om deze reden zinvol onderscheid te maken tussen de hogere intredeweerstand en de lagere uittredeweerstand.
 \end_layout
 
 \begin_layout Standard
@@ -3590,6 +3798,12 @@ Voor brede sloten is deze aanname minder geschikt,
  Dit zal vaak het geval zijn bij sloten of kanalen van meer dan enkele meters breed.
  De aanname van constante flux onderin de sloot is niet nodig;
  we kunnen de grondwaterstroming ook analytisch berekenen voor de situatie waarbij de flux evenredig is met het peilverschil tussen sloot en deklaag en de kwel overal evenredig met het peilverschil tussen het diepe pakket en de deklaag.
+\end_layout
+
+\begin_layout Standard
+Wanneer sloten door de deklaag steken,
+ vindt ook stroming vanuit de regionale aquifer rechtstreeks naar de sloten plaats.
+ Deze stroming wordt bij uittrede beperkt door de radiale weerstand van het regionale pakket en bij intrede door slootbodemweerstand plus radiale weerstand.
 \end_layout
 
 \begin_layout Standard

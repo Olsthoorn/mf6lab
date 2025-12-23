@@ -2908,9 +2908,9 @@ misbruikt
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-h-h_{LR} & =\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{8pb^{2}}{\pi^{3}kD}\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}}{\left(2n+1\right)^{3}}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
-\end{align*}
+\begin{align}
+h-h_{LR} & =\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{16pb^{2}}{\pi^{3}kD}\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}}{\left(2n+1\right)^{3}}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]\label{eq:brug133.16}
+\end{align}
 
 \end_inset
 
@@ -3009,9 +3009,9 @@ Behalve neerslag en kwel kan ook het slootpeil van tijdstap tot tijdstap verande
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-h-h_{LR}=\Delta h_{0}-h_{LR}-\frac{4h}{\pi}\sum_{n=0}^{\infty}\left(-1\right)^{n}\frac{1}{2n+1}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
-\]
+\begin{equation}
+h-h_{LR}=\Delta h_{0}-h_{LR}-\frac{4h}{\pi}\sum_{n=0}^{\infty}\left(-1\right)^{n}\frac{1}{2n+1}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]\label{eq:brug133.02}
+\end{equation}
 
 \end_inset
 
@@ -3066,7 +3066,7 @@ Voor
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\sin\left[\left(2n+1\right)\frac{\pi}{2}\right]=\frac{1}{\left(2n+1\right)}\frac{1}{\pi}\left(-1\right)^{n}
+\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\sin\left[\left(2n+1\right)\frac{\pi}{2}\right]=\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\left(-1\right)^{n}
 \]
 
 \end_inset
@@ -3075,24 +3075,50 @@ Voor
 \end_layout
 
 \begin_layout Standard
-Hierdoor gaan de vergelijkingen hiervoor over in
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{16pb^{2}}{\pi^{4}kD}\sum_{n=0}^{\infty}\frac{1}{\left(2n+1\right)^{4}}\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
-\]
+Hierdoor gaat vergelijking 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:brug133.02"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-
+ over in
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
 \overline{h}-h_{LR}=\Delta h_{0}-h_{LR}-\frac{8h}{\pi^{2}}\sum_{n=0}^{\infty}\frac{1}{\left(2n+1\right)^{2}}\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en vergelijking 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:brug133.16"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{32pb^{2}}{\pi^{4}kD}\sum_{n=0}^{\infty}\frac{1}{\left(2n+1\right)^{4}}\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
 \]
 
 \end_inset
@@ -3329,7 +3355,7 @@ Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken wo
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}=\delta_{h}-2\delta_{h}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\overline{h}=\delta_{h}-\delta_{h}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
 \]
 
 \end_inset
@@ -3340,7 +3366,7 @@ Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken wo
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}=\frac{p}{3kD}b^{2}+\frac{pbw}{D}-\frac{2pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\alpha_{n}^{2}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\overline{h}=\frac{p}{3kD}b^{2}+\frac{pbw}{D}-\frac{pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\alpha_{n}^{2}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
 \]
 
 \end_inset
