@@ -1024,7 +1024,7 @@ def compare_limits():
 
 def ex_brug13302():
     aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95]) * aq.b
+    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95]) * aq.b
     dh = 0.1
     time = np.linspace(0, 20, 101)
     
@@ -1044,16 +1044,16 @@ def ex_brug13302():
         ht = brug.transient(dh=dh, time=time, x=x)
         ha = brug.transient_avg(dh=dh, time=time)
         hd = dup.transient(R=0, time=time, h0=0, hLR=dh)
-        ax.plot(time, ht, '-', color=clr, label=f'Brug133.02, x={x} m')
+        ax.plot(time, ht, '-', color=clr, label=f'Brug133.02, x={x:.1f} m')
         ax.plot(time, ha, 'o', mec=clr, mfc='none', label='Brug133.02 transient_avg')
         ax.plot(time, hd, 'x', mec=clr, mfc='none', label='Dupuit transient_avg')
         
     ax.grid(True)
-    ax.legend()
+    ax.legend(loc='center')
 
 def ex_brug13702():
     aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95, 0.99]) * aq.b
+    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95, 0.99]) * aq.b
     dh = 0.1
     time = np.linspace(0, 20, 101)
     
@@ -1076,20 +1076,20 @@ def ex_brug13702():
         hd = dup.transient(time=time, R=0., h0=0, hLR=dh)
         hb = brug2.transient_avg(dh=dh, time=time)
         ax.plot(time, h1, '-', color=clr,
-                label=f'h1, x={x} m, no   ditch resistance')
+                label=f'h1, x={x:.1f} m, no   ditch resistance')
         ax.plot(time, h2, '.', color=clr,
-                label=f'h2, x={x} m, with ditch resistance')
+                label=f'h2, x={x:.1f} m, with ditch resistance')
         ax.plot(time, hd, 'o', mec=clr, mfc='none',
                 label="Dupuit with ditch resistance")
         ax.plot(time, hb, 'x', mec=clr, mfc='none',
                 label="brug avg with ditch resistance")
     ax.grid(True)
-    ax.legend()
+    ax.legend(loc='center')
 
 
 def ex_brug13316():
     aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95, 0.99]) * aq.b
+    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95, 0.99]) * aq.b
     R = 0.001
     time = np.linspace(0, 20, 101)
     
@@ -1111,18 +1111,18 @@ def ex_brug13316():
         hd = dup.transient(time=time, R=R)
         hdup = dup.steady(x=x, hLR=0, R=R)
         
-        ax.plot(time, ht, color=clr, label=f'Brug133.16, x={x} m')
+        ax.plot(time, ht, color=clr, label=f'Brug133.16, x={x:.1f} m')
         ax.plot(time, hb, 's', mec=clr, mfc='none', label='Brug133.16 avg')
         ax.plot(time, hd, 'o', mec=clr, mfc='none', label='Dupuit transient')      
         ax.plot(time[-1], hdup, 'x', mec=clr, mfc='none', label='Dupuit')
         
     ax.grid(True)
-    ax.legend()
+    ax.legend(loc='center')
 
 
 def ex_brug13316a():
     aq = Aquifer(k=10, D=10, c=200, w=0.001, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95, 0.99]) * aq.b
+    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95, 0.99]) * aq.b
     R = 0.001
     time = np.linspace(0, 20, 101)
     
@@ -1145,18 +1145,17 @@ def ex_brug13316a():
         ht2 = brug2.transient(R=R, time=time, x=x)
         hdup = dup.steady(x=x, hLR=0, R=R)
         
-        ax.plot(time, ht1, color=clr, label=f'Brug133.16, x={x} m')
-        ax.plot(time, ht2, '.', color=clr, label=f'Brug137.09, x={x} m')
+        ax.plot(time, ht1, color=clr, label=f'Brug133.16, x={x:.1f} m')
+        ax.plot(time, ht2, '.', color=clr, label=f'Brug137.09, x={x:.1f} m')
         ax.plot(time[-1], hdup, 'x', mec=clr, mfc='none', label='Dupuit')
         
     ax.grid(True)
     ax.legend(loc='center')
 
 
-
 def ex_brug13709():
     aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.816, 0.95, 0.99]) * aq.b
+    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95, 0.99]) * aq.b
     R = 0.001
     time = np.linspace(0, 20, 101)
     
@@ -1191,7 +1190,7 @@ def ex_brug13709():
         ax.plot(time[-1], hd, 'x', color=clr)
         
     ax.grid(True)
-    ax.legend()
+    ax.legend(loc='center')
 
     
 if __name__ == "__main__":
@@ -1214,9 +1213,9 @@ if __name__ == "__main__":
         ex_base_transient(rch, b=50, h0=3, h_summer=0, h_winter=0, q=q)
     if False:
         compare_limits()
-    if True:
-        ex_brug13316a()
     if False:
+        ex_brug13316a()
+    if True:
         ex_brug13302()
         ex_brug13316()
         ex_brug13702()

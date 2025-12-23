@@ -3374,6 +3374,104 @@ Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken wo
 
 \end_layout
 
+\begin_layout Standard
+Vergelijking tussen de exacte eenlaagsoplossing en de benaderende Dupuit situatie.
+\end_layout
+
+\begin_layout Standard
+De stationaire eenlaagsoplossing is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\frac{p}{2kD}\left(b^{2}-x^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en de gemiddelde
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}=\frac{p}{3kD}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Op welke plek zijn deze twee aan elkaar gelijk?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{p}{2kD}\left(b^{2}-x^{2}\right) & =\frac{pb^{2}}{3kD}\\
+b^{2}-x^{2} & =\frac{2}{3}b^{2}\\
+x^{2} & =\frac{1}{3}b^{2}\\
+x & =\frac{b}{\sqrt{3}}\approx0.58b
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/doc/images/dupuit_stat_avg.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stationaire-oplossing-Dupuit"
+
+\end_inset
+
+Stationaire oplossing volgens Dupuit met punt waar deze de doorsnedegemiddelde grondwaterstand snijdt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Drainageweerstand en voedingsweerstand
 \end_layout
@@ -3581,7 +3679,19 @@ Tot nu toe is bij alle analytische oplossingen impliciet aangenomen dat de slote
 \end_layout
 
 \begin_layout Standard
-Is de slootafmeting klein ten opzichte van die van het watervoerend pakket,
+Is de slootafmeting klein ten opzichte van die van het watervoerend pakket (fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sloot-met-natte-omtrek-omega"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
  dan kan de radiale weerstand door de contractie van stroomlijnen goed worden benaderd met (Huisman,
  1972)
 \end_layout
@@ -3591,6 +3701,56 @@ Is de slootafmeting klein ten opzichte van die van het watervoerend pakket,
 \[
 \Delta s=\frac{2q_{0}}{\pi k}\ln\left(\frac{D}{\Omega}\right)
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../images/slootomtrek.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sloot-met-natte-omtrek-omega"
+
+\end_inset
+
+Sloot met natte omtrek 
+\begin_inset Formula $\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
