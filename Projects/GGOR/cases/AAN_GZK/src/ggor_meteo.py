@@ -71,22 +71,9 @@ if __name__ == '__main__':
     #meteo = Meteo(metfile)
     # meteo.data.plot(lw=0.5)
     #meteo.recharge.plot(lw=0.5)
-    #plt.show()
-    from scipy.special import erfc
-        
-    n = np.logspace(0, 2, 101)[1:]
-    
+    #plt.show()    
     fig, ax = plt.subplots()
-    fig.suptitle("Required terms in series")
-    ax.set_title("Remaining exp series")
-    ax.set(xlabel='n', ylabel='rest of series', xscale='log')
-    for tau in [0.001, 0.01, 0.1, 1]: 
-        y = 0.25 * np.sqrt(np.pi / tau) * erfc((2 * n + 1) * np.sqrt(tau))
-        ax.plot(n, y, label=f"t/T={tau}")
-    ax.grid(True)
-    ax.legend()
-    parts = list(Path(os.getcwd()).parts).index('GGOR')
-    pth = os.path.join(os.getcwd(), 'doc', 'images')
-    fig.savefig(os.path.join(pth, 'needed_terms.png'))
-    
+    x = np.linspace(0, 10 * np.pi, 500)
+    ax.plot(x, x * np.tan(x))
+    ax.set_ylim(-5, 5)
     plt.show()

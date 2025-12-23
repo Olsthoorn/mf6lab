@@ -17,6 +17,7 @@ import pandas as pd
 from itertools import cycle
 import ggor_meteo
 from pathlib import Path
+from scipy.optimize import brentq
 # %%
 
 @dataclass
@@ -119,7 +120,7 @@ class AnalyticalSolution(ABC):
         pass
     
     @abstractmethod
-    def transient_0(self, time_props)-> np.ndarray | float:
+    def transient_pd(self, time_props)-> np.ndarray | float:
         """Return transient solution()"""
         pass
     
@@ -165,7 +166,7 @@ class Dupuit(AnalyticalSolution):
         aq = self.aq
         return hLR + R * aq.T1L
 
-    def transient(self, rch, h_summer=None, h_winter=None, q=None):
+    def transient_pd(self, rch, h_summer=None, h_winter=None, q=None):
         """Return result of dynamic simulation.
 
         Parameters
@@ -218,7 +219,7 @@ class Dupuit(AnalyticalSolution):
             
         return tdata
     
-    def transient_0(self, time=None, R=None, h0=0, hLR=0):
+    def transient(self, time=None, R=None, h0=0, hLR=0):
         """Return result of dynamic simulation for constant inputs.
         
         Inputs are constant, time are an np.ndarray of floats [T].
@@ -312,7 +313,7 @@ class Base_case(AnalyticalSolution):
         aq = self.aq
         return hLR + (R + q) * aq.T2L        
 
-    def transient(self, rch: pd.Series,
+    def transient_pd(self, rch: pd.Series,
                   h_summer: float, h_winter: float, q: float)->pd.DataFrame:
         """Return result of dynamic simulation.
         
@@ -372,7 +373,7 @@ class Base_case(AnalyticalSolution):
         tdata['phi'] = tdata['h'] + tdata['q'] * aq.c
         return tdata
     
-    def transient_0(self, time: float | np.ndarray, R: float, h0: float, hLR: float, q: float)->float | np.ndarray:
+    def transient(self, time: float | np.ndarray, R: float, h0: float, hLR: float, q: float)->float | np.ndarray:
         """Return result of dynamic simulation for constant inputs.
         
         Inputs are constant, time are an np.ndarray of floats [T].
@@ -412,49 +413,6 @@ class Base_case(AnalyticalSolution):
         aq = self.aq
         return hLR + (R + q) * aq.T2L
         
-class Brug13316():
-    
-    def __init__(self, aq: Aquifer) -> None:
-        self.aq=aq
-    
-    def steady(self, x: float | np.ndarray, R: float) -> float | np.ndarray:
-        x = np.atleast_1d(x)
-        aq=self.aq
-        h = R / (2 * aq.kD) * (aq.b**2 - x**2)
-        return h if h.size > 1 else h.item()
-    
-    def transient(self, R: float, time: float | np.ndarray,
-                  x: float | np.ndarray,
-                  eps=1e-12) -> float | np.ndarray:
-        
-        assert (   np.isscalar(x) and not np.isscalar(time)
-                or np.isscalar(time) and not np.isscalar(x)
-                or np.isscalar(x) and np.isscalar(time)
-        ), "x and time must be both scalars or (scalar and array) not both arrays"
-        
-        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
-        tau = time / T
-        px2b = np.pi * x / (2 * aq.b)
-        
-        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
-        N = 30
-        
-        s0 = self.steady(x, R)        
-        F = 16 * R * aq.b**2 / (np.pi**3 * aq.kD)
-        
-        for n in range(N + 1):
-            n2p1 = 2*n + 1
-            ds = (
-            (-1)**n / n2p1**3
-            * np.cos(n2p1 * px2b)
-            * np.exp(-n2p1**2 * tau)
-            )
-            if n == 0:
-                s = ds
-            else:
-                s += ds
-        return s0 - F * s
-        
 class Brug13302():
     
     def __init__(self, aq: Aquifer) -> None:
@@ -462,7 +420,7 @@ class Brug13302():
 
     def steady(self, x: float | np.ndarray, dh: float) -> float | np.ndarray:
         x = np.atleast_1d(x)
-        h = dh * np.zeros_like(x)
+        h = dh * np.ones_like(x)
         return h if h.size > 1 else h.item()
             
     def transient(self, dh: float, time: float | np.ndarray, x: float | np.ndarray, eps=1e-12) -> float | np.ndarray:
@@ -471,6 +429,8 @@ class Brug13302():
                 or np.isscalar(time) and not np.isscalar(x)
                 or np.isscalar(x) and np.isscalar(time)
         ), "x and time must be both scalars or (scalar and array) not both arrays"
+        
+        aq = self.aq
         
         T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
         tau = time / T
@@ -494,7 +454,148 @@ class Brug13302():
             else:
                 s += ds
         return s0 - F * s
-              
+        
+class Brug13316():
+    
+    def __init__(self, aq: Aquifer) -> None:
+        self.aq=aq
+    
+    def steady(self, x: float | np.ndarray, R: float) -> float | np.ndarray:
+        x = np.atleast_1d(x)
+        aq=self.aq
+        h = R / (2 * aq.kD) * (aq.b**2 - x**2)
+        return h if h.size > 1 else h.item()
+    
+    def transient(self, R: float, time: float | np.ndarray,
+                  x: float | np.ndarray,
+                  eps=1e-12) -> float | np.ndarray:
+        
+        assert (   np.isscalar(x) and not np.isscalar(time)
+                or np.isscalar(time) and not np.isscalar(x)
+                or np.isscalar(x) and np.isscalar(time)
+        ), "x and time must be both scalars or (scalar and array) not both arrays"
+        
+        aq = self.aq
+        
+        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
+        tau = time / T
+        px2b = np.pi * x / (2 * aq.b)
+        
+        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
+        N = 30
+        
+        s0 = self.steady(x, R)
+        
+        # --- Factor in boek 16, moet 8 zijn       
+        F = 16 * R * aq.b**2 / (np.pi**3 * aq.kD)
+        
+        for n in range(N + 1):
+            n2p1 = 2*n + 1
+            ds = (
+                (-1)**n / n2p1**3
+                * np.cos(n2p1 * px2b)
+                * np.exp(-n2p1**2 * tau)
+            )
+            if n == 0:
+                s = ds
+            else:
+                s += ds
+        return s0 - F * s
+
+def root_x_tan_x(a, k):
+    def f(x):
+        return x*np.tan(x) - a
+    eps = 1e-12
+    left  = k*np.pi + eps
+    right = k*np.pi + np.pi/2 - eps
+    return brentq(f, left, right)
+
+class Brug13702():
+    """Sudden rise h of the surface water level."""    
+    
+    def __init__(self, aq: Aquifer) -> None:
+        self.aq = aq
+
+    def steady(self, x: float | np.ndarray, dh: float) -> float | np.ndarray:
+        x = np.atleast_1d(x)
+        h = dh * np.zeros_like(x)
+        return h if h.size > 1 else h.item()
+            
+    def transient(self, dh: float, time: float | np.ndarray, x: float | np.ndarray) -> float | np.ndarray:
+        
+        assert (   np.isscalar(x) and not np.isscalar(time)
+                or np.isscalar(time) and not np.isscalar(x)
+                or np.isscalar(x) and np.isscalar(time)
+        ), "x and time must be both scalars or (scalar and array) not both arrays"
+        
+        aq = self.aq
+             
+        N = 30
+        
+        if np.isclose(aq.w, 0):
+            raise ValueError("aq.w must be > 0 to use this function")
+        
+        eps   = aq.b / (aq.k * aq.w)
+        alfas = [root_x_tan_x(eps, k) for k in range(N)]
+        
+        for n, alpha in zip(range(N + 1), alfas):
+            T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
+            ds = (
+                (np.sin(alpha) / alpha) / (1 + eps / (alpha**2 + eps**2))
+                * np.cos(alpha * x /aq.b)
+                * np.exp(-time/ T)
+            )
+            if n == 0:
+                s = ds
+            else:
+                s += ds
+        return dh - 2 * dh * s
+    
+class Brug13709():
+    """Sudden rise h of the surface water level."""    
+    
+    def __init__(self, aq: Aquifer) -> None:
+        self.aq = aq
+
+    def steady(self, x: float | np.ndarray, R: float) -> float | np.ndarray:
+        x = np.atleast_1d(x)
+        aq = self.aq
+        h = R / (2 * aq.kD) * (aq.b**2 - x**2) + R * aq.b * aq.w / aq.D
+        return h if h.size > 1 else h.item()
+            
+    def transient(self, R: float, time: float | np.ndarray, x: float | np.ndarray) -> float | np.ndarray:
+        
+        assert (   np.isscalar(x) and not np.isscalar(time)
+                or np.isscalar(time) and not np.isscalar(x)
+                or np.isscalar(x) and np.isscalar(time)
+        ), "x and time must be both scalars or (scalar and array) not both arrays"
+        
+        aq = self.aq
+        
+        if np.isclose(aq.w, 0):
+            raise ValueError("aq.w must be > 0 to use this function")
+
+        
+        s0 = self.steady(x=x, R=R)
+        
+        F = 2 * R * aq.b**2 / aq.kD        
+        N = 30
+        
+        eps   = aq.b / (aq.k * aq.w)
+        alfas = [root_x_tan_x(eps, k) for k in range(N)]
+        
+        for n, alpha in zip(range(N + 1), alfas):
+            T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
+            ds = (
+                (np.sin(alpha) / alpha**3) / (1 + eps / (alpha**2 + eps**2))
+                * np.cos(alpha * x /aq.b)
+                * np.exp(-time/ T)
+            )
+            if n == 0:
+                s = ds
+            else:
+                s += ds
+        return s0 - F * s
 
 def example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0, w=0):
     """Show head development for steady inputs together with asymptote
@@ -532,7 +633,7 @@ def example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0, w=0):
         
         T = aq.T1L
         
-        h = mdl.transient_0(time=time, R=R, h0=h0, hLR=hLR)
+        h = mdl.transient(time=time, R=R, h0=h0, hLR=hLR)
         hinf = mdl.asymptote(R=R, hLR=hLR)
 
         ax.plot(time[1:], h[1:], color=clr, label=f'b={aq.b:7.0f} d, muT={aq.mu * T:8.3g} d')
@@ -582,7 +683,7 @@ def example_dupuit_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1)
         
         T = aq.T1L
         
-        tdata = mdl.transient(rch, h_summer=h_summer, h_winter=h_winter)
+        tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter)
         
         ax.plot(tdata.index, tdata['h'], color=clr,
                 label=f'muT={aq.mu * T:8.3g} d')
@@ -672,7 +773,7 @@ def example_base_case_transient0(b=50, R=0.001, h0=0, hLR=0, q=0):
         
         T = aq.c * aq.G
         
-        h = mdl.transient_0(time=time, R=R, h0=h0, hLR=hLR, q=q)
+        h = mdl.transient(time=time, R=R, h0=h0, hLR=hLR, q=q)
         hinf = mdl.asymptote(R=R, hLR=hLR, q=q)
 
         ax.plot(time[1:], h[1:], color=clr, label=f'c={aq.c:7.0f} d, muT={aq.mu * T:8.3g} d')
@@ -723,7 +824,7 @@ def example_base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q
         
         T = aq.c * aq.G
         
-        tdata = mdl.transient(rch, h_summer=h_summer, h_winter=h_winter, q=q)
+        tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter, q=q)
         
         ax.plot(tdata.index, tdata['h'], color=clr,
                 label=f'c={aq.c:7.0f} d, muT={aq.mu * T:8.3g} d')
@@ -763,36 +864,19 @@ def compare_limits():
     
     plt.show()
 
-def example_brug13316():
-    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75]) * aq.b
-    R = 0.001
-    time = np.linspace(0, 20, 101)
-    
-    brug = Brug13316(aq)
-
-    fig, ax = plt.subplots()
-    
-    ax.set_title("Bruggeman (133.16)")
-    ax.set(xlabel='t d[]', ylabel='h [m]')
-    
-    for x in xs:
-        h = brug.transient(R=R, time=time, x=x)
-        ax.plot(time, h, label=f'x={x} m')
-    ax.grid(True)
-    ax.legend()
-
 def example_brug13302():
-    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.75]) * aq.b
+    aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.95]) * aq.b
     dh = 0.1
     time = np.linspace(0, 20, 101)
     
     brug = Brug13302(aq)
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(10, 7.5))
     
-    ax.set_title("Bruggeman (133.02)")
+    fig.suptitle("Bruggeman(1999, solution 133.02)")
+    ax.set_title(f"Sudden rise {dh} mof the surface water level" +
+                 "\n" + str(aq).replace(", w=0","").replace(", c=200",""))
     ax.set(xlabel='t d[]', ylabel='h [m]')
     
     for x in xs:
@@ -800,6 +884,98 @@ def example_brug13302():
         ax.plot(time, h, label=f'x={x} m')
     ax.grid(True)
     ax.legend()
+
+def example_brug13702():
+    aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.95, 0.99]) * aq.b
+    dh = 0.1
+    time = np.linspace(0, 20, 101)
+    
+    brug1 = Brug13302(aq)
+    brug2 = Brug13702(aq)
+    dup   = Dupuit(aq)
+
+    fig, ax = plt.subplots(figsize=(10, 7.5))
+    
+    fig.suptitle("Bruggeman (1999, solution 137.02)")
+    ax.set_title(f"Sudden rise {dh} m of surface water. With entry resistance" +
+                 "\n" + str(aq).replace(", c=200",""))
+    ax.set(xlabel='t d[]', ylabel='h [m]')
+    
+    clrs = cycle('brgkmcy')
+    for x in xs:
+        clr = next(clrs)
+        h1 = brug1.transient(dh=dh, time=time, x=x)
+        h2 = brug2.transient(dh=dh, time=time, x=x)
+        hd = dup.transient(time=time, R=0., h0=0, hLR=dh)
+        ax.plot(time, h1, '-', color=clr, label=f'h1, x={x} m, no   ditch resistance')
+        ax.plot(time, h2, '.', color=clr, label=f'h2, x={x} m, with ditch resistance')
+        ax.plot(time, hd, 'o', mec=clr, mfc='none', label="Dupuit with ditch resistance")
+    ax.grid(True)
+    ax.legend()
+
+
+def example_brug13316():
+    aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.95, 0.99]) * aq.b
+    R = 0.001
+    time = np.linspace(0, 20, 101)
+    
+    brug = Brug13316(aq)
+    dup  = Dupuit(aq)
+
+    fig, ax = plt.subplots(figsize=(10, 7.5))
+    
+    fig.suptitle("Bruggeman (1999, solution 133.16)")
+    ax.set_title(f"Constant precipitation of {R} m/d" +
+                 "\n" + str(aq).replace(", w=0", "").replace(", c=200",""))
+    ax.set(xlabel='t d[]', ylabel='h [m]')
+    
+    clrs = cycle("brgkmcy")
+    for x in xs:
+        clr = next(clrs)
+        h = brug.transient(R=R, time=time, x=x)
+        hdup = dup.steady(x=x, hLR=0, R=R)
+        ax.plot(time, h, color=clr, label=f'x={x} m')
+        ax.plot(time[-1], hdup, 'o', color=clr)
+        
+    ax.grid(True)
+    ax.legend()
+
+
+def example_brug13709():
+    aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
+    xs = np.array([0, 0.25, 0.5, 0.75, 0.95, 0.99]) * aq.b
+    R = 0.001
+    time = np.linspace(0, 20, 101)
+    
+    brug1 = Brug13316(aq)
+    brug2 = Brug13709(aq)
+    dup  = Dupuit(aq)
+
+    fig, ax = plt.subplots(figsize=(10, 7.5))
+    
+    fig.suptitle("Bruggeman (137.09)")
+    ax.set_title(f"Constant precipitation {R} m/d. With entry resistance." +
+                 "\n" + str(aq).replace(", c=200",""))
+    ax.set(xlabel='t d[]', ylabel='h [m]')
+    
+    clrs = cycle("brgkmcy")
+    for x in xs:
+        clr = next(clrs)
+        h1t = brug1.transient(R=R, time=time, x=x)
+        h2t = brug2.transient(R=R, time=time, x=x)
+        hdt = dup.transient(R=R, time=time)
+        hd  = dup.steady(x=x, hLR=0, R=R)
+        
+        ax.plot(time, h1t, '-', color=clr, label=f'h1, x={x} m, 133.16, no resis.')
+        ax.plot(time, h2t, '.', color=clr, label=f'h2, x={x} m, 137.09 + resis.') 
+        ax.plot(time, hdt, 'o', mec=clr, mfc='none', label='Dupuit + resitance')
+        ax.plot(time[-1], hd, 'o', color=clr)
+        
+    ax.grid(True)
+    ax.legend()
+
     
 if __name__ == "__main__":
     if False:
@@ -822,8 +998,12 @@ if __name__ == "__main__":
     if False:
         compare_limits()
     if True:
-        example_brug13316()
-        example_brug13302()
+        # example_brug13302()
+        # example_brug13316()
+        # example_brug13702()
+        example_brug13709()
+        
+        
     plt.show()
     
 

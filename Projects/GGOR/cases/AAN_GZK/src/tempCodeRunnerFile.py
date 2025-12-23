@@ -1,1 +1,1 @@
-Aquifer
+s0 - F * s

@@ -2908,9 +2908,9 @@ misbruikt
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-h-h_{LR}=\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{16pb^{2}}{\pi^{3}kD}\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}}{\left(2n+1\right)^{3}}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
-\]
+\begin{align*}
+h-h_{LR} & =\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{8pb^{2}}{\pi^{3}kD}\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}}{\left(2n+1\right)^{3}}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
+\end{align*}
 
 \end_inset
 
@@ -2938,6 +2938,10 @@ T=\left(\frac{2\beta b}{\pi}\right)^{2}=\frac{4b^{2}S}{\pi^{2}kD}\rightarrow\exp
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
