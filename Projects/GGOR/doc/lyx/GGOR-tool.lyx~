@@ -2908,9 +2908,9 @@ misbruikt
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-h-h_{LR}=\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{16pb^{2}}{\pi^{3}kD}\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}}{\left(2n+1\right)^{3}}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
-\]
+\begin{align*}
+h-h_{LR} & =\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{8pb^{2}}{\pi^{3}kD}\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}}{\left(2n+1\right)^{3}}\cos\left[\frac{\left(2n+1\right)\pi x}{2b}\right]\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
+\end{align*}
 
 \end_inset
 
@@ -2919,7 +2919,7 @@ h-h_{LR}=\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{16pb^{2}}{\pi^{3}kD}\sum_{n
 
 \begin_layout Standard
 Het is interessant om de term 
-\begin_inset Formula $\left(2\beta b/pi\right)^{2}$
+\begin_inset Formula $T=\left(2\beta b/\pi\right)^{2}$
 \end_inset
 
  als karakteristieke tijd te beschouwen.
@@ -2942,11 +2942,69 @@ T=\left(\frac{2\beta b}{\pi}\right)^{2}=\frac{4b^{2}S}{\pi^{2}kD}\rightarrow\exp
 \end_layout
 
 \begin_layout Standard
-Dit stelt voor een stationaire oplossing plus een correctie daarop.
+Deze 
+\begin_inset Formula $T$
+\end_inset
+
+ heeft dimensie tijd en komt in de exponent voor.
+ Omdat al na relatief korte tijd alleen de eerste term van de reeks er nog toe doet,
+ levert de 
+\begin_inset Formula $T$
+\end_inset
+
+ ook de halfwaardetijd 
+\begin_inset Formula $T_{50\%}$
+\end_inset
+
+,
+ een gemakkelijk te begrijpen systeemconstante
 \end_layout
 
 \begin_layout Standard
-Voor het berekenen van de invloed van veranderende slootpeil kan oplossing 133.02 worden gebruikt
+\begin_inset Formula 
+\begin{align*}
+\exp\left(-\frac{t+T_{50\%}}{T}\right) & =0.5\exp\left(-\frac{t}{T}\right)\\
+-\frac{T_{50\%}}{T} & =\ln0.5\\
+T_{50\%} & =-T\ln0.5\approx0.69T
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ook deze vergelijking kan steeds over een tijdstap worden geïntegreerd.
+ Maar in tegenstelling tot met de andere oplossingen is het niet mogelijk om vanuit de situatie op een bepaald moment door te rekenen.
+ Dit kan bijvoorbeeld wel met superpositie.
+ Maar de handigste en snelste manier in ongetwijfeld het berekenen met convolutie.
+ Dit is ook een vorm van superpositie,
+ maar een die in een keer het totale verleden van de per stap veranderende 
+\begin_inset Quotes eld
+\end_inset
+
+drijvende krachten
+\begin_inset Quotes erd
+\end_inset
+
+,
+ hier het neerslagoverschot en eventueel de kwel meeneemt en dat is middels convolutie of filtering,
+ de techniek die ook bij tijdreeksanalyse wordt gebruikt.
+\end_layout
+
+\begin_layout Standard
+Behalve neerslag en kwel kan ook het slootpeil van tijdstap tot tijdstap veranderen.
+ Hiervoor bestaat ook aan analytische oplossing die sprekend lijkt op de voorgaande.
+ Deze oplossing veronderstelt dat de stijghoogte op 
+\begin_inset Formula $x=\pm b$
+\end_inset
+
+ plotseling verandert op 
+\begin_inset Formula $t=0$
+\end_inset
+
+ en daarna wordt vastgehouden op de nieuwe stand.
+ Bruggeman (1999) geeft deze oplossing (solution 133.02):
 \end_layout
 
 \begin_layout Standard
@@ -2965,119 +3023,31 @@ h-h_{LR}=\Delta h_{0}-h_{LR}-\frac{4h}{\pi}\sum_{n=0}^{\infty}\left(-1\right)^{n
 \end_layout
 
 \begin_layout Standard
-en met 
+Het is duidelijk dat we ook hier met 
 \begin_inset Formula $T=\left(\frac{2\beta\,b}{\pi}\right)^{2}$
 \end_inset
 
- als karakteristieke tijd,
- kunnen deze uitdrukkingen iets inzichtelijker worden geschreven.
+ als karakteristieke tijd de exponent kunnen vereenvoudigen tot iets dat direct aanspreekt.
+ Ook deze oplossing kan het meest efficiënt worden berekend met behulp van convolutie.
 \end_layout
 
 \begin_layout Standard
-Merk op 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\beta^{2}=\frac{S}{kD}
-\]
-
+Om de exacte,
+ doorsnedegemiddelde grondwaterstand 
+\begin_inset Formula $\overline{h}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-De oplossing wordt toegeschreven aan aan Kraaijenhof van der Leur (Verruijt,
- 1999,
- p87),
- maar hij stond al eerder in Carslaw and Jaeger (1959,
- p97,
- vergelijking 8) en staan in Bruggeman (1999).
-\end_layout
-
-\begin_layout Standard
-Hierin is 
-\begin_inset Formula $\mu$
-\end_inset
-
- is de freatische bergingscoëfficiënt,
- en 
-\begin_inset Formula $A$
-\end_inset
-
- de waarde van 
-\begin_inset Formula $h-h_{0}$
-\end_inset
-
- op 
-\begin_inset Formula $t=0$
-\end_inset
-
- voor alle 
+ te krijgen moeten we factor met 
 \begin_inset Formula $x$
 \end_inset
 
-.
- Het verloop weerspiegelt in het algemeen goed wat er in een perceel gebeurt na een fikse of constante bui of plotselinge slootpeilverandering op 
-\begin_inset Formula $t=0$
-\end_inset
-
-.
- Zonder vertraging in de onverzadigde zone veroorzaakt zo'n bui een plotselinge stijghoogte toename die uniform is over het perceel en gelijk aan
-\begin_inset Formula 
-\begin{equation}
-h_{0}-h_{LR}=\frac{P}{\mu}\label{eq:tran1D-dh-due-to-sudden-shower}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De eerste vergelijking geldt voor continu neerslagoverschot vanaf 
-\begin_inset Formula $t=0$
-\end_inset
-
- en de tweede kan worden geïnterpreteerd als de situatie na een plotselinge bui en beschrijft dus het uitzakken van de grondwaterstand in een doorsnede ter breedte 
-\begin_inset Formula $L=2b$
-\end_inset
-
- met initiële stand 
-\begin_inset Formula $h_{0}-h_{LR}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Met deze vergelijkingen kunnen we de niet-stationaire situatie exact uitrekenen op elke plek in de doorsnede.
-\end_layout
-
-\begin_layout Standard
-Bij een korte karakteristieke tijd ligt dit anders.
- Dit is bij percelen van tientallen meters breedte vaker wel dan niet het geval.
- In het algemeen is het dan beter om de 
-\begin_inset Quotes eld
-\end_inset
-
-bui
-\begin_inset Quotes erd
-\end_inset
-
- op tevatten als een impuls ter grootte 
-\begin_inset Formula $Ndt$
-\end_inset
-
- en de impuls-respons formeel uit te schrijven
+ integreren
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-P=Ndt
+\frac{1}{b}\intop_{0}^{b}\cos\left[\frac{\left(2n+1\right)\pi}{2b}x\right]dx=\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\sin\left[\left(2n+1\right)\frac{\pi}{2}\right]
 \]
 
 \end_inset
@@ -3086,22 +3056,17 @@ P=Ndt
 \end_layout
 
 \begin_layout Standard
-De grondwaterreactie op deze puls wordt verkregen door in de formule 
-\begin_inset Formula $h_{0}-h_{LR}$
+Voor 
+\begin_inset Formula $n$
 \end_inset
 
- te vervangen door 
-\begin_inset Formula $Ndt/\mu$
-\end_inset
-
-.
- Het resultaat van een variabele neerslag uit het verleden is dan te berekenen met convolutie:
+ oplopend van 0 naar oneindig reduceert deze uitdrukking to
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-h-h_{LR}=\intop_{\tau=0}^{\infty}N_{t-\tau}R_{\tau}d\tau
+\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\sin\left[\left(2n+1\right)\frac{\pi}{2}\right]=\frac{1}{\left(2n+1\right)}\frac{1}{\pi}\left(-1\right)^{n}
 \]
 
 \end_inset
@@ -3110,13 +3075,13 @@ h-h_{LR}=\intop_{\tau=0}^{\infty}N_{t-\tau}R_{\tau}d\tau
 \end_layout
 
 \begin_layout Standard
-met
+Hierdoor gaan de vergelijkingen hiervoor over in
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-R_{x,\tau}=\frac{1}{\mu}\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{2j-1}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\exp\left[-\left(2j-1\right)^{2}\frac{\tau}{T}\right]\right\} ,\,\,T=\frac{4b^{2}\mu}{\pi^{2}kD}
+\overline{h}-h_{LR}=\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{16pb^{2}}{\pi^{4}kD}\sum_{n=0}^{\infty}\frac{1}{\left(2n+1\right)^{4}}\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
 \]
 
 \end_inset
@@ -3125,343 +3090,14 @@ R_{x,\tau}=\frac{1}{\mu}\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\r
 \end_layout
 
 \begin_layout Standard
-Door het neerslagoverschot in het verleden vanaf een bepaald startmoment,
- zeg 
-\begin_inset Formula $t=0$
-\end_inset
-
-,
- constant en gelijk aan 
-\begin_inset Formula $1$
-\end_inset
-
- te nemen,
- wordt de zogenoemde staprespons verkregen
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
-R_{s}\left(x,t\right)=\frac{1}{\mu}\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{2j-1}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\intop_{\tau=0}^{t}\exp\left[-\left(2j-1\right)^{2}\frac{\tau}{T}\right]dt\right\} 
+\overline{h}-h_{LR}=\Delta h_{0}-h_{LR}-\frac{8h}{\pi^{2}}\sum_{n=0}^{\infty}\frac{1}{\left(2n+1\right)^{2}}\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Na integratie hebben we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{s}\left(x,t\right)=\frac{T}{\mu}\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{\left(2j-1\right)^{3}}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\left(1-\exp\left[-\left(2j-1\right)^{2}\frac{\tau}{T}\right]\right)\right\} 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze uitdrukking is op te splitsen in twee een term zonder en een term met daarin de tijd
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{s}\left(x,t\right)=\frac{T}{\mu}\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{\left(2j-1\right)^{3}}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\right\} -\frac{T}{\mu}\frac{4}{\pi}\left\{ \sum_{j=1}^{\infty}\frac{\left(-1\right)^{j-1}}{\left(2j-1\right)^{3}}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\exp\left[-\left(2j-1\right)^{2}\frac{\tau}{T}\right]\right\} 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De eerste term kan analytisch worden uitgewerkt met het onderstaande resultaat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{\left(2j-1\right)^{3}}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\right\} =\frac{\pi^{2}}{8}\left(1-\frac{x^{2}}{b^{2}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Waardoor de stapresponse als volgt kan worden opgeschreven
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{s}\left(x,t\right)=\frac{T}{\mu}\frac{\pi^{2}}{8}\left(1-\frac{x^{2}}{b^{2}}\right)-\frac{T}{\mu}\frac{\pi}{4}\left\{ \sum_{j=1}^{\infty}\frac{\left(-1\right)^{j-1}}{\left(2j-1\right)^{3}}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De staprespons geeft het verloop van de grondwaterstand in de doorsnede als gevolg van een constant neerslagoverschot gelijk aan 
-\begin_inset Formula $N=1$
-\end_inset
-
- vanaf 
-\begin_inset Formula $t=0$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-In de stationaire eindsituatie valt de tweede term geheel weg,
- zodat dan voor constant neerslagoverschot 
-\begin_inset Formula $N$
-\end_inset
-
- geldt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-s\left(x,t=\infty\right)=N\frac{T}{\mu}\frac{\pi^{2}}{8}\left(1-\frac{x^{2}}{b^{2}}\right)=N\frac{4b^{2}\mu}{\mu\pi^{2}kD}\frac{\pi^{2}}{8}\left(1-\frac{x^{2}}{b^{2}}\right)=\frac{N}{2kD}\left(b^{2}-x^{2}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit is de precies het grondwaterverloop dat ontstaat bij constant neerslagoverschot.
-\end_layout
-
-\begin_layout Standard
-Uiteindelijk hebben we dus voor de staprespons de volgende uitdrukking
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{s}\left(x,t\right)=\frac{N}{2kD}\left(b^{2}-x^{2}\right)-\frac{T}{\mu}\frac{\pi}{4}\left\{ \sum_{j=1}^{\infty}\frac{\left(-1\right)^{j-1}}{\left(2j-1\right)^{3}}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Een willekeurige tijdreeks met neerslagoverschot gegeven als gemiddelde van opeenvolgende tijdstappen van gelijke lengte,
- kan direct worden gesimuleerd door convolutie met de blokrespons 
-\begin_inset Formula $R_{B}$
-\end_inset
-
-.
- De blokrespons wordt verkregen met
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{B}=R_{S[\tau]}-R_{S[\tau-\Delta\tau]}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De blokrespons is het resultaat van constante eenheidsneerslag gedurende een tijdstap (in de regel 
-\begin_inset Formula $\Delta\tau$
-\end_inset
-
-=1 dag).
- Voor de berekening hiervan is in zowel Matlab als Python een standaard-functie beschikbaar.
- In Python is dat 
-\begin_inset Formula $scipy.signal.lfilter$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-De formules hierboven geven de het verloop van de grondwaterstand als functie van de tijd voor een willekeurig punt in de doorsnede.
- In de GGOR zijn we vooral geïnteresseerd in de doorsnedegemiddelde grondwaterstand,
- die wordt verkregen door integratie over de breedte van de doorsnede en deling door 
-\begin_inset Formula $b$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-R_{s}\left(t\right) & =\frac{N}{2kD}\left(b^{2}-\frac{1}{b}\intop_{0}^{b}x^{2}dx\right)-N\frac{T}{\mu}\frac{\pi}{4}\left\{ \sum_{j=1}^{\infty}\frac{\left(-1\right)^{j-1}}{\left(2j-1\right)^{3}}\frac{1}{b}\intop_{0}^{b}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]dx\,\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} \\
- & =\frac{Nb^{2}}{3kD}-\frac{NT}{2\mu}\left\{ \sum_{j=1}^{\infty}\frac{1}{\left(2j-1\right)^{4}}\,\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} 
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Na invulling van de karakteristieke tijd 
-\begin_inset Formula $T$
-\end_inset
-
- volgt de uiteindelijk uitdrukking voor de staprespons voor de doorsnedegemiddelde grondwaterstand
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{s}\left(t\right)=\frac{Nb^{2}}{3kD}-\frac{Nb^{2}}{\pi^{2}kD}\left\{ \sum_{j=1}^{\infty}\frac{1}{\left(2j-1\right)^{4}}\,\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Dynamiek door variërend slootpeil
-\end_layout
-
-\begin_layout Standard
-De niet-stationaire oplossing die in deze sectie centraal staat kan evengoed worden gebruikt om te berekenen hoe de stijghoogte in de doorsnede verandert door een variërend slootpeil.
- De oplossing wijzigt dan in
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{t}-h_{LR,0}=\left(h_{LR}-h_{LR,0}\right)\left[1-\frac{4}{\pi}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{2j-1}\cos\left[\left(2j-1\right)\frac{\pi}{2}\frac{x}{b}\right]\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} \right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-waarin 
-\begin_inset Formula $h_{LR,0}$
-\end_inset
-
-het slootpeil dat als referentie wordt genomen,
- feitelijk het slootpeil voorafgaand aan 
-\begin_inset Formula $t=0$
-\end_inset
-
- en  
-\begin_inset Formula $h_{LR}$
-\end_inset
-
- het actuele slootpeil,
- zodat 
-\begin_inset Formula $h_{LR}-h_{LR,0}$
-\end_inset
-
- de plotselinge verandering van het slootpeil voorstelt.
- Het nieuwe slootpeil wordt in deze formule vervolgens gehandhaafd.
- Vanuit de sloten breidt de plotselinge slootpeilverandering zich in de tijd over de doorsnede uit.
- Omdat de doorsnede symmetrisch is,
- is het slootpeil rechts en links steeds aan elkaar gelijk,
- vandaar de indek 
-\begin_inset Formula $LR$
-\end_inset
-
-,
- zoals in 
-\begin_inset Formula $h_{LR}$
-\end_inset
-
-.
- Deze analytische oplossing is dus in feite de staprespons voor de situatie na een plotselinge verandering van het slootpeil op 
-\begin_inset Formula $t=0$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Aangezien we steeds met de gemiddelde stijghoogte rekenen,
- integreren we over de doorsnede
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{multline*}
-\overline{h}-h_{LR,0}=\\
-\left(h_{LR}-h_{LR,0}\right)\left[1-\frac{8}{\pi^{2}}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{2j-1}\frac{1}{b}\intop_{0}^{b}\cos\left[\left(2j-1\right)\frac{\pi x}{2b}\right]dx\,\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} \right]
-\end{multline*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h}-h_{LR} & = & \left(h_{LR}-h_{LR,0}\right)\left[1-\frac{8}{\pi^{2}}\sum_{j=1}^{\infty}\left\{ \frac{\left(-1\right)^{j-1}}{\left(2j-1\right)^{2}}\left\{ \frac{2}{2j-1}\frac{\left(-1\right)^{j-1}}{\pi}\right\} \,\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} \right]\\
- & = & \left[1-\frac{4}{\pi^{3}}\sum_{j=1}^{\infty}\left\{ \frac{1}{\left(2j-1\right)^{3}}\,\exp\left[-\left(2j-1\right)^{2}\frac{t}{T}\right]\right\} \right]
-\end{eqnarray*}
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De limiet van de factor tussen de rechte haken voor 
-\begin_inset Formula $t\rightarrow\infty$
-\end_inset
-
- is 1.
- Dit is juist,
- omdat de gemiddelde stijghoogte in de doorsnede na verloop van tijd gelijk wordt aan de vast gehouden peilen links en rechts ervan.
-\end_layout
-
-\begin_layout Standard
-Het resultaat voor het eind van de tijdstap kan hiermee direct worden berekend.
- Simulatie door de tijd kan middels convolutie (
-\begin_inset Formula $scipy.signal.lfilter)$
-\end_inset
-
- of door net als in voorgaande voorbeelden van tijdstap naar tijdstap te rekenen en binnen elke tijdstap het resultaat van het neerslagoverschot en de slootpeilverandering te superponeren.
 \end_layout
 
 \begin_layout Paragraph
@@ -3471,24 +3107,7 @@ Hoeveel termen meenemen?
 \begin_layout Standard
 Het convergentiecriterium dat bepaalt hoeveel termen van de reeks in de formules we zullen moeten worden meenemen.
  Dit is voor de stap- en de blokrespons hetzelfde en wordt in deze paragraaf behandeld.
- De reeks in vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:lim-SR"
-nolink "false"
-
-\end_inset
-
- en dus potentieel ook die in vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:SR-slootpeil"
-nolink "false"
-
-\end_inset
-
-convergeert traag.
- De snelheid van convergentie wordt feitelijk beslist door de grootte van de exponent;
+ De convergentie wordt feitelijk beslist door de grootte van de exponent;
  deze bepaalt de snelheid waarmee de waarde van de hogere termen van de reeks in de tijd afnemen.
  Om te bepalen hoeveel termen,
  
@@ -3504,115 +3123,13 @@ convergeert traag.
 \end_layout
 
 \begin_layout Standard
-Beschouwen derhalve we twee opeenvolgende exponenten bij een tijdstap 
-\begin_inset Formula $\Delta\tau$
-\end_inset
-
-,
- dan,
- met 
-\begin_inset Formula $T=b^{2}\mu/(\left(\frac{\pi}{2}\right){}^{2}kD)$
-\end_inset
-
-,
- krijgen we:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{\exp\left[-\left(2n+1\right)^{2}\frac{\Delta\tau}{T}\right]}{\exp\left[-\left(2n-1\right)^{2}\frac{t}{T}\right]} & = & \exp\left[\left\{ \left(2n-1\right)^{2}-\left(2n+1\right)^{2}\right\} \frac{\Delta\tau}{T}\right]\\
- & = & \exp\left[\left\{ 4n^{2}-4n+1-4n^{2}-4n-1\right\} \frac{\Delta\tau}{T}\right]\\
- & = & \exp\left[-8n\frac{\Delta\tau}{T}\right]
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We eisen nu dat deze verhouding,
- kleiner is dan ons gekozen convergentiecriterium,
- dat we gemakshalve gelijk stellen aan 
-\begin_inset Formula $\exp\left(-k\right)$
-\end_inset
-
-.
- Aldus is er sprake van convergentie indien
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\exp\left(-8n\frac{\Delta\tau}{T}\right) & < & \exp\left(-k\right)\\
-n & > & \frac{k}{8}\frac{T}{\Delta\tau}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Kiezen we bijvoorbeeld 
-\begin_inset Formula $\exp\left(-k\right)=10^{-3},\,10^{-4},\,10^{-5,},\,10^{-6}$
-\end_inset
-
-,
- dan wordt 
-\begin_inset Formula $k$
-\end_inset
-
- is resp.
- 6.9,
- 9.2,
- 11.5 en 13.8.
- Dus de waarde van 
-\begin_inset Formula $k/8$
-\end_inset
-
- kan op 1.5 worden gesteld voor een voldoende nauwkeurige berekening.
- Hierdoor vereenvoudigt het convergentiecriterium tot
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-n\approx1.5\frac{T}{\Delta\tau}\label{eq:conv-criterium}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit criterium wordt daarom ingebouwd.
-\end_layout
-
-\begin_layout Section
-Analytische oplossingen met slootweerstand
-\end_layout
-
-\begin_layout Standard
-De weerstand tussen grond en sloot wordt conceptueel opgevat als een verticaal muurtje (of vlies) in het watervoerend pakket (hoogte 
-\begin_inset Formula $D$
-\end_inset
-
- [L]) met weerstand 
-\begin_inset Formula $w$
-\end_inset
-
- [T].
- Het is altijd mogelijk om de werkelijke situatie waarin de sloot maar voor een deel in de toplaag snijdt en een eigen specifieke breedte en omtrek heeft hiernaar terug te rekenen en bovendien rekening te houden met de altijd aanwezige verticale anisotropie.
- De stroming van de grond naar de sloot is nu gelijk aan
+We eisen dat de reeks
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-Q=\frac{D}{w}\left(h_{b}-h_{LR}\right)
+\sum_{n=n}^{\infty}\exp\left(-\left(2n+1\right)^{2}\tau\right)\approx\intop_{n}^{\infty}\exp\left(-\left(2x+1\right)^{2}\tau\right)dx=\frac{1}{4}\sqrt{\frac{\pi}{\tau}}\text{erfc}\left(\left(2x+1\right)\sqrt{\tau}\right)
 \]
 
 \end_inset
@@ -3621,145 +3138,68 @@ Q=\frac{D}{w}\left(h_{b}-h_{LR}\right)
 \end_layout
 
 \begin_layout Standard
-In de analytische GGOR wordt met de doorsnedegemiddelde grondwaterstand gerekend.
- De stijghoogte aan de rand van de sloot is dan niet expliciet gegeven.
- We kunnen deze uiteraard expliciet afleiden,
- maar een eenvoudiger aanpak is via de constatering dat deze afvoer in de stationaire situatie gelijk is aan de aanvoer,
- namelijk 
-\begin_inset Formula $N+q$
-\end_inset
-
- (als kwel aanwezig is).
- We hebben reeds de vergelijking tussen 
-\begin_inset Formula $N+q$
-\end_inset
-
- en de doorsnedegemiddelde grondwaterstand 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- en hiermee dus tevens impliciet voor de afvoer naar de sloten,
- die alleen afhankelijk is van de doorsnedegemiddelde grondwaterstand waar we mee rekenen.
-\end_layout
-
-\begin_layout Standard
-De stroming naar de sloten,
+Fig.
  
-\begin_inset Formula $Q$
-\end_inset
-
- [L
-\begin_inset Formula $^{2}$
-\end_inset
-
-/T],
- hangt uitsluitend af van 
-\begin_inset Formula $\overline{h}-h_{LR}$
-\end_inset
-
- en,
- uitgedrukt in [L/T] is deze in de stationaire situatie gelijk aan 
-\begin_inset Formula $N+q$
-\end_inset
-
-.
- Ingevuld in de hiervoor afgeleide vergelijking
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{Lr}=\frac{Q}{b}c\left(\frac{w}{c}\frac{b}{D}+\Gamma\right)
-\]
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:De-grootte-van-de-exp-rest-reeks"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\frac{Q}{b}= & \frac{\overline{h}-h_{LR}}{c\left(\frac{w}{c}\frac{b}{D}+\Gamma\right)}
-\end{align*}
-
+ geeft de grootte van de integraal,
+ de restreeks aan 
+\begin_inset Formula $\exp$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Subparagraph
-Niet-stationair
-\end_layout
-
-\begin_layout Standard
-Zoals hiervoor reeds vastgesteld is het enige het toevoegen van de slootweerstand verandert,
- is de toevoeging van de term 
-\begin_inset Formula $\frac{w}{c}\frac{b}{D}$
-\end_inset
-
- aan de oorspronkelijke uitdrukking voor 
-\begin_inset Formula $T$
+-termen weer als functie van 
+\begin_inset Formula $t/T$
 \end_inset
 
 .
- Hiermee is de oplossing voor de niet-stationaire situatie met slootweerstand ook bekend
-\end_layout
-
-\begin_layout Standard
-Uitgewerkt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}-\left(N+q\right)T=\left(\overline{h}_{0}-h_{LR}-\left(N+q\right)T\right)\exp\left(-\frac{t}{\mu T}\right)
-\]
-
+ Dus bij 
+\begin_inset Formula $T=1000t$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-of,
- anders gerangschikt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(\overline{h}_{0}-h_{LR}\exp\left(-\frac{t}{\mu T}\right)\right)+\left(N+q\right)T\left(1-\exp\left(-\frac{t}{\mu T}\right)\right)
-\]
-
+ zijn ongeveer dertig termen nodig,
+ waarna de rest van de reeks kan worden verwaarloosd,
+ bij 
+\begin_inset Formula $T=100t$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{\overline{h}-h_{LR}=\left(\overline{h}_{t=0}-h_{LR}\right)\exp\left(-\frac{t}{T}\right)+\left(\left(N+q\right)c\Gamma\right)\left(1-\exp\left(-\frac{t}{T}\right)\right)}
-\]
-
+ zijn dat er nog ca.
+ 8,
+ bij 
+\begin_inset Formula $T=10t$
 \end_inset
 
+ nog 2 en bij 
+\begin_inset Formula $T=t$
+\end_inset
 
-\end_layout
+ is nog slechts een term van de reeks nodig.
+ Een praktische regel is 
+\begin_inset Formula $n=\sqrt{T/\Delta t}$
+\end_inset
 
-\begin_layout Standard
-met 
+ waarin 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+ de tijdstap is en 
 \begin_inset Formula $T$
 \end_inset
 
- gelijk aan
+ de karakteristieke tijd van dit systeem
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\boxed{T=\mu\left(\frac{w}{c}\frac{b}{D}+\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)\right)}
+\boxed{T=\left(\frac{2\beta b}{\pi}\right)^{2}=\frac{4b^{2}S}{\pi^{2}kD}}
 \]
 
 \end_inset
@@ -3768,7 +3208,144 @@ met
 \end_layout
 
 \begin_layout Standard
-We kunnen concluderen dat de aanpassing van de base-case aan de situatie met intredeweerstand minimaal is.
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/doc/images/needed_terms.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:De-grootte-van-de-exp-rest-reeks"
+
+\end_inset
+
+De grootte van de rest van de reeks met exp-termen als functie van de start 
+\begin_inset Formula $n$
+\end_inset
+
+ en de verhouding 
+\begin_inset Formula $t/T$
+\end_inset
+
+.
+ Bij 
+\begin_inset Formula $T=1000t$
+\end_inset
+
+ is de reeks te verwaarlozen na ca.
+ 30 termen,
+ bij T=100t al na ca.
+ 8 termen en bij T=10t al na 2 termen en bij T=t is nog slechts 1 term nodig.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bruggeman heeft voor dezelfde situatie ook de oplossing met intredeweerstand (133.02->137.02) en (133.16–>137.09):
+\end_layout
+
+\begin_layout Standard
+Voor de situatie met plotseling verandering van het slootpeil met 
+\begin_inset Formula $\delta_{h}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\delta_{h}-2\delta_{h}\sum_{n=0}^{\infty}\frac{\sin\alpha_{n}}{\alpha_{n}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\cos\left(\frac{\alpha_{n}x}{b}\right)\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En voor neerslag die op 
+\begin_inset Formula $t=0$
+\end_inset
+
+ begint
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\frac{p}{2kD}\left(b^{2}-x^{2}\right)+\frac{pbw}{D}-\frac{2pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin\alpha_{n}}{\alpha_{n}^{3}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\cos\left(\frac{\alpha_{n}x}{b}\right)\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken worden geïntegreerd en vervangen door
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{b}\intop_{0}^{b}\cos\left(\frac{\alpha_{n}x}{b}\right)dx=\alpha_{n}\sin\left(\alpha_{n}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}=\delta_{h}-2\delta_{h}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}=\frac{p}{3kD}b^{2}+\frac{pbw}{D}-\frac{2pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\alpha_{n}^{2}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3777,11 +3354,11 @@ Drainageweerstand en voedingsweerstand
 
 \begin_layout Standard
 In de afgelopen 30 jaar en wellicht nog langer is door hydrologen uit Delft en Wageningen nagedacht over het begrip drainageweerstand en voedingsweerstand (referenties uit Stromingen @@@).
- De discussie werd met name van belang toen vanaf de zestiger jaren het numeriek modelleren in zwang.
+ De discussie werd met name van belang toen vanaf de zestiger jaren het numeriek modelleren in zwang raakte.
  Het bleek daarbij dat de modellen onmogelijk de gedetailleerde ontwatering in laag Nederland aankonden.
- Dit bracht met zich mee dat een methode moest worden ontwikkeld om deze ontwatering met behoud van zijn essenties op regionale schaal toch verantwoord in een model te kunnen opemen.
- De weerstand van het typisch Hollandse (en Fries-Groningse) topsysteem zou diffuus moeten worden toegepast op een wijze dat de stijghoogte en de waterstromen in de diepere lagen toch goed zouden worden berekend.
- Het Hollandse profiel bestaat conceptueel uit tenminste een diep watervoerend pleistoceen pakket met daarop een dunne Holocene deklaag.
+ Dit bracht met zich mee dat een methode moest worden ontwikkeld om deze ontwatering met behoud van zijn essenties op regionale schaal toch verantwoord in een model te kunnen opnemen.
+ De weerstand van het typisch Hollandse en Fries-Groningse topsysteem zou diffuus moeten worden toegepast (worden opgeschaald) op een zodanige wijze dat de stijghoogte en de waterstromen in de diepere lagen toch goed zouden worden berekend.
+ Dit zogenoemde Hollandse profiel bestaat conceptueel uit tenminste een diep pleistoceen watervoerend pakket met daarop een dunne holocene deklaag.
  Deze deklaag werd op zijn beurt geschematiseerd tot een dun watervoerend pakket dat door een weerstandbiedende laag van de onderliggende regionale aquifer is gescheiden.
  Sloten bevinden zich in deze deklaag,
  maar soms snijden ze er doorheen.
@@ -3793,15 +3370,15 @@ In de afgelopen 30 jaar en wellicht nog langer is door hydrologen uit Delft en W
 
 \begin_layout Standard
 De drainageweerstand is de weerstand die het water ondervindt bij stroming door de deklaag tot in de sloten.
- De voedingsweerstand is de weerstand die het water ondervindt tussen het diepe pakket en de sloten.
- Deze zijn niet hetzelfde,
+ De voedingsweerstand is de weerstand die het water ondervindt tussen het diepe pakket en dezelfde sloten.
+ Deze twee weerstanden zijn niet hetzelfde,
  omdat het water vanuit het diepe pakket niet alleen de scheidende laag aan de basis van de deklaag moet passeren,
  maar ook de weerstand in de deklaag.
- Bovendien moet dit water opboksen tegen de hogere stijghoogte in de deklaag in nattere perioden en omgekeerd tegen minder hoge waterstanden in drogere perioden.
+ Bovendien moet dit water opboksen tegen de hogere grondwaterstand in de deklaag in nattere perioden en omgekeerd tegen minder hoge waterstanden in drogere perioden.
  De tegendruk die het opkwellende water ondervindt hangt dus niet zozeer van de sloten af,
  maar van de ondiepe grondwaterstand,
  die op zichzelf weer wel van de sloten afhangt.
- In de praktijk zijn regels afgeleid voor het het berekenen van de flux vanuit het diepe pakket naar de sloten in een Hollands profiel,
+ In de praktijk zijn regels afgeleid voor het berekenen van de flux vanuit het diepe pakket naar de sloten in een Hollands profiel,
  waarbij in het model de deklaag alleen impliciet wordt meegenomen in het modelconcept.
  Het komt er dan op neer dat de weerstand van de deklaag moet worden aangepast (verhoogd) tot de zogenoemde voedingsweerstand (in plaats van drainageweerstand),
  plus dat het slootpeil in het model moet meevariëren met het neerslagoverschot om de invloed van de ondiepe grondwaterstand op de kwelflux goed in rekening te brengen.
@@ -3810,6 +3387,15 @@ De drainageweerstand is de weerstand die het water ondervindt bij stroming door 
  Daarvoor kunnen de formules worden gebruikt die in dit rapport zijn afgeleid,
  omdat zij alle het verband geven tussen de gemiddelde grondwaterstand en het slootpeil.
  Deze relaties kunnen direct worden omgerekend naar een diffuse weerstand.
+\end_layout
+
+\begin_layout Standard
+Voor de GGOR-tool is het verschil tussen voedingsweerstand en drainageweerstand niet van belang omdat de grondwaterstand niet diffuus maar expliciet wordt meegenomen in de berekeningen.
+ Desondanks wordt hierna een kleine analyse gegeven
+\end_layout
+
+\begin_layout Subsection*
+Anlyse voedings- en drainageweerstand
 \end_layout
 
 \begin_layout Standard
@@ -3852,7 +3438,7 @@ voedingssituatie
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}-h_{LR}=\left(Nc+qc\right)\left(\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
+\overline{h}-h_{LR}=\left(N+q\right)c\left(\frac{w}{c}\frac{b}{D}+\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
 \]
 
 \end_inset

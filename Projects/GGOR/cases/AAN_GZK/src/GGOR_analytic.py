@@ -85,21 +85,23 @@ class Aquifer:
             G=self.G,
         )
 
-aq = Aquifer(k=10.0, D=5.0, c=0.2, mu=0.15, b=50, w=0)
-print(aq)
-print(aq.summary())
+# aq = Aquifer(k=10.0, D=5.0, c=0.2, mu=0.15, b=50, w=0)
+# print(aq)
+# print(aq.summary())
+        
+def root_x_tan_x(a, k):
+    """Return k roots of x tan(x) = a.
+    
+    Required for manu solutions with Bessel functions and
+    solutions with sums involving entry resistance.
+    """
+    def f(x):
+        return x*np.tan(x) - a
+    eps = 1e-12
+    left  = k*np.pi + eps
+    right = k*np.pi + np.pi/2 - eps
+    return brentq(f, left, right)
 
-@dataclass
-class Tdata:
-    tdata: pd.DataFrame
-
-    def __post_init__(self):
-        assert pd.api.types.is_datetime64_any_dtype(self.tdata.index)
-        assert 'RH' in self.tdata.columns
-        assert 'EV24' in self.tdata.columns
-
-        self.tdata['R'] = self.tdata['RH'] - self.tdata['EV24']
-        self.tdata = self.tdata[['RH', 'EV24', 'R']]
 
 # %%
 
@@ -134,6 +136,13 @@ class AnalyticalSolution(ABC):
 # %% Implementation base case
 
 class Dupuit(AnalyticalSolution):
+    """
+    The Dupuit case is a single layer with constant kD and
+    no regional aquifr below it, but entry resistance
+    is included.
+    
+    The transient case is only for X-section-average head.
+    """
     
     def steady(self, x: int, hLR: float, R: float)->tuple:
         """Return steady state solution of cross section x.
@@ -220,6 +229,9 @@ class Dupuit(AnalyticalSolution):
         return tdata
     
     def transient(self, time=None, R=None, h0=0, hLR=0):
+        return self.transient_avg(time=time, R=R, h0=h0, hLR=hLR)
+    
+    def transient_avg(self, time=None, R=None, h0=0, hLR=0):
         """Return result of dynamic simulation for constant inputs.
         
         Inputs are constant, time are an np.ndarray of floats [T].
@@ -258,6 +270,13 @@ class Dupuit(AnalyticalSolution):
 
     
 class Base_case(AnalyticalSolution):
+    """The GGOR-tool base case is for a single layer  of constant kD
+    above a regional aquifer with fixed head phi separated by
+    a vertical resistance c. The current base case includes
+    entry resistance.
+    
+    The transient case is only for X-section average head.
+    """
     
     def steady(self, x: float | np.ndarray,
                        phi: float, hLR: float, R: float)->tuple:
@@ -272,6 +291,7 @@ class Base_case(AnalyticalSolution):
         R: float [L/T]
             recharge rate
         """
+        aq = self.aq
         x = np.atleast_1d(x)
         chx = np.cosh(x / aq.lam)
         chb = np.cosh(aq.b / aq.lam)
@@ -282,7 +302,12 @@ class Base_case(AnalyticalSolution):
     
     def steady_q(self, x: float | np.ndarray, hLR: float,
                                     R: float, q: float)->tuple:
-        """Return steady state solution of cross section x.
+        """Return steady state solution of cross section x for given q.
+        
+        For this regional head phi has to be converted to seepage phi.
+        This is done by first computing the X-section averaged water
+        table, and then taking phi = havg + q c, after which the
+        head-method is called.
         
         x: float | np.ndarray [m] 
             x-coordinates  -b <= x <= b            
@@ -374,7 +399,11 @@ class Base_case(AnalyticalSolution):
         return tdata
     
     def transient(self, time: float | np.ndarray, R: float, h0: float, hLR: float, q: float)->float | np.ndarray:
-        """Return result of dynamic simulation for constant inputs.
+        """Return result of dynamic simulation for constant inputs."""
+        return self.transient_avg(time=time, h0=h0, hLR=hLR, q=q)
+    
+    def transient_avg(self, time: float | np.ndarray, R: float, h0: float, hLR: float, q: float)->float | np.ndarray:
+        """Return X-sec avg dynamic head for constant inputs.
         
         Inputs are constant, time are an np.ndarray of floats [T].
         This allows observing asympotic behavior.
@@ -414,7 +443,11 @@ class Base_case(AnalyticalSolution):
         return hLR + (R + q) * aq.T2L
         
 class Brug13302():
+    """One-layer transient cross section bounded by surface water at x=p/m b.
     
+    Case 133.02 is the case wat which surface water suddeny rise
+    with a fixed amount, with no entry resistance.
+    """
     def __init__(self, aq: Aquifer) -> None:
         self.aq = aq
 
@@ -454,9 +487,39 @@ class Brug13302():
             else:
                 s += ds
         return s0 - F * s
-        
-class Brug13316():
     
+    def transient_avg(self, dh: float, time: float | np.ndarray, eps=1e-12) -> float | np.ndarray:
+        """Return cross-section average head."""
+                
+        aq = self.aq
+        
+        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
+        tau = time / T        
+        
+        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
+        N = 30
+                
+        F = 8 * dh / np.pi**2
+        
+        for n in range(N + 1):
+            n2p1 = 2*n + 1
+            ds = (
+            1 / n2p1**2            
+            * np.exp(-n2p1**2 * tau)
+            )
+            if n == 0:
+                s = ds
+            else:
+                s += ds
+        return dh - F * s
+    
+
+class Brug13316():
+    """One-layer transient cross section bounded by surface water at x=p/m b.
+    
+    Case 133.16 is the case where recharge starts at t=0,
+    without entry resistance.
+    """
     def __init__(self, aq: Aquifer) -> None:
         self.aq=aq
     
@@ -465,6 +528,11 @@ class Brug13316():
         aq=self.aq
         h = R / (2 * aq.kD) * (aq.b**2 - x**2)
         return h if h.size > 1 else h.item()
+
+    def steady_avg(self, R: float) -> float | np.ndarray:        
+        aq=self.aq
+        h = R * aq.b**2 / (3 * aq.kD)
+        return h
     
     def transient(self, R: float, time: float | np.ndarray,
                   x: float | np.ndarray,
@@ -501,18 +569,42 @@ class Brug13316():
             else:
                 s += ds
         return s0 - F * s
-
-def root_x_tan_x(a, k):
-    def f(x):
-        return x*np.tan(x) - a
-    eps = 1e-12
-    left  = k*np.pi + eps
-    right = k*np.pi + np.pi/2 - eps
-    return brentq(f, left, right)
+    
+    def transient_avg(self, R: float, time: float | np.ndarray,
+                  eps=1e-12) -> float | np.ndarray:
+        """Return X-section average head."""
+        
+        aq = self.aq
+        
+        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
+        tau = time / T        
+        
+        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
+        N = 30
+        
+        s0 = self.steady_avg(R=R)
+        
+        # --- Factor in boek 16, moet 8 zijn       
+        F =  32 * R * aq.b**2 / (np.pi**4 * aq.kD)
+        
+        for n in range(N + 1):
+            n2p1 = 2*n + 1
+            ds = (
+                1 / n2p1**4                
+                * np.exp(-n2p1**2 * tau)
+            )
+            if n == 0:
+                s = ds
+            else:
+                s += ds
+        return s0 - F * s
 
 class Brug13702():
-    """Sudden rise h of the surface water level."""    
+    """One-layer transient cross section bounded by surface water at x=p/m b.
     
+    Case 137.02 is the case in which the surface water suddenly rises
+    with a fixed amount, with entry resistance.
+    """    
     def __init__(self, aq: Aquifer) -> None:
         self.aq = aq
 
@@ -551,7 +643,38 @@ class Brug13702():
                 s += ds
         return dh - 2 * dh * s
     
+    def transient_avg(self, dh: float, time: float | np.ndarray) -> float | np.ndarray:
+        """Returd X-section averaged head."""
+        
+        aq = self.aq
+             
+        N = 30
+        
+        if np.isclose(aq.w, 0):
+            raise ValueError("aq.w must be > 0 to use this function")
+        
+        eps   = aq.b / (aq.k * aq.w)
+        alfas = [root_x_tan_x(eps, k) for k in range(N)]
+        
+        for n, alpha in zip(range(N + 1), alfas):
+            T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
+            ds = (
+                np.sin(alpha)**2 / (1 + eps / (alpha**2 + eps**2))                
+                * np.exp(-time/ T)
+            )
+            if n == 0:
+                s = ds
+            else:
+                s += ds
+        return dh - dh * s
+    
 class Brug13709():
+    """One-layer transient cross section bounded by surface water at x=p/m b.
+    
+    Case 137.09 is the case in which constant recharge starts at t=0,
+    with entry resistance.
+    """
+
     """Sudden rise h of the surface water level."""    
     
     def __init__(self, aq: Aquifer) -> None:
@@ -562,6 +685,12 @@ class Brug13709():
         aq = self.aq
         h = R / (2 * aq.kD) * (aq.b**2 - x**2) + R * aq.b * aq.w / aq.D
         return h if h.size > 1 else h.item()
+    
+    def steady_avg(self, R: float) -> float | np.ndarray:        
+        aq = self.aq
+        h = R * aq.b**2 / (3 * aq.kD) + R * aq.b * aq.w / aq.D
+        return h
+
             
     def transient(self, R: float, time: float | np.ndarray, x: float | np.ndarray) -> float | np.ndarray:
         
@@ -597,7 +726,36 @@ class Brug13709():
                 s += ds
         return s0 - F * s
 
-def example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0, w=0):
+    def transient_avg(self, R: float, time: float | np.ndarray) -> float | np.ndarray:
+        """Return X-section average head."""
+               
+        aq = self.aq
+        
+        if np.isclose(aq.w, 0):
+            raise ValueError("aq.w must be > 0 to use this function")
+
+        
+        s0 = self.steady_avg(R=R)
+        
+        F = R * aq.b**2 / aq.kD        
+        N = 30
+        
+        eps   = aq.b / (aq.k * aq.w)
+        alfas = [root_x_tan_x(eps, k) for k in range(N)]
+        
+        for n, alpha in zip(range(N + 1), alfas):
+            T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
+            ds = (
+                (np.sin(alpha)**2 / alpha**2) / (1 + eps / (alpha**2 + eps**2))                
+                * np.exp(-time/ T)
+            )
+            if n == 0:
+                s = ds
+            else:
+                s += ds
+        return s0 - F * s
+
+def ex_dupuit_transient(b=50, R=0.001, h0=0, hLR=0, w=0):
     """Show head development for steady inputs together with asymptote
     
     Parameters
@@ -633,7 +791,7 @@ def example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0, w=0):
         
         T = aq.T1L
         
-        h = mdl.transient(time=time, R=R, h0=h0, hLR=hLR)
+        h = mdl.transient_avg(time=time, R=R, h0=h0, hLR=hLR)
         hinf = mdl.asymptote(R=R, hLR=hLR)
 
         ax.plot(time[1:], h[1:], color=clr, label=f'b={aq.b:7.0f} d, muT={aq.mu * T:8.3g} d')
@@ -642,7 +800,7 @@ def example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0, w=0):
     ax.legend(loc="upper left")    
 
 
-def example_dupuit_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1):
+def ex_dupuit_transient_pd(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1):
     """Show transient head development driven by meteo
     
     Parameters
@@ -691,7 +849,7 @@ def example_dupuit_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1)
     ax.legend(loc="lower right")
   
 
-def example_base_case_steady():
+def ex_base_case_steady():
     """Show the base case steady and compare with single layer."""
     
     from itertools import cycle
@@ -737,7 +895,7 @@ def example_base_case_steady():
     ax.legend(loc='upper right')
     plt.show()
     
-def example_base_case_transient0(b=50, R=0.001, h0=0, hLR=0, q=0):
+def ex_base_case_transient0(b=50, R=0.001, h0=0, hLR=0, q=0):
     """Show head development for steady inputs together with asymptote
     
     Parameters
@@ -781,7 +939,7 @@ def example_base_case_transient0(b=50, R=0.001, h0=0, hLR=0, q=0):
     ax.grid(True)
     ax.legend(loc="lower right")    
 
-def example_base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
+def ex_base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
     """Show transient head development driven by meteo
     
     Parameters
@@ -864,13 +1022,14 @@ def compare_limits():
     
     plt.show()
 
-def example_brug13302():
+def ex_brug13302():
     aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
     xs = np.array([0, 0.25, 0.5, 0.75, 0.95]) * aq.b
     dh = 0.1
     time = np.linspace(0, 20, 101)
     
     brug = Brug13302(aq)
+    dup  = Dupuit(aq)
 
     fig, ax = plt.subplots(figsize=(10, 7.5))
     
@@ -879,13 +1038,20 @@ def example_brug13302():
                  "\n" + str(aq).replace(", w=0","").replace(", c=200",""))
     ax.set(xlabel='t d[]', ylabel='h [m]')
     
+    clrs = cycle('brgkmcy')
     for x in xs:
-        h = brug.transient(dh=dh, time=time, x=x)
-        ax.plot(time, h, label=f'x={x} m')
+        clr = next(clrs)
+        ht = brug.transient(dh=dh, time=time, x=x)
+        ha = brug.transient_avg(dh=dh, time=time)
+        hd = dup.transient(R=0, time=time, h0=0, hLR=dh)
+        ax.plot(time, ht, '-', color=clr, label=f'Brug133.02, x={x} m')
+        ax.plot(time, ha, 'o', mec=clr, mfc='none', label='Brug133.02 transient_avg')
+        ax.plot(time, hd, 'x', mec=clr, mfc='none', label='Dupuit transient_avg')
+        
     ax.grid(True)
     ax.legend()
 
-def example_brug13702():
+def ex_brug13702():
     aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
     xs = np.array([0, 0.25, 0.5, 0.75, 0.95, 0.99]) * aq.b
     dh = 0.1
@@ -908,14 +1074,20 @@ def example_brug13702():
         h1 = brug1.transient(dh=dh, time=time, x=x)
         h2 = brug2.transient(dh=dh, time=time, x=x)
         hd = dup.transient(time=time, R=0., h0=0, hLR=dh)
-        ax.plot(time, h1, '-', color=clr, label=f'h1, x={x} m, no   ditch resistance')
-        ax.plot(time, h2, '.', color=clr, label=f'h2, x={x} m, with ditch resistance')
-        ax.plot(time, hd, 'o', mec=clr, mfc='none', label="Dupuit with ditch resistance")
+        hb = brug2.transient_avg(dh=dh, time=time)
+        ax.plot(time, h1, '-', color=clr,
+                label=f'h1, x={x} m, no   ditch resistance')
+        ax.plot(time, h2, '.', color=clr,
+                label=f'h2, x={x} m, with ditch resistance')
+        ax.plot(time, hd, 'o', mec=clr, mfc='none',
+                label="Dupuit with ditch resistance")
+        ax.plot(time, hb, 'x', mec=clr, mfc='none',
+                label="brug avg with ditch resistance")
     ax.grid(True)
     ax.legend()
 
 
-def example_brug13316():
+def ex_brug13316():
     aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
     xs = np.array([0, 0.25, 0.5, 0.75, 0.95, 0.99]) * aq.b
     R = 0.001
@@ -934,16 +1106,21 @@ def example_brug13316():
     clrs = cycle("brgkmcy")
     for x in xs:
         clr = next(clrs)
-        h = brug.transient(R=R, time=time, x=x)
+        ht = brug.transient(R=R, time=time, x=x)
+        hb = brug.transient_avg(R=R, time=time)
+        hd = dup.transient(time=time, R=R)
         hdup = dup.steady(x=x, hLR=0, R=R)
-        ax.plot(time, h, color=clr, label=f'x={x} m')
-        ax.plot(time[-1], hdup, 'o', color=clr)
+        
+        ax.plot(time, ht, color=clr, label=f'Brug133.16, x={x} m')
+        ax.plot(time, hb, 's', mec=clr, mfc='none', label='Brug133.16 avg')
+        ax.plot(time, hd, 'o', mec=clr, mfc='none', label='Dupuit transient')      
+        ax.plot(time[-1], hdup, 'x', mec=clr, mfc='none', label='Dupuit')
         
     ax.grid(True)
     ax.legend()
 
 
-def example_brug13709():
+def ex_brug13709():
     aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
     xs = np.array([0, 0.25, 0.5, 0.75, 0.95, 0.99]) * aq.b
     R = 0.001
@@ -965,13 +1142,19 @@ def example_brug13709():
         clr = next(clrs)
         h1t = brug1.transient(R=R, time=time, x=x)
         h2t = brug2.transient(R=R, time=time, x=x)
+        h2a = brug2.transient_avg(R=R, time=time)
         hdt = dup.transient(R=R, time=time)
         hd  = dup.steady(x=x, hLR=0, R=R)
         
-        ax.plot(time, h1t, '-', color=clr, label=f'h1, x={x} m, 133.16, no resis.')
-        ax.plot(time, h2t, '.', color=clr, label=f'h2, x={x} m, 137.09 + resis.') 
-        ax.plot(time, hdt, 'o', mec=clr, mfc='none', label='Dupuit + resitance')
-        ax.plot(time[-1], hd, 'o', color=clr)
+        ax.plot(time, h1t, '-', color=clr,
+                label=f'Brug133.16, x={x} m, no resis.')
+        ax.plot(time, h2t, '.', color=clr,
+                label=f'Brug137.09, x={x} m, + resis.')
+        ax.plot(time, h2a, 's', mec=clr, mfc='none',
+                label= 'Brug137.09 avg, + resis.')
+        ax.plot(time, hdt, 'o', mec=clr, mfc='none',
+                label='Dupuit + resitance')
+        ax.plot(time[-1], hd, 'x', color=clr)
         
     ax.grid(True)
     ax.legend()
@@ -979,29 +1162,29 @@ def example_brug13709():
     
 if __name__ == "__main__":
     if False:
-        example_base_case_steady()
+        ex_base_case_steady()
     if False:
-        example_dupuit_transient0(b=50, R=0.001, h0=0, hLR=0)
-        example_dupuit_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1)
+        ex_dupuit_transient(b=50, R=0.001, h0=0, hLR=0)
+        ex_dupuit_transient_pd(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1)
     if False:
-        example_base_case_transient0(b=50, R=0.001, h0=0, hLR=0, q=0)
-        example_base_case_transient0(b=500, R=0.001, h0=0, hLR=0, q=0)
-        example_base_case_transient0(b=5000, R=0.001, h0=0, hLR=0, q=0)    
-        example_base_case_transient0(b=50, R=0.0, h0=3, hLR=0, q=0)
-        example_base_case_transient0(b=50, R=0.0, h0=0, hLR=3, q=0)
-        example_base_case_transient0(b=50, R=0.0, h0=0, hLR=0, q=0.001)
+        ex_base_case_transient(b=50, R=0.001, h0=0, hLR=0, q=0)
+        ex_base_case_transient(b=500, R=0.001, h0=0, hLR=0, q=0)
+        ex_base_case_transient(b=5000, R=0.001, h0=0, hLR=0, q=0)    
+        ex_base_case_transient(b=50, R=0.0, h0=3, hLR=0, q=0)
+        ex_base_case_transient(b=50, R=0.0, h0=0, hLR=3, q=0)
+        ex_base_case_transient(b=50, R=0.0, h0=0, hLR=0, q=0.001)
     if False:
         rch = ggor_meteo.Meteo().recharge
         h_summer, h_winter = -0.9, -1.1
         h0, q = 0, 0
-        example_base_transient(rch, b=50, h0=3, h_summer=0, h_winter=0, q=q)
+        ex_base_transient(rch, b=50, h0=3, h_summer=0, h_winter=0, q=q)
     if False:
         compare_limits()
     if True:
-        # example_brug13302()
-        # example_brug13316()
-        # example_brug13702()
-        example_brug13709()
+        ex_brug13302()
+        ex_brug13316()
+        ex_brug13702()
+        ex_brug13709()
         
         
     plt.show()

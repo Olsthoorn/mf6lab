@@ -2942,10 +2942,6 @@ T=\left(\frac{2\beta b}{\pi}\right)^{2}=\frac{4b^{2}S}{\pi^{2}kD}\rightarrow\exp
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 Deze 
 \begin_inset Formula $T$
 \end_inset
@@ -3033,6 +3029,75 @@ Het is duidelijk dat we ook hier met
 
  als karakteristieke tijd de exponent kunnen vereenvoudigen tot iets dat direct aanspreekt.
  Ook deze oplossing kan het meest efficiënt worden berekend met behulp van convolutie.
+\end_layout
+
+\begin_layout Standard
+Om de exacte,
+ doorsnedegemiddelde grondwaterstand 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ te krijgen moeten we factor met 
+\begin_inset Formula $x$
+\end_inset
+
+ integreren
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{b}\intop_{0}^{b}\cos\left[\frac{\left(2n+1\right)\pi}{2b}x\right]dx=\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\sin\left[\left(2n+1\right)\frac{\pi}{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor 
+\begin_inset Formula $n$
+\end_inset
+
+ oplopend van 0 naar oneindig reduceert deze uitdrukking to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\left(2n+1\right)}\frac{2}{\pi}\sin\left[\left(2n+1\right)\frac{\pi}{2}\right]=\frac{1}{\left(2n+1\right)}\frac{1}{\pi}\left(-1\right)^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hierdoor gaan de vergelijkingen hiervoor over in
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\Delta h_{0}-h_{LR}-\frac{8h}{\pi^{2}}\sum_{n=0}^{\infty}\frac{1}{\left(2n+1\right)^{2}}\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\frac{p}{2kD}\left(b^{2}-x^{2}\right)-\frac{32pb^{2}}{\pi^{4}kD}\sum_{n=0}^{\infty}\frac{1}{\left(2n+1\right)^{4}}\exp\left[-\left\{ \frac{\left(2n+1\right)\pi}{2\beta b}\right\} ^{2}t\right]
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -3198,6 +3263,85 @@ De grootte van de rest van de reeks met exp-termen als functie van de start
 \begin_layout Plain Layout
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bruggeman heeft voor dezelfde situatie ook de oplossing met intredeweerstand (133.02->137.02) en (133.16–>137.09):
+\end_layout
+
+\begin_layout Standard
+Voor de situatie met plotseling verandering van het slootpeil met 
+\begin_inset Formula $\delta_{h}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\delta_{h}-2\delta_{h}\sum_{n=0}^{\infty}\frac{\sin\alpha_{n}}{\alpha_{n}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\cos\left(\frac{\alpha_{n}x}{b}\right)\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En voor neerslag die op 
+\begin_inset Formula $t=0$
+\end_inset
+
+ begint
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\frac{p}{2kD}\left(b^{2}-x^{2}\right)+\frac{pbw}{D}-\frac{2pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin\alpha_{n}}{\alpha_{n}^{3}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\cos\left(\frac{\alpha_{n}x}{b}\right)\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken worden geïntegreerd en vervangen door
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{b}\intop_{0}^{b}\cos\left(\frac{\alpha_{n}x}{b}\right)dx=\alpha_{n}\sin\left(\alpha_{n}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}=\delta_{h}-2\delta_{h}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}=\frac{p}{3kD}b^{2}+\frac{pbw}{D}-\frac{2pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\alpha_{n}^{2}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\]
 
 \end_inset
 
