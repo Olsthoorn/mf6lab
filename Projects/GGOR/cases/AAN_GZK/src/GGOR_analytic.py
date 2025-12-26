@@ -1,3 +1,4 @@
+# %% Docstring
 """This file implements analytic solution that are and can be used with GGOR.
 
 The GGOR (desired groundwater and surface water regime) can be simulated
@@ -19,8 +20,7 @@ import ggor_meteo
 from pathlib import Path
 from scipy.optimize import brentq
 from scipy.signal import lfilter
-# %%
-
+# %% Dataclass Aquifer
 @dataclass
 class Aquifer:
     k: float
@@ -104,8 +104,7 @@ def root_x_tan_x(a, k):
     return brentq(f, left, right)
 
 
-# %%
-
+# %% Analytical solution (Dupuit and Base_class)
 class AnalyticalSolution(ABC):
     
     def __init__(self, aq: Aquifer) -> None:
@@ -146,7 +145,8 @@ class AnalyticalSolution(ABC):
     def block_response(self, time: np.ndarray,
                        R: float=0,
                        dh:float=0,
-                       q: float=0) -> np.ndarray:
+                       q: float=0,
+                       eps: float=0.0001) -> np.ndarray:
         """Return the block response for R, dh or q."""
         L = (R, dh, q)
         assert all(x in (0, 1) for x in L) and sum(L) == 1, (
@@ -157,9 +157,13 @@ class AnalyticalSolution(ABC):
             To get BR for q: use q=1 and the rest 0.
         """
         )
-        h = self.transient(time=time, R=R, dh=dh, q=q)
+        try:
+            h = self.transient(time=time, R=R, hLR=dh, q=q)
+        except Exception:
+            h = self.transient(time=time, R=R, hLR=dh)            
         h[1:] -= h[:-1]
-        return h[h >= 0.001]
+        h = h[:np.max(np.where(h[1:] >= eps)[0], initial=-1) + 2]
+        return h
 
      
     def sim_by_lfilter(self, rch, h_summer=0, h_winter=0, q=0):
@@ -167,26 +171,29 @@ class AnalyticalSolution(ABC):
         tdata = pd.DataFrame(rch, columns=['rch'])
         time = (tdata.index - tdata.index[0]) / np.timedelta64(1, 'D')
         
-        summer = rch.index.month >3 and rch.index.month < 10
+        summer = np.logical_and(rch.index.month >3, rch.index.month < 10)
         hLR = np.zeros(len(rch)) + h_winter
         hLR[summer] = h_summer
         tdata['hLR'] = hLR
         tdata['q'] = q
         
         b_R  = self.block_response(time, R=1)
-        b_dh = self.block_response(time, dh=1)        
-        b_q  = self.block_response(time, q=1)
+        b_dh = self.block_response(time, dh=1)       
         
         h = (  lfilter(b_R,  1, tdata['rch'])
-             + lfilter(b_dh, 1, tdata['hLR'] - h_winter)
-             + lfilter(b_q,  1, tdata['q'])
+             + lfilter(b_dh, 1, tdata['hLR'] - h_winter)             
              + h_winter
         )
+        
+        # --- In case there is a regional aquifer, where seepage is possible
+        try:
+            b_q  = self.block_response(time, q=1)
+            h += lfilter(b_q, 1, tdata['q'])
+        except Exception:
+            pass
+
         tdata['h'] = h
         return tdata
-  
-
-# %% Implementation base case
 
 class Dupuit(AnalyticalSolution):
     """
@@ -236,6 +243,8 @@ class Dupuit(AnalyticalSolution):
         ----------
         rch: pd.Series [m/d]
             recharge with index = pd.Timestamps
+        h0: float
+            head at t=0
         h_summer, h_winter: floats
             summer and winter ditch levels
         q: float or series:
@@ -250,24 +259,22 @@ class Dupuit(AnalyticalSolution):
                         
         # --- initialize the column with the computed heads
         tdata['h'] = tdata['hLR']
+        h0 = tdata['h'].values[0]
                         
         # --- end of the previous day
         t0 = tdata.index[0] - np.timedelta64(1, 'D')
-        
-        # --- Head at the start of the first day
-        h0 = tdata['hLR'][0]
-        
-        aq = self.aq
                 
+        aq = self.aq
+            
+        T = aq.T1L
+    
         hcol = list(tdata.columns).index('h')
         
         for it, (t, R, hLR) in enumerate(tdata[['rch', 'hLR']].itertuples()):
 
             # --- allow timesteps to vary
             dt = (t - t0) / np.timedelta64(1, 'D')
-            
-            T = aq.T1L
-            
+                        
             exp = np.exp(-dt / (aq.mu * T))
             havg = hLR +  (h0 - hLR) * exp +  R * T * (1 - exp)
             
@@ -301,7 +308,7 @@ class Dupuit(AnalyticalSolution):
             ditch water level
         """
         time = np.atleast_1d(time)
-        h = np.zeros_like(time) + h0
+        h = np.zeros_like(time)
         
         t0 = time[0]
         
@@ -481,7 +488,7 @@ class Base_case(AnalyticalSolution):
             upward seepage rate
         """
         time = np.atleast_1d(time)
-        h = np.zeros_like(time) + h0
+        h = np.zeros_like(time)
         
         t0 = time[0]
         
@@ -503,6 +510,7 @@ class Base_case(AnalyticalSolution):
         aq = self.aq
         return hLR + (R + q) * aq.T2L
     
+# %% Bruggeman's solutions 133 and 137
 class Brug(ABC):
     def __init__(self, aq):
         self.aq = aq
@@ -994,7 +1002,7 @@ class Brug137(Brug):
              )
         return tdata
     
-
+# %% Examples 
 def ex_dupuit_transient(b=50, R=0.001, h0=0, hLR=0, w=0):
     """Show head development for steady inputs together with asymptote
     
@@ -1085,6 +1093,112 @@ def ex_dupuit_transient_pd(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1):
         
         ax.plot(tdata.index, tdata['h'], color=clr,
                 label=f'muT={aq.mu * T:8.3g} d')
+    ax.grid(True)
+    ax.legend(loc="lower right")
+  
+def ex_sim_lfilter_dupuit(rch=None, b=50, h0=0, h_summer=0.9, h_winter=-1.1):
+    """Show transient head development driven by meteo
+    
+    Parameters
+    ----------
+    tdata: pd DataFrame with fields RH (precip) and EV24 (evapotranspiraton)
+        The meteo data
+    b: float [L]
+        half-width of the X-section
+    h0: float
+        Initial head at t=0
+    h_winter: float
+        Ditch water level during winter.
+    h_summer: float
+        Ditch water level during summer.
+    """
+    # --- Input data
+    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.2, b=b)
+        
+    title1 = str(aq).replace(", c = 200", "").replace(", b = 50", "")
+    title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m"
+    
+    # --- Get meteo data
+    if rch is None:
+        meteo = ggor_meteo.Meteo()
+        rch = meteo.recharge
+        
+    # test
+    rch *= 0.
+        
+    fig, ax = plt.subplots(figsize=(10, 7.8))
+    fig.suptitle("Dupuit case")
+    ax.set_title("Head driven by meteo data, using lfilter" + "\n" + 
+                 title1 + "\n" + title2)
+    ax.set(xlabel='time', ylabel='head [m]', xscale='log')
+    
+    clrs = cycle('brgkmcy')
+    for b in [250]:
+        clr = next(clrs)
+        aq.b = b
+        mdl = Dupuit(aq=aq)
+        T = mdl.aq.T1L
+
+        tdata = mdl.sim_by_lfilter(rch, h_summer=h_summer, h_winter=h_winter)
+        ax.plot(tdata.index, tdata['h'], color=clr, lw=0.5,
+                label=f'lfilter  muT={aq.mu * T:8.3g} d')
+
+        tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter)
+        ax.plot(tdata.index, tdata['h'], '.', color=clr, lw=0.5,
+                label=f'direct  muT={aq.mu * T:8.3g} d')
+    ax.grid(True)
+    ax.legend(loc="lower right")
+
+def ex_sim_lfilter_base_case(rch=None, b=50, h0=0, h_summer=0.9, h_winter=-1.1, q=0):
+    """Show transient head development driven by meteo
+    
+    Parameters
+    ----------
+    tdata: pd DataFrame with fields RH (precip) and EV24 (evapotranspiraton)
+        The meteo data
+    b: float [L]
+        half-width of the X-section
+    h0: float
+        Initial head at t=0
+    h_winter: float
+        Ditch water level during winter.
+    h_summer: float
+        Ditch water level during summer.
+    """
+    # --- Input data
+    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.2, b=b)
+        
+    title1 = str(aq).replace(", c = 200", "").replace(", b = 50", "")
+    title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m"
+    
+    # --- Get meteo data
+    if rch is None:
+        meteo = ggor_meteo.Meteo()
+        rch = meteo.recharge
+        
+    # test    
+    rch *= 0
+        
+    fig, ax = plt.subplots(figsize=(10, 7.8))
+    fig.suptitle("Base case")
+    ax.set_title("Head driven by meteo data, using lfilter" + "\n" + 
+                 title1 + "\n" + title2)
+    ax.set(xlabel='time', ylabel='head [m]', xscale='log')
+    
+    clrs = cycle('brgkmcy')
+    for b in [250]:
+        clr = next(clrs)
+        aq.b = b
+        mdl = Base_case(aq=aq)
+        T = mdl.aq.T2L
+        
+        tdata = mdl.sim_by_lfilter(rch, h_summer=h_summer, h_winter=h_winter, q=q)
+        ax.plot(tdata.index, tdata['h'], color=clr, lw=0.5,
+                label=f'lfilter  muT={aq.mu * T:8.3g} d')
+
+        tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter, q=q)
+        ax.plot(tdata.index, tdata['h'], '.', color=clr, lw=0.5,
+                label=f'direct  muT={aq.mu * T:8.3g} d')
     ax.grid(True)
     ax.legend(loc="lower right")
   
@@ -1432,7 +1546,7 @@ def ex_brug13709():
     ax.grid(True)
     ax.legend(loc='center')
 
-    
+ # %% __main__   
 if __name__ == "__main__":
     if False:
         ex_base_case_steady()
@@ -1455,11 +1569,17 @@ if __name__ == "__main__":
         compare_limits()
     if False:
         ex_brug13316a()
-    if True:
+    if False:
         ex_brug13302()
         ex_brug13316()
         ex_brug13702()
         ex_brug13709()
+    if True:
+        ex_sim_lfilter_dupuit(h0=0, h_summer=1.0, h_winter=0)
+        ex_sim_lfilter_base_case(h0=0, h_summer=1.0, h_winter=0, q=0)         
+        # ex_sim_lfilter_brug133()
+        # ax.sim_lfilter_brug137()
+    
         
         
     plt.show()
