@@ -1,1 +1,1 @@
-s0 - F * s
+exp = np.exp

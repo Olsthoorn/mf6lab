@@ -164,7 +164,6 @@ class AnalyticalSolution(ABC):
         h[1:] -= h[:-1]
         h = h[:np.max(np.where(h[1:] >= eps)[0], initial=-1) + 2]
         return h
-
      
     def sim_by_lfilter(self, rch, h_summer=0, h_winter=0, q=0):
         """Return head simulated by convolution."""
@@ -178,20 +177,18 @@ class AnalyticalSolution(ABC):
         tdata['q'] = q
         
         b_R  = self.block_response(time, R=1)
-        b_dh = self.block_response(time, dh=1)       
+        b_dh = self.block_response(time, dh=1)
+        
+        # b_q always works even if q does not exist (then just zeros are returned)
+        b_q  = self.block_response(time, q=1)
+
         
         h = (  lfilter(b_R,  1, tdata['rch'])
-             + lfilter(b_dh, 1, tdata['hLR'] - h_winter)             
+             + lfilter(b_dh, 1, tdata['hLR'] - h_winter)
+             + lfilter(b_q, 1, tdata['q'])
              + h_winter
         )
         
-        # --- In case there is a regional aquifer, where seepage is possible
-        try:
-            b_q  = self.block_response(time, q=1)
-            h += lfilter(b_q, 1, tdata['q'])
-        except Exception:
-            pass
-
         tdata['h'] = h
         return tdata
 
@@ -443,7 +440,7 @@ class Base_case(AnalyticalSolution):
             
             T = aq.T2L
             
-            exp = np.exp(-dt / T)
+            exp = np.exp(-dt / (aq.mu * T))
             havg = hLR +  (h0 - hLR) * exp +  (R + q) * T * (1 - exp)
             
             # --- havg is for the start of the next day, because it used the data of today.
@@ -514,92 +511,43 @@ class Base_case(AnalyticalSolution):
 class Brug(ABC):
     def __init__(self, aq):
         self.aq = aq
-
-class Brug13302(Brug):
-    """One-layer transient cross section bounded by surface water at x=p/m b.
-    
-    Case 133.02 is the case wat which surface water suddeny rise
-    with a fixed amount, with no entry resistance.
-    """
-    def steady(self, x: float | np.ndarray, dh: float) -> float | np.ndarray:
-        x = np.atleast_1d(x)
-        h = dh * np.ones_like(x)
-        return h if h.size > 1 else h.item()
-    
-    def steady_avg(self, dh:float) -> float:
-        return dh
-            
-    def transient(self, dh: float, time: float | np.ndarray, x: float | np.ndarray, eps=1e-12) -> float | np.ndarray:
         
-        assert (   np.isscalar(x) and not np.isscalar(time)
-                or np.isscalar(time) and not np.isscalar(x)
-                or np.isscalar(x) and np.isscalar(time)
-        ), "x and time must be both scalars or (scalar and array) not both arrays"
+    def block_response(self, time: np.ndarray, x:float | None=None, eps=0.0001) -> np.ndarray:
+        """Return the block response.
         
-        aq = self.aq
-        
-        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
-        tau = time / T
-        px2b = np.pi * x / (2 * aq.b)
-        
-        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
-        N = 30
-        
-        s0 = self.steady(x, dh=dh)        
-        F = 4 * dh / np.pi
-        
-        for n in range(N + 1):
-            n2p1 = 2*n + 1
-            ds = (
-            (-1)**n / n2p1
-            * np.cos(n2p1 * px2b)
-            * np.exp(-n2p1**2 * tau)
-            )
-            if n == 0:
-                s = ds
-            else:
-                s += ds
-        return s0 - F * s
-    
-    def transient_avg(self, dh: float, time: float | np.ndarray, eps=1e-12) -> float | np.ndarray:
-        """Return cross-section average head."""
-                
-        aq = self.aq
-        
-        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
-        tau = time / T        
-        
-        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
-        N = 30
-                
-        F = 8 * dh / np.pi**2
-        
-        for n in range(N + 1):
-            n2p1 = 2*n + 1
-            ds = (
-            1 / n2p1**2            
-            * np.exp(-n2p1**2 * tau)
-            )
-            if n == 0:
-                s = ds
-            else:
-                s += ds
-        return dh - F * s
-    
-    def block_response(self, time: np.ndarray, x:float) -> np.ndarray:
-        """Return the block response."""
+        Parameters
+        ----------
+        time: np.ndarray of float
+            time
+        x: float | None
+            Position in the cross section  -b <=x<=b
+            if None, then X-section average value is returned.
+        """
         if x is None:
-            dh = self.transient_avg(dh=1, time=time)
+            h = self.transient_avg(R=1, dh=1, time=time)
         else:
-            dh = self.transient(dh=1, time=time, x=x)
-        dh[1:] -= dh[:-1]
-        return dh[dh >= 0.001]
-    
-    def sim_lfilter(self, rch=None, h_summer=0, h_winter=0):
-        """Simulate the head using Bruggeman's 133.02.
+            h = self.transient(R=1, dh=1, time=time, x=x)
+        h[1:] -= h[:-1]                
+        h = h[:np.max(np.where(h[1:] >= eps)[0], initial=-1) + 2]
+        return h[h >= 0.001]
+
+    def sim_lfilter(self, rch:pd.Series=None,
+                    h_summer:float=0, h_winter:float=0, x:float=None) -> np.ndarray:
+        """Simulate the head using Bruggeman's solution 133.02.16, 137.02/09.
         
-        These solutions are without entry resistance
+        Solutions 133.02/16 are without and 137.02/09 with entry resistance.
         
+        Parameters
+        ----------
+        rch: pd.Series wit daily values an pd.timestamp index
+            The recharge
+        h_summer: float
+            Ditch water level during summer (April-September).
+        h_winter: float
+            Ditch water level during winter.
+        x: float | None
+            Position in X-section -b<=x<=b
+            If None, then X-section average is returned.
         """        
         tdata = pd.DataFrame(rch, columns=['rch'])
         summer = np.logical_and(tdata.index.month > 3, tdata.index.month < 10)
@@ -608,14 +556,80 @@ class Brug13302(Brug):
         tdata['hLR'] = hLR
         
         time = (tdata.index - tdata.index[0]) / np.timedelta64(1, 'D')
-                
-        Br1 = Brug13302(self.aq)        
         
-        b1 = Br1.block_response(time=time)        
+        b1 = self.block_response(time=time, x=x)        
         tdata['h'] = (  lfilter(b1, 1, tdata['hLR'] - h_winter)             
              + h_winter
              )
         return tdata
+
+class Brug13302(Brug):
+    """One-layer transient cross section bounded by surface water at x=p/m b.
+    
+    Case 133.02 is the case wat which surface water suddeny rise
+    with a fixed amount, with no entry resistance.
+    """
+    def steady(self, dh:float, R:float | None=None, x: float | np.ndarray | None=None) -> float | np.ndarray:
+        if x is None:
+            # --- X-section average value
+            return dh
+        else:
+            # --- Heads at x.
+            x = np.atleast_1d(x)
+            h = dh * np.ones_like(x)
+            return h if h.size > 1 else h.item()
+    
+            
+    def transient(self, time: float | np.ndarray,
+                  dh: float,
+                  R:float | None=None,
+                  x: float | np.ndarray|None=None,
+                  N=30,
+                  eps=1e-12) -> float | np.ndarray:
+        
+        assert not (isinstance(x, np.ndarray) and isinstance(time, np.ndarray)), (
+                "x and time must be both scalars or (scalar and array) not both arrays"
+        )
+
+        aq = self.aq
+        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
+        tau = time / T
+        
+        s0 = self.steady(dh=dh, x=x)        
+        
+        if x is None:
+            # --- Return X-section average head.                 
+            F = 8 * dh / np.pi**2
+            
+            for n in range(N + 1):
+                n2p1 = 2*n + 1
+                ds = (
+                1 / n2p1**2            
+                * np.exp(-n2p1**2 * tau)
+                )
+                if n == 0:
+                    s = ds
+                else:
+                    s += ds
+            return s0 - F * s
+        else:
+            # --- Return head at x        
+            px2b = np.pi * x / (2 * aq.b)
+            
+            F = 4 * dh / np.pi
+            
+            for n in range(N + 1):
+                n2p1 = 2*n + 1
+                ds = (
+                (-1)**n / n2p1
+                * np.cos(n2p1 * px2b)
+                * np.exp(-n2p1**2 * tau)
+                )
+                if n == 0:
+                    s = ds
+                else:
+                    s += ds
+            return s0 - F * s
 
     
 class Brug13316(Brug):
@@ -625,109 +639,72 @@ class Brug13316(Brug):
     without entry resistance.
     """
     
-    def steady(self, x: float | np.ndarray, R: float) -> float | np.ndarray:
-        x = np.atleast_1d(x)
+    def steady(self, R: float,
+               dh:float | None=None,
+               x: float | np.ndarray | None=None) -> float | np.ndarray:
         aq=self.aq
-        h = R / (2 * aq.kD) * (aq.b**2 - x**2)
-        return h if h.size > 1 else h.item()
-
-    def steady_avg(self, R: float) -> float | np.ndarray:        
-        aq=self.aq
-        h = R * aq.b**2 / (3 * aq.kD)
-        return h
+        if x is None:
+            # --- Return X-section average.            
+            h = R * aq.b**2 / (3 * aq.kD)
+            return h
+        else:
+            # --- Return values at x.
+            x = np.atleast_1d(x)            
+            h = R / (2 * aq.kD) * (aq.b**2 - x**2)
+            return h if h.size > 1 else h.item()
     
-    def transient(self, R: float, time: float | np.ndarray,
-                  x: float | np.ndarray,
+    def transient(self,
+                  time: float | np.ndarray,
+                  R:float,
+                  dh: float | None=None,
+                  x: float | np.ndarray | None=None,
+                  N=30,
                   eps=1e-12) -> float | np.ndarray:
         
-        assert (   np.isscalar(x) and not np.isscalar(time)
-                or np.isscalar(time) and not np.isscalar(x)
-                or np.isscalar(x) and np.isscalar(time)
-        ), "x and time must be both scalars or (scalar and array) not both arrays"
+        assert not (isinstance(x, np.ndarray) and isinstance(time, np.ndarray)), (
+                "x and time must be both scalars or (scalar and array) not both arrays"
+        )
         
         aq = self.aq
-        
         T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
         tau = time / T
-        px2b = np.pi * x / (2 * aq.b)
         
-        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
-        N = 30
-        
-        s0 = self.steady(x, R)
-        
-        # --- Factor in boek 16, moet 8 zijn       
-        F = 16 * R * aq.b**2 / (np.pi**3 * aq.kD)
-        
-        for n in range(N + 1):
-            n2p1 = 2*n + 1
-            ds = (
-                (-1)**n / n2p1**3
-                * np.cos(n2p1 * px2b)
-                * np.exp(-n2p1**2 * tau)
-            )
-            if n == 0:
-                s = ds
-            else:
-                s += ds
-        return s0 - F * s
+        s0 = self.steady(R=R, x=x)
     
-    def transient_avg(self, R: float, time: float | np.ndarray,
-                  eps=1e-12) -> float | np.ndarray:
-        """Return X-section average head."""
-        
-        aq = self.aq
-        
-        T = 4 * aq.b**2 * aq.mu / (np.pi**2 * aq.kD)
-        tau = time / T        
-        
-        N = int(np.ceil(np.sqrt(T/(time[1] + eps))))
-        N = 30
-        
-        s0 = self.steady_avg(R=R)
-        
-        # --- Factor in boek 16, moet 8 zijn       
-        F =  32 * R * aq.b**2 / (np.pi**4 * aq.kD)
-        
-        for n in range(N + 1):
-            n2p1 = 2*n + 1
-            ds = (
-                1 / n2p1**4                
-                * np.exp(-n2p1**2 * tau)
-            )
-            if n == 0:
-                s = ds
-            else:
-                s += ds
-        return s0 - F * s
-    
-    def block_response(self, time: np.ndarray, x:float) -> np.ndarray:
-        """Return the block response."""
         if x is None:
-             h = self.transient_avg(R=1, time=time)
+            # --- Return X-section average head.
+            
+            F =  32 * R * aq.b**2 / (np.pi**4 * aq.kD)
+            
+            for n in range(N + 1):
+                n2p1 = 2*n + 1
+                ds = (
+                    1 / n2p1**4                
+                    * np.exp(-n2p1**2 * tau)
+                )
+                if n == 0:
+                    s = ds
+                else:
+                    s += ds
+            return s0 - F * s
         else:
-            h = self.transient(R=1, time=time, x=x)
-        h[1:] -= h[:-1]
-        return h[h >= 0.001]
-
-    def sim_lfilter(self, rch=None):
-        """Simulate the head using Bruggeman's 133.16.
-        
-        These solutions are without entry resistance
-        
-        """        
-        tdata = pd.DataFrame(rch, columns=['rch'])        
-        tdata['hLR'] = np.zeros(len(tdata))        
-                
-        time = (tdata.index - tdata.index[0]) / np.timedelta64(1, 'D')
-        t0 = tdata.index[0]
-                
-        Br1 = Brug13316(self.aq)        
-        
-        b1 = Br1.block_response(time=time)        
-        tdata['h'] = lfilter(b1, 1, tdata['rch']) + tdata.loc[t0, 'hLR']
-        return tdata
-    
+            # --- Return head at position(s) x.        
+            px2b = np.pi * x / (2 * aq.b)
+                        
+            F = 16 * R * aq.b**2 / (np.pi**3 * aq.kD)
+            
+            for n in range(N + 1):
+                n2p1 = 2*n + 1
+                ds = (
+                    (-1)**n / n2p1**3
+                    * np.cos(n2p1 * px2b)
+                    * np.exp(-n2p1**2 * tau)
+                )
+                if n == 0:
+                    s = ds
+                else:
+                    s += ds
+            return s0 - F * s
 
 class Brug13702(Brug):
     """One-layer transient cross section bounded by surface water at x=p/m b.
@@ -735,96 +712,58 @@ class Brug13702(Brug):
     Case 137.02 is the case in which the surface water suddenly rises
     with a fixed amount, with entry resistance.
     """    
-    def steady(self, x: float | np.ndarray, dh: float) -> float | np.ndarray:
-        x = np.atleast_1d(x)
-        h = dh * np.zeros_like(x)
+    def steady(self, dh:float, R:float | None=None, x: float | np.ndarray | None=None) -> float | np.ndarray:
+        if x is None:
+            return dh
+        else:
+            x = np.atleast_1d(x)
+            h = dh * np.zeros_like(x)
         return h if h.size > 1 else h.item()
             
-    def transient(self, dh: float, time: float | np.ndarray, x: float | np.ndarray) -> float | np.ndarray:
+    def transient(self, 
+                  time: float | np.ndarray,
+                  dh: float,
+                  R: float | None=None,
+                  x: float | np.ndarray | None=None, N=30) -> float | np.ndarray:
         
-        assert (   np.isscalar(x) and not np.isscalar(time)
-                or np.isscalar(time) and not np.isscalar(x)
-                or np.isscalar(x) and np.isscalar(time)
-        ), "x and time must be both scalars or (scalar and array) not both arrays"
-        
+        assert not (isinstance(x, np.ndarray) and isinstance(time, np.ndarray)), (
+                "x and time must be both scalars or (scalar and array) not both arrays"
+        )        
         aq = self.aq
-             
-        N = 30
-        
+         
         if np.isclose(aq.w, 0):
             raise ValueError("aq.w must be > 0 to use this function")
-        
-        eps   = aq.b / (aq.k * aq.w)
-        alfas = [root_x_tan_x(eps, k) for k in range(N)]
-        
-        for n, alpha in zip(range(N + 1), alfas):
-            T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
-            ds = (
-                (np.sin(alpha) / alpha) / (1 + eps / (alpha**2 + eps**2))
-                * np.cos(alpha * x /aq.b)
-                * np.exp(-time/ T)
-            )
-            if n == 0:
-                s = ds
-            else:
-                s += ds
-        return dh - 2 * dh * s
     
-    def transient_avg(self, dh: float, time: float | np.ndarray) -> float | np.ndarray:
-        """Returd X-section averaged head."""
+        brug_eps   = aq.b / (aq.k * aq.w)
+        alfas = [root_x_tan_x(brug_eps, k) for k in range(N)]
         
-        aq = self.aq
-             
-        N = 30
+        s0 = self.steady(dh=dh, x=x)
         
-        if np.isclose(aq.w, 0):
-            raise ValueError("aq.w must be > 0 to use this function")
-        
-        eps   = aq.b / (aq.k * aq.w)
-        alfas = [root_x_tan_x(eps, k) for k in range(N)]
-        
-        for n, alpha in zip(range(N + 1), alfas):
-            T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
-            ds = (
-                np.sin(alpha)**2 / (1 + eps / (alpha**2 + eps**2))                
-                * np.exp(-time/ T)
-            )
-            if n == 0:
-                s = ds
-            else:
-                s += ds
-        return dh - dh * s
-    
-    def block_response(self, time: np.ndarray, x:float) -> np.ndarray:
-        """Return the block response."""
         if x is None:
-            dh = self.transient_avg(dh=1, time=time)
+            for n, alpha in zip(range(N + 1), alfas):
+                T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
+                ds = (
+                    np.sin(alpha)**2 / (1 + brug_eps / (alpha**2 + brug_eps**2))                
+                    * np.exp(-time/ T)
+                )
+                if n == 0:
+                    s = ds
+                else:
+                    s += ds
+            return s0 - s0 * s
         else:
-            dh = self.transient(dh=1, time=time, x=x)
-        dh[1:] -= dh[:-1]
-        return dh[dh >= 0.001]
-    
-    def sim_lfilter(self, rch=None, h_summer=0, h_winter=0):
-        """Simulate the head using Bruggeman's 133.02.
-        
-        This solution is with entry resistance
-        
-        """        
-        tdata = pd.DataFrame(rch, columns=['rch'])
-        summer = np.logical_and(tdata.index.month > 3, tdata.index.month < 10)
-        hLR = np.zeros(len(tdata)) + h_winter
-        hLR[summer] = h_summer
-        tdata['hLR'] = hLR
-        
-        time = (tdata.index - tdata.index[0]) / np.timedelta64(1, 'D')
-                
-        Br1 = Brug13702(self.aq)        
-        
-        b1 = Br1.block_response(time=time)        
-        tdata['h'] = (  lfilter(b1, 1, tdata['hLR'] - h_winter)             
-             + h_winter
-             )
-        return tdata
+            for n, alpha in zip(range(N + 1), alfas):
+                T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
+                ds = (
+                    (np.sin(alpha) / alpha) / (1 + brug_eps / (alpha**2 + brug_eps**2))
+                    * np.cos(alpha * x /aq.b)
+                    * np.exp(-time/ T)
+                )
+                if n == 0:
+                    s = ds
+                else:
+                    s += ds
+        return s0 - 2 * s0 * s
 
 
 class Brug13709(Brug):
@@ -836,108 +775,69 @@ class Brug13709(Brug):
 
     """Sudden rise h of the surface water level."""    
     
-    def steady(self, x: float | np.ndarray, R: float) -> float | np.ndarray:
-        x = np.atleast_1d(x)
-        aq = self.aq
-        h = R / (2 * aq.kD) * (aq.b**2 - x**2) + R * aq.b * aq.w / aq.D
-        return h if h.size > 1 else h.item()
-    
-    def steady_avg(self, R: float) -> float | np.ndarray:        
-        aq = self.aq
-        h = R * aq.b**2 / (3 * aq.kD) + R * aq.b * aq.w / aq.D
-        return h
-
-            
-    def transient(self, R: float, time: float | np.ndarray, x: float | np.ndarray) -> float | np.ndarray:
-        
-        assert (   np.isscalar(x) and not np.isscalar(time)
-                or np.isscalar(time) and not np.isscalar(x)
-                or np.isscalar(x) and np.isscalar(time)
-        ), "x and time must be both scalars or (scalar and array) not both arrays"
-        
-        aq = self.aq
-        
-        if np.isclose(aq.w, 0):
-            raise ValueError("aq.w must be > 0 to use this function")
-
-        
-        s0 = self.steady(x=x, R=R)
-        
-        F = 2 * R * aq.b**2 / aq.kD        
-        N = 30
-        
-        eps   = aq.b / (aq.k * aq.w)
-        alfas = [root_x_tan_x(eps, k) for k in range(N)]
-        
-        for n, alpha in zip(range(N + 1), alfas):
-            T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
-            ds = (
-                (np.sin(alpha) / alpha**3) / (1 + eps / (alpha**2 + eps**2))
-                * np.cos(alpha * x /aq.b)
-                * np.exp(-time/ T)
-            )
-            if n == 0:
-                s = ds
-            else:
-                s += ds
-        return s0 - F * s
-
-    def transient_avg(self, R: float, time: float | np.ndarray) -> float | np.ndarray:
-        """Return X-section average head."""
-               
-        aq = self.aq
-        
-        if np.isclose(aq.w, 0):
-            raise ValueError("aq.w must be > 0 to use this function")
-
-        
-        s0 = self.steady_avg(R=R)
-        
-        F = R * aq.b**2 / aq.kD        
-        N = 30
-        
-        eps   = aq.b / (aq.k * aq.w)
-        alfas = [root_x_tan_x(eps, k) for k in range(N)]
-        
-        for n, alpha in zip(range(N + 1), alfas):
-            T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
-            ds = (
-                (np.sin(alpha)**2 / alpha**2) / (1 + eps / (alpha**2 + eps**2))                
-                * np.exp(-time/ T)
-            )
-            if n == 0:
-                s = ds
-            else:
-                s += ds
-        return s0 - F * s
-
-    def block_response(self, time: np.ndarray, x:float) -> np.ndarray:
-        """Return the block response."""
+    def steady(self, R:float, dh:float | None=None, x: float | np.ndarray | None=None) -> float | np.ndarray:
         if x is None:
-            h = self.transient_avg(R=1, time=time)
+            # --- Return average for cross section
+            aq = self.aq
+            h = R * aq.b**2 / (3 * aq.kD) + R * aq.b * aq.w / aq.D
+            return h
         else:
-            h = self.transient(R=1, time=time, x=x)
-        h[1:] -= h[:-1]
-        return h[h >= 0.001]
-    
-    def sim_lfilter(self, rch=None):
-        """Simulate the head using Bruggeman's 137.09.
-        
-        This solutions are with entry resistance
-        
-        """        
-        tdata = pd.DataFrame(rch, columns=['rch'])        
-        tdata['hLR'] = np.zeros(len(tdata))        
+            # --- Return values at x
+            x = np.atleast_1d(x)
+            aq = self.aq
+            h = R / (2 * aq.kD) * (aq.b**2 - x**2) + R * aq.b * aq.w / aq.D
+            return h if h.size > 1 else h.item()
                 
-        time = (tdata.index - tdata.index[0]) / np.timedelta64(1, 'D')
-        t0 = tdata.index[0]
-                
-        Br1 = Brug13709(self.aq)        
+    def transient(self, time: float | np.ndarray,
+                  R: float,
+                  dh:float | None=None,
+                  x: float | np.ndarray | None=None,
+                  N: float=30) -> float | np.ndarray:
         
-        b1 = Br1.block_response(time=time)        
-        tdata['h'] = lfilter(b1, 1, tdata['rch']) + tdata.loc[t0, 'hLR']
-        return tdata
+        assert not (isinstance(x, np.ndarray) and isinstance(time, np.ndarray)), (
+                "x and time must both be arrays")
+                
+        aq = self.aq
+        
+        if np.isclose(aq.w, 0):
+            raise ValueError("aq.w must be > 0 to use this function")
+        
+        brug_eps   = aq.b / (aq.k * aq.w)
+        alfas = [root_x_tan_x(brug_eps, k) for k in range(N)]
+        
+        s0 = self.steady_avg(R=R, x=x)
+        
+        if x is None:
+            # --- Return X-section average heads
+            F = R * aq.b**2 / aq.kD        
 
+            for n, alpha in zip(range(N + 1), alfas):
+                T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
+                ds = (
+                    (np.sin(alpha)**2 / alpha**2) / (1 + brug_eps / (alpha**2 + brug_eps**2))                
+                    * np.exp(-time/ T)
+                )
+                if n == 0:
+                    s = ds
+                else:
+                    s += ds
+            return s0 - F * s          
+        else:
+            # --- Return head values at x        
+            F = 2 * R * aq.b**2 / aq.kD        
+
+            for n, alpha in zip(range(N + 1), alfas):
+                T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
+                ds = (
+                    (np.sin(alpha) / alpha**3) / (1 + brug_eps / (alpha**2 + brug_eps**2))
+                    * np.cos(alpha * x /aq.b)
+                    * np.exp(-time/ T)
+                )
+                if n == 0:
+                    s = ds
+                else:
+                    s += ds
+            return s0 - F * s
 
 class Brug133(Brug):
     """Class to simulate one-layer exactly without entry resistance.
@@ -945,13 +845,24 @@ class Brug133(Brug):
     Using Bruggeman(1999 solution 133.02 and 133.16)    
     """
     
-    def sim_lfilter(self, rch=None, h_summer=0, h_winter=0):
+    def sim_lfilter(self, rch=None, h_summer=0, h_winter=0, x=None):
         """Simulate the head using Bruggeman's 133.02 and 133.16.
         
         These solutions are without entry resistance
         
+        Parameters
+        ----------
+        rch: pd.Series
+            recharge [m/d], daily values with pd.timestamp index
+        h_summer: float
+            Ditch level during summer (April-September)
+        h_winter: float
+            Ditch water level during winter
+        x: float | None
+            Position in X-section  -b <= x <= b
+            if None, the X-section average value will be returned.
+            (For steady state X-sectio average is at x=b/sqrt(3)=0.58b)
         """
-        
         tdata = pd.DataFrame(rch, columns=['rch'])
         summer = np.logical_and(tdata.index.month > 3, tdata.index.month < 10)
         hLR = np.zeros(len(tdata)) + h_winter
@@ -963,9 +874,10 @@ class Brug133(Brug):
         Br1 = Brug13302(self.aq)
         Br2 = Brug13316(self.aq)
         
-        b1 = Br1.block_response(time=time)
+        b1 = Br1.block_response(time=time, x=None)
         b2 = Br2.block_response(time=time)
-        tdata['h'] = (  lfilter(b1, 1, tdata['hLR'] - h_winter)
+        tdata['h'] = (
+               lfilter(b1, 1, tdata['hLR'] - h_winter)
              + lfilter(b2, 1, tdata['rch'])
              + h_winter
              )
@@ -974,15 +886,26 @@ class Brug133(Brug):
 class Brug137(Brug):
     """Class to simulate one-layer exactly without entry resistance.
     
-    Using Bruggeman(1999 solution 133.02 and 133.16)    
+    Using Bruggeman(1999 solution 137.02 and 137.09)    
     """
-    
-    def sim_lfilter(self, rch=None, h_summer=0, h_winter=0):
-        """Simulate the head using Bruggeman's 133.02 and 133.16.
+    def sim_lfilter(self, rch=None, h_summer=0, h_winter=0, x=None):
+        """Simulate the head using Bruggeman's 137.02 and 137.09.
         
-        These solutions are without entry resistance
+        These solutions are with entry resistance
         
-        """        
+        Parameters
+        ----------
+        rch: pd.Series
+            recharge [m/d], daily values with pd.timestamp index
+        h_summer: float
+            Ditch level during summer (April-September)
+        h_winter: float
+            Ditch water level during winter
+        x: float | None
+            Position in X-section  -b <= x <= b
+            if None, the X-section average value will be returned.
+            (For steady state X-sectio average is at x=b/sqrt(3)=0.58b)
+        """
         tdata = pd.DataFrame(rch, columns=['rch'])
         summer = np.logical_and(tdata.index.month > 3, tdata.index.month < 10)
         hLR = np.zeros(len(tdata)) + h_winter
@@ -994,9 +917,10 @@ class Brug137(Brug):
         Br1 = Brug13702(self.aq)
         Br2 = Brug13709(self.aq)
         
-        b1 = Br1.block_response(time=time)
-        b2 = Br2.block_response(time=time)
-        tdata['h'] = (  lfilter(b1, 1, tdata['hLR'] - h_winter)
+        b1 = Br1.block_response(time=time, x=x)
+        b2 = Br2.block_response(time=time, x=x)
+        tdata['h'] = (
+               lfilter(b1, 1, tdata['hLR'] - h_winter)
              + lfilter(b2, 1, tdata['rch'])
              + h_winter
              )
@@ -1199,6 +1123,78 @@ def ex_sim_lfilter_base_case(rch=None, b=50, h0=0, h_summer=0.9, h_winter=-1.1, 
         tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter, q=q)
         ax.plot(tdata.index, tdata['h'], '.', color=clr, lw=0.5,
                 label=f'direct  muT={aq.mu * T:8.3g} d')
+    ax.grid(True)
+    ax.legend(loc="lower right")
+  
+def ex_2cases(rch=None, c=50, b=50, h0=0, h_summer=0.9, h_winter=-1.1, q=0):
+    """Show transient head development driven by meteo in two cases.
+    
+    First case is Dupuit, the second is base-case. It is shown that
+    for the same recharge, the head computed by simulation and
+    by convolution (lfilter) are exactly the same.
+    
+    Parameters
+    ----------
+    tdata: pd DataFrame with fields RH (precip) and EV24 (evapotranspiraton)
+        The meteo data
+    b: float [L]
+        half-width of the X-section
+    h0: float
+        Initial head at t=0
+    h_winter: float
+        Ditch water level during winter.
+    h_summer: float
+        Ditch water level during summer.
+    """
+    # --- Input data
+    aq = Aquifer(k=10, D=10, c=c, w=0., mu=0.2, b=b)
+        
+    title1 = str(aq).replace(", b = 50", "")
+    title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m"
+    
+    # --- Get meteo data
+    if rch is None:
+        meteo = ggor_meteo.Meteo()
+        rch = meteo.recharge
+       
+    rch1 = rch.copy() 
+    rch2 = rch.copy()
+    # test
+    summer = np.logical_and(rch.index.month > 3, rch.index.month < 10)
+    r = np.zeros(len(rch))
+    r[summer] = 0.001
+    rch1[:] = r.copy()
+    rch2[:] = r.copy()
+    
+    fig, ax = plt.subplots(figsize=(10, 7.8))
+    fig.suptitle("Base case")
+    ax.set_title("Head driven by meteo data, using lfilter" + "\n" + 
+                 title1 + "\n" + title2)
+    ax.set(xlabel='time', ylabel='head [m]', xscale='log')
+    
+    for b in [250]:        
+        aq.b = b
+        mdl1 = Dupuit(aq=aq)
+        mdl2 = Base_case(aq=aq)
+        
+        T1 = mdl1.aq.T1L
+        T2 = mdl2.aq.T2L
+        
+        if True:
+            tdata1 = mdl1.sim_by_lfilter(rch1, h_summer=h_summer, h_winter=h_winter, q=q)
+            ax.plot(tdata1.index, tdata1['h'], color='b', lw=1.5,
+                    label=f'Dupuit lfilter  muT={aq.mu * T1:8.3g} d')
+            tdata2 = mdl2.sim_by_lfilter(rch2, h_summer=h_summer, h_winter=h_winter, q=q)
+            ax.plot(tdata2.index, tdata2['h'], color='r', lw=0.5,
+                    label=f'Base-case lfilter  muT={aq.mu * T2:8.3g} d')
+        if True:
+            tdata1 = mdl1.transient_pd(rch1, h_summer=h_summer, h_winter=h_winter, q=q)
+            ax.plot(tdata1.index, tdata1['h'], '.', color='b', lw=0.5,
+                    label=f'Dupuit direct  muT={aq.mu * T1:8.3g} d')
+            tdata2 = mdl2.transient_pd(rch2, h_summer=h_summer, h_winter=h_winter, q=q)
+            ax.plot(tdata2.index, tdata2['h'], '.', color='r', lw=0.5,
+                    label=f'Base_case direct  muT={aq.mu * T2:8.3g} d')
+
     ax.grid(True)
     ax.legend(loc="lower right")
   
@@ -1473,6 +1469,45 @@ def ex_brug13316():
     ax.grid(True)
     ax.legend(loc='center')
 
+def ex_brug133_137_dupuit(rch=None, h_summer=-0.9, h_winter=-1.1, w=0.001):
+    """Compare results 133.02/16, 137.02/09 with Dupuit
+    
+    Compare the X-section average values
+    
+    Compute using lfilter
+    """
+    aq = Aquifer(k=10, D=10, c=200, w=w, mu=0.15, b=50)
+    
+        # --- Get meteo data
+    if rch is None:
+        meteo = ggor_meteo.Meteo()
+        rch = meteo.recharge
+
+    summer = np.logical_and(rch.index.month > 3, rch.index.month < 10)
+    r = np.zeros(len(rch))
+    r[summer] = 0.001
+    rch[:] = r
+    
+    brug133 = Brug133(aq)
+    brug137 = Brug13302(aq)
+    dup  = Dupuit(aq)
+
+    fig, ax = plt.subplots(figsize=(10, 7.5))
+    
+    fig.suptitle("Compare Bruggeman 133.02/16, 137.02/09 with Dupuit (all lfilter))")
+    ax.set_title("Varying precipitation")
+    ax.set(xlabel='t d[]', ylabel='h [m]')
+    
+    tdata3 = brug133.sim_lfilter(rch=rch, h_summer=h_summer, h_winter=h_winter)
+    tdata7 = brug137.sim_lfilter(rch=rch, h_summer=h_summer, h_winter=h_winter)        
+    hd = dup.transient_pd(rch, h_summer, h_winter)
+    
+    ax.plot(rch.index, tdata3['h'], label="Brug133 (- entry resistance)")
+    ax.plot(rch.index, tdata7['h'], label="Brug137 (+ entry resistance)")
+    ax.plot(rch.index, hd['h'],     label="Dupuit transient")
+        
+    ax.grid(True)
+    ax.legend(loc='center')
 
 def ex_brug13316a():
     aq = Aquifer(k=10, D=10, c=200, w=0.001, mu=0.15, b=50)
@@ -1505,9 +1540,10 @@ def ex_brug13316a():
         
     ax.grid(True)
     ax.legend(loc='center')
-
-
+    
+    
 def ex_brug13709():
+    
     aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
     xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95, 0.99]) * aq.b
     R = 0.001
@@ -1575,13 +1611,12 @@ if __name__ == "__main__":
         ex_brug13702()
         ex_brug13709()
     if True:
-        ex_sim_lfilter_dupuit(h0=0, h_summer=1.0, h_winter=0)
-        ex_sim_lfilter_base_case(h0=0, h_summer=1.0, h_winter=0, q=0)         
-        # ex_sim_lfilter_brug133()
-        # ax.sim_lfilter_brug137()
-    
-        
-        
+        # ex_sim_lfilter_dupuit(h0=0, h_summer=1.0, h_winter=0)
+        # ex_sim_lfilter_base_case(h0=0, h_summer=1.0, h_winter=0, q=0)
+        # ex_2cases(h0=0, c=50, h_summer=0, h_winter=0, q=0)
+        ex_brug133_137_dupuit(rch=None, h_summer=-0.9, h_winter=-1.1, w=0.001)
     plt.show()
+    
+# %%
     
 
