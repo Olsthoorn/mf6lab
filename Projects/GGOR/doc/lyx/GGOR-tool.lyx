@@ -2298,6 +2298,22 @@ kD\frac{d^{2}h}{dx^{2}}=-N+\frac{h-\phi}{c}
 \end_layout
 
 \begin_layout Standard
+We kunnen zowel 
+\begin_inset Formula $h$
+\end_inset
+
+ als 
+\begin_inset Formula $\phi$
+\end_inset
+
+ opvatten als relatief ten opzichte van 
+\begin_inset Formula $h_{LR}$
+\end_inset
+
+ als datum.
+\end_layout
+
+\begin_layout Standard
 Anders opgeschreven
 \end_layout
 
@@ -2401,8 +2417,52 @@ De oplossing is dus
 
 \begin_layout Standard
 \begin_inset Formula 
+\begin{equation}
+\boxed{h-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}}\label{eq:h_x_base_case_phi_gegeven_entry_weerstand}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
 \[
-h-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+h=h_{b}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\left(\phi+Nc\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{b}=h_{LR}+\frac{bw}{D}\left(N+q\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\left(h_{LR}+\frac{bw}{D}\left(N+q\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\left(\phi+Nc\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\left(h_{LR}+\frac{bw}{D}\left(N+q\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\left(\overline{h}+qc+Nc\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
 \]
 
 \end_inset
@@ -2441,7 +2501,7 @@ en dus
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
+\boxed{\overline{h}-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}}
 \]
 
 \end_inset
@@ -2460,7 +2520,7 @@ Delen door
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{\overline{h}-\phi}{c}-N=\left(\frac{h_{b}-\phi}{c}-N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
+\frac{\phi-\overline{h}}{c}+N=\left(\frac{\phi-h_{b}}{c}+N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
 \]
 
 \end_inset
@@ -2484,7 +2544,7 @@ De term
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{\overline{h}-\phi}{c}-N=\left(\frac{h_{b}-\overline{h}+\overline{h}-\phi}{c}-N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
+q+N=\left(\frac{\phi-\overline{h}+\overline{h}-h_{b}}{c}+N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
 \]
 
 \end_inset
@@ -2499,7 +2559,7 @@ zodat
 \begin_layout Standard
 \begin_inset Formula 
 \[
--q-N=\left(-\frac{\overline{h}+h_{b}}{c}-q-N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
+N+q=\left(N+q+\frac{\overline{h}-h_{b}}{c}\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
 \]
 
 \end_inset
@@ -2510,18 +2570,7 @@ zodat
 \begin_layout Standard
 \begin_inset Formula 
 \[
-N+q=\left(\frac{\overline{h}+h_{b}}{c}+\left(N+q\right)\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left(N+q\right)\frac{b}{\lambda}\coth\frac{b}{\lambda}=\left(\frac{\overline{h}+h_{b}}{c}+\left(N+q\right)\right)
+\left(N+q\right)\frac{b}{\lambda}\coth\frac{b}{\lambda}=\left(\frac{\overline{h}-h_{b}}{c}+\left(N+q\right)\right)
 \]
 
 \end_inset
@@ -2535,12 +2584,36 @@ N+q=\left(\frac{\overline{h}+h_{b}}{c}+\left(N+q\right)\right)\frac{\lambda}{b}\
 
 \begin_inset Formula 
 \[
-\overline{h}+h_{b}=\left(N+q\right)c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
+\boxed{\overline{h}-h_{b}=\left(N+q\right)c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boxed{\overline{h}-h_{b}=\left(N+q\right)c\Gamma}\label{eq:havg-hb}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deze oplossing spreekt voor zichzelf.
+ Het is de oplossing zonder intreeweerstand waarin 
+\begin_inset Formula $h_{LR}$
+\end_inset
+
+ nu is vervangen door 
+\begin_inset Formula $h_{b}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2561,7 +2634,7 @@ Dit is de stationaire oplossing uitgedrukt in de doorsnedegemiddelde grondwaters
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left(h_{b}-h_{LR}\right)=\frac{w}{D}Q_{b}
+\boxed{h_{b}-h_{LR}=\frac{w}{D}Q_{b}=\frac{bw}{D}\left(N+q\right)}
 \]
 
 \end_inset
@@ -2582,24 +2655,28 @@ Deze stroming kan formeel worden afgeleid maar de uitstroom naar de sloot
 \end_layout
 
 \begin_layout Standard
-We hebben hiermee
-\end_layout
+Maken we de datum 
+\begin_inset Formula $h_{LR}$
+\end_inset
 
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-h_{b} & =h_{LR}+\left(N+q\right)b\frac{w}{D}
-\end{align*}
+ expliciet dan gaat vergelijking 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:havg-hb"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-
+ over in
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}+h_{LR}+\left(N+q\right)b\frac{w}{D}=\left(N+q\right)c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
+\overline{h}-h_{LR}-\left(h_{b}-h_{LR}\right)=\left(N+q\right)c\Gamma
 \]
 
 \end_inset
@@ -2608,17 +2685,79 @@ h_{b} & =h_{LR}+\left(N+q\right)b\frac{w}{D}
 \end_layout
 
 \begin_layout Standard
-Met 
-\begin_inset Formula $c$
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(N+q\right)c\Gamma+h_{b}-h_{LR}
+\]
+
 \end_inset
 
- buiten de rechte haken krijgen we het volgende eindresultaat
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\boxed{\overline{h}-h_{LR}=\left(N+q\right)c\left[\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)+\frac{w}{c}\frac{b}{D}\right]}
+\overline{h}-h_{LR}=\left(N+q\right)c\Gamma+\left(N+q\right)c\frac{wb}{cD}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met als einresultaat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\overline{h}-h_{LR}=\left(N+q\right)c\left[\Gamma+\frac{wb}{cD}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(N+\frac{\phi-\overline{h}}{c}\right)c\left[\Gamma+\frac{wb}{cD}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(N+\frac{\phi-h_{LR}-\left(\overline{h}-h_{LR}\right)}{c}\right)c\left[\Gamma+\frac{wb}{cD}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(Nc+\left(\phi-h_{LR}\right)\right)\left[\Gamma+\frac{wb}{cD}\right]-\left(\overline{h}-h_{LR}\right)\left[\Gamma+\frac{wb}{cD}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(Nc+\left(\phi-h_{LR}\right)\right)\left[\frac{\Gamma+\frac{wb}{cD}}{\Gamma+\frac{wb}{cD}+1}\right]
 \]
 
 \end_inset
@@ -2632,17 +2771,14 @@ waarin de dimensieloze term
 \end_inset
 
  de bijdrage door de intredeweerstand.
-\end_layout
-
-\begin_layout Standard
-Ter veralgemenisering schrijven we
+ Met
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(N+q\right)c\left[\Gamma+\frac{w}{c}\frac{b}{D}\right]
-\]
+\begin{equation}
+\boxed{\Gamma=\frac{b}{\lambda}\coth\left(\frac{b}{\lambda}\right)-1}\label{eq:Gamma-groot-basisformule}
+\end{equation}
 
 \end_inset
 
@@ -2650,9 +2786,13 @@ Ter veralgemenisering schrijven we
 \end_layout
 
 \begin_layout Standard
+of nog complacter
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\boxed{\Gamma=\frac{b}{\lambda}\coth\left(\frac{b}{\lambda}\right)-1}\label{eq:Gamma-groot-basisformule}
+\boxed{\overline{h}-h_{LR}=\left(N+q\right)T}\label{eq:base-case-stationair-met-weerstand}
 \end{equation}
 
 \end_inset
@@ -2677,17 +2817,6 @@ met
 
 \begin_layout Standard
 krijgen we de oplossing tenslotte in zijn meest compacte vorm
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\boxed{\overline{h}-h_{LR}=\left(N+q\right)T}\label{eq:base-case-stationair-met-weerstand}
-\end{equation}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2854,6 +2983,366 @@ met
 \begin_inset Formula 
 \[
 \boxed{\Gamma=\frac{b}{\lambda}\coth\frac{b}{\lambda}-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Conversie van vergelijking met 
+\begin_inset Formula $\phi$
+\end_inset
+
+ in vergelijking met 
+\begin_inset Formula $q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vergelijking 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:h_x_base_case_phi_gegeven_entry_weerstand"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ kan via 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ gevrijwaard worden van 
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\overline{h}-h_{LR}=\left(N+q\right)T,\;\text{met }T=c\left[\Gamma+\frac{wb}{cD}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(N+\frac{\phi-\overline{h}}{c}\right)T
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\overline{h}-h_{LR}\right)\frac{c}{T}=Nc+\phi-\overline{h}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}\frac{c}{T}-h_{LR}\frac{c}{T}=Nc+\phi-\overline{h}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}\left(1+\frac{c}{T}\right)-h_{LR}\frac{c}{T}=Nc+\phi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dus gegeven 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ geeft de navolgend vergelijking de diepe stijghoogte
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\phi-\overline{h}=\left(\overline{h}-h_{LR}\right)\frac{c}{T}-Nc}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Omgekeerd bij gegeven 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is de gemiddelde grondwaterstand bekend
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\phi-h_{LR}=\left(\overline{h}-h_{LR}\right)\left(1+\frac{c}{T}\right)-Nc}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als we 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ berekend hebben uit 
+\begin_inset Formula $\phi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\overline{h}-h_{LR}=\frac{\left(\phi-h_{LR}\right)+Nc}{1+\frac{c}{T}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dan weten we ook wat 
+\begin_inset Formula $q$
+\end_inset
+
+ is,
+ nl 
+\begin_inset Formula $q=\left(\phi-\overline{h}\right)/c$
+\end_inset
+
+ en berekenen we h
+\begin_inset Formula $\left(x\right)$
+\end_inset
+
+ met de formule voor gegeven 
+\begin_inset Formula $q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-\left(\overline{h}+\phi-\overline{h}+Nc\right)=\left(h_{b}-\left(\overline{h}+\phi-\overline{h}+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dus 
+\begin_inset Formula $\phi=\overline{h}+qc$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-\overline{h}-\left(N+q\right)c=\left(h_{b}-\overline{h}-\left(N+q\right)c\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\overline{h}-h_{LR}+\left(N+q\right)c\right)+\left(h_{b}-h_{LR}-\left(\overline{h}-h_{LR}++\left(N+q\right)c\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Verder,
+ met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{b}-h_{LR}=\left(N+q\right)b\frac{w}{D}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\overline{h}-h_{LR}+\left(N+q\right)c\right)+\left(\left(N+q\right)b\frac{w}{D}-\left(\left(\overline{h}-h_{LR}\right)+\left(N+q\right)c\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}-\left(\overline{h}-h_{LR}\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)=+\left(N+q\right)c+\left(\left(N+q\right)c\left(\frac{wb}{cD}-1\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\overline{h}-h_{LR}+\left(N+q\right)c\right)+\left(h_{b}-h_{LR}-\left(\left(\overline{h}-h_{LR}\right)+\left(N+q\right)c\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Volgt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-\left(\overline{h}+\left(N+q\right)c\right)=\left(h_{LR}+\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)-\left(\overline{h}++\left(N+q\right)c\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\left(\overline{h}+\left(N+q\right)c\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)+\left(h_{LR}+\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\overline{h} & =h_{LR}+\left(N+q\right)c\left[\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)+\frac{w}{c}\frac{b}{D}\right]\\
+ & =h_{LR}+\left(N+q\right)c\Gamma
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\left(h_{LR}+\left(N+q\right)c\Gamma+\left(N+q\right)c\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)+\left(h_{LR}+\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\left(N+q\right)c\Gamma+\left(N+q\right)c\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)+\left(\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\left(N+q\right)c\Gamma+\left(N+q\right)c\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)+\left(\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)-\left(\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\left(N+q\right)c\left(\Gamma+\frac{b}{c}\frac{w}{D}\right)+\left(N+q\right)c\left(1-\frac{b}{c}\frac{w}{D}\right)\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
 \]
 
 \end_inset
