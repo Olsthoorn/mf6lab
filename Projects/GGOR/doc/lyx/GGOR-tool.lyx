@@ -2359,7 +2359,7 @@ De oplossing moet symmetrisch zijn ten opzichte van
 \end_inset
 
 .
- We kunnen de oplossing dus schrijven als
+ We kunnen de oplossing ten opzichte van het slootpeil als referentie dus schrijven als
 \end_layout
 
 \begin_layout Standard
@@ -2388,22 +2388,7 @@ De eis is dat de stijghoogte op
 \begin_layout Standard
 \begin_inset Formula 
 \[
-h_{b}-\left(\phi+Nc\right)=A\cosh\left(\frac{b}{\lambda}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-A=\frac{h_{b}-\left(\phi+Nc\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+h_{b}-\left(\phi+Nc\right)=A\cosh\frac{b}{\lambda}
 \]
 
 \end_inset
@@ -2427,6 +2412,11 @@ De oplossing is dus
 \end_layout
 
 \begin_layout Standard
+of,
+ equivalent
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 h=h_{b}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\left(\phi+Nc\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
@@ -2438,9 +2428,40 @@ h=h_{b}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\r
 \end_layout
 
 \begin_layout Standard
+Maar laten we 
+\begin_inset Formula $h_{LR}$
+\end_inset
+
+ er expliciet inhouden als preferente referentie
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-h_{b}=h_{LR}+\frac{bw}{D}\left(N+q\right)
+\boxed{h-h_{LR}-\left(\phi-h_{LR}+Nc\right)=\left(h_{b}-h_{LR}-\left(\phi-h_{LR}+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hierna kunnen we de weerstand invullen die 
+\begin_inset Formula $h_{b}$
+\end_inset
+
+ oplevert op 
+\begin_inset Formula $x=\pm b$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{b}-h_{LR}=\frac{bw}{D}\left(N+q\right)
 \]
 
 \end_inset
@@ -2451,7 +2472,49 @@ h_{b}=h_{LR}+\frac{bw}{D}\left(N+q\right)
 \begin_layout Standard
 \begin_inset Formula 
 \[
-h=\left(h_{LR}+\frac{bw}{D}\left(N+q\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\left(\phi+Nc\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
+h-h_{LR}-\left(\phi-h_{LR}+Nc\right)=\left(\frac{bw}{cD}\left(Nc+qc\right)-\left(\phi-h_{LR}+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarin 
+\begin_inset Formula $q$
+\end_inset
+
+ de doorsnedegemiddelde kwel.
+ 
+\end_layout
+
+\begin_layout Standard
+Omdat ofwel de stijghoogte 
+\begin_inset Formula $\phi$
+\end_inset
+
+ danwel de doorsnedegemiddelde kwel is gegeven zoeken we een vergelijking met alleen 
+\begin_inset Formula $\phi$
+\end_inset
+
+ of alleen 
+\begin_inset Formula $q$
+\end_inset
+
+,
+ wat altijd de doorsnedegemiddelde grondwaterstand introduceert.
+ Met 
+\begin_inset Formula $qc=\phi-\overline{h}$
+\end_inset
+
+ krijgen we
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}-\left(\phi-h_{LR}+Nc\right)=\left(\frac{bw}{cD}\left(Nc+\phi-\overline{h}\right)-\left(\phi-h_{LR}+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
 \]
 
 \end_inset
@@ -2462,21 +2525,271 @@ h=\left(h_{LR}+\frac{bw}{D}\left(N+q\right)\right)\frac{\cosh\left(\frac{x}{\lam
 \begin_layout Standard
 \begin_inset Formula 
 \[
-h=\left(h_{LR}+\frac{bw}{D}\left(N+q\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\left(\overline{h}+qc+Nc\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
+h-h_{LR}-\left(\phi-h_{LR}+Nc\right)=\left(\frac{bw}{cD}\left(Nc+\left(\phi-h_{LR}\right)-\left(\overline{h}-h_{LR}\right)\right)-\left(\phi-h_{LR}+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}-\left(\phi-h_{LR}+Nc\right)=\left(\frac{bw}{cD}\left(Nc+\left(\phi-h_{LR}\right)-\left(\overline{h}-h_{LR}\right)\right)-\left(\phi-h_{LR}+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\phi-h_{LR}+Nc\right)\left[1+\left(\frac{bw}{cD}-1\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right]-\frac{bw}{cD}\left(\overline{h}-h_{LR}\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(\phi-h_{LR}+Nc\right)\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\phi-h_{LR}+Nc\right)\left[1+\left(\frac{bw}{cD}-1\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right]-\left(\left(\phi-h_{LR}+Nc\right)\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}\right)\frac{bw}{cD}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\phi-h_{LR}+Nc\right)\left[\left\{ 1+\left(\frac{bw}{cD}-1\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right\} -\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}\frac{bw}{cD}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\phi-h_{LR}+Nc\right)\left[1+\frac{bw}{cD}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}-\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}\frac{bw}{cD}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\phi-h_{LR}+Nc\right)\left[1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\left[1-\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}\right]\frac{bw}{cD}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(\phi-h_{LR}+Nc\right)\left[1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\frac{\frac{bw}{cD}}{\left(\Gamma+\frac{bw}{cD}+1\right)}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boxed{h\left(x\right)-h_{LR}=\left(\phi-h_{LR}+Nc\right)\left[1+\left(\frac{\frac{bw}{cD}}{\left(\Gamma+\frac{bw}{cD}+1\right)}-1\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right]}\label{eq:hx_phi_w}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hetzelfde voor doorsnedegemiddelde 
+\begin_inset Formula $q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}-\left(\left(\overline{h}-h_{LR}\right)+qc+Nc\right)=\left(\frac{bw}{cD}\left(Nc+qc\right)-\left(\left(\overline{h}-h_{LR}\right)+qc+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}-=\left(Nc+qc\right)\left\{ 1+\left(\frac{bw}{cD}-1\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right\} +\left(\overline{h}-h_{LR}\right)\left\{ 1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(Nc+qc\right)\left[\Gamma+\frac{wb}{cD}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(Nc+qc\right)\left\{ 1+\frac{bw}{cD}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right\} +\left(Nc+qc\right)\left\{ \left[\Gamma+\frac{wb}{cD}\right]-\left[\Gamma+\frac{wb}{cD}\right]\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(Nc+qc\right)\left\{ 1+\frac{bw}{cD}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\left[\Gamma+\frac{wb}{cD}\right]-\left[\Gamma+\frac{wb}{cD}\right]\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h-h_{LR}=\left(Nc+qc\right)\left\{ \frac{bw}{cD}\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}+\left[\Gamma+\frac{wb}{cD}+1\right]-\left[\Gamma+\frac{wb}{cD}+1\right]\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uiteindelijk hebben we een vergelijking die direct 
+\begin_inset Formula $h\left(x\right)$
+\end_inset
+
+ berekent uit neerslag en gegeven doorsnedegemiddelde kwel
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boxed{h\left(x\right)-h_{LR}=\left(Nc+qc\right)\left\{ \left[\Gamma+\frac{wb}{cD}+1\right]-\left[\Gamma+1\right]\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right\} }\label{eq:hx_fq_w}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hieronder volgt de afleiding voor de gebruikte 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Of we 
+\begin_inset Formula $q$
+\end_inset
+
+ willen verwijderen of 
+\begin_inset Formula $\phi$
+\end_inset
+
+ willen verwijderen,
+ we krijgen daarbij altijd 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ in de vergelijking.
+ Als we die apart kunnen bereknen is dat voldoende om et de voorgaande vergelijking 
+\begin_inset Formula $h\left(x\right)$
+\end_inset
+
+ te berekenen.
+\end_layout
+
+\begin_layout Standard
+Dus of voor de doorsnedegemiddelde kwel 
+\begin_inset Formula $q$
+\end_inset
+
+ of voor het rechterlid hebben we de doorsnedegemiddelde stijghoogte nodig.
 \end_layout
 
 \begin_layout Standard
 In de analytische GGOR-tool werken we met de doorsnedegemiddelde grondwaterstand.
- Deze kan direct worden berekend door integratie over 
-\begin_inset Formula $0\le x\le b$
+ Nog los daarvan,
+ deze doorsnedegemiddelde grondwaterstand 
+\begin_inset Formula $\overline{h}$
 \end_inset
 
- en deling door 
+ kan direct worden berekend door integratie van vergelijking 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:h_x_base_case_phi_gegeven_entry_weerstand"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ over de halve doorsnede en vervolgens te delen door 
 \begin_inset Formula $b$
 \end_inset
 
@@ -2500,102 +2813,8 @@ en dus
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\boxed{\overline{h}-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Delen door 
-\begin_inset Formula $c$
-\end_inset
-
- geeft
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\phi-\overline{h}}{c}+N=\left(\frac{\phi-h_{b}}{c}+N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De term 
-\begin_inset Formula $\left(\phi-\overline{h}\right)/c$
-\end_inset
-
- is exact gelijk aan de kwel 
-\begin_inset Formula $q$
-\end_inset
-
-.
- Wanneer we deze term afscheiden krijgen we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-q+N=\left(\frac{\phi-\overline{h}+\overline{h}-h_{b}}{c}+N\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-N+q=\left(N+q+\frac{\overline{h}-h_{b}}{c}\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left(N+q\right)\frac{b}{\lambda}\coth\frac{b}{\lambda}=\left(\frac{\overline{h}-h_{b}}{c}+\left(N+q\right)\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-
-\begin_inset Formula 
-\[
-\boxed{\overline{h}-h_{b}=\left(N+q\right)c\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
 \begin{equation}
-\boxed{\overline{h}-h_{b}=\left(N+q\right)c\Gamma}\label{eq:havg-hb}
+\overline{h}-h_{LR}-\left(\phi-h_{LR}+Nc\right)=\left(h_{b}-h_{LR}-\left(\phi-h_{LR}+Nc\right)\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}\label{eq:dsn_gem_h_fphi}
 \end{equation}
 
 \end_inset
@@ -2604,81 +2823,181 @@ N+q=\left(N+q+\frac{\overline{h}-h_{b}}{c}\right)\frac{\lambda}{b}\tanh\frac{b}{
 \end_layout
 
 \begin_layout Standard
-Deze oplossing spreekt voor zichzelf.
- Het is de oplossing zonder intreeweerstand waarin 
-\begin_inset Formula $h_{LR}$
+Termen met 
+\begin_inset Formula $\phi$
 \end_inset
 
- nu is vervangen door 
-\begin_inset Formula $h_{b}$
+ naar rechts en uitvermenigvuldigen geeft
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}-h_{LR}=\left(h_{b}-h_{LR}\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}+\left(\phi-h_{LR}+Nc\right)\left(1-\frac{\lambda}{b}\tanh\frac{b}{\lambda}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Beide zijden delen door 
+\begin_inset Formula $\left(\lambda/b\right)\tanh\left(b/\lambda\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\overline{h}-h_{LR}\right)\frac{b}{\lambda}\coth\frac{b}{\lambda}=\left(h_{b}-h_{LR}\right)+\left(\phi-h_{LR}+Nc\right)\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Invullen van 
+\begin_inset Formula $h_{b}-h_{LR}=\frac{wb}{cD}\left(Nc+qc\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\overline{h}-h_{LR}\right)\frac{b}{\lambda}\coth\frac{b}{\lambda}=\frac{bw}{cD}\left(Nc+qc\right)+\left(\phi-h_{LR}+Nc\right)\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Invullen 
+\begin_inset Formula $\Gamma=\left(b/\lambda\right)\coth\left(b/\lambda\right)-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\overline{h}-h_{LR}\right)\left(\Gamma+1\right)=\frac{bw}{cD}\left(Nc+qc\right)+\left(\phi-h_{LR}+Nc\right)\Gamma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Omgezet naar 
+\begin_inset Formula $\phi$
+\end_inset
+
+ met 
+\begin_inset Formula $qc=\phi-\overline{h}=\left(\phi-h_{LR}\right)-\left(\overline{h}-h_{LR}\right)$
+\end_inset
+
+ om 
+\begin_inset Formula $qc$
+\end_inset
+
+ te verwijderen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\overline{h}-h_{LR}\right)\left(\Gamma+1\right)=\frac{bw}{cD}\left(Nc+\left(\phi-h_{LR}\right)-\left(\overline{h}-h_{LR}\right)\right)+\left(\phi-h_{LR}+Nc\right)\Gamma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uitvermenigvuldigen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\overline{h}-h_{LR}\right)\left(\Gamma+1\right)=\frac{bw}{cD}Nc+\left(\phi-h_{LR}\right)\frac{bw}{cD}-\left(\overline{h}-h_{LR}\right)\frac{bw}{cD}+\left(\phi-h_{LR}\right)\Gamma+Nc\Gamma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Gelijkvormige termen samennemen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\overline{h}-h_{LR}\right)\left(\Gamma+1+\frac{bw}{cD}\right)=\left(\phi-h_{LR}+Nc\right)\left(\Gamma+\frac{bw}{cD}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aldus is het directe verband tussen 
+\begin_inset Formula $\phi$
+\end_inset
+
+ en 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ het volgende
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boxed{\overline{h}-h_{LR}=\left(\phi-h_{LR}+Nc\right)\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}}\label{eq:havg-fphi-w}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Om het rechtstreekse verband tussen 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ en de kwel 
+\begin_inset Formula $q$
+\end_inset
+
+ en te krijgen 
+\begin_inset Formula $qc=\phi-\overline{h}$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Dit is de stationaire oplossing uitgedrukt in de doorsnedegemiddelde grondwaterstand,
- waar alleen 
-\begin_inset Formula $h_{b}$
+ Daartoe vervangen we eerst 
+\begin_inset Formula $\phi-h_{LR}$
 \end_inset
 
- nog moet worden ingevuld.
- De eis is dat 
-\begin_inset Formula $h_{\pm b}$
-\end_inset
-
- voldoet aan de weerstand,
- dus dat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{h_{b}-h_{LR}=\frac{w}{D}Q_{b}=\frac{bw}{D}\left(N+q\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze stroming kan formeel worden afgeleid maar de uitstroom naar de sloot 
-\begin_inset Formula $Q_{b}$
-\end_inset
-
- is ook exact gelijk aan 
-\begin_inset Formula $\left(N+q\right)b$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Maken we de datum 
-\begin_inset Formula $h_{LR}$
-\end_inset
-
- expliciet dan gaat vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:havg-hb"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- over in
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}-\left(h_{b}-h_{LR}\right)=\left(N+q\right)c\Gamma
-\]
-
+door 
+\begin_inset Formula $\left(\phi-\overline{h}\right)+\left(\overline{h}-h_{LR}\right)$
 \end_inset
 
 
@@ -2687,9 +3006,21 @@ nolink "false"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}-h_{LR}=\left(N+q\right)c\Gamma+h_{b}-h_{LR}
+\overline{h}-h_{LR}=\left(\phi-\overline{h}+\overline{h}-h_{LR}+Nc\right)\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en vervangen 
+\begin_inset Formula $\phi-\overline{h}$
+\end_inset
+
+ door 
+\begin_inset Formula $qc$
 \end_inset
 
 
@@ -2698,7 +3029,7 @@ nolink "false"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}-h_{LR}=\left(N+q\right)c\Gamma+\left(N+q\right)c\frac{wb}{cD}
+\overline{h}-h_{LR}=\left(qc+\overline{h}-h_{LR}+Nc\right)\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}
 \]
 
 \end_inset
@@ -2707,15 +3038,48 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-met als einresultaat
+\begin_inset Formula $\overline{h}-h_{LR}$
+\end_inset
+
+ naar links brengen levert
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\boxed{\overline{h}-h_{LR}=\left(N+q\right)c\left[\Gamma+\frac{wb}{cD}\right]}
+\left(\overline{h}-h_{LR}\right)\left(1-\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}\right)=\left(qc+Nc\right)\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De factor links van het isgelijkteken kan worden vereenvoudigd,
+ wat de volgende vergelijking oplevert
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\overline{h}-h_{LR}\right)\left(\frac{1}{\Gamma+\frac{bw}{cD}+1}\right)=\left(qc+Nc\right)\frac{\left(\Gamma+\frac{bw}{cD}\right)}{\left(\Gamma+\frac{bw}{cD}+1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De factor van de eerste term links valt weg tegen dezelfde factor rechts.
+ Dit levert het eindresultaat op,
+ namelijk de doorsnedegemiddelde grondwaterstand als functie van de doorsnedegemiddelde kwel 
+\begin_inset Formula $q$
+\end_inset
+
+ en de slootweerstand 
+\begin_inset Formula $w$
 \end_inset
 
 
@@ -2723,9 +3087,9 @@ met als einresultaat
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(N+\frac{\phi-\overline{h}}{c}\right)c\left[\Gamma+\frac{wb}{cD}\right]
-\]
+\begin{equation}
+\boxed{\overline{h}-h_{LR}=\left(N+q\right)c\left[\Gamma+\frac{wb}{cD}\right]}\label{eq:havg-fq_w}
+\end{equation}
 
 \end_inset
 
@@ -2733,45 +3097,7 @@ met als einresultaat
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(N+\frac{\phi-h_{LR}-\left(\overline{h}-h_{LR}\right)}{c}\right)c\left[\Gamma+\frac{wb}{cD}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(Nc+\left(\phi-h_{LR}\right)\right)\left[\Gamma+\frac{wb}{cD}\right]-\left(\overline{h}-h_{LR}\right)\left[\Gamma+\frac{wb}{cD}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(Nc+\left(\phi-h_{LR}\right)\right)\left[\frac{\Gamma+\frac{wb}{cD}}{\Gamma+\frac{wb}{cD}+1}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-waarin de dimensieloze term 
-\begin_inset Formula $\left(\frac{w}{c}\frac{b}{D}\right)$
-\end_inset
-
- de bijdrage door de intredeweerstand.
- Met
+Waarin
 \end_layout
 
 \begin_layout Standard
@@ -2786,7 +3112,19 @@ waarin de dimensieloze term
 \end_layout
 
 \begin_layout Standard
-of nog complacter
+Vergelijking 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:havg-fq_w"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ kan nog compacter naar de volgende vorm worden omgeschreven,
+ waardoor de vergelijking hetzelfde wordt als die voor de eenlaagssituatie volgens Dupuit
 \end_layout
 
 \begin_layout Standard
@@ -2816,23 +3154,11 @@ met
 \end_layout
 
 \begin_layout Standard
-krijgen we de oplossing tenslotte in zijn meest compacte vorm
-\end_layout
-
-\begin_layout Standard
-Deze vergelijking heeft dezelfde vorm als die voor de eenlaagsoplossing;
- alleen de factor 
-\begin_inset Formula $T$
-\end_inset
-
- wijkt af.
-\end_layout
-
-\begin_layout Standard
-Met vergelijking 
+In conclusie,
+ vergelijkingen 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:base-case-stationair-met-weerstand"
+reference "eq:havg-fphi-w"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2840,21 +3166,20 @@ nolink "false"
 
 \end_inset
 
- kan uiteindelijk de doorsnedegemiddelde stijghoogte in de deklaag 
-\begin_inset Formula $\overline{h}$
+ en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:havg-fq_w"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
 \end_inset
 
- wordt berekend bij gegeven 
-\begin_inset Formula $q$
-\end_inset
-
- en het neerslagoverschot 
-\begin_inset Formula $N$
-\end_inset
-
-,
- terwijl de diepe stijghoogte is geëlimineerd.
- 
+ zijn dus volledig uitwisselbaar.
+ Het maakt niet uit of de uniforme diepe stijghoogte of de doorsnedegemiddelde kwel wordt opgegeven.
+ De stationaire gemiddelde grondwaterstand is in beide gevallen direct berekenbaar.
 \end_layout
 
 \begin_layout Standard
@@ -2943,7 +3268,7 @@ Zodat het enige resterende verschil tussen de eenlaags en de tweelaagsoplossing 
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 Tijdsafhankelijke oplossing
 \end_layout
 
@@ -2970,9 +3295,9 @@ met
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\boxed{T=c\Gamma+w\frac{b}{D}}
-\]
+\begin{equation}
+\boxed{T=c\left(\Gamma+\frac{w}{c}\frac{b}{D}\right)}\label{eq:T-base-case}
+\end{equation}
 
 \end_inset
 
@@ -2981,9 +3306,9 @@ met
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\boxed{\Gamma=\frac{b}{\lambda}\coth\frac{b}{\lambda}-1}
-\]
+\begin{equation}
+\boxed{\Gamma=\frac{b}{\lambda}\coth\frac{b}{\lambda}-1}\label{eq:Gamma-base-case}
+\end{equation}
 
 \end_inset
 
@@ -3003,164 +3328,7 @@ Conversie van vergelijking met
 \end_layout
 
 \begin_layout Standard
-Vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:h_x_base_case_phi_gegeven_entry_weerstand"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- kan via 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- gevrijwaard worden van 
-\begin_inset Formula $\phi$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{\overline{h}-h_{LR}=\left(N+q\right)T,\;\text{met }T=c\left[\Gamma+\frac{wb}{cD}\right]}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-h_{LR}=\left(N+\frac{\phi-\overline{h}}{c}\right)T
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left(\overline{h}-h_{LR}\right)\frac{c}{T}=Nc+\phi-\overline{h}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}\frac{c}{T}-h_{LR}\frac{c}{T}=Nc+\phi-\overline{h}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}\left(1+\frac{c}{T}\right)-h_{LR}\frac{c}{T}=Nc+\phi
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dus gegeven 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- geeft de navolgend vergelijking de diepe stijghoogte
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{\phi-\overline{h}=\left(\overline{h}-h_{LR}\right)\frac{c}{T}-Nc}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Omgekeerd bij gegeven 
-\begin_inset Formula $\phi$
-\end_inset
-
- is de gemiddelde grondwaterstand bekend
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{\phi-h_{LR}=\left(\overline{h}-h_{LR}\right)\left(1+\frac{c}{T}\right)-Nc}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Als we 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- berekend hebben uit 
-\begin_inset Formula $\phi$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{\overline{h}-h_{LR}=\frac{\left(\phi-h_{LR}\right)+Nc}{1+\frac{c}{T}}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dan weten we ook wat 
-\begin_inset Formula $q$
-\end_inset
-
- is,
- nl 
-\begin_inset Formula $q=\left(\phi-\overline{h}\right)/c$
-\end_inset
-
- en berekenen we h
-\begin_inset Formula $\left(x\right)$
-\end_inset
-
- met de formule voor gegeven 
-\begin_inset Formula $q$
-\end_inset
-
-
+Zoals hiervoor afgeleid voldoet de grondwaterstand langs de doorsnede aan 
 \end_layout
 
 \begin_layout Standard
@@ -3175,9 +3343,23 @@ h-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\cosh\left(\
 \end_layout
 
 \begin_layout Standard
+met 
+\begin_inset Formula $h_{b}=h_{LR}+b\frac{w}{D}\left(N+q\right)$
+\end_inset
+
+.
+ Dus als we de doorsnedegemiddelde kwel hebben kan de voorgaand vergelijking worden berekend.
+ Na integratie over de halve doorsnede en deling door 
+\begin_inset Formula $b$
+\end_inset
+
+ binden we
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-h-\left(\overline{h}+\phi-\overline{h}+Nc\right)=\left(h_{b}-\left(\overline{h}+\phi-\overline{h}+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\overline{h}-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
 \]
 
 \end_inset
@@ -3186,17 +3368,229 @@ h-\left(\overline{h}+\phi-\overline{h}+Nc\right)=\left(h_{b}-\left(\overline{h}+
 \end_layout
 
 \begin_layout Standard
-Dus 
-\begin_inset Formula $\phi=\overline{h}+qc$
+Tweede term naar rechts en uitvermenigvuldigen levert 
+\begin_inset Formula $\overline{h}$
 \end_inset
 
-:
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-h-\overline{h}-\left(N+q\right)c=\left(h_{b}-\overline{h}-\left(N+q\right)c\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+\overline{h}=h_{b}\frac{\lambda}{b}\tanh\frac{b}{\lambda}+\left(\phi+Nc\right)\left(1-\frac{\lambda}{b}\tanh\frac{b}{\lambda}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Om 
+\begin_inset Formula $h_{b}$
+\end_inset
+
+ vrij te krijgen delen we beide zijden door 
+\begin_inset Formula $\left(\lambda/b\right)\tanh\left(b/\lambda\right)=1/\left(\left(b/\lambda\right)\coth\left(b/\lambda\right)\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}\frac{b}{\lambda}\coth\frac{b}{\lambda}=h_{b}+\left(\phi+Nc\right)\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h_{b}$
+\end_inset
+
+ wordt dan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{b}=\overline{h}\frac{b}{\lambda}\coth\frac{b}{\lambda}-\left(\phi+Nc\right)\left[\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met de 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ zoals hiervoor gedefinieerd vereenvoudigt deze vergelijking tot
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{b}=\overline{h}\left(\Gamma+1\right)-\left(\phi+Nc\right)\Gamma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met 
+\begin_inset Formula $h_{b}$
+\end_inset
+
+gelijk aan 
+\begin_inset Formula $\frac{bw}{cD}\left(Nc+qc\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{bw}{cD}\left(Nc+qc\right)=\overline{h}\left(\Gamma+1\right)-\left(\phi+Nc\right)\Gamma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zodat de doorsnedegemiddelde grondwaterstand gelijk is aan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{h}=\frac{\left(\phi+Nc\right)\Gamma+\frac{bw}{cD}\left(Nc+qc\right)}{\Gamma+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deze 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ kunnen we uitdrukking in de uniforme 
+\begin_inset Formula $\phi$
+\end_inset
+
+ en en doorsnedegemiddelde 
+\begin_inset Formula $q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\phi-\overline{h}}{c}=q\;\to\;\phi=\overline{h}+qc\;\to\;\overline{h}=\phi-qc
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zodat 
+\begin_inset Formula $\overline{h}$
+\end_inset
+
+ uit de vergelijking kan worden geëlimineerd
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi-qc=\left(\phi+Nc\right)\frac{\Gamma}{\Gamma+1}+\left(Nc+qc\right)\frac{bw}{cD}\frac{1}{\Gamma+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uitvermenigvuldigen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi-qc=\phi\frac{\Gamma}{\Gamma+1}+Nc\frac{\Gamma}{\Gamma+1}+Nc\frac{bw}{cD}\frac{1}{\Gamma+1}+qc\frac{bw}{cD}\frac{1}{\Gamma+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Samenvoegen van termen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi\left(1-\frac{\Gamma}{\Gamma+1}\right)=qc\left(1+\frac{bw}{cD}\frac{1}{\Gamma+1}\right)+Nc\left(\frac{\Gamma}{\Gamma+1}+\frac{bw}{cD}\frac{1}{\Gamma+1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1-\frac{\Gamma}{\Gamma+1}=\frac{1}{\Gamma+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+levert dit uiteindelijk een eenduidige relatie op tussen 
+\begin_inset Formula $\phi$
+\end_inset
+
+ en 
+\begin_inset Formula $q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi=qc\left(\Gamma+\frac{bw}{cD}+1\right)+Nc\left(\Gamma+\frac{bw}{cD}\right)
 \]
 
 \end_inset
@@ -3207,7 +3601,7 @@ h-\overline{h}-\left(N+q\right)c=\left(h_{b}-\overline{h}-\left(N+q\right)c\righ
 \begin_layout Standard
 \begin_inset Formula 
 \[
-h-h_{LR}=\left(\overline{h}-h_{LR}+\left(N+q\right)c\right)+\left(h_{b}-h_{LR}-\left(\overline{h}-h_{LR}++\left(N+q\right)c\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
+q=\frac{\frac{\phi}{c}-N\left(\Gamma+\frac{bw}{cD}\right)}{\Gamma+\frac{bw}{cD}+1}
 \]
 
 \end_inset
@@ -3216,138 +3610,12 @@ h-h_{LR}=\left(\overline{h}-h_{LR}+\left(N+q\right)c\right)+\left(h_{b}-h_{LR}-\
 \end_layout
 
 \begin_layout Standard
-Verder,
- met
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{b}-h_{LR}=\left(N+q\right)b\frac{w}{D}
-\]
-
+Mooi,
+ maar we hebben 
+\begin_inset Formula $h_{LR}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-h_{LR}=\left(\overline{h}-h_{LR}+\left(N+q\right)c\right)+\left(\left(N+q\right)b\frac{w}{D}-\left(\left(\overline{h}-h_{LR}\right)+\left(N+q\right)c\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-h_{LR}-\left(\overline{h}-h_{LR}\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)=+\left(N+q\right)c+\left(\left(N+q\right)c\left(\frac{wb}{cD}-1\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-h_{LR}=\left(\overline{h}-h_{LR}+\left(N+q\right)c\right)+\left(h_{b}-h_{LR}-\left(\left(\overline{h}-h_{LR}\right)+\left(N+q\right)c\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Volgt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-\left(\overline{h}+\left(N+q\right)c\right)=\left(h_{LR}+\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)-\left(\overline{h}++\left(N+q\right)c\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h=\left(\overline{h}+\left(N+q\right)c\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)+\left(h_{LR}+\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-met
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\overline{h} & =h_{LR}+\left(N+q\right)c\left[\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)+\frac{w}{c}\frac{b}{D}\right]\\
- & =h_{LR}+\left(N+q\right)c\Gamma
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h=\left(h_{LR}+\left(N+q\right)c\Gamma+\left(N+q\right)c\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)+\left(h_{LR}+\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-h_{LR}=\left(\left(N+q\right)c\Gamma+\left(N+q\right)c\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)+\left(\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-h_{LR}=\left(\left(N+q\right)c\Gamma+\left(N+q\right)c\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)+\left(\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)-\left(\left(N+q\right)c\left(\frac{b}{c}\frac{w}{D}\right)\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-h_{LR}=\left(\left(N+q\right)c\left(\Gamma+\frac{b}{c}\frac{w}{D}\right)+\left(N+q\right)c\left(1-\frac{b}{c}\frac{w}{D}\right)\right)\left(1-\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}\right)
-\]
-
-\end_inset
-
-
+ verloren onderweg!
 \end_layout
 
 \begin_layout Section

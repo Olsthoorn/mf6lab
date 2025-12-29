@@ -67,6 +67,11 @@ class Aquifer:
         L = self.lam
         return self.b / L * __class__.coth(self.b / L) - 1
     
+    @property
+    def wbcD(self):
+        """Return factor w b /(c D)."""
+        return (self.w * self.b) / (self.c * self.D)
+    
     @classmethod
     def coth(cls, x:float | np.ndarray)->float | np.ndarray:
         """Return coth (not in numpy or scipy)"""
@@ -354,14 +359,13 @@ class Base_case(AnalyticalSolution):
         assert np.isscalar(phi) != np.isscalar(q), (
             """Either phi or q must be a scalar."""
         )
-        aq = self.aq
-        wb_cD = aq.w * aq.b / (aq.c * aq.D)
+        aq = self.aq        
                 
         if phi is not None:        
-            havg = hLR + (R * aq.c + (phi -hLR)) * (aq.G + wb_cD) / (aq.G + wb_cD + 1)
+            havg = hLR + (R * aq.c + (phi -hLR)) * (aq.G + aq.wbcD) / (aq.G + aq.wbcD + 1)
             q = (phi - havg) / aq.c
         else:
-            havg = hLR + (R + q) * aq.c * (aq.G + wb_cD)
+            havg = hLR + (R + q) * aq.c * (aq.G + aq.wbcD)
             phi = havg + q * aq.c
         
         if x is None:
@@ -371,7 +375,7 @@ class Base_case(AnalyticalSolution):
             chx = np.cosh(x / aq.lam)
             chb = np.cosh(aq.b / aq.lam)
             
-            hb = hLR + (R + q) * aq.c * wb_cD
+            hb = hLR + (R + q) * aq.c * aq.wbcD
             
             h = hb * chx / chb + (havg + (R + q) * aq.c) * (1 - chx / chb)
             
@@ -1224,15 +1228,31 @@ def ex_base_case_steady():
     ax.legend(loc='upper right')
     plt.show()
     
-def ex_base_case_steady_1():
-    """Show the base case equivalence if specified by phi or q + entry resistance."""
+def ex_base_case_steady_1(phi=0., hLR=0., R=0.01, c=200, w=1):
+    """Show the base case equivalence if specified by phi or q + entry resistance.
+    
+    The X-section average head and the head along the section are computed and shown,
+    with arbitrary entry resistance w >= 0.
+    
+    The section is computed for given phi and for given q.
+    The computation is done using the extended analytical fomulas
+    derived from which the x-section average head was eliminated
+    (implimented right in this exmaple).
+    And it is done for the implementation in the class "Base-case"
+    where the compuation is split in two parts, with the
+    X-section average head first computed and the head along the
+    X-section thereafter using the result.
+
+    The result shows that the same result is achieved.
+    For the case of c -> infty, just compare with the
+    Dupuit solution.
+    """
     
     from itertools import cycle
     
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, w=0.5, mu=0.2, b=50)
-    phi, hLR, R = 0., 0., 0.1
-
+    aq = Aquifer(k=10, D=10, c=c, w=w, mu=0.2, b=50)
+    
     # --- Points along X-section
     x = np.linspace(-aq.b, aq.b, 26)
     
@@ -1241,35 +1261,59 @@ def ex_base_case_steady_1():
     fig.suptitle("Base case, steady-state")
     
     ax.set_title('Analytical base-case, steady state' + "\n"
-                 + str(aq).replace(' c=200,', '')
+                 + str(aq)
                  )
     ax.set(xlabel='x [m]', ylabel='h [m]')
     
     # --- Simulate and show for different c-values.
     clrs = cycle('brgkmcy')
-    for c in [100]:
-        
-        # --- Manage graph color.
-        clr = next(clrs)
-
-        # --- Replace c, this gives new aquifer and new model.
-        aq.c = c
-        mdl = Base_case(aq=aq)
     
-        # --- head along X-section and in center x=0
-        hx = mdl.steady(R=R, phi=phi, hLR=hLR, x=x)
-        hm = mdl.steady(R=R, phi=phi, hLR=hLR)
-        q = (phi - hm) / aq.c
-        hq = mdl.steady(R=R, hLR=hLR, q=q, x=x)        
-        haq = mdl.steady(R=R, q=q, hLR=hLR)
-        
-        ax.plot(x, hx, color=clr, label=f'h_phi, c={c} d')
-        ax.plot(x, hm + np.zeros_like(x), '-', color=clr, label=f'hm_phi, c={c} d')
-        
-        clr = next(clrs)
-        ax.plot(x, hq, '.', color=clr, label=f'h_q, c={c} d')
-        ax.plot(x, haq + np.zeros_like(x), '.', color=clr, label=f'hm_q, c={c} d')
-        
+    # --- Manage graph color.
+    clr = next(clrs)
+
+    # --- Replace c, this gives new aquifer and new model.
+    aq.c = c
+    mdl = Base_case(aq=aq)    
+    dup = Dupuit(aq=aq)    
+    
+    # --- Derived analytical stuff
+    hfm = hLR + (phi - hLR + R * aq.c) * (aq.G + aq.wbcD) / (aq.G + aq.wbcD + 1)
+    
+    q = (phi - hfm) / aq.c
+    
+    hqm = hLR + (R + q) * aq.c * (aq.G + aq.wbcD)
+
+    chx = np.cosh(x / aq.lam) / np.cosh(aq.b / aq.lam)
+    hfx = hLR + (phi - hLR + R * aq.c) * (
+        1 + (aq.wbcD / (aq.G + aq.wbcD + 1) - 1) * chx
+    )
+    hqx = hLR + (R + q) * aq.c * ((aq.G +aq.wbcD + 1) -(aq.G + 1) * chx)
+
+    ax.plot(x, np.zeros_like(x) + hfm, '+', ms=10, mfc='none', label='hfm', )
+    ax.plot(x, np.zeros_like(x) + hqm, 'x', ms=10, mfc='none', label='hqm')
+    ax.plot(x, hfx, 's', ms=10, mfc='none', label='hfx')
+    ax.plot(x, hqx, '*', ms=10, mfc='none', label='hqx')
+    
+    hdup = dup.steady(R=R, hLR=hLR, x=x)
+    hdum = dup.steady(R=R, hLR=hLR)
+    ax.plot(x, hdup, '.-', label='Dupuit x (the same for c=infty)')
+    ax.plot(x, np.zeros_like(x) + hdum, '.-', label='Dupuit mean')
+    
+
+    # --- head along X-section and in center x=0
+    hx = mdl.steady(R=R, phi=phi, hLR=hLR, x=x)
+    hm = mdl.steady(R=R, phi=phi, hLR=hLR)
+    q = (phi - hm) / aq.c
+    hq = mdl.steady(R=R, hLR=hLR, q=q, x=x)        
+    haq = mdl.steady(R=R, q=q, hLR=hLR)
+    
+    ax.plot(x, hx, color=clr, label=f'h_phi, c={c} d')
+    ax.plot(x, hm + np.zeros_like(x), '-', color=clr, label=f'hm_phi, c={c} d')
+    
+    clr = next(clrs)
+    ax.plot(x, hq, '.', color=clr, label=f'h_q, c={c} d')
+    ax.plot(x, haq + np.zeros_like(x), '.', color=clr, label=f'hm_q, c={c} d')
+    
     ax.grid(True)
     ax.legend(loc='upper right')
     plt.show()
@@ -1615,7 +1659,7 @@ def ex_brug13709():
 if __name__ == "__main__":
     if True:
         # ex_base_case_steady()
-        ex_base_case_steady_1()
+        ex_base_case_steady_1(phi=0.0, hLR=0., R=0.01, c=200, w=1)
     if False:
         ex_dupuit_transient(b=50, R=0.001, h0=0, hLR=0)
         ex_dupuit_transient_pd(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1)
