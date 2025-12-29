@@ -1957,9 +1957,9 @@ Met als uiteindelijke oplossing met
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-h-h_{LR}=\frac{N}{2kD}\left(b^{2}-x^{2}\right)+\frac{w}{D}Nb
-\]
+\begin{equation}
+\boxed{h-h_{LR}=\frac{N}{2kD}\left(b^{2}-x^{2}\right)+\left(\frac{w}{D}\right)bN}\label{eq:hdup-steady-w}
+\end{equation}
 
 \end_inset
 
@@ -1984,7 +1984,7 @@ Binnen de analytische GGOR-tool werken we met de doorsnedegemiddelde grondwaters
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}-h_{LR}=\frac{1}{3}\frac{b^{2}}{kD}N+\frac{w}{D}bN
+\boxed{\overline{h}-h_{LR}=\frac{1}{3}\frac{b^{2}}{kD}N+\left(\frac{w}{D}\right)bN}
 \]
 
 \end_inset
@@ -3315,309 +3315,6 @@ met
 
 \end_layout
 
-\begin_layout Subsection
-Conversie van vergelijking met 
-\begin_inset Formula $\phi$
-\end_inset
-
- in vergelijking met 
-\begin_inset Formula $q$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Zoals hiervoor afgeleid voldoet de grondwaterstand langs de doorsnede aan 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\cosh\left(\frac{x}{\lambda}\right)}{\cosh\left(\frac{b}{\lambda}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-met 
-\begin_inset Formula $h_{b}=h_{LR}+b\frac{w}{D}\left(N+q\right)$
-\end_inset
-
-.
- Dus als we de doorsnedegemiddelde kwel hebben kan de voorgaand vergelijking worden berekend.
- Na integratie over de halve doorsnede en deling door 
-\begin_inset Formula $b$
-\end_inset
-
- binden we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}-\left(\phi+Nc\right)=\left(h_{b}-\left(\phi+Nc\right)\right)\frac{\lambda}{b}\tanh\frac{b}{\lambda}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Tweede term naar rechts en uitvermenigvuldigen levert 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}=h_{b}\frac{\lambda}{b}\tanh\frac{b}{\lambda}+\left(\phi+Nc\right)\left(1-\frac{\lambda}{b}\tanh\frac{b}{\lambda}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Om 
-\begin_inset Formula $h_{b}$
-\end_inset
-
- vrij te krijgen delen we beide zijden door 
-\begin_inset Formula $\left(\lambda/b\right)\tanh\left(b/\lambda\right)=1/\left(\left(b/\lambda\right)\coth\left(b/\lambda\right)\right)$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}\frac{b}{\lambda}\coth\frac{b}{\lambda}=h_{b}+\left(\phi+Nc\right)\left(\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $h_{b}$
-\end_inset
-
- wordt dan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{b}=\overline{h}\frac{b}{\lambda}\coth\frac{b}{\lambda}-\left(\phi+Nc\right)\left[\frac{b}{\lambda}\coth\frac{b}{\lambda}-1\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met de 
-\begin_inset Formula $\Gamma$
-\end_inset
-
- zoals hiervoor gedefinieerd vereenvoudigt deze vergelijking tot
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h_{b}=\overline{h}\left(\Gamma+1\right)-\left(\phi+Nc\right)\Gamma
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-met 
-\begin_inset Formula $h_{b}$
-\end_inset
-
-gelijk aan 
-\begin_inset Formula $\frac{bw}{cD}\left(Nc+qc\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{bw}{cD}\left(Nc+qc\right)=\overline{h}\left(\Gamma+1\right)-\left(\phi+Nc\right)\Gamma
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat de doorsnedegemiddelde grondwaterstand gelijk is aan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\overline{h}=\frac{\left(\phi+Nc\right)\Gamma+\frac{bw}{cD}\left(Nc+qc\right)}{\Gamma+1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- kunnen we uitdrukking in de uniforme 
-\begin_inset Formula $\phi$
-\end_inset
-
- en en doorsnedegemiddelde 
-\begin_inset Formula $q$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\phi-\overline{h}}{c}=q\;\to\;\phi=\overline{h}+qc\;\to\;\overline{h}=\phi-qc
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat 
-\begin_inset Formula $\overline{h}$
-\end_inset
-
- uit de vergelijking kan worden geëlimineerd
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi-qc=\left(\phi+Nc\right)\frac{\Gamma}{\Gamma+1}+\left(Nc+qc\right)\frac{bw}{cD}\frac{1}{\Gamma+1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Uitvermenigvuldigen
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi-qc=\phi\frac{\Gamma}{\Gamma+1}+Nc\frac{\Gamma}{\Gamma+1}+Nc\frac{bw}{cD}\frac{1}{\Gamma+1}+qc\frac{bw}{cD}\frac{1}{\Gamma+1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Samenvoegen van termen
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi\left(1-\frac{\Gamma}{\Gamma+1}\right)=qc\left(1+\frac{bw}{cD}\frac{1}{\Gamma+1}\right)+Nc\left(\frac{\Gamma}{\Gamma+1}+\frac{bw}{cD}\frac{1}{\Gamma+1}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-en met
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-1-\frac{\Gamma}{\Gamma+1}=\frac{1}{\Gamma+1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-levert dit uiteindelijk een eenduidige relatie op tussen 
-\begin_inset Formula $\phi$
-\end_inset
-
- en 
-\begin_inset Formula $q$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi=qc\left(\Gamma+\frac{bw}{cD}+1\right)+Nc\left(\Gamma+\frac{bw}{cD}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-q=\frac{\frac{\phi}{c}-N\left(\Gamma+\frac{bw}{cD}\right)}{\Gamma+\frac{bw}{cD}+1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Mooi,
- maar we hebben 
-\begin_inset Formula $h_{LR}$
-\end_inset
-
- verloren onderweg!
-\end_layout
-
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -4101,7 +3798,7 @@ Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken wo
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{1}{b}\intop_{0}^{b}\cos\left(\frac{\alpha_{n}x}{b}\right)dx=\alpha_{n}\sin\left(\alpha_{n}\right)
+\frac{1}{b}\intop_{0}^{b}\cos\left(\frac{\alpha_{n}x}{b}\right)dx=\frac{b}{b\alpha_{n}}\intop_{0}^{\alpha_{n}}\cos\left(\frac{\alpha_{n}x}{b}\right)d\frac{\alpha_{n}x}{b}=\frac{1}{\alpha_{n}}\intop_{0}^{\alpha_{n}}\cos y\,dy=\frac{1}{\alpha_{n}}\sin\left(\alpha_{n}\right)
 \]
 
 \end_inset
@@ -4112,7 +3809,7 @@ Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken wo
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}=\delta_{h}-\delta_{h}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\overline{h}=\delta_{h}-2\delta_{h}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\alpha_{n}^{2}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
 \]
 
 \end_inset
@@ -4123,7 +3820,7 @@ Voor de doorsnedegemiddelde situatie met de tweede factor onder het som-teken wo
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{h}=\frac{p}{3kD}b^{2}+\frac{pbw}{D}-\frac{pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\alpha_{n}^{2}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
+\overline{h}=\frac{p}{3kD}b^{2}+\frac{pbw}{D}-\frac{2pb^{2}}{kD}\sum_{n=0}^{\infty}\frac{\sin^{2}\alpha_{n}}{\alpha_{n}^{4}\left(1+\frac{\epsilon}{\alpha_{n}^{2}+\epsilon^{2}}\right)}\exp\left(-\frac{t}{T}\right),\text{ met }T=\frac{\beta^{2}b^{2}}{\alpha_{n}^{2}}=\frac{b^{2}S}{\alpha_{n}^{2}kD}
 \]
 
 \end_inset

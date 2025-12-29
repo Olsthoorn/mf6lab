@@ -248,7 +248,7 @@ class Dupuit(AnalyticalSolution):
                 
         aq = self.aq
             
-        T = aq.T1L
+        T = aq.T1L # inlcludes entry resistance
     
         hcol = list(tdata.columns).index('h')
         
@@ -270,10 +270,7 @@ class Dupuit(AnalyticalSolution):
             t0 = t
             
         return tdata
-    
-    def transient_avg(self, time=None, R=None, h0=0, hLR=0):
-        return self.transient(time=time, R=R, h0=h0, hLR=hLR)
-    
+        
     def transient(self, time=None, R=None, h0=0, hLR=0):
         """Return result of dynamic simulation for constant inputs.
         
@@ -296,7 +293,7 @@ class Dupuit(AnalyticalSolution):
         
         aq = self.aq
         
-        T = aq.T1L
+        T = aq.T1L # includes entry resistance
                 
         exp = np.exp(-(time - t0) / (aq.mu * T))
         h =hLR +  (h0 - hLR) * exp +  R * T * (1 - exp)   
@@ -443,14 +440,6 @@ class Base_case(AnalyticalSolution):
         return tdata
         
     def transient(self, time: float | np.ndarray,
-                  R: float=0,
-                  h0: float=0,
-                  hLR: float=0,
-                  q: float=0)->float | np.ndarray:
-        """Return result of dynamic simulation for constant inputs."""
-        return self.transient_avg(time=time, R=R, h0=h0, hLR=hLR, q=q)
-    
-    def transient_avg(self, time: float | np.ndarray,
                       R: float=0,
                       h0: float=0,
                       hLR: float=0,
@@ -701,7 +690,7 @@ class Brug13702(Brug):
             return dh
         else:
             x = np.atleast_1d(x)
-            h = dh * np.zeros_like(x)
+            h = dh + np.zeros_like(x)
         return h if h.size > 1 else h.item()
             
     def transient(self, 
@@ -716,38 +705,41 @@ class Brug13702(Brug):
         aq = self.aq
          
         if np.isclose(aq.w, 0):
-            raise ValueError("aq.w must be > 0 to use this function")
+            # raise ValueError("aq.w must be > 0 to use this function")
+            aq.w = 0.0001
     
         brug_eps   = aq.b / (aq.k * aq.w)
         alfas = [root_x_tan_x(brug_eps, k) for k in range(N)]
         
         s0 = self.steady(dh=dh, x=x)
         
+        F = 2 * s0
+        
         if x is None:
             for n, alpha in zip(range(N + 1), alfas):
                 T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
                 ds = (
-                    np.sin(alpha)**2 / (1 + brug_eps / (alpha**2 + brug_eps**2))                
+                    (np.sin(alpha)/alpha)**2 / (1 + brug_eps / (alpha**2 + brug_eps**2))                
                     * np.exp(-time/ T)
                 )
                 if n == 0:
                     s = ds
                 else:
                     s += ds
-            return s0 - s0 * s
+            return s0 - F * s
         else:
             for n, alpha in zip(range(N + 1), alfas):
                 T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
                 ds = (
                     (np.sin(alpha) / alpha) / (1 + brug_eps / (alpha**2 + brug_eps**2))
-                    * np.cos(alpha * x /aq.b)
+                    * np.cos(alpha * x / aq.b)
                     * np.exp(-time/ T)
                 )
                 if n == 0:
                     s = ds
                 else:
                     s += ds
-        return s0 - 2 * s0 * s
+        return s0 - F * s
 
 
 class Brug13709(Brug):
@@ -756,9 +748,6 @@ class Brug13709(Brug):
     Case 137.09 is the case in which constant recharge starts at t=0,
     with entry resistance.
     """
-
-    """Sudden rise h of the surface water level."""    
-    
     def steady(self, R:float, dh:float | None=None, x: float | np.ndarray | None=None) -> float | np.ndarray:
         if x is None:
             # --- Return average for cross section
@@ -784,21 +773,22 @@ class Brug13709(Brug):
         aq = self.aq
         
         if np.isclose(aq.w, 0):
-            raise ValueError("aq.w must be > 0 to use this function")
+            # raise ValueError("aq.w must be > 0 to use this function")
+            aq.w = 1e-4
         
         brug_eps   = aq.b / (aq.k * aq.w)
         alfas = [root_x_tan_x(brug_eps, k) for k in range(N)]
         
-        s0 = self.steady_avg(R=R, x=x)
+        s0 = self.steady(R=R, x=x)
+        
+        F = 2 * R * aq.b**2 / aq.kD
         
         if x is None:
             # --- Return X-section average heads
-            F = R * aq.b**2 / aq.kD        
-
             for n, alpha in zip(range(N + 1), alfas):
                 T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
                 ds = (
-                    (np.sin(alpha)**2 / alpha**2) / (1 + brug_eps / (alpha**2 + brug_eps**2))                
+                    (np.sin(alpha)**2 / alpha**4) / (1 + brug_eps / (alpha**2 + brug_eps**2))                
                     * np.exp(-time/ T)
                 )
                 if n == 0:
@@ -807,9 +797,7 @@ class Brug13709(Brug):
                     s += ds
             return s0 - F * s          
         else:
-            # --- Return head values at x        
-            F = 2 * R * aq.b**2 / aq.kD        
-
+            # --- Return head values at x
             for n, alpha in zip(range(N + 1), alfas):
                 T = aq.b**2 * aq.mu / (aq.kD * alpha**2)             
                 ds = (
@@ -912,7 +900,9 @@ class Brug137(Brug):
     
 # %% Examples 
 def ex_dupuit_transient(b=50, R=0.001, h0=0, hLR=0, w=0):
-    """Show head development for steady inputs together with asymptote
+    """Show head development for steady inputs together with asymptote.
+
+    This is done for w=w and w=0, for different b.
     
     Parameters
     ----------
@@ -925,10 +915,11 @@ def ex_dupuit_transient(b=50, R=0.001, h0=0, hLR=0, w=0):
     hLR: float
         Ditch water level.
     """
-    # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, w=w, mu=0.2, b=b)
+    # --- Input data for w=w and w=0
+    aqww = Aquifer(k=10, D=10, c=200, w=w, mu=0.2, b=b)
+    aqw0 = Aquifer(k=10, D=10, c=200, w=0, mu=0.2, b=b)
         
-    title1 = str(aq).replace(", c = 200", "").replace(", b = 50", "")
+    title1 = str(aqww).replace(", c=200", "").replace(", b=50", "")
     title2 = f"R={R} m/d, h0={h0} m, hLR={hLR} m"
     
     time = np.logspace(0, 4, 81)
@@ -939,31 +930,42 @@ def ex_dupuit_transient(b=50, R=0.001, h0=0, hLR=0, w=0):
                  title1 + "\n" + title2)
     ax.set(xlabel='time [d]', ylabel='head [m]', xscale='log')
     
+    # --- Compute and show for different b
     clrs = cycle('brgkmcy')
     for b in [30, 45, 60, 85, 120, 170, 240]:
         clr = next(clrs)
-        aq.b = b
-        mdl = Dupuit(aq=aq)
+        aqww.b = b
+        aqw0.b = b
+        mdlww = Dupuit(aq=aqww)
+        mdlw0 = Dupuit(aq=aqw0)
         
-        T = aq.T1L
+        Tww = aqww.T1L
+        Tw0 = aqw0.T1L
         
-        h = mdl.transient_avg(time=time, R=R, h0=h0, hLR=hLR)
-        hinf = mdl.asymptote(R=R, hLR=hLR)
+        hww = mdlww.transient(time=time, R=R, h0=h0, hLR=hLR)
+        hinfww = mdlww.asymptote(R=R, hLR=hLR)
+        hw0 = mdlw0.transient(time=time, R=R, h0=h0, hLR=hLR)
+        hinfw0 = mdlw0.asymptote(R=R, hLR=hLR)
 
-        ax.plot(time[1:], h[1:], color=clr, label=f'b={aq.b:7.0f} d, muT={aq.mu * T:8.3g} d')
-        ax.plot(time[-1], hinf, 'o', mfc=clr)
+        ax.plot(time, hww, '-',  color=clr, label=f'b={aqww.b:5.0f} d, muT={aqww.mu * Tww:6.3g} d, w={aqww.w} d')
+        ax.plot(time[-1], hinfww, 'o', mfc=clr)
+        ax.plot(time, hw0, '--', color=clr, label=f'b={aqw0.b:5.0f} d, muT={aqw0.mu * Tw0:6.3g} d, w={aqw0.w} d')
+        ax.plot(time[-1], hinfw0, 'o', mfc=clr)
+
     ax.grid(True)
     ax.legend(loc="upper left")    
 
-def ex_dupuit_transient_pd(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1):
+def ex_dupuit_transient_pd(rch=None, bs=None, h0=0, h_summer=-0.9, h_winter=-1.1):
     """Show transient head development driven by meteo
+    
+    The computations are done for two different b.
     
     Parameters
     ----------
     tdata: pd DataFrame with fields RH (precip) and EV24 (evapotranspiraton)
         The meteo data
-    b: float [L]
-        half-width of the X-section
+    bs: np.ndarray of float [L]
+        half-widths of the X-section to test
     h0: float
         Initial head at t=0
     h_winter: float
@@ -972,9 +974,8 @@ def ex_dupuit_transient_pd(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1):
         Ditch water level during summer.
     """
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.2, b=b)
-        
-    title1 = str(aq).replace(", c = 200", "").replace(", b = 50", "")
+    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.2, b=50)
+    title1 = str(aq).replace(", c=200", "").replace(", b=50", "")
     title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m"
     
     # --- Get meteo data
@@ -989,29 +990,40 @@ def ex_dupuit_transient_pd(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1):
     ax.set(xlabel='time', ylabel='head [m]', xscale='log')
     
     clrs = cycle('brgkmcy')
-    for b in [50, 500]:
+    # --- For given values of b
+    for b in bs:
         clr = next(clrs)
+        
+        # --- Accomodate b
         aq.b = b
         mdl = Dupuit(aq=aq)
         
-        T = aq.T1L
+        T = aq.T1L # includes entry resistance
         
         tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter)
         
-        ax.plot(tdata.index, tdata['h'], color=clr,
-                label=f'muT={aq.mu * T:8.3g} d')
+        ax.plot(tdata.index, tdata['h'], color=clr, lw=0.5,
+                label=f'b={b} m, muT={aq.mu * T:8.3g} d')
     ax.grid(True)
     ax.legend(loc="lower right")
   
-def ex_sim_lfilter_dupuit(rch=None, b=50, h0=0, h_summer=0.9, h_winter=-1.1):
+def ex_sim_lfilter_dupuit(rch=None, bs=None, h0=0, h_summer=0.9, h_winter=-1.1):
     """Show transient head development driven by meteo
+    
+    The computation is done in two ways:
+    
+    1. By convolution
+    2. By simulation
+    
+    The results are the same. One can  use rch *= 0 (see below), to
+    simulate with zero recharge bu with varying hLR.
     
     Parameters
     ----------
     tdata: pd DataFrame with fields RH (precip) and EV24 (evapotranspiraton)
         The meteo data
-    b: float [L]
-        half-width of the X-section
+    bs: np.ndarray of float [L]
+        half-widths of the X-section
     h0: float
         Initial head at t=0
     h_winter: float
@@ -1020,9 +1032,9 @@ def ex_sim_lfilter_dupuit(rch=None, b=50, h0=0, h_summer=0.9, h_winter=-1.1):
         Ditch water level during summer.
     """
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.2, b=b)
+    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.2, b=50)
         
-    title1 = str(aq).replace(", c = 200", "").replace(", b = 50", "")
+    title1 = str(aq).replace(", c=200", "").replace(", b=50", "")
     title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m"
     
     # --- Get meteo data
@@ -1031,40 +1043,53 @@ def ex_sim_lfilter_dupuit(rch=None, b=50, h0=0, h_summer=0.9, h_winter=-1.1):
         rch = meteo.recharge
         
     # test
-    rch *= 0.
+    # rch *= 0.
         
     fig, ax = plt.subplots(figsize=(10, 7.8))
-    fig.suptitle("Dupuit case")
+    fig.suptitle("Dupuit case by simulation and by convolution")
     ax.set_title("Head driven by meteo data, using lfilter" + "\n" + 
                  title1 + "\n" + title2)
-    ax.set(xlabel='time', ylabel='head [m]', xscale='log')
+    ax.set(xlabel='time', ylabel='head [m]', xscale='linear')
     
     clrs = cycle('brgkmcy')
-    for b in [250]:
+    for b in bs:
         clr = next(clrs)
+        
         aq.b = b
         mdl = Dupuit(aq=aq)
         T = mdl.aq.T1L
 
-        tdata = mdl.sim_by_lfilter(rch, h_summer=h_summer, h_winter=h_winter)
-        ax.plot(tdata.index, tdata['h'], color=clr, lw=0.5,
-                label=f'lfilter  muT={aq.mu * T:8.3g} d')
-
+        # --- Compuation by ordinary simulation
         tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter)
-        ax.plot(tdata.index, tdata['h'], '.', color=clr, lw=0.5,
-                label=f'direct  muT={aq.mu * T:8.3g} d')
+        
+        ax.plot(tdata.index, tdata['h'], '.', color=clr, lw=0.5, ms=2,
+                label=f'By simulation,  b={b} m, muT={aq.mu * T:8.3g} d')
+
+        # --- Computation by convolution (using scipy.signal.lfilter)
+        tdata = mdl.sim_by_lfilter(rch, h_summer=h_summer, h_winter=h_winter)
+        
+        ax.plot(tdata.index, tdata['h'], color=clr, lw=0.5,
+                label=f'By convolution, b={b} m, muT={aq.mu * T:8.3g} d')
+
     ax.grid(True)
     ax.legend(loc="lower right")
 
-def ex_sim_lfilter_base_case(rch=None, b=50, h0=0, h_summer=0.9, h_winter=-1.1, q=0):
-    """Show transient head development driven by meteo
+def ex_sim_lfilter_base_case(rch=None, bs=None, h0=0, h_summer=0.9, h_winter=-1.1, q=0):
+    """Show transient head development driven by meteo.
+    
+    The computation is done bye
+    
+    1. Direct simulation.
+    2. Convolution using scipy.signal.lfilter
+    
+    You may use the rch *=0 below to see the effect of hLR alone.
     
     Parameters
     ----------
     tdata: pd DataFrame with fields RH (precip) and EV24 (evapotranspiraton)
         The meteo data
-    b: float [L]
-        half-width of the X-section
+    bs: np.ndarray of float [L]
+        half-widths of the X-section
     h0: float
         Initial head at t=0
     h_winter: float
@@ -1073,9 +1098,9 @@ def ex_sim_lfilter_base_case(rch=None, b=50, h0=0, h_summer=0.9, h_winter=-1.1, 
         Ditch water level during summer.
     """
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.2, b=b)
+    aq = Aquifer(k=10, D=10, c=200, w=0., mu=0.2, b=50)
         
-    title1 = str(aq).replace(", c = 200", "").replace(", b = 50", "")
+    title1 = str(aq).replace(", c=200", "").replace(", b=50", "")
     title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m"
     
     # --- Get meteo data
@@ -1084,44 +1109,51 @@ def ex_sim_lfilter_base_case(rch=None, b=50, h0=0, h_summer=0.9, h_winter=-1.1, 
         rch = meteo.recharge
         
     # test    
-    rch *= 0
+    # rch *= 0
         
-    fig, ax = plt.subplots(figsize=(10, 7.8))
-    fig.suptitle("Base case")
+    fig, ax = plt.subplots(figsize=(10, 7.5))
+    fig.suptitle("Base-case computed by direct simulation and by convolution")
     ax.set_title("Head driven by meteo data, using lfilter" + "\n" + 
                  title1 + "\n" + title2)
-    ax.set(xlabel='time', ylabel='head [m]', xscale='log')
+    ax.set(xlabel='time', ylabel='head [m]')
     
     clrs = cycle('brgkmcy')
-    for b in [250]:
+    for b in np.atleast_1d(bs):
         clr = next(clrs)
+        
         aq.b = b
         mdl = Base_case(aq=aq)
         T = mdl.aq.T2L
-        
+
+        # --- Direct simulation.
+        tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter, q=q)
+        ax.plot(tdata.index, tdata['h'], '.', color=clr, lw=0.5, ms=2,
+                label=f'By simulation,  b={b} m, muT={aq.mu * T:8.3g} d')
+
+        # --- Convolution using lfilter.
         tdata = mdl.sim_by_lfilter(rch, h_summer=h_summer, h_winter=h_winter, q=q)
         ax.plot(tdata.index, tdata['h'], color=clr, lw=0.5,
-                label=f'lfilter  muT={aq.mu * T:8.3g} d')
+                label=f'By convolution, b={b} m, muT={aq.mu * T:8.3g} d')
 
-        tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter, q=q)
-        ax.plot(tdata.index, tdata['h'], '.', color=clr, lw=0.5,
-                label=f'direct  muT={aq.mu * T:8.3g} d')
     ax.grid(True)
     ax.legend(loc="lower right")
   
-def ex_2cases(rch=None, c=50, b=50, h0=0, h_summer=0.9, h_winter=-1.1, q=0):
+def ex_2cases(rch=None, test=False, c=None, bs=None, w=None, h0=0, h_summer=0.9, h_winter=-1.1, q=0):
     """Show transient head development driven by meteo in two cases.
     
-    First case is Dupuit, the second is base-case. It is shown that
-    for the same recharge, the head computed by simulation and
-    by convolution (lfilter) are exactly the same.
+    Compare two cases:
+    1. Dupuit
+    2. Base-case
+    
+    It is shown that, for the same recharge, the head computed by simulation and
+    by convolution (lfilter) are exactly the same (for large c and same w).
     
     Parameters
     ----------
     tdata: pd DataFrame with fields RH (precip) and EV24 (evapotranspiraton)
         The meteo data
-    b: float [L]
-        half-width of the X-section
+    bs: np.ndarray of float [L]
+        half-widths of the X-section
     h0: float
         Initial head at t=0
     h_winter: float
@@ -1130,9 +1162,9 @@ def ex_2cases(rch=None, c=50, b=50, h0=0, h_summer=0.9, h_winter=-1.1, q=0):
         Ditch water level during summer.
     """
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=c, w=0., mu=0.2, b=b)
+    aq = Aquifer(k=10, D=10, c=c, w=w, mu=0.2, b=50)
         
-    title1 = str(aq).replace(", b = 50", "")
+    title1 = str(aq).replace(", b=50", "")
     title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m"
     
     # --- Get meteo data
@@ -1142,55 +1174,75 @@ def ex_2cases(rch=None, c=50, b=50, h0=0, h_summer=0.9, h_winter=-1.1, q=0):
        
     rch1 = rch.copy() 
     rch2 = rch.copy()
-    # test
-    summer = np.logical_and(rch.index.month > 3, rch.index.month < 10)
-    r = np.zeros(len(rch))
-    r[summer] = 0.001
-    rch1[:] = r.copy()
-    rch2[:] = r.copy()
     
-    fig, ax = plt.subplots(figsize=(10, 7.8))
+    # --- Test, varies recharge constant during seasons.
+    # --- For large c, both cases yield the same results
+    
+    summer = np.logical_and(rch.index.month > 3, rch.index.month < 10)
+    if test==1:
+        rsummer = 0.001
+        h_summer, h_winter = 0, 0   
+        r = np.zeros(len(rch))
+        r[summer] = 0.001
+        rch1[:] = r.copy()
+        rch2[:] = r.copy()
+        title3 = f"Recharge varies by season, hLR constant between 0 and {rsummer} m/d."
+    elif test==2:
+        rch1 *= 0.
+        rch2 *= 0.
+        title3 = "No recharge only hLR varies by season."
+    else:
+        title3 = "Recharge and hLR vary continuously"
+        
+    fig, ax = plt.subplots(figsize=(10, 9.5))
     fig.suptitle("Base case")
     ax.set_title("Head driven by meteo data, using lfilter" + "\n" + 
-                 title1 + "\n" + title2)
-    ax.set(xlabel='time', ylabel='head [m]', xscale='log')
+                 title1 + "\n" + title2 + "\n" + title3)
+    ax.set(xlabel='time', ylabel='head [m]')
     
-    for b in [250]:        
+    for b in np.atleast_1d(bs):
+        
         aq.b = b
         mdl1 = Dupuit(aq=aq)
         mdl2 = Base_case(aq=aq)
         
         T1 = mdl1.aq.T1L
         T2 = mdl2.aq.T2L
+
+        if True:
+            # --- Dupuit directly.           
+            tdata1 = mdl1.transient_pd(rch1, h_summer=h_summer, h_winter=h_winter, q=q)
+            ax.plot(tdata1.index, tdata1['h'], '.', color='b', lw=0.5, ms=2,
+                    label=f'Dupuit    direct  muT={aq.mu * T1:8.3g} d')
+            
+            # --- Base-case directly
+            tdata2 = mdl2.transient_pd(rch2, h_summer=h_summer, h_winter=h_winter, q=q)
+            ax.plot(tdata2.index, tdata2['h'], '.', color='r', lw=0.5, ms=2,
+                    label=f'Base_case direct  muT={aq.mu * T2:8.3g} d')
         
         if True:
+            # --- Dupuit by convolution
             tdata1 = mdl1.sim_by_lfilter(rch1, h_summer=h_summer, h_winter=h_winter, q=q)
             ax.plot(tdata1.index, tdata1['h'], color='b', lw=1.5,
-                    label=f'Dupuit lfilter  muT={aq.mu * T1:8.3g} d')
+                    label=f'Dupuit    lfilter  muT={aq.mu * T1:8.3g} d')
+            
+            # --- Base-case by convolution
             tdata2 = mdl2.sim_by_lfilter(rch2, h_summer=h_summer, h_winter=h_winter, q=q)
             ax.plot(tdata2.index, tdata2['h'], color='r', lw=0.5,
                     label=f'Base-case lfilter  muT={aq.mu * T2:8.3g} d')
-        if True:
-            tdata1 = mdl1.transient_pd(rch1, h_summer=h_summer, h_winter=h_winter, q=q)
-            ax.plot(tdata1.index, tdata1['h'], '.', color='b', lw=0.5,
-                    label=f'Dupuit direct  muT={aq.mu * T1:8.3g} d')
-            tdata2 = mdl2.transient_pd(rch2, h_summer=h_summer, h_winter=h_winter, q=q)
-            ax.plot(tdata2.index, tdata2['h'], '.', color='r', lw=0.5,
-                    label=f'Base_case direct  muT={aq.mu * T2:8.3g} d')
 
     ax.grid(True)
     ax.legend(loc="lower right")
   
 
-def ex_base_case_steady():
+def ex_base_case_steady(phi=0, hLR=0, R=0.001, w=0):
     """Show the base case steady and compare with single layer."""
     
     from itertools import cycle
     
     # --- Input data
-    aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.2, b=50)
-    phi, hLR, R = 0., 0., 0.001
-
+    aq = Aquifer(k=10, D=10, c=200, w=w, mu=0.2, b=50)
+    
     # --- Points along X-section
     x = np.linspace(-aq.b, aq.b, 101)
     
@@ -1199,7 +1251,7 @@ def ex_base_case_steady():
     fig.suptitle("Base case, steady-state")
     
     ax.set_title('Analytical base-case, steady state' + "\n"
-                 + str(aq).replace(' c=200,', '')
+                 + str(aq).replace(', c=200', '')
                  )
     ax.set(xlabel='x [m]', ylabel='h [m]')
     
@@ -1213,17 +1265,20 @@ def ex_base_case_steady():
         # --- Replace c, this gives new aquifer and new model.
         aq.c = c
         mdl = Base_case(aq=aq)
+        dup = Dupuit(aq=aq)
     
         # --- head along X-section and in center x=0
-        hx = mdl.steady(x=x, phi=phi, hLR=hLR, R=R)
-        h0 = mdl.steady(x=0, phi=phi, hLR=hLR, R=R)
+        hx = mdl.steady(phi=phi, hLR=hLR, R=R, x=x)
+        h0 = mdl.steady(phi=phi, hLR=hLR, R=R, x=0)
+        hm = mdl.steady(phi=phi, hLR=hLR, R=R)
         
         ax.plot(x, hx, color=clr, label=f'c={c} d')
         ax.plot(0, h0, 'o', ms=8, mec=clr, mfc='none')
+        ax.plot(x, np.zeros_like(x) + hm, color=clr, label='hm')
     
-    # --- Steady analytical solution single layer, with no leakage.
-    ha = R * (mdl.aq.b **2 - x ** 2) / (2 * mdl.aq.kD)
-    ax.plot(x, ha, '.', color='k', label='steady one-layer')    
+    # --- Steady analytical solution single layer, with no leakage.    
+    ax.plot(x, dup.steady(R=R, hLR=hLR, x=x), '.', color='k', lw=0.5, label='steady one-layer')
+    ax.plot(x, np.zeros_like(x) + dup.steady(R=R, hLR=hLR), 'o', ms=10, mec='k', mfc='none', lw=0.5, label='steady one-layer, mean')    
     ax.grid(True)
     ax.legend(loc='upper right')
     plt.show()
@@ -1335,7 +1390,7 @@ def ex_base_case_transient0(b=50, R=0.001, h0=0, hLR=0, q=0):
     # --- Input data
     aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.2, b=b)
         
-    title1 = str(aq).replace(", c = 200", "")
+    title1 = str(aq).replace(", c=200", "")
     title2 = f"R={R} m/d, h0={h0} m, hLR={hLR} m, q={q} m/d"
     
     time = np.logspace(0, 4, 81)
@@ -1362,13 +1417,15 @@ def ex_base_case_transient0(b=50, R=0.001, h0=0, hLR=0, q=0):
     ax.grid(True)
     ax.legend(loc="lower right")    
 
-def ex_base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
+def ex_base_case_transient_pd(rch=None, cs=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
     """Show transient head development driven by meteo
     
     Parameters
     ----------
-    tdata: pd DataFrame with fields RH (precip) and EV24 (evapotranspiraton)
+    rch: pd.Series of daily recharge)
         The meteo data
+    cs: np.ndarray of floats
+        c values to test
     b: float [L]
         half-width of the X-section
     h0: float
@@ -1383,7 +1440,7 @@ def ex_base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
     # --- Input data
     aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.2, b=b)
         
-    title1 = str(aq).replace(", c = 200", "")
+    title1 = str(aq).replace(", c=200", "")
     title2 = f"h0={h0} m, h_summer={h_summer} m, h_winter={h_winter} m, q={q} m/d"
     
     # --- Get meteo data
@@ -1391,24 +1448,24 @@ def ex_base_transient(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1, q=0):
         meteo = ggor_meteo.Meteo()
         rch = meteo.recharge
         
-    fig, ax = plt.subplots(figsize=(10, 7))
+    fig, ax = plt.subplots(figsize=(10, 7.5))
     fig.suptitle("Base case, transient")
     ax.set_title("Head driven by meteo data" + "\n" + 
                  title1 + "\n" + title2)
     ax.set(xlabel='time', ylabel='head [m]', xscale='log')
     
     clrs = cycle('brgkmcy')
-    for c in [10, 1000]: # 30, 100, 300, 1000, 3000]:
+    for c in cs: # 30, 100, 300, 1000, 3000]:
         clr = next(clrs)
         aq.c = c
         mdl = Base_case(aq=aq)
         
-        T = aq.c * aq.G
+        T = aq.T2L # includes entry resistance
         
         tdata = mdl.transient_pd(rch, h_summer=h_summer, h_winter=h_winter, q=q)
         
-        ax.plot(tdata.index, tdata['h'], color=clr,
-                label=f'c={aq.c:7.0f} d, muT={aq.mu * T:8.3g} d')
+        ax.plot(tdata.index, tdata['h'], color=clr, lw=0.5,
+                label=f'c={aq.c:7.0f} d, muT={aq.mu * T:.1f} d')
     ax.grid(True)
     ax.legend(loc="lower right")
     
@@ -1445,39 +1502,26 @@ def compare_limits():
     
     plt.show()
 
-def ex_brug13302():
-    aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95]) * aq.b
-    dh = 0.1
-    time = np.linspace(0, 20, 101)
+def ex_brug13302_13702_Dupuit(xs_b=None, w=None, dh=0.1):
+    """Compare Bruggeman's solution 133.102 with 137.02 and Dupuit.
     
-    brug = Brug13302(aq)
-    dup  = Dupuit(aq)
-
-    fig, ax = plt.subplots(figsize=(10, 7.5))
+    Solutions 133.02 (wihtout entry resistance) and 137.02 (with
+    entry resistan ce) are for a sudden change of head at the
+    boundaries, i.e. at x=+/- b. De solution of Dupuit can be
+    made to simulate that by setting recharge R=0.
     
-    fig.suptitle("Bruggeman(1999, solution 133.02)")
-    ax.set_title(f"Sudden rise {dh} mof the surface water level" +
-                 "\n" + str(aq).replace(", w=0","").replace(", c=200",""))
-    ax.set(xlabel='t d[]', ylabel='h [m]')
+    Parameters
+    ----------
+    xs_b: np.ndarray of floats
+        relative coordinates, xs_b = x/b
+    w: float
+        entry resistance [d] to be applied to 137.02 and Dupuit.
+    dh: float
+        Sudden head change at x=0.    
+    """
+    aq = Aquifer(k=10, D=10, c=200, w=w, mu=0.15, b=50)
+    xs = np.atleast_1d(xs_b) * aq.b
     
-    clrs = cycle('brgkmcy')
-    for x in xs:
-        clr = next(clrs)
-        ht = brug.transient(time=time, dh=dh, x=x)
-        ha = brug.transient_avg(time=time, dh=dh)
-        hd = dup.transient(time=time, R=0, h0=0, hLR=dh)
-        ax.plot(time, ht, '-', color=clr, label=f'Brug133.02, x={x:.1f} m')
-        ax.plot(time, ha, 'o', mec=clr, mfc='none', label='Brug133.02 transient_avg')
-        ax.plot(time, hd, 'x', mec=clr, mfc='none', label='Dupuit transient_avg')
-        
-    ax.grid(True)
-    ax.legend(loc='center')
-
-def ex_brug13702():
-    aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95, 0.99]) * aq.b
-    dh = 0.1
     time = np.linspace(0, 20, 101)
     
     brug1 = Brug13302(aq)
@@ -1486,139 +1530,115 @@ def ex_brug13702():
 
     fig, ax = plt.subplots(figsize=(10, 7.5))
     
-    fig.suptitle("Bruggeman (1999, solution 137.02)")
-    ax.set_title(f"Sudden rise {dh} m of surface water. With entry resistance" +
+    fig.suptitle(f"Bruggeman 133.02 (w=0), 137.02 (w={w}) and Dupuit (w={w} d)")
+    ax.set_title(f"Sudden rise {dh} m of surface water. With/without entry resistance" +
                  "\n" + str(aq).replace(", c=200",""))
     ax.set(xlabel='t d[]', ylabel='h [m]')
     
-    clrs = cycle('brgkmcy')
-    for x in xs:
-        clr = next(clrs)
-        h1 = brug1.transient(time=time, dh=dh, x=x)
-        h2 = brug2.transient(time=time, dh=dh, x=x)
-        hd = dup.transient(time=time, R=0., h0=0, hLR=dh)
-        hb = brug2.transient(time=time, dh=dh)
-        ax.plot(time, h1, '-', color=clr,
-                label=f'h1, x={x:.1f} m, no   ditch resistance')
-        ax.plot(time, h2, '.', color=clr,
-                label=f'h2, x={x:.1f} m, with ditch resistance')
-        ax.plot(time, hd, 'o', mec=clr, mfc='none',
-                label="Dupuit with ditch resistance")
-        ax.plot(time, hb, 'x', mec=clr, mfc='none',
-                label="brug avg with ditch resistance")
+    for x in xs:        
+        h1t = brug1.transient(time=time, dh=dh, x=x)
+        h1a = brug1.transient(time=time, dh=dh)
+        
+        h2t = brug2.transient(time=time, dh=dh, x=x)
+        h2a = brug2.transient(time=time, dh=dh)
+        
+        hd1 = dup.transient(time=time, R=0., h0=0, hLR=dh)
+        hds = dup.steady(R=0, hLR=dh)
+        
+        ax.plot(time, h1t, '-', color='blue',
+                label=f'Brug133.02, w={0} d, x={x:.1f} m')
+        ax.plot(time, h1a, '-', color='blue',
+                label=f'Bug133.02, w={0} d, x=None')
+
+        ax.plot(time, h2t, '.', color='red',
+                label=f'Brug137.02, w={w} d, x={x:.1f} m')
+        ax.plot(time, h2a, 'o', mec='red', mfc='none',
+                label=f'Brug137.02, w={w} d, x=None')
+        
+        ax.plot(time, hd1, 'o', mec='green', mfc='none',        
+                label=f"Dupuit tr, w={w} d, muT={dup.aq.mu * dup.aq.T1L:.1f} d")
+        ax.plot(time[[0, -1]], [hds, hds], '--', color='green',
+                label=f"Dupuit st, w={w} d")
     ax.grid(True)
     ax.legend(loc='center')
 
 
-def ex_brug13316():
-    aq = Aquifer(k=10, D=10, c=200, w=0, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95, 0.99]) * aq.b
-    R = 0.001
-    time = np.linspace(0, 20, 101)
-    
-    brug = Brug13316(aq)
-    dup  = Dupuit(aq)
-
-    fig, ax = plt.subplots(figsize=(10, 7.5))
-    
-    fig.suptitle("Bruggeman (1999, solution 133.16)")
-    ax.set_title(f"Constant precipitation of {R} m/d" +
-                 "\n" + str(aq).replace(", w=0", "").replace(", c=200",""))
-    ax.set(xlabel='t d[]', ylabel='h [m]')
-    
-    clrs = cycle("brgkmcy")
-    for x in xs:
-        clr = next(clrs)
-        ht = brug.transient(time=time, R=R, x=x)
-        hb = brug.transient(time=time, R=R)
-        hd = dup.transient(time=time, R=R)
-        hdup = dup.steady(x=x, hLR=0, R=R)
-        
-        ax.plot(time, ht, color=clr, label=f'Brug133.16, x={x:.1f} m')
-        ax.plot(time, hb, 's', mec=clr, mfc='none', label='Brug133.16 avg')
-        ax.plot(time, hd, 'o', mec=clr, mfc='none', label='Dupuit transient')      
-        ax.plot(time[-1], hdup, 'x', mec=clr, mfc='none', label='Dupuit')
-        
-    ax.grid(True)
-    ax.legend(loc='center')
-
-def ex_brug133_137_dupuit(rch=None, h_summer=-0.9, h_winter=-1.1, w=0.001):
+def ex_brug133_137_vs_dupuit(rch=None, test=None, b=100, h_summer=-0.9, h_winter=-1.1, w=0.001):
     """Compare results 133.02/16, 137.02/09 with Dupuit
+    
+    This combines varyring recharge with varying hLR
     
     Compare the X-section average values
     
     Compute using lfilter
     """
-    aq = Aquifer(k=10, D=10, c=200, w=w, mu=0.15, b=50)
+    aq = Aquifer(k=10, D=10, c=200, w=w, mu=0.15, b=b)
     
-        # --- Get meteo data
+    title2 = str(aq).replace(", c=200", "")
+    
+    # --- Get meteo data
     if rch is None:
         meteo = ggor_meteo.Meteo()
         rch = meteo.recharge
 
     summer = np.logical_and(rch.index.month > 3, rch.index.month < 10)
-    r = np.zeros(len(rch))
-    r[summer] = 0.001
-    rch[:] = r
+    if test==1:
+        R = 0.001
+        r = np.zeros(len(rch))
+        r[summer] = R
+        rch[:] = r
+        h_summer, h_winter = 0, 0
+        title3=f"Recharge varies by season between 0 and {R} m/d"
+    if test==2:
+        rch *= 0
+        title3 = "No recharge, hLR varies by season."
+    else:
+        title3 = "Recharge varies continuously and hLR by season."
     
     brug133 = Brug133(aq)
-    brug137 = Brug13302(aq)
+    brug137 = Brug137(aq)
     dup  = Dupuit(aq)
 
-    fig, ax = plt.subplots(figsize=(10, 7.5))
+    fig, ax = plt.subplots(figsize=(10, 9.5))
     
     fig.suptitle("Compare Bruggeman 133.02/16, 137.02/09 with Dupuit (all lfilter))")
-    ax.set_title("Varying precipitation")
+    ax.set_title(title2 + "\n" + title3)
     ax.set(xlabel='t d[]', ylabel='h [m]')
     
     tdata3 = brug133.sim_lfilter(rch=rch, h_summer=h_summer, h_winter=h_winter)
     tdata7 = brug137.sim_lfilter(rch=rch, h_summer=h_summer, h_winter=h_winter)        
     hd = dup.transient_pd(rch, h_summer, h_winter)
     
-    ax.plot(rch.index, tdata3['h'], label="Brug133 (- entry resistance)")
-    ax.plot(rch.index, tdata7['h'], label="Brug137 (+ entry resistance)")
-    ax.plot(rch.index, hd['h'],     label="Dupuit transient")
+    ax.plot(rch.index, tdata3['h'], lw=0.5, label=f"Brug133   (w={0} d)")
+    ax.plot(rch.index, tdata7['h'], lw=0.5, label=f"Brug137   (w={w} d")
+    ax.plot(rch.index, hd['h'],    '.', lw=0.5, ms=2, label=f"Dupuit tr (w={w} d)")
         
     ax.grid(True)
     ax.legend(loc='center')
-
-def ex_brug13316a():
-    aq = Aquifer(k=10, D=10, c=200, w=0.001, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95, 0.99]) * aq.b
-    R = 0.001
-    time = np.linspace(0, 20, 101)
+   
     
-    xs = np.array([0, 0.25, 0.5, 0.75, 0.9, 0.95]) * aq.b
-    brug1 = Brug13316(aq)
-    brug2 = Brug13709(aq)
-    dup = Dupuit(aq)
-
-    fig, ax = plt.subplots(figsize=(10, 7.5))
+def ex_brug13716_13309_avg_dupuit(xs_b=None, w=None):
+    """Compare Bruggeman's 133.16 with 133.09 and Dupuit.
     
-    fig.suptitle("Bruggeman (1999, solution 133.16 and 137.09)")
-    ax.set_title(f"Constant precipitation of {R} m/d" +
-                 "\n" + str(aq).replace(", c=200",""))
-    ax.set(xlabel='t d[]', ylabel='h [m]')
+    Does this for the x where the steady head equals the
+    X-section average head without entry resistance.
     
-    clrs = cycle("brgkmcy")
-    for x in xs:
-        clr = next(clrs)
-        ht1 = brug1.transient(time=time, R=R, x=x)
-        ht2 = brug2.transient(time=time, R=R, x=x)
-        hdup = dup.steady(x=x, hLR=0, R=R)
-        
-        ax.plot(time, ht1, color=clr, label=f'Brug133.16, x={x:.1f} m')
-        ax.plot(time, ht2, '.', color=clr, label=f'Brug137.09, x={x:.1f} m')
-        ax.plot(time[-1], hdup, 'x', mec=clr, mfc='none', label='Dupuit')
-        
-    ax.grid(True)
-    ax.legend(loc='center')
+    The average head occurs wehere x=b/sqrt(3)=0.577 b
+     For convenience, just specify the xs and the w
+     
+     Bruggeman 133.16 is without entry resistance.
+     Bruggeman 137.09 is without entry resistance.
+     
+     Parameters
+     ----------
+     xs_b: np.ndarray of float
+        array of x/b values.
+    w: float
+        entry resistance for case Bruggeman 133.09 and Dupuit.     
+    """
     
-    
-def ex_brug13709():
-    
-    aq = Aquifer(k=10, D=10, c=200, w=1, mu=0.15, b=50)
-    xs = np.array([0, 0.25, 0.5, 0.58, 0.75, 0.95, 0.99]) * aq.b
+    aq = Aquifer(k=10, D=10, c=200, w=w, mu=0.15, b=50)
+    xs = np.atleast_1d(xs_b) * aq.b
     R = 0.001
     time = np.linspace(0, 20, 101)
     
@@ -1628,67 +1648,69 @@ def ex_brug13709():
 
     fig, ax = plt.subplots(figsize=(10, 7.5))
     
-    fig.suptitle("Bruggeman (137.09)")
-    ax.set_title(f"Constant precipitation {R} m/d. With entry resistance." +
+    fig.suptitle(f"Bruggeman 133.16 (w=0), 137.09 (w={w}) and Dupuit (w={w} d)")
+    ax.set_title(f"Constant precipitation {R} m/d. With/without entry resistance." +
                  "\n" + str(aq).replace(", c=200",""))
     ax.set(xlabel='t d[]', ylabel='h [m]')
     
-    clrs = cycle("brgkmcy")
-    for x in xs:
-        clr = next(clrs)
+    for x in xs:        
         h1t = brug1.transient(time=time, R=R, x=x)
+        h1a = brug1.transient(time=time, R=R)
+    
         h2t = brug2.transient(time=time, R=R, x=x)
-        h2a = brug2.transient(R=R, time=time)
-        hdt = dup.transient(R=R, time=time)
-        hd  = dup.steady(x=x, hLR=0, R=R)
+        h2a = brug2.transient(time=time, R=R)
+    
+        hdt = dup.transient(time=time, R=R)
+        hd  = dup.steady(R=R, hLR=0, x=x)
         
-        ax.plot(time, h1t, '-', color=clr,
-                label=f'Brug133.16, x={x} m, no resis.')
-        ax.plot(time, h2t, '.', color=clr,
-                label=f'Brug137.09, x={x} m, + resis.')
-        ax.plot(time, h2a, 's', mec=clr, mfc='none',
-                label= 'Brug137.09 avg, + resis.')
-        ax.plot(time, hdt, 'o', mec=clr, mfc='none',
-                label='Dupuit + resitance')
-        ax.plot(time[-1], hd, 'x', color=clr)
+        ax.plot(time, h1t, '-', color='blue',
+                label=f'Brug133.16, w={0} d, x={x:.1f} m')
+        ax.plot(time, h1a, 's', mec='blue', mfc='none',
+                label= f'Brug137.16, w={0} d, X-sec. avg')
+
+        ax.plot(time, h2t, '.', color='red',
+                label=f'Brug137.09, w={w} d, x={x:.1f} m')
+        ax.plot(time, h2a, '*', mec='red', mfc='none',
+                label= f'Brug137.09, w={w} d, X-sec. avg')
+        
+        ax.plot(time[[0, -1]], [hd, hd], '--', color='green',
+                label=f"Dupuit st, w={w} d, x={x:.1f} m")
+        ax.plot(time, hdt, 'o', mec='green', mfc='none',
+                label=f'Dupuit tr, w={w} d, X-sec. avg')
         
     ax.grid(True)
     ax.legend(loc='center')
 
  # %% __main__   
 if __name__ == "__main__":
-    if True:
-        # ex_base_case_steady()
+    if False:
+        ex_base_case_steady(phi=0, hLR=0, R=0.001, w=1)
         ex_base_case_steady_1(phi=0.0, hLR=0., R=0.01, c=200, w=1)
     if False:
-        ex_dupuit_transient(b=50, R=0.001, h0=0, hLR=0)
-        ex_dupuit_transient_pd(rch=None, b=50, h0=0, h_summer=-0.9, h_winter=-1.1)
+        ex_dupuit_transient(b=50, R=0.001, h0=0, hLR=0, w=1)
+        ex_dupuit_transient_pd(rch=None, bs=[50, 250], h0=0, h_summer=-0.9, h_winter=-1.1)
     if False:
-        ex_base_case_transient(b=50, R=0.001, h0=0, hLR=0, q=0)
-        ex_base_case_transient(b=500, R=0.001, h0=0, hLR=0, q=0)
-        ex_base_case_transient(b=5000, R=0.001, h0=0, hLR=0, q=0)    
-        ex_base_case_transient(b=50, R=0.0, h0=3, hLR=0, q=0)
-        ex_base_case_transient(b=50, R=0.0, h0=0, hLR=3, q=0)
-        ex_base_case_transient(b=50, R=0.0, h0=0, hLR=0, q=0.001)
-    if False:
-        rch = ggor_meteo.Meteo().recharge
-        h_summer, h_winter = -0.9, -1.1
-        h0, q = 0, 0
-        ex_base_transient(rch, b=50, h0=3, h_summer=0, h_winter=0, q=q)
+        ex_base_case_transient_pd(cs=[50, 250], b=50,   h0=0, h_summer=0, h_winter=0, q=0)
+        ex_base_case_transient_pd(cs=[50, 250], b=500,  h0=0, h_summer=0, h_winter=0, q=0)
+        ex_base_case_transient_pd(cs=[50, 250], b=5000, h0=0, h_summer=0, h_winter=0, q=0)    
+        ex_base_case_transient_pd(cs=[50, 250], b=50,   h0=3, h_summer=0, h_winter=0, q=0)
+        ex_base_case_transient_pd(cs=[50, 250], b=50,   h0=0, h_summer=0, h_winter=0, q=0)
+        ex_base_case_transient_pd(cs=[50, 250], b=50,   h0=0, h_summer=0, h_winter=0, q=0.001)
     if False:
         compare_limits()
+    if False:               
+        ex_brug13302_13702_Dupuit(xs_b=[np.sqrt(1/3)], w=1.0, dh=0.1)
+        ex_brug13716_13309_avg_dupuit(xs_b=[np.sqrt(1/3)], w=0.5)    
     if False:
-        ex_brug13316a()
-    if False:
-        ex_brug13302()
-        ex_brug13316()
-        ex_brug13702()
-        ex_brug13709()
-    if False:
-        ex_sim_lfilter_dupuit(h0=0, h_summer=1.0, h_winter=0)
-        ex_sim_lfilter_base_case(h0=0, h_summer=1.0, h_winter=0, q=0)
-        ex_2cases(h0=0, c=50, h_summer=0, h_winter=0, q=0)
-        ex_brug133_137_dupuit(rch=None, h_summer=-0.9, h_winter=-1.1, w=0.001)
+        ex_sim_lfilter_dupuit(rch=None, bs=[50, 150, 300], h0=0, h_summer=-0.9, h_winter=-1.1)
+        ex_sim_lfilter_base_case(bs=[50, 150, 250],h0=0, h_summer=-0.9, h_winter=-1.1, q=0)
+        ex_2cases(test=1, bs=[50, 150, 250], h0=0, c=50000, w=0.5, h_summer=-0.9, h_winter=-1.1, q=0)
+        ex_2cases(test=2, bs=[50, 150, 250], h0=0, c=50000, w=0.5, h_summer=-0.9, h_winter=-1.1, q=0)
+        ex_2cases(test=0, bs=[50, 150, 250], h0=0, c=50000, w=0.5, h_summer=-0.9, h_winter=-1.1, q=0)
+    if True:  
+        ex_brug133_137_vs_dupuit(rch=None, test=2, b=250, h_summer=-0.9, h_winter=-1.1, w=5)
+        ex_brug133_137_vs_dupuit(rch=None, test=1, b=250, h_summer=-0.9, h_winter=-1.1, w=5)
+        ex_brug133_137_vs_dupuit(rch=None, test=0, b=250, h_summer=-0.9, h_winter=-1.1, w=5)
     try:
         plt.show()
     except Exception:
