@@ -52,6 +52,13 @@ dpp_interp((0, 3))
 
 
 # %%
+def get_home_folder():
+    parts = LPath(os.getcwd()).parts
+    if 'GGOR' not in parts:  
+        raise FileNotFoundError("'GGOR not in folder tree!")
+    return os.path.join(*parts[:parts.index('GGOR') + 1], 'cases', 'AAN_GZK', )
+
+
 def dPP(out, k, L , D):
     Phi_end = out['Phi'][1:, 0, -1].mean()
     Q = out['Q'][1:, 0, -1].sum()
@@ -71,11 +78,21 @@ def compute_dpp_table(L=100, D=10, dx=0.1, dy=0.1, nx=10, ny=10):
     L, D = 20, 10
     dx, dy = 0.1, 0.1
 
+    hs = np.array([0, 1, 2, 4, 8]) * dy
+    hs = np.hstack((hs, np.arange(1, D + 0.01, ny * dy)))
+
+    bs = np.array([0, 1, 2, 4, 8]) * dx
+    bs = np.hstack((bs, np.arange(1, D + 0.01, nx * dx)))
+
+    # --- for D is 10 and dx = dy = 0.1 this works to get a detailed table
+    hs = np.unique(np.round(np.logspace(-1, 1, 40), 1))
+    bs = np.unique(np.round(np.logspace(-1, 1, 40), 1))
+
     irow = 0
     dpp = []    
-    for h in np.arange(0, D + 0.01, ny * dy):
+    for h in hs:
         dpp_line = []        
-        for b in np.arange(0, D + 0.01, nx * dx):
+        for b in bs:
             
             x = np.linspace(-b - dx, L + dx, int((L + b + 2*dx) / dx) + 1)
             z = np.linspace(dy, -D, int((D + dy) / dy + 1))
@@ -108,80 +125,85 @@ def compute_dpp_table(L=100, D=10, dx=0.1, dy=0.1, nx=10, ny=10):
             out= fdm3(gr, K=K, c=None, FQ=FQ, HI=HI, IBOUND=IBOUND, GHB=None)
             print('.', end="")
             
+            out['gr'] = gr
+            
             dpp_line.append(dPP(out, k, L , D))
         irow += 1
         print(irow)
         dpp.append(dpp_line)
-    return np.array(dpp)
+    return bs, hs, np.array(dpp)
 
 
 # %%
 
-def sim_one_ditch(L=100, D=10, dx=0.1, dy=0.1, b=5, h=3):
+def sim_one_ditch(L=100, Q=None, k=None, D=10, dx=0.1, dy=0.1, b=None, h=None):
     HUGE = 1000.
     L, D = 20, 10
     dx, dy = 0.1, 0.1
     
-    x = np.linspace(-b - dx, L + dx, int((L + b + 2*dx) / dx) + 1)
-    z = np.linspace(dy, -D, int((D + dy) / dy + 1))
-    gr = Grid(x, None, z)
-
-    xy = ((-b - dx, dy), (-b -dx, -h), (0, -h), (0, dy), (-b -dx, dy))
-    p = PathPatch(Path(xy), color='blue')
-
-    DITCH = np.logical_and(gr.XM < 0, gr.ZM > -h)
-
-    IBOUND = gr.const(1, dtype=int)
-    IBOUND[:, :, 0] = 0
-    IBOUND[0, :, :] = 0
-    IBOUND[DITCH] = -1
-
-    k = 1.
-    K = gr.const(k)
-    K[0, :, :] = 1e-8
-    K[:, :, 0] = 1e-8
-    K[DITCH] = HUGE
-    K[1:, :, -1] = HUGE
-
-    FQ = gr.const(0.)
-
-    kdz = IBOUND[:, :, -1] * K[:, :, -1] * gr.DZ[: ,:, -1]
-    FQ[:, :, -1] = -kdz / np.sum(kdz)
-
-    HI = gr.const(0.)
-
-    out= fdm3(gr, K=K, c=None, FQ=FQ, HI=HI, IBOUND=IBOUND, GHB=None)
+    hb = ((0, 5), (5, 0), (3, 6), (2, 2))
     
-    dpp_Q = dPP(out, k=k, L=L, D=D)
-    
-    dpp_Qa = 2 / (np.pi * k) * np.log(D / (2 * (b + h)))
-    dpp_contr = dpp_contraction(h, D)
-    
-    S = strfun(gr, out)
-    levels = np.linspace(S.min(), S.max(), 51)
+    fig, axs = plt.subplots(2, 2, figsize=(14, 13))
+    fig.suptitle("Flow to ditch (no bottom resistance)\n"
+                    f"D = {D} m, k={k} m/d, Q={Q} m2/d"
+                    )
 
-    fig, ax = plt.subplots(figsize=(12, 7))
-    fig.suptitle("Flow to ditch (no bottom resistance)")
-    ax.set_title(f"h/D={h/D:.2f} m, b/D={b/D:.2f} m, D={D:.1f} m"
-                + "\n"
-                 + r"$\frac{d \phi}{Q}$"
-                 + f"={dpp_Q:.3f} m/(m2/d_), "
-                 + f"dpp_contr{dpp_contr:.3f}, "
-                 + r"$\frac{2}{\pi} \ln(\frac{H}{\Omega})$"
-                 + f"={dpp_Qa:.3f}")
-    ax.set_xlabel("x [m]")
-    ax.set_ylabel("y [m]")
-    Cs = plt.contour(gr.xm, gr.zm, out['Phi'][:, 0, :], levels=-levels[::-1])
-    Cs = plt.contour(gr.x[1:-1], gr.z, S, levels=levels)
-
-    ax.add_patch(p)
-
-    ax.set_aspect(1)
-    ax.set_xlim(-b -dx, 8)
+    for ia, ((h, b), ax) in enumerate(zip(hb, axs.flatten())):
     
-    parts = LPath(os.getcwd()).parts    
-    home = os.path.join(*parts[:parts.index('GGOR') + 1], 'cases', 'AAN_GZK', )
-    fig.savefig(os.path.join(home, "images", "ditch_isolines.png"))
+        Q = -1.0 # m^2/d
+       
+        if ia in [2, 3]:  
+            ax.set_xlabel("x [m]")
+        if ia in [0, 2]:
+            ax.set_ylabel("y [m]")
+
+        x = np.linspace(-b - dx, L + dx, int((L + b + 2*dx) / dx) + 1)
+        z = np.linspace(dy, -D, int((D + dy) / dy + 1))
+        gr = Grid(x, None, z)
+
+        xy = ((-b - dx, dy), (-b -dx, -h), (0, -h), (0, dy), (-b -dx, dy))
+        p = PathPatch(Path(xy), color='blue')
+
+        DITCH = np.logical_and(gr.XM < 0, gr.ZM > -h)
+
+        IBOUND = gr.const(1, dtype=int)
+        IBOUND[:, :, 0] = 0
+        IBOUND[0, :, :] = 0
+        IBOUND[DITCH] = -1
+
+        k = 1.
+        K = gr.const(k)
+        K[0, :, :] = 1e-8
+        K[:, :, 0] = 1e-8
+        K[DITCH] = HUGE
+        K[1:, :, -1] = HUGE
+
+        FQ = gr.const(0.)
+
+        kdz = IBOUND[:, :, -1] * K[:, :, -1] * gr.DZ[: ,:, -1]
+        FQ[:, :, -1] = Q * kdz / np.sum(kdz)
+
+        HI = gr.const(0.)
+
+        out= fdm3(gr, K=K, c=None, FQ=FQ, HI=HI, IBOUND=IBOUND, GHB=None)
+        
+        dpp_Q = dPP(out, k=k, L=L, D=D)
+        
+        S = strfun(gr, out)
+        levels = np.linspace(S.min(), S.max(), 51)
+    
+        ax.set_title(f"h/D={h/D:.2f} m, b/D={b/D:.2f} m, "
+                    fr"$d \phi={dpp_Q:.3f} \times Q$ m")
+    
+        ax.contour(gr.xm, gr.zm, out['Phi'][:, 0, :], levels=-levels[::-1])
+        ax.contour(gr.x[1:-1], gr.z, S, levels=levels)
+
+        ax.add_patch(p)
+
+        ax.set_aspect(1)
+        ax.set_xlim(-b -dx, 8)
+    
+    fig.savefig(os.path.join(get_home_folder(), "images", "ditch_isolines.png"))
     
     plt.show()
 
@@ -190,10 +212,23 @@ def sim_one_ditch(L=100, D=10, dx=0.1, dy=0.1, b=5, h=3):
 # %%
 if __name__ == '__main__':
 
-
-        ,     if True:
-        table = compute_dpp_table(L=100, D=10, dx=0.1, dy=0.1, nx=10, ny=10)
+    Q, k, D, h, b =1, 1, 10, 3, 6 # Height-width
+        
+    out = sim_one_ditch(L=20, k=k, Q=Q, D=D, dx=0.1, dy=0.1, b=b, h=h)
+    
+    if True:
+        bs, hs, table = compute_dpp_table(L=100, D=10, dx=0.1, dy=0.1, nx=10, ny=10)
         print(table)
+        
+        # --- Gererate the interpolator
+        table[-1] = 0 # Always zero because h == D
+        table[0, 0] = np.sqrt(table[1, 0] *table[0, 1]) # Because corner --> inf
+
+        # --- Notice: The order of the table is y, x (axis 0, axis1)        
+        fdpp_Q = RegularGridInterpolator((hs, bs), table, method='cubic')
+
+        # --- Therefore, also the call must honor this                 
+        # fdpp_Q((h, b))
 
         fname = os.path
         parts = LPath(os.getcwd()).parts    
@@ -209,6 +244,30 @@ if __name__ == '__main__':
 
     C = ax.contour(table, levels=100)
     ax.clabel(C, levels=C.levels)
+    dpp = fdpp_Q((h, b)) # Height-width
+    ax.plot(b, h, dpp, 'ro')
+    # %%
+    fig, ax = plt.subplots(figsize=(10, 7))
+    fig.suptitle("Partial penetration of a rectangular ditch in half infinite field")
+    ax.set_title("dphi/Q (partial penetration (h/D, b/D) of rectangular ditch)")
+    ax.set_xlabel('b/D')
+    ax.set_ylabel('h/D)')
+    ax.set_xscale('log')
+    ax.set_yscale('log')
 
+    dpp = np.array([fdpp_Q((b, h)) for b in bs for h in hs]).reshape(len(hs), len(bs))
+    dpp[0, 0] = np.nan
+    C = ax.contour(hs / D, bs / D, table, levels=25)
+
+    ax.clabel(C, levels=C.levels)
+    
+    ax.set_xlim(0.01, 1)
+    ax.set_ylim(0.01, 1)
+    ax.invert_yaxis()
+    ax.set_aspect(1)
+    ax.grid(True, which='both')
+    
+    fig.savefig(os.path.join(get_home_folder(), 'images', 'ditch_pp.png'))
+    plt.show()
 
 # %%

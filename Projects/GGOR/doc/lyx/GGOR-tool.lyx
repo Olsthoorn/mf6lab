@@ -4125,14 +4125,17 @@ Inleiding
 \end_layout
 
 \begin_layout Standard
-Tot nu toe is bij alle analytische oplossingen impliciet aangenomen dat de sloten geen of slechts een verwaarloosbare breedte hebben ten opzichte van de breedte van het perceel.
- In feite is de slootweerstand geconceptualiseerd als een verticaal muurtje tussen het watervoerend pakket en een als volkomen beschouwde sloot.
- Voor een adequate berekening van de stroming naar een sloot in de werkelijkheid worden de radiale weerstand als gevolg van contractie van stroomlijnen nabij de sloot en de weerstand van de slootbodem en slootwand apart in rekening gebracht.
- En dan vertaald naar het conceptuele verticale muurtje.
+Tot nu toe is bij alle analytische oplossingen impliciet aangenomen dat de sloten geen of slechts een verwaarloosbare breedte hebben ten opzichte van de breedte van het perceel;
+ evenmin is rekening gehouden met hun diepte.
+ De slootweerstand geconceptualiseerd als een verticaal muurtje tussen het watervoerend pakket,
+ in feite als een zogenaamde volkomen sloot.
+ Voor een adequate berekening van de stroming naar een sloot moet de radiale weerstand worden meegenomen die het gevolg is van contractie van stroomlijnen nabij de sloot.
+ Bovendien moet de weerstand van de slootbodem en slootwand in de berekening worden betrokken.
+ Deze weerstanden moeten vervolgens worden vertaald naar het conceptuele verticale muurtje.
 \end_layout
 
 \begin_layout Standard
-Is de slootafmeting klein ten opzichte van die van het watervoerend pakket (fig.
+Is de slootafmeting klein ten opzichte van de dikte van het watervoerend pakket (fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4146,7 +4149,7 @@ nolink "false"
 
 ),
  dan kan de radiale weerstand door de contractie van stroomlijnen goed worden benaderd met (Huisman,
- 1972)
+ 1972).
 \end_layout
 
 \begin_layout Standard
@@ -4211,76 +4214,33 @@ Sloot met natte omtrek
 \end_layout
 
 \begin_layout Standard
-waarin 
-\begin_inset Formula $D$
+In situaties waarin de GGOR-tool wordt gebruikt kan niet altijd worden verondersteld dat de slootdiepte en slootbreedte klein zijn ten opzichte van de dikte van de deklaag.
+ Voor de regionale aquifer,
+ die in de regel veel dikker is dan de deklaag,
+ zal de formule van Huisman wel kunnen worden toegepast in situaties waarin de sloten door deklaag snijden.
+ Voor een rechthoekige slootdoorsnede met waterdiepte 
+\begin_inset Formula $h$
 \end_inset
 
- de pakketdikte en 
-\begin_inset Formula $\Omega$
+ en halve slootbreedte 
+\begin_inset Formula $b_{s}$
 \end_inset
 
- de gehele natte omtrek van de sloot en 
-\begin_inset Formula $2q_{0}$
+ kan de totale natte omtrek in formule van Huisman worden vervangen door 
+\begin_inset Formula $2\left(h+b_{s}\right)$
 \end_inset
 
-de volledige onttrekking van de sloot per meter lengte.
- In de GGOR tool stroomt eenzijdig een hoeveelheid 
-\begin_inset Formula $q_{0}$
+ met een maximum van 
+\begin_inset Formula $h+b_{s}$
 \end_inset
 
- naar de sloot,
- vandaar de factor 2.
- Voor een sloot met halve breedte 
-\begin_inset Formula $\beta$
-\end_inset
-
- en diepte 
-\begin_inset Formula $\delta$
-\end_inset
-
- is de volledige omtrek 
-\begin_inset Formula $\Omega=2\left(\beta+\delta\right)$
-\end_inset
-
-.
- Wanneer we 
-\begin_inset Formula $\delta$
-\end_inset
-
- laten toenemen neemt de dikte van de laag onder de sloot af (Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Sloot-met-verschillende-afmetingen"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-).
- Wanneer deze dikte heel klein wordt is het niet logisch om de volledige 
-\begin_inset Formula $\beta$
-\end_inset
-
- in rekening te brengen.
- Veeleer is het zinvol om de totale lengte van 
-\begin_inset Formula $\beta+\delta$
-\end_inset
-
- te begrenzen tot de pakketdikte 
-\begin_inset Formula $D$
-\end_inset
-
-.
- Op deze wijze krijgen we
+ gelijk aan de pakketdikte dus
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Delta s=\frac{2q_{0}}{\pi k}\ln\left(\frac{D}{2\left(\min\left(\beta+\delta,D\right)\right)}\right)
+\Delta s=\frac{2q_{0}}{\pi k}\ln\left(\frac{D}{2\left(\min\left(h+b_{s},D\right)\right)}\right)
 \]
 
 \end_inset
@@ -4289,21 +4249,193 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-Deze formule voldoet voor zowel kleine 
-\begin_inset Formula $\beta+\delta$
+maar dit blijft slechts een benadering die mogelijk weinig accuraat is.
+\end_layout
+
+\begin_layout Standard
+Een goede benadering van 
+\begin_inset Formula $\Delta s$
 \end_inset
 
- als voor grote 
-\begin_inset Formula $\beta+\delta$
+ kan worden verkregen door 
+\begin_inset Formula $\Delta s/q_{0}$
 \end_inset
 
- aan Huisman's formule.
- Bij grote 
-\begin_inset Formula $\beta+\delta$
+ te numeriek berekenen voor grid van 
+\begin_inset Formula $h$
 \end_inset
 
- wordt de weerstand gelijk aan nul.
- Dit is de situatie van een volkomen sloot.
+ en 
+\begin_inset Formula $b_{s}$
+\end_inset
+
+ waarden en vervolgens te interpoleren.
+ Een hoge nauwkeurigheid bereiken we daarmee door voor het numerieke doorsnedemodel een fijn netwerk te kiezen met bijvoorbeeld een maaswijdte van 0.1 m bij en dikte 
+\begin_inset Formula $D$
+\end_inset
+
+ van 10 m.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stroom--en-stijghoogtelijnen-Ditch"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het resultaat van een van 4 deze berekeningen elk voor een andere combinatie van de slootdiepte 
+\begin_inset Formula $h/D$
+\end_inset
+
+ en de halve slootbreedte 
+\begin_inset Formula $b_{s}/D$
+\end_inset
+
+.
+ In de figuren is de dikte van het watervoerende pakket 
+\begin_inset Formula $D=10$
+\end_inset
+
+ m,
+ de totale onttrekking 
+\begin_inset Formula $Q=1$
+\end_inset
+
+ m2/d en de doorlatendheid 
+\begin_inset Formula $k=1$
+\end_inset
+
+ m/d,
+ maar de lijnen en de extra weerstand door de contractie van stroomlijnen 
+\begin_inset Formula $d\Phi$
+\end_inset
+
+/Q is daarvan onafhankelijk.
+ 
+\begin_inset Formula $d\phi=\Delta pp\times Q/k$
+\end_inset
+
+ en 
+\begin_inset Formula $\Delta pp$
+\end_inset
+
+ hangt alleen af van de verhouding 
+\begin_inset Formula $h/D$
+\end_inset
+
+ en 
+\begin_inset Formula $b_{s}/D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/cases/AAN_GZK/images/ditch_isolines.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stroom--en-stijghoogtelijnen-Ditch"
+
+\end_inset
+
+Stroom- en stijghoogtelijnen bij stroming naar een sloot met rechthoekige doorsnede.
+ 
+\begin_inset Formula $d\phi/Q$
+\end_inset
+
+=0.182 voor deze keuze van 
+\begin_inset Formula $h/D$
+\end_inset
+
+ en 
+\begin_inset Formula $b_{s}/D$
+\end_inset
+
+.
+ 
+\begin_inset Formula $h=1.5$
+\end_inset
+
+,
+ 
+\begin_inset Formula $b_{s}=6$
+\end_inset
+
+,
+ 
+\begin_inset Formula $D=10$
+\end_inset
+
+ m
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+De waarde van 
+\begin_inset Formula $\Delta pp$
+\end_inset
+
+ kan numeriek voor elke combinatie van 
+\begin_inset Formula $h$
+\end_inset
+
+ en 
+\begin_inset Formula $b_{s}$
+\end_inset
+
+ worden berekend.
+ Zo kan een tabel worden gevuld waarbinnen vervolgens via interpolatie elke 
+\begin_inset Formula $\Delta pp$
+\end_inset
+
+ kan worden verkregen.
+ De zo samengestelde tabel,
+ omgezet naar een contourlijnengrafiek is gegeven in fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Effect-van-onvolkomen-sloot-Deltapp"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -4317,7 +4449,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../images/sloot.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/cases/AAN_GZK/images/ditch_pp.png
 	width 60text%
 
 \end_inset
@@ -4331,19 +4463,17 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Sloot-met-verschillende-afmetingen"
+name "fig:Effect-van-onvolkomen-sloot-Deltapp"
 
 \end_inset
 
-Sloot met verschillende (natte) afmetingen 
-\begin_inset Formula $\beta$
+Effect van onvolkomen rechthoekige slootdoorsnede,
+ extra weerstand door contractie van stroomlijnen:
+ 
+\begin_inset Formula $\Delta pp=\Delta\phi/(Qk)$
 \end_inset
 
- en 
-\begin_inset Formula $\delta$
-\end_inset
 
- binnen het eerste watervoerende pakket.
 \end_layout
 
 \end_inset
@@ -4361,16 +4491,12 @@ Sloot met verschillende (natte) afmetingen
 \end_layout
 
 \begin_layout Standard
-We kunnen de effectiviteit van de formule controleren met de analytische oplossing,
- die verkegen kan worden met een conforme afbeelding van de rechthoekige slootdoorsnede.
- De afbeelding is mogelijk met de Schwarz-Cristoffel-transformatie.
- Met bodemweerstand werkt de conforme afbeelding niet meer.
- Men kan de bodemweerstand optellen bij de radiale weerstand die met de conforme afbeelding is verkregen,
- maar helemaal juist is dit niet.
- Hoe groter de intredeweerstand,
- hoe meer uniform de stroming over de slootbodem en slootwand verdeeld zal zijn.
- Echter zolang we er geen analytische oplossing voor hebben is optelling van de radiale weerstand volgens de conforme afbeelding en de weerstand van de slootbodem het meest redelijke wat we kunnen doen,
- althans zonder naar een numerieke oplossing te grijpen.
+Hetzelfde resultaat kan met de techniek van conforme afbeeldingen worden verkregen,
+ waarbij de Scharz-Cristoffel transformatie noodzaklijk is (Verruijt,
+ 1970).
+ De uitwerking is uitgevoerd en beschikbaar via Github.
+ Echter de hier toegepaste numerieke aanpak is beduidend efficienter.
+ De analytische oplossing kan altijd worden gebruikt ter verificatie van d numerieke.
 \end_layout
 
 \begin_layout Standard
