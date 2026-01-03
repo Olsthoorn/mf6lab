@@ -59,10 +59,16 @@ def get_home_folder():
     return os.path.join(*parts[:parts.index('GGOR') + 1], 'cases', 'AAN_GZK', )
 
 
-def dPP(out, k, L , D):
-    Phi_end = out['Phi'][1:, 0, -1].mean()
+def dPP(out, k):
+    phi0 = 0.
+    phiL = out['Phi'][1:, 0, -1].mean()
+    L = out['gr'].xm[-1] - out['gr'].x[out['gr'].x <= 0][-1]
     Q = out['Q'][1:, 0, -1].sum()
-    return (Phi_end - Q*L / (k*D)) / Q
+    D = out['gr'].DZ[1:, 0, -1].sum()
+    dpp = (phiL - phi0 - Q*L / (k*D)) / Q
+    dL  = (phiL - phi0) * k*D / Q - L
+    
+    return 
 
 def dpp_contraction(h, D):
     """Rreturn dpp by contraction according to Verruijt(1970) p119."""
@@ -127,7 +133,7 @@ def compute_dpp_table(L=100, D=10, dx=0.1, dy=0.1, nx=10, ny=10):
             
             out['gr'] = gr
             
-            dpp_line.append(dPP(out, k, L , D))
+            dpp_line.append(dPP(out, k))
         irow += 1
         print(irow)
         dpp.append(dpp_line)
@@ -187,7 +193,7 @@ def sim_one_ditch(L=100, Q=None, k=None, D=10, dx=0.1, dy=0.1, b=None, h=None):
 
         out= fdm3(gr, K=K, c=None, FQ=FQ, HI=HI, IBOUND=IBOUND, GHB=None)
         
-        dpp_Q = dPP(out, k=k, L=L, D=D)
+        dpp_Q = dPP(out, k=k)
         
         S = strfun(gr, out)
         levels = np.linspace(S.min(), S.max(), 51)

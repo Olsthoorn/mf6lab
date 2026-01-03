@@ -4417,61 +4417,17 @@ De waarde van
 \end_inset
 
  worden berekend.
- Zo kan een tabel worden gevuld waarbinnen vervolgens via interpolatie allke 
+ Zo kan een tabel worden gevuld waarbinnen vervolgens via interpolatie elke 
 \begin_inset Formula $\Delta pp$
 \end_inset
 
  kan worden verkregen.
  De zo samengestelde tabel,
  omgezet naar een contourlijnengrafiek is gegeven in fig.
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
-waarin 
-\begin_inset Formula $D$
-\end_inset
-
- de pakketdikte en 
-\begin_inset Formula $\Omega$
-\end_inset
-
- de gehele natte omtrek van de sloot en 
-\begin_inset Formula $2q_{0}$
-\end_inset
-
-de volledige onttrekking van de sloot per meter lengte.
- In de GGOR tool stroomt eenzijdig een hoeveelheid 
-\begin_inset Formula $q_{0}$
-\end_inset
-
- naar de sloot,
- vandaar de factor 2.
- Voor een sloot met halve breedte 
-\begin_inset Formula $\beta$
-\end_inset
-
- en diepte 
-\begin_inset Formula $\delta$
-\end_inset
-
- is de volledige omtrek 
-\begin_inset Formula $\Omega=2\left(\beta+\delta\right)$
-\end_inset
-
-.
- Wanneer we 
-\begin_inset Formula $\delta$
-\end_inset
-
- laten toenemen neemt de dikte van de laag onder de sloot af (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Sloot-met-verschillende-afmetingen"
+reference "fig:Effect-van-onvolkomen-sloot-Deltapp"
 plural "false"
 caps "false"
 noprefix "false"
@@ -4479,51 +4435,7 @@ nolink "false"
 
 \end_inset
 
-).
- Wanneer deze dikte heel klein wordt is het niet logisch om de volledige 
-\begin_inset Formula $\beta$
-\end_inset
-
- in rekening te brengen.
- Veeleer is het zinvol om de totale lengte van 
-\begin_inset Formula $\beta+\delta$
-\end_inset
-
- te begrenzen tot de pakketdikte 
-\begin_inset Formula $D$
-\end_inset
-
 .
- Op deze wijze krijgen we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Delta s=\frac{2q_{0}}{\pi k}\ln\left(\frac{D}{2\left(\min\left(\beta+\delta,D\right)\right)}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deze formule voldoet voor zowel kleine 
-\begin_inset Formula $\beta+\delta$
-\end_inset
-
- als voor grote 
-\begin_inset Formula $\beta+\delta$
-\end_inset
-
- aan Huisman's formule.
- Bij grote 
-\begin_inset Formula $\beta+\delta$
-\end_inset
-
- wordt de weerstand gelijk aan nul.
- Dit is de situatie van een volkomen sloot.
 \end_layout
 
 \begin_layout Standard
@@ -4537,7 +4449,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../images/sloot.png
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/cases/AAN_GZK/images/ditch_pp.png
 	width 60text%
 
 \end_inset
@@ -4551,19 +4463,17 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Sloot-met-verschillende-afmetingen"
+name "fig:Effect-van-onvolkomen-sloot-Deltapp"
 
 \end_inset
 
-Sloot met verschillende (natte) afmetingen 
-\begin_inset Formula $\beta$
+Effect van onvolkomen rechthoekige slootdoorsnede,
+ extra weerstand door contractie van stroomlijnen:
+ 
+\begin_inset Formula $\Delta pp=\Delta\phi/(Qk)$
 \end_inset
 
- en 
-\begin_inset Formula $\delta$
-\end_inset
 
- binnen het eerste watervoerende pakket.
 \end_layout
 
 \end_inset
@@ -4581,16 +4491,12 @@ Sloot met verschillende (natte) afmetingen
 \end_layout
 
 \begin_layout Standard
-We kunnen de effectiviteit van de formule controleren met de analytische oplossing,
- die verkegen kan worden met een conforme afbeelding van de rechthoekige slootdoorsnede.
- De afbeelding is mogelijk met de Schwarz-Cristoffel-transformatie.
- Met bodemweerstand werkt de conforme afbeelding niet meer.
- Men kan de bodemweerstand optellen bij de radiale weerstand die met de conforme afbeelding is verkregen,
- maar helemaal juist is dit niet.
- Hoe groter de intredeweerstand,
- hoe meer uniform de stroming over de slootbodem en slootwand verdeeld zal zijn.
- Echter zolang we er geen analytische oplossing voor hebben is optelling van de radiale weerstand volgens de conforme afbeelding en de weerstand van de slootbodem het meest redelijke wat we kunnen doen,
- althans zonder naar een numerieke oplossing te grijpen.
+Hetzelfde resultaat kan met de techniek van conforme afbeeldingen worden verkregen,
+ waarbij de Scharz-Cristoffel transformatie noodzaklijk is (Verruijt,
+ 1970).
+ De uitwerking is uitgevoerd en beschikbaar via Github.
+ Echter de hier toegepaste numerieke aanpak is beduidend efficienter.
+ De analytische oplossing kan altijd worden gebruikt ter verificatie van d numerieke.
 \end_layout
 
 \begin_layout Standard
