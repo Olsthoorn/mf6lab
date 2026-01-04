@@ -4116,8 +4116,7 @@ Deze vergelijkingen leveren echter geen vereenvoudigingen op.
 \end_layout
 
 \begin_layout Section
-Brede sloten,
- analytisch
+Slootweerstand (intrede en uittrede)
 \end_layout
 
 \begin_layout Subsection
@@ -4125,11 +4124,24 @@ Inleiding
 \end_layout
 
 \begin_layout Standard
-Tot nu toe is bij alle analytische oplossingen impliciet aangenomen dat de sloten geen of slechts een verwaarloosbare breedte hebben ten opzichte van de breedte van het perceel;
- evenmin is rekening gehouden met hun diepte.
- De slootweerstand geconceptualiseerd als een verticaal muurtje tussen het watervoerend pakket,
- in feite als een zogenaamde volkomen sloot.
- Voor een adequate berekening van de stroming naar een sloot moet de radiale weerstand worden meegenomen die het gevolg is van contractie van stroomlijnen nabij de sloot.
+Tot nu toe is de weerstand tussen sloot en grond geconceptualiseerd tot een volkomen sloot (slootdiepte is gelijk aan dikte van het watervoerend pakket 
+\begin_inset Formula $D$
+\end_inset
+
+) en een verticaal muurtje over de volledige dikte van het watervoerende pakket met weerstand 
+\begin_inset Formula $w$
+\end_inset
+
+ [T].
+ De werkelijkheid ziet er uiteraard anders uit.
+ Een sloot heeft een bepaald profiel en diepte en breedte daarvan zijn beperkt.
+ Bovendien is de slootbreedte meestal maar een fractie van de pakketdikte,
+ alhoewel uitzonderingen voorkomen,
+ waarbij het onder omstandigheden mogelijk is dat de sloot de door de volledige toplaag snijdt tot in het onderliggende regionale pakket.
+\end_layout
+
+\begin_layout Standard
+Voor een adequate berekening van de stroming naar een sloot moet de radiale weerstand worden meegenomen die het gevolg is van contractie van stroomlijnen nabij de sloot.
  Bovendien moet de weerstand van de slootbodem en slootwand in de berekening worden betrokken.
  Deze weerstanden moeten vervolgens worden vertaald naar het conceptuele verticale muurtje.
 \end_layout
@@ -4174,8 +4186,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../images/slootomtrek.png
-	width 50text%
+	filename ../images/onvokomen_sloot.png
 
 \end_inset
 
@@ -4192,11 +4203,21 @@ name "fig:Sloot-met-natte-omtrek-omega"
 
 \end_inset
 
-Sloot met natte omtrek 
+Boven:
+ onvokomn sloot met natte omtrek 
 \begin_inset Formula $\Omega$
 \end_inset
 
+.
+ Onder volkomen sloot waarbij de weerstand is geconceptualiseerd tot een verticaal muurtje met hoogte 
+\begin_inset Formula $D$
+\end_inset
 
+ en met weerstand 
+\begin_inset Formula $w$
+\end_inset
+
+ [T}.
 \end_layout
 
 \end_inset
@@ -4214,19 +4235,36 @@ Sloot met natte omtrek
 \end_layout
 
 \begin_layout Standard
-In situaties waarin de GGOR-tool wordt gebruikt kan niet altijd worden verondersteld dat de slootdiepte en slootbreedte klein zijn ten opzichte van de dikte van de deklaag.
+In situaties waarin de GGOR-tool wordt gebruikt kan echter niet altijd worden verondersteld dat de slootdiepte en slootbreedte klein zijn ten opzichte van de dikte van de deklaag.
  Voor de regionale aquifer,
  die in de regel veel dikker is dan de deklaag,
  zal de formule van Huisman wel kunnen worden toegepast in situaties waarin de sloten door deklaag snijden.
- Voor een rechthoekige slootdoorsnede met waterdiepte 
-\begin_inset Formula $h$
+\end_layout
+
+\begin_layout Standard
+Sloten hebben doorgaans een breedte die groter is dan de diepte.
+ Ook al is het profiel nog zuiver rechthoekig,
+ een zuivere cirkel of ellips is het ook niet.
+ De meeste slootprofielen kunnen zonder grote fout worden geschematiseerd tot een rechthoekig profiel met natte diepte 
+\begin_inset Formula $h_{s}$
 \end_inset
 
- en halve slootbreedte 
+ en halve breedte 
 \begin_inset Formula $b_{s}$
 \end_inset
 
- kan de totale natte omtrek in formule van Huisman worden vervangen door 
+.
+ Hier gaan we verder van uit,
+ waarbij 
+\begin_inset Formula $h$
+\end_inset
+
+ en 
+\begin_inset Formula $b_{s}$
+\end_inset
+
+ ook afzonderlijk gelijk aan nul mogen zijn.
+ Voor een rechthoekige slootdoorsnede kan de totale natte omtrek in formule van Huisman worden vervangen door 
 \begin_inset Formula $2\left(h+b_{s}\right)$
 \end_inset
 
@@ -4250,6 +4288,182 @@ In situaties waarin de GGOR-tool wordt gebruikt kan niet altijd worden veronders
 
 \begin_layout Standard
 maar dit blijft slechts een benadering die mogelijk weinig accuraat is.
+\end_layout
+
+\begin_layout Standard
+De exacte weerstand voor elke combinatie van 
+\begin_inset Formula $h$
+\end_inset
+
+ en 
+\begin_inset Formula $b_{s}$
+\end_inset
+
+ kan analytisch worden verkregen middels een conforme transformatie van de doorsnede.
+ Een alternatief is om deze extra weerstand numeriek uit te rekenen middels een gedetailleerd eindig differentiemodel van de doorsnede.
+ Fig.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stroom--en-stijghoogtelijnen-Ditch"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft vier op deze wijze berekende doorsneden en toont de berekende stroom- en potentiaallijnen.
+ 
+\end_layout
+
+\begin_layout Standard
+Het stijghoogteverval over lengte 
+\begin_inset Formula $L$
+\end_inset
+
+ tot aan een volkomen sloot zonder intredeweerstand is gelijk aan 
+\begin_inset Formula $\Delta\phi_{0}=\frac{Q}{kD}L$
+\end_inset
+
+.
+ In de situatie met contractie van stroomlijnen komt daar tussen 
+\begin_inset Formula $x=L$
+\end_inset
+
+ en de sloot 
+\begin_inset Formula $\Delta\phi_{pp}$
+\end_inset
+
+bij
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi_{L}-\phi_{s}=\frac{Q}{kD}L+\Delta\phi_{pp}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dus 
+\begin_inset Formula 
+\[
+\Delta\phi_{pp}=\phi_{L}-\phi_{s}-\frac{Q}{kD}L
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit getal is te vergelijken met formules gegeven in boeken zoals Huisman (1972,
+ p57).
+ Het is conceptueel echter eenvoudiger om de extra weerstand voor te stellen als conceptueel het gevolg van zuivere doorstroming van de aquifer over een extra lengte 
+\begin_inset Formula $\Delta L$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{Q}{kD}\Delta L=\phi_{L}-\phi_{0}-\frac{Q}{kD}L
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zodat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta L=\left(\phi_{L}-\phi_{0}\right)\frac{kD}{Q}-L
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarin 
+\begin_inset Formula $\phi_{L}-\phi_{0}$
+\end_inset
+
+ het stijghoogteverval is dat direct in het numerieke model van de doorsnede wordt gemeten.
+ Beter nog is het om de dimensieloze grootheid 
+\begin_inset Formula $\Delta L/D$
+\end_inset
+
+ te gebruiken,
+ wat de extra weerstand universeel maakt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta L}{D}=\left(\frac{\phi_{L}-\phi_{0}}{Q/k}\right)-\frac{L}{D}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De conceptuele extra te doorstromen pakketlengte is evenredig aan de pakketdikte maar onafhankelijk van het debiet en de de doorlatendheid.
+\end_layout
+
+\begin_layout Standard
+In het numerieke model is het stijghoogteverval berekend tussen 
+\begin_inset Formula $x=0$
+\end_inset
+
+ en 
+\begin_inset Formula $x=L$
+\end_inset
+
+ met 
+\begin_inset Formula $L=2D$
+\end_inset
+
+.
+ Na aftrekken van het stijghoogteverval over hetzelfde traject,
+ met dezelfde 
+\begin_inset Formula $Q$
+\end_inset
+
+ zonder contractie van stroomlijnen wordt numeriek het extra verval door de contractie van stroomlijnen verkregen.
+ Vermenigvuldiging met 
+\begin_inset Formula $k$
+\end_inset
+
+ en deling door 
+\begin_inset Formula $q=Q/D$
+\end_inset
+
+ geeft dan de equivalente extra doorstroomlengte 
+\begin_inset Formula $\Delta L$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In het numerieke model
 \end_layout
 
 \begin_layout Standard
@@ -4492,17 +4706,18 @@ Effect van onvolkomen rechthoekige slootdoorsnede,
 
 \begin_layout Standard
 Hetzelfde resultaat kan met de techniek van conforme afbeeldingen worden verkregen,
- waarbij de Scharz-Cristoffel transformatie noodzaklijk is (Verruijt,
+ waarbij de conforme Schwarz-Cristoffel transformatie noodzakelijk is (Verruijt,
  1970).
  De uitwerking is uitgevoerd en beschikbaar via Github.
- Echter de hier toegepaste numerieke aanpak is beduidend efficienter.
+ Echter de hier toegepaste numerieke aanpak is beduidend efficiënter.
  De analytische oplossing kan altijd worden gebruikt ter verificatie van d numerieke.
 \end_layout
 
 \begin_layout Standard
-Het onderscheid tussen radiale weerstand en slootbodemweerstand heeft een zeker belang omdat bij stroming van de grond naar de sloot,
- de slootbodemweerstand in de regel verwaarloosbaar zal zijn (omdat er maar een paar cm stijghoogteoverschot nodig is om elke sliblaag van de slootbodem te drukken),
- maar bij stroming van de sloot naar de grond is dat niet het geval (omdat de sliblaag op de bodem dan wordt samengedrukt).
+Het onderscheid tussen radiale weerstand en slootbodemweerstand heeft een zeker belang,
+ omdat bij stroming van de grond naar de sloot de slootbodemweerstand in de regel verwaarloosbaar zal zijn.
+ Dit omdat er maar een paar cm stijghoogteoverschot nodig is om elke sliblaag van de slootbodem te drukken.
+ Bij stroming van de sloot naar de grond is dit niet het geval aangezien de sliblaag op de bodem dan wordt samengedrukt.
  Het is om deze reden zinvol onderscheid te maken tussen de hogere intredeweerstand en de lagere uittredeweerstand.
 \end_layout
 
@@ -4524,42 +4739,39 @@ literal "true"
 \end_inset
 
 .
- De Lange gaat echter uit van sloten die niet al te breed zijn,
- waarvoor de aanname acceptabel is dat de verticale flux onderin de sloot constant is.
- Verder benadert hij ook de kwel vanuit het regionale pakket onder sloot als een verticale flux met constante sterkte.
- Hij verwaarloost daarbij de min of meer horizontale intrede die de sloot van opzij ontvangt via de slootwand of de slootoever.
- In de voorliggende analyse zullen we deze stroom apart in rekening brengen.
+ Met de hiervoor bepaalde intredeweerstand is verdere analyse niet nodig;
+ hij werkt voor sloten van elke breedte.
+ De enige aanname is dat het patroon van de contractie van de stroomlijnen niet veel verandert wanneer er sprake is van een weerstand van slib op de slootbodem.
+ Zolang de weerstand beperkt is,
+ en of de lengte van de natte omtrek klein ten opzichte van de dikte van de watervoerende laag en ook wanneer de sloot (praktisch) volkomen is is deze aanname acceptabel.
 \end_layout
 
 \begin_layout Standard
-Voor brede sloten is deze aanname minder geschikt,
- zeker wanneer de karakteristieke lengte van de deklaag onder de sloot klein is ten opzichte van de slootbreedte.
- Dit zal vaak het geval zijn bij sloten of kanalen van meer dan enkele meters breed.
- De aanname van constante flux onderin de sloot is niet nodig;
- we kunnen de grondwaterstroming ook analytisch berekenen voor de situatie waarbij de flux evenredig is met het peilverschil tussen sloot en deklaag en de kwel overal evenredig met het peilverschil tussen het diepe pakket en de deklaag.
+De omrekening van de extra weerstand door onvolkomenheid van de sloot is als volgt
 \end_layout
 
 \begin_layout Standard
-Wanneer sloten door de deklaag steken,
- vindt ook stroming vanuit de regionale aquifer rechtstreeks naar de sloten plaats.
- Deze stroming wordt bij uittrede beperkt door de radiale weerstand van het regionale pakket en bij intrede door slootbodemweerstand plus radiale weerstand.
+\begin_inset Formula 
+\begin{align*}
+\Omega & =-i\frac{2Q}{D}\left(z+il\right)\\
+\Delta\Omega & =-\frac{i2Q}{D}i\left(-\frac{2D}{\pi}\ln\left(\sin\frac{\pi b}{2D}\right)\right)\\
+\Delta\Omega & =\frac{2Q}{D}\frac{2D}{\pi}\ln\left(\sin\frac{\pi b}{2D}\right)=\frac{Q}{D}\Delta L
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-De stroming onder de sloot,
- benaderd volgens de Forchheimer-Dupuit,
- werken de deklaagweerstand en de slootbodem gezamenlijk als een samengestelde weerstand.
- Dat geldt ook voor het slootpeil en de diepe stijghoogte.
- De invloed van beide is gelijk aan die van een stijghoogte die eenduidig is samengesteld uit deze twee.
- Dit betekent dat de differentiaalvergelijking voor de stroming onder de sloot en die voor de stroming naast de sloot dezelfde is en dus ook de oplossing,
- behoudens de constanten die volgen uit de randvoorwaarden.
-\end_layout
+\begin_inset Formula 
+\[
+\Delta L=\frac{4D}{\pi}\ln\left(\sin\left(\frac{\pi b}{2D}\right)\right)
+\]
 
-\begin_layout Standard
-We zullen hierna de parameters en variabelen die betrekking hebben op de situatie onder de sloot aanduiden met index 1,
- en die buiten de sloot met index 2.
- We doen dit voor alle variabelen,
- zodat we uiteindelijk de vrijheid hebben om voor beide compartimenten van de doorsnede eigen waarden te kiezen.
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter

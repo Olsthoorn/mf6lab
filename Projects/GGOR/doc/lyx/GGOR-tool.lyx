@@ -4319,6 +4319,75 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/cases/AAN_GZK/images/ditch_isolines.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stroom--en-stijghoogtelijnen-Ditch"
+
+\end_inset
+
+Stroom- en stijghoogtelijnen bij stroming naar een sloot met rechthoekige doorsnede.
+ 
+\begin_inset Formula $d\phi/Q$
+\end_inset
+
+=0.182 voor deze keuze van 
+\begin_inset Formula $h/D$
+\end_inset
+
+ en 
+\begin_inset Formula $b_{s}/D$
+\end_inset
+
+.
+ 
+\begin_inset Formula $h=1.5$
+\end_inset
+
+,
+ 
+\begin_inset Formula $b_{s}=6$
+\end_inset
+
+,
+ 
+\begin_inset Formula $D=10$
+\end_inset
+
+ m
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 Het stijghoogteverval over lengte 
 \begin_inset Formula $L$
 \end_inset
@@ -4463,7 +4532,58 @@ In het numerieke model is het stijghoogteverval berekend tussen
 \end_layout
 
 \begin_layout Standard
-In het numerieke model
+\begin_inset Formula $\Delta L/D$
+\end_inset
+
+ voor een sloot met diepte 
+\begin_inset Formula $L$
+\end_inset
+
+ en breedte 
+\begin_inset Formula $b_{s}=0$
+\end_inset
+
+ (een verticale contractie in de aquifer,
+ zoals stroming onder een damwand door) wordt gegeven in Verruijt (1970,
+ p8.22) en is gelijk aan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta L}{D}=-\frac{2D}{\pi}\ln\left(\sin\left(\frac{\pi h}{2D}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor een sloot met breedte 
+\begin_inset Formula $b_{s}$
+\end_inset
+
+ en diepte 
+\begin_inset Formula $0$
+\end_inset
+
+ is deze extra lengte gelijk aan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta L}{D}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor de situatie waarin 
 \end_layout
 
 \begin_layout Standard
@@ -4549,75 +4669,6 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/cases/AAN_GZK/images/ditch_isolines.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Stroom--en-stijghoogtelijnen-Ditch"
-
-\end_inset
-
-Stroom- en stijghoogtelijnen bij stroming naar een sloot met rechthoekige doorsnede.
- 
-\begin_inset Formula $d\phi/Q$
-\end_inset
-
-=0.182 voor deze keuze van 
-\begin_inset Formula $h/D$
-\end_inset
-
- en 
-\begin_inset Formula $b_{s}/D$
-\end_inset
-
-.
- 
-\begin_inset Formula $h=1.5$
-\end_inset
-
-,
- 
-\begin_inset Formula $b_{s}=6$
-\end_inset
-
-,
- 
-\begin_inset Formula $D=10$
-\end_inset
-
- m
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
 De waarde van 
 \begin_inset Formula $\Delta pp$
 \end_inset

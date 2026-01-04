@@ -11,26 +11,16 @@ class Aquifer:
     Q: float
     k: float
     D: float # thickness of aquifer. Y assumed between 0>=y>=-D
-    xL: float # assumed xL.imag = 0
-    xR: float # assumed xR.imag = 0
+    DL: float # Most left poin of ditch (e.g. 5 + D * 1j)
+    DR: float # Most right point of ditch (e.g. 10 + D * 1j)
 
     def __post_init(self):
         assert self.k > 0
         assert self.D > 0
-        assert self.xR > self.xL
+        assert (self.DR.real > self.DL.real) or (DR.imag > DL.imag)
         
-    @property
-    def DL(self):
-        """Right point of ditch."""
-        return self.xL + self.D * 1j
-    
-    @property
-    def DR(self):
-        """Left point of ditch."""
-        return self.xR + self.D * 1j
-    
     def __str__(self):        
-        return f"Aquifer(Q={self.Q}, k={self.k}, D={self.D}, xL={self.xL}, xR={self.xR}"
+        return f"Aquifer(Q={self.Q}, k={self.k}, D={self.D}, DL={self.DL}, DR={self.DR}"
     
 class Ditches:        
     def __init__(self, aq: Aquifer)->None:
@@ -47,7 +37,7 @@ class Ditches:
             grid.z coordinates
         """
         aq = self.aq
-        x = np.unique(np.hstack((x, aq.xL, aq.xR)))
+        x = np.unique(np.hstack((x, aq.DL.real, aq.DR.real)))
         y.sort(); y = y[::-1]
         y = y[np.logical_and(y >= 0, y <= aq.D)]
         assert len(y) > 0, "No y-coordinates between 0 and -D."
@@ -84,7 +74,24 @@ class Ditches:
         zta1 = self.zeta1(z)
         zta = p * zta1 + q
         return zta if zta.size > 1 else zta.item()
-
+    
+    def plot(self, zta, figsize=(10, 8), ax=None, **kwargs):
+        """Plot any complex grid."""
+        if ax is None:
+            fig, ax = plt.subplots(figsize=figsize)
+        ax.plot(zta.real, zta.imag, **kwargs)
+        ax.plot(zta.real.T, zta.imag.T, **kwargs)
+        ax.grid(True)
+        return ax
+        
+    def contour(self, Z, omega, levels=20, figsize=(10, 8), ax=None, **kwargs):
+        """Contour stream and potential lines."""
+        if ax is None:
+            fig, ax = plt.subplots(figsize=figsize)
+        ax.contour(Z.real, Z.imag, omega.real, levels=levels, **kwargs)
+        ax.contour(Z.real, Z.imag, omega.imag, levels=levels, **kwargs)
+        ax.set_aspect(1)
+        return ax
 
 
 class Ditch_exp(Ditches):        
@@ -150,17 +157,16 @@ class Ditch_sin(Ditches):
         arg = -1j * np.pi / aq.Q * Omega + np.pi/2
         z = -1j * aq.D  / np.pi * (np.arcsin((np.sin(arg) - q) / p)-np.pi / 2)
         return z
-
-
-
+    
 # %%
-Q, D, xL, xR =1., 10, 0, 5
+Q, D = 1., 10.
+DL, DR =0 + 0.5 * D * 1j, 5 + D * 1j
 
 x = np.linspace(-D, 2* D, 151)
 x = x[x >=0].clip(1e-3)
 y = np.linspace(0, D, 51).clip(1e-3, D - 1e-3)
 
-aq = Aquifer(Q=Q, k=1, D=10, xL=xL, xR=xR)
+aq = Aquifer(Q=Q, k=1, D=10, DL=DL, DR=DR)
 
 ditch = Ditch_sin(aq)
 Z = ditch.zGrid(x=x, y=y)
@@ -170,58 +176,28 @@ p, q = ditch.pq
 Om = ditch.Omega(Z)
 
 # %%
-fig, ax = plt.subplots()
-zta1 = ditch.zeta1(Z)
-zta1pnts = ditch.zeta1([aq.DL, aq.DR])
+ax = ditch.plot(ditch.zeta1(Z))
+ditch.plot(ditch.zeta1([aq.DL, aq.DR]), ax=ax, marker='o', mfc='r')
 ax.set_title("zeta 1")
-ax.plot(zta1.real, zta1.imag)
-ax.plot(zta1.real.T, zta1.imag.T)
-ax.plot(zta1pnts.real, zta1pnts.imag, 'ro')
-ax.grid(True)
 
-fig, ax = plt.subplots()
-zta = ditch.zeta(Z)
-ztapnts = ditch.zeta([aq.DL, aq.DR])
+ax = ditch.plot(ditch.zeta(Z))
+ditch.plot(ditch.zeta([aq.DL, aq.DR]), ax=ax, marker='o', mfc='r')
 ax.set_title("zeta")
-ax.plot(zta.real, zta.imag)
-ax.plot(zta.real.T, zta.imag.T)
-ax.plot(ztapnts.real, ztapnts.imag, 'ro')
-ax.grid(True)
 
-fig, ax = plt.subplots()
-zta = ditch.zeta3(Z)
-ztapnts = ditch.zeta3([aq.DL, aq.DR])
+ax = ditch.plot(ditch.zeta3(Z))
+ditch.plot(ditch.zeta3([aq.DL, aq.DR]), ax=ax, marker='o', mfc='r')
 ax.set_title("zeta 3")
-ax.plot(zta.real, zta.imag)
-ax.plot(zta.real.T, zta.imag.T)
-ax.plot(ztapnts.real, ztapnts.imag, 'ro')
-ax.grid(True)
 
-fig, ax = plt.subplots()
+ax = ditch.plot(ditch.Omega(Z))
 ax.set_title("Omega")
-Om = ditch.Omega(Z)
-ax.plot(Om.real, Om.imag)
-ax.plot(Om.real.T, Om.imag.T)
-ax.grid(True)
 
-fig, ax = plt.subplots()
-ax.set_title("Omega, contours")
-Om = ditch.Omega(Z)
-
-ax.contour(Z.real, Z.imag, Om.real, levels=20)
-ax.contour(Z.real, Z.imag, Om.imag, levels=20)
-
-fig, ax = plt.subplots()
-ax.set_title("z from Omega, direct")
-Om = ditch.Omega(Z)
+ax = ditch.contour(Z=Z, omega=ditch.Omega(Z), levels=20)
 
 phi = np.linspace(0, 2 * Q,  21)
 psi = np.linspace(0, Q, 11).clip(1e-3, aq.Q - 1e-3)
 Om = ditch.omGrid(phi, psi)
-Z1 = ditch.z_fr_om(Om)
-ax.plot(Z1.real, Z1.imag)
-ax.plot(Z1.real.T, Z1.imag.T)
-ax.grid(True)
+ax = ditch.contour(Z=ditch.z_fr_om(Om), omega=Om, levels=20)
+ax.set_title("Omega, contours")
 
 plt.show()
 print("Don")
