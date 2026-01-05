@@ -1,9 +1,14 @@
 # Ditch resistance conformal transformation
 
 # %%
+import os
+from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
 from dataclasses import dataclass
+
+parts = Path(os.getcwd()).parts
+images = os.path.join(*parts[:parts.index('GGOR') + 1], 'doc', 'images')
 
 # %%
 @dataclass
@@ -17,7 +22,7 @@ class Aquifer:
     def __post_init(self):
         assert self.k > 0
         assert self.D > 0
-        assert (self.DR.real > self.DL.real) or (DR.imag > DL.imag)
+        assert (self.DR.real > self.DL.real) or (self.DR.imag > self.DL.imag)
         
     def __str__(self):        
         return f"Aquifer(Q={self.Q}, k={self.k}, D={self.D}, DL={self.DL}, DR={self.DR}"
@@ -147,7 +152,8 @@ class Ditch_sin(Ditches):
         return -1j * aq.Q / np.pi * (zta3 - np.pi / 2)
     
     def Omega(self, z:complex|np.ndarray)->np.ndarray:
-        aq = self.aq        
+        aq = self.aq
+        p, q = self.pq   
         return -1j * aq.Q / np.pi * (
             np.arcsin(p * np.sin(1j * np.pi / aq.D * z + np.pi / 2) + q) - np.pi/2)
     
@@ -158,46 +164,224 @@ class Ditch_sin(Ditches):
         z = -1j * aq.D  / np.pi * (np.arcsin((np.sin(arg) - q) / p)-np.pi / 2)
         return z
     
+    # --- Symptotic behavior
+    def asymptote(self, z):
+        aq = self.aq
+        p, _ = self.pq
+        return aq.Q/ aq.D * z+ (aq.Q / np.pi) * np.log(p)
+    
+
+def show_sin_based(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1,
+                   N=50, Nlevels=20, plot_what=['omega']):
+    """Stream and contour lines in a half-infinite X-section.
+    
+    X section: 
+    1.     0 <= x <= infinity
+    2.     9 <= y <= D
+
+    1. The ditch is a section of the aquifer contour between
+    2. DR and DL where the head is fixed at zero.
+    3. The X-section runs from closed boundary at x to inifinity.
+    4. A flow equalto Q [L2/T] is directed to the right.
+    
+    The edges if the ditch given by points DL and DR can be
+    anywhere along any of theoutside edges of the X-section.
+    The only condition is, that when looked at
+    the cross section and following the edges in a
+    clock-wise fashion, DR must be to the right of DL.
+    DR left of DL at bottom DR above DL along left edge
+    and DR right of DL at bottom. But DR and DL do not
+    have to be both on the same edge.
+    
+    --------DL---- -> ----DR-------
+    |
+    DR
+    |
+    ^
+    |
+    DL
+    |
+    --------DR---- <- ----DL---------
+    
+    Also possible:
+    
+    ---------DR-------     ---------DR----
+    |                      |
+    |                      DL
+    |                      |
+    ---DL-------------     ----------------
+    """
+    
+    # --- Start data defining the cross section with the ditch.
+    if D is None:
+        # --- D is not provide, assume DR at top of aquifer
+        D = DR.imag
+    else:
+        # --- assert DL and DR are compatible with provided D
+        assert (DR.imag == D) or (DR.real == 0) or (DR.imag == 0), (
+            f"DR not on any of the edges of the X-section (x=0, y={D} y=0).")
+        assert (DL.imag == D) or (DL.real == 0) or (DL.imag == 0), (
+            f"DL not on any of the edges of the X-section (x=0, y={D} y=0).")
+        assert np.angle((DR - (D + 0.5 * D * 1j)) / (DL - (D + 0.5 * D * 1j))) < 0, (
+            "DR not clockwise of DL")
+        
+    # --- z-grid
+    # --- Exp case
+    x = np.linspace(-D, 2* D, 3 * N + 1)
+    
+    # --- Sin case
+    x = x[x >=0].clip(1e-3)
+    
+    y = np.linspace(0, D, N + 1).clip(1e-3, D - 1e-3)
+
+    # --- Define aquifer
+    aq = Aquifer(Q=Q, k=k, D=D, DL=DL, DR=DR)
+
+    # --- Instantiate the ditch
+    ditch = Ditch_sin(aq)
+    
+    # --- Generate the Z-grid 
+    Z = ditch.zGrid(x=x, y=y)
+
+    # --- Compute the 𝛀 for this Z-grid
+    Om = ditch.Omega(Z)
+    
+    # %% --- Plotting intermedate and final planes
+    all_ = {'zeta1', 'zeta', 'zeta3', 'omega', 'omega_cont'}
+    assert len(plot_what.difference(all_)) == 0, (
+        f'what = {plot_what} is not subset of {all_}'
+    )    
+    # --- Zeta 1(sin transform, not yet shifted)
+    if 'zeta1' in plot_what:
+        ax = ditch.plot(ditch.zeta1(Z))
+        ditch.plot(ditch.zeta1([aq.DL, aq.DR]), ax=ax, marker='o', mfc='r')
+        ax.set_title(r"$\zeta_1$, $Z$-lines in the $\zeta_1$-plane")
+        ax.set(xlabel=r'$\Re(\zeta_1)$', ylabel=r'$\Im(\zeta_1)\times i$', aspect=1)
+
+    # --- Zeta (sin-tranform shifted)
+    if 'zeta' in plot_what:
+        ax = ditch.plot(ditch.zeta(Z))
+        ditch.plot(ditch.zeta([aq.DL, aq.DR]), ax=ax, marker='o', mfc='r')
+        ax.set_title(r"$\zeta$, $Z$-line in the $\zeta$-plane.")
+        ax.set(xlabel=r'$\Re(\zeta)$', ylabel=r'$\Im(\zeta)\times i$', aspect=1)
+
+    # --- arsin applied on zeta, just before rotating back to 𝛀
+    if 'zeta3' in plot_what:
+        ax = ditch.plot(ditch.zeta3(Z))
+        ditch.plot(ditch.zeta3([aq.DL, aq.DR]), ax=ax, marker='o', mfc='r')
+        ax.set_title(r"$\zeta_3$, $Z$-lines in the $\zeta_3$ plane")
+        ax.set(xlabel=r'$\Re(\zeta_3)$', ylabel=r'$\Im(\zeta_3)\times i$', aspect=1)
+    
+    # --- Final 𝛀 plane (plotting lines of constant 𝛀)
+    if 'omega' in plot_what:
+        ax = ditch.plot(ditch.Omega(Z))
+        ax.set_title(r"$\Omega(Z)$: Distored $Z$-grid lines in the $\Omega$ plane")
+        ax.set(xlabel=r'$\Phi$', ylabel=r'$\Psi\times i$', aspect=1)
+
+    # --- Same thing, but instead of plotting,
+    # --- contouring 𝛀 on the distorted z-grid
+    if 'omega' in plot_what:
+        ax = ditch.contour(Z=Z, omega=ditch.Omega(Z), levels=Nlevels)
+        ax.set_title(r"$\Omega$-contoured on the regular $Z$ in the $Z$-plane")
+        ax.set(xlabel=r'$x$', ylabel=r'$iy$', aspect=1)
+
+    if 'omega_cont' in plot_what:
+        # --- Starting from Omega
+        # --- First generate regular 𝛀 field/grid
+        phi = np.linspace(0, 2 * Q,  2 * Nlevels + 1)
+        psi = np.linspace(0, Q, Nlevels + 1).clip(1e-3, aq.Q - 1e-3)
+        Om = ditch.omGrid(phi, psi)
+
+        # --- We can then contour 𝛀 given a distorted z-grid generated from 𝛀
+        ax = ditch.contour(Z=ditch.z_fr_om(Om), omega=Om, levels=Nlevels)
+        ax.set_title(r"$\Omega$ contoured on a distorted $Z$-grid")
+        ax.set(xlabel=r'$x$', ylabel=r'$iy$', aspect=1)
+
+    if 'omega' in plot_what:
+        # --- Or we just plot the z generated from 𝛀 directly
+        ax = ditch.plot(ditch.z_fr_om(Om))
+        ax.set_title(r"$z$-lines from $\Omega$ grid directly plotted on the $Z$-plane")
+        ax.set(xlabel=r'$x$', ylabel=r'$iy$', aspect=1)
+
+
+def resistance(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1,
+                   N=50):
+    """Show the resistance (drawdown along top and bottom of the X-section.
+    """
+    
+    # --- Start data defining the cross section with the ditch.
+    if D is None:
+        # --- D is not provide, assume DR at top of aquifer
+        D = DR.imag
+    else:
+        # --- assert DL and DR are compatible with provided D
+        assert (DR.imag == D) or (DR.real == 0) or (DR.imag == 0), (
+            f"DR not on any of the edges of the X-section (x=0, y={D} y=0).")
+        assert (DL.imag == D) or (DL.real == 0) or (DL.imag == 0), (
+            f"DL not on any of the edges of the X-section (x=0, y={D} y=0).")
+        assert np.angle((DR - (D + 0.5 * D * 1j)) / (DL - (D + 0.5 * D * 1j))) < 0, (
+            "DR not clockwise of DL")
+
+    # --- Define aquifer
+    aq = Aquifer(Q=Q, k=k, D=D, DL=DL, DR=DR)
+        
+    # --- z-grid
+    # --- Exp case
+    x = np.linspace(0, 3* D, 3 * N + 1).clip(1e-3)    
+    y = np.linspace(0, D, 3).clip(1e-3, D - 1e-3)
+
+    # --- Instantiate the ditch
+    ditch = Ditch_sin(aq)
+    Z = ditch.zGrid(x, y)
+    Omega =ditch.Omega(Z)
+    
+    # --- Delta Phi op x=DR.real
+    p, _ = ditch.pq
+    b = max(aq.DL.real, aq.DR.real)
+    
+    # --- Extra drawdown due to partial penetration of ditch (of zero depth)
+    dPhi = aq.Q / aq.D * b + aq.Q / np.pi * np.log(p)
+    
+    # --- Extra length to travel to get the same dPhi
+    dL = b  + aq.D / np.pi * np.log(p)
+    
+    om_asymp = ditch.asymptote(Z)
+    
+    fig, ax = plt.subplots()
+    for z, omega in zip(Z, Omega):
+        ax.plot(z.real, omega.real, label=f'y = {z[0].imag:.1f}')
+    ax.plot(Z[0].real, om_asymp[0].real, label='Asymptotic behavior')
+    ax.plot([b, b], [0, dPhi], '.-', label=r'$d \Phi_{pp}$')
+    ax.plot([b - dL, b], [0, dPhi], 'x--', label=r'extra length $\Delta L$')
+    
+    title1 = fr"D={D} m $b_s$={b} m, h={0} m, Q={aq.Q} m2/d, k={aq.k} m/d"
+    ax.set_title("Potential along top middle and bottom of X-section\n"
+                 + title1
+                 )
+    ax.set(xlabel='x', ylabel='Phi')
+    ax.grid(True)
+    ax.legend()
+    
+    fig.savefig(os.path.join(images, "w_entry_dphi-dL.png"))
+    
+    
+    return ax
+    
+    
+
 # %%
-Q, D = 1., 10.
-DL, DR =0 + 0.5 * D * 1j, 5 + D * 1j
+if __name__ == '__main__':
+    if False:
+        # --- Examples of placing the disk at any position along the edges  
+        show_sin_based(DL=0+5j, DR=10+10j, D=10, Nlevels=40, plot_what={'omega_cont'})
+        show_sin_based(DL=5+10j, DR=10+10j, D=10, Nlevels=40, plot_what={'omega_cont'})
+        show_sin_based(DL=0+7j, DR=0+8j, D=10, Nlevels=40, plot_what={'omega_cont'})
+        show_sin_based(DL=2+0j, DR=0+2j, D=10, Nlevels=40, plot_what={'omega_cont'})
+    if True:
+        resistance(DL=0+10j, DR=10 + 10j, D=10, Q=-1, k=1, N=50)
+        resistance(DL=0+5j, DR=3 + 10j, D=10, Q=-1, k=1, N=50)
+        resistance(DL=0+6j, DR=0 + 8j, D=10, Q=-1, k=1, N=50)
+        resistance(DL=3+0j, DR=0 + 2j, D=10, Q=-1, k=1, N=50)
 
-x = np.linspace(-D, 2* D, 151)
-x = x[x >=0].clip(1e-3)
-y = np.linspace(0, D, 51).clip(1e-3, D - 1e-3)
-
-aq = Aquifer(Q=Q, k=1, D=10, DL=DL, DR=DR)
-
-ditch = Ditch_sin(aq)
-Z = ditch.zGrid(x=x, y=y)
-
-p, q = ditch.pq
-
-Om = ditch.Omega(Z)
-
-# %%
-ax = ditch.plot(ditch.zeta1(Z))
-ditch.plot(ditch.zeta1([aq.DL, aq.DR]), ax=ax, marker='o', mfc='r')
-ax.set_title("zeta 1")
-
-ax = ditch.plot(ditch.zeta(Z))
-ditch.plot(ditch.zeta([aq.DL, aq.DR]), ax=ax, marker='o', mfc='r')
-ax.set_title("zeta")
-
-ax = ditch.plot(ditch.zeta3(Z))
-ditch.plot(ditch.zeta3([aq.DL, aq.DR]), ax=ax, marker='o', mfc='r')
-ax.set_title("zeta 3")
-
-ax = ditch.plot(ditch.Omega(Z))
-ax.set_title("Omega")
-
-ax = ditch.contour(Z=Z, omega=ditch.Omega(Z), levels=20)
-
-phi = np.linspace(0, 2 * Q,  21)
-psi = np.linspace(0, Q, 11).clip(1e-3, aq.Q - 1e-3)
-Om = ditch.omGrid(phi, psi)
-ax = ditch.contour(Z=ditch.z_fr_om(Om), omega=Om, levels=20)
-ax.set_title("Omega, contours")
-
-plt.show()
-print("Don")
+    plt.show()
+    print("Done")
