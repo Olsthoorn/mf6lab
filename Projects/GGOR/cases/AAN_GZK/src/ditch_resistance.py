@@ -172,7 +172,7 @@ class Ditch_sin(Ditches):
     
 
 def show_sin_based(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1,
-                   N=50, Nlevels=20, plot_what=['omega']):
+                   N=50, Nlevels=20, plot_what={'omega'}):
     """Stream and contour lines in a half-infinite X-section.
     
     X section: 
@@ -246,7 +246,7 @@ def show_sin_based(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1,
     # --- Compute the 𝛀 for this Z-grid
     Om = ditch.Omega(Z)
     
-    # %% --- Plotting intermedate and final planes
+    # --- Plotting intermedate and final planes
     all_ = {'zeta1', 'zeta', 'zeta3', 'omega', 'omega_cont'}
     assert len(plot_what.difference(all_)) == 0, (
         f'what = {plot_what} is not subset of {all_}'
@@ -303,9 +303,8 @@ def show_sin_based(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1,
         ax.set_title(r"$z$-lines from $\Omega$ grid directly plotted on the $Z$-plane")
         ax.set(xlabel=r'$x$', ylabel=r'$iy$', aspect=1)
 
-
-def resistance(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1,
-                   N=50):
+# %%
+def resistance(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1, N=50, ax=None):
     """Show the resistance (drawdown along top and bottom of the X-section.
     """
     
@@ -328,7 +327,7 @@ def resistance(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1,
     # --- z-grid
     # --- Exp case
     x = np.linspace(0, 3* D, 3 * N + 1).clip(1e-3)    
-    y = np.linspace(0, D, 3).clip(1e-3, D - 1e-3)
+    y = np.linspace(0, D, 3).clip(1e-3, D - 1e-3)[-1:]
 
     # --- Instantiate the ditch
     ditch = Ditch_sin(aq)
@@ -338,6 +337,7 @@ def resistance(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1,
     # --- Delta Phi op x=DR.real
     p, _ = ditch.pq
     b = max(aq.DL.real, aq.DR.real)
+    h = aq.D - max(aq.DL.imag, aq.DR.imag)
     
     # --- Extra drawdown due to partial penetration of ditch (of zero depth)
     dPhi = aq.Q / aq.D * b + aq.Q / np.pi * np.log(p)
@@ -347,27 +347,82 @@ def resistance(DL=0+5j, DR=10 + 10j, D=10, Q=1, k=1,
     
     om_asymp = ditch.asymptote(Z)
     
-    fig, ax = plt.subplots()
-    for z, omega in zip(Z, Omega):
-        ax.plot(z.real, omega.real, label=f'y = {z[0].imag:.1f}')
-    ax.plot(Z[0].real, om_asymp[0].real, label='Asymptotic behavior')
-    ax.plot([b, b], [0, dPhi], '.-', label=r'$d \Phi_{pp}$')
-    ax.plot([b - dL, b], [0, dPhi], 'x--', label=r'extra length $\Delta L$')
-    
-    title1 = fr"D={D} m $b_s$={b} m, h={0} m, Q={aq.Q} m2/d, k={aq.k} m/d"
-    ax.set_title("Potential along top middle and bottom of X-section\n"
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(12, 10))        
+        title1 = fr"D={D} m ditch width (b), ditch depth (h)={h}, Q={aq.Q} m2/d, k={aq.k} m/d"
+        ax.set_title("Potential along top middle and bottom of X-section\n"
                  + title1
                  )
     ax.set(xlabel='x', ylabel='Phi')
     ax.grid(True)
-    ax.legend()
+
+        
+    for z, omega in zip(Z, Omega):
+        ax.plot(z.real, omega.real, label=f'drawdown at y={z[0].imag:.1f}, b={b}, h={h}')
+    ax.plot(Z[0].real, om_asymp[0].real, '-.', label='Asymptotic drawdown')
+    ax.plot([b, b], [0, dPhi], 'o-', lw=2, label=r'$d \Phi_{pp}$')
+    ax.plot([b - dL, b], [0, dPhi], 'x--', color='k', lw=2, label=r'extra length $\Delta L$')
     
-    fig.savefig(os.path.join(images, "w_entry_dphi-dL.png"))
+    ax.legend(loc='lower left', fontsize='small')
     
+    ax.figure.savefig(os.path.join(images, "w_entry_dphi-dL.png"))
     
     return ax
     
+
+def dPhi_PP(Q=1, k=1, D=10, l_D=None, axis=0):
+    """Return dPhi/Q along axis
+    """
+    l_D = l_D[l_D > 0]
+    if axis==0:
+        l_D = l_D[l_D <= 1]
+
+    dPhi_Q = []
+    for ld in l_D:
+        if axis == 0:            
+            DR = 0  + 1j * D
+            DL = DR - 1j * D * ld
+            bD = 0                        
+        elif axis==1:
+            DL = 0  + D * 1j
+            DR = DL + ld * D
+            bD = ld
+        else:
+            raise ValueError("axis must be 0 or 1")
+        
+        aq = Aquifer(Q=Q, k=k, D=D, DL=DL, DR=DR)
     
+        # --- Instantiate the ditch
+        ditch = Ditch_sin(aq)
+    
+        # --- Delta Phi op x=DR.real
+        p, _ = ditch.pq
+        print(f" {p.real:.4g}", end="")
+                    
+        # --- Extra drawdown due to partial penetration of ditch (of zero depth)
+        dPhi_Q.append(np.real(bD + np.log(p) / np.pi))
+        
+    print(f", axis={axis}")
+    
+    return l_D, np.array(dPhi_Q)
+    
+def get_dphi_Q(Q=-1, k=1, D=10, l_D=None):
+    bs_D, dPhi_Q_x = dPhi_PP(Q=Q, k=k, D=D, l_D=l_D, axis=1)
+    hs_D, dPhi_Q_y = dPhi_PP(Q=Q, k=k, D=D, l_D=l_D, axis=0)
+
+    fig, ax = plt.subplots()
+    ax.plot(bs_D, dPhi_Q_x, label=r"dPP$_x=d\Phi/Q$ horizontal ditch")
+    ax.plot(hs_D, dPhi_Q_y, label=r"dPP$_y=d\Phi/Q$ vertical ditch")
+    ax.grid(True)
+    ax.set_title(
+        r"$\frac{\Delta \Phi}{Q}$ due to partial penetration: "        
+        r"$\frac{\Delta\Phi}{Q}=\frac{k \, \Delta\phi}{Q}=\frac{\Delta L}{D}$"
+        "\n"
+        f"D={D}, Q={Q}, k={k}")
+    ax.set(xlabel='h/D or b/d', ylabel=r"$\frac{d\Phi}{Q}=\frac{\Delta L}{D}$")
+    ax.legend()
+    ax.figure.savefig(os.path.join(images, "dPhi_pp_Q_hor_vert.png"))
+
 
 # %%
 if __name__ == '__main__':
@@ -377,11 +432,23 @@ if __name__ == '__main__':
         show_sin_based(DL=5+10j, DR=10+10j, D=10, Nlevels=40, plot_what={'omega_cont'})
         show_sin_based(DL=0+7j, DR=0+8j, D=10, Nlevels=40, plot_what={'omega_cont'})
         show_sin_based(DL=2+0j, DR=0+2j, D=10, Nlevels=40, plot_what={'omega_cont'})
-    if True:
+    if False:
         resistance(DL=0+10j, DR=10 + 10j, D=10, Q=-1, k=1, N=50)
         resistance(DL=0+5j, DR=3 + 10j, D=10, Q=-1, k=1, N=50)
         resistance(DL=0+6j, DR=0 + 8j, D=10, Q=-1, k=1, N=50)
         resistance(DL=3+0j, DR=0 + 2j, D=10, Q=-1, k=1, N=50)
-
+    if True:
+        D = 10
+        DL = 0 + D * 1j
+        ax = resistance(DL=DL, DR=1 + D * 1j, D=D, Q=-1, k=1, N=50)
+        resistance(DL=DL, DR=2 + D * 1j, D=D, Q=-1, k=1, N=50, ax=ax)
+        resistance(DL=DL, DR=5 + D * 1j, D=D, Q=-1, k=1, N=50, ax=ax)
+        resistance(DL=DL, DR=10 + D * 1j, D=D, Q=-1, k=1, N=50, ax=ax)
+        resistance(DL=DL, DR=15 + D * 1j, D=D, Q=-1, k=1, N=50, ax=ax)
+        resistance(DL=DL, DR=20 + D * 1j, D=D, Q=-1, k=1, N=50, ax=ax)
+    if True:        
+        get_dphi_Q(Q=1, k=1, D=10, l_D=np.logspace(-2, np.log10(1.5), 50))
+        
     plt.show()
     print("Done")
+    # %%

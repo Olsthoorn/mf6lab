@@ -1,1 +1,1 @@
-exp = np.exp
+dPP_table.flatten()
