@@ -4243,8 +4243,7 @@ In situaties waarin de GGOR-tool wordt gebruikt kan echter niet altijd worden ve
 
 \begin_layout Standard
 Sloten hebben doorgaans een breedte die groter is dan de diepte.
- Ook al is het profiel nog zuiver rechthoekig,
- een zuivere cirkel of ellips is het ook niet.
+ Een zuivere cirkel of ellips is het slootprofiel het nooit.
  De meeste slootprofielen kunnen zonder grote fout worden geschematiseerd tot een rechthoekig profiel met natte diepte 
 \begin_inset Formula $h_{s}$
 \end_inset
@@ -4278,7 +4277,7 @@ Sloten hebben doorgaans een breedte die groter is dan de diepte.
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Delta s=\frac{2q_{0}}{\pi k}\ln\left(\frac{D}{2\left(\min\left(h+b_{s},D\right)\right)}\right)
+\frac{\Delta\Phi}{Q}=\frac{2}{\pi}\ln\left(\frac{D}{2\left(\min\left(h+b_{s},D\right)\right)}\right)
 \]
 
 \end_inset
@@ -4291,7 +4290,163 @@ maar dit blijft slechts een benadering die mogelijk weinig accuraat is.
 \end_layout
 
 \begin_layout Standard
-De exacte weerstand voor elke combinatie van 
+De exacte oplossing voor een sloot met breedte 
+\begin_inset Formula $b$
+\end_inset
+
+ en diepte 0 is bekend
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta\Phi}{Q}=\frac{b}{D}+\frac{1}{\pi}\ln\left(\frac{2}{\cosh\left(\pi\frac{b}{D}\right)-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en voor een verticale contractie met hoogte 
+\begin_inset Formula $h$
+\end_inset
+
+ beneden de bovenrand van de doorsnede is de exacte oplossing
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta\Phi}{Q}=\frac{1}{\pi}\ln\left(\frac{1}{\sin^{2}\left(\frac{\pi}{2}\frac{h}{D}\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:dphi_Q-exact-en_vlgs_huisman"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ vergelijkt de twee exacte oplossingen met Huisman waarin 
+\begin_inset Formula $\Omega=2b$
+\end_inset
+
+ voor sloot met diepte 
+\begin_inset Formula $h=0$
+\end_inset
+
+ of 
+\begin_inset Formula $\Omega=2h$
+\end_inset
+
+ voor contractie
+\begin_inset Formula 
+\[
+\frac{\Delta\Phi}{q}\approx\frac{2}{\pi}\ln\left(\frac{D}{2b}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De benadering volgens Huisman voldoet goed in vergelijking tot de exacte oplossing voor 
+\begin_inset Formula $b/D$
+\end_inset
+
+ of 
+\begin_inset Formula $h/D<0.1$
+\end_inset
+
+.
+ Voor sloten met breedte door diepte groter dan ca.
+ 0.1 D is een andere benadering noodzakelijk.
+ Dit is het geval bij sloten in de ondiepe Holocene deklaag in het westen en noorden van Nederland.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/doc/images/dPP_analytic_vs_huisman.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:dphi_Q-exact-en_vlgs_huisman"
+
+\end_inset
+
+
+\begin_inset Formula $\Delta s/Q$
+\end_inset
+
+ exact voor sloot met breedte 
+\begin_inset Formula $b$
+\end_inset
+
+ en diepte nul en contractie ter grootte 
+\begin_inset Formula $h$
+\end_inset
+
+ en de benaderende formule van Huisman (1972,
+ p57) voor eenzijdige toestroming (half-oneindige doorsned) en 
+\begin_inset Formula $\Omega=2b$
+\end_inset
+
+ of 
+\begin_inset Formula $2h$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De exacte weerstand door contractie van stroomlijnen kan elke combinatie van 
 \begin_inset Formula $h$
 \end_inset
 
@@ -4299,9 +4454,11 @@ De exacte weerstand voor elke combinatie van
 \begin_inset Formula $b_{s}$
 \end_inset
 
- kan analytisch worden verkregen middels een conforme transformatie van de doorsnede.
+ analytisch worden verkregen berekend met de zogenoemde Schwarz-Cristoffel transformatie.
+ Hoewel de aanpak daarvan analytische is,
+ vergt het daadwerkelijk uitrekenen van de oplossing de nodige computerkracht met veel numerieke integratie in het complexe vlak.
  Een alternatief is om deze extra weerstand numeriek uit te rekenen middels een gedetailleerd eindig differentiemodel van de doorsnede.
- Fig.
+ Dit werkt altijd.
  Fig.
  
 \begin_inset CommandInset ref
@@ -4388,6 +4545,37 @@ Stroom- en stijghoogtelijnen bij stroming naar een sloot met rechthoekige doorsn
 
 \end_inset
 
+Deze numerieke berekeningen leveren onder andere de extra verlaging ten opzichte van de situatie waarin de sloot op 
+\begin_inset Formula $x=b$
+\end_inset
+
+ volkomen zou zijn.
+ Door deze waarden uit te rekenen voor een combinatie van 
+\begin_inset Formula $h$
+\end_inset
+
+ en 
+\begin_inset Formula $b$
+\end_inset
+
+ waarden,
+ ontstaat een raster waarbinnen 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+ voor elke combinatie van 
+\begin_inset Formula $\left(h,b\right)$
+\end_inset
+
+ kan worden geïnterpoleerd.
+ Door deze interpolatie in een functie te vatten kan 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+ voor elke slootvorm worden verkregen door eenvoudig deze functie aan te roepen.
+\end_layout
+
+\begin_layout Standard
 Het stijghoogteverval over lengte 
 \begin_inset Formula $L$
 \end_inset
