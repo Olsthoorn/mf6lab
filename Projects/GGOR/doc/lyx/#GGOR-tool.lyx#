@@ -4259,25 +4259,21 @@ Sloten hebben doorgaans een breedte die groter is dan de diepte.
 \end_inset
 
  en 
-\begin_inset Formula $b_{s}$
+\begin_inset Formula $b$
 \end_inset
 
  ook afzonderlijk gelijk aan nul mogen zijn.
  Voor een rechthoekige slootdoorsnede kan de totale natte omtrek in formule van Huisman worden vervangen door 
-\begin_inset Formula $2\left(h+b_{s}\right)$
+\begin_inset Formula $2\left(h+b\right)$
 \end_inset
 
- met een maximum van 
-\begin_inset Formula $h+b_{s}$
-\end_inset
 
- gelijk aan de pakketdikte dus
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{\Delta\Phi}{Q}=\frac{2}{\pi}\ln\left(\frac{D}{2\left(\min\left(h+b_{s},D\right)\right)}\right)
+\frac{\Delta\Phi}{Q}=\frac{2}{\pi}\ln\left(\frac{D}{2\left(h+b\right)}\right)
 \]
 
 \end_inset
@@ -4286,7 +4282,16 @@ Sloten hebben doorgaans een breedte die groter is dan de diepte.
 \end_layout
 
 \begin_layout Standard
-maar dit blijft slechts een benadering die mogelijk weinig accuraat is.
+Dit blijft natuurlijk slechts een benadering die mogelijk weinig accuraat is,
+ zeker voor grotere waarden van 
+\begin_inset Formula $b$
+\end_inset
+
+ en of 
+\begin_inset Formula $h$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -4294,7 +4299,7 @@ De exacte oplossing voor een sloot met breedte
 \begin_inset Formula $b$
 \end_inset
 
- en diepte 0 is bekend
+ en diepte 0 is bekend:
 \end_layout
 
 \begin_layout Standard
@@ -4309,11 +4314,11 @@ De exacte oplossing voor een sloot met breedte
 \end_layout
 
 \begin_layout Standard
-en voor een verticale contractie met hoogte 
+Ook voor de verticale contractie met hoogte 
 \begin_inset Formula $h$
 \end_inset
 
- beneden de bovenrand van de doorsnede is de exacte oplossing
+ beneden de bovenrand van de doorsnede is er een exacte oplossing:
 \end_layout
 
 \begin_layout Standard
@@ -4340,7 +4345,7 @@ nolink "false"
 
 \end_inset
 
- vergelijkt de twee exacte oplossingen met Huisman waarin 
+ links vergelijkt de twee exacte oplossingen (sloot met diepte nul en contractie) met Huisman waarin 
 \begin_inset Formula $\Omega=2b$
 \end_inset
 
@@ -4348,11 +4353,12 @@ nolink "false"
 \begin_inset Formula $h=0$
 \end_inset
 
- of 
+ en waarbij 
 \begin_inset Formula $\Omega=2h$
 \end_inset
 
- voor contractie
+ voor de contractie.
+ We krijgen dan
 \begin_inset Formula 
 \[
 \frac{\Delta\Phi}{q}\approx\frac{2}{\pi}\ln\left(\frac{D}{2b}\right)
@@ -4364,7 +4370,7 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-De benadering volgens Huisman voldoet goed in vergelijking tot de exacte oplossing voor 
+De grafiek toont dat de benadering volgens Huisman goed voldoet voor 
 \begin_inset Formula $b/D$
 \end_inset
 
@@ -4373,9 +4379,83 @@ De benadering volgens Huisman voldoet goed in vergelijking tot de exacte oplossi
 \end_inset
 
 .
- Voor sloten met breedte door diepte groter dan ca.
- 0.1 D is een andere benadering noodzakelijk.
- Dit is het geval bij sloten in de ondiepe Holocene deklaag in het westen en noorden van Nederland.
+ Voor sloten 
+\begin_inset Formula $h$
+\end_inset
+
+ danwel 
+\begin_inset Formula $b$
+\end_inset
+
+ groter dan ca.
+ 
+\begin_inset Formula $0.1D$
+\end_inset
+
+ is een andere benadering noodzakelijk.
+ De rechter plaatje in fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:dphi_Q-exact-en_vlgs_huisman"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+ voor een sloot waarvan de halve doorsnede rechthoekig is met halve breedte 
+\begin_inset Formula $b$
+\end_inset
+
+ gelijk aan de diepte 
+\begin_inset Formula $h=b$
+\end_inset
+
+.
+ We hebben hiervoor alleen de getoonde numerieke oplossing.
+ Ook hier zien we dat Huisman's formule alleen goed werkt voor sloten met breedte en of diepte minder dan ca.
+ 
+\begin_inset Formula $0.1D$
+\end_inset
+
+.
+ Dat valt behoorlijk tegen.
+ Mij staat geen literatuur bij de accuratesse van bovenstaande benadering expliciet is onderzocht zoals hier gedaan.
+ We hebben voor algemene toepassing een andere benadering nodig.
+ De exacte weerstand door contractie van stroomlijnen kan elke combinatie van 
+\begin_inset Formula $h$
+\end_inset
+
+ en 
+\begin_inset Formula $b_{s}$
+\end_inset
+
+ analytisch worden verkregen berekend met de zogenoemde Schwarz-Cristoffel transformatie.
+ Hoewel de aanpak daarvan analytisch is,
+ vergt het daadwerkelijk uitrekenen van de oplossing de nodige computerkracht met veel numerieke integratie in het complexe vlak.
+ Dit is niet te doen binnen de GGOR.
+ Er is dus een andere benadering noodzakelijk.
+ Die benadering zal numerieke zijn,
+ waarvan fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:dphi_Q-exact-en_vlgs_huisman"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ al enkele resultaten laat zien;
+ de linker figuur laat immers zien dat de numerieke waarden voor contractie en sloten met diepte nul samenvallen met de exacte analytische waarden.
 \end_layout
 
 \begin_layout Standard
@@ -4406,7 +4486,8 @@ name "fig:dphi_Q-exact-en_vlgs_huisman"
 
 \end_inset
 
-
+Links:
+ 
 \begin_inset Formula $\Delta s/Q$
 \end_inset
 
@@ -4414,12 +4495,13 @@ name "fig:dphi_Q-exact-en_vlgs_huisman"
 \begin_inset Formula $b$
 \end_inset
 
- en diepte nul en contractie ter grootte 
+ en diepte nul en voor contractie ter grootte 
 \begin_inset Formula $h$
 \end_inset
 
- en de benaderende formule van Huisman (1972,
- p57) voor eenzijdige toestroming (half-oneindige doorsned) en 
+,
+ samen met de benaderende formule van Huisman (1972,
+ p57) voor eenzijdige toestroming en 
 \begin_inset Formula $\Omega=2b$
 \end_inset
 
@@ -4428,7 +4510,32 @@ name "fig:dphi_Q-exact-en_vlgs_huisman"
 \end_inset
 
 .
- 
+ Rechts 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+ numeriek berekend voor rechthoekige halve doorsnede (
+\begin_inset Formula $h=b)$
+\end_inset
+
+ en natte omtrek 
+\begin_inset Formula $\Omega=2(b+h)$
+\end_inset
+
+ samen met de benaderende formule van Huisman (
+\begin_inset Formula $\Delta\Phi/Q=2Q/\pi\ln(D/\Omega$
+\end_inset
+
+).
+ Merk op dat 
+\begin_inset Formula $\Phi=k\phi$
+\end_inset
+
+ en dat de 2 voor d 
+\begin_inset Formula $Q$
+\end_inset
+
+ komt doordat we slechts eenzijdige toestroming naar de sloot beschouwen.
 \end_layout
 
 \end_inset
@@ -4446,18 +4553,7 @@ name "fig:dphi_Q-exact-en_vlgs_huisman"
 \end_layout
 
 \begin_layout Standard
-De exacte weerstand door contractie van stroomlijnen kan elke combinatie van 
-\begin_inset Formula $h$
-\end_inset
-
- en 
-\begin_inset Formula $b_{s}$
-\end_inset
-
- analytisch worden verkregen berekend met de zogenoemde Schwarz-Cristoffel transformatie.
- Hoewel de aanpak daarvan analytische is,
- vergt het daadwerkelijk uitrekenen van de oplossing de nodige computerkracht met veel numerieke integratie in het complexe vlak.
- Een alternatief is om deze extra weerstand numeriek uit te rekenen middels een gedetailleerd eindig differentiemodel van de doorsnede.
+Een alternatief is om deze weerstand door contractie van stroomlijnen te berekenen is middels een gedetailleerd eindig differentiemodel van de doorsnede.
  Dit werkt altijd.
  Fig.
  
@@ -4545,12 +4641,7 @@ Stroom- en stijghoogtelijnen bij stroming naar een sloot met rechthoekige doorsn
 
 \end_inset
 
-Deze numerieke berekeningen leveren onder andere de extra verlaging ten opzichte van de situatie waarin de sloot op 
-\begin_inset Formula $x=b$
-\end_inset
-
- volkomen zou zijn.
- Door deze waarden uit te rekenen voor een combinatie van 
+Met dit model is voor vele combinaties van 
 \begin_inset Formula $h$
 \end_inset
 
@@ -4558,165 +4649,224 @@ Deze numerieke berekeningen leveren onder andere de extra verlaging ten opzichte
 \begin_inset Formula $b$
 \end_inset
 
- waarden,
- ontstaat een raster waarbinnen 
+ in een raster 
 \begin_inset Formula $\Delta\Phi/Q$
 \end_inset
 
- voor elke combinatie van 
-\begin_inset Formula $\left(h,b\right)$
+ berekend.
+ De gekozen waarden voor 
+\begin_inset Formula $h/D$
 \end_inset
 
- kan worden geïnterpoleerd.
- Door deze interpolatie in een functie te vatten kan 
-\begin_inset Formula $\Delta\Phi/Q$
+ liggen tussen 0 en 
+\begin_inset Formula $1$
 \end_inset
 
- voor elke slootvorm worden verkregen door eenvoudig deze functie aan te roepen.
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
-Het stijghoogteverval over lengte 
-\begin_inset Formula $L$
+ en voor 
+\begin_inset Formula $b/D$
 \end_inset
 
- tot aan een volkomen sloot zonder intredeweerstand is gelijk aan 
-\begin_inset Formula $\Delta\phi_{0}=\frac{Q}{kD}L$
+ tussen 0 en 2.
+ Voor waarden van 
+\begin_inset Formula $b>2D$
 \end_inset
 
-.
- In de situatie met contractie van stroomlijnen komt daar tussen 
-\begin_inset Formula $x=L$
+ is de uitkomst constant en gelijk aan toestroming naar open water met diepte 
+\begin_inset Formula $h$
 \end_inset
 
- en de sloot 
-\begin_inset Formula $\Delta\phi_{pp}$
-\end_inset
-
-bij
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi_{L}-\phi_{s}=\frac{Q}{kD}L+\Delta\phi_{pp}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dus 
-\begin_inset Formula 
-\[
-\Delta\phi_{pp}=\phi_{L}-\phi_{s}-\frac{Q}{kD}L
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit getal is te vergelijken met formules gegeven in boeken zoals Huisman (1972,
- p57).
- Het is conceptueel echter eenvoudiger om de extra weerstand voor te stellen als conceptueel het gevolg van zuivere doorstroming van de aquifer over een extra lengte 
-\begin_inset Formula $\Delta L$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{Q}{kD}\Delta L=\phi_{L}-\phi_{0}-\frac{Q}{kD}L
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Delta L=\left(\phi_{L}-\phi_{0}\right)\frac{kD}{Q}-L
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-waarin 
-\begin_inset Formula $\phi_{L}-\phi_{0}$
-\end_inset
-
- het stijghoogteverval is dat direct in het numerieke model van de doorsnede wordt gemeten.
- Beter nog is het om de dimensieloze grootheid 
-\begin_inset Formula $\Delta L/D$
-\end_inset
-
- te gebruiken,
- wat de extra weerstand universeel maakt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\Delta L}{D}=\left(\frac{\phi_{L}-\phi_{0}}{Q/k}\right)-\frac{L}{D}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De conceptuele extra te doorstromen pakketlengte is evenredig aan de pakketdikte maar onafhankelijk van het debiet en de de doorlatendheid.
-\end_layout
-
-\begin_layout Standard
-In het numerieke model is het stijghoogteverval berekend tussen 
-\begin_inset Formula $x=0$
+,
+ de slootbreedte doet er dan niet meer toe.
+ Vervolgens kan middels interpolatie voor elke willekeurige combinatie van 
+\begin_inset Formula $h$
 \end_inset
 
  en 
-\begin_inset Formula $x=L$
+\begin_inset Formula $b$
 \end_inset
 
- met 
-\begin_inset Formula $L=2D$
+ de 
+\begin_inset Formula $\Delta\Phi$
+\end_inset
+
+/Q worden verkregen.
+ De interpolator geeft een cubische benadering binnen het raster,
+ wat goed werkt aangezien het verloop van 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+ glad is.
+ De gegenereerde interpolator (scipy.interpolate.RegularInterpolator) werkt als een functie die vervolgens is aan te roepen binnen de GGOR.
+ Hiermee hebben we zo goed als de exacte oplossing binnen de GGOR tot onzer beschikking.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Effect-van-onvolkomen-sloot-Deltapp"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de contouren van de numeriek berekende en daarna geïnterpoleerde waarden van 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+ voor dimensieloze combinaties van 
+\begin_inset Formula $h/b$
+\end_inset
+
+ en 
+\begin_inset Formula $b/D$
 \end_inset
 
 .
- Na aftrekken van het stijghoogteverval over hetzelfde traject,
- met dezelfde 
+ De analytisch asymptotische waarde voor 
+\begin_inset Formula $h=0$
+\end_inset
+
+ en 
+\begin_inset Formula $b\to\infty$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lim_{b\to\infty}\left(\Delta\Phi/Q\right)=\frac{b}{D}+\ln\left(\frac{2}{\cosh\left(\pi\frac{b}{D}\right)-1}\right)\approx0.44.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+wat overeenkomt met fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Effect-van-onvolkomen-sloot-Deltapp"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ en met de trend van de rode lijn (analytisch horizontaal) in fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Effect-van-onvolkomen-sloot-Deltapp"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/doc/images/ditch_pp.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Effect-van-onvolkomen-sloot-Deltapp"
+
+\end_inset
+
+Effect van onvolkomen rechthoekige slootdoorsnede,
+ extra weerstand door contractie van stroomlijnen:
+ 
+\begin_inset Formula $\Delta pp=\Delta\phi/(Qk)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We hebben hiermee voor elke willekeurige doorsnede de waarde 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+ verkregen,
+ de extra potentiaal verlaging 
+\begin_inset Formula $\Delta\Phi=k\Delta\phi$
+\end_inset
+
+ door onttrekking 
 \begin_inset Formula $Q$
 \end_inset
 
- zonder contractie van stroomlijnen wordt numeriek het extra verval door de contractie van stroomlijnen verkregen.
- Vermenigvuldiging met 
-\begin_inset Formula $k$
+ op grote afstand aan een zijde van de sloot.
+\end_layout
+
+\begin_layout Standard
+De verlaging door uniforme stroming over een afstand gelijk aan 
+\begin_inset Formula $\Delta L$
 \end_inset
 
- en deling door 
-\begin_inset Formula $q=Q/D$
+ is gelijk aan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta\phi=\frac{Q}{kD}\Delta L
+\]
+
 \end_inset
 
- geeft dan de equivalente extra doorstroomlengte 
+
+\end_layout
+
+\begin_layout Standard
+zodat 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+direct kan worden vergelijken met de potentiaal daling bij uniforme stroming over een lengte 
 \begin_inset Formula $\Delta L$
 \end_inset
 
@@ -4724,26 +4874,33 @@ In het numerieke model is het stijghoogteverval berekend tussen
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta\Phi}{Q}=\frac{\Delta L}{D}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met andere woorden de 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+ is ook de extra potentiaal daling bij uniforme stroming over een geschaalde lengte 
 \begin_inset Formula $\Delta L/D$
 \end_inset
 
- voor een sloot met diepte 
-\begin_inset Formula $L$
-\end_inset
-
- en breedte 
-\begin_inset Formula $b_{s}=0$
-\end_inset
-
- (een verticale contractie in de aquifer,
- zoals stroming onder een damwand door) wordt gegeven in Verruijt (1970,
- p8.22) en is gelijk aan
+.
+ Dus de extra verlaging door de contractie van stroomlijnen os gelijk aan doorstroming van het watervoerende pakket over een extra lengte
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{\Delta L}{D}=-\frac{2D}{\pi}\ln\left(\sin\left(\frac{\pi h}{2D}\right)\right)
+\Delta L=\frac{\Delta\Phi}{Q}D
 \]
 
 \end_inset
@@ -4752,30 +4909,19 @@ In het numerieke model is het stijghoogteverval berekend tussen
 \end_layout
 
 \begin_layout Standard
-Voor een sloot met breedte 
-\begin_inset Formula $b_{s}$
-\end_inset
-
- en diepte 
-\begin_inset Formula $0$
-\end_inset
-
- is deze extra lengte gelijk aan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\Delta L}{D}=
-\]
+en volgt dus direct uit de berekende tabel een fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Effect-van-onvolkomen-sloot-Deltapp"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Voor de situatie waarin 
+.
 \end_layout
 
 \begin_layout Standard
@@ -4861,26 +5007,130 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-De waarde van 
-\begin_inset Formula $\Delta pp$
+Verruijt (1970,
+ p119) rekent leidt deze extra lengte af voor een contractie.
+ Zijn antwoord is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta L}{D}=-\frac{2}{\pi}\ln\left(\sin\left(\frac{\pi h}{2D}\right)\right)
+\]
+
 \end_inset
 
- kan numeriek voor elke combinatie van 
+
+\end_layout
+
+\begin_layout Standard
+Wij hebben voor deze contractie
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta\Phi}{Q}=\frac{1}{\pi}\ln\left(\frac{1}{\sin^{2}\left(\frac{\pi}{2}\frac{h}{D}\right)}\right)=-\frac{2}{\pi}\ln\left(\sin\left(\frac{\pi h}{2D}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zodat inderdaad
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\frac{\Delta\Phi}{Q}=\frac{\Delta L}{D}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit geldt dus voor elke rechthoekige sloot doorsnede gegeven door diepte 
 \begin_inset Formula $h$
 \end_inset
 
- en 
-\begin_inset Formula $b_{s}$
+ en halve breedte 
+\begin_inset Formula $b$
 \end_inset
 
- worden berekend.
- Zo kan een tabel worden gevuld waarbinnen vervolgens via interpolatie elke 
-\begin_inset Formula $\Delta pp$
+,
+ en dus ook voor die met 
+\begin_inset Formula $b=0$
 \end_inset
 
- kan worden verkregen.
- De zo samengestelde tabel,
- omgezet naar een contourlijnengrafiek is gegeven in fig.
+ (contractie) en die met 
+\begin_inset Formula $h=0$
+\end_inset
+
+ (vlakke sloot bovenin de doorsnede).
+\end_layout
+
+\begin_layout Standard
+Hoe rekenen we de weerstand door de contractie van stroomlijnen om naar het conceptuele muurtje van Bruggeman met weerstand 
+\begin_inset Formula $w$
+\end_inset
+
+ en hoogte 
+\begin_inset Formula $D$
+\end_inset
+
+ op 
+\begin_inset Formula $x=b$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta\phi=Q\frac{w}{D}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zodat met 
+\begin_inset Formula $\Delta\Phi=k\Delta\phi$
+\end_inset
+
+ of 
+\begin_inset Formula $\Delta\phi=\Delta\Phi/k$
+\end_inset
+
+ direct volgt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta\Phi}{Q}=\frac{w}{kD}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dus gegeven 
+\begin_inset Formula $\Delta\Phi/Q$
+\end_inset
+
+,
+ zoals rechtstreeks afgelezen in fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4892,113 +5142,243 @@ nolink "false"
 
 \end_inset
 
-.
+ krijgen we direct
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /Users/Theo/GRWMODELS/python/mf6lab/Projects/GGOR/cases/AAN_GZK/images/ditch_pp.png
-	width 60text%
+\begin_inset Formula 
+\[
+w=\left(\frac{\Delta\Phi}{Q}\right)kD
+\]
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
+\begin_layout Section
+Verticale anisotropie
+\end_layout
 
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Effect-van-onvolkomen-sloot-Deltapp"
+\begin_layout Standard
+We kunnen in de holocene deklaag onmogelijk om de daarin altijd pertinent aanwezige verticale anisotropie heen.
+ De truc hierbij is altijd om eerst de coördinaten van de doorsnede zo te verschalen dat deze isotroop wordt en daarin boven afgeleide formules toe te passen.
+ Verschalen gaat als volgt.
+ De partiële differentiaalvergelijking voor stationaire stroming in de anisotrope verticale doorsnede is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k_{x}\frac{\partial^{2}\phi}{\partial x^{2}}+k_{z}\frac{\partial^{2}\phi}{\partial z^{2}}+Q=0
+\]
 
 \end_inset
 
-Effect van onvolkomen rechthoekige slootdoorsnede,
- extra weerstand door contractie van stroomlijnen:
+
+\end_layout
+
+\begin_layout Standard
+Schrijven we 
+\begin_inset Formula 
+\begin{align*}
+x & =\sqrt{\frac{k_{x}}{k}}\hat{x}\\
+z & =\sqrt{\frac{k_{z}}{k}}\hat{z}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Door 
+\begin_inset Formula $k=\sqrt{k_{x}k_{z}}$
+\end_inset
+
+te kiezen blijven alle debieten,
+ verblijftijden etc.
+ hetzelfde.
+ Immers 
+\begin_inset Formula $dxdy=\sqrt{\frac{k_{x}}{k}}\sqrt{\frac{k_{z}}{k}}d\hat{x}d\hat{z}=d\hat{x}d\hat{z}$
+\end_inset
+
+ waardoor bij dezelfde stijghoogte en dus verhang de debieten niet veranderen.
+\end_layout
+
+\begin_layout Standard
+In de verticaal anisotrope situatie kiezen we
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{x}=\sqrt{\frac{k}{k_{x}}};\hat{z}=\sqrt{\frac{k}{k_{z}}}
+\]
+
+\end_inset
+
+om de doorsnede isotroop te maken en passen daarop alles formules toe die voor de isotrope situatie zijn afgeleide.
+\end_layout
+
+\begin_layout Standard
+Voorbeeld:
+ We hebben een holocene deklaag met dikte 
+\begin_inset Formula $D$
+\end_inset
+
+ en doorlatendheden 
+\begin_inset Formula $k_{h}=k_{x}=9$
+\end_inset
+
+ en 
+\begin_inset Formula $k_{v}=k_{z}=1$
+\end_inset
+
+ m/d.
+ We krijgen dan 
+\begin_inset Formula $k=\sqrt{k_{h}k_{v}}=\sqrt{9\times1}=3$
+\end_inset
+
+ m/d.
+ Dus 
+\begin_inset Formula $d\hat{x}=\sqrt{\frac{3}{9}}dx=\frac{1}{3}dx$
+\end_inset
+
+ en 
+\begin_inset Formula $d\hat{z}=\sqrt{\frac{9}{1}}dz=3dz$
+\end_inset
+
+.
+ Met andere woorden we moeten de 
+\begin_inset Formula $z$
+\end_inset
+
+-as met een factor 3 optrekken en de 
+\begin_inset Formula $x$
+\end_inset
+
+-as met een factor 3 samendrukken om de doorsnede isotroop te maken.
+ Het is altijd zo dat de as met de kleinere doorlatendheid moet worden opgerekt en die met de grote worden samengedrukt.
+ Conceptueel kan men zich voor stellen dat een punt in de richting van de as met de lagere doorlatendheid in het isotrope medium als het ware veel verder weg moet liggen om dezelfde verlaging te krijgen als in het anisotrope medium.
+\end_layout
+
+\begin_layout Standard
+Dus voor een doorsnede met halve breedte 
+\begin_inset Formula $b$
+\end_inset
+
+ en diepte 
+\begin_inset Formula $h$
+\end_inset
+
+ kiezen we in de tabel het punt 
+\begin_inset Formula $\left(\hat{h},\hat{b}\right)=\left(\sqrt{\frac{k}{k_{z}}}h,\sqrt{\frac{k}{k_{x}}}b\right)$
+\end_inset
+
+ om de juiste 
+\begin_inset Formula $\left(\frac{\Delta\Phi}{Q}\right)$
+\end_inset
+
+ te krijgen.
+ En de weerstand van het conceptuele verticale muurtje wordt dan,
+ met 
+\begin_inset Formula $\hat{D}=\sqrt{\frac{k}{k_{z}}}D$
+\end_inset
+
+ en 
+\begin_inset Formula $k$
+\end_inset
+
+ die van het isotrope medium,
  
-\begin_inset Formula $\Delta pp=\Delta\phi/(Qk)$
+\begin_inset Formula $k=\sqrt{k_{x}k_{z}}$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Hetzelfde resultaat kan met de techniek van conforme afbeeldingen worden verkregen,
- waarbij de conforme Schwarz-Cristoffel transformatie noodzakelijk is (Verruijt,
- 1970).
- De uitwerking is uitgevoerd en beschikbaar via Github.
- Echter de hier toegepaste numerieke aanpak is beduidend efficiënter.
- De analytische oplossing kan altijd worden gebruikt ter verificatie van d numerieke.
-\end_layout
-
-\begin_layout Standard
-Het onderscheid tussen radiale weerstand en slootbodemweerstand heeft een zeker belang,
- omdat bij stroming van de grond naar de sloot de slootbodemweerstand in de regel verwaarloosbaar zal zijn.
- Dit omdat er maar een paar cm stijghoogteoverschot nodig is om elke sliblaag van de slootbodem te drukken.
- Bij stroming van de sloot naar de grond is dit niet het geval aangezien de sliblaag op de bodem dan wordt samengedrukt.
- Het is om deze reden zinvol onderscheid te maken tussen de hogere intredeweerstand en de lagere uittredeweerstand.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset citation
-LatexCommand cite
-key "dL96"
-literal "true"
-
-\end_inset
-
- heeft reeds een analytische uitwerking gepubliceerd voor stroming in dwarsdoorsneden met brede sloten.
- Zijn analyse is verder verduidelijkt door 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GroeStro02"
-literal "true"
-
-\end_inset
-
-.
- Met de hiervoor bepaalde intredeweerstand is verdere analyse niet nodig;
- hij werkt voor sloten van elke breedte.
- De enige aanname is dat het patroon van de contractie van de stroomlijnen niet veel verandert wanneer er sprake is van een weerstand van slib op de slootbodem.
- Zolang de weerstand beperkt is,
- en of de lengte van de natte omtrek klein ten opzichte van de dikte van de watervoerende laag en ook wanneer de sloot (praktisch) volkomen is is deze aanname acceptabel.
-\end_layout
-
-\begin_layout Standard
-De omrekening van de extra weerstand door onvolkomenheid van de sloot is als volgt
+ als volgt:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\Omega & =-i\frac{2Q}{D}\left(z+il\right)\\
-\Delta\Omega & =-\frac{i2Q}{D}i\left(-\frac{2D}{\pi}\ln\left(\sin\frac{\pi b}{2D}\right)\right)\\
-\Delta\Omega & =\frac{2Q}{D}\frac{2D}{\pi}\ln\left(\sin\frac{\pi b}{2D}\right)=\frac{Q}{D}\Delta L
+w & =\left(\frac{\Delta\Phi}{Q}\left(\hat{h},\hat{b}\right)\right)k_{x}D
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Slootbodemweerstand
+\end_layout
+
+\begin_layout Standard
+Slootbodemweerstand komt bovenop de weerstand door contractie van stroomlijnen die hiervoor is behandeld.
+ Over slootbodemweerstand is al veel geschreven,
+ maar een feit is dat deze niet hoog kan zijn bij uitstromend grondwater.
+ Immers het vergt slechts enkele cm grondwaterstijghoogte verval om een sliblaag van een paar cm geheel los te drukken van de bodem.
+ Bij instromend grondwater is de situatie natuurlijk anders,
+ een sliblaag kan bij infiltratie juist op de bodem worden gedrukt en worden samengedrukt waardoor de weerstand toeneemt.
+ In het algemeen zal de uittredeweerstand derhalve te verwaarlozen zijn,
+ maar de intredeweerstand os dat in het algemeen niet.
+ Dat betekent dat bij de modellering onderscheid moet worden gemaakt tussen perioden waarin het grondwater uittreedt en perioden waarin het tegenovergestelde het geval is.
+\end_layout
+
+\begin_layout Standard
+De slootbodemweerstand wordt in het algemeen geconceptualiseerd als een 'vliesje' op de slootbodem en de slootoevers met een uniforme weerstand.
+ Ook dat is zelden of nooit in overeenstemming met de werkelijkheid.
+ We hebben daar te maken met oevers die schoon worden gehouden door golven,
+ maar ook door uitstromend grondwater.
+ Hierdoor verzamelt slib zich in het midden van de sloot en worden de oevers de belangrijkste delen van de slootomtrek voor infiltratie.
+ Wanneer de oevers redelijk schoon blijven,
+ kan via deze het merendeel van het water de grond indringen.
+ De oevers zijn ook van belang omdat daar het intredende water direct te maken krijgt met de horizontale doorlatendheid van de grond,
+ die in de regel veel groter is dan de verticale,
+ die meer van belang is voor de slootbodem.
+ Bij beken ligt de situatie weer anders.
+ Het peil varieert door het jaar heen zodat er geen sprake is van stabiele bodemweerstand,
+ maar wellicht belangrijker,
+ beken voeren in essentie altijd grondwater af en voor hen is derhalve praktisch uitsluitend de uittredeweerstand van belang en deze,
+ kan zoals hiervoor betoogd praktisch worden verwaarloosd,
+ waardoor bij beken alleen rekening hoeft te worden gehouden met de radiale weerstand die het gevolg is van de contractie van stroomlijnen.
+ Ook sloten zullen in de regel meer water afvoeren dan aanvoeren,
+ maar bij sloten,
+ die immers op peil worden gehouden,
+ is de aanvoer in de zomer een essentieel onderdeel van de waterhuishouding.
+\end_layout
+
+\begin_layout Standard
+Resteert te vraag hoe met de slootbodemweerstand rekening te houden bij infiltratie.
+ Een vlies met weerstand gelegd over de gehele bodem is een gemakkelijk concept,
+ maar zal de waarheid niet goed benaderen.
+ Los van alles dat hiervoor al over de slootbodemweerstand is gezegd,
+ en los van de scherpe analyse van de toestroming van het grondwater naar of uit de sloten door de contractie van stroomlijnen,
+ een weerstandslaag op de bodem verandert deze toestroming.
+ De toestroming naar een sloot met een stevige bodemweerstand kan hierdoor niet worden berekend met conforme transformaties.
+ De toestroming zonder bodemweerstand is vooral geconcentreerd in de knik tussen oeverwand en bodem.
+ De sterke uitstroming daar maakt deze hoek grondmechanisch instabiel waardoor de hoek een ronding krijgt.
+ Dit impliceert direct al dat ook de analytische aanpak die hiervoor is toegepast maar beperkte geldigheid kan hebben want een zuiver rechthoekig slootprofiel is eenvoudig fysisch niet mogelijk door de instabiliteit van de uitstroming in de veronderstelde knik.
+ Maar rond is de bodem van een sloot in de regel evenmin;
+ in de praktijk zien we een redelijk verticale oever en een redelijk vlakke bodem.
+ Bij een vlies met weerstand op de bodem en oevers van de sloot zal het peilverschil in de knik het grootst zijn.
+ De knikzone is daarmee het belangrijkst voor het effect van de weerstand bij infiltratie,
+ terwijl we tegelijkertijd weten dan een sliblaag juist daar niet kan blijven liggen bij uittredend grondwater en bij intredend water zal de sliblaag juist daar dikker worden door de daar hogere infiltratiesnelheid en daarmee grotere aanvoer van verstoppende partikels en nutriënten en dus bacteriegroei.
+ Wanneer de bodemweerstand uniform is maakt de verdeling van het stijghoogteverval over de bodem niet uit voor de totale lek.
+ Dit is het gevolg van lineariteit tussen weerstand,
+ flux en stijghoogteverval en is makkelijk aan te tonen.
+ Stel het stijghoogteverval is 0 in het midden van de sloot en loopt lineair op naar 
+\begin_inset Formula $\Delta\phi_{b}$
+\end_inset
+
+ aan de slootrand,
+ dan is de flux door de bodem gelijk aaan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+q & =\frac{\Delta\phi_{b}}{c}\frac{x}{b}
 \end{align*}
 
 \end_inset
@@ -5009,12 +5389,27 @@ De omrekening van de extra weerstand door onvolkomenheid van de sloot is als vol
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Delta L=\frac{4D}{\pi}\ln\left(\sin\left(\frac{\pi b}{2D}\right)\right)
+Q=\frac{\Delta\phi}{c}\intop_{0}^{b}\frac{x}{b}dx=\frac{\Delta\phi}{c}\frac{b}{2}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+wat precies het debiet is dat bij het gemiddelde stijghoogteverval zou optreden.
+\end_layout
+
+\begin_layout Standard
+In elk geval valt er veel te zeggen maar minder te weten over de verdeling van de slootbodemweerstand over het profiel en nog minder over de mate waarin deze de toestroming of instroming verandert die ontstaat door de contractie van stroomlijnen.
+ In de GGOR tool houden we daarom de weerstand aan als gevolg van de contractie van stroomlijnen en tellen daar eenvoudig de veronderstelde slootbodemweerstand bij op,
+ maar doen dat alleen bij infiltratie en niet bij exfiltratie,
+ omdat uitstromend grondwater elke sliblaag gemakkelijk van de bodem drukt.
+\end_layout
+
+\begin_layout Standard
+We zullen bij de simulatie dus steeds moeten nagaan of er sprake is van instroming of uitstroming van water naar of vanuit de grond.
 \end_layout
 
 \begin_layout Chapter
@@ -5026,23 +5421,32 @@ Oppervlakkige afvoer
 \end_layout
 
 \begin_layout Standard
-Wanneer in natte periode het grondwater aan maaiveld komt zal het grondwater oppervlakkig worden afgevoerd.
+Wanneer in een natte periode het grondwater aan maaiveld komt zal het grondwater oppervlakkig worden afgevoerd.
  In het MODFLOW model gebeurt dit automatisch omdat de drains die daarin op het maaiveld zijn gelegd vanzelf water gaan afvoeren zodra zij gedurende de simulatie nat worden.
+ In het geval van werkelijk aanwezige drains zal het water niet aan maaiveld geraken maar via de drains worden afgevoerd.
+ Beide situaties kunnen met de DRN module van MODFLOW worden gesimuleerd.
+ Ook greppelafvoer kan worden meegenomen in de simulatie door lokaal de drains die in het model op het maaiveld zijn gelegd te verlagen door de greppelhoogte.
+ In MODFLOW 6 kunnen randvoorwaarden zoals drains van een naam worden voorzien,
+ waarmee achteraf specifieke deelstromen zoals oppervlakteafvoer,
+ en stroming naar drains en greppels kunnen worden onderscheiden van de rest.
 \end_layout
 
 \begin_layout Standard
-Ook in de analytische modellen kan deze afvoer in rekening worden gebracht.
- Het vergt een kleine aanpassing in het rekenschema.
- Er is echter wel een probleem mee,
- aangezien we in de analytische methodes altijd rekenen met de doorsnede-gemiddelde grondwaterstand.
- De analytische rekenschema's zullen dus pas oppervlaktewater gaan afvoeren zodra de doorsnede-gemiddelde grondwaterstand het maaiveld raakt.
- Dit is later dan in werkelijkheid,
- waar juist de grondwaterstand in het midden van het perceel het eerst het maaiveld bereikt.
- De aanpassing om oppervlakkige afvoer te berekenen onder natte omstandigheden is dus minder nauwkeurig in de analytische rekenschema's dan wellicht gewenst en dan mogelijk is in numerieke modellen die wel het gehele grondwaterverloop langs de doorsnede meenemen.
+Ook in de analytische modellen kan oppervlakkige afvoer in rekening worden gebracht,
+ maar niet volledig.
+ In de analytische modellen rekenen we uitsluitend met de doorsnedegemiddelde grondwaterstand.
+ Deze is altijd lager dan de hoogste grondwaterstand.
+ Hierdoor zal het grondwater in een analytisch model veel minder vaak of in het geheel nooit aan het maaiveld komen.
+ In de werkelijkheid zal het perceel in het midden dan al lang nat zijn geworden.
+ Waar in het numerieke model een deel van het perceel blank kan staan (in het midden) is dit in het analytische model altijd alles of niets.
 \end_layout
 
 \begin_layout Standard
-Het is lastig om het precieze moment binnen de rekenstap te berekenen waarop het grondwater het maaiveld raakt,
+De aanpassing om oppervlakkige afvoer te berekenen onder natte omstandigheden is dus minder nauwkeurig in de analytische rekenschema's dan wellicht gewenst en dan mogelijk is in numerieke modellen die wel het gehele grondwaterverloop langs de doorsnede meenemen.
+\end_layout
+
+\begin_layout Standard
+In tegenstelling tot het numerieke model is het lastig om in het analytische model het precieze moment te berekenen waarop het grondwater het binnen de rekenstap het maaiveld raakt,
  om vervolgens constant aan maaiveld te blijven totdat het neerslagoverschot,
  de kwel en of slootpeilen weer zover dalen dat het peil er weer onder zakt.
  We zullen geen poging ondernemen om dit uit te rekenen,
@@ -5050,10 +5454,11 @@ Het is lastig om het precieze moment binnen de rekenstap te berekenen waarop het
 \end_layout
 
 \begin_layout Standard
-Een eenvoudiger methode die ook acceptabel zal zijn,
+Een eenvoudiger methode,
+ die ook acceptabel zal zijn,
  is gewoon steeds de waterstand aan het einde van elke tijdstap te controleren.
  Het deel van de berging boven maaiveld gaat dan naar oppervlakkige afvoer en de waterstand wordt gelijk aan maaiveld gezet.
- Programmeer-technisch vergt dit slechts een of twee regels en het is concept is volstrekt duidelijk.
+ Programmeer-technisch vergt dit slechts een of twee regels en het concept is volstrekt duidelijk.
 \end_layout
 
 \begin_layout Section
@@ -5064,109 +5469,36 @@ Variabele bergingscoëfficiënt
 We zouden onder omstandigheden wellicht ook rekening willen kunnen houden met een afname van de bergingscoëfficiënt naarmate de grondwaterstand dichter aan maaiveld komt.
  Fysisch is dit mechanisme helder.
  Modelleer-technisch is het lastiger.
- In het numerieke model vergt zo'n berekening opdeling van de deklaag in een aantal sublagen,
+ In het numerieke model vergt zo'n berekening dat de holocene deklaag wordt opgedeeld in een aantal sublagen,
  elk met een eigen freatische bergingscoëfficiënt.
- Alternatief zou een nieuw package voor MODFLOW kunnen worden ontwikkeld,
+ Alternatief zou een nieuw pakket voor MODFLOW kunnen worden ontwikkeld,
  dat dit proces voor zijn rekening neemt.
  Hier wordt voorlopig vanaf gezien.
- Het huidige numerieke MODFLOW model dat voor de GGOR-berekeningen is opgezet werk met twee lagen (deklaag en regionale aquifer daaronder) en is juist daardoor uiterst efficiënt.
+ Het huidige numerieke MODFLOW model dat voor de GGOR-berekeningen is opgezet werk met slechts twee lagen:
+ 1) De holocene deklaag en 2) de regionale aquifer daaronder.
+ Juist deze beperking maat het gereedschap efficiënt.
  In de wetenschap dat het altijd mogelijk is dit mechanisme te implementeren met behulp van meer lagen,
- wordt omwille van de efficiëntie voorlopig aan de aanpak met slechts twee numerieke rekenlagen vastgehouden.
+ wordt omwille van de efficiëntie voorlopig vastgehouden aan de aanpak met slechts twee numerieke rekenlagen .
 \end_layout
 
 \begin_layout Standard
 In de analytische modellen kan binnen elke rekentijdstap een iteratieslag worden ingebouwd die rekening houdt met dit verschijnsel.
- Hiervoor is nodig de totale freatische berging op te geven als functie van de diepe.
+ Hiervoor is nodig de totale freatische berging op te geven als functie van de diepte.
  De hoeveelheid water die over de dag wordt geborgen is dan exact bekend uit het diepte-traject dat door de grondwaterspiegel is doorlopen.
  Hieruit volgt dan een gemiddelde bergingscoëfficiënt over dit traject.
  Waarna de simulatie van de tijdstap over wordt gedaan met de verbeterde waarde van de bergingscoëfficiënt.
- Dit wordt enkele keren herhaald,
+ Dit zou moeten worden herhaald,
  totdat de waarde ervan stabiel is.
  De convergentie verloopt goed zolang de berging een monotone en vloeiend verlopende functie is van de grondwaterdiepte.
  Als dat niet het geval is,
  bijvoorbeeld omdat we ook het ontstaan van plassen aan maaiveld willen simuleren,
- waarbij de bergingscoëfficiënt plotseling 1 wordt nadat het grondwater het maaiveld bereikt,
- kunnen we de simulatie toch beter opbreken in het traject waarbij de grondwaterstand onder het maaiveld en het traject waarbij die boven het maaiveld reikt.
+ waarbij de bergingscoëfficiënt plotseling 1 wordt zodra het grondwater het maaiveld bereikt,
+ kunnen we de simulatie toch beter opbreken in wel in het traject waarbij de grondwaterstand onder het maaiveld blijft en het traject waarbij die boven het maaiveld reikt.
  Een alternatief voor de plotselinge sprong in bergingscoëfficiënt aan maaiveld,
  is de bergingsfunctie ook aan maaiveld continu te laten verlopen.
  Het continue verloop aan maaiveld zou dan variatie van maaiveldhoogte over het perceel kunnen simuleren.
  Een rekenschema wordt hieronder voorgesteld.
-\end_layout
-
-\begin_layout Standard
-Van belang is dat de bergingscoëfficiënt uitsluitend voorkomt in de tijdconstante,
- en via de tijdconstante in de exponent van de analytische oplossing.
- Gebruik makend van de exacte analytische oplossing ontstaat het volgende rekenschema:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-bepaal\,\mu\,op\,basis\,van\,\overline{h}_{t_{0}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-LOOP
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-bereken\,T
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\overline{h} & =h_{LR}+\left(\overline{h}_{t_{0}}-h_{LR}\right)e^{-\frac{t-t_{0}}{T}}+ & \left(N+q_{u}\right)c\frac{1-\Lambda}{\Lambda}\left(1-e^{-\frac{t-t_{0}}{T}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mu=f\mbox{\left(\overline{h}_{t_{0}+\Delta t}-\overline{h}_{t_{0}}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-END\,LOOP\,als\,geconvergeerd
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dit schema is voorshands niet geïmplementeerd.
+ Deze opties worden vooralsnog niet ingebouwd.
 \end_layout
 
 \begin_layout Section
@@ -5175,10 +5507,12 @@ Relatie tussen het regionale model en de locale GGOR-modellen via de kwelflux
 
 \begin_layout Standard
 De grondwaterstroming in de regionale aquifer wordt met een regionaal model berekend,
- geheel los van de doorsnedegemiddelde grondwaterstand die perceelsgewijs wordt berekend voor alle individuele percelen in een beschouwd gebied met deklaag.
+ dat geheel los staat van de doorsnedegemiddelde grondwaterstand die perceelsgewijs wordt berekend in de GGOR-tool.
+ De GGOR-tool simuleert alleen dwarsprofielen van de percelen in een peilgebied en dat in een detail dat onhaalbaar is in een regionaal model..
  De vraag die hier gesteld wordt,
  is,
  hoe het regionale model te koppelen is aan de GGOR-tool zodanig dat de flux tussen beide klopt.
+ De crux is hier dat we de kwel uit het regionale model gebruiken en niet de stijghoogte.
 \end_layout
 
 \begin_layout Standard
@@ -5204,8 +5538,8 @@ De relatie met het regionale model via de gegeven kwel
 
 \begin_layout Standard
 Welke weerstand moet nu in het regionale model worden opgegeven om de kwel te genereren die klopt met de afzonderlijke percelen in de GGOR-tool?
- Hierbij speelt altijd een schaalprobleem op,
- het verschil in resolutie van het grove regionale model ten opzichte van het veel kleinschaliger in percelen gesplitste gebied dat in de GGOR-model worden berekend.
+ Hierbij treedt altijd een schaalprobleem op,
+ het verschil in resolutie van het grove regionale model ten opzichte van de veel kleinschaliger doorsneden van het in percelen gesplitste peilgebied.
 \end_layout
 
 \begin_layout Standard
@@ -5272,10 +5606,9 @@ We zien dus dat,
  we zowel de verticale weerstand van de deklaag in het regionale model moeten aanpassen als het slootpeil,
  en dat dit aangepaste slootpeil afhangt van het neerslagoverschot,
  omdat dit neerslagoverschot een tegendruk tegen de kwel veroorzaakt.
- Deze aanpassing hangt echter niet van de diepe stijghoogte of van de kwel zelf af.
- Tijdens de simulatie kan de bovenrandvoorwaarden in het regionale model dus per stress periode worden aangepast aan het neerslagoverschot om de juist kwel te berekenen,
- die precies overeenkomt met die in de analytische oplossing.
- In overeenkomstig de terminologie van Wim de Lange (1996) geldt dan dat in het regionale model een vervangend slootpeil 
+ Deze aanpassing hangt echter niet van de diepe stijghoogte af en evenmin van de kwel zelf.
+ Tijdens de simulatie kan de bovenrandvoorwaarde in het regionale model per stress periode worden aangepast aan het neerslagoverschot om de kwel te berekenen die precies overeenkomt met die in de analytische oplossing.
+ Overeenkomstig de terminologie van Wim de Lange (1996) geldt dan dat in het regionale model een vervangend slootpeil 
 \begin_inset Formula $h_{LR}^{*}$
 \end_inset
 
@@ -5298,7 +5631,7 @@ In feite is
 \begin_inset Formula $h_{LR}^{*}$
 \end_inset
 
- het gemiddelde peil in de deklaag die nodig is om het neerslagoverschot met kwel af te voeren.
+ het gemiddelde peil in de deklaag die nodig is om het neerslagoverschot samen met de kwel af te voeren.
 \end_layout
 
 \begin_layout Standard
@@ -5329,19 +5662,26 @@ Opgemerkt zij dat de afleiding hiervoor geldt voor de eenvoudigste situatie,
 
 \begin_layout Standard
 Het nadeel van deze voor het regionale model bedoelde formules is dat zij stationair zijn,
- en geen rekening houden met de berging in de deklaag.
+ en dus geen rekening houden met de berging in de deklaag.
  Een dynamische regionale modellering wordt daardoor gehinderd.
 \end_layout
 
 \begin_layout Standard
-Een oplossing voor het dynamische gedrag van de deklaag in het regionale model te simuleren zonder aanpassingen van het slootpeil of de weerstand kan als volgt worden gevonden.
+Een oplossing om het dynamische gedrag van de deklaag in het regionale model te simuleren zonder aanpassingen van het slootpeil of de weerstand kan als volgt worden gevonden.
  Leg bovenop de deklaag een laag met gegeven stijghoogte gelijk aan het slootpeil.
  De weerstand van deze laag moet overeenkomen met de weerstand van de stroming door de deklaag plus die bij intrede in de sloot.
  De deklaag is nu laag 2 in het numerieke model.
- HIj heeft zelf geen horizontale doorlaatcapaciteit maar wel de juiste freatische bergingscoëfficiënt.
+ Hij heeft zelf geen horizontale doorlaatcapaciteit maar wel de juiste freatische bergingscoëfficiënt.
  De weerstand tussen deklaag en regionale aquifer blijft onveranderd.
  Het neerslagoverschot wordt direct in de deklaag gebracht.
  Het water ondervindt nu de juiste weerstand en tegendruk terwijl ook de dynamiek van de gemiddelde grondwaterstand in de deklaag door het regionale model wordt gesimuleerd.
+\end_layout
+
+\begin_layout Standard
+Dit klinkt allemaal behoorlijk ingewikkeld.
+ Het voorstel is dan ook om hier geheel vanaf te zien en de kwel die het regionale model berekent direct op te leggen aan de percelen in de GGOR-tool.
+ De relatie tussen regionaal model en GGOR tool is hiermee transparant en de waterbalans klopt,
+ wat niet lukt wanneer de regionale stijghoogte wordt opgelegd aan de percelen in de GGOR-tool.
 \end_layout
 
 \begin_layout Section
@@ -5350,7 +5690,7 @@ Sloten die door de deklaag snijden
 
 \begin_layout Standard
 In het geval de sloten door de deklaag snijden ontstaat er een directe stroom vanuit het diepe grondwater naar de sloten.
- Deze vertical stroming verloopt parallel aan de diffuse verticale stroming door de deklaag.
+ Deze verticale stroming verloopt parallel aan de ruimtelijk gelijkmatige verticale stroming door de deklaag.
  In verreweg de meeste situaties is het doorlaatvermogen van het diepe pakket groot ten opzichte van de deklaag.
  Men mag dan veronderstellen dat de stijghoogte in het diepe pakket binnen de breedte van een perceel bij benadering constant is.
  De fout die hierbij gemaakt wordt bedraagt hoogstens enkele cm,
@@ -5370,8 +5710,8 @@ q=\frac{\phi-h_{LR}}{w}+\frac{\phi-\overline{h}}{c}
 \end_layout
 
 \begin_layout Standard
-Waarbij de eerste term van het rechter lid de directe stroming tussen het diepe pakket en de sloten beschrijft.
- Deze is onafhankelijk is van de grondwaterstand in het ondiepe pakket,
+Waarbij de eerste term van het rechter lid de directe stroming tussen het diepe pakket en de ingesneden sloten beschrijft.
+ Deze verdeling is onafhankelijk van de doorsnedegemiddelde grondwaterstand in het ondiepe pakket,
  
 \begin_inset Formula $\overline{h}$
 \end_inset
@@ -5384,20 +5724,8 @@ Waarbij de eerste term van het rechter lid de directe stroming tussen het diepe 
 \end_inset
 
 ,
- is reeds gegeven in vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:intredeweerstand1a"
-nolink "false"
-
-\end_inset
-
- en wordt hier opnieuw beschouwd.
- Volgens Huisman (1972) is de extra verlaging 
-\begin_inset Formula $\Delta s_{0}$
-\end_inset
-
- in een sloot of drain bovenin het pakket als gevolg van de contractie van stroomlijnen te beschrijven met:
+ kan weer worden beschouwd op de wijze zoals hiervoor is gedaan voor sloten in de holocene deklaag.
+ Voor het bepalen van de radiale weerstand in de regionale aquifer kunnen we de interpolator in de numerieke tabel gebruiken of eventueel de benaderende formule volgens Huisman (1972):
 \end_layout
 
 \begin_layout Standard
@@ -5417,17 +5745,21 @@ waarin
 \end_inset
 
  de natte omtrek van de sloot.
- Dit kunnen we met gebruik van 
+ Dit kunnen we met 
 \begin_inset Formula $q_{0}=\frac{Q_{0}}{b}$
 \end_inset
 
- ook schrijven als doorsnede-gemiddelde weerstand:
+ met 
+\begin_inset Formula $b$
+\end_inset
+
+ de halve slootbreedte ook schrijven als doorsnede-gemiddelde weerstand:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-q_{0}=\frac{\phi-h_{LR}}{\frac{2b}{\pi k}\ln\left(\frac{D_{2}}{\Omega_{2}}\right)}
+q_{0}=\frac{\phi-h_{LR}}{\frac{2b}{\pi k}\ln\left(\frac{D_{2}}{\Omega_{2}}\right)+c_{sb}\frac{b}{\Omega_{2}}}
 \]
 
 \end_inset
@@ -5440,50 +5772,22 @@ waarbij de index
 \begin_inset Quotes erd
 \end_inset
 
- aangeeft dat de variabelen betrekking hebben op de regionale aquifer.
-\end_layout
-
-\begin_layout Standard
-Aangezien we weerstanden die in serie geschakeld zijn bij elkaar mogen optellen geldt
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-q_{0} & = & \frac{\phi-h_{LR}}{c_{s}}\\
- & = & \frac{\phi-h_{LR}}{\frac{2b}{\pi k}\ln\left(\frac{D_{2}}{\Omega_{2}}\right)+c_{sb}\frac{b}{\Omega_{2}}}
-\end{eqnarray*}
-
-\end_inset
-
-waarin 
-\begin_inset Formula $c_{s}$
-\end_inset
-
- de totale weerstand tussen aquifer en sloot voorstelt,
- die is verdeeld over de totale breedte van de doorsnede,
- zodat hij direct in een model is te gebruiken.
- Voorts geldt dat 
+ aangeeft dat de variabelen betrekking hebben op de regionale aquifer en 
 \begin_inset Formula $c_{sb}$
 \end_inset
 
- de weerstand is van de slootbodem en 
-\begin_inset Formula $b/\Omega$
-\end_inset
-
- de verdeling daarvan over de doorsnede.
+,
+ de slootbodem weerstand is toegevoegd die vervolgens ook is verdeeld over de halve slootbreedte..
 \end_layout
 
 \begin_layout Standard
 We kunnen nog een weerstand meenemen,
- namelijk bij niet volledige doorsnijding van de deklaag,
- die door de verticale stroming tussen de slootbodem en het diepe pakket,
- door het resterende stuk van de deklaag.
+ namelijk bij niet volledige,
+ bijna-doorsnijding van de deklaag.
+ Dit is de weerstand door de verticale stroming tussen de slootbodem en het diepe pakket door het resterende stuk van de deklaag.
  Immers,
  wanneer de sloten diep maar niet volledig insnijden is de totale verticale weerstand door de deklaag onder de sloot een stuk kleiner dan die ernaast en wordt zelfs nul indien de slootbodem gelijk of lager is dan de top van het regionale pakket.
- Met name is deze aanpak zinvol,
- wanneer we de sloot in een analytische oplossing of zelfs in het numerieke model als een puntonttrekking of lijnonttrekking bovenin het regionale watervoerende pakket modelleren.
- Om deze weerstand in te brengen vervangen we de slootbodemweerstand door de slootbodemweerstand plus de weerstand tussen de slootbodem en de bovenzijde van het regionale watervoerende pakket:
+ Met deze weerstand erbij krijgen we:
 \end_layout
 
 \begin_layout Standard
@@ -5519,9 +5823,9 @@ Hierin is
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-c_{s}=b\left[\frac{2}{\pi k}\ln\left(\frac{D_{2}}{\Omega_{2}}\right)+\frac{c_{sb}}{\Omega_{2}}+\frac{\left(d/k_{v}\right)}{\Omega_{2}}\right]
-\]
+\begin{align*}
+c_{s} & =b\left[\frac{2}{\pi k}\ln\left(\frac{D_{2}}{\Omega_{2}}\right)+\frac{c_{sb}}{b_{s}}+\frac{\left(d/k_{v}\right)}{b_{s}}\right]
+\end{align*}
 
 \end_inset
 
@@ -5538,222 +5842,64 @@ met,
  de verticale hydraulische weerstand van de deklaag onder de sloot.
 \end_layout
 
+\begin_layout Standard
+Omdat we de stroming in de regionale aquifer niet mee simuleren kunnen we de kwel direct verdelen in een deel dat direct vanuit de regionale aquifer naar de ingesneden sloten stroomt en de rest die diffuus over de doorsnede door de scheidende laag in de Holocene deklaag opkwelt.
+ Dit zijn twee parallele kwel stromen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q=\frac{h_{LR}-\phi}{c_{s}}\frac{b_{s}}{b}+\frac{\overline{h}-\phi}{c}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarbij alleen de rechter term een rol speelt in de simulatie van het grondwater in de deklaag.
+ De linkerterm is nu een vaste kwelflux die vanuit de regionale aquifer direct naar de ingesneden sloten stroomt.
+\end_layout
+
 \begin_layout Section
 Anisotropie in de regionale aquifer
 \end_layout
 
 \begin_layout Standard
-Als we rekening houden met verticale anisotropie in de regionale aquifer moeten we alle lengtes verschalen,
- samen met de doorlatendheden.
- Aannemende dat de hoofdrichting van de anisotropie verticaal is,
- geldt dan dat alle verticale lengtes worden verschaald met 
-\begin_inset Formula $\sqrt{\frac{k_{h}}{k_{v}}}$
+De stroming in de regionale aquifer wordt binnen de GGOR-tool niet gesimuleerd.
+ Alleen de kwel wordt overgenomen uit het regionale model.
+ Het enige dat relevant is vanuit het oogpunt van de verticale anisotropie in de regionale aquifer is een eventuele aanpassing van de weerstandsformule die hiervoor is afgeleid.
+ De aanpassing bestaat uit schaling van 
+\begin_inset Formula $x$
 \end_inset
 
- en alle horizontale lengtes met 
-\begin_inset Formula $\sqrt{\frac{k_{v}}{k_{h}}}$
+ en 
+\begin_inset Formula $z$
 \end_inset
 
- en de doorlatendheid wordt vervangen door de isotrope waarde daarvan 
-\begin_inset Formula $k=\sqrt{k_{h}k_{v}}$
-\end_inset
-
- (Olsthoorn,
- 1982).
- Aldus:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-b & \rightarrow & b\sqrt{\frac{k_{v}}{k_{h}}}\\
-D & \rightarrow & D\sqrt{\frac{k_{h}}{k_{v}}}\\
-\Omega & \rightarrow & b\sqrt{\frac{k_{v}}{k_{h}}}\\
-k & \rightarrow & \sqrt{k_{h}k_{v}}\\
-c & \rightarrow & c\,\,\left(ongewijzigd,\,zie\,Olsthoorn\,(1982)\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Hierbij is de schaling van de slootomtrek 
-\begin_inset Formula $\Omega$
-\end_inset
-
- gelijk genomen aan die van voor een horizontale lijn omdat de insnijding in het algemeen gering zal zijn ten opzichte van de slootbreedte en 
-\begin_inset Formula $\Omega$
-\end_inset
-
- daarom dicht bij de slootbreedte zal liggen.
-\end_layout
-
-\begin_layout Standard
-De weerstand bedraagt in de anisotrope situatie dus
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-c_{s} & = & b\sqrt{\frac{k_{v}}{k_{h}}}\left[\frac{2}{\pi\sqrt{k_{h}k_{v}}}\ln\left(\frac{D_{2}\sqrt{\frac{k_{h}}{k_{v}}}}{\Omega_{2}\sqrt{\frac{k_{v}}{k_{h}}}}\right)+\frac{c_{sb}}{\Omega_{2}\sqrt{\frac{k_{v}}{k_{h}}}}+\frac{\left(d/k_{v}\right)}{\Omega_{2}\sqrt{\frac{k_{v}}{k_{h}}}}\right]\nonumber \\
- & = & b\left[\frac{2}{\pi k_{h}}\ln\left(\frac{D_{2}}{\Omega_{2}}\frac{k_{h}}{k_{v}}\right)+\frac{c_{sb}+\left(d/k_{v}\right)_{deklaag}}{\Omega_{2}}\right]\label{eq:intredeweerstand2b}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:intredeweerstand2b"
-nolink "false"
-
-\end_inset
-
- wijkt af van vergelijking 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:intredeweerstand2a"
-nolink "false"
-
-\end_inset
-
- in die zin dat de eerste vergelijking de weerstand verdeelt over de perceelbreedte en de tweede over de dikte van de aquifer.
- Het gaat er dus om hoe je de weerstand definieert.
- In dit geval is de weerstand het gevolg van de stroming door de sliblaag op de slootbodem,
- uitgedrukt in 
-\begin_inset Formula $c_{sb}$
-\end_inset
-
- en van de weerstand door contractie van stroming nabij de sloot in een dikke aquifer.
- In het eerste geval verdelen we deze weerstand over de volle breedte van de doorsnede om hem vergelijkbaar te maken met de verticale weerstand van de deklaag.
- In het tweede geval verdelen we de weerstand over de volle pakketdikte om hem te gebruiken als een verticaal scherm in de aquifer waar het water doorheen moet stromen om de sloot te bereiken.
- Dit is het concept dat steeds wordt toegepast in de analytische twee-lagenoplossingen.
- Het eerste wellicht past meer bij gebruik in een regionaal grondwatermodel.
-\end_layout
-
-\begin_layout Standard
-Het meenemen in het regionale model van de afvoer vanuit het tweede pakket naar sloten die door de deklaag snijden vergt een weerstand die het diepe pakket rechtstreeks met de sloten verbindt.
- In het raamwerk van een MODFLOW model is deze direct te introduceren door middel van zogenoemde General Head Boundaries,
- afgekort door GHB.
- Hiermee kan vanaf elke modelcel een directe verbinding worden gelegd,
- via een gegeven weerstand,
- en met een opgegeven stijghoogte zoals een slootpeil,
- buiten het modelom.
- MODFLOW werkt met zogenoemde 
-\begin_inset Quotes eld
-\end_inset
-
-conductances
-\begin_inset Quotes erd
-\end_inset
-
-,
- die hierna worden gedefinieerd.
- De stroming vanuit een cel naar de buitenwereld via de GHB in MODFLOW wordt beschreven door:
+ zoals hiervoor uit de doeken is gedaan.
+ Dat impliceert dat we in de voorgaande formule
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-Q=C\left(\phi-h_{LR}\right)
+k=\sqrt{k_{x}k_{z}}
 \]
 
 \end_inset
 
-waarin 
-\begin_inset Formula $C$
+van het regionale pakket gebruiken en omdat 
+\begin_inset Formula $D$
 \end_inset
 
- de conductance [m
-\begin_inset Formula $^{2}$
+ en 
+\begin_inset Formula $\Omega_{2}$
 \end_inset
 
-/d],
- [L
-\begin_inset Formula $^{2}$
-\end_inset
-
-/T].
- Bovenstaande weerstand heeft steeds de dimensie tijd zodat
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q=\frac{\Delta x\Delta y}{c_{s}}\left(\phi-h_{LR}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Hierin is 
-\begin_inset Formula $\Delta x\Delta y$
-\end_inset
-
- het oppervlak van de cel in het MODFLOW-netwerk.
- Met andere woorden,
- de conductanties in MODFLOW die nodig zijn om de doorsnijdende sloten in het regionale model te gebruiken zijn direct a priori te berekenen en als zodanig in MODFLOW te gebruiken.
- De verticale weerstand tussen de deklaag en de regionale aquifer blijft hierbij ongewijzigd.
-\end_layout
-
-\begin_layout Standard
-Om tijdens de simulatie niet steeds het slootpeil aan te moeten passen aan de actuele neerslag,
- is het nodig om de deklaag apart te modelleren.
- Dit is in de voorgaande paragraaf reeds beschreven.
-\end_layout
-
-\begin_layout Standard
-De conclusie is dat het regionale grondwatermodel één op één passend is te maken met de dynamische locale GGOR-berekeningen.
-\end_layout
-
-\begin_layout Standard
-Omdat beide concepten nu op elkaar passen,
- zodat zij hetzelfde perceelgemiddelde gedrag zullen simuleren voor dezelfde situaties,
- kan de GGOR-dynamiek ook met het regionale model worden berekend door ofwel daarmee ook de hele simulatieperiode op dagbasis door te rekenen,
- danwel door toepassing van convolutie (
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Olst08"
-literal "true"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-Voor het doorrekenen met convolutie zoals beschreven door
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Olst08"
-literal "true"
-
-\end_inset
-
-,
- wordt eerst met het regionale model de zogenoemde staprespons van het model berekend.
- Convolutie wordt vervolgens toegepast om de dynamiek op willekeurig fijne tijdschaal door te rekenen.
- De voorwaarde daarvoor is echter dat het model lineair is.
- Dat laatste is vaak niet het geval in belangrijke periodes zoals zeer droge tijden,
- met droogvallende sloten,
- of juist zeer natte,
- waarin het water deels over het maaiveld afstroomt in plaats van door de grond.
-\end_layout
-
-\begin_layout Standard
-Overigens blijft er vanzelf sprekend onvermijdelijk een groot verschil tussen het gedrag van een regionaal model dat met maandgemiddelde neerslag en verdamping rekent en een GGOR tool die op dagbasis rekent.
- De laatste kent uiteraard veel meer dynamiek,
- rekenen op relevante tijdschalen is noodzakelijk om een zinvol scenario te kunnen uitrekenen,
- bijvoorbeeld de kans op overstromingen.
+ vooral radiale stroming betreft de verticale en horizontale verschaling hier tegen elkaar wegstrepen.
 \end_layout
 
 \begin_layout Section
@@ -5774,8 +5920,9 @@ peilgebied
  waarbij elk perceel wordt vereenvoudigd tot zijn doorsnede loodrecht op twee parallelle sloten.
  Dit is voldoende nauwkeurig wanneer de percelen langgerekt zijn,
  zoals bijna overal het geval.
- Berekend wordt de waterbalans en de doorsnede-gemiddelde stijghoogte.
- Beide manieren baseren zich op de analytische oplossing voor de stationaire grondwaterstroming in een horizontale watervoerende laag die rust op een regionale aquifer met zeer groot doorlaatvermogen.
+ Waar nodig of gewenst worden lange percelen gesplitst.
+ Berekend wordt de waterbalans en de doorsnedegemiddelde stijghoogte.
+ De analytische rekenwijze baseert op de analytische oplossing voor de stationaire grondwaterstroming in een horizontale watervoerende laag die rust op een regionale aquifer met zeer groot doorlaatvermogen.
  Hierdoor mag de regionale stijghoogte binnen elk perceel ruimtelijk constant worden verondersteld.
  De twee lagen zijn van elkaar gescheiden door een hydraulische weerstand tegen verticale stroming 
 \begin_inset Formula $c$
@@ -5784,14 +5931,15 @@ peilgebied
 .
  De stroming in de watervoerende laag,
  deklaag genoemd,
- is ééndimensionaal en heeft een ruimtelijk constant doorlaatvermogen,
+ is ééndimensionaal en heeft een ruimtelijk constant doorlaatvermogen;
  deze benadering staat bekend als het Dupuit-Forchheimer principe.
  De voeding vanuit het neerslagoverschot is ruimtelijk constant maar varieert van tijdstap tot tijdstap.
+ Voor de tijdstaplengte wordt in de praktijk 1 dag gekozen.
  De stroming wordt aan weerszijde begrensd door een vaste randstijghoogte,
- het slootpeil,
- dat links en rechts verschillend mag zijn aangezien dit niet uitmaakt voor de berekende gemiddelde grondwaterstand noch voor de totale afvoer en evenmin voor de kwel.
- We hebben de stromingsvergelijking waarin de grondwaterstand verloopt langs de doorsnede steeds omgezet de gemiddelde grondwaterstand in de doorsnede.
- Dit is gedaan de situatie met een gegeven stijghoogte in de regionale aquifer en voor de situatie met gegeven gemiddelde kwel uit respectievelijke regionale aquifer.
+ het slootpeil.
+ Tussen bodem en sloot is een weerstand aanwezig bestaande uit de radiale weerstand doro contractie van stroomlijnen en een slootbodemweerstand die alleen actief is wanneer de grond vanuit de sloten wordt gevoed.
+ Hoewel het voor de gemiddelde grondwaterstand niet uitmaakt wordt in de GGOR tool het slootpeil aan weerszijden van de doorsnede hetzelfde genomen maar wel variërend in de tijd.
+ Alle analytisch formules zijn omgezet naar de gemiddelde stijghoogte in de doorsnede.
  Kwel is opwaartse stroming,
  wegzijging is eenvoudig negatieve kwel.
  We spreken daarom steeds van kwel,
@@ -5801,17 +5949,17 @@ peilgebied
 
 \begin_layout Standard
 Deze vergelijkingen voor de situatie met gegeven kwel hebben we vervolgens gebruikt in een dynamische context.
- De aanname hierbij is dat de afvoer ten alle tijde voldoet aan de stromingsvergelijking voor de stationaire situatie die beschreven wordt door de toegepaste analytische oplossing.
+ De aanname hierbij is dat de afvoer ten alle tijden voldoet aan de stromingsvergelijking voor de stationaire situatie die beschreven wordt door de toegepaste analytische oplossing.
  De achterliggende aanname hierbij is dat alleen de grondwaterstand,
- diepe stijghoogte en de slootpeilen in deze stationaire formule bepalen hoe groot de afvoer naar de sloten is en de uitwisseling met het diepe pakket.
+ diepe stijghoogte en de slootpeilen in deze stationaire formule bepalen hoe groot de afvoer naar de sloten is.
  Als we deze aanname maken,
  kunnen we verder werken met alleen de gemiddelde grondwaterstand in de doorsnede van het perceel.
- We kunnen de onbalans in de stationaire vergelijking die ontstaat door dynamiek als gevolg van de veranderingen van het neerslagoverschot opvangen door aan de vergelijking een bergingsterm toe te voegen.
+ De onbalans die in de stationaire vergelijking ontstaat door de dynamiek als gevolg van de veranderingen van het neerslagoverschot,
+ kunnen we opvangen door aan de vergelijking een bergingsterm toe te voegen.
  De gewone differentiaalvergelijking die daarbij ontstaat,
  hebben we vervolgens exact opgelost voor de situatie waarin neerslagoverschot,
  kwel en slootpeilen constant zijn.
- We kunnen met deze vergelijking elke situatie waarin deze factoren tijdstapsgewijs constant zijn exact uitreken,
- en,
+ We kunnen met deze vergelijking elke situatie waarin deze factoren tijdstapsgewijs constant zijn exact uitreken en,
  derhalve,
  willekeurig lange tijdreeksen stapsgewijs exact simuleren.
  Hierbij is de situatie aan het eind van de vorige stap steeds het begin voor de volgende.
@@ -5821,22 +5969,10 @@ Deze vergelijkingen voor de situatie met gegeven kwel hebben we vervolgens gebru
 \end_layout
 
 \begin_layout Standard
-We hebben aan deze methode nog een andere toegepast.
- Het is formeel uitgeschreven de methode die in de GGOR-tool (@@ref) bedoeld was te worden geïmplementeerd.
- Het is in feite een numerieke methode geheel gebaseerd op dezelfde uitgangspunten gebaseerd op een waterbalans over een tijdstap.
- Rekening is hierbij gehouden met het verloop van de grondwaterstand gedurende de tijdstap,
- waarbij dit verloop echter lineair is verondersteld.
- Bij korte tijdstappen,
- ten opzichte van de karakteristieke tijd van het grondwatersysteem is deze methode ook heel nauwkeurig.
- Maar in tegenstelling tot de voorgaande methode is hij niet exact.
- Daarom is de eerste methode te prefereren.
-\end_layout
-
-\begin_layout Standard
 De GGOR-tool rekent alle percelen in een of meer gebieden simultaan door.
  Elk perceel is daarin gereduceerd tot zijn doorsnede.
  De ligging van de percelen in de ruimte of ten opzichte van elkaar is daarbij irrelevant,
- maar de eigenschappen en afmetingen van elk perceel kan verschillend zijn van die van alle andere.
+ maar de eigenschappen en afmetingen van de percelen verschillen.
  De waterbalans wordt eveneens simultaan voor alle percelen berekend.
  Het is duidelijk dat met de GGOR-tool ook gemakkelijk de uitkomsten over willekeurige deelverzamelingen van de percelen,
  respectievelijk willekeurige deelgebieden direct kunnen worden gevonden door,
@@ -5847,39 +5983,20 @@ De GGOR-tool rekent alle percelen in een of meer gebieden simultaan door.
 
 \begin_layout Standard
 Verderop in dit rapport is een groot aantal analytische formules afgeleid,
- waarmee meer algemene situaties kunnen worden gesimuleerd dan tot nu toe binnen de GGOR-tool mogelijk was.
- Dat wil zeggen situaties met sloten die een intredeweerstand hebben die bovendien bij infiltratie anders kan zijn dan bij exfiltratie (afvoer).
- Ook zijn analytische formules afgeleid voor simultane stroming in twee lagen,
- waarbij de sloten met of zonder intredeweerstand al dan niet door de deklaag heen snijden.
+ waarmee meer algemene situaties kunnen worden gesimuleerd dan tot nu toe binnen de GGOR-tool.
+ Zo kunnen de sloten een in/uittredeweerstand die bovendien bij infiltratie anders kan zijn dan bij exfiltratie (afvoer).
+ De sloten mogen door de deklaag heen snijden.
 \end_layout
 
 \begin_layout Standard
-En telkens goten we de oplossingen in het dynamische raamwerk dat hiervoor is besproken.
- Dat wil zeggen we pasten de beschikbare analytische oplossingen dynamisch toe.
- Dit gebeurt via een vaste mathematische procedure en leidt telkens tot eenzelfde rekenschema waarbij de doorsnedegemiddelde grondwaterstand tegelijkertijd wil uitzakken naar het gemiddelde peil van de randsloten en streeft naar een evenwichtsstand die wordt aangedreven door neerslagoverschot en kwel.
-\end_layout
-
-\begin_layout Standard
-De verschillende analytische oplossingen zijn conceptueel waardevol omdat zij het mogelijk maken om oplossingen onderling te toetsen en te zien onder welke omstandigheden eenvoudiger en dus snellere oplossingen te verkiezen zijn boven meer geavanceerde.
- Bovendien maken analytische oplossingen toetsing van numerieke methoden mogelijk en zijn daarvoor zelfs essentieel.
-\end_layout
-
-\begin_layout Standard
-Bij toepassing van de diverse analytische oplossingen met een en met twee watervoerende lagen,
- blijkt dat de eenlaags-oplossingen die aannemen dat de diepe stijghoogte ruimtelijk constant is,
- goed voldoen onder alle denkbare praktijk-omstandigheden.
- Pas wanneer het doorlaatvermogen van de regionale aquifer zo klein wordt dat hij van de orde van grootte wordt als die van de deklaag heeft de stroming in het regionale pakket enige invloed op de stijghoogte in de deklaag.
-\end_layout
-
-\begin_layout Standard
-De GGOR-aanpak is ook numeriek uitgewerkt op basis van MODFLOW,
- het open-source eindige differentiemodel van de USGS.
+De GGOR-aanpak is ook numeriek uitgewerkt op basis van MODFLOW-6,
+ het open source eindige differentiemodel van de USGS.
  De numerieke aanpak biedt meer flexibiliteit,
  aangezien hij meer situaties aankan dan waarvoor analytische oplossingen beschikbaar zijn.
- Dit komt omdat de numerieke oplossing het gehele verloop van de grondwaterstand langs elke doorsnede berekent in plaats van alleen de gemiddelde waarde.
- De dynamiek komt ook beter tot zijn recht omdat niet wordt uitgegaan van een stationaire oplossing die vervolgens in een dynamische context wordt toegepast.
- In het numerieke model zal de grondwaterstand onder natte omstandigheden het eerst in het perceel midden aan het maaiveld komen,
- en zal de natte plek zich bij aanhoudende regen vanuit het midden verder verbreiden.
+ Dit komt omdat de numerieke oplossing het gehele verloop van de grondwaterstand langs elke doorsnede berekent in plaats van alleen de doorsnedegemiddelde waarde.
+ De dynamiek komt ook beter tot zijn recht omdat niet wordt uitgegaan van een stationaire analytische oplossing die vervolgens in een dynamische context wordt toegepast.
+ In het numerieke model zal de grondwaterstand onder natte omstandigheden het eerst in het perceelmidden aan het maaiveld komen,
+ en zal de natte plek zich bij aanhoudende regen vanuit het midden uitbreiden.
  Bij de analytische oplossingen zal pas water oppervlakkig kunnen worden afgevoerd nadat de doorsnedegemiddelde grondwaterstand aan maaiveld komt.
  Het numerieke model zal hierdoor meer grondwater oppervlakkig afvoeren dan het analytische model.
  Het numerieke model kan ook rekening houden met niet-lineair grondwatergedrag,

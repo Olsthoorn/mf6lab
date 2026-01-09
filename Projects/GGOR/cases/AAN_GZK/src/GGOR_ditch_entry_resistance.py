@@ -134,11 +134,10 @@ class DPP():
         xsec: dataclass object
             cross section data.
         """
-        self.ditch = ditch
+        self.xsec = xsec
         
 
-    def get_dpp_table(self, pkl_file='dPP_table.pckl'):
-        xsec = self.xsec
+    def get_dpp_table(self, pkl_file='dPP_table.pckl'):        
         try:
             # --- Pickle the dPP_table as a dictionary
             pfile = os.path.join(get_home_folder(), 'data', pkl_file)
@@ -147,7 +146,7 @@ class DPP():
                 bs = dPP_table_dict['bs']
                 hs = dPP_table_dict['hs']
                 dPP_table = dPP_table_dict['dPP_table']
-                fdPP = RegularGridInterpolator((hs/xsec.D, bs/xsec.D), dPP_table, method='cubic')
+                fdPP = RegularGridInterpolator((hs, bs), dPP_table, method='cubic')
                 return hs, bs, dPP_table, fdPP                
         except Exception:
             return self.generate_dPP_table()
@@ -200,10 +199,10 @@ class DPP():
                 IBOUND[0, :, :] = 0
                 IBOUND[DITCH] = -1
                 
-                # --- Conductivities in and outside the ditch
+                # --- Conductivities in and outside the xsec
                 K = gr.const(xsec.k)
-                K[0, :, :] = 1e-8 # --- Inactive top row (allows zero depth ditch)
-                K[:, :, 0] = 1e-8 # --- Inactive first col (allows zero width ditch)
+                K[0, :, :] = 1e-8 # --- Inactive top row (allows zero depth xsec)
+                K[:, :, 0] = 1e-8 # --- Inactive first col (allows zero width xsec)
                 K[DITCH] = HUGE   # --- Ditch cells must not cause any resistance
                 K[1:, :, -1] = HUGE # --- Right column below inact top row extractions
 
@@ -251,16 +250,28 @@ class DPP():
     
     def show_dPP_table(self):
         
-        hs, bs, dPP_table, _ = self.get_dpp_table()                     
-        fig, ax = plt.subplots(figsize=(8, 8))    
+        hs, bs, dPP_table, fpp = self.get_dpp_table()
+        
+        b = np.hstack((0, np.logspace(-3, np.log10(2), 51)))
+        h = np.hstack((0, np.logspace(-3, 0, 51)))
+        bs, hs = np.meshgrid(b, h)
+        hb = np.vstack((hs.ravel(), bs.ravel())).T
+        fpp_table = fpp(hb).reshape(bs.shape)
+        
+        fig, ax = plt.subplots(figsize=(10, 7.5))    
         ax.set_title(r"$d\Phi/Q$ (partial penetration (h/D, b/D)")
         ax.set_xlabel('b/D')
         ax.set_ylabel('h/D)')
         
-        C = ax.contour(bs, hs, dPP_table, levels=np.linspace(0, 2.5, 26))
-        ax.clabel(C, levels=C.levels[::5])        
+        levels =np.hstack((np.array([0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.08]),
+                           np.linspace(0.1, 1.0, 11)))
+        # C = ax.contour(bs, hs, dPP_table, levels=levels)
+        C = ax.contour(bs, hs, fpp_table, levels=levels, colors='k')
+        
+        ax.clabel(C, levels=C.levels, rightside_up=True)        
         ax.invert_yaxis()
         ax.set_aspect(1)
+        ax.set_xlim(0, 1.5)
         ax.grid(True, which='both')
         
         fig.savefig(os.path.join(get_home_folder(), 'doc', 'images', 'ditch_pp.png'))
@@ -312,7 +323,7 @@ class DPP():
         hb = np.atleast_2d(hb)
         assert np.all(hb.T[0] >=0) and np.all(hb.T[1] >=0) and np.all(hb.T[0] <= xsec.D), f"not all 0<=h<={xsec.D} and/or not all b>=0"
         
-        fig, axs = plt.subplots(2, 2, figsize=(14, 13))
+        fig, axs = plt.subplots(2, 2, figsize=(12, 11))
         fig.suptitle("Flow to ditch (no bottom resistance)\n"
                         f"D = {xsec.D} m, k={xsec.k} m/d, Q={xsec.Q} m2/d"
                         )
@@ -363,7 +374,7 @@ class DPP():
             levels = np.linspace(S.min(), S.max(), 51)
         
             ax.set_title(f"h/D={h/xsec.D:.2f} m, b/D={b/xsec.D:.2f} m, "
-                        fr"$d \phi={dpp_Q:.3f} \times Q$ m")
+                        fr"$\Delta\Phi=k\Delta\phi={dpp_Q:.3f} \times Q$ m")
         
             ax.contour(gr.xm, gr.zm, out['Phi'][:, 0, :], levels=-levels[::-1])
             ax.contour(gr.x[1:-1], gr.z, S, levels=levels)
@@ -471,7 +482,7 @@ def fit_dPP_table():
     
     return alpha, beta
 
-def show_num_exact_vs_huisman():
+def show_num_exact_vs_huisman(xsec):
     """Compare boundary cases with Huisman (1972, p57).
     
     Huisman (1972, p57) provides an approximation for
@@ -491,30 +502,40 @@ def show_num_exact_vs_huisman():
         """Return dPhi/Q acc to Huisman(1972)."""
         return 2 / np.pi * np.log(D_over_Omega)
     
-    dpp = DPP()
-    hs, bs, dPP_table, _= dpp.get_dpp_table()
+    dpp = DPP(xsec)
+    hs, bs, dPP_table, fdpp = dpp.get_dpp_table()
 
-    fig, ax = plt.subplots()
-    ax.set_title(r"$\Delta\Phi/Q$")        
-    ax.set(xlabel="b/D, h/D", ylabel=r"$\Delta\Phi/Q$")
+    fig, (ax1, ax2) = plt.subplots(1, 2, sharex=True, sharey=True, figsize=(10, 6))
+    ax1.set_title(r'$d\Phi/Q$ for zero-depth ditch and contraction')
+    ax2.set_title(r'$d\Phi/Q$ for half-width (b)=depth (h)')
+    fig.suptitle(r"$\Delta\Phi/Q$")        
+    ax1.set(xlabel="b/D, h/D", ylabel=r"$\Delta\Phi/Q$")
+    ax2.set(xlabel="b/D, h/D")
     
     # --- Use the numerically computed values directly from the dPP_table
-    ax.plot(bs, dPP_table[0], 'r.', label="Numeric hor.")
-    ax.plot(hs, dPP_table[:, 0], 'b.', label="Numeric vert.")
+    ax1.plot(bs, dPP_table[0], 'r.', label="Numeric hor.")
+    ax1.plot(hs, dPP_table[:, 0], 'b.', label="Numeric vert.")
 
     # --- Using the exact analytical solution
     pb = 2 / (np.cosh(np.pi * bs) - 1)
     ph = 1 / np.sin(np.pi * hs / 2) ** 2
     
-    ax.plot(bs, bs + np.log(pb) / np.pi, 'r-', label="Analytic hor.")
-    ax.plot(hs, np.log(ph) / np.pi, label="Analytic vert.")
+    ax1.plot(bs, bs + np.log(pb) / np.pi, 'r-', label="Analytic hor.")
+    ax1.plot(hs, np.log(ph) / np.pi, label="Analytic vert.")
     
     # --- Use Huismans approximation (is not very good).
-    # ax.plot(bs, bs + dppHuisman(1/(2 * bs), label='Huisman horizontal')
-    ax.plot(hs, dppHuisman(1/(2 * hs)), label='Huisman')
+    ax1.plot(bs, bs + dppHuisman(1/(2 * bs)), label='Huisman horizontal')
+    ax1.plot(hs, dppHuisman(1/(2 * hs)), label='Huisman vertical')
     
-    ax.grid(True)
-    ax.legend()
+    ax2.plot(hs, fdpp((hs, hs)), '*', label=r'Numerical ($h=b$)')
+    ax2.plot(hs, dppHuisman(1/(2 * (hs + hs))), label=r'Huisman2, $\Omega=2(h+b)$')
+    
+    ax1.set_xlim(0, 1)
+    ax2.set_xlim(0, 1)
+    ax1.grid(True)
+    ax2.grid(True)
+    ax1.legend()
+    ax2.legend()
     
     fig.savefig(os.path.join(get_home_folder(), 'doc', 'images',
                              'dPP_analytic_vs_huisman.png'))
@@ -529,7 +550,7 @@ if __name__ == '__main__':
     
     dpp=DPP(xsec)
 
-    if False:
+    if True:
         Q, k, D, L = -1, 1, 10, 20
         
         h, b = 3, 6 # Height-width for single case
@@ -538,7 +559,7 @@ if __name__ == '__main__':
         
         hs, bs, dPP_table, fpp = dpp.get_dpp_table()
         
-        dpp.show_dPP_table(bs=bs, hs=hs, dPP_table=dPP_table)
+        dpp.show_dPP_table()
         
         plt.show()
     if False:        
@@ -546,7 +567,7 @@ if __name__ == '__main__':
     if False:
         hs, bs, dPP_table, fDpp = dpp.get_dpp_table()
     if True:
-        dpp.show_num_vs_analytic_boundaries()
+        show_num_exact_vs_huisman(xsec)
         
     plt.show()
     
