@@ -245,7 +245,7 @@ Het essentieel dat de methode die wordt gebruikt geheel transparant is en goed o
 
 \begin_layout Abstract
 In dit rapport wordt de methode voor het numeriek berekenen van de GXG uitgewerkt.
- We doen dit met MODFLOW,
+ We doen dit met Modflow,
  de open-source grondwatercode van de USGS (United States Geological Survey) het model dat wereldwijd de standaard is voor simulatie van grondwaterstroming.
  Modflow bevat alle voor onze situatie noodzakelijke modules.
  Eventueel kunnen we daarvan aangepaste versies maken,
@@ -293,7 +293,7 @@ In het voorliggende rapport is nog geen rekening gehouden met de afname van de g
 
 \begin_layout Abstract
 De analytische formules die in dit werk worden afgeleid worden stuk voor stuk geïmplementeerd in een Python notebook (Jupyter notebook) waarin tevens de vergelijking met het numerieke model van de doorsnede wordt gemaakt.
- Het numerieke model is geïmplementeerd in MODFLOW6.
+ Het numerieke model is geïmplementeerd in Modflow6.
  Jupyter notebooks zijn direct te gebruiken en stap voor stap te volgen,
  omdat zij zowel tekst,
  de Python code als de resultaten bevatten,
@@ -614,7 +614,7 @@ De regionale modellering wordt binnen Waternet uitgevoerd met het eindige elemen
  of van AZURE,
  een eveneens door Deltares ontwikkelde gedetailleerde variant voor het gebied rond de Zuiderzee.
  Deze Deltares-modellen worden doorgerekend met IMOD,
- een door Deltares ontwikkelde gebruikersschil op het door Deltares aangepaste eindige differentie model MODFLOW.
+ een door Deltares ontwikkelde gebruikersschil op het door Deltares aangepaste eindige differentie model Modflow.
 \end_layout
 
 \begin_layout Standard
@@ -759,9 +759,9 @@ De overige hoofdstukken gaan dieper op de materie in;
  Ook is in de nieuwe GGOR-tool de waterbalans van de percelen uitgebreid.
  Zo wordt in de nieuwe GGOR-tool rekening gehouden met oppervlakkige afvoer zodra het grondwater het maaiveld bereikt.
  Ook kan de nieuwe GGOR-tool overweg met drainagebuizen die parallel aan de perceeldoorsnede aanwezig zijn.
- Van de nieuwe GGOR-tool bestaat er zowel een versie die gebaseerd is op analytische oplossingen van de grondwaterstroming als een die stoelt op numerieke berekening met behulp MODFLOW.
+ Van de nieuwe GGOR-tool bestaat er zowel een versie die gebaseerd is op analytische oplossingen van de grondwaterstroming als een die stoelt op numerieke berekening met behulp Modflow.
  De numerieke versie laat meer opties toe en kan onder andere worden gebruikt om een nauwkeuriger beeld te krijgen of om de analytische tool te verifiëren.
- De analytische versie rekent in het algemeen sneller en kan efficiënt worden geprogrammeerd zonder dat daarvoor externe programma's zoals het eindige differentiemodel MODFLOW nodig zijn.
+ De analytische versie rekent in het algemeen sneller en kan efficiënt worden geprogrammeerd zonder dat daarvoor externe programma's zoals het eindige differentiemodel Modflow nodig zijn.
 \end_layout
 
 \begin_layout Standard
@@ -1420,12 +1420,12 @@ De gepresenteerde en uitgewerkte analytische oplossingen in dit lange hoofdstuk 
 \begin_layout Standard
 De analytische oplossingen zijn ook noodzakelijk ter verificatie van de numerieke versie van de GGOR-tool.
  De numerieke versie,
- die gebaseerd is op het grondwaterprogramma MODFLOW,
+ die gebaseerd is op het grondwaterprogramma Modflow,
  kan beter rekening houden met verschillende omstandigheden,
  waaronder dynamische dikte van de deklaag,
  het plaatselijk bereiken van het maaiveld door het grondwater,
  waardoor oppervlakkige afvoer ontstaat.
- Ook kan MODFLOW rekening houden met factoren als verdampingsreductie bij lage waterstanden.
+ Ook kan Modflow rekening houden met factoren als verdampingsreductie bij lage waterstanden.
  De numerieke aanpak heeft daarom zijn eigen waarde en gaat hand in hand met de analytische.
  De in GIS geïmplementeerde GGOR-tool 
 \begin_inset Quotes eld
@@ -5422,11 +5422,11 @@ Oppervlakkige afvoer
 
 \begin_layout Standard
 Wanneer in een natte periode het grondwater aan maaiveld komt zal het grondwater oppervlakkig worden afgevoerd.
- In het MODFLOW model gebeurt dit automatisch omdat de drains die daarin op het maaiveld zijn gelegd vanzelf water gaan afvoeren zodra zij gedurende de simulatie nat worden.
+ In het Modflow model gebeurt dit automatisch omdat de drains die daarin op het maaiveld zijn gelegd vanzelf water gaan afvoeren zodra zij gedurende de simulatie nat worden.
  In het geval van werkelijk aanwezige drains zal het water niet aan maaiveld geraken maar via de drains worden afgevoerd.
- Beide situaties kunnen met de DRN module van MODFLOW worden gesimuleerd.
+ Beide situaties kunnen met de DRN module van Modflow worden gesimuleerd.
  Ook greppelafvoer kan worden meegenomen in de simulatie door lokaal de drains die in het model op het maaiveld zijn gelegd te verlagen door de greppelhoogte.
- In MODFLOW 6 kunnen randvoorwaarden zoals drains van een naam worden voorzien,
+ In Modflow 6 kunnen randvoorwaarden zoals drains van een naam worden voorzien,
  waarmee achteraf specifieke deelstromen zoals oppervlakteafvoer,
  en stroming naar drains en greppels kunnen worden onderscheiden van de rest.
 \end_layout
@@ -5471,10 +5471,10 @@ We zouden onder omstandigheden wellicht ook rekening willen kunnen houden met ee
  Modelleer-technisch is het lastiger.
  In het numerieke model vergt zo'n berekening dat de holocene deklaag wordt opgedeeld in een aantal sublagen,
  elk met een eigen freatische bergingscoëfficiënt.
- Alternatief zou een nieuw pakket voor MODFLOW kunnen worden ontwikkeld,
+ Alternatief zou een nieuw pakket voor Modflow kunnen worden ontwikkeld,
  dat dit proces voor zijn rekening neemt.
  Hier wordt voorlopig vanaf gezien.
- Het huidige numerieke MODFLOW model dat voor de GGOR-berekeningen is opgezet werk met slechts twee lagen:
+ Het huidige numerieke Modflow model dat voor de GGOR-berekeningen is opgezet werk met slechts twee lagen:
  1) De holocene deklaag en 2) de regionale aquifer daaronder.
  Juist deze beperking maat het gereedschap efficiënt.
  In de wetenschap dat het altijd mogelijk is dit mechanisme te implementeren met behulp van meer lagen,
@@ -5989,7 +5989,7 @@ Verderop in dit rapport is een groot aantal analytische formules afgeleid,
 \end_layout
 
 \begin_layout Standard
-De GGOR-aanpak is ook numeriek uitgewerkt op basis van MODFLOW-6,
+De GGOR-aanpak is ook numeriek uitgewerkt op basis van Modflow-6,
  het open source eindige differentiemodel van de USGS.
  De numerieke aanpak biedt meer flexibiliteit,
  aangezien hij meer situaties aankan dan waarvoor analytische oplossingen beschikbaar zijn.
@@ -6022,7 +6022,7 @@ Het is van voordeel om de kwel per perceel als gegeven te beschouwen,
 
 \begin_layout Part
 GGOR numeriek,
- met MODFLOW (en de modelleeromgeving 
+ met Modflow (en de modelleeromgeving 
 \emph on
 mfLab)
 \end_layout
@@ -6035,25 +6035,25 @@ Inleiding
 Uitgangspunt van de huidige GGOR-tool is dat de grondwaterstroming in de regionale aquifer onafhankelijk is van hetgeen in het bovenliggende percelen voorvalt.
  Dit is uiteraard maar ten dele het geval.
  Om toch een zo goed mogelijke benadering te krijgen,
- wordt de uitwisseling tussen de deklaag en de regionale aquifer tevoren met een regionaal grondwatermodel berekend.
+ wordt de uitwisseling tussen de deklaag en de regionale aquifer tevoren buiten de GGOR met een regionaal grondwatermodel berekend.
  Dit regionale model is echter grover dan het percelen-patroon in de deklaag.
  Dit grove model levert de verticale uitwisseling tussen deklaag en regionale aquifer die vervolgens als randvoorwaarde wordt genomen voor de percelen die met de GGOR-tool worden gesimuleerd.
 \end_layout
 
 \begin_layout Standard
 In de praktijk is het regionale grondwatermodel vaak een stationair model,
- zij het dat de zomer- en de winterperiode apart kunnen zijn doorgerekend om rekening te houden met verschillen tussen de zomer- en winterpeilen die in de verschillende deelgebieden worden toegepast.
+ zij het dat de zomer- en de winterperiode apart kunnen zijn doorgerekend om zo rekening te houden met verschillen tussen de zomer- en winterpeilen die in de verschillende deelgebieden worden toegepast.
  In voorkomende gevallen kan het regionale grondwatermodel de uitwisseling ook dynamisch hebben uitgerekend,
  zij het soms,
  omwille van de rekentijd,
  in stappen van bijvoorbeeld een maand in plaats van een dag.
  Hoe het ook zij,
- bij GGOR-modellering is de verticale flux door de bodem van de deklaag voorgeschreven,
+ bij het modelleren van de GGOR is de verticale flux door de bodem van de deklaag voorgeschreven,
  als constante,
- als seizoenswaarde en eventueel als functie van de tijd.
+ als seizoenswaarde en eventueel als week- of dagwaarden.
  In sommige gevallen wordt in plaats van de flux de stijghoogte in de regionale aquifer voorgeschreven.
  Dit komt echter nagenoeg op hetzelfde neer.
- Een voorgeschreven flux verdient soms de voorkeur omdat hiermee de uitwisselingsflux beheerst is.
+ Een voorgeschreven flux verdient de voorkeur voorkeur omdat hiermee de uitwisselingsflux beheerst is die beheersing is er niet bij vaste stijghoogte in de regionale aquifer..
 \end_layout
 
 \begin_layout Standard
@@ -6061,11 +6061,10 @@ De numerieke GGOR-tool modelleert net als de analytische alle percelen van een g
  zoals een peilgebied,
  simultaan.
  Ook numeriek wordt elk perceel daarbij vereenvoudigd tot een doorsnede tussen parallelle sloten.
- Omdat het slootpeil net als in de analytische GGOR-tool links en rechts gelijk is,
- althans zo wordt berekend,
- omdat het voor de perceel-gemiddelde grondwaterstand en voor de waterbalans niet uitmaak,
- rekenen we in de numerieke GGOR-tool met de helft van elke doorsnede,
- dus van een sloot tot de waterscheiding in het midden.
+ Omdat het slootpeil net als in de analytische GGOR-tool links en rechts gelijk wordt verondersteld,
+ zijn stijghoogte en stroming symmetrisch ten opzichte van de middellijn tussen de sloten,
+ en rekenen we in de numerieke GGOR-tool derhalve met de helft van elke doorsnede,
+ dus tussen sloot en waterscheiding in het midden van de percelen.
 \end_layout
 
 \begin_layout Section
@@ -6073,77 +6072,71 @@ Aanpak
 \end_layout
 
 \begin_layout Standard
-Voor het numerieke model wordt met MODFLOW gewerkt,
- het open-source eindig differentie model van de USGS.
- We kunnen verschillende versies van MODFLOW gebruiken,
- maar de voorkeur gaat uit naar MODFLOW_USG omdat deze gebruik maakt van Newton-Raphson iteraties om ook bij niet-lineariteit in het model,
- zoals bij droogvallende rekencellen,
- efficiënt te convergeren naar de oplossing.
- MODFLOW_USG kan ook niet met rechthoekige rekencellen rekenen,
- maar wij gebruiken in de GOGR altijd uitsluitend een rechthoekig netwerk van rijen en kolommen met rechthoekige cellen en twee modellagen in de diepte.
+Voor het numerieke model wordt met Modflow gewerk.
+ Dit is het open-source eindige differentie model van de USGS.
+ We kunnen verschillende versies van Modflow gebruiken,
+ maar de voorkeur gaat uit naar de nieuwste versie,
+ Modflow6 omdat deze gebruik kan maken van Newton-Raphson iteraties waarmee convergentieproblemen worden voorkomen die anders ontstaan bij het droogvallen van rekencellen.
+ de diepte.
+ Wij gebruiken Modflow6 uitsluitend met een rechthoekig net van rechthoekige cellen en twee lagen.
 \end_layout
 
 \begin_layout Standard
-Elke rij van dit model stelt de doorsnede van één concreet perceel voor.
- Het aantal rijen in het MODFLOW model is gelijk aan het aantal percelen in de GGOR database behorend bij het door te rekenen gebied.
+In de GGOR-tool stelt elke rij van dit model de doorsnede van één concreet perceel voor.
+ Het aantal rijen in het Modflow model is gelijk aan het aantal percelen in de GGOR-database die hoort bij het door te rekenen gebied.
  Door de doorlatendheid in kolomrichting nul te nemen,
  staan de modelrijen,
- dus de percelen,
+ en dus de percelen,
  geheel los van elkaar,
  alhoewel ze alle tegelijkertijd worden doorgerekend.
- In het MODFLOW model heeft elke perceeldoorsnede,
- dus elke modelrij een breedte van 1 m.
- De modelrij stelt dus altijd een perceeldoorsnede voor met een dikte van 1 m loodrecht op deze doorsnede.
- De lengte van de modelrij komt dus overeen met de breedte van het perceel.
- De breedte van de percelen in het gebied loopt verschilt onderling sterk,
- terwijl elke rij cellen in het MODFLOW model even lang is.
- Dit wordt opgelost door de breedte van het gehele netwerk van het MODFLOW model gelijk te nemen aan de helft van de grootst voorkomende perceelbreedte.
+ In het Modflow model heeft elke perceeldoorsnede,
+ en dus elke model-rij een breedte van 1 m.
+ De model-rij stelt dus altijd een perceeldoorsnede voor met een dikte van 1 m loodrecht op deze doorsnede.
+ De lengte van de model-rij komt dus overeen met de halve breedte van het perceel.
+ De breedte van de percelen in het gebied varieert sterk,
+ terwijl elke rij cellen in het Modflow model even lang is.
+ Dit wordt opgelost door de breedte van het gehele netwerk van het Modflow model gelijk te nemen aan de helft van het breedste perceel in het gebied.
  Percelen die smaller zijn,
  worden in het netwerk ingekort door een aantal cellen met coördinaten groter dan de halve perceelbreedte inactief te maken.
- Inactieve cellen worden niet doorgerekend en staan rekentechnisch geheel buiten het model;
- zij doen niet mee.
- Door op deze wijze gebruik te maken van inactieve cellen,
- kappen de breedte in het model voor elk individueel perceel af op de werkelijke breedte.
+ Inactieve cellen worden niet doorgerekend en staan rekentechnisch geheel buiten het model.
  Eke halve doorsnede,
- dus elke modelrij,
- en de elk perceel in het gebied begint in de eerste (linker) kolom van het modelnetwerk en wordt op de beschreven wijze rechts afgekapt door cellen inactief te maken.
+ dus elke model-rij,
+ en elk perceel in het gebied begint in de eerste (linker) kolom van het modelnetwerk en wordt op de beschreven wijze rechts afgekapt door cellen inactief te maken.
  Hierdoor bestaat elke doorsnede uit een specifiek aantal actieve kolommen van een modelrij.
- De breedte van de doorgerekende halve doorsnede wordt hierdoor afgrond op de lengte van een heel aantal cellen,
- dus al naar gelang de keuze van de breedte van de kolommen in het MODFLOW netwerk op bijv.
+ De breedte van de doorgerekende halve doorsnede wordt hierdoor afgrond op de lengte van een geheel aantal cellen.
+ Dus al naar gelang de keuze van de breedte van de kolommen in het Modflow netwerk op bijv.
  05,
  1,
  2,
- of 5 m,
- zoals ingesteld door de gebruiker.
+ of 5 m.
 \end_layout
 
 \begin_layout Standard
-Op deze wijze wordt een gebied met 3000 percelen,
+Op deze wijze wordt een gebied met bijv.
+ 3000 percelen,
  waarin de grootste perceelbreedte 150 m is,
  bij keuze van een celbreedte van 1 m doorgerekend met modelnetwerk bestaande uit 3000 rijen en 75 kolommen en 2 lagen.
- Dit is een modelnetwerk van beperkte grootte dat efficiënt en tijdsafhankelijk door MODFLOW kan worden doorgerekend.
- Dit model,
- dus elke perceeldoorsnede,
- wordt uiteindelijk in een modelrun op dagbasis doorgerekend,
- in de regel over een periode van 9 jaar,
- waarbij het eerste jaar wordt beschouwd als inloopperiode,
- zodat 8 jaren resteren die voor evaluatie van de GXG (GLG,
- GHG en GVG) nodig zijn.
+ Dit is een modelnetwerk van beperkte grootte dat efficiënt en tijdsafhankelijk door Modflow kan worden doorgerekend.
+ Dit doorrekenen geschiedt op dagbasis,
+ in de regel over een periode van 9 jaar.
+ Het eerste jaar wordt altijd beschouwd als inloopperiode,
+ zodat 8 jaren resteren die voor evaluatie van de gemiddelde grondwaterstanden (de GXG (GLG,
+ GHG en GVG)).
 \end_layout
 
 \begin_layout Standard
-Het eindresultaat van een modelrun levert zo de freatische grondwaterstand,
+Het eindresultaat van een modelrun levert de freatische grondwaterstand,
  de stijghoogte in het regionale pakket en de waterstromen in elk van de doorsneden op dagbasis,
  waaruit vervolgens de GXG wordt berekend.
 \end_layout
 
 \begin_layout Section
-De rol van de beschikbare MODFLOW modules (packages) in de GGOR-tool
+De rol van de beschikbare Modflow modules (packages) in de GGOR-tool
 \end_layout
 
 \begin_layout Standard
-MODFLOW heeft verschillende modules,
- doorgaans 
+Modflow heeft verschillende modules,
+ die pakketten of 
 \begin_inset Quotes eld
 \end_inset
 
@@ -6151,24 +6144,26 @@ packages
 \begin_inset Quotes erd
 \end_inset
 
-,
- genoemd waarmee afzonderlijke hydrologische processen resp.
+ worden genoemd,
+ waarmee afzonderlijke hydrologische processen resp.
  randvoorwaarden worden ingebracht en gesimuleerd.
  Een aantal daarvan wordt in de GGOR modellering gebruikt:
 \end_layout
 
 \begin_layout Enumerate
 RCH/recharge (grondwateraanvulling) voor inbrengen de neerslag of,
- na aftrekking van de evapotranspiratie ook direct voor het neerslagoverschot
+ na aftrekking van de evapotranspiratie.
+ Ook kan direct voor het neerslagoverschot worden ingebracht.
 \end_layout
 
 \begin_layout Enumerate
 EVT/evapotranspiration:
  verdamping,
- evapotranspiratie) voor inbrengen van verdamping,
- wanneer verdamping apart in rekening wordt gebracht in plaats van deze direct af te trekken van de neerslag.
+ evapotranspiratie) voor inbrengen van verdamping.
+ Deze module wordt gebruikt wanneer de verdamping apart in rekening wordt gebracht,
+ in plaats van deze direct af te trekken van de neerslag.
  Met name bij diepere grondwaterstanden kan dit van belang zijn,
- omdat MODFLOW daarmee (lineaire) verdampingsreductie kan berekenen.
+ omdat Modflow daarmee (lineaire) verdampingsreductie kan berekenen.
 \end_layout
 
 \begin_layout Enumerate
@@ -6179,7 +6174,7 @@ WEL/wells (voor gegeven debieten anders dan neerslag en verdamping;
  de zogenoemde kwel.
  Deze invoer kan uniform over elke doorsnede in laag 2 worden opgegeven,
  maar evengoed op een punt in deze laag,
- waarna MODFLOW het water zelf verdeelt tijdens de simulatie.
+ waarna Modflow het water zelf verdeelt tijdens de simulatie.
  De aanpak is equivalent wanneer de spreidingslengte van de regionale aquifer veel groter is dan de lengte van de halve doorsnede.
  Dit vrijwel altijd het geval.
  Maar goed,
@@ -6189,7 +6184,7 @@ WEL/wells (voor gegeven debieten anders dan neerslag en verdamping;
 \begin_layout Enumerate
 DRN/drains (drainage).
  Het drainage package wordt gebruikt om de oppervlakkige afvoer te bepalen en om sloten te simuleren die in drogere perioden droog vallen.
- DRNs kunnen worden gebruikt om oppervlakkige afvoer te berkenen,
+ DRNs kunnen worden gebruikt om oppervlakkige afvoer te berekenen,
  door het maaiveld ermee te beleggen,
  immers,
  DRNs voeren alleen dan water af wanneer het grondwater hoger komt dan de diepte waarop zij liggen.
@@ -6197,7 +6192,7 @@ DRN/drains (drainage).
  DRNs kunnen derhalve ook worden ingezet om droogvallende sloten en greppels te simuleren,
  en natuurlijk om de afvoer van agrarische drains te berekenen,
  voor zover die voorkomen.
- Door IWACO/HASKoning is enkele jaren terug een aanpassing van de GGOR-tool gemaakt,
+ Door IWACO/HAS-Koning is enkele jaren terug een aanpassing van de GGOR-tool gemaakt,
  om juist agrarische drainage te simuleren binnen het beschikbare rekenraamwerk.
  Hierbij worden de drains evenwel parallel aan de perceelsloten in het model gebracht.
  Dit is uiteraard niet de wijze waarop drains in de praktijk worden toegepast.
@@ -6220,9 +6215,9 @@ uitgevlakt
 \end_layout
 
 \begin_layout Enumerate
-GHB/general head boundaries (randen met weerstand tussen model en omgeving).
- De GHB module wordt gebruikt om de uitwisseling tussen het eerste watervoerende pakket en de sloten te simuleren.
- Het uitwisseling tussen sloot en model verloopt bij het GHB package via een zogenoemde 
+GHB/general head boundaries voor randen met weerstand tussen model en omgeving.
+ Modflow's GHB-module wordt gebruikt om de uitwisseling tussen het eerste watervoerende pakket en de sloten te simuleren.
+ De uitwisseling tussen sloot en model verloopt bij het GHBs via een zogenoemde 
 \begin_inset Quotes eld
 \end_inset
 
@@ -6230,23 +6225,23 @@ conductance
 \begin_inset Quotes erd
 \end_inset
 
-,
- de reciproque waarde van de weerstand.
- De dimensie van deze conductance is [L
+ (soms conductantie genoemd).
+ Deze conductantie is de reciproque waarde van de weerstand.
+ De dimensie v is [L
 \begin_inset Formula $^{2}$
 \end_inset
 
 /T] en specifiek,
- na deling door de vaste rijbreedte van het model (1 m) dus [L/T] en na deling door de halve natte slootomtrek dus [1/T];
- de dimensie van de weerstand is dus [T/L
+ na deling door de vaste rijbreedte van het model (1 m) dus [L/T],
+ en na deling door de halve natte slootomtrek dus [1/T].
+ De dimensie van de weerstand is dus [T/L
 \begin_inset Formula $^{2}$
 \end_inset
 
 ] per cel,
- en rekening houdend met een vaste rijbreedte van m [T/L] per eenheid van breedte loodrecht op de doorsnede,
- en rekening houdend met de natte slootomtrek [T].
+ en rekening houdend met een vaste rijbreedte van m [T/L] per eenheid van breedte loodrecht op de doorsnede en na rekening houdend met de natte slootomtrek [T].
  In deze weerstand kunnen de natte slootomtrek,
- weerstand van een sliblaag op de bodem en meestal ook de weerstand als gevolg van contractie van stroomlijnen naar de sloten worden opgenomen.
+ weerstand van een sliblaag op de bodem worden opgenomen en meestal ook de weerstand als gevolg van contractie van stroomlijnen naar de sloten.
  Dit laatste wordt elders in dit rapport precies beschreven.
 \end_layout
 
@@ -6257,12 +6252,10 @@ GHB+DRN.
  De GHBs zorgen voor een constante weerstand,
  zowel voor intrede als uittrede,
  maar de DRNs voeren alleen water af als de stijghoogte boven de opgelegde drainhoogte komt.
- Door DRNs te leggen op het gewenste slootpeil,
- wordt bereikt,
- dat DRNs samen met GHBs gaan afvoeren wanneer de stijghoogte in de bodem naast de sloot boven het slootpeil komt.
+ Door DRNs te leggen op het gewenste slootpeil wordt bereikt dat DRNs samen met GHBs water gaan afvoeren wanneer de stijghoogte in de bodem naast de sloot boven het slootpeil komt.
  Is deze stijghoogte lager dan het slootpeil,
  dan vindt alleen instroming plaats door de GHBs,
- de DRNs doen dan niets,
+ de DRNs doen dan niets;
  deze gedragen zich dan alsof hun weerstand oneindig groot is.
  Wanner 
 \begin_inset Formula $Q$
@@ -6296,20 +6289,20 @@ Q=\frac{\Delta h}{R}=\frac{\Delta h}{R_{GHB}}+\frac{\Delta h}{R_{DRN}}
 
 \end_inset
 
-Waaruit blijkt dat de tweede term wegvalt wanneer 
+Dit laat zien dat de tweede term wegvalt wanneer 
 \begin_inset Formula $R_{DRN}=\infty$
 \end_inset
 
-,
- dus alleen bij stroming vanuit de sloot naar de bodem.
+;
+ dit is dus alleen bij stroming vanuit de sloot naar de bodem.
 \end_layout
 
 \begin_layout Standard
-De eigenschappen van de te modelleren percelen en dus van elke rij van het MODFLOW-netwerk,
+De eigenschappen van de te modelleren percelen en dus van elke rij van het Modflow-netwerk,
  worden bepaald aan de hand van de database van de percelen,
- zodat het model vanuit deze database geheel automatisch in elkaar wordt gezet en de simulaties kan uitvoeren zodra een invoerreeks beschikbaar is met de dagcijfers voor neerslag en verdamping.
+ zodat het model vanuit deze database geheel automatisch in elkaar wordt gezet en simulaties kan uitvoeren zodra een invoerreeks beschikbaar is met de dagcijfers voor neerslag en verdamping.
  Na afloop van de simulatie worden de berekende grondwaterstanden,
- stijghoogten en debieten ingelezen en de gezochte resultaten zoals de doorgaande waterbalans en de GXG berekend en gepresenteerd.
+ stijghoogten en debieten ingelezen en de gezochte resultaten zoals de doorgaande waterbalans en de GXGs berekend en gepresenteerd.
 \end_layout
 
 \begin_layout Section
@@ -6317,11 +6310,10 @@ Doorsnedes
 \end_layout
 
 \begin_layout Standard
-De schematisatie van een bakje betreft altijd een doorsnede van een kenmerkend perceel,
- zoals ook in de huidige GGOR aanpak het geval is.
- Binnen de MODFLOW structuur zullen vele doorsneden als modelrijen achter elkaar worden geplaatst en als een geheel worden doorgerekend.
+In de GGOR-tool wordt elk perceel vertegenwoordigd foor een doorsnede die wordt geïmplementeerd in een rij van een Modflow-netwer..
+ Binnen de Modflow structuur worden vele doorsneden als modelrijen naast elkaar worden geplaatst en als één geheel doorgerekend.
  Om de doorsneden hydraulisch van elkaar gescheiden te houden,
- wordt in de doorlatendheid loodrecht op de doorsneden gelijk aan nul gezet.
+ wordt in de doorlatendheid loodrecht op de doorsneden op nul gezet.
 \end_layout
 
 \begin_layout Standard
@@ -6354,8 +6346,18 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schematisch-deklaag-op-aquifer"
+
+\end_inset
+
 Schematische doorsnede van deklaag op een regionale aquifer.
- De weerstand c van de deklaag is verwerkt in zijn verticale doorlatendheid.
+ De weerstand 
+\begin_inset Formula $c$
+\end_inset
+
+ van de deklaag is verwerkt in zijn verticale doorlatendheid.
  Slootbreedtes 
 \begin_inset Formula $dw$
 \end_inset
@@ -6475,7 +6477,7 @@ Halve doorsnede met en zonder sloten die door de deklaag steken
 \end_layout
 
 \begin_layout Standard
-De te modelleren halve doorsnede is in de figuur 
+De te modelleren halve doorsnede is in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Halve-doorsnede"
@@ -6487,47 +6489,46 @@ nolink "false"
  De doorsnede bestaat uit een freatisch pakket,
  de deklaag,
  met daaronder een regionaal watervoerend pakket.
- Er zit geen aparte weerstandbiedende laag aanwezig tussen beide pakketten;
+ Er is geen aparte weerstandbiedende laag aanwezig tussen beide pakketten;
  de verticale weerstand wordt gevormd door de verticale doorlatendheid van de deklaag samen met die van de onderliggende aquifer.
  De laatste verticale weerstand is normaliter verwaarloosbaar.
  De verticale doorlatendheid van de deklaag wordt beschouwd als de verhouding van zijn dikte en de verticale doorlatendheid van deze laag.
- In het MODFLOW model wordt de deklaag weerstand geregeld door de halve dikte te delen door de verticale doorlatendheid.
- De halve dikte wordt genomen omdat de neerwaartse of opwaartse stroming van het water binnen MODFLOW alleen de halve deklaagdikte passeert,
+ In het Modflow model wordt de deklaag weerstand geregeld door de halve dikte te delen door de verticale doorlatendheid.
+ De halve dikte wordt genomen omdat de neerwaartse of opwaartse stroming van het water binnen Modflow alleen de halve dikte van een laag passeert,
  omdat de deklaag de bovenste modellaag is en de centra van de rekencellen in het midden van de modellaag zitten.
  
 \end_layout
 
 \begin_layout Standard
 De dikte van het freatische pakket beweegt in principe mee met de freatische grondwaterstand.
- Maar bij dunne deklagen wordt de dikte in de regel vastgezet om te voorkomen dat de laag tijdens de simulatie herhaald droog valt.
- In de analytische oplossingen is de dikte van de deklaag altijd vast.
- Bij vaste deklaagdikte is deze gelijk aan de afstand van gemiddeld peil tot de basis van de deklaag.
+ In analytische oplossingen is de dikte van de deklaag altijd vast.
 \end_layout
 
 \begin_layout Standard
-Bij beschouwing van de horizontale weerstand die het water in de deklaag ondervindt naar de sloot onderscheiden we de weerstand in de deklaag,
+Bij beschouwing van de horizontale weerstand die het water in de deklaag ondervindt naar de sloot,
+ onderscheiden we de weerstand in de deklaag,
  de weerstand door contractie van stroomlijnen nabij de sloot en de weerstand van de slootwand en de slootbodem.
 \end_layout
 
 \begin_layout Standard
-De weerstand door horizontaal transport door de deklaag is reeds geïmplementeerd via de doorlatendheid van de MODFLOW cellen en behoeft verder geen specifieke aandacht.
+De weerstand door horizontaal transport door de deklaag is reeds geïmplementeerd via de doorlatendheid van de Modflow-cellen en behoeft verder geen specifieke aandacht.
 \end_layout
 
 \begin_layout Standard
 De implementatie van de weerstand door contractie van stroomlijnen heeft wel aandacht nodig.
  In de buurt van de sloot,
  op minder dan ca.
- 1-2 maal de dikte van de deklaag gaat praktische horizontale stroomlijnen in de deklaag afbuigen in de richting van de slootomtrek.
+ 1-2 maal de dikte van de deklaag gaan de praktisch horizontale stroomlijnen afbuigen in de richting van de slootomtrek.
  Er zijn verschillende mogelijkheden om deze weerstand te conceptualiseren.
  Men zou de analytische oplossing kunnen kiezen van het stroomveld in de buurt van een sloot,
  maar deze is niet bekend voor de situatie waarbij ook stroming vanuit of naar het tweede pakket plaats vindt.
  Bovendien kan de analytische oplossing ontaarden wanneer de slootbodem diep insnijdt en de basis van de deklaag benadert of zelfs snijdt.
- De oplossingen die bestaan voor toestroming gaan deels uit van homogene instroming langs de omtrek van de sloot,
+ De oplossingen die bestaan voor deze toestroming gaan deels uit van homogene instroming langs de omtrek van de sloot,
  wat hier geenszins is gegarandeerd,
  zeker niet wanneer we de onderscheid willen maken tussen de weerstand van de slootbodem en de slootwand.
- Om deze reden is in dit onderzoek voor een praktische aanpak gekozen,
+ Om deze reden is in deze GGOR-tool voor een praktische aanpak gekozen,
  die toepasbaar blijft onafhankelijk van de diepe tot waarop de sloot in de deklaag snijdt.
- Figuur @@ geeft de geconceptualiseerde horizontale toestroming.
+ Fig.@@ geeft de geconceptualiseerde horizontale toestroming.
  De stroomlijnen concentreren zich lineair tussen de slootwand en het punt waarop de 45graden lijn van de sloothoek de basis van de deklaag snijdt.
  De 45 graden lijn is intuïtief.
  We kunnen de keuze verifiëren aan de hand van een gedetailleerd numeriek model met een veel fijnmaziger dwarsdoorsnede.
@@ -6567,7 +6568,7 @@ Q=-k_{h}H_{x}\frac{dh}{dx}
 \end_layout
 
 \begin_layout Standard
-met 
+Hierin is 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -6585,7 +6586,7 @@ met
 \begin_inset Formula $H_{x}$
 \end_inset
 
- [[L] de dikte van de doorstroomde hoogte en 
+ [L] de dikte van de doorstroomde hoogte en 
 \begin_inset Formula $h$
 \end_inset
 
@@ -6616,11 +6617,11 @@ H_{x}=H_{1}+\left(H_{0}-H_{1}\right)\frac{x}{L}
 \end_layout
 
 \begin_layout Standard
-waarin 
+Hierin is 
 \begin_inset Formula $x$
 \end_inset
 
- binnen de cel positief is in de stroomrichting en 
+ binnen de cel positief in de stroomrichting en 
 \begin_inset Formula $L=x_{0}-x_{1}>0$
 \end_inset
 
@@ -6716,7 +6717,7 @@ Q_{x}=k'_{h}D_{1}\frac{h_{0}-h_{1}}{x_{0}-x_{1}}
 \end_layout
 
 \begin_layout Standard
-waarin 
+Hierin is 
 \begin_inset Formula $D_{1}$
 \end_inset
 
@@ -6744,7 +6745,7 @@ k'_{h}=k_{h}\frac{H_{0}-H_{1}}{D_{1}\ln\frac{H_{0}}{H_{1}}}\label{eq:kh_accent}
 \end_layout
 
 \begin_layout Standard
-die in het MODFLOW moet worden gebruikt over het traject 
+Deze doorlatendheid moet in het Modflow model worden gebruikt over het traject 
 \begin_inset Formula $x_{1}\rightarrow x_{0}$
 \end_inset
 
@@ -6792,11 +6793,11 @@ Q_{z}=k_{v}\frac{\phi-h}{Z_{2}-Z_{db}}\frac{w}{2}
 \end_layout
 
 \begin_layout Standard
-waarin 
+Hierin is 
 \begin_inset Formula $k_{z}$
 \end_inset
 
- [L/T] de verticale doorlatendheid is van de deklaag,
+ [L/T] de verticale doorlatendheid van de deklaag,
  
 \begin_inset Formula $\phi$
 \end_inset
@@ -6806,7 +6807,7 @@ waarin
 \begin_inset Formula $h$
 \end_inset
 
- [NAP] de stijghoogte in de deklaag net onder de sloot (omdat we de slootbodem weerstand hieronder apart zullen beschouwen en verdisconteren),
+ [NAP] de stijghoogte in de deklaag net onder de sloot (omdat we de weerstand van de slootbodem hieronder apart zullen beschouwen en verdisconteren),
  
 \begin_inset Formula $Z_{2}$
 \end_inset
@@ -6820,7 +6821,7 @@ waarin
 \end_layout
 
 \begin_layout Standard
-Deze verticale stroming moet gelijk worden gesteld aan die in de slootcel van het MODFLOW model.
+Deze verticale stroming moet gelijk worden gesteld aan die in de cel van het Modflow-model die de sloot voorstelt.
  Deze cel heeft een breedte 
 \begin_inset Formula $dx$
 \end_inset
@@ -6831,7 +6832,7 @@ Deze verticale stroming moet gelijk worden gesteld aan die in de slootcel van he
 
 /2,
  terwijl de stroming loopt van de onderzijde van de cel tot het midden van de cel.
- Aldus
+ Aldus geldt
 \end_layout
 
 \begin_layout Standard
@@ -6850,7 +6851,7 @@ Gelijkstellen van deze twee stromen levert de verticale doorlatendheid
 \begin_inset Formula $k_{v}'$
 \end_inset
 
- die in het MODFLOW model moet worden gebruikt in de slootcel:
+ die in het Modflow-model moet worden gebruikt in de slootcel:
 \end_layout
 
 \begin_layout Standard
@@ -6879,20 +6880,18 @@ Let op dat
 \begin_inset Formula $dx$
 \end_inset
 
- is de volledige breedte van de linker cel in de MODFLOW doorsnede.
+ is de volledige breedte van de linker cel in de Modflow doorsnede.
  De factor 
 \begin_inset Formula $D_{1}/2$
 \end_inset
 
- ontstaat uit de doorstroming van slechts de halve deklaagdikte in het MODFLOW model.
- Dit is het gevolg van de keuze om de gehele deklaag met slechts een modellaag te modelleren.
- Alle in- en uitstroming in de deklaag,
- vindt,
- voor wat MODFLOW betreft plaats via de centra van de cellen.
+ ontstaat uit de doorstroming van slechts de halve dikte van de deklaag in het Modflow-model.
+ Dit is het gevolg van de keuze om de gehele deklaag met slechts één modellaag te modelleren.
+ Wat Modflow betreft vindt alle in- en uitstroming in de deklaag plaats via de centra van de cellen.
 \end_layout
 
 \begin_layout Standard
-Deze conceptuele benadering werkt ook wanneer de sloot diep en zelfs volledig door de deklaag snijdt,
+Deze conceptuele benadering werkt ook wanneer de sloot diep in de deklaag of er zelfs volledig doorheen snijdt,
  met dien verstande dat dan geen contractie van stroomlijnen nabij de sloot in rekening wordt gebracht voor de horizontale stroming.
  Voor de verticale stroming ontaardt de voorgaande formule.
  Het is daarom goed om een kleine positieve minimumwaarde voor 
@@ -6923,20 +6922,21 @@ Het lijkt verstandig,
 
 \begin_layout Standard
 De weerstand van de slootbodem en slootwand wordt niet in de doorlatendheid meegenomen,
- maar met algemene randvoorwaarden zoals MODFLOW die implementeert middels zijn modules voor General Head Boundaries en Drains.
- Het komt erop neer dat het opgegeven slootpeil 
+ maar met algemene randvoorwaarden zoals Modflow die implementeert middels zijn GHB- en DRN-modules.
+ Het komt erop neer,
+ dat het opgegeven slootpeil 
 \begin_inset Formula $h_{LR}$
 \end_inset
 
- via een zogenoemde conductance,
+ via een zogenoemde conductantie,
  of inverse weerstand,
  verbonden is met het model.
  Het model is in dit geval het centrum van de meest linker cel van de deklaag in de doorsnede.
- Dit impliceert de aanname dat de stijghoogte direct onder de slootbodem en direct rechts van de celwand gelijk is aan de stijghoogte 
+ Dit impliceert dat de stijghoogte direct onder de slootbodem en direct rechts van de celwand gelijk is aan de stijghoogte 
 \begin_inset Formula $h$
 \end_inset
 
- die MODFLOW in deze cel berekent.
+ die Modflow in deze cel berekent.
 \end_layout
 
 \begin_layout Standard
@@ -7151,10 +7151,10 @@ en uiteraard geldt
 \begin_layout Standard
 De gevolgde analyse voor een doorsnede,
  als ware het een perceel van 1 m lengte loodrecht op de doorsnede.
- We moeten deze conductances in het MODFLOW-model dus nog vermenigvuldigen met de de perceel lengte loodrecht op de doorsnede.
+ We moeten deze conductances in het Modflow-model dus nog vermenigvuldigen met de de perceel lengte loodrecht op de doorsnede.
  We kunnen de breedte van elke doorsnede gelijk aan 1 m kiezen,
  maar het is verstandiger om de werkelijke perceellengte daarvoor te nemen.
- Het voordeel daarvan is dat de waterbalans die MODFLOW voor elke door een rij cellen vertegenwoordigd doorsnede berekent direct geldt voor het hele perceel en de waterbalans die die MODFLOW voor het hele model uitrekent direct geldt voor het hele gebied dat door alle percelen tezamen wordt vertegenwoordigd.
+ Het voordeel daarvan is dat de waterbalans die Modflow voor elke door een rij cellen vertegenwoordigd doorsnede berekent direct geldt voor het hele perceel en de waterbalans die die Modflow voor het hele model uitrekent direct geldt voor het hele gebied dat door alle percelen tezamen wordt vertegenwoordigd.
 \end_layout
 
 \begin_layout Section
@@ -7175,7 +7175,7 @@ We hebben gezien dat de insnijding van de sloot in de deklaag,
 \begin_layout Standard
 Men kan zich afvragen in hoeverre het noodzakelijk is om contractie van stroomlijnen onder de sloot maar in de regionale aquifer afzonderlijk in het model mee te nemen.
  Er valt echter veel voor te zeggen om dit achterwege te laten.
- De belangrijkste reden is dat de weerstand die MODFLOW cellen al uit zichzelf hebben tegen verticale stroming al doorgaans die door stroomlijncontractie overtreft.
+ De belangrijkste reden is dat de weerstand die Modflow cellen al uit zichzelf hebben tegen verticale stroming al doorgaans die door stroomlijncontractie overtreft.
  Dit kan als volgt worden getoond.
 \end_layout
 
@@ -7235,7 +7235,7 @@ De radiale weerstand
 \end_layout
 
 \begin_layout Standard
-In het modflow model vindt de stroming in de regionale aquifer,
+In het Modflow model vindt de stroming in de regionale aquifer,
  naar een sloot die door de deklaag snijdt,
  uitsluitend verticaal plaats vanaf het midden van de linker cel tot de top van de tweede modellaag.
  Dit is het gevolg van de discretisatie in de formulering/afleiding van de eindige differentie-methode.
@@ -7283,7 +7283,7 @@ Hierin is het linkerlid een geometrische maat voor de weerstand (alleen bepaald 
  dan staat links 25 en rechts 2.8 dus tien maal zo klein.
  Bij variatie van waarden uit de praktijk over een brede range blijft het rechter lid altijd tussen ca.
  2 en 3.5 en zal het linkerlid steeds belangrijk groter zijn.
- Dit impliceert dat de weerstand die het water in het MODFLOW model ondervindt bij opwaartse stroming naar een insnijdende sloot is steeds groter dan de weerstand door radiale stroming naar de sloot in de werkelijkheid.
+ Dit impliceert dat de weerstand die het water in het Modflow model ondervindt bij opwaartse stroming naar een insnijdende sloot is steeds groter dan de weerstand door radiale stroming naar de sloot in de werkelijkheid.
  Het meenemen van een extra radiale weerstand in de regionale aquifer heeft dus feitelijk geen zin.
  De verticale weerstand zou feitelijk verkleind moeten worden door de verticale doorlatendheid in de tweede modellaag groter te kiezen dan de verticale.
 \end_layout
@@ -7304,7 +7304,7 @@ Dat dit inderdaad noodzakelijk is blijkt uit de volgende berekening.
 ,
  dan is de specifieke verticale stroming in deze cel gelijk aan 0.15 m/d.
  De in het model af te leggen verticale afstand gelijk aan de halve pakketdikte.
- In het MODFLOW model ontstaat door deze afvoer een stijghoogteverschil tussen het midden van de linker cel in de tweede modellaag en de top van deze cel van 
+ In het Modflow model ontstaat door deze afvoer een stijghoogteverschil tussen het midden van de linker cel in de tweede modellaag en de top van deze cel van 
 \begin_inset Formula $Q\left(D/2\right)/\left(\Omega k\right)=0.3\times25/\left(1\times10\right)=0.75$
 \end_inset
 
@@ -7331,12 +7331,12 @@ doorlatenheid
 
  waarmee het model rekent is gelijk aan het doorlaatvermogen,
  en dus heel groot,
- waarmee de verticale weerstand in de regionale aquifer binnen MODFLOW verwaarloosbaar wordt.
+ waarmee de verticale weerstand in de regionale aquifer binnen Modflow verwaarloosbaar wordt.
 \end_layout
 
 \begin_layout Standard
 Al met al komt het voorgaande enigszins gekunsteld over.
- De conclusie is echter dat in het MODFLOW model voor het regionale pakket beter met het doorlaatvermogen kan worden gerekend vanwege de ander ongewenst optredende verticale weerstand bij sloten die de deklaag doorsnijden.
+ De conclusie is echter dat in het Modflow model voor het regionale pakket beter met het doorlaatvermogen kan worden gerekend vanwege de ander ongewenst optredende verticale weerstand bij sloten die de deklaag doorsnijden.
  Met doorlaatvermogen rekenen wordt hier bedoeld 
 \begin_inset Formula $kD$
 \end_inset
@@ -7398,7 +7398,7 @@ literal "true"
 \end_inset
 
 .
- Deze aanpak is geïmplementeerd in het MODFLOW model.
+ Deze aanpak is geïmplementeerd in het Modflow model.
 \end_layout
 
 \begin_layout Section
@@ -7416,7 +7416,7 @@ Plotselinge peilfluctuaties in de sloten
 
 \begin_layout Standard
 Peilfluctuaties in de sloten worden verondersteld te zijn opgelegd.
- In het MODFLOW model mag het slootpeil tussen twee stress perioden plotseling verspringen.
+ In het Modflow model mag het slootpeil tussen twee stress perioden plotseling verspringen.
  Dit heeft uiteraard conceptueel invloed op de hoeveelheid water in de sloten en daarmee op de waterbalans van het beschouwde gebied,
  maar er is geen consequentie voor de waterbalans voor het grondwater,
  omdat alle stromen van een uit het grondwatersysteem worden meegenomen in de modellering.
@@ -7937,26 +7937,79 @@ Eénlaagsoplossingen met volledig doorsnijdende sloten
 \end_layout
 
 \begin_layout Standard
-Hierboven hebben we voor elke situatie de intrede en radiale weerstand berekend voor de deklaag en het regionale pakket,
+Hierboven hebben we voor elke situatie de intrede- en radiale weerstand berekend voor de deklaag en het regionale pakket,
  ongeacht of de sloten nu wel of niet door de deklaag heen snijden.
  Wanneer de deklaag nog grotendeels aanwezig is onder de sloten,
  dan wordt de intredeweerstand tussen sloten en het regionale pakket oneindig groot.
- De analytische tweelaagsoplossingen kunnen hierdoor onbepaald worden.
- Willen we dit vermijden dan kunnen we de grondwaterstroming ook oplossen met formules voor een watervoerend pakket (alleen deklaag) en daarin de directe uitwisseling tussen het diepe pakket en de sloten apart meenemen.
- De lek tussen het regionale pakket en de sloten,
- uitgedrukt per eenheid van lengte langs de doorsnede,
- volgt direct uit
+ Omdat we de stroming in de onderliggende regionale aquifer niet apart zullen berekenen,
+ zullen we de grondwaterstroming oplossen met formules voor één watervoerend pakket (alleen de deklaag) en daarin de directe uitwisseling tussen het diepe pakket met eventueel doorsnijdende sloten meenemen.
+ De totale kwel 
+\begin_inset Formula $Q_{L}$
+\end_inset
+
+ [m2/d] vanuit het regionale pakket met slootweerstand 
+\begin_inset Formula $w_{2}$
+\end_inset
+
+ [d/m] kan dan beschreven worden met
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-q_{d}=\frac{\phi-h_{LR}}{w_{2}\frac{b}{D_{2}}}
+Q_{L}=Q+Q_{d}=\frac{\phi-\overline{h}}{c}b+\frac{\phi-h_{LR}}{w_{2}}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+zodat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q_{L}=q+q_{d}=\frac{\phi-\overline{h}}{c}+\frac{\phi-h_{LR}}{w_{2}b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De kwel naar de sloten in de rechter term is bekend aangezien al zijn parameterwaarden bekend zijn.
+ Deze kan dus geheel buiten het model worden gehouden en direct worden afgetrokken van de kwel die het regionale model al had berekend.
+ Omdat de dikte van de regionale aquifer altijd veel groter is dan de omtrek van de ingesneden sloot kan voor de radiale weerstand de benadering volgens Huisman (1972) worden gebruikt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w=\frac{\Delta\phi}{Q_{d}}=\frac{2}{\pi\sqrt{k_{h}k_{v}}}\ln\left(\frac{D_{2}}{\pi r}\sqrt{\frac{k_{h}}{k_{v}}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hierin is rekening gehouden met verticale anisotropie.
+ De factor 2 is afkomstig van het feit dat de stroming binnen het model maar vanaf een zijde naar de sloot stroomt.
+ In plaats van 
+\begin_inset Formula $\pi r$
+\end_inset
+
+ kan 
+\begin_inset Formula $\Omega$
+\end_inset
+
+,
+ de natte omtrek van de sloot worden genomen.
 \end_layout
 
 \begin_layout Standard
@@ -8513,7 +8566,7 @@ Surface runoff en echte drains (DRN)
 \begin_layout Standard
 Surface runoff treedt op wanneer het grondwater het maaiveld raakt.
  We zullen deze surface runoff met zogenoemde drains afvangen en kwantificeren.
- Dit gebeurt door MODFLOW-drains op het maaiveld te leggen.
+ Dit gebeurt door Modflow-drains op het maaiveld te leggen.
  Deze drains voeren water af wanneer de stijghoogte hoger wordt dan hun opgegeven hoogteligging.
  De afvoer via de drains is dan per definitie de surface runoff.
 \end_layout
@@ -8539,7 +8592,7 @@ Neerslag en verdamping op dagbasis
 \begin_layout Standard
 Het rekenen geschiedt op dagbasis,
  waarbij rechtstreeks het neerslagoverschot wordt ingevoerd.
- Naar behoefte kan ook onderscheid worden gemaakt naar neerslag en gewasverdamping door gebruik te maken van zowel het RCH als het EVTR package van MODFLOW.
+ Naar behoefte kan ook onderscheid worden gemaakt naar neerslag en gewasverdamping door gebruik te maken van zowel het RCH als het EVTR package van Modflow.
 \end_layout
 
 \begin_layout Standard
@@ -8552,7 +8605,7 @@ Stress perioden en tijdstappen,
 \end_layout
 
 \begin_layout Standard
-MODFLOW rekent met stress perioden en tijdstappen.
+Modflow rekent met stress perioden en tijdstappen.
  Binnen een stress perioden zijn alle randvoorwaarden constant.
  Het ligt voor de hand om op dagbasis te rekenen,
  aangezien neerslag en verdamping ook van dag tot dag variëren en als reeks dagwaarden zijn gegeven.
@@ -8572,7 +8625,7 @@ Het nadeel van het verder onderverdelen van de dag in tijdstappen ontstaat wanne
  Hetzelfde geldt voor de debieten,
  die nu ook per tijdstap en dus over de dag variëren.
  Een waterbalans op dagbasis is dan alleen nog mogelijk door expliciet die van de afzonderlijke tijdstappen binnen de dag bij elkaar te brengen.
- Dit vergt veel extra inspanning buiten MODFLOW om,
+ Dit vergt veel extra inspanning buiten Modflow om,
  zodat ervoor gekozen is om de stress perioden alle 1 dag lang te maken en deze steeds met een enkele tijdstap door te rekenen.
 \end_layout
 
@@ -8604,9 +8657,9 @@ Een ander aspect is de periode waarover de de jaarlijkse drie hoogste en drie la
 \begin_layout Standard
 Het berekenen van de GXG vergt een reeks 9 jaar,
  dus van 3288 stress perioden.
- MODFLOW 2000 heeft een limit van 1000 stress perioden,
- echter MODFLOW 2005 is wat dit betreft ongelimiteerd.
- Vandaar dat met MODFLOW 2005 wordt gerekend.
+ Modflow 2000 heeft een limit van 1000 stress perioden,
+ echter Modflow 2005 is wat dit betreft ongelimiteerd.
+ Vandaar dat met Modflow 2005 wordt gerekend.
 \end_layout
 
 \begin_layout Section
@@ -8673,7 +8726,7 @@ De Python modelleer-omgeving
 \end_layout
 
 \begin_layout Standard
-De eerste versie van de op MODFLOW gebaseerde GGOR modellering liep in een binnen Matlab (c) ontwikkelde modelleer-omgeving,
+De eerste versie van de op Modflow gebaseerde GGOR modellering liep in een binnen Matlab (c) ontwikkelde modelleer-omgeving,
  
 \emph on
 mflab
@@ -8814,9 +8867,9 @@ GGOR.py
 
 
 \emph default
-Dit bestand bevat de stappen die de invoer van het MODFLOW model opbouwen,
- vervolgens het MODFLOW model draaien,
- de door MODFLOW geproduceerde bestanden inlezen en a daarmee berekeningen uitvoeren en tenslotte de presentatie.
+Dit bestand bevat de stappen die de invoer van het Modflow model opbouwen,
+ vervolgens het Modflow model draaien,
+ de door Modflow geproduceerde bestanden inlezen en a daarmee berekeningen uitvoeren en tenslotte de presentatie.
 \end_layout
 
 \begin_layout Enumerate
@@ -8871,7 +8924,7 @@ datenum
 ,
  in de tweede de neerslag op de betreffende dag en op de derde de Makkink verdamping op die dag.
  Het neerslagoverschot wordt vervolgens aan de variabele RECH toegekend.
- RECH is de modflow variabele met het neerslagoverschot.
+ RECH is de Modflow variabele met het neerslagoverschot.
 \end_layout
 
 \begin_layout Standard
@@ -8916,7 +8969,7 @@ De IBOUND array wordt gebruikt om zone nummers in te bewaren.
 
 \begin_layout Standard
 Vervolgens worden de overige model arrays aangemaakt.
- De namen zijn voorgeschreven zoals in de handleiding van MODFLOW.
+ De namen zijn voorgeschreven zoals in de handleiding van Modflow.
 \end_layout
 
 \begin_layout Standard
@@ -9165,11 +9218,11 @@ Draai
 \emph on
 mf_setup
 \emph default
- om de modelbestanden voor MODFLOW aan te maken en MODFLOW te draaien.
+ om de modelbestanden voor Modflow aan te maken en Modflow te draaien.
 \end_layout
 
 \begin_layout Standard
-Nadat MODFLOW zich heeft teruggemeld met het bericht “
+Nadat Modflow zich heeft teruggemeld met het bericht “
 \emph on
 normal-termination
 \emph default
@@ -9192,7 +9245,7 @@ From numerical data
 \end_layout
 
 \begin_layout Standard
-Once MODFLOW has finished,
+Once Modflow has finished,
  the computed heads and cell-by-cell flows can be analyzed and visualized.
  The most inportant information to be obtained from the computed heads is the so-called GLG,
  GHG and GVG (combined in the acronym GXG).
@@ -9219,7 +9272,7 @@ A useful data structure for the head in all parcels will be
 \end_inset
 
  Notice that each Modlfow row corresponds to a parcel.
- This structure is obtained from the MODFLOW-computed heads,
+ This structure is obtained from the Modflow-computed heads,
  which has the structure 
 \begin_inset Formula $h(t,layer,row.col)$
 \end_inset
@@ -9617,7 +9670,7 @@ Hiermee is de eerste fase van de analyse afgerond.
 mf_analyze gaat dan verder met de analyse van de waterbalans van elke doorsnede en van alle doorsneden als geheel.
  Dit is een veel omvangrijker taak.
  Immers de budget file die hiervoor moet worden ingelezen is al enorm,
- namelijk 3288 maal de 3D matrix met water balans bijdrage voor elk van de 9 afzonderlijke waterbalans termen die MODFLOW naar de budget file heeft geschreven:
+ namelijk 3288 maal de 3D matrix met water balans bijdrage voor elk van de 9 afzonderlijke waterbalans termen die Modflow naar de budget file heeft geschreven:
 \end_layout
 
 \begin_layout Standard
@@ -10022,9 +10075,9 @@ In de beschouwde situatie hebben we te maken met een matig tot slecht doorlatend
  In de analytische oplossingen met lek,
  wordt de weerstand tussen de deklaag en het regionale pakket geconcentreerd gedacht in een scheidende laag tussen beide watervoerende pakketten.
  Dit is een benadering omdat in de werkelijkheid de weerstand verdeeld kan zijn binnen de deklaag die zowel watervoerend is in horizontale richting als scheidend in verticale.
- In de MODFLOW berekening verdelen we de verticale weerstand in de deklaag door de verticale doorlatendheid gelijk te nemen aan de dikte gedeeld door de weerstand.
- Daar in MODFLOW het water alleen verticaal stroomt vanaf het celmidden tot de celbodem,
- is de verticale doorlatendheid in het MODFLOW model gelijk aan
+ In de Modflow berekening verdelen we de verticale weerstand in de deklaag door de verticale doorlatendheid gelijk te nemen aan de dikte gedeeld door de weerstand.
+ Daar in Modflow het water alleen verticaal stroomt vanaf het celmidden tot de celbodem,
+ is de verticale doorlatendheid in het Modflow model gelijk aan
 \end_layout
 
 \begin_layout Standard
@@ -10114,7 +10167,7 @@ nolink "false"
 
 .
  We kunnen de oplossing voorts altijd vergelijken met de numerieke berekening.
- Hiervoor hebben we een eindig differentie model beschikbaar dat geheel in Matlab is geschreven (functie fdm3ct) en het MODFLOW-model.
+ Hiervoor hebben we een eindig differentie model beschikbaar dat geheel in Matlab is geschreven (functie fdm3ct) en het Modflow-model.
  De grafiek bevat alle vier oplossingen bij elkaar.
  De tijdreeks is 4 vakken van 50 dagen verdeeld waarin de het neerslagoverschot verspringt van respectievelijk [10,
  0,
@@ -10188,8 +10241,8 @@ Dynamische situatie over 200 dagen.
  De groene lijnen zijn de stijghoogten berekend met het eindige differentie-model in Matlab (fdm2ct).
  De groene stippellijn is het verloop in het tweede pakket,
  dat door een zeer grote weerstand van het eerste is gescheiden en dus feitelijk niet meedoet.
- De rode puntjes zijn het resultaat van de MODFLOW-berekening.
- De stijghoogte van de tweede laag in MODFLOW is niet getoond,
+ De rode puntjes zijn het resultaat van de Modflow-berekening.
+ De stijghoogte van de tweede laag in Modflow is niet getoond,
  maar valt geheel samen met de groene stippellijn.
  Beschrijving van de invoer zie tekst.
 \end_layout
@@ -10229,7 +10282,7 @@ nolink "false"
  Te zien is dat beide numerieke modellen elkaar volledig afdekken.
  Verder is er een kleine afwijking tussen de exacte oplossing (zwarte ballen) en de numerieke modellen (groen en rood).
  Deze afwijking is volledig terug te voeren op het dynamische rekenschema van de numerieke modellen.
- MODFLOW rekent namelijk volledig impliciet dat wil zeggen dat het model aanneemt dat de grondwaterstanden aan het einde van een tijdstap een goede representant zijn van die gedurende de tijdstap.
+ Modflow rekent namelijk volledig impliciet dat wil zeggen dat het model aanneemt dat de grondwaterstanden aan het einde van een tijdstap een goede representant zijn van die gedurende de tijdstap.
  Deze benadering is onnauwkeurig indien de grondwaterstanden sterk veranderen gedurende een tijdstap.
  In het numerieke Matlab-model kunnen we de impliciticiteit van de berekening gemakkelijk wijzigen.
  Met de standaard waarde van 0.67 in plaats van 1 is de simulatie over gedaan.
@@ -10292,7 +10345,7 @@ Close-up van voorgaande figuur.
 \end_layout
 
 \begin_layout Standard
-We mogen hieruit concluderen dat de modellen juist zijn en dat standaard MODFLOW iets te traag reageert indien de dynamiek binnen de tijdstap heel sterk is.
+We mogen hieruit concluderen dat de modellen juist zijn en dat standaard Modflow iets te traag reageert indien de dynamiek binnen de tijdstap heel sterk is.
  Uiteindelijk gaan alle oplossingen naar dezelfde eindwaarde.
  Van groter belang is dat de aanpak waarbij de stationaire oplossing dynamisch wordt gebruikt helemaal zo gek niet is.
  Het grondwater reageert volgens deze formule iets te snel op slootpeilveranderingen,
@@ -10362,7 +10415,7 @@ We zullen nu de analytische oplossingen voor semi-spanningswater vergelijken met
  De eerste berekening is die waarbij de uitwisseling met het regionale pakket door een hoge weerstand is uitgesloten.
  In dit geval moeten de oplossingen voor semi-spanningswater overeenkomen met die van spanningswater in een enkele laag.
  De implicititeit staat weer op 1,
- om te zorgen dat fdm2ct overeenkomt met MODFLOW.
+ om te zorgen dat fdm2ct overeenkomt met Modflow.
 \end_layout
 
 \begin_layout Standard
@@ -10755,7 +10808,7 @@ nolink "false"
 \end_inset
 
 ) .
- De groene lijn van fdm2ct ligt nu ongeveer midden tussen de curve van het analytische model en die van MODFLOW.
+ De groene lijn van fdm2ct ligt nu ongeveer midden tussen de curve van het analytische model en die van Modflow.
  
 \end_layout
 
@@ -10827,7 +10880,7 @@ geeft het verloop van de stijghoogte en de grondwaterstand over de doorsnede bij
  Het verschil is overigens slechts 2 mm ca.
  1% van de maximale verhoging.
  We zien ook dat de diepe stijghoogte iets verloopt over de doorsnede.
- Dit komt omdat de kwel in het numerieke model op slechts een punt als discrete injectie wordt ingevoerd (WEL-package in MODFLOW),
+ Dit komt omdat de kwel in het numerieke model op slechts een punt als discrete injectie wordt ingevoerd (WEL-package in Modflow),
  waarna het zichzelf over de doorsnede moet verdelen.
  De diepe stijghoogte in ligt ook 3 cm lager dan het gemiddelde van de ondiepe stijghoogte als gevolg van 3 mm wegzijging door de scheidende laag met weerstand van 10 d.
  De gemiddelde ondiepe stijghoogte is NAP -0.522 m en de diepe NAP -0.552 m,
@@ -11168,11 +11221,11 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-In de figuur blijkt de MODFLOW berekening plotseling sterk van de andere af te wijken.
+In de figuur blijkt de Modflow berekening plotseling sterk van de andere af te wijken.
  Dit wordt volledig veroorzaakt door de wijze waarop de wegzijging is geïmplementeerd.
  In de analytische tweelaags-oplossing en in het numerieke model fdm2ct is de wegzijging egaal verdeeld over het diepe pakket,
  dus diffuus.
- In de MODFLOW berekening is zij echter geconcentreerd in de tweede cel van het diepe pakket,
+ In de Modflow berekening is zij echter geconcentreerd in de tweede cel van het diepe pakket,
  dus net naast de sloot.
  De reden hiervan is dat op deze wijze slechts een WEL cel nodig is.
  
@@ -11225,7 +11278,7 @@ name "fig:2Lay-x-q3-q-kD1=kD2"
 \end_layout
 
 \begin_layout Standard
-Wanneer we de wegzijging ook in MODFLOW gelijkmatig verdelen over de doorsnede vallen alle meerlagenoplossingen weer samen,
+Wanneer we de wegzijging ook in Modflow gelijkmatig verdelen over de doorsnede vallen alle meerlagenoplossingen weer samen,
  zoals te zien in in figuur 
 \begin_inset CommandInset ref
 LatexCommand vref
@@ -11300,7 +11353,7 @@ nolink "false"
  Aangezien het tweede watervoerende pakket in de regel dik is ten opzichte van de mate waarin de sloten het penetreren,
  wordt de extra weerstand door de onvolkomenheid apart ingebracht.
  De slootbodemweerstand is voor beide aquifers gelijk en wordt apart opgegeven.
- We kunnen deze situatie uitrekenen met onze analytische oplossing voor een tweelaagsysteem en met beide numerieke modellen (fdm2ct en MODFLOW).
+ We kunnen deze situatie uitrekenen met onze analytische oplossing voor een tweelaagsysteem en met beide numerieke modellen (fdm2ct en Modflow).
 \end_layout
 
 \begin_layout Standard
@@ -11587,7 +11640,7 @@ De beschrijving van de situatie in de doorsnedes dient alleen ter verificatie va
 \end_layout
 
 \begin_layout Chapter
-Verificatie van de numerieke methode (MODFLOW)
+Verificatie van de numerieke methode (Modflow)
 \end_layout
 
 \begin_layout Section
@@ -11597,10 +11650,10 @@ Simulatie van een doorsnede
 \begin_layout Standard
 Ter verificatie van het model zullen we het vergelijken met de hiervoor afgeleide analytische oplossingen.
  Om het model met de oplossingen te kunnen vergelijken moeten de parameters zodanig worden ingesteld,
- dat MODFLOW de beoogde analytische oplossing ook kan reproduceren.
+ dat Modflow de beoogde analytische oplossing ook kan reproduceren.
  Net als in het voorgaande hoofdstuk gaan we daarvoor uit van een vast doorlaatvermogen van de beide aquifers.
  Dit maakt het model lineair behalve als de grondwaterstand boven maaiveld komt;
- in dat geval schakelt MODFLOW de drains automatisch in,
+ in dat geval schakelt Modflow de drains automatisch in,
  wat (nog) niet gebeurt in de analytische oplossingen.
  Meer maatregelen zijn niet nodig.
  Het resultaat van de eerste simulatie in figuur 
@@ -11614,7 +11667,7 @@ nolink "false"
 geeft het resultaat voor de eerste doorsnede uit de database van het Noorderpark.
  De resultaten voor de eenlaags analytische oplossing,
  de tweelaags analytische oplossing,
- het numerieke model in Matlab (fdm2ct) en MODFLOW zijn in een grafiek weergegeven.
+ het numerieke model in Matlab (fdm2ct) en Modflow zijn in een grafiek weergegeven.
  De modellen overlappen elkaar nagenoeg volledig,
  wat impliceert dat de simulatie nu goed werkt.
  
@@ -11666,7 +11719,7 @@ name "fig:eerste-simulatie"
 \begin_layout Standard
 Om de analytische formules te vergelijken met de modeluitkomsten zijn de test-parameterwaarden vastgelegd in een Matlab-struct,
  test genoemd.
- Een parameter die in deze struct wordt gewijzigd werkt vervolgens door in zowel het MODFLOW model,
+ Een parameter die in deze struct wordt gewijzigd werkt vervolgens door in zowel het Modflow model,
  de GGOR simulatie als in de analytische oplossingen.
 \end_layout
 
@@ -11679,8 +11732,8 @@ Hieronder staan twee figuren,
  zoals ook in de GGOR-tool van Waternet is geïmplementeerd.
  De waarden voor de vaste dikte liggen dichter bij elkaar en de het verschil tussen GHG en GLG is hierdoor ook kleiner,
  aangezien het doorlaatvermogen bij vaste waarde van 6 m groter is dan voor tal van doorsnedes in het Noorderpark.
- Desondanks is de dynamiek van de MODFLOW berekening ongeveer tweemaal zo groot als die van de GGOR-tool.
- Aangezien de berekening van het MODFLOW model nu uit en te na is gecontroleerd,
+ Desondanks is de dynamiek van de Modflow berekening ongeveer tweemaal zo groot als die van de GGOR-tool.
+ Aangezien de berekening van het Modflow model nu uit en te na is gecontroleerd,
  vermoed ik nu dat er iets mis is met de GGOR-tool van Waternet.
  Ik zal echter eerst nog eens precies de GxG berekeningen checken.
 \end_layout
@@ -12024,7 +12077,7 @@ De velden die betrekking hebben op de intredeweerstand van de sloten,
 
 ,
  voor de tests is vast gelegd.
- De doorlatendheid van het tweede pakket is hoog om ervoor te zorgen dat de weerstand die het water verticaal ondervindt tussen de centra van boven elkaar gelegen MODFLOW cellen verwaarloosbaar is en deze weerstand geheel wordt bepaald door de opgegeven weerstand,
+ De doorlatendheid van het tweede pakket is hoog om ervoor te zorgen dat de weerstand die het water verticaal ondervindt tussen de centra van boven elkaar gelegen Modflow cellen verwaarloosbaar is en deze weerstand geheel wordt bepaald door de opgegeven weerstand,
  
 \begin_inset Formula $c$
 \end_inset
@@ -12071,7 +12124,7 @@ De freatische stijghoogte van de analytische oplossing met variabele dikte is h,
 \end_inset
 
 .
- De MODFLOW uitkomsten zijn altijd direct ten opzichte van NAP.
+ De Modflow uitkomsten zijn altijd direct ten opzichte van NAP.
  Het is dus zaak bij de vergelijking tussen model en de analytische oplossingen.
 \end_layout
 
@@ -12110,13 +12163,13 @@ name "fig:Voorbeeld-van-3oplossingen"
 
 \end_inset
 
-Voorbeeld van 3 analytische stationaire oplossingen en MODFLOW.
+Voorbeeld van 3 analytische stationaire oplossingen en Modflow.
  De horizontale lijnen van dezelfde kleur geven de gemiddelde waterstand in de doorsnede weer.
  Unconfined is zonder lek met variabele doorstroomdikte.
  Confined is zonder lek met vast doorlaatvermogen overeenkomende met de pakketdikte bij de sloot.
  Leakage is de stationaire oplossing met neerslag en lek met vast doorlaatvermogen.
  De dikkere rode lijnen geven,
- tenslotte hetgeen MODFLOW heeft berekend met lek en variabele doorstroomdikte.
+ tenslotte hetgeen Modflow heeft berekend met lek en variabele doorstroomdikte.
  Om deze lijnen duidelijk van elkaar gescheiden te krijgen is het neerslagoverschot gelijk aan 10 mm/d genomen en de weerstand van de scheidende laag op 200 d.
  De overige waarden zijn zoals in de test-struct is weergegeven.
 \end_layout
@@ -12139,8 +12192,8 @@ De unconfined en confined oplossingen zijn beide zonder lek.
  De pakketdikte heeft hier dus een belangrijke invloed op de grondwaterstand.
  De zwarte lijnen geven de situatie met dezelfde neerslag maar met lek.
  In deze oplossing is het doorlaatvermogen weer constant als bij de confined oplossing.
- Dit is de reden waarom de waterstand in de doorsnede die MODFLOW heeft berekend lager is,
- immers MODFLOW rekent met variabele doorstroomdikte.
+ Dit is de reden waarom de waterstand in de doorsnede die Modflow heeft berekend lager is,
+ immers Modflow rekent met variabele doorstroomdikte.
  Hiermee is aangetoond dat de verschillende oplossingen consistent ten opzichte van elkaar werken.
 \end_layout
 
@@ -12214,8 +12267,8 @@ nolink "false"
  vallen de unconfined en confined oplossingen over elkaar heen.
  Door gebrek aan neerslag zakken beide oplossingen met lek nu weg richting de stijghoogte in het diepe pakket (-0.8).
  Beide oplossing vallen nagenoeg over elkaar omdat ook hier de dikte in beide gevallen bijna hetzelfde is.
- Echter de dikte die MODFLOW berekent is net iets kleiner,
- waardoor de stijghoogte in het midden van de doorsnede voor de MODFLOW oplossing wat lager is dan voor de lek-oplossing met vast doorlaatvermogen.
+ Echter de dikte die Modflow berekent is net iets kleiner,
+ waardoor de stijghoogte in het midden van de doorsnede voor de Modflow oplossing wat lager is dan voor de lek-oplossing met vast doorlaatvermogen.
 \end_layout
 
 \begin_layout Standard
@@ -12275,7 +12328,7 @@ nolink "false"
 
 is de scheiden laag ondoorlatend gemaakt (weerstand verhoogd van 200 d tot 2 miljoen d).
  Bovendien is het neerslagoverschot even gering als in de voorgaande figuur (0.0001 m/d) waardoor de pakketdikte overal nagenoeg gelijk is.
- Hierdoor vallen alle oplossingen op elkaar en dekt de dikkere rode lijn van de MODFLOW-oplossing alle andere af.
+ Hierdoor vallen alle oplossingen op elkaar en dekt de dikkere rode lijn van de Modflow-oplossing alle andere af.
 \end_layout
 
 \begin_layout Standard
@@ -12335,7 +12388,7 @@ De niet-stationaire oplossing geeft het verloop van de waterstand na een regen-p
  (zie test struct).
  Echter de totale hoeveelheid water die voor de puls nodig is,
  is wel degelijk in het model gebracht.
- De oplossing van MODFLOW komt goed overeen met de analytische oplossing (rode balletjes).
+ De oplossing van Modflow komt goed overeen met de analytische oplossing (rode balletjes).
  De tijd tussen de rode balletjes is gelijk genomen aan de halfwaarde tijd 
 \begin_inset Formula $\Delta t_{0.5}=0.07L^{2}\mu/kD$
 \end_inset
@@ -12372,7 +12425,7 @@ name "fig:Waterstandsverloop-in-de-dsn"
 
 \end_inset
 
-Waterstandsverloop in de doorsnede op de verschillende halfwaarde tijdstippen (in dagen in de legenda) voor de MODFLOW berekening (dikke lijn) en de analytische oplossing (dunne lijn).
+Waterstandsverloop in de doorsnede op de verschillende halfwaarde tijdstippen (in dagen in de legenda) voor de Modflow berekening (dikke lijn) en de analytische oplossing (dunne lijn).
  De stippellijnen zijn de gemiddelde waarden over de doorsnede voor de analytische oplossing.
 \end_layout
 
@@ -12399,13 +12452,13 @@ nolink "false"
 
 \end_inset
 
- geeft het dynamische verloop van de waterstand in de doorsnede op de verschillende halfwaarde-tijdstippen volgens MODFLOW (dikkere lijnen) en volgens de analytische oplossing.
+ geeft het dynamische verloop van de waterstand in de doorsnede op de verschillende halfwaarde-tijdstippen volgens Modflow (dikkere lijnen) en volgens de analytische oplossing.
  De stippellijnen zijn de gemiddelde waarden voor de analytische oplossing,
  zoals afgeleid in het voorgaande hoofdstuk.
- De MODFLOW oplossing is wat lager dan de analytische naarmate de waterstand hoger is;
- dit is het gevolg van het feit dat MODFLOW met variabele doorstroomdiktes rekent en de analytische oplossing niet.
+ De Modflow oplossing is wat lager dan de analytische naarmate de waterstand hoger is;
+ dit is het gevolg van het feit dat Modflow met variabele doorstroomdiktes rekent en de analytische oplossing niet.
  Kiezen we de initiële stijghoogte een factor 10 kleiner,
- dan vallen MODFLOW en analytisch berekende lijnen op elkaar omdat de pakketdikte dan nagenoeg hetzelfde is in beide situaties.
+ dan vallen Modflow en analytisch berekende lijnen op elkaar omdat de pakketdikte dan nagenoeg hetzelfde is in beide situaties.
  Alleen de eerste lijn wijkt dan nog iets af,
  wat kan worden geweten aan een iets onzuiver startpunt van de puls omdat de neerslag verdeeld over de eerste dag wordt ingevoerd.
 \end_layout
@@ -12439,7 +12492,7 @@ name "fig:Vergelijking-tussen-MODFLOW-GGOR"
 
 \end_inset
 
-Vergelijking tussen MODFLOW en GGOR-berekening bij neerslag van 
+Vergelijking tussen Modflow en GGOR-berekening bij neerslag van 
 \begin_inset Formula $\unit[2]{mm/d}$
 \end_inset
 
@@ -12473,7 +12526,7 @@ nolink "false"
 
 \end_inset
 
- geeft het verloop van de gemiddelde waterstand volgens de GGOR berekening en MODFLOW bij neerslag van 1 mm/d vanaf t=1000 d.
+ geeft het verloop van de gemiddelde waterstand volgens de GGOR berekening en Modflow bij neerslag van 1 mm/d vanaf t=1000 d.
  De tijdkarakteristiek van beide curves is gelijk.
  Dit betekent dat de GGOR berekeningsmethode ondanks het gebruik van een stationaire oplossing om op elk moment de afvoer te berekenen een goed beeld kan geven van de dynamiek in de doorsnede.
  Ook hier geldt,
@@ -12510,7 +12563,7 @@ name "fig:Detail-van-het-GGOR-tijdsverloop"
 
 \end_inset
 
-Detail van het tijdsverloop van de MODFLOW en GGOR rekenwijze.
+Detail van het tijdsverloop van de Modflow en GGOR rekenwijze.
  De tijdconstante van de GGOR integratie is 
 \begin_inset Formula $T=\unit[14]{d}$
 \end_inset
@@ -12569,14 +12622,14 @@ nolink "false"
 ) is 14 d.
  De halfwaardetijd die aangeeft hoe snel de zwarte GGOR curve zich voegt naar de stationaire oplossing bedraagt dan 9.7 d.
  Dit komt overeen met het verloop van de zwarte curve.
- In de MODFLOW situatie komt de afvoer naar de zijdelingse sloten pas geheel op gang nadat de werking van de randvoorwaarden,
+ In de Modflow situatie komt de afvoer naar de zijdelingse sloten pas geheel op gang nadat de werking van de randvoorwaarden,
  de vaste slootpeilen,
  zich tot het centrum van de doorsnede doorwerkt.
- Hierdoor loopt MODFLOW altijd achter op de GGOR-curve die aanneemt dat de stationaire afvoer vanaf het eerste moment geldt.
+ Hierdoor loopt Modflow altijd achter op de GGOR-curve die aanneemt dat de stationaire afvoer vanaf het eerste moment geldt.
 \end_layout
 
 \begin_layout Standard
-Met de voorgaande illustraties is aangetoond dat het MODFLOW model accuraat en juist is.
+Met de voorgaande illustraties is aangetoond dat het Modflow model accuraat en juist is.
  Tevens is aangetoond dat de GGOR-berekening op basis van de stationaire oplossing accuraat zal zijn,
  mits uitgewerkt zoals in dit rapport is gedaan.
  In feite is dit het gevolg van de geringe tijdconstante van het freatische systeem.
@@ -12616,7 +12669,7 @@ name "fig:Dynamisch-verloop-van-GGOR-MODFLOW"
 
 \end_inset
 
-Dynamisch verloop van de uitkomsten van MODFLOW en de GGOR-rekenwijze met neerslagoverschot over 9 jaar
+Dynamisch verloop van de uitkomsten van Modflow en de GGOR-rekenwijze met neerslagoverschot over 9 jaar
 \end_layout
 
 \end_inset
@@ -12638,10 +12691,10 @@ nolink "false"
 
 \end_inset
 
- geeft het dynamisch verloop weer volgens MODFLOW en de GGOR-rekenwijze.
+ geeft het dynamisch verloop weer volgens Modflow en de GGOR-rekenwijze.
  De overlap is nagenoeg perfect;
- dat wil zeggen de zwarte GGOR-curve bedekt nagenoeg sluitend de rode MODFLOW-curve.
- Hiermee is ook aangetoond dat de verwerking van een langjarige tijdreeks met MODFLOW overeenkomst met de GGOR-rekenwijze.
+ dat wil zeggen de zwarte GGOR-curve bedekt nagenoeg sluitend de rode Modflow-curve.
+ Hiermee is ook aangetoond dat de verwerking van een langjarige tijdreeks met Modflow overeenkomst met de GGOR-rekenwijze.
 \end_layout
 
 \begin_layout Subsection
@@ -12696,7 +12749,7 @@ name "fig:Dynamisch-verloop-volgens-modflow-en-3-GGOR-rekenwijzen-zonder-lek"
 
 \end_inset
 
-Dynamisch verloop volgens MODFLOW en drie GGOR rekenwijzen,
+Dynamisch verloop volgens Modflow en drie GGOR rekenwijzen,
  maar zonder lek (zie tekst).
 \end_layout
 
@@ -12723,7 +12776,7 @@ nolink "false"
 
 \end_inset
 
-geeft het dynamisch verloop volgens MODFLOW en drie GGOR rekenwijzen,
+geeft het dynamisch verloop volgens Modflow en drie GGOR rekenwijzen,
  waarbij de lek is uitgeschakeld door de weerstand van de scheidende laag op 2 miljoen dagen te zetten.
  De GGOR rekenwijzen zijn als volgt:
 \end_layout
@@ -12761,7 +12814,7 @@ De GGOR-rekenwijze waarbij de gemiddelde kwel/lek van de hele simulatieperiode (
 Omdat in deze berekening lek/wegzijging is uitgeschakeld door middel van een hoge weerstand,
  vallen de drie GGOR-rekenwijzen precies over elkaar heen.
  Dit is tegelijkertijd een verificatie van de implementatie.
- De MODFLOW-berekening wijkt iets af omdat alleen deze rekening houdt met een variabele pakketdikte over de doorsnede.
+ De Modflow-berekening wijkt iets af omdat alleen deze rekening houdt met een variabele pakketdikte over de doorsnede.
  Met name bij hoge grondwaterstanden is het effect merkbaar.
  Bij grondwaterstanden rond het slootpeil van NAP -0.6 m is er geen verschil.
 \end_layout
@@ -12798,7 +12851,7 @@ name "fig:Detail-GGOR-compleet-zonder-lek"
 
 Detail van de voorgaande figuur.
  De drie GGOR berekeningen vallen exact over elkaar heen.
- Als gevolg van het rekening houden met de doorstroomde pakketdikte is de MODFLOW-berekening wat lager bij waterstanden duidelijk boven het slootpeil (NAP -0.6 m) en wat hoger bij lagere waterstanden.
+ Als gevolg van het rekening houden met de doorstroomde pakketdikte is de Modflow-berekening wat lager bij waterstanden duidelijk boven het slootpeil (NAP -0.6 m) en wat hoger bij lagere waterstanden.
 \end_layout
 
 \end_inset
@@ -12825,7 +12878,7 @@ nolink "false"
 \end_inset
 
 geeft een detail van de voorgaande figuur en illustreert dat de drie GGOR berekeningen ononderscheidenlijk over elkaar heen vallen indien de lek nul is,
- terwijl de MODFLOW berekening wat lager is bij waterstanden boven het slootpeil (omdat het slootpeil de bovenzijde van het topsysteem markeert in de berekeningen met vast doorlaatvermogen),
+ terwijl de Modflow berekening wat lager is bij waterstanden boven het slootpeil (omdat het slootpeil de bovenzijde van het topsysteem markeert in de berekeningen met vast doorlaatvermogen),
  en wat hoger eronder.
 \end_layout
 
@@ -12859,7 +12912,7 @@ name "fig:Dynamisch-verloop-3GGOR-en-MODFLOW-c200d"
 
 \end_inset
 
-Dynamisch verloop gemiddelde grondwaterstand topsysteem volgens MODFLOW en de drie GGOR-rekenwijzen met lek (c=200 d)
+Dynamisch verloop gemiddelde grondwaterstand topsysteem volgens Modflow en de drie GGOR-rekenwijzen met lek (c=200 d)
 \end_layout
 
 \end_inset
@@ -12885,7 +12938,7 @@ nolink "false"
 
 \end_inset
 
-geeft het verloop van MODFLOW en de drie GGOR rekenwijzen met lek als gevolg van een weerstand van de scheidende laag van 200 d.
+geeft het verloop van Modflow en de drie GGOR rekenwijzen met lek als gevolg van een weerstand van de scheidende laag van 200 d.
  De verschillen zijn nu duidelijk aanwezig;
  met name die waarbij het verloop waarbij de gemiddelde kwel/wegzijging volgens de eerste GGOR berekening als vaste waarde is opgelegd over de hele periode.
 \end_layout
@@ -12982,9 +13035,9 @@ name "fig:Berekend-verloop-met-diepe-stijghoogte"
 
 \end_inset
 
-Berekend verloop met opgelegde wegzijging in MODFLOW van -0.96 mm/d,
+Berekend verloop met opgelegde wegzijging in Modflow van -0.96 mm/d,
  dezelfde waarde als de gemiddelde wegzijging in de GGOR-tool met vaste stijghoogte in het regionale pakket.
- Als extra lijn is toegevoegd de door MODFLOW berekende stijghoogte in het diepe pakket die volgt uit het neerslagoverschot en de voorgeschreven lek van 0.96 mm/d die als gemiddelde waarde voor de GGOR-berekening is bepaald.
+ Als extra lijn is toegevoegd de door Modflow berekende stijghoogte in het diepe pakket die volgt uit het neerslagoverschot en de voorgeschreven lek van 0.96 mm/d die als gemiddelde waarde voor de GGOR-berekening is bepaald.
  De in de GGOR-berekening opgelegde diepe stijghoogte is NAP -0.8 m.
 \end_layout
 
@@ -13011,10 +13064,10 @@ nolink "false"
 
 \end_inset
 
-geeft opnieuw het dynamische verloop zoals bepaald met MODFLOW en de drie GGOR-berekeningswijzen.
- Echter nu is in MODFLOW de wegzijging vast opgelegd in plaats van de stijghoogte in het diepe pakket.
- Hierdoor valt het verloop van de MODFLOW-grondwaterstand samen met dat van de GGOR-berekening met opgelegde wegzijging.
- De enige afwijking tussen beide is het gevolg van het effect van de doorstroomde dikte die alleen MODFLOW in rekening brengt.
+geeft opnieuw het dynamische verloop zoals bepaald met Modflow en de drie GGOR-berekeningswijzen.
+ Echter nu is in Modflow de wegzijging vast opgelegd in plaats van de stijghoogte in het diepe pakket.
+ Hierdoor valt het verloop van de Modflow-grondwaterstand samen met dat van de GGOR-berekening met opgelegde wegzijging.
+ De enige afwijking tussen beide is het gevolg van het effect van de doorstroomde dikte die alleen Modflow in rekening brengt.
  Het is duidelijk dat de diepe stijghoogte sterk varieert indien de kwel/wegzijging is opgelegd in het plaats van de stijghoogte.
  Dit is op zichzelf nauwelijks ene bezwaar omdat dit in de praktijk ook het geval is.
  Echter in deze berekeningen,
@@ -13031,7 +13084,7 @@ De conclusie is,
 
 \begin_layout Standard
 Van de verschillende GGOR-rekenwijzen is die met de analytische formule met lek het beste,
- want dichter bij de MODFLOW resultaten,
+ want dichter bij de Modflow resultaten,
  waar met alle aspecten tegelijkertijd is rekening gehouden.
  Hierbij is in beide de diepe stijghoogte als vast opgelegd.
 \end_layout
@@ -13041,12 +13094,12 @@ De vraag is nu wat te doen?
 \end_layout
 
 \begin_layout Standard
-De MODFLOW modelberekening is superieur omdat daarin een kwel/wegzijging kan worden opgelegd afkomstig uit een regionaal model,
- waarbij MODFLOW zelf de diepe stijghoogte berekent.
+De Modflow modelberekening is superieur omdat daarin een kwel/wegzijging kan worden opgelegd afkomstig uit een regionaal model,
+ waarbij Modflow zelf de diepe stijghoogte berekent.
  Het zo berekende verloop van de diepe stijghoogte kan worden vergeleken met het werkelijke verloop in de regionale aquifer zoals gemeten in peilbuizen.
  Dit biedt een mogelijkheid tot verificatie van de berekeningen,
  terwijl de waterbalans van het topsysteem gegarandeerd in overeenstemming blijft met de opgelegde kwel/wegzijging en het neerslagoverschot.
- Ook is de verdeling van de kwel over de doorsnede in het MODFLOW-model gegarandeerd overal in overeenstemming met het peilverschil tussen topsysteem en onderliggende regionale aquifer.
+ Ook is de verdeling van de kwel over de doorsnede in het Modflow-model gegarandeerd overal in overeenstemming met het peilverschil tussen topsysteem en onderliggende regionale aquifer.
  Dit is niet het geval bij de GGOR berekening waarbij kwel/wegzijging wordt opgelegd.
  De GGOR-berekening heeft daarbij bovendien geen enkele informatie over de diepe stijghoogte,
  zodat ook de genoemde verificatie met metingen onmogelijk is.
@@ -13057,46 +13110,46 @@ Samenvattend
 \end_layout
 
 \begin_layout Itemize
-De MODFLOW berekening biedt de mogelijkheid om de kwel/wegzijging voor iedere periode op te geven afhankelijk van de uitkomsten van de niet-stationair regionaal grondwatermodel.
+De Modflow berekening biedt de mogelijkheid om de kwel/wegzijging voor iedere periode op te geven afhankelijk van de uitkomsten van de niet-stationair regionaal grondwatermodel.
 \end_layout
 
 \begin_layout Itemize
-MODFLOW berekent ook de dynamiek juist zonder dat de kunstgrepen van de GGOR-aanpak nodig zijn via een stationaire analytische oplossing.
+Modflow berekent ook de dynamiek juist zonder dat de kunstgrepen van de GGOR-aanpak nodig zijn via een stationaire analytische oplossing.
  Gebleken is dat de effecten hiervan gering zijn.
 \end_layout
 
 \begin_layout Itemize
-MODFLOW houdt rekening houden met de intredeweerstand van sloten.
+Modflow houdt rekening houden met de intredeweerstand van sloten.
 \end_layout
 
 \begin_layout Itemize
-MODFLOW houdt dynamisch water afvangen wanneer en waar het grondwater aan maaiveld reikt (te beginnen in het midden van de doorsnede)
+Modflow houdt dynamisch water afvangen wanneer en waar het grondwater aan maaiveld reikt (te beginnen in het midden van de doorsnede)
 \end_layout
 
 \begin_layout Itemize
-MODFLOW kan rekening houden met een afname van de bergingscoëfficiënt naarmate het grondwaterstand het maaiveld dichter nadert.
+Modflow kan rekening houden met een afname van de bergingscoëfficiënt naarmate het grondwaterstand het maaiveld dichter nadert.
  Hiertoe moet het topsysteem onderverdeeld worden in meerdere laagjes.
 \end_layout
 
 \begin_layout Itemize
-MODFLOW houdt rekening met de variatie van de doorstroomde pakketdikte over de doorsnede.
+Modflow houdt rekening met de variatie van de doorstroomde pakketdikte over de doorsnede.
 \end_layout
 
 \begin_layout Itemize
-MODFLOW kan rekening houden met sloten die door de deklaag heen steken.
+Modflow kan rekening houden met sloten die door de deklaag heen steken.
 \end_layout
 
 \begin_layout Standard
 Kortom,
- MODFLOW steekt een beter af aangezien aan verschillende randvoorwaarden en processen tegelijk kan worden voldaan.
+ Modflow steekt een beter af aangezien aan verschillende randvoorwaarden en processen tegelijk kan worden voldaan.
  
 \end_layout
 
 \begin_layout Standard
-Resteert aan te tonen dat de opgegeven lek/wegzijging in MODFLOW goed werkt.
+Resteert aan te tonen dat de opgegeven lek/wegzijging in Modflow goed werkt.
  Het resultaat is hieronder weergegeven,
  in detail omdat anders door de vele curven het zicht verloren gaat.
- De rode MODFLOW curven zijn verkregen door 7 doorsnedes/percelen gelijktijdig door te rekenen waarbij het enige verschil de opgelegde kwel is.
+ De rode Modflow curven zijn verkregen door 7 doorsnedes/percelen gelijktijdig door te rekenen waarbij het enige verschil de opgelegde kwel is.
  Deze bedraagt in de verschillende curven respectievelijk -3,
  -2,
  -1,
@@ -13104,7 +13157,7 @@ Resteert aan te tonen dat de opgegeven lek/wegzijging in MODFLOW goed werkt.
  1,
  2,
  en 3 mm/d.
- De kwel wordt in MODFLOW in de linker cel van het diepe pakket opgelegd en verdeelt zich vervolgens automatisch over de doorsnede als gevolg van de oplossing van het systeem door MODFLOW.
+ De kwel wordt in Modflow in de linker cel van het diepe pakket opgelegd en verdeelt zich vervolgens automatisch over de doorsnede als gevolg van de oplossing van het systeem door Modflow.
  De overige curven volgens de GGOR-rekenwijzen zijn eveneens weergegeven.
  Zij zijn dezelfde als in de voorgaande figuur.
  De gemiddelde wegzijging van de groene curve met 
@@ -13116,8 +13169,8 @@ prescribed average Leakage
 \end_inset
 
  blijkt 0.96 mm/d te bedragen.
- Hierdoor volgt het verloop van deze GGOR berekening (groene lijn) nauwgezet dat van de MODFLOW berekening met opgelegde kwel van -1 mm/d.
- De kleine verschillen zijn wederom het gevolg van het feit dat MODFLOW in tegenstelling tot de GGOR-rekenwijze de doorstroomde dikte van het ondiepe pakket in rekening brengt.
+ Hierdoor volgt het verloop van deze GGOR berekening (groene lijn) nauwgezet dat van de Modflow berekening met opgelegde kwel van -1 mm/d.
+ De kleine verschillen zijn wederom het gevolg van het feit dat Modflow in tegenstelling tot de GGOR-rekenwijze de doorstroomde dikte van het ondiepe pakket in rekening brengt.
 \end_layout
 
 \begin_layout Standard
@@ -13143,17 +13196,17 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Detail van het dynamisch verloop van MODFLOW en de GGOR-berekeningswijzen waarbij in MODFLOW 7 percelen zijn doorgerekend met opgelegde kwel van -3,
+Detail van het dynamisch verloop van Modflow en de GGOR-berekeningswijzen waarbij in Modflow 7 percelen zijn doorgerekend met opgelegde kwel van -3,
  -2,
  -1,
  0,
  1,
  2,
  3 mm/d.
- Het GGOR-verloop van de berekening met opgegeven vaste kwel/lek voor de gehele periode volgt het MODFLOW-verloop nauwgezet.
+ Het GGOR-verloop van de berekening met opgegeven vaste kwel/lek voor de gehele periode volgt het Modflow-verloop nauwgezet.
  De opgelegde wegzijging in deze GGOR-berekening is 0.96 mm/d.
- De curve valt zodoende nagenoeg samen met de MODFLOW curve voor kwel=-1 mm/d.
- De kleine afwijkingen zijn wederom het gevolg van het feit dat MODFLOW de dikte van het doorstroomde pakket in rekening brengt en de GGOR-berekening niet.
+ De curve valt zodoende nagenoeg samen met de Modflow curve voor kwel=-1 mm/d.
+ De kleine afwijkingen zijn wederom het gevolg van het feit dat Modflow de dikte van het doorstroomde pakket in rekening brengt en de GGOR-berekening niet.
  
 \end_layout
 
@@ -13228,7 +13281,7 @@ nolink "false"
 
 \end_inset
 
-geeft de GXG weer die zijn berekend uit het door MODFLOW berekende dagverloop van de grondwaterstand over negen jaren.
+geeft de GXG weer die zijn berekend uit het door Modflow berekende dagverloop van de grondwaterstand over negen jaren.
  Eerst zijn de waarden gemiddeld over de doorsneden.
  Het gaat dus om perceel-gemiddelde grondwaterstanden.
  Vervolgens is het eerste van de 9 simulatie-jaren weggelaten om inspeel-onnauwkeurigheden te voorkomen.
