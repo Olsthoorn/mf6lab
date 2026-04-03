@@ -1,26 +1,54 @@
 # ARK_fdm
 # %%
-"""Set up some classes to facilitate modeling cross sections that consist of
-    horizontal subsections that each may have with different properties.
-    The full cross section is then the union of the subsections.
-    
-    These sections are independent of the model grid. But the model grid
-    arrays can be filled by them to convey the properties to the model.
-    
-    The subsections may also overlap.
-    
-    Each subsection has an extent that may contain real-world as well as
-    local model coordinates.
-    
-    This approach, which now covers the x and z directions, may be extended
-    to imply rows in y direction. Yet this is not likely to be of much use 
-    because each section is independent of the grid and in the y direction
-    it is not evident that the size of the subjections should remain the same
-    in real-world situation.
-    
-    @TO 2026-03-24
-    """
+"""Set up some classes to facilitate importing cross-section images like
+    Geotop from Dinoloket.nl.
 
+    When downloading such an image and subsequently importing them
+    you get two images from the same download. The first is the
+    image of the cross section itself, the second is the image
+    with the legend, a small map showing where the image is
+    and some additional information.
+
+    The picker below allows first importing the image with the legend.
+    You can pick the colorboxes of the legend to pick the colors and
+    capture them in a RGB array. The last color will always be white
+    (255., 255., 255.) for layer use with the sampling of the actual
+    cross section.
+
+    Then the picker is instantiated with the image of the actual cross
+    section and the ll and ur corners are picked giving the
+    image's extent in pixels. Together with the separtely given
+    world_extent of the image's X-sec and the horizontal and vertical
+    size of the Geotop voxels in the image, a voxel array is then
+    automatically filled by sampling its voxel colors. The array
+    values are the index of the legend boxes in that order,
+    where the last corresponds to pure whte, meaning an empty
+    voxel.
+
+    It's best to stick with the size of the Geotop voxels when
+    sampling because using a finer grid may result in background
+    lines in the image being interpreted as legend color, which is
+    not what you want.
+
+    Clearly, the legend index can be converted to anything else that
+    corresponds to the legend index, for instance layer names, layer
+    types, conductivity etc. A convenient way is to link such
+    properties with the legend in a pandas DataFrame.
+
+
+    The second subject is to fill a cross section model grid
+    with properties. The voxels of this model grid may not
+    correspond with that of the Geotop cross section used above.
+    
+    Given the Geotop world_extent and its dx and dz voxel size, the
+    voxel of each coordinate pair is uniquely difined. So given a
+    normal model x-section grid, the cell value can be sampled in the
+    Geotop X-section uniquely. Moreover one can specify a slice of the
+    Getop X-section to match a slice of the actual model grid and fill that.
+       
+    @TO 2026-03-24, 04-03
+    """
+# %%
 import os
 from glob import glob
 from pathlib import Path
@@ -30,6 +58,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from tools.fdm.src.mfgrid import Grid
+
 
 # %%
 class PropSection:
@@ -123,7 +152,7 @@ class ImagePicker:
         else:
             plt.axis('off')
 
-        pts = plt.ginput(n, timeout=0)
+        pts = plt.ginput(n, timeout=15)
         plt.close(fig)
 
         # Convert to integer pixel coordinates
@@ -436,12 +465,14 @@ def plot_result(arr, world_extent=None):
     ax.set_aspect(50)
     # plt.show()
     
-    
 class Dirs:
-    """Local project directory namespace."""
+    """Local project directory namespace.
+    
+    To facilitate location of resources for the project
+    """
     def __init__(self):
         parts = Path(os.getcwd()).parts
-        idx = parts.index('ARK-RWS')
+        idx = parts.index('ARK_RWS')
         self.home = os.path.join(*parts[:idx + 1])
 
         self.data   = os.path.join(self.home, 'data/')
@@ -452,8 +483,11 @@ class Dirs:
         self.videos = os.path.join(self.home, 'videos/')
         self.src    = os.path.join(self.home, 'src/')
         self.notebooks = os.path.join(self.home, 'notebooks/')
-        
+    
+# --- It is crucial to get the geoCodes correct from the Dino-loket cross section image legend    
 geoCodes = ['NUECga', 'NUECgb', 'NUEC1', 'NUNIHO', 'NUNIBA', 'NUBXWI-SI-KO', 'NUBX', 'NUDR', 'NUgs']
+
+# --- It is also crucial to set proper world extent coordinates for the Dino-loket X-sec image.
 world_extent=(0, 3630, -20.2, -0.80)
 
     
@@ -507,12 +541,16 @@ if __name__ == '__main__':
     # --- Internally set the legend_colors (obtained from clicking the legend)
     digitizer.legend_colors = legend_colors
     
-    # --- Fill the grid array with the soil-indices (color box or legend item index)
+    # === Fill the grid array with the soil-indices (color box or legend item index)
     x = np.linspace(world_extent[0], world_extent[1], 201)
     z = np.linspace(world_extent[2], world_extent[3],  101)
+    
+    # -- Fill in an array of a cross section according to the grid object
     gr = Grid(x, None, z, axial=False)
     arr = digitizer.build_array(gr=gr)
-    # arr = digitizer.build_array(gr=None)
+    
+    # === Fill in an array of a cross section using  dx and dz and world_extent
+    arr = digitizer.build_array(gr=None)
     
     # --- Show the cross section using imshow, which fills the voxels
     plot_result(arr, world_extent)
