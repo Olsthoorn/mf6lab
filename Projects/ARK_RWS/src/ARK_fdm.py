@@ -58,6 +58,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from tools.fdm.src.mfgrid import Grid
+from IPython.display import display
 
 
 # %%
@@ -143,17 +144,21 @@ class ImagePicker:
         Click n points in the image.
         Returns list of (x, y) pixel coordinates.
         """
-        fig, ax = plt.subplots()
-        ax.imshow(self.image)
-        ax.set_title(f"Click {n} point(s), then press ENTER")
+        plt.close('all') # temp test.
+        self.fig, self.ax = plt.subplots()
+        self.ax.imshow(self.image)
+        self.ax.set_title(f"Click {n} point(s), then press ENTER")
+
+        # display(self.fig)    
+        # self.fig.canvas.draw_idle()
 
         if zoom:
             plt.axis('on')
         else:
             plt.axis('off')
 
-        pts = plt.ginput(n, timeout=15)
-        plt.close(fig)
+        pts = plt.ginput(n, timeout=0)
+        plt.close(self.fig)
 
         # Convert to integer pixel coordinates
         pts = [(int(x), int(y)) for x, y in pts]
@@ -185,7 +190,7 @@ class ImagePicker:
     
     def get_bbox(self, n=-1):
         """Return bbox. Zoom in and press corners. Enter when done."""
-        pts = picker.pick_points(n=n)
+        pts = self.pick_points(n=n)
         print(pts)
         # --- To avoid wrong points due to zooming, just use the last two points
         pts = pts[-2:]
@@ -368,7 +373,7 @@ class CrossSectionDigitizer:
     #     ]
     #     return patch.mean(axis=(0,1))
     
-    def sample_color(self, px, py, size=5, dark_thresh=40):
+    def sample_color(self, px, py, size=5, dark_thresh=50):
         half = size // 2
 
         # safe slicing
