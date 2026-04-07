@@ -495,14 +495,32 @@ def plot_result(arr, world_extent=None):
     plt.show()
     
 
-def show_filled_array(arr, legend_colors):
+def show_filled_array(xsec):
     """Show the array arr with the colors given."""
+    
+    fname = xsec['fname']
+    arr = xsec['arr']
+    legend_colors = xsec['color']
+    labels = xsec['labels']
+    
+    print("Plotting:", fname)
+    
     arr_RGB = np.zeros((*arr.shape, 3), dtype=int)
     arr_RGB[:,:,0] = legend_colors[arr.ravel(), 0].reshape(arr.shape)
     arr_RGB[:,:,1] = legend_colors[arr.ravel(), 1].reshape(arr.shape)
     arr_RGB[:,:,2] = legend_colors[arr.ravel(), 2].reshape(arr.shape)
     
     fig, ax = plt.subplots(figsize=(10,6))
+    
+    fig.suptitle(fname)
+
+    # --- Plot the legend labels in their correct color    
+    nl = len(labels)
+    fxs = np.linspace(0.05, 0.095, nl + 1)[1:]
+    fy = 0.9
+    for fx, color, label in zip(fxs, colors, labels):
+        fig.text(fx, fy, label, color=color, fontsize=10, transform=transFigure)
+    
     ax.imshow(arr_RGB, origin='upper', extent=world_extent, )
     ax.set_aspect(50)
     
@@ -510,9 +528,10 @@ def show_filled_array(arr, legend_colors):
     nx, nz = arr.shape
     x = np.linspace(xmin, xmax, nx + 1)
     z = np.linspace(zmin, zmax, nz + 1)
-    print(zmin, zmax)
+    
     ax.vlines(x, ymin=zmin, ymax=zmax, color='k', lw=0.2)
     ax.hlines(z, xmin=xmin, xmax=xmax, color='k', lw=0.2)
+    return ax
     
    
 # --- It is crucial to get the geoCodes correct from the Dino-loket cross section image legend    
