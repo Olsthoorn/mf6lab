@@ -60,7 +60,26 @@ import matplotlib.pyplot as plt
 from tools.fdm.src.mfgrid import Grid
 from IPython.display import display
 
+# %%
+class Dirs:
+    """Local project directory namespace.
+    
+    To facilitate location of resources for the project
+    """
+    def __init__(self):
+        parts = Path(os.getcwd()).parts
+        idx = parts.index('ARK_RWS')
+        self.home = os.path.join(*parts[:idx + 1])
 
+        self.data   = os.path.join(self.home, 'data/')
+        self.dino   = os.path.join(self.data, 'dinoloket/')
+        self.gis    = os.path.join(self.data, 'gis/')
+        self.doc    = os.path.join(self.home, 'doc/')
+        self.images = os.path.join(self.home, 'images/')
+        self.videos = os.path.join(self.home, 'videos/')
+        self.src    = os.path.join(self.home, 'src/')
+        self.notebooks = os.path.join(self.home, 'notebooks/')
+ 
 # %%
 class PropSection:
     """Class specifying extended cross section properties.
@@ -82,7 +101,6 @@ class PropSection:
         for sec in self.secs:
             A = self.fill(A, prop_name)
         return A
-    
     
 
 class PropsSec:
@@ -476,25 +494,27 @@ def plot_result(arr, world_extent=None):
     ax.set_aspect(50)
     plt.show()
     
-class Dirs:
-    """Local project directory namespace.
-    
-    To facilitate location of resources for the project
-    """
-    def __init__(self):
-        parts = Path(os.getcwd()).parts
-        idx = parts.index('ARK_RWS')
-        self.home = os.path.join(*parts[:idx + 1])
 
-        self.data   = os.path.join(self.home, 'data/')
-        self.dino   = os.path.join(self.data, 'dinoloket/')
-        self.gis    = os.path.join(self.data, 'gis/')
-        self.doc    = os.path.join(self.home, 'doc/')
-        self.images = os.path.join(self.home, 'images/')
-        self.videos = os.path.join(self.home, 'videos/')
-        self.src    = os.path.join(self.home, 'src/')
-        self.notebooks = os.path.join(self.home, 'notebooks/')
+def show_filled_array(arr, legend_colors):
+    """Show the array arr with the colors given."""
+    arr_RGB = np.zeros((*arr.shape, 3), dtype=int)
+    arr_RGB[:,:,0] = legend_colors[arr.ravel(), 0].reshape(arr.shape)
+    arr_RGB[:,:,1] = legend_colors[arr.ravel(), 1].reshape(arr.shape)
+    arr_RGB[:,:,2] = legend_colors[arr.ravel(), 2].reshape(arr.shape)
     
+    fig, ax = plt.subplots(figsize=(10,6))
+    ax.imshow(arr_RGB, origin='upper', extent=world_extent, )
+    ax.set_aspect(50)
+    
+    xmin, xmax, zmin, zmax = world_extent
+    nx, nz = arr.shape
+    x = np.linspace(xmin, xmax, nx + 1)
+    z = np.linspace(zmin, zmax, nz + 1)
+    print(zmin, zmax)
+    ax.vlines(x, ymin=zmin, ymax=zmax, color='k', lw=0.2)
+    ax.hlines(z, xmin=xmin, xmax=xmax, color='k', lw=0.2)
+    
+   
 # --- It is crucial to get the geoCodes correct from the Dino-loket cross section image legend    
 geoCodes = ['NUECga', 'NUECgb', 'NUEC1', 'NUNIHO', 'NUNIBA', 'NUBXWI-SI-KO', 'NUBX', 'NUDR', 'NUgs']
 
