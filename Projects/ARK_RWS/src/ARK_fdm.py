@@ -139,18 +139,15 @@ class ImagePicker:
     def __init__(self, image):
         self.image = image
 
-    def pick_points(self, n=1, zoom=False):
+    def pick_points(self, n=1, zoom=False, title="Title of X-section"):
         """
         Click n points in the image.
         Returns list of (x, y) pixel coordinates.
         """
         plt.close('all') # temp test.
         self.fig, self.ax = plt.subplots()
-        self.ax.imshow(self.image)
-        self.ax.set_title(f"Click {n} point(s), then press ENTER")
-
-        # display(self.fig)    
-        # self.fig.canvas.draw_idle()
+        self.ax.imshow(self.image) # Default arguments
+        self.ax.set_title(title + "\n" +"Click to select points, to stop press ENTER")
 
         if zoom:
             plt.axis('on')
@@ -161,7 +158,7 @@ class ImagePicker:
         plt.close(self.fig)
 
         # Convert to integer pixel coordinates
-        pts = [(int(x), int(y)) for x, y in pts]
+        pts = [(int(px), int(py)) for px, py in pts]
         return pts
     
     def get_colors(self, n=-1, size=5):
@@ -169,7 +166,7 @@ class ImagePicker:
         Click n points and return sampled RGB colors.
         Use right-click to remove point and Enter to finish.
         """
-        pts = self.pick_points(n)
+        pts = self.pick_points(n, title="Pick the colors in sequence from the legend-boxes.")
         
         # --- Remove points caused by zooming. They have color [255., 255., 255.]
         pts = [p for p in pts if not np.all(np.isclose(p, 255.))]
@@ -185,28 +182,30 @@ class ImagePicker:
             colors.append(color)
 
         colors = [clr for clr in colors if not np.all(np.isclose(clr, 255.))]
-        colors.append([255., 255., 255.])
-        return np.array(colors)
+        
+        # --- prepend pure white (no color) for empty cells with have code 'none'
+        colors = [[255., 255., 255.]] + colors
+        
+        return colors
     
-    def get_bbox(self, n=-1):
+    def get_pxl_bbox(self, n=-1):
         """Return bbox. Zoom in and press corners. Enter when done."""
-        pts = self.pick_points(n=n)
-        print(pts)
-        # --- To avoid wrong points due to zooming, just use the last two points
-        pts = pts[-2:]
-        print(pts)
+        pts = self.pick_points(n=n, title="Pick points for the bounding box.")
+        print("Points picked in pixels: ", pts)
         
-        # --- Make extent
-        ((x1, y1), (x2, y2)) = pts
-        xmin, xmax = sorted([x1, x2])
-        ymin, ymax = sorted([y1, y2])
-        extent = (xmin, xmax, ymin, ymax)
+        # --- To avoid wrong points due to zooming, just use the
+        # --- min and max of the x and y of the array of points
+        px, py = np.array(pts).T
         
-        print(extent)
-        return extent
+        pxmin, pxmax = np.min(px), np.max(px)
+        pymin, pymax = np.min(py), np.max(py)
+        pxl_extent = (pxmin, pxmax, pymin, pymax)
+        
+        return pxl_extent
 
     
     def show_click(self, px, py):
+        """Show where you click."""
         fig, ax = plt.subplots()
         ax.imshow(self.image)
         ax.plot(px, py, 'ro')
@@ -218,12 +217,12 @@ class ImagePicker:
         """
         x_min, _, z_min, _ = self.world_bbox
 
-        ix = int((x - x_min) / self.dx)
-        iz = int((z - z_min) / self.dz)
+        col = int((x - x_min) / self.dx)
+        row = int((z - z_min) / self.dz)
 
         # --- center of voxel
-        x_snap = x_min + (ix + 0.5) * self.dx
-        z_snap = z_min + (iz + 0.5) * self.dz
+        x_snap = x_min + (col + 0.5) * self.dx
+        z_snap = z_min + (row + 0.5) * self.dz
 
         return x_snap, z_snap
     
@@ -253,8 +252,7 @@ class ImagePicker:
     
     def show_snap(self, px, py):
         px_s, py_s = self.snap_pixel(px, py)
-
-        import matplotlib.pyplot as plt
+        
         fig, ax = plt.subplots()
         ax.imshow(self.image)
 
@@ -306,16 +304,16 @@ class CrossSectionDigitizer:
         self.legend_colors = None   # (n_types, 3)
         self.legend_labels = None   # optional
 
-        self.section_bbox = None    # (xmin, xmax, ymin, ymax) in pixels
-        self.world_bbox = None      # (x_min, x_max, z_min, z_max)
+        self.pxl_bbox   = None    # (pxmin, pxmax, pymin, pymax)
+        self.world_bbox = None    # (x_min, x_max, z_min, z_max)
 
-        self.grid = None            # (nx, nz)
+        self.grid = None          # (nx, nz)
         self.dx = None
         self.dz = None
         
-    def set_section_bbox(self, xmin, xmax, ymin, ymax):
+    def set_pxl_bbox(self, pxmin, pxmax, pymin, pymax):
         """The bbox of the cross section in pixels."""
-        self.section_bbox = (xmin, xmax, ymin, ymax)
+        self.pxl_bbox = (pxmin, pxmax, pymin, pymax)
 
     def set_world_bbox(self, x_min, x_max, z_min, z_max):
         """The actual cross sections in real-world coordinates."""
@@ -329,10 +327,10 @@ class CrossSectionDigitizer:
         x_min, x_max, z_min, z_max = self.world_bbox
 
         # --- Number of cells in x and z direction.
-        nx = int((x_max - x_min) / dx)
-        nz = int((z_max - z_min) / dz)
+        ncols = int((x_max - x_min) / dx)
+        nrows = int((z_max - z_min) / dz)
 
-        self.grid = (nx, nz)
+        self.grid = (ncols, nrows)
         
     def set_legend_colors(self, colors, labels=None):
         """
@@ -345,7 +343,7 @@ class CrossSectionDigitizer:
         self.legend_labels = labels
         
     def pixel_to_world(self, px, py):
-        pxmin, pxmax, pymin, pymax = self.section_bbox
+        pxmin, pxmax, pymin, pymax = self.pxl_bbox
         x_min, x_max, z_min, z_max = self.world_bbox
 
         x = x_min + (px - pxmin) / (pxmax - pxmin) * (x_max - x_min)
@@ -356,11 +354,11 @@ class CrossSectionDigitizer:
         return x, z
     
     def world_to_pixel(self, x, z):
-        xmin, xmax, ymin, ymax = self.section_bbox
+        pxmin, pxmax, pymin, pymax = self.pxl_bbox
         x_min, x_max, z_min, z_max = self.world_bbox
 
-        px = xmin + (x - x_min) / (x_max - x_min) * (xmax - xmin)
-        py = ymin + (z_max - z) / (z_max - z_min) * (ymax - ymin)
+        px = pxmin + (x - x_min) / (x_max - x_min) * (pxmax - pxmin)
+        py = pymin + (z - z_max) / (z_min - z_max) * (pymax - pymin)
 
         return int(px), int(py)
     
@@ -377,10 +375,16 @@ class CrossSectionDigitizer:
         half = size // 2
 
         # safe slicing
-        y0 = max(py - half, 0)
-        y1 = min(py + half + 1, self.image.shape[0])
-        x0 = max(px - half, 0)
-        x1 = min(px + half + 1, self.image.shape[1])
+        # y0 = max(py - half, 0)
+        # y1 = min(py + half + 1, self.image.shape[0])
+        # x0 = max(px - half, 0)
+        # x1 = min(px + half + 1, self.image.shape[1])
+
+        y0 = py - half
+        y1 = py + half + 1
+        x0 = px - half
+        x1 = px + half + 1
+        
 
         patch = self.image[y0:y1, x0:x1]
 
@@ -441,6 +445,8 @@ class CrossSectionDigitizer:
         for ix in range(nx):
             for iz in range(nz):
                 px, py = self.world_to_pixel(xm[ix], zm[iz])
+                if (ix == nx - 50) and (iz == nz - 50):
+                    pass
 
                 color = self.sample_color(px, py)
                 soil_idx = self.match_color(color)
@@ -453,7 +459,7 @@ def plot_result(arr, world_extent=None):
     """Plot the cross section array with voxels now the legend index.
     """
     fig, ax = plt.subplots(figsize=(12, 5))
-    mappable = ax.imshow(arr[::-1], origin='lower', extent=world_extent)
+    mappable = ax.imshow(arr, origin='upper', extent=world_extent)
 
     fig.colorbar(mappable, ax=ax, label='Soil type index', location='bottom')
     
@@ -468,7 +474,7 @@ def plot_result(arr, world_extent=None):
     ax.set_ylabel('NAP [m]')
     
     ax.set_aspect(50)
-    # plt.show()
+    plt.show()
     
 class Dirs:
     """Local project directory namespace.
@@ -493,7 +499,7 @@ class Dirs:
 geoCodes = ['NUECga', 'NUECgb', 'NUEC1', 'NUNIHO', 'NUNIBA', 'NUBXWI-SI-KO', 'NUBX', 'NUDR', 'NUgs']
 
 # --- It is also crucial to set proper world extent coordinates for the Dino-loket X-sec image.
-world_extent=(0, 3630, -20.2, -0.80)
+world_extent=(0, 8625, -48.5, 0)
 
     
 # %%
@@ -513,9 +519,11 @@ if __name__ == '__main__':
     legend_colors = picker.get_colors(n=-1)
     print(legend_colors)
     
-    # --- The last legend_color is always [255., 255., 255.] to indicate empty cells later on
-    # --- Therefore we add a legend index 'none' for this code.
-    geoCodes.append('none')
+    # --- The first legend_color is always [255., 255., 255.] indicating empty cells   
+    # --- Therefore, pepend a legend index 'none' for these cells.
+    white = [255., 255., 255.]
+    colors   = [white] + legend_colors
+    geoCodes = ['none'] + geoCodes
     
     assert len(legend_colors) == len(geoCodes), (
         f"Len(colors) != len(geoCodes): {len(legend_colors)} != {len(geoCodes)}")
@@ -525,8 +533,8 @@ if __name__ == '__main__':
     picker = ImagePicker(geotop1)
     # --- Again, zoom in
     # --- Then pick 2 opposite corners, return to finish
-    extent = picker.get_bbox(n=-1)
-    print(extent)
+    pxl_extent = picker.get_pxl_bbox(n=-1)
+    print(pxl_extent)
     
     # --- Fill an array with soil indices where each index is the number of the
     # --- legend color boxes in that order (the order clicked before)
@@ -535,7 +543,7 @@ if __name__ == '__main__':
     digitizer = CrossSectionDigitizer(image=geotop1)
     
     # --- Set pixed extent (see extent obtained above)
-    digitizer.set_section_bbox(*extent)
+    digitizer.set_pxl_bbox(*pxl_extent)
     
     # --- Set world extent (given above in world coordinates)
     digitizer.set_world_bbox(*world_extent)
