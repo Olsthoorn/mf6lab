@@ -184,10 +184,8 @@ class ImagePicker:
         Click n points and return sampled RGB colors.
         Use right-click to remove point and Enter to finish.
         """
-        pts = self.pick_points(n, title="Pick the colors in sequence from the legend-boxes.")
-        
-        # --- Remove points caused by zooming. They have color [255., 255., 255.]
-        pts = [p for p in pts if not np.all(np.isclose(p, 255.))]
+        title="Pick the colors in sequence from the legend-boxes."
+        pts = self.pick_points(n, title=title)
 
         colors = []
         for px, py in pts:
@@ -196,15 +194,14 @@ class ImagePicker:
                 py-half:py+half+1,
                 px-half:px+half+1
             ]
-            color = np.median(patch, axis=(0,1))
-            colors.append(color)
 
-        colors = [clr for clr in colors if not np.all(np.isclose(clr, 255.))]
-        
-        # --- prepend pure white (no color) for empty cells with have code 'none'
-        colors = [[255., 255., 255.]] + colors
-        
-        return colors
+            # --- Median turns to float array of shap (1, 3)
+            color = np.median(patch, axis=(0,1)) / 255.
+
+            # -- List of (1,3) RGB arrays with values 0.0-1.0
+            colors.append(color)
+                
+        return np.array(colors)
     
     def get_pxl_bbox(self, n=-1):
         """Return bbox. Zoom in and press corners. Enter when done."""
@@ -424,12 +421,18 @@ class CrossSectionDigitizer:
         # robust representative color
         return np.median(filtered, axis=0)
     
-    def match_color(self, color):
+    def match_color(self, color255):
         """Use nearest color in RGB space.
+        
+        Make sure that the color's range 0-255 matches that
+        of the legend_colors which are in the range 0.0-1.0
+        
         Later improvement: Use LAB color space (much better perceptually).
         
         """
-        diffs = self.legend_colors - np.array(color)
+        # --- color from image is 0-255 convert to range 0-1 of legend_colors
+        
+        diffs = self.legend_colors - np.array(color255) / 255.
         dist = np.sqrt((diffs**2).sum(axis=1))
         return np.argmin(dist)
     
@@ -533,18 +536,49 @@ def show_filled_array(xsec):
     ax.hlines(z, xmin=xmin, xmax=xmax, color='k', lw=0.2)
     return ax
     
-   
-# --- It is crucial to get the geoCodes correct from the Dino-loket cross section image legend    
-geoCodes = ['NUECga', 'NUECgb', 'NUEC1', 'NUNIHO', 'NUNIBA', 'NUBXWI-SI-KO', 'NUBX', 'NUDR', 'NUgs']
+# --- Lithoclasses from legend of geotop X-sections
+litho_classes = {
+    'a' :  {'kh':   2., 'kv': 0.2, "n":0.35, 'rho': 2600, "descr": "antrop."},
+    'v' :  {'kh':   2., 'kv': 0.2, "n":0.70, 'rho': 1400, "descr": "veen"},
+    'k' :  {'kh':  0.1, 'kv':0.01, "n":0.50, 'rho': 2600, "descr": "klei"},
+    'kz':  {'kh':   1., 'kv': 0.1, "n":0.40, 'rho': 2600, "descr": "klei-zand"},
+    'zf':  {'kh':   5., 'kv': 0.5, "n":0.35, 'rho': 2600, "descr": "fijn zand"},
+    'zm':  {'kh':  15., 'kv': 1.5, "n":0.35, 'rho': 2600, "descr": "m.f. zand"},
+    'zg':  {'kh':  30., 'kv': 3.0, "n":0.35, 'rho': 2600, "descr": "grof zand"},
+    'g':   {'kh': 100., 'kv': 10., "n":0.30, 'rho': 2600, "descr": "grind"},
+    'she': {'kh':  10., 'kv': 1.0, "n":0.45, 'rho': 2450, "descr": "schelpen"},
+}
 
-# --- It is also crucial to set proper world extent coordinates for the Dino-loket X-sec image.
-world_extent=(0, 8625, -48.5, 0)
+# --- Geological unis from legend of geotop X-sections
+geo_units = {
+    "NUAAOP"         : {"kh": 5.,   "kv": 5.,	 "n":0.40, "rho": 2600, "descr": "Anthro. Opgebr."},
+    "NUECga"         : {"kh": 2.,   "kv": 0.2,	 "n":0.38, "rho": 2600, "descr": "F.v. Echteld"},
+    "NUECgb"         : {"kh": 2.,   "kv": 0.2,	 "n":0.38, "rho": 2600, "descr": "F.v. Echteld"},
+    "NUEC1"          : {"kh": 2.,   "kv": 0.2,	 "n":0.38, "rho": 2600, "descr": "F.v. Echteld"},
+    "NUNIHO"         : {"kh": 1.,   "kv": 0.1,	 "n":0.50, "rho": 1200, "descr": "F.v.Nieuwkoop Hollandveen"},
+    "NUNIBA"         : {"kh": 0.05, "kv": 0.005, "n":0.50, "rho": 1400, "descr": "F.v.Nieuwkoop Basisveenlaag"},
+    "NUNBXWI-SI-KO"  : {"kh": 8.,   "kv": 0.8,   "n":0.38, "rho": 2600, "descr": "F.v.Boxtel-laagpakketten van Wierden-Singraven-Kootwijk"},
+    "NUBX"           : {"kh": 5.,   "kv": 0.5,   "n":0.38, "rho": 2600, "descr": "F.v.Boxtel"},
+    "NUKR-BXDE"      : {"kh": 25.,  "kv": 5.,    "n":0.35, "rho": 2600, "descr": "F.v.Krefenheye-Boxtel laagpakket Terlijnen"},
+    "NUDR" 	         : {"kh": 30.,  "kv": 5.,	 "n":0.35, "rho": 2600, "descr": "F.v.Drenthe"},
+    "NUgs" 	         : {"kh": 10.,  "kv": 1.,	 "n":0.35, "rho": 2600, "descr": "???"},
+    "NUUR2"          : {"kh": 20.,  "kv": 2.,    "n":0.35, "rho": 2600, "descr": "F.v.Urk"},
+    "NUST"           : {"kh": 40.,  "kv": 4.,    "n":0.35, "rho": 2600, "descr": "F.v.Sterksel"},
+}
 
     
 # %%
 if __name__ == '__main__':
     dirs = Dirs()
     
+    # --- It is crucial to get the geoCodes correct from the Dino-loket cross section image legend    
+    geoCodes = ['NUECga', 'NUECgb', 'NUEC1', 'NUNIHO', 'NUNIBA', 'NUBXWI-SI-KO', 'NUBX', 'NUDR', 'NUgs']
+
+    # --- It is also crucial to set proper world extent coordinates for the Dino-loket X-sec image.
+    world_extent=(0, 8625, -48.5, 0)
+    
+    WHITE = [1., 1., 1.]
+
     geotop_pdf = glob(dirs.dino + '*.pdf')[-1]
     geotop1, geotop2 = pdf2image.convert_from_path(geotop_pdf, dpi=300)
     geotop1 = np.asarray(geotop1.convert("RGB"))  
@@ -560,8 +594,10 @@ if __name__ == '__main__':
     
     # --- The first legend_color is always [255., 255., 255.] indicating empty cells   
     # --- Therefore, pepend a legend index 'none' for these cells.
-    white = [255., 255., 255.]
-    colors   = [white] + legend_colors
+
+
+    # --- Prepending WHITE and 'none' This is kind of arbitrary
+    colors   = [WHITE] + legend_colors
     geoCodes = ['none'] + geoCodes
     
     assert len(legend_colors) == len(geoCodes), (
