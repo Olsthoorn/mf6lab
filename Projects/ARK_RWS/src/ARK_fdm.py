@@ -11,9 +11,7 @@
 
     The picker below allows first importing the image with the legend.
     You can pick the colorboxes of the legend to pick the colors and
-    capture them in a RGB array. The last color will always be white
-    (255., 255., 255.) for layer use with the sampling of the actual
-    cross section.
+    capture them in a RGB array.
 
     Then the picker is instantiated with the image of the actual cross
     section and the ll and ur corners are picked giving the
@@ -50,6 +48,7 @@
     """
 # %%
 import os
+import re
 from glob import glob
 from pathlib import Path
 import pdf2image
@@ -80,79 +79,26 @@ class Dirs:
         self.src    = os.path.join(self.home, 'src/')
         self.notebooks = os.path.join(self.home, 'notebooks/')
  
+ 
+def parse_geotop_filename(geotop_pdf_name):
+    """Return xsec_type, x and y form geotop_pdf file name."""
+    
+    # --- Everything after "doorsnede" in the file name
+    after = geotop_pdf_name.split("doorsnede", 1)[1]
+
+    # --- Extract xsec_type, x and y
+    match = re.search(r' (\D+) (\d+\.?\d*),(-?\d+\.?\d*)', after)
+    
+    if match:
+        xsec_type = (match.group(1))
+        x = float(match.group(2))
+        y = float(match.group(3))
+    else:
+        xsec_type, x, y = None, None, None
+
+    return xsec_type, x, y
+
 # %%
-class PropSection:
-    """Class specifying extended cross section properties.
-    
-    The PropSection consists of a set of PropBlocks that
-    together constitute a complete cross section.
-    
-    It's purpose is mainly to manage the set of PropSec objects.
-    """
-    def __init__(self, propsecs: list | tuple):
-        self.secs = propsecs
-        
-    def plot(self):
-        for sec in self.secs:
-            sec.plot()
-
-    def fill(self, gr, prop_name):
-        A = gr.const(0.)
-        for sec in self.secs:
-            A = self.fill(A, prop_name)
-        return A
-    
-
-class PropsSec:
-    """Class specifying the properties of part of a vertical X-section independent of the model grid.
-    
-    The FDM model grid can be filled with values from these property sections.
-    The FDM grid for a property will be completely filled if the total set of
-    property sections cover the entire grid X-section.
-    
-    Property section may overlap to overwrite parts that have already been filled.
-    This helps refining the model, adding things like sheet piling and exacavations
-    as well a specifying different scenarios.
-    
-    The PropSec is instantiated with two inputs:
-    
-    1) The extent, i.e. the coordinates of the ends of the section.
-    2) The data, which are provided as a pandas DataFrame.
-        
-    """
-    
-    def __init__(self, extent, data):
-        """Instantiate a block.
-        
-        Parameters
-        ----------
-        extent: tuple
-            The spatial exent of the section.
-        data: pd.DataFrame
-            The layer data. The data DataFrame has at least the following columns:
-            id z1 z2 k1 k3 S n name type color
-            z2 < z1, will be verified.
-        """
-        self.extent=extent
-        self.props = data
-        
-    def plot(self):
-        """Plot the prop section using patches"""
-        pass
-    
-    
-    def fill(self, gr, A, prop_name='kx'):
-        """Return grid array A with property of this section filled in.
-        
-        Parameters
-        ----------
-        A is an array of gr.shape. Row 1 of this array will be
-        overwritten by the property values of the currenct parameter within the
-        extent of the current PropSec object.
-        """
-        pass
-        
-
 class ImagePicker:
     def __init__(self, image):
         self.image = image
@@ -376,30 +322,15 @@ class CrossSectionDigitizer:
         py = pymin + (z - z_max) / (z_min - z_max) * (pymax - pymin)
 
         return int(px), int(py)
-    
-    # def sample_color(self, px, py, size=3):
-    #     """Robust sampling. Don't use a single pixel, use a small window."""
-    #     half = size // 2
-    #     patch = self.image[
-    #         py-half:py+half+1,
-    #         px-half:px+half+1
-    #     ]
-    #     return patch.mean(axis=(0,1))
-    
+        
     def sample_color(self, px, py, size=5, dark_thresh=50):
         half = size // 2
 
         # safe slicing
-        # y0 = max(py - half, 0)
-        # y1 = min(py + half + 1, self.image.shape[0])
-        # x0 = max(px - half, 0)
-        # x1 = min(px + half + 1, self.image.shape[1])
-
-        y0 = py - half
-        y1 = py + half + 1
-        x0 = px - half
-        x1 = px + half + 1
-        
+        y0 = max(py - half, 0)
+        y1 = min(py + half + 1, self.image.shape[0])
+        x0 = max(px - half, 0)
+        x1 = min(px + half + 1, self.image.shape[1])
 
         patch = self.image[y0:y1, x0:x1]
 
@@ -431,49 +362,45 @@ class CrossSectionDigitizer:
         
         """
         # --- color from image is 0-255 convert to range 0-1 of legend_colors
-        
         diffs = self.legend_colors - np.array(color255) / 255.
         dist = np.sqrt((diffs**2).sum(axis=1))
-        return np.argmin(dist)
+        return np.argmin(dist) # is an int
     
-    def build_array(self, gr=None):
-        """Return array of size (nz,nx) filled with legend index.
-        
-        Parameters
-        ----------
-        gr: Grid object | None
-            grid object used with fdmr (in tools/fdm/src/mfgrid)
-            Allows filling an arbitrary rectangular grid.
+    def build_idx_array(self):
+        """Return array of size (nz,nx) filled with legend indices (dtype int).        
         """
+        assert np.all(self.legend_colors[0] > 0.95), (
+            "leg_colors must have wite [1., 1., 1.] as first color."
+        )
         
-        if gr is None:
-            nx, nz = self.grid
-            x_min, x_max, z_min, z_max = self.world_bbox
-            x = np.linspace(x_min, x_max, nx + 1) 
-            z = np.linspace(z_max, z_min, nz + 1)
-            xm = 0.5 * (x[:-1] + x[1:])
-            zm = 0.5 * (z[:-1] + z[1:])
-        else:
-            self.world_bbox = (gr.x[0], gr.x[-1], gr.z[-1], gr.z[0])
-            nx, nz = gr.nx, gr.nz
-            x = gr.x
-            z = gr.z
-            xm = gr.xm
-            zm = gr.zm
+        nx, nz = self.grid
+        x_min, x_max, z_min, z_max = self.world_bbox
+        x = np.linspace(x_min, x_max, nx + 1) 
+        z = np.linspace(z_max, z_min, nz + 1)
+        xm = 0.5 * (x[:-1] + x[1:])
+        zm = 0.5 * (z[:-1] + z[1:])
 
+        # --- Notice dtype int
         arr = np.zeros((nz, nx), dtype=int)
 
         for ix in range(nx):
             for iz in range(nz):
                 px, py = self.world_to_pixel(xm[ix], zm[iz])
+                
+                # --- A bus-stop to be used for debugging
                 if (ix == nx - 50) and (iz == nz - 50):
                     pass
 
                 color = self.sample_color(px, py)
-                soil_idx = self.match_color(color)
+                soil_idx = self.match_color(color) # an int
 
                 arr[iz, ix] = soil_idx
-        return arr    
+                
+        # --- Very ugly and arbitrarily, cancel index 0 in line 1
+        # --- Reason: due to vertical extent mismatch, the horizontal black line
+        #     in the image interfers with the color of the top voxels.
+        arr[0, arr[0, :] == 1] = 0
+        return arr    # dtype int
 
 
 def plot_result(arr, world_extent=None):
@@ -498,13 +425,13 @@ def plot_result(arr, world_extent=None):
     plt.show()
     
 
-def show_filled_array(xsec):
+def show_leg_index_array(xsec):
     """Show the array arr with the colors given."""
     
     fname = xsec['fname']
     arr = xsec['arr']
-    legend_colors = xsec['color']
-    labels = xsec['labels']
+    leg_colors = xsec['leg_colors']
+    leg_labels = xsec['leg_labels']
     
     print("Plotting:", fname)
     
@@ -518,10 +445,10 @@ def show_filled_array(xsec):
     fig.suptitle(fname)
 
     # --- Plot the legend labels in their correct color    
-    nl = len(labels)
+    nl = len(leg_labels)
     fxs = np.linspace(0.05, 0.095, nl + 1)[1:]
     fy = 0.9
-    for fx, color, label in zip(fxs, colors, labels):
+    for fx, color, label in zip(fxs, leg_colors, leg_labels):
         fig.text(fx, fy, label, color=color, fontsize=10, transform=transFigure)
     
     ax.imshow(arr_RGB, origin='upper', extent=world_extent, )
@@ -537,7 +464,7 @@ def show_filled_array(xsec):
     return ax
     
 # --- Lithoclasses from legend of geotop X-sections
-litho_classes = {
+LITHO_CLASSES = {
     'a' :  {'kh':   2., 'kv': 0.2, "n":0.35, 'rho': 2600, "descr": "antrop."},
     'v' :  {'kh':   2., 'kv': 0.2, "n":0.70, 'rho': 1400, "descr": "veen"},
     'k' :  {'kh':  0.1, 'kv':0.01, "n":0.50, 'rho': 2600, "descr": "klei"},
@@ -550,7 +477,7 @@ litho_classes = {
 }
 
 # --- Geological unis from legend of geotop X-sections
-geo_units = {
+GEO_UNITS = {
     "NUAAOP"         : {"kh": 5.,   "kv": 5.,	 "n":0.40, "rho": 2600, "descr": "Anthro. Opgebr."},
     "NUECga"         : {"kh": 2.,   "kv": 0.2,	 "n":0.38, "rho": 2600, "descr": "F.v. Echteld"},
     "NUECgb"         : {"kh": 2.,   "kv": 0.2,	 "n":0.38, "rho": 2600, "descr": "F.v. Echteld"},
@@ -566,6 +493,226 @@ geo_units = {
     "NUST"           : {"kh": 40.,  "kv": 4.,    "n":0.35, "rho": 2600, "descr": "F.v.Sterksel"},
 }
 
+class Geotop_xsec:
+    """Class to store and manipulate getop x-sections"""
+    
+    def __init__(self, fname,
+                 xsec_type,
+                xRD, yRD,
+                pxl_extent,
+                world_extent,
+                leg_colors,
+                leg_labels,
+                geo_units,
+                idx_arr):
+        self.name = fname
+        self.xsec_type = xsec_type
+        self.xRD = xRD
+        self.yRD =yRD
+        self.pxl_extent = pxl_extent
+        self.world_extent = world_extent
+        self.leg_colors = np.array(leg_colors)
+        self.leg_labels = leg_labels
+        self.geo_units = geo_units
+        self.idx_arr = idx_arr
+        self.shape = idx_arr.shape
+        
+        # --- verify leg_labels with geo_units.keys()
+        s = set(self.leg_labels).difference(self.geo_units.keys()).difference(['none'])
+        if not len(s) == 0:
+            print("Missing leg_labels in geo_units.keys():")
+            print(s)
+            raise ValueError("One or more leg_labels not in geo_units.keys()")
+
+        # --- Verify leg_labels and leg_colors:
+        if not len(self.leg_labels) == len(self.leg_colors):
+            raise ValueError("len(leg_colors) != len(leg_labels)")
+        
+        return None
+                      
+    def get_props(self):
+        """Return property arrays for all properties in geo_units."""
+        arrays = {'kh': np.zeros(self.shape, dtype=float),
+                  'kv': np.zeros(self.shape, dtype=float),
+                  'n' : np.zeros(self.shape, dtype=float),
+                  'rho': np.zeros(self.shape, dtype=float),                  
+                  }
+        
+        for idx, label in enumerate(self.leg_labels):
+            if label == 'none':
+                continue
+            mask = self.idx_arr == idx
+            for variable in arrays.keys():
+                arrays[variable][mask] = self.geo_units[label][variable]
+                
+        arrays['rho_wet'] = arrays['n'] * 1000. + (1 - arrays['n']) * arrays['rho']
+        return arrays
+
+
+    def fill_horizontal(self, skip_valids=0, arr=None):
+        """Return horizontally filled legend index array.
+        
+        Fill gaps (idx=0) of the idx_arr with the nearest
+        nonzero value in the same row.
+        
+        Empty rows remain empty.
+        
+        Parameters:
+        -----------
+        skip_valids: int (default=0)
+            rows to be let empty if numver of non zeros values is <= skip_valids
+        arr: array to be filled | None
+            if None, then self.idx_arr will be used.
+            Behavior if arr.shape != self.idx_arr.shape is uncertain.
+        """
+        # Use the xsec's own idx_arr if None
+        if arr is None:
+            arr = self.idx_arr.copy()
+            
+        nrows, ncols = arr.shape
+
+        filled = arr.copy()
+
+        # --- cell positions in the row
+        x = np.arange(ncols)
+
+        for i in range(nrows):
+            row = arr[i]
+            
+            # --- The nonzero positions in the row
+            valid = np.where(row != 0)[0]
+
+            # --- Rows with less than skip_valids non zero indices will be empty
+            if len(valid) <= skip_valids:
+                row[:] = 0
+                continue
+
+            # --- Compute distance to all valid points (shape=(len(x), len(valid))
+            dist = np.abs(x[:, None] - valid[None, :])
+
+            # ---- Find nearest valid index for each position using np.argmin along x
+            nearest_idx = valid[np.argmin(dist, axis=1)]
+
+            # --- fill the line with the correct legend index values
+            filled[i] = row[nearest_idx]
+
+        return filled    
+    
+    
+    def patch_array(self, arr, patch_extent, value):
+        """Return patched array.
+        
+        Parameters
+        ----------        
+        Holds the modflow5 type grid.
+        arr: np.ndarray        
+        patch_extent: 4 floats
+        xmin, xmax, zmin, zmax of the patch
+        value: float
+        value to patch
+        """
+        assert np.all(arr.shape == self.shape), (
+            f"Your arr.shape ({arr.shape}) does not match self.shape ({self.shape})."
+        )
+
+        xpmin, xpmax, zpmin, zpmax = patch_extent
+        xmin, xmax, zmin, zmax = self.world_extent
+        nz, nx = self.shape
+        
+        x = np.linspace(xmin, xmax, nx + 1)
+        z = np.linspace(zmax, zmin, nz + 1)
+        xm = 0.5 * (x[:-1] + x[1:])
+        zm = 0.5 * (z[:-1] + z[1:])
+        XM, ZM = np.meshgrid(xm, zm) 
+        
+        mask = np.logical_and.reduce(
+            XM > xpmin, XM < xpmax,
+            ZM > zpmin, ZM < zpmax
+        )        
+        arr[mask] = value
+        return arr
+    
+    def show_leg_index_array(self):
+        """Show the index array with legend colors."""
+
+        print("Plotting:", self.name)
+        
+        # --- Convenience shorthands
+        leg_colors = np.asarray(self.leg_colors * 255, dtype=int)
+        idx_arr = self.idx_arr
+        
+        # --- Map each of the RGB colors to its sheet
+        arr_RGB = np.zeros((*self.shape, 3), dtype=int)
+        arr_RGB[:,:,0] = leg_colors[idx_arr.ravel(), 0].reshape(self.shape)
+        arr_RGB[:,:,1] = leg_colors[idx_arr.ravel(), 1].reshape(self.shape)
+        arr_RGB[:,:,2] = leg_colors[idx_arr.ravel(), 2].reshape(self.shape)
+        
+        # --- Build the plot
+        fig, ax = plt.subplots(figsize=(10,6))
+        
+        fig.suptitle(self.name)
+
+        # --- Plot the legend labels in their correct color
+        # --- First get optimal start for lbl boxes
+        lx = [0]
+        for lbl in self.leg_labels[1:]:
+            lx.append(len(lbl) + 2)
+        lx = np.array(lx)
+        fxs = 0.10 + np.cumsum(lx)/sum(lx) * 0.8                        
+        fy = 0.9
+        
+        # --- Plot the labels
+        for fx, color, label in zip(fxs[:-1], self.leg_colors[1:], self.leg_labels[1:]):
+            fig.text(fx, fy, label, fontsize=9, transform=fig.transFigure,
+                     bbox=dict(ec='k', fc=color))
+        
+        # --- Show the contents (X-sec in its original Geotop colors)
+        ax.imshow(arr_RGB, origin='upper', extent=self.world_extent)
+        ax.set_aspect(50)
+        
+        # --- Plot voxel boundaries
+        xmin, xmax, zmin, zmax = self.world_extent
+        nx, nz = self.shape
+        x = np.linspace(xmin, xmax, nx + 1)
+        z = np.linspace(zmin, zmax, nz + 1)
+        
+        ax.vlines(x, ymin=zmin, ymax=zmax, color='k', lw=0.2)
+        ax.hlines(z, xmin=xmin, xmax=xmax, color='k', lw=0.2)
+        return ax
+    
+    def plot_array(self, arr=None, par_name='parameter?'):
+        """Plot the cross section array with  values in array.
+        """
+        if arr is None:
+            arr = self.idx_arr
+            par_name = "legend-index"
+        else:
+            assert np.all(arr.shape == self.shape), (
+                f"arr.shape {arr.shape} not equal to slf.shape {self.shape}"
+            )
+
+        fig, ax = plt.subplots(figsize=(12, 5))
+        fig.suptitle(self.name)
+        ax.set_title(par_name)
+        ax.set(xlabel='x [m]', ylabel='z [m NAP')
+        
+        mappable = ax.imshow(arr, origin='upper', extent=self.world_extent)
+
+        fig.colorbar(mappable, ax=ax, label=par_name, location='bottom')
+        
+        # --- Add grid lines surrounding the voxels
+        nz, nx = arr.shape
+        xmin, xmax, zmin, zmax = self.world_extent
+        for x in np.linspace(xmin, xmax, nx+1):
+            ax.axvline(x, color='k', lw=0.2)
+        for y in np.linspace(zmin, zmax, nz+1):
+            ax.axhline(y, color='k', lw=0.2)
+        
+        ax.set_xlabel('x langs doorsnede [m]')
+        ax.set_ylabel('NAP [m]')
+        
+        ax.set_aspect(50)
+        return ax
     
 # %%
 if __name__ == '__main__':
@@ -577,8 +724,6 @@ if __name__ == '__main__':
     # --- It is also crucial to set proper world extent coordinates for the Dino-loket X-sec image.
     world_extent=(0, 8625, -48.5, 0)
     
-    WHITE = [1., 1., 1.]
-
     geotop_pdf = glob(dirs.dino + '*.pdf')[-1]
     geotop1, geotop2 = pdf2image.convert_from_path(geotop_pdf, dpi=300)
     geotop1 = np.asarray(geotop1.convert("RGB"))  
@@ -591,17 +736,10 @@ if __name__ == '__main__':
     # --- Step 1: Pick legend colors
     legend_colors = picker.get_colors(n=-1)
     print(legend_colors)
-    
-    # --- The first legend_color is always [255., 255., 255.] indicating empty cells   
-    # --- Therefore, pepend a legend index 'none' for these cells.
-
-
-    # --- Prepending WHITE and 'none' This is kind of arbitrary
-    colors   = [WHITE] + legend_colors
-    geoCodes = ['none'] + geoCodes
-    
+        
     assert len(legend_colors) == len(geoCodes), (
         f"Len(colors) != len(geoCodes): {len(legend_colors)} != {len(geoCodes)}")
+ 
  
     # --- Initiate a new picker, now with the cross section   
     # --- To get the pixel bounding box
@@ -633,12 +771,8 @@ if __name__ == '__main__':
     x = np.linspace(world_extent[0], world_extent[1], 201)
     z = np.linspace(world_extent[2], world_extent[3],  101)
     
-    # -- Fill in an array of a cross section according to the grid object
-    gr = Grid(x, None, z, axial=False)
-    arr = digitizer.build_array(gr=gr)
-    
     # === Fill in an array of a cross section using  dx and dz and world_extent
-    arr = digitizer.build_array(gr=None)
+    arr = digitizer.build_idx_array()
     
     # --- Show the cross section using imshow, which fills the voxels
     plot_result(arr, world_extent)
