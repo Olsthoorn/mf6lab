@@ -1,50 +1,57 @@
 # ARK_fdm
 # %%
-"""Set up some classes to facilitate importing cross-section images like
-    Geotop from Dinoloket.nl.
+"""Set up some classes to facilitate importing cross-section images
+    of the Geotop subsurface model from Dinoloket.nl.
 
-    When downloading such an image and subsequently importing them
-    you get two images from the same download. The first is the
-    image of the cross section itself, the second is the image
-    with the legend, a small map showing where the image is
-    and some additional information.
-
-    The picker below allows first importing the image with the legend.
-    You can pick the colorboxes of the legend to pick the colors and
-    capture them in a RGB array.
-
-    Then the picker is instantiated with the image of the actual cross
-    section and the ll and ur corners are picked giving the
-    image's extent in pixels. Together with the separtely given
-    world_extent of the image's X-sec and the horizontal and vertical
-    size of the Geotop voxels in the image, a voxel array is then
-    automatically filled by sampling its voxel colors. The array
-    values are the index of the legend boxes in that order,
-    where the last corresponds to pure whte, meaning an empty
-    voxel.
-
-    It's best to stick with the size of the Geotop voxels when
-    sampling because using a finer grid may result in background
-    lines in the image being interpreted as legend color, which is
-    not what you want.
-
-    Clearly, the legend index can be converted to anything else that
-    corresponds to the legend index, for instance layer names, layer
-    types, conductivity etc. A convenient way is to link such
-    properties with the legend in a pandas DataFrame.
-
-
-    The second subject is to fill a cross section model grid
-    with properties. The voxels of this model grid may not
-    correspond with that of the Geotop cross section used above.
+    Importing a geotop pdf x-section yields two pages
     
-    Given the Geotop world_extent and its dx and dz voxel size, the
-    voxel of each coordinate pair is uniquely difined. So given a
-    normal model x-section grid, the cell value can be sampled in the
-    Geotop X-section uniquely. Moreover one can specify a slice of the
-    Getop X-section to match a slice of the actual model grid and fill that.
+        1. The mage of the cross section itself
+        2. The image with the legend and a small map showing
+            where the x-section lies on the map.
+
+    The ImagePicker below is used to
+    1. to sample the colors from the legend boxes
+    2. to sample the coordinates of the x-section in the maps
+    3. to sample the extent of the x-section.
+    4. to sample the tick marks of the axes of the x-section
+
+    The ticmarks are used to  compute the x of the end of each
+    x-section.
+
+    The various sampled and computed data sets are pickled
+    for later use. They are in dirs.data directory.
+    
+    All manipulation is done here on the voxels defined by
+    the dx and dy of the geotop grid. Normally dx=100 m, dy=0.5 m.
+    This is true as long as the x-section is parallel to the x
+    or y axis on the maps. For other directions, the dx may
+    be adapted. If not everything will work, but the result may
+    be slightly less accurate as the sampling point will not
+    coincide with each Geotop voxel.
+
+    The CrossSectionDigitizer class will sample the cross section
+    in the image when all other data are present (pxl_extent,
+    world_extent etc.). This sampling is done aoutmatically.
+    The result is an array with legend indices idx_arr. The
+    value 0 corresponds to empty cells (with legend 'none') the
+    higher values correspond to the repective legend color and label.
+
+    The Getop_xsec class carries all relevant data for
+    each section while its methods allow to visualize
+    the x-secxtions and compute the parameter values
+    for each voxel. These values are obtained from
+    the geo_units dictionary pertaining to each x-section.
+    
+    The x-sections will initially show some gaps, for instance due to
+    an incicion canal. These can be filled by their nearest horizontal
+    neighbor. After that the x-section will be completely filled which
+    may facilitate generated model property cross sections, in which
+    the model grid differs from the geotop grid by another choice of
+    layer and column size.
+    
+    For filling layers, see ARK_fdm.py / ARK_fdm.ipynb
        
-    @TO 2026-03-24, 04-03
+    @TO 2026-03-24, 2026-04-10
     """
 # %%
 import os
@@ -57,7 +64,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from tools.fdm.src.mfgrid import Grid
-from IPython.display import display
+
 
 # %%
 class Dirs:
@@ -501,6 +508,7 @@ class Geotop_xsec:
                 xRD, yRD,
                 pxl_extent,
                 world_extent,
+                xy_map_pxl,
                 leg_colors,
                 leg_labels,
                 geo_units,
@@ -511,11 +519,19 @@ class Geotop_xsec:
         self.yRD =yRD
         self.pxl_extent = pxl_extent
         self.world_extent = world_extent
+        self.xy_map_pxl = xy_map_pxl
         self.leg_colors = np.array(leg_colors)
         self.leg_labels = leg_labels
         self.geo_units = geo_units
         self.idx_arr = idx_arr
         self.shape = idx_arr.shape
+        
+        # Set some useful properties
+        self.nx, self.ny = self.shape
+        
+        xmin, xmax, zmin, zmax, = self.world_extent
+        self.dx = (xmax - xmin) / self.nx
+        self.dz = (zmax - zmin) / self.nz
         
         # --- verify leg_labels with geo_units.keys()
         s = set(self.leg_labels).difference(self.geo_units.keys()).difference(['none'])
@@ -528,9 +544,102 @@ class Geotop_xsec:
         if not len(self.leg_labels) == len(self.leg_colors):
             raise ValueError("len(leg_colors) != len(leg_labels)")
         
+        self.map_xy()
+        
         return None
+    
+    @property
+    def dx(self):
+        xmin, xmax, _, _ = self.world_extent
+        nx = self.shape[1]
+        return (xmax - xmin) / nx
+    @property
+    def dz(self):
+        _, _, zmin, zmax = self.world_extent
+        nz = self.shape[0]
+        return (zmax - zmin) / nz
+    @property
+    def x(self):
+        nx = self.shape[1]
+        xmin, xmax, _, _ = self.world_extent
+        return np.linspace(xmin, xmax, nx + 1)
+    @property
+    def z(self):
+        nz = self.shape[0]
+        _, _, zmin, zmax = self.world_extent
+        return np.linspace(zmax, zmin, nz + 1)
+    @property
+    def xm(self):
+        x_ = self.x
+        return 0.5 * (x_[:-1] + x_[1:])
+    @property
+    def zm(self):
+        z_ = self.z
+        return 0.5 * (z_[:-1] + z_[1:])
+    @property
+    def X(self):
+        nz, nx = self.shape
+        return np.broadcast_to(self.x[None, :], (nz + 1, nx + 1))
+    @property
+    def Z(self):
+        nz, nx = self.shape
+        return np.broadcast_to(self.z[:, None], (nz + 1, nx + 1))
+    @property
+    def XM(self):
+        nz, nx = self.shape
+        return np.broadcast_to(self.xm[None, :], (nz, nx))
+    @property
+    def ZM(self):
+        nz, nx = self.shape
+        return np.broadcast_to(self.z[:, None], (nz, nx))
+    @property
+    def Area(self):
+        return -np.diff(self.z)[:, None] * np.diff(self.x)[None, :]
+
+    
+    def map_xy(self):
+        """Add the coordinates of the X-section to self.
+        
+        The coordinates are obtained from the pixel coordinates
+        of the map on the legend page of the geotop pdf,
+        the x,y in the name of the geotop_pdf file,
+        and the length of the x_section, which is the
+        the xmax of the world_extent.
+        
+        This function is invoked only at the instantiation of this class.
+        """
+        # --- pixel coordinates of xsec on the small map
+        # --- of the geotop pdf, p2
+        dxy_pxl = np.diff(self.xy_map_pxl, axis=0)
+        ds_pxl = np.sqrt((dxy_pxl ** 2).sum(axis=1))
+        
+        ex =  dxy_pxl.T[0] / ds_pxl # cos
+        ey = -dxy_pxl.T[1] / ds_pxl # sin
+        
+        # --- world_dist  / pxl_dist
+        L = self.world_extent[1] # --- xmax
+        scale = L / ds_pxl.sum()
+
+        # --- world length of line pieces
+        ds = ds_pxl * scale
+
+        # --- First point
+        start_point = np.array([self.xRD, self.yRD])
+         
+        # --- Points along the cross section (bending points and end points)
+        points = np.zeros_like(self.xy_map_pxl, dtype=float) + np.array([start_point])
+        for i, (_ds, _ex, _ey) in enumerate(zip(ds, ex, ey)):
+            points[i + 1] = points[i] + _ds * np.array([[_ex, _ey]])
+        
+        # --- Distance along xsec in m
+        self.dist_m = np.round(np.cumsum(np.hstack((0, ds))), 0)
+        
+        # --- XY coordinates of Xsec points (RD-coordinaten m)
+        self.xyRD = np.round(points, 0)
+        return None
+
                       
-    def get_props(self):
+    def get_props(self, idx_arr=None):
         """Return property arrays for all properties in geo_units."""
         arrays = {'kh': np.zeros(self.shape, dtype=float),
                   'kv': np.zeros(self.shape, dtype=float),
@@ -538,10 +647,17 @@ class Geotop_xsec:
                   'rho': np.zeros(self.shape, dtype=float),                  
                   }
         
+        if idx_arr is None:
+            idx_arr = self.idx_arr
+        else:
+            assert np.issubtype(idx_arr.dtype, np.integer), (
+                "idx_arr must be of integer dtype (is index into legend)"
+            ) 
+        
         for idx, label in enumerate(self.leg_labels):
             if label == 'none':
                 continue
-            mask = self.idx_arr == idx
+            mask = idx_arr == idx
             for variable in arrays.keys():
                 arrays[variable][mask] = self.geo_units[label][variable]
                 
@@ -631,6 +747,43 @@ class Geotop_xsec:
         )        
         arr[mask] = value
         return arr
+    
+    def overlap(self, gr):
+        """Return legend index array of gr.shape given self.idx_array of self.shape.
+        
+        Parameters
+        ==========
+        gr: mfgrid.Grid object
+            grid object holding the structured fdm grid and all its properties
+        
+        Returns
+        =======
+        idx_arr: int array of gr.shape
+            legend indices of the cross-section cells at the gr cell centers
+        """
+        INVALID = -999
+        
+        # --- Find the xsec bins
+        Ix = np.searchsorted( self.x,  gr.xm, side='right') - 1
+        Iz = np.searchsorted(-self.z, -gr.zm, side='right') - 1
+        
+        # --- Find points outside the xsec's world_extent
+        valid_x = (Ix >= 0) & (Ix < self.idx_arr.shape[1])
+        valid_z = (Iz >= 0) & (Iz < self.idx_arr.shape[0])
+
+        # --- Only use the valid points (inside the xsec)
+        Ix = Ix[valid_x]
+        Iz = Iz[valid_z]
+
+        # --- Fill the int array of gr.shape
+        gr_idx_array = np.full(gr.shape, INVALID)
+
+        gr_idx_array[np.ix_(valid_z, valid_x)] = self.idx_arr[
+            Iz[:, None],
+            Ix[None, :]
+        ]
+        return gr_idx_array
+
     
     def show_leg_index_array(self):
         """Show the index array with legend colors."""
