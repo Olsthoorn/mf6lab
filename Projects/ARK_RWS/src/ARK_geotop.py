@@ -65,7 +65,6 @@ import matplotlib.pyplot as plt
 
 from tools.fdm.src.mfgrid import Grid
 
-
 # %%
 class Dirs:
     """Local project directory namespace.
@@ -333,7 +332,7 @@ class CrossSectionDigitizer:
     def sample_color(self, px, py, size=5, dark_thresh=50):
         half = size // 2
 
-        # safe slicing
+        # --- safe slicing
         y0 = max(py - half, 0)
         y1 = min(py + half + 1, self.image.shape[0])
         x0 = max(px - half, 0)
@@ -341,22 +340,22 @@ class CrossSectionDigitizer:
 
         patch = self.image[y0:y1, x0:x1]
 
-        # reshape to list of pixels
+        # --- reshape to list of pixels
         pixels = patch.reshape(-1, 3)
 
-        # compute brightness (Euclidean norm or simple sum)
+        # --- compute brightness (Euclidean norm or simple sum)
         brightness = np.linalg.norm(pixels, axis=1)
 
-        # filter out dark pixels
+        # --- filter out dark pixels
         mask = brightness > dark_thresh
 
         if np.any(mask):
             filtered = pixels[mask]
         else:
-            # fallback: use all pixels if everything was filtered out
+            # --- fallback: use all pixels if everything was filtered out
             filtered = pixels
 
-        # robust representative color
+        # --- robust representative color
         return np.median(filtered, axis=0)
     
     def match_color(self, color255):
@@ -525,14 +524,7 @@ class Geotop_xsec:
         self.geo_units = geo_units
         self.idx_arr = idx_arr
         self.shape = idx_arr.shape
-        
-        # Set some useful properties
-        self.nx, self.ny = self.shape
-        
-        xmin, xmax, zmin, zmax, = self.world_extent
-        self.dx = (xmax - xmin) / self.nx
-        self.dz = (zmax - zmin) / self.nz
-        
+                
         # --- verify leg_labels with geo_units.keys()
         s = set(self.leg_labels).difference(self.geo_units.keys()).difference(['none'])
         if not len(s) == 0:
@@ -866,6 +858,17 @@ class Geotop_xsec:
         
         ax.set_aspect(50)
         return ax
+    
+    def spy(self):
+        """Show where the index labels are in the xsec idx_arr."""
+        classes = np.unique(self.idx_arr)
+        cmap = plt.get_cmap('tab20', len(classes) - 1)
+        fig, ax = plt.subplots()
+        fig.suptitle(self.name)
+        ax.set_title("Location of the indices in self.idx_arr")
+        mappable = ax.imshow(self.idx_arr, cmap=cmap, origin='upper')
+        fig.colorbar(mappable)
+        plt.show()
     
 # %%
 if __name__ == '__main__':
