@@ -66,6 +66,11 @@ import matplotlib.pyplot as plt
 from tools.fdm.src.mfgrid import Grid
 
 # %%
+def sinspace(x1, x2, a1, a2, n):
+    z = np.sin(np.linspace(a1, a2, n))
+    z = (x2 - x1) * z / z.sum()
+    return x1 + z
+
 class Dirs:
     """Local project directory namespace.
     
