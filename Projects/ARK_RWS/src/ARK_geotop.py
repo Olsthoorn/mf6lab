@@ -785,21 +785,30 @@ class Geotop_xsec:
         ]
         return gr_idx_array
 
-    
-    def show_leg_index_array(self):
-        """Show the index array with legend colors."""
-
-        print("Plotting:", self.name)
+    def leg_color_array(self, idx_arr):
+        """Return index RGB array with legend colors."""
         
         # --- Convenience shorthands
         leg_colors = np.asarray(self.leg_colors * 255, dtype=int)
-        idx_arr = self.idx_arr
         
         # --- Map each of the RGB colors to its sheet
-        arr_RGB = np.zeros((*self.shape, 3), dtype=int)
-        arr_RGB[:,:,0] = leg_colors[idx_arr.ravel(), 0].reshape(self.shape)
-        arr_RGB[:,:,1] = leg_colors[idx_arr.ravel(), 1].reshape(self.shape)
-        arr_RGB[:,:,2] = leg_colors[idx_arr.ravel(), 2].reshape(self.shape)
+        arr_RGB = np.zeros((*idx_arr.shape, 3), dtype=int)
+        arr_RGB[:,:,0] = leg_colors[idx_arr.ravel(), 0].reshape(idx_arr.shape)
+        arr_RGB[:,:,1] = leg_colors[idx_arr.ravel(), 1].reshape(idx_arr.shape)
+        arr_RGB[:,:,2] = leg_colors[idx_arr.ravel(), 2].reshape(idx_arr.shape)
+        return arr_RGB
+
+    
+    def show_leg_index_array(self, idx_arr=None):
+        """Show the index array with legend colors."""
+        
+        if idx_arr is None:
+            idx_arr = self.idx_arr
+        
+        arr_RGB = self.leg_color_array(idx_arr)
+
+        print("Plotting:", self.name)
+        
         
         # --- Build the plot
         fig, ax = plt.subplots(figsize=(10,6))
