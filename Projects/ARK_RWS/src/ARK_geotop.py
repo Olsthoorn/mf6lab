@@ -522,7 +522,7 @@ class Geotop_xsec:
         self.xRD = xRD
         self.yRD =yRD
         self.pxl_extent = pxl_extent
-        self.world_extent = world_extent
+        self.world_extent = np.array(world_extent)
         self.xy_map_pxl = xy_map_pxl
         self.leg_colors = np.array(leg_colors)
         self.leg_labels = leg_labels
@@ -638,19 +638,22 @@ class Geotop_xsec:
                       
     def get_props(self, idx_arr=None):
         """Return property arrays for all properties in geo_units."""
-        arrays = {'kh': np.zeros(self.shape, dtype=float),
-                  'kv': np.zeros(self.shape, dtype=float),
-                  'n' : np.zeros(self.shape, dtype=float),
-                  'rho': np.zeros(self.shape, dtype=float),                  
-                  }
-        
+
         if idx_arr is None:
             idx_arr = self.idx_arr
         else:
-            assert np.issubtype(idx_arr.dtype, np.integer), (
+            assert np.issubdtype(idx_arr.dtype, np.integer), (
                 "idx_arr must be of integer dtype (is index into legend)"
             ) 
         
+        shape = idx_arr.shape
+        
+        arrays = {'kh':  np.zeros(shape, dtype=float),
+                  'kv':  np.zeros(shape, dtype=float),
+                  'n' :  np.zeros(shape, dtype=float),
+                  'rho': np.zeros(shape, dtype=float),                  
+                  }
+
         for idx, label in enumerate(self.leg_labels):
             if label == 'none':
                 continue
@@ -658,7 +661,7 @@ class Geotop_xsec:
             for variable in arrays.keys():
                 arrays[variable][mask] = self.geo_units[label][variable]
                 
-        arrays['rho_wet'] = arrays['n'] * 1000. + (1 - arrays['n']) * arrays['rho']
+        arrays['rho_wet'] = arrays['n'] * 1000. + (1 - arrays['n']) * arrays['rho']        
         return arrays
 
 
@@ -773,7 +776,8 @@ class Geotop_xsec:
         Iz = Iz[valid_z]
 
         # --- Fill the int array of gr.shape
-        gr_idx_array = np.full(gr.shape, INVALID)
+        # --- The gr_idx_array gets dimension (gr.nz, gr.nx)
+        gr_idx_array = np.full((gr.nz, gr.nx), INVALID, dtype=int)
 
         gr_idx_array[np.ix_(valid_z, valid_x)] = self.idx_arr[
             Iz[:, None],
