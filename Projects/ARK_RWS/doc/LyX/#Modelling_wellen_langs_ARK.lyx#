@@ -1,0 +1,307 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% \lstdefinestyle{mystyle}{
+%   language=Python,
+%   numbers=left
+% }
+
+% Put lstset here, after lstdefinestyle
+% \lstset{style=mystyle}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement H
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=left,% line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+RWS-ARK
+\end_layout
+
+\begin_layout Author
+T.N.Olsthoorn
+\end_layout
+
+\begin_layout Date
+16 april 2026
+\end_layout
+
+\begin_layout Abstract
+Verscheidene polders langs het ARK ondervinden zien al ruim een decennium een opgaande lijn in jaarlijks uitgemalen hoeveelheid water.
+ De hoeveelheden laten zien dat dit hoofdzakelijk kwel moet zijn als gevolg van het feit dat het waterpeil in het ARK beduidend hoger is dan het gehandhaafde peil in de polders ernaast.
+ Ook het voorkomen van wellen en de grondwaterstand boven maaiveld wijzen op kwel als oorzaak.
+\end_layout
+
+\begin_layout Abstract
+Op grond van onderzoek door Beemster () wordt vermoed dat dit wordt veroorzaakt door vorming van voren door het uitschuren van de bodem door de stuwkracht van grote binnenvaartschepen van op een diepte die samenvalt met de onderzijde slecht doorlatende toplagen,
+ die nog wel aanwezig zijn terzijde van het ARK.
+ Ter plaats van de uitgeschuurde voren is hierdoor het oorspronkelijk aanwezige weerstand biedend materiaal inmiddels verdwenen.
+\end_layout
+
+\begin_layout Abstract
+Lek vanuit het ARK en de kwel ernaast die hiervan het gevolg is,
+ kan altijd worden bestreden door het meer waterremmend maken van de bodem.
+ Methoden als het aanbrengen van asfalt of bentonietmatten zijn bekend.
+ Onlangs is de bodem langs delen van de Twentekanalen waterremmend gemaakt door het in den natte aanbrengen van een laag zand-bentoniet-mengsel (ZBM).
+ De laatste zachte oplossing heeft als voordeel dat hij geen belemmering vormt voor eventueel toekomstige veranderingen aan het kanaal.
+ Bovendien kunnen beschadigde trajecten later altijd worden hersteld.
+ De vraag die hier aan de orde is,
+ is in hoeverre ZBM een gschikte maatregel kan zijn voor het meer waterremmend maken van de bodem van het ARK en wat daarvan de duurzaamheid zal zijn en,
+ uiteraard de kosten op de korte en de lange termijn.
+\end_layout
+
+\begin_layout Section
+Intro
+\end_layout
+
+\begin_layout Section
+Wellen
+\end_layout
+
+\begin_layout Standard
+Wellen kunnen ontstaan waar de waterdruk in de ondergrond groter is dan het natte gewicht van het materiaal erboven.
+ De waterdruk volgt uit de stijghoogte minus de plaatshoogte en de druk van het materiaal op elk punt volgt uit het natte gewicht van het materiaal erboven.
+ De stijghoogte volgt direct uit de berekening van de grondwaterstroming en het materiaal gewicht volgt uit het watergehalte,
+ het soortelijk gewicht van het water en dat van het het droge materiaal.
+ Boven de grondwaterstand is het watergehalte kleiner dan de porositeit.
+ Daarmee kan rekening worden gehouden bij de berekening.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{w}=\rho g\left(\phi-z\right)\;\mathtt{[N/m^{2}]}
+\]
+
+\end_inset
+
+De totale druk van het bovenliggende materiaal ter plaatse van een punt op hoogte 
+\begin_inset Formula $z$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{a}=\intop_{z}^{z=mv}\rho_{w}gdz
+\]
+
+\end_inset
+
+Het is duidelijk dat een waterlichaam boven het beschouwde zelf geen overdruk kan genereren.
+ Daarom is de bodem van sloten de meest kritische plek voor het vormen van wellen.
+ Dat wil echter niet zeggen dat wellen alleen in sloten optreden;
+ de echte plek van een wel valt niet te voorspellen omdat ook de structuur van de grond een belangrijke rol speelt.
+ We kunnen desalniettemin de beschikbare overdruk onder sloten als meest kritisch beschouwen.
+\end_layout
+
+\begin_layout Standard
+Daar de sprong in de doorlatendheid zich op de (onder)grens van de rekencellen bevindt,
+ zal de 
+\begin_inset Formula $\phi$
+\end_inset
+
+ moeten worden berekend op deze grens in plaats van in het centrum van de rekencellen.
+ Uiteraard is 
+\begin_inset Formula $d\phi/dz$
+\end_inset
+
+ binnen twee op elkaar gelegen cellen verschillend.
+ Bij benadering nemen we aan dat de 
+\begin_inset Formula $q_{z}$
+\end_inset
+
+ tussen de middens van twee boven elkaar gelegen cellen gelijk is aan die hun horizontale grensvlak.
+ We krijgen dan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Delta\phi_{2} & =\Delta\phi-\Delta\phi_{1}\\
+\Delta\phi_{2} & =\Delta\phi+q_{z}\frac{\Delta z_{1}}{2k_{z1}}
+\end{align*}
+
+\end_inset
+
+Daar 
+\begin_inset Formula $q_{z}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\Delta z_{1}$
+\end_inset
+
+ en 
+\begin_inset Formula $k_{z1}$
+\end_inset
+
+ bekend zijn kan de correctie op op de stijghoogte eenduidig worden berekend voor elke rekencel.
+ Hiermee hebben we dus de stijghoogte en de waterdruk aan de onderzijde van elke rekencel (behalve van de onderste rij rekencellen) 
+\begin_inset Formula $\rho g\left(\phi+\Delta\phi_{1}-Z\right)$
+\end_inset
+
+ die we direct kunnen vergelijken met het bovenliggende natte gewicht.
+ De onderste rij rekencellen behoeft geen correctie,
+ want de verticale flux over de onderrand is nul.
+\end_layout
+
+\begin_layout Standard
+Het laten zien van de overdruk is waarschijnlijk het meest intuïtief wanneer uitgedrukt in meters waterkolom,
+ dus als drukhoogte
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{w}=\phi-z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En voor druk door het gewicht boven z:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{z}=\intop_{z}^{z=mv}\frac{\rho_{z}}{\rho_{w}}dz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document
