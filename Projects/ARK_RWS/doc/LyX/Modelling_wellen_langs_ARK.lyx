@@ -152,9 +152,9 @@ Verscheidene polders langs het ARK ondervinden zien al ruim een decennium een op
 \end_layout
 
 \begin_layout Abstract
-Op grond van onderzoek door Beemster () wordt vermoed dat dit wordt veroorzaakt door vorming van voren door het uitschuren van de bodem door de stuwkracht van grote binnenvaartschepen van op een diepte die samenvalt met de onderzijde slecht doorlatende toplagen,
+Op grond van onderzoek door Beemster () wordt vermoed dat dit wordt veroorzaakt door vorming van geulen door het uitschuren van de bodem door de stuwkracht van grote binnenvaartschepen van op een diepte die samenvalt met de onderzijde slecht doorlatende toplagen,
  die nog wel aanwezig zijn terzijde van het ARK.
- Ter plaats van de uitgeschuurde voren is hierdoor het oorspronkelijk aanwezige weerstand biedend materiaal inmiddels verdwenen.
+ Ter plaats van de uitgeschuurde geulen is hierdoor het oorspronkelijk aanwezige weerstand biedend materiaal inmiddels verdwenen.
 \end_layout
 
 \begin_layout Abstract
@@ -299,43 +299,25 @@ h_{z}=\intop_{z}^{z=mv}\frac{\rho_{z}}{\rho_{w}}dz
 
 \end_layout
 
+\begin_layout Section
+Resultaten
+\end_layout
+
 \begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_XS126311.0474187.0_cBot=0d.pdf
-	width 100text%
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Weerstandslaag-van-100d"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-cBot=0d
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+ geeft de berekening voor de situatie met een uniforme weerstandslaag van 100 dagen op de kanaalbodem.
+ Deze situatie kan als uitgangssituatie worden beschouwd,
+ als referentie van de situatie waarin de kanaalbodem nog bestond uit slecht doorlatend materiaal zoals dat ook direct naast het kanaal op dezelfde hoogte voorkomt.
 \end_layout
 
 \begin_layout Standard
@@ -348,7 +330,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_XS126311.0474187.0_cBot=100.0.pdf
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D1.0_fd0.00_c100.pdf
 	width 100text%
 
 \end_inset
@@ -360,7 +342,79 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-cBot=100d
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Weerstandslaag-van-100d"
+
+\end_inset
+
+Weerstandslaag van 100 d op de kanaalbodem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Geen-bodemweerstand"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de berekende situatie wanneer er in het geheel geen bodemweerstand aanwezig is.
+ De infiltratie vanuit het kanaal is vanwege zijn hoge waterstand ten opzichte van het omringende lagere polderpeil nu veel intenser geworden,
+ waarbij de stijghoogten naast het kanaal ook een stuk hoger zijn.
+ De stijghoogten onder het kanaal zijn ca.
+ 0.6 m toegenomen en naast het kanaal zijn zij ca.
+ 0.45 m toegenomen.
+ Hiermee is ook het risico op de vorming van wellen gestegen.
+ De hoogte van de oranje streep-stippellijn geeft weer waar de waterdruk juist instaat is de bovenliggende grond op te tillen.
+ De figuur laat zien dat deze situatie juist optreedt links,
+ waar het maaiveld relatief laag is.
+ Waar dit in de werkelijkheid precies optreedt zal variëren afhankelijk van de lokale opbouw van de bodemlagen in termen van verticale doorlatendheid en nat soortelijk gewicht.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D0.0_fd0.00_c1.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Geen-bodemweerstand"
+
+\end_inset
+
+Geen bodemweerstand
 \end_layout
 
 \end_inset
@@ -375,6 +429,412 @@ cBot=100d
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Erosie van de weerstandslaag op de kanaalbodem,
+ uitschuring van de kanaalbodem
+\end_layout
+
+\begin_layout Standard
+De metingen van de kanaalbodem laten zien dat deze golft in breedterichting met twee diepere geulen op de lijnen waarin de schepen normaliter varen.
+ Deze geulen zijn toe te schrijven aan erosie of uitschuring door de voortstuwing van met name volbeladen en dus diepzittende grote binnenvaartschepen.
+ We zullen hierna onderzoeken hoe de kanaalbodem weerstand zich onder zulke uitschuring kan ontwikkelen.
+\end_layout
+
+\begin_layout Standard
+Om dit te doen veronderstellen we een initiaal uniforme weerstandslaag op de kanaalbodem waarin zich geleidelijk de twee geulen ontwikkelen.
+ Hierdoor krijgt de kanaalbodem in dwarsrichting een golvend verloop met een maximum in het midden en langs de kanaaloevers een een minimum in deze geulen.
+ Het vorm van het bovenvlak van de weerstandslaag op de kanaalbodem kunnen we voor deze oefening beschrijven als een consinus.
+ De dikte van de weerstandslaag voldoet dan aan de volgende formule
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D\left(x\right)=\mathtt{max}\left(D_{0}+\frac{1}{2}fD_{0}\left(\cos\left(2\pi\frac{x}{b}\right)-1\right),0\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hierin is
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $D_{0}$
+\end_inset
+
+ De dikte van de oorspronkelijke uniforme weerstandslaag.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $x$
+\end_inset
+
+ De afstand vanaf de hartlijn van het kanaal
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $b$
+\end_inset
+
+ De halve breedte van het kanaal
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $f$
+\end_inset
+
+ De fractie van 
+\begin_inset Formula $D_{0}$
+\end_inset
+
+ die in de erosiegeulen is weggeërodeerd.
+\end_layout
+
+\begin_layout Description
+max zorgt ervoor dat de laagdikte nergens kleiner kan worden dan nul.
+\end_layout
+
+\begin_layout Standard
+Dus bij 
+\begin_inset Formula $f=0$
+\end_inset
+
+ is de weerstandslaag homogeen en heeft dan dikte 
+\begin_inset Formula $D_{0}$
+\end_inset
+
+.
+ Bij 
+\begin_inset Formula $f=0.5$
+\end_inset
+
+ is de dikte midden in de geulen nog de helft van 
+\begin_inset Formula $D_{0}$
+\end_inset
+
+;
+ bij 
+\begin_inset Formula $f=1$
+\end_inset
+
+ is de laagdikte midden in de geulen juist nu en bij 
+\begin_inset Formula $f>1$
+\end_inset
+
+ is een de weerstandslaag over een deel van de geulen geheel verdwenen.
+ Naarmate de erosie voortschrijdt wordt de breedte waarover de weerstandslaag is verdwenen groter.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:uitschuring-kanaalbodemlaag"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ heeft de dikte van de weerstandslaag voor toenemende uitschuringspercentages.
+ De aanname is hier dat in het midden en langs de zijkanten van het kanaal geen erosie plaats vindt.
+ Dit is niet onredelijk aangezien daar de stroomsterkte beperkt is en omdat het uit de geulen geërodeerde materiaal alleen daar kan worden afgezet,
+ voor zover het met de stroom richting het IJ wordt afgevoerd.
+ Gezien de lengte van het kanaal valt daarvan op voorhand niet heel veel te verwachten.
+\end_layout
+
+\begin_layout Standard
+De weerstand is op elke locatie gelijk aan de laagdikte op deze locatie maal de specifieke weerstand,
+ waarvoor hier 
+\begin_inset Formula $c=100$
+\end_inset
+
+ d is aangehouden.
+ Dit is ook bij benadering van een laag zand-bentoniet kan leveren (ervaring Twentekanalen en onderzoek bij TNO en Van Heteren).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/uitschuring_ARK_bodem.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:uitschuring-kanaalbodemlaag"
+
+\end_inset
+
+Uitschuring kanaalbodemlaag met initiële dikte 
+\begin_inset Formula $D=1$
+\end_inset
+
+m.
+ De kanaalbodem is 100 m breed.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We zullen hierna enkele berekeningen tonen waarin de weerstandslaag in toenemende mate is weggeërodeerd.
+ De situatie zonder erosie is reeds hiervoor getoond (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Weerstandslaag-van-100d"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:erosie-50pct"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de situatie waarin de weerstandslaag in de geulen voor 50% is geërodeerd.
+ De weerstand is daar dan afgenomen van de oorspronkelijke 100d bij 1 m dikte tot 50 d bij 0.5 m dikte.
+ Het verschil met de situatie zonder erosie is bij 50% erosie niet zo groot.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D1.0_fd0.50_c100.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:erosie-50pct"
+
+\end_inset
+
+Situatie waarin de weerstandslaag in de voren voor 50% is geërodeerd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:erosie-100pct"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de situatie waarin de erosie in de geulen tot 100% is voortgeschreden.
+ Midden in de geulen is de weerstand nul en daar vlak naast erg laag,
+ terwijl de weerstand langs de kanten van het kanaal nog steeds 100 d is.
+ Dit geeft duidelijk meer lek,
+ waarbij de infiltratie geconcentreerd is rond het midden van de erosiegeulen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D1.0_fd1.00_c100.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:erosie-100pct"
+
+\end_inset
+
+Situatie waarin de weerstandslaag in de geulen voor 100% is geërodeerd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:erosie-200pct"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de situatie waarin de oorspronkelijk uniforme weerstandslaag nog verder door erosie is verdwenen.
+ Het toegepaste erosiepercentage is 200% in bovenstaande formule,
+ wat betekent dat kanaalbodem over een aanzienlijke breedte vrij van weerstandbiedend materiaal is.
+ De infiltratie vindt nog altijd vooral onder de geulen plaats maar de breedte waarover dit gebeurt is nu een stuk groter dan in de voorgaande berekening.
+ Het verschil met de situatie waarin de weerstandslaag in zijn geheel is nu te verwaarlozen.
+ Het verschil tussen 100 en 200% erosie is ca.
+ 15 cm onder het kanaal en 10 cm erbuiten.
+ Het verschil tussen 0 en 100% erosie is groot;
+ onder het kanaal is dat ca.
+ 65 cm en naast het kanaal ca.
+ 25 cm.
+ In de situatie van deze doorsnede is dit ongeveer wat er verwacht mag worden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D1.0_fd2.00_c100.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:erosie-200pct"
+
+\end_inset
+
+Situatie waarin de weerstandslaag in de geulen voor 200% is geërodeerd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Samenvatting
+\end_layout
+
+\begin_layout Standard
+Een weerstandbiedende laag van 100 dagen op de kanaalbodem geeft een druk verlaging van ca.
+ 45 cm ten opzicht van de situatie waarin de laag is weggeërodeerd.
+ Erosie tot bijv.
+ 50% ter plaatse van het midden van de geulen heeft nog geen grote invloed,
+ maar 100% erosie,
+ waarbij het weerstandbiedende materiaal in het midden van de erosiegeulen juist is verdwenen heeft dat wel.
+ Bij verdergaande erosie nemen de infiltratie en de druk niet zo heel veel meer toe;
+ de het verdwijnen van de weerstandslaag in het midden van de geulen is dominant.
 \end_layout
 
 \end_body

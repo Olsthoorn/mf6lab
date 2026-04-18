@@ -169,10 +169,6 @@ Lek vanuit het ARK en de kwel ernaast die hiervan het gevolg is,
  uiteraard de kosten op de korte en de lange termijn.
 \end_layout
 
-\begin_layout Abstract
-
-\end_layout
-
 \begin_layout Section
 Intro
 \end_layout
@@ -218,6 +214,167 @@ Het is duidelijk dat een waterlichaam boven het beschouwde zelf geen overdruk ka
  Dat wil echter niet zeggen dat wellen alleen in sloten optreden;
  de echte plek van een wel valt niet te voorspellen omdat ook de structuur van de grond een belangrijke rol speelt.
  We kunnen desalniettemin de beschikbare overdruk onder sloten als meest kritisch beschouwen.
+\end_layout
+
+\begin_layout Standard
+Daar de sprong in de doorlatendheid zich op de (onder)grens van de rekencellen bevindt,
+ zal de 
+\begin_inset Formula $\phi$
+\end_inset
+
+ moeten worden berekend op deze grens in plaats van in het centrum van de rekencellen.
+ Uiteraard is 
+\begin_inset Formula $d\phi/dz$
+\end_inset
+
+ binnen twee op elkaar gelegen cellen verschillend.
+ Bij benadering nemen we aan dat de 
+\begin_inset Formula $q_{z}$
+\end_inset
+
+ tussen de middens van twee boven elkaar gelegen cellen gelijk is aan die hun horizontale grensvlak.
+ We krijgen dan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Delta\phi_{2} & =\Delta\phi-\Delta\phi_{1}\\
+\Delta\phi_{2} & =\Delta\phi+q_{z}\frac{\Delta z_{1}}{2k_{z1}}
+\end{align*}
+
+\end_inset
+
+Daar 
+\begin_inset Formula $q_{z}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\Delta z_{1}$
+\end_inset
+
+ en 
+\begin_inset Formula $k_{z1}$
+\end_inset
+
+ bekend zijn kan de correctie op op de stijghoogte eenduidig worden berekend voor elke rekencel.
+ Hiermee hebben we dus de stijghoogte en de waterdruk aan de onderzijde van elke rekencel (behalve van de onderste rij rekencellen) 
+\begin_inset Formula $\rho g\left(\phi+\Delta\phi_{1}-Z\right)$
+\end_inset
+
+ die we direct kunnen vergelijken met het bovenliggende natte gewicht.
+ De onderste rij rekencellen behoeft geen correctie,
+ want de verticale flux over de onderrand is nul.
+\end_layout
+
+\begin_layout Standard
+Het laten zien van de overdruk is waarschijnlijk het meest intuïtief wanneer uitgedrukt in meters waterkolom,
+ dus als drukhoogte
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{w}=\phi-z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En voor druk door het gewicht boven z:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{z}=\intop_{z}^{z=mv}\frac{\rho_{z}}{\rho_{w}}dz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_XS126311.0474187.0_cBot=0d.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+cBot=0d
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_XS126311.0474187.0_cBot=100.0.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+cBot=100d
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
