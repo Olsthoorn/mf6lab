@@ -134,11 +134,17 @@
 \begin_body
 
 \begin_layout Title
-RWS-ARK
+Infiltratie,
+ erosiegeulen,
+ kweldruk en welvorming in en rond het Amsterdam Rijnkanaal:
+\begin_inset Newline newline
+\end_inset
+
+Analyse op basis van een Geotop-doorsnede
 \end_layout
 
 \begin_layout Author
-T.N.Olsthoorn
+Prof.dr.ir.T.N.Olsthoorn
 \end_layout
 
 \begin_layout Date
@@ -173,17 +179,410 @@ Lek vanuit het ARK en de kwel ernaast die hiervan het gevolg is,
 Intro
 \end_layout
 
-\begin_layout Section
-Wellen
+\begin_layout Standard
+Verschillende polder langs het ARK-kanaal ten noorden en zuiden van Nigtevecht zijn de afgelopen twee decennia steeds meer water gaan uitmalen.
+ De meest waarschijnlijke reden is het uitschuren van de kanaalbodem door de scheepvaart,
+ waardoor twee erosiegeulen zijn ontstaan.
+ De diept van het ARK reikte tot net boven de onderzijde van de van oorsprong aanwezige slecht doorlatende laag.
+ Dit materiaal is door de vorming van de erosiegeulen inmiddels verdwenen,
+ waardoor de infiltratie vanuit het ARK belangrijk is toegenomen wat heeft geleid tot een toename van de stijghoogte onder de polders langs het ARK waarin het polderpeil belangrijk lager is dan het kanaalpeil.
+ Hierdoor ontstaat een verhoogd waterbezwaar en kunnen ook wellen ontstaan die die waterbezwaar versterken.
 \end_layout
 
 \begin_layout Standard
-Wellen kunnen ontstaan waar de waterdruk in de ondergrond groter is dan het natte gewicht van het materiaal erboven.
- De waterdruk volgt uit de stijghoogte minus de plaatshoogte en de druk van het materiaal op elk punt volgt uit het natte gewicht van het materiaal erboven.
- De stijghoogte volgt direct uit de berekening van de grondwaterstroming en het materiaal gewicht volgt uit het watergehalte,
- het soortelijk gewicht van het water en dat van het het droge materiaal.
- Boven de grondwaterstand is het watergehalte kleiner dan de porositeit.
- Daarmee kan rekening worden gehouden bij de berekening.
+Hoewel de vorming van erosiegeulen is gedocumenteerd,
+ speelt doorgaande bodemdaling in de betreffende polders ook een rol.
+ Niet alleen verdwijnt veen door oxidatie,
+ maar vooral wanneer ter compensatie daarvan het polderpeil aan de gedaalde maaiveldhoogte wordt aangepast nemen de kweldruk en het waterbezwaar toe.
+ Aanpassingen van polderpeilen zijn eveneens gedocumenteerd.
+\end_layout
+
+\begin_layout Standard
+In dit rapport wordt onderzocht hoe de vorming van erosiegeulen doorwerkt naar de omgeving.
+ Dit wordt gedaan middels een doorsnede loodrecht op het ARK.
+ De doorsnede in dit rapport is min of meer willekeurig gekozen en kan later worden gewijzigd naar een op de locatie waar het probleem het grootst is.
+ Hier gaat het om illustratie van de procedure en de analyse van de kwel en de vorming van wellen.
+\end_layout
+
+\begin_layout Standard
+Uitgangspunt in de analyse in dit rapport is de opbouw van de ondergrond zoals die het meest gedetailleerd is gedocumenteerd in de Geotop van TNO (dinoloket.nl).
+ Binnen dinoloket.nl kunnen doorsnedes door het ruimtelijke Geotopmodel worden gegenereerd,
+ waarin voor elk vak van 100x100x0.5 m de meest waarschijnlijke lithoklasse bekend is.
+ Door de lithoklasses te voorzien van getallen voor de bodemeigenschappen wordt een doorsnede verkregen met een gedetailleerde verdeling van de horizontale en verticale doorlatendheid,
+ de porositeit,
+ en de dichtheid van de bodemlagen.
+ Samen met de randvoorwaarden kan het grondwater in de doorsnede worden gesimuleerd zodat zichtbaar kan worden gemaakt wat het effect van de erosie van de kanaalbodem is op het waterbezwaar van de aangrenzende polders.
+ Ook kan worden gekwantificeerd waar risico van welvorming bestaat.
+ Dit is overal waar de waterdruk groter is dan het gewicht van het bovenliggende natte materiaal.
+ Met hetzelfde gereedschap kan worden gekwantificeerd wat bereikt kan worden met het aanbrengen van een waterremmende laag,
+ zoals een zandbentonietmengsel,
+ in de erosiegeulen of over de gehele kanaalbreedte en in hoeverre de effecten daarvan met de monitoring zijn aan te tonen op de korte en de langere termijn.
+ Aangezien aangebrachte waterremmende laag zelf ook kan eroderen,
+ is de monitoring op langere termijn van belang om de duurzaamheid van de maatregel te verifiëren.
+\end_layout
+
+\begin_layout Standard
+Aan de hand van de gekozen doorsnede zullen de verschillende aspecten worden gekwantificeerd en geïllustreerd.
+\end_layout
+
+\begin_layout Section
+De Geotopdoorsnede
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/GeoTOP_litho_126311,474187_xsec.pdf
+	width 65text%
+	BoundingBox 40bp 110bp 700bp 565bp
+	clip
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/GeoTOP_litho_126311,474187_leg.pdf
+	lyxscale 10
+	width 10text%
+	BoundingBox 0bp 0bp 800bp 1100bp
+	clip
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/GeoTOP_litho_126311,474187_map.pdf
+	lyxscale 25
+	width 25text%
+	BoundingBox 0bp 100bp 800bp 1100bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:GeotopDSN"
+
+\end_inset
+
+In dit rapport gebruikte Geotop-doorsnede AA' met legenda van de meest waarschijnlijke lithoklassen en het bijbehorende kaartje.
+ De doorsnede is ruim 5.6 km lang.
+ Het ARK is zichtbaar in de uitsnede op x=3.2 km.
+ De bodem ligt op NAP -6 m en snijdt juist door de oorspronkelijke remmende veenlagen heen.
+ Het snijpunt met ARK:
+ (129504,
+ 474212).
+ Omdat de doorsnede OW gericht is,
+ zijn de vakjes (voxels) van de Geotop-doorsnede 100 m lang en 0.5 m dik.
+ De doorsnede is 50 m hoog,
+ gelijk aan de hoogte het Geotop-ondergrondmodel van TNO.
+ De legenda geeft de lithoklassen:
+ a=anthropogeen,
+ v=veen,
+ k=klei,
+ kz=kleiig zand,
+ zf=fijn zand,
+ zm=matig grof zand,
+ zg=grof zand,
+ g=grind,
+ she=schelpen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GeotopDSN"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de hier gebruikte 5.6 km lange en 50 m diepe Geotop-doorsnede weer met de legenda en het bijbehorende kaartje.
+ De cellen,
+ vakjes of voxels van deze doorsnede,
+ elk met hun eigen meest waarschijnlijke lithoklasse zijn 100 m breed en 0.5 m hoog.
+\end_layout
+
+\begin_layout Section
+ARK-doorsnedemodel op basis van de Geotop
+\end_layout
+
+\begin_layout Standard
+Van de hiervoor gespresenteerde Geotop-doorsnede is een dwarsdoorsnedemodel gemaakt,
+ waarvan verderop een aantal voorbeelden wordt getoond.
+ Uiteraard kunnen ook doorsneden worden gekozen op willekeurige andere locaties.
+ Het rekennetwerk van het doorsnedemodel heeft lagen die even dik zijn als die van de Geotopvakjes,
+ dus 0.5 m.
+ In horizontale richting reikt het doorsnedemodel tot 2 km aan weerszijden van de hartlijn van het ARK.
+ Het rekenraster is horizontaal verfijnd binnen het ARK en tot 200 m ter weerszijden van de hartlijn.
+ Op grotere afstand is een celbreedte van 100 m aangehouden.
+ Dit rekennetwerk is over de Geotop-doorsnede gelegd,
+ en voor het midden van elke rekencel is de kleur van het overeenkomstige punt van de Geotop-doorsnede bemonsterd.
+ Deze kleuren zijn vervolgens gelinkt aan die van items in de legenda.
+ Hiermee is het modelnetwerk gevuld met de indices van de legenda-items.
+ Door aan de legenda-items bodemkarakteristieken toe te kennen,
+ zijn rekenrasters verkregen met de horizontale en verticale doorlatendheid,
+ en verder met de porositeit,
+ de droge dichtheid en de natte dichtheid corresponderend met elk van de lithoklassen.
+\end_layout
+
+\begin_layout Standard
+De toegekende bodemeigenschappen zijn in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Lithoklasses"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ gegeven.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Lithoklasses"
+
+\end_inset
+
+Lithoklasses en toegekende waarden voor de modellering.
+ 'kh'=horizontale doorlatendheid,
+ 'kv'=verticale doorlatendheid,
+ 'n'=porositeit,
+ 'rho'=materiaal dichtheid en 'rho_wet' is natte materiaal-dichtheid bij verzadiging.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/legend_values.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uiteraard kan over de getallen in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Lithoklasses"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ worden geredetwist;
+ en ze zijn verre van absoluut.
+ Dat geldt echter evenzeer voor de meest waarschijnlijke lithoklassen in de Geotop-doorsnde.
+ De getallen in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Lithoklasses"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ zijn op basis van mijn ervaring en inzicht geraamd;
+ zij kunnen uiteraard gemakkelijk worden aangepast bij beschikbaarheid van veldgegevens.
+\end_layout
+
+\begin_layout Standard
+Het model heeft ook specifieke randvoorwaarden.
+ In het model vindt alleen infiltratie naar de omgeving plaats vanuit via de bodem van het ARK.
+ Dit water kwelt op ter weerstzijden van het kanaal waar het polderpeil is opgelegd via drains in het model.
+ De drainagehoogte is gesteld op 1 m beneden maaiveld (NAP -2.3 m),
+ en de lekweerstand op 100 dagen.
+ Dit laatste impliceert dat bij een kwel van 1 mm/d de gemiddelde grondwaterstand 10 cm boven het drainagepeil staat.
+\end_layout
+
+\begin_layout Standard
+De linker en rechteroever van het kanaal zijn afgesloten door een damwand die tot NAP -12 m reikt.
+ In het model zijn deze damwanden opgenomen als een kolom cellen van geringe breedte die tot op deze diepte inactief zijn gemaakt en daarom geen water doorlaten.
+ 
+\end_layout
+
+\begin_layout Standard
+Verder zijn de buitengrenzen van het model op 2000 m buiten de hartlijn van het ARK dicht.
+ De afstand tot het kanaal is zo groot dat de gesloten rand daar geen invloed heeft op de uitkomsten.
+\end_layout
+
+\begin_layout Standard
+Tenslotte is in dit model gesloten aan de de basis,
+ die overeenkomt met de basis van de Geotop-doorsnede.
+ Dit is niet accuraat omdat in de werkelijkheid geen gesloten rand op NAP -50 m aanwezig is.
+ Niettemin heeft deze keuze slechts geringe invloed op de uitkomsten aangezien de diepte beneden de onderzijde van de damwanden aanzienlijk is.
+ Uiteraard moet het effect van deze randvoorwaarde nog worden geverifieerd en desnoods aangepast,
+ wat gemakkelijk kan door aanpassing van de dikte van de onderste modellaag of meer lagen aan te brengen.
+\end_layout
+
+\begin_layout Standard
+De grondwaterstroming wordt wordt stationair berekend.
+ In dit model is het effect van berging te gering om enig verschil te maken.
+ Het gaat immers niet om dagelijkse fluctuaties,
+ maar om het effect van geleidelijke afname van de weerstand op de kanaalbodem.
+\end_layout
+
+\begin_layout Section
+Vorming van wellen
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Wateroverdruk"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de grondwatersituatie langs het ARK weer.
+ De ondergrond is daar in essentie opgebouwd uit een waterremmende laag van ca.
+ 6 m dikte op zand.
+ Er is een dunne onverzadigde zone.
+ De waterdruk is weergegeven in blauw;
+ de totale gronddruk (gewicht van het bovenliggende materiaal inclusief water) is in rood aangegeven.
+ De blauwe lijn in het goed doorlatende zandpakket verloopt in essentie hydrostatisch.
+ Binnen de waterremmende laag neemt de waterdruk sneller af tot het drainagepeil dat gegeven wordt door de sloten met al dan niet wat opbolling.
+ De rode lijn neemt sneller toe beneden de onverzadigde zone door het hogere watergehalte en in het zand door de hogere dichtheid van het zand en de waarschijnlijk lagere porositeit.
+ De stijghoogte op de knik in de waterdruklijn komt langs het ARK met peil NAP -0.4 m duidelijk boven maaiveld uit (NAP -1.3 m) en zeker boven het polderpeil,
+ geschat ca.
+ NAP -2.3 m.
+ In deze situatie ontstaat een zone,
+ zoals aangegeven,
+ waarin de waterdruk hoger is dan het gewicht van de bovenliggende grond.
+ De waterdruk is hier in staat de bovenliggende grondlaag op te tillen.
+ Dit zou ook gebeuren wanneer deze waterremmende laag volledig samenhangend zou zijn.
+ In plaats daarvan ontstaan nu wellen die door hun diepte de grondwaterstand binnen en net onder de waterremmende laag verlagen,
+ maar zelf voor een geconcentreerd waterbezwaar zorgen.
+ De figuur maakt duidelijk dat de onderzijde van de waterremmende laag hier de meest kritische diepte is:
+ immers,
+ de waterremmende laag kan hier worden opgetild,
+ terwijl de wateraanvoer van onderen via het doorlatende zand praktisch onbeperkt is.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/wateroverdruk.png
+	lyxscale 50
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Wateroverdruk"
+
+\end_inset
+
+Wateroverdruk door lichte waterremmende laag en onverzadigde zone
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wellen kunnen dus ontstaan waar de waterdruk in de ondergrond groter is dan het natte gewicht van het materiaal erboven.
+ De waterdruk op een punt volgt uit de stijghoogte minus de plaatshoogte.
+ Het totale spanning als gevolg van het natte gewicht boven een willekeurig punt volgt uit de natte dichtheid van het materiaal erboven.
+ De droge dichtheid en het vochtgehalte zijn hier de kerngrootheden.
+ Onder het freatisch vlak is het vochtgehalte is gelijk aan de porositeit,
+ daarboven zal dat in de regel minder zijn,
+ bijvoorbeeld rond veldcapaciteit.
+ De waterspanning volgt uit stijghoogte en plaatshoogte als volgt
 \end_layout
 
 \begin_layout Standard
@@ -209,31 +608,33 @@ De totale druk van het bovenliggende materiaal ter plaatse van een punt op hoogt
 
 \end_inset
 
-Het is duidelijk dat een waterlichaam boven het beschouwde zelf geen overdruk kan genereren.
+Het is duidelijk dat een waterlichaam boven het een beschouwd punt zelf geen overdruk kan genereren.
  Daarom is de bodem van sloten de meest kritische plek voor het vormen van wellen.
  Dat wil echter niet zeggen dat wellen alleen in sloten optreden;
- de echte plek van een wel valt niet te voorspellen omdat ook de structuur van de grond een belangrijke rol speelt.
+ de echte plek van een wel valt niet te voorspellen,
+ omdat ook de structuur,
+ met name de samenhang,
+ van de grond een belangrijke rol speelt.
  We kunnen desalniettemin de beschikbare overdruk onder sloten als meest kritisch beschouwen.
 \end_layout
 
 \begin_layout Standard
-Daar de sprong in de doorlatendheid zich op de (onder)grens van de rekencellen bevindt,
- zal de 
-\begin_inset Formula $\phi$
-\end_inset
-
- moeten worden berekend op deze grens in plaats van in het centrum van de rekencellen.
+De doorlatendheid en dichtheid binnen in het geotopnetwerk verspringen op de horizontale vlakjes van de geotop cellen.
+ Dit is ook het geval in het rekennetwerk van het dwarsdoorsnedelmodel dat op de geotopdoorsnede wordt gebaseerd.
+ Bovendien ligt het meest kritische overdrukpunt altijd op de ondergrens van een waterremmende laag.
+ Daarom zullen we voor het bepalen van de wateroverdruk de stijghohoogte die het eindige differentiemodel in het centrum van de rekencellen berekent,
+ omrekenen naar die op de horizontale vlakjes ertussen.
  Uiteraard is 
 \begin_inset Formula $d\phi/dz$
 \end_inset
 
  binnen twee op elkaar gelegen cellen verschillend.
- Bij benadering nemen we aan dat de 
+ Bij benadering nemen we hier aan dat de 
 \begin_inset Formula $q_{z}$
 \end_inset
 
- tussen de middens van twee boven elkaar gelegen cellen gelijk is aan die hun horizontale grensvlak.
- We krijgen dan
+ tussen de middens van twee boven elkaar gelegen rekencellen gelijk is door hun gemeenschappelijke horizontale grensvlak.
+ We krijgen dan met index 1 voor de onderliggende en index 2 voor de bovenliggende cel de volgende relatie voor het stijghoogte verschil tussen het midden van de bovenste rekencel en zijn ondervlak:
 \end_layout
 
 \begin_layout Standard
@@ -258,14 +659,25 @@ Daar
 \begin_inset Formula $k_{z1}$
 \end_inset
 
- bekend zijn kan de correctie op op de stijghoogte eenduidig worden berekend voor elke rekencel.
- Hiermee hebben we dus de stijghoogte en de waterdruk aan de onderzijde van elke rekencel (behalve van de onderste rij rekencellen) 
-\begin_inset Formula $\rho g\left(\phi+\Delta\phi_{1}-Z\right)$
+ bekend zijn,
+ kan de correctie 
+\begin_inset Formula $\Delta\phi_{2}$
 \end_inset
 
- die we direct kunnen vergelijken met het bovenliggende natte gewicht.
- De onderste rij rekencellen behoeft geen correctie,
- want de verticale flux over de onderrand is nul.
+ op de stijghoogte 
+\begin_inset Formula $\phi_{2}$
+\end_inset
+
+ eenduidig worden berekend voor elke rekencel.
+ Hiermee hebben we dus de stijghoogte en de waterdruk aan de onderzijde van elke rekencel (behalve van de onderste rij rekencellen).
+ Deze is gelijk aan 
+\begin_inset Formula $\sigma_{wat}=\rho g\left(\phi_{2}+\Delta\phi_{2}-z_{12}\right)$
+\end_inset
+
+.
+ We kunnen deze waterdruk direct vergelijken met het bovenliggende natte gewicht.
+ De onderste rij rekencellen in het model behoeft geen correctie,
+ want de verticale flux over de onderrand is altijd nul.
 \end_layout
 
 \begin_layout Standard
@@ -299,62 +711,15 @@ h_{z}=\intop_{z}^{z=mv}\frac{\rho_{z}}{\rho_{w}}dz
 
 \end_layout
 
-\begin_layout Section
-Resultaten
+\begin_layout Standard
+Het criterium dat de wateroverdruk kleiner dan 1 moet zijn is dus
 \end_layout
 
 \begin_layout Standard
-Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Weerstandslaag-van-100d"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- geeft de berekening voor de situatie met een uniforme weerstandslaag van 100 dagen op de kanaalbodem.
- Deze situatie kan als uitgangssituatie worden beschouwd,
- als referentie van de situatie waarin de kanaalbodem nog bestond uit slecht doorlatend materiaal zoals dat ook direct naast het kanaal op dezelfde hoogte voorkomt.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D1.0_fd0.00_c100.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Weerstandslaag-van-100d"
-
-\end_inset
-
-Weerstandslaag van 100 d op de kanaalbodem
-\end_layout
-
-\end_inset
-
-
-\end_layout
+\begin_inset Formula 
+\[
+\frac{\sigma_{wat}}{\sigma_{wet}}=\frac{h_{w}}{h_{z}}<1
+\]
 
 \end_inset
 
@@ -362,90 +727,31 @@ Weerstandslaag van 100 d op de kanaalbodem
 \end_layout
 
 \begin_layout Standard
-Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Geen-bodemweerstand"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
+In de doorsneden zullen we de lijnen voor 
+\begin_inset Formula $h_{w}/h_{z}$
 \end_inset
 
- geeft de berekende situatie wanneer er in het geheel geen bodemweerstand aanwezig is.
- De infiltratie vanuit het kanaal is vanwege zijn hoge waterstand ten opzichte van het omringende lagere polderpeil nu veel intenser geworden,
- waarbij de stijghoogten naast het kanaal ook een stuk hoger zijn.
- De stijghoogten onder het kanaal zijn ca.
- 0.6 m toegenomen en naast het kanaal zijn zij ca.
- 0.45 m toegenomen.
- Hiermee is ook het risico op de vorming van wellen gestegen.
- De hoogte van de oranje streep-stippellijn geeft weer waar de waterdruk juist instaat is de bovenliggende grond op te tillen.
- De figuur laat zien dat deze situatie juist optreedt links,
- waar het maaiveld relatief laag is.
- Waar dit in de werkelijkheid precies optreedt zal variëren afhankelijk van de lokale opbouw van de bodemlagen in termen van verticale doorlatendheid en nat soortelijk gewicht.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D0.0_fd0.00_c1.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Geen-bodemweerstand"
-
-\end_inset
-
-Geen bodemweerstand
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+ gelijk aan 0.8,
+ 1.0 en 1.2 aangeven met resp.
+ een groene,
+ oranje en rode streep-stippellijn.
 \end_layout
 
 \begin_layout Section
-Erosie van de weerstandslaag op de kanaalbodem,
- uitschuring van de kanaalbodem
+Bodemweerstand en erosiegeulen in de kanaalbodem
 \end_layout
 
 \begin_layout Standard
-De metingen van de kanaalbodem laten zien dat deze golft in breedterichting met twee diepere geulen op de lijnen waarin de schepen normaliter varen.
+De metingen van de hoogte van de kanaalbodem laten zien dat deze golft in breedterichting met twee diepere geulen rond de lijnen waarin de schepen normaliter varen.
  Deze geulen zijn toe te schrijven aan erosie of uitschuring door de voortstuwing van met name volbeladen en dus diepzittende grote binnenvaartschepen.
- We zullen hierna onderzoeken hoe de kanaalbodem weerstand zich onder zulke uitschuring kan ontwikkelen.
+ We zullen hierna onderzoeken hoe de weerstand van de kanaalbodem weerstand zich onder zulke erosie kan ontwikkelen.
 \end_layout
 
 \begin_layout Standard
-Om dit te doen veronderstellen we een initiaal uniforme weerstandslaag op de kanaalbodem waarin zich geleidelijk de twee geulen ontwikkelen.
- Hierdoor krijgt de kanaalbodem in dwarsrichting een golvend verloop met een maximum in het midden en langs de kanaaloevers een een minimum in deze geulen.
- Het vorm van het bovenvlak van de weerstandslaag op de kanaalbodem kunnen we voor deze oefening beschrijven als een consinus.
+Om dit te doen veronderstellen we een initiaal uniforme weerstandslaag op de kanaalbodem waarin de geulen zich geleidelijk ontwikkelen.
+ Hierdoor krijgt de kanaalbodem in dwarsrichting een golvend verloop met een maximum in het midden en langs de kanaaloevers,
+ en een minimum in de hartlijn van deze geulen.
+ De vorm van het bovenvlak van de weerstandslaag op de kanaalbodem kunnen we voor deze oefening beschrijven als een consinus.
  De dikte van de weerstandslaag voldoet dan aan de volgende formule
 \end_layout
 
@@ -501,38 +807,10 @@ max zorgt ervoor dat de laagdikte nergens kleiner kan worden dan nul.
 \end_layout
 
 \begin_layout Standard
-Dus bij 
-\begin_inset Formula $f=0$
-\end_inset
-
- is de weerstandslaag homogeen en heeft dan dikte 
-\begin_inset Formula $D_{0}$
-\end_inset
-
-.
- Bij 
-\begin_inset Formula $f=0.5$
-\end_inset
-
- is de dikte midden in de geulen nog de helft van 
-\begin_inset Formula $D_{0}$
-\end_inset
-
-;
- bij 
-\begin_inset Formula $f=1$
-\end_inset
-
- is de laagdikte midden in de geulen juist nu en bij 
-\begin_inset Formula $f>1$
-\end_inset
-
- is een de weerstandslaag over een deel van de geulen geheel verdwenen.
- Naarmate de erosie voortschrijdt wordt de breedte waarover de weerstandslaag is verdwenen groter.
- Fig.
+Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:uitschuring-kanaalbodemlaag"
+reference "fig:uitschuring-kanaalbodemlaag-1"
 plural "false"
 caps "false"
 noprefix "false"
@@ -540,22 +818,26 @@ nolink "false"
 
 \end_inset
 
- heeft de dikte van de weerstandslaag voor toenemende uitschuringspercentages.
- De aanname is hier dat in het midden en langs de zijkanten van het kanaal geen erosie plaats vindt.
- Dit is niet onredelijk aangezien daar de stroomsterkte beperkt is en omdat het uit de geulen geërodeerde materiaal alleen daar kan worden afgezet,
- voor zover het met de stroom richting het IJ wordt afgevoerd.
- Gezien de lengte van het kanaal valt daarvan op voorhand niet heel veel te verwachten.
-\end_layout
+ laat het verloop van het bovenvlak van de erosielaag zien volgens deze formule.
+ De vorm wordt gestuurd door de erosiefractie 
+\begin_inset Formula $f$
+\end_inset
 
-\begin_layout Standard
-De weerstand is op elke locatie gelijk aan de laagdikte op deze locatie maal de specifieke weerstand,
- waarvoor hier 
+.
+ De dikte over de breedte van het kanaal is initieel overal gelijk aan 1 m in de figuur en blijft dat langs de kanaalkanten en in het midden.
+ In de geulen wordt de laag dunner naarmate de erosiefractie groter is.
+ Bij 50% is de laagdikte in het midden van de geulen de helft van de oorspronkelijke dikte.
+ Bij 100% is de dikte in het midden van de geulen juist nul.
+ Bij erosiefracties groter dan 1 wordt de breedte waarover de remmende laag geheel weg is steeds breder.
+ De weerstand van de remmende laag is overal gelijk aan zijn resterende dikte maal de specifieke weerstand van het materiaal van de laag.
+ In de voorbeelden is hiervoor 
 \begin_inset Formula $c=100$
 \end_inset
 
- d is aangehouden.
- Dit is ook bij benadering van een laag zand-bentoniet kan leveren (ervaring Twentekanalen en onderzoek bij TNO en Van Heteren).
- 
+d/m aangehouden.
+ Daar waar de laag geheel is verdwenen is de weerstand gelijk aan nul.
+ Het is duidelijk dat de vorm van de resterende waterremmende laag een belangrijke invloed heeft op waar de infiltratie vanuit het kanaal is geconcentreerd.
+ We zullen aan de voorbeelden zien dat tot 
 \end_layout
 
 \begin_layout Standard
@@ -582,7 +864,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:uitschuring-kanaalbodemlaag"
+name "fig:uitschuring-kanaalbodemlaag-1"
 
 \end_inset
 
@@ -592,6 +874,337 @@ Uitschuring kanaalbodemlaag met initiële dikte
 
 m.
  De kanaalbodem is 100 m breed.
+ De erosiepercentages voor de getekende profielen zijn resp.
+ 12.5%,
+ 25%,
+ 50% 100% 150%,
+ 200% en 400%.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Resultaten van de modelberekeningen
+\end_layout
+
+\begin_layout Subsection
+Opzet en weergave van de berekeningen
+\end_layout
+
+\begin_layout Standard
+De de verschillen tussen de uitkomsten van de hierna getoonde berekende stroming in de doorsnede zijn het uitsluitende gevolg van verschillen in de weerstand en weerstandsverdeling op de bodem van het kanaal.
+ De kanaalbodem wordt in de eerste berekening van een uniforme weerstandslaag voorzien met een dikte van 
+\begin_inset Formula $D_{0}=1$
+\end_inset
+
+ m bestaande uit slecht doorlatend materiaal met een specifieke weerstand van 
+\begin_inset Formula $c=100$
+\end_inset
+
+ d/m.
+ De bodemweerstand in de eerste berekening is dus ook 100 d.
+ Dit wordt gezien als uitgangssituatie een die geacht wordt overeen te komen met het kanaal direct na verdieping begin jaren 80 (@@@) veronderstellende dat toen nog een zekere restantdikte van de oorspronkelijke weerstandbiedende laag aanwezig was.
+\end_layout
+
+\begin_layout Standard
+Om het contrast met de situatie zonder weerstand te maximaliseren is in de tweede berekening helemaal geen sliblaag op de kanaalbodem aanwezig.
+ Dit geeft de meest ongunstige situatie weer.
+\end_layout
+
+\begin_layout Standard
+Hierna volgt een aantal tussenstadia,
+ waarbij in de oorspronkelijke weerstandslaag geulen zijn geërodeerd.
+ De mate van erosie wordt aangegeven door de erosiefractie,
+ die tussen 0 en 1 aangeeft in welke mate de laagdikte in het midden van de erosiegeulen is afgenomen.
+ Boven 1 impliceert de erosiefactor dat de waterremmende laag over een deel van de bodem niet meer aanwezig is.
+ Hoe hoger de erosiefractie,
+ hoe groter dit oppervlak zonder weerstand is.
+ De mate van erosie wordt ook gevisualiseerd door de vorm en dikte van de in elke doorsnede getekende weerstandslaag.
+\end_layout
+
+\begin_layout Standard
+Het peil van het ARK is steeds NAP -0.4 m en het polderpeil NAP -2.3 m.
+\end_layout
+
+\begin_layout Standard
+Elke doorsnede toont de lijnen met gelijke stijghoogte in blauw en de stroomlijnen in rood.
+ Tussen elk paar stroomlijnen stroomt evenveel water,
+ namelijk 
+\begin_inset Formula $d\psi=0.1$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d.
+ De totale infiltratie kan dus gemakkelijk worden bepaald door het tellen van stroomlijnen onder het kanaal.
+\end_layout
+
+\begin_layout Standard
+De doorgerekend doorsnede is steeds 4 km breed,
+ maar de getekende slechts 500 m.
+ Dit is gedaan om de details scherp te houden in het gebied waar de overdruk van het kanaal er toe doet.
+ Het is uiteraard eenvoudig om een groter deel van de doorsnede zichtbaar te maken.
+\end_layout
+
+\begin_layout Standard
+In de doorsnede is met een streepjeslijn in zwart het verloop van de stijghoogte op NAP -7 m aangegeven (zie legenda 
+\begin_inset Quotes pld
+\end_inset
+
+Contours
+\begin_inset Quotes prd
+\end_inset
+
+).
+ Deze lijn verloopt buiten het kanaal deels boven het maaiveld.
+\end_layout
+
+\begin_layout Standard
+Verder is in de doorsnede de diepte aangegeven waar de ratio tussen waterdruk en gewicht van de bovenliggende natte lagen gelijk is aan resp.
+ 1.2,
+ 1.0 en 0.8.
+ De waarde 1.2 is veilig en heeft kleur groen.
+ De waarde 1.0 is onveilig,
+ indifferent,
+ en heeft kleur oranje.
+ De waarde 0.8 is inherent instabiel en heeft daarom kleur rood (zie legenda 
+\begin_inset Quotes pld
+\end_inset
+
+Water overdruk
+\begin_inset Quotes prd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Om de situatie nog beter inzichtelijk te maken hoort bij elke berekening een figuur met twee grafieken.
+ Bovenin wordt op de vaste diepten NAP -3,
+ -8,
+ -13 en -20 m het verloop van de stijghoogte getoond;
+ onderin wordt het verloop van de ratio tussen waterdruk en totale druk getoond (gewicht bovenliggend materiaal inclusief water).
+ Dit is dezelfde wateroverdruk ratio,
+ maar nu op vaste hoogten.
+ Hieruit blijkt duidelijk dat over een deel van deze doorsnede op de gekozen diepte van NAP -3 m de overdrukratio groter is dan 1.
+ Dit heeft hier een duidelijke oorzaak,
+ namelijk dat het maaiveld links van 
+\begin_inset Formula $x=-150$
+\end_inset
+
+m een halve meter lager is dan elders.
+ Deze sprong in het maaiveld zit ook in de Geotop-doorsnede.
+ Dit maakt duidelijk dat maaiveldhoogte belangrijk waar het gaat om het risico op wellen.
+ Het gebied met overdrukratio 
+\begin_inset Formula $>1$
+\end_inset
+
+ op NAP -3 m komt overeen met het gebied waar de oranje lijn onder NAP -3 m ligt in de doorsnede.
+\end_layout
+
+\begin_layout Subsection
+Situatie met homogene bodemweerstand van 100 d
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Weerstandslaag-van-100d"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de berekening voor de situatie met een uniforme weerstandslaag van 100 dagen op de kanaalbodem.
+ Zoals gezegd vormt dit de uitgangssituatie,
+ de referentie waarin in dit rapport wordt verondersteld dat de kanaalbodem nog bestond uit van nature aanwezig slecht doorlatend materiaal,
+ zoals dat ook direct naast het kanaal op dezelfde hoogte voorkomt.
+ In het gebied wordt de basis van het holocene bovenpakket gevormd door zogenoemd basisveen.
+ Ik heeft vaak een hogere weerstand,
+ daar wordt nu geen rekening mee gehouden in de veronderstelling dan 100 dagen een redelijk beeld geeft van de verwachte referentiesituatie.
+\end_layout
+
+\begin_layout Standard
+Ook in deze uitgangssituatie treedt onder het kanaal infiltratie op door zijn de hoge waterstand en opzichte van het peil in de aangrenzende polders.
+ De stroomlijnen laten zien dat het grondwater onder de damwanden doorstrroomt alvorens in de polders te kunnen opkwellen.
+ Ook toont het stroombeeld aan dat de infiltratie praktisch uniform over de bodem van het kanaal plaats vindt er is nauwelijks sprake van concentratie aan de zijkanten van het kanaal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D1.0_fd0.00_c100.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Weerstandslaag-van-100d"
+
+\end_inset
+
+Situatie met weerstandslaag van 100 d op de kanaalbodem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:verloop_D1_f0_c100"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ toont het verloop van de stijghoogte en de wateroverdruk ratio op 4 vaste diepten langs de gehele doorsnede.
+ Het peil van het ARK is NAP -0.4 m en het polderpeil NAP -2.3 m.
+ Omdat de stijghoogte op NAP -3.3 m het waterlichaam binnen het kanaal snijdt is de weergegeven stijghoogte daar op deze hoogte gelijk aan het kanaalpeil,
+ dus NAP -0.4 m.
+ De wateroverdruk ratio laat zien dat links van x=-150 m risico is op wellen.
+ Dit wordt hier veroorzaakt door het lagere maaiveld.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_verloop_op_vaste_z_x126311_y474187_D1.0_fd0.00_c100.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:verloop_D1_f0_c100"
+
+\end_inset
+
+Verloop van de stijghoogten en vaste overdruk op vaste diepten in de situatie met homogene weerstand van 100 dagen op de kanaalbodem.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Situatie zonder bodemweerstand
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Geen-bodemweerstand"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de berekende situatie wanneer er in het geheel geen bodemweerstand aanwezig is.
+ Dit is de situatie met de grootste kweldruk en dus ook het grootste waterbezwaar in de aangrenzende polders.
+ De infiltratie vanuit het kanaal is vanwege zijn hoge waterstand ten opzichte van het omringende lagere polderpeil nu veel intenser geworden,
+ waardoor de stijghoogten naast het kanaal ook een stuk hoger uitvallen.
+ De stijghoogten onder het kanaal zijn ca.
+ 0.6 m toegenomen en naast het kanaal zijn zij ca.
+ 0.45 m toegenomen.
+ Hiermee is ook het risico op de vorming van wellen gestegen.
+ De hoogte van de oranje streep-stippellijn geeft weer waar de waterdruk juist instaat is de bovenliggende grond op te tillen.
+ De figuur laat zien dat deze situatie juist optreedt links,
+ waar het maaiveld relatief laag is.
+ Waar dit in de werkelijkheid precies optreedt zal variëren afhankelijk van de lokale opbouw van de bodemlagen in termen van verticale doorlatendheid en nat soortelijk gewicht.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D0.0_fd0.00_c1.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Geen-bodemweerstand"
+
+\end_inset
+
+Situatie zonder weerstand op de kanaalbodem
 \end_layout
 
 \end_inset
@@ -609,11 +1222,10 @@ m.
 \end_layout
 
 \begin_layout Standard
-We zullen hierna enkele berekeningen tonen waarin de weerstandslaag in toenemende mate is weggeërodeerd.
- De situatie zonder erosie is reeds hiervoor getoond (fig.
+Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Weerstandslaag-van-100d"
+reference "fig:verloop_D0_f0_C1"
 plural "false"
 caps "false"
 noprefix "false"
@@ -621,8 +1233,80 @@ nolink "false"
 
 \end_inset
 
-).
+ geeft voor deze situatie het verloop van de stijghoogte en de wateroverdruk ratio langs de doorsnede.
+ De stijghoogte op NAP -3.3 en -8.3 m onder het kanaal zijn nu weinig lager dan het kanaalpeil van NAP -0.4 m.
+ De stijghoogte op NAP -8.3 m onder het kanaal was ca.
+ NAP -1.6 m en is nu NAP -0.5 m,
+ dus zonder bodemweerstand 1.1 m hoger dan met 100 d bodemweerstand.
+ De stijghoogten op NAP aan de buitenzijde van de damwanden was NAP -2.0 m en is nu NAP -1.5 m,
+ dus 0.5 m hoger door verwijderen van de weerstandslaag.
+ Op NAP -3.3 m is de toename van NAP -2.1 m naar NAP -1.75 m ca.
+ 35 cm.
+\end_layout
+
+\begin_layout Standard
+We zien in de onderste afbeelding van fig.
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:verloop_D0_f0_C1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ dat de overdruk ratio op NAP -3.3 m links in de figuur van ca.
+ 1.22 is toegenomen tot 1.5 wat leidt tot een aanmerkelijk hoger risico op wellen.
+ In de rest van de doorsnede zit de overdruk ratio op NAP -3.3 m nu dicht tegen de kritieke waarde van 1.0 aan;
+ in de situatie met 100 d bodemweerstand zat deze ratio nog veilig onder 0.8.
+ De situatie is door verwijdering van de bodemlaag aanmerkelijk verslechterd.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_verloop_op_vaste_z_x126311_y474187_D0.0_fd0.00_c1.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:verloop_D0_f0_C1"
+
+\end_inset
+
+Verloop van de stijghoogten en vaste overdruk op vaste diepten zonder weerstand op de kanaalbodem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Geleidelijke erosie van de weerstandslaag op de kanaalbodem
 \end_layout
 
 \begin_layout Standard
@@ -638,8 +1322,9 @@ nolink "false"
 \end_inset
 
  geeft de situatie waarin de weerstandslaag in de geulen voor 50% is geërodeerd.
- De weerstand is daar dan afgenomen van de oorspronkelijke 100d bij 1 m dikte tot 50 d bij 0.5 m dikte.
- Het verschil met de situatie zonder erosie is bij 50% erosie niet zo groot.
+ De weerstand is daar dan afgenomen van de oorspronkelijke 100 d bij 1 m dikte tot 50 d bij 0.5 m dikte.
+ Het verschil met de situatie zonder erosie is bij 50% erosie niet zo groot omdat nog overal op de kanaalbodem nog weerstand aanwezig is.
+ De focusing van infiltratie op de geulmiddens is in deze situatie ook nog beperkt maar wel al enigszins zichtbaar.
 \end_layout
 
 \begin_layout Standard
@@ -670,7 +1355,7 @@ name "fig:erosie-50pct"
 
 \end_inset
 
-Situatie waarin de weerstandslaag in de voren voor 50% is geërodeerd
+Situatie waarin de weerstandslaag van oorspronkelijk 100 d die in de geulen voor de helft is verdwenen
 \end_layout
 
 \end_inset
@@ -688,6 +1373,51 @@ Situatie waarin de weerstandslaag in de voren voor 50% is geërodeerd
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_verloop_op_vaste_z_x126311_y474187_D1.0_fd0.50_c100.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:verloop_D1_f0.5_C100"
+
+\end_inset
+
+Verloop van de stijghoogten en vaste overdruk op vaste diepten in de situatie waarin de dikte van de oorspronkelijke weerstandslaag van 100 d in de erosiegeulen voor 50% is afgenomen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+100% erosie in het midden van de geulen
+\end_layout
+
+\begin_layout Standard
 Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -699,11 +1429,12 @@ nolink "false"
 
 \end_inset
 
- geeft de situatie waarin de erosie in de geulen tot 100% is voortgeschreden.
- Midden in de geulen is de weerstand nul en daar vlak naast erg laag,
- terwijl de weerstand langs de kanten van het kanaal nog steeds 100 d is.
- Dit geeft duidelijk meer lek,
- waarbij de infiltratie geconcentreerd is rond het midden van de erosiegeulen.
+ geeft de situatie waarin de uitschuring in het midden de geulen tot 100% is voortgeschreden.
+ Midden in de geulen is de weerstand dus nul en daar vlak naast erg laag,
+ terwijl de weerstand langs de kanten en in het midden van het kanaal nog steeds 100 d is.
+ Dit geeft duidelijk meer lek dan in de voorgaande situatie.
+ In deze situatie is de infiltratie maximaal geconcenteerd in de middens van de erosiigeulen,
+ zoals het patroon van stijghoogten en stroomlijnen duidelijk laat zien.
 \end_layout
 
 \begin_layout Standard
@@ -734,7 +1465,7 @@ name "fig:erosie-100pct"
 
 \end_inset
 
-Situatie waarin de weerstandslaag in de geulen voor 100% is geërodeerd
+Situatie waarin de dikte van de weerstandslaag in het midden van de geulen voor 100% is afgenomen
 \end_layout
 
 \end_inset
@@ -755,6 +1486,91 @@ Situatie waarin de weerstandslaag in de geulen voor 100% is geërodeerd
 Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
+reference "fig:verloop_D1_f0.5_C100"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat aan de hand van het golfpatroon van het verloop van de stijghoogte op NAP -8.3 m onder het kanaal de concentratie van de infiltratie in de middens van de erosiegeulen ook duidelijk zien.
+ De situatie ligt duidelijk tussen die van fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Weerstandslaag-van-100d"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ en fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Geen-bodemweerstand"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in,
+ in alle opzichten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_verloop_op_vaste_z_x126311_y474187_D1.0_fd1.00_c100.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:verloop_D1_f1_C100"
+
+\end_inset
+
+Verloop van de stijghoogten en vaste overdruk op vaste diepten in de situatie waarin de dikte van de oorspronkelijke weerstandslaag van 100 d in de erosiegeulen voor 100% is afgenomen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Erosiefractie 200%:
+ een deel van de kanaalbodem volledig zonder weerstandslaag
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
 reference "fig:erosie-200pct"
 plural "false"
 caps "false"
@@ -765,16 +1581,90 @@ nolink "false"
 
  geeft de situatie waarin de oorspronkelijk uniforme weerstandslaag nog verder door erosie is verdwenen.
  Het toegepaste erosiepercentage is 200% in bovenstaande formule,
- wat betekent dat kanaalbodem over een aanzienlijke breedte vrij van weerstandbiedend materiaal is.
- De infiltratie vindt nog altijd vooral onder de geulen plaats maar de breedte waarover dit gebeurt is nu een stuk groter dan in de voorgaande berekening.
- Het verschil met de situatie waarin de weerstandslaag in zijn geheel is nu te verwaarlozen.
- Het verschil tussen 100 en 200% erosie is ca.
- 15 cm onder het kanaal en 10 cm erbuiten.
- Het verschil tussen 0 en 100% erosie is groot;
- onder het kanaal is dat ca.
- 65 cm en naast het kanaal ca.
- 25 cm.
- In de situatie van deze doorsnede is dit ongeveer wat er verwacht mag worden.
+ wat betekent dat kanaalbodem over een aanzienlijke breedte vrij van weerstandbiedend materiaal is (zie weergave van de weerstandslaag in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:erosie-200pct"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ De infiltratie vindt nog altijd vooral onder de geulen plaats maar de breedte waarover dit gebeurt is nu een stuk groter dan in de voorgaande situatie.
+ Het verschil met de situatie zonder weerstandslaag is nu praktisch te verwaarlozen.
+ De stijghoogte op NAP -8.3 m in de situatie zonder weerstand is NAP -0.45 m;
+ in de huidige situatie blijkt dit ca.
+ NAP -0.5 m,
+ dus nauwelijks anders (zie fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:verloop_D1_f2_C100"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Dit geldt dus ook voor de stijghoogten overal elders in de doorsnede.
+ Of de weerstandslaag nu geheel is verdwenen of over een aanmerkelijke breedte van de kanaalbodem maakt nauwelijks verschil.
+ Zodra een deel van de bodem vrij van weerstandbiedend materiaal is gaat de infiltratie en de grondwaterstanden sterk lijken op die zonder weerstandslaag.
+\end_layout
+
+\begin_layout Standard
+Het golfpatroon van de stijghoogte op NAP -8.3 m onder het kanaal toont nog wel de concentratie van de infiltratie in de erosiegeulen.
+ Dit is uiteraard het gevolg van het uitblijven van erosie in het midden en langs de kanten van het kanaal.
+ Het is natuurlijk de vraag of dit de werkelijke situatie goed weergeeft.
+ Indien er na het verdiepen van het kanaal in de jaren 1980 al geen waterremmende laag op de kanaalbodem resteerde,
+ wat de diepte van het kanaal in de doorsnede ook suggereert,
+ dan kunnen er nog steeds erosiegeulen ontstaan,
+ alleen bestaat het materiaal in het midden en langs de kanten van het kanaal dan hoofdzakelijk uit zand met dus weinig weerstand.
+ Het infiltratiepatroon gaat dan nog meer lijken op dat in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:verloop_D0_f0_C1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ zonder bodemweerstand.
+ In dat geval dan de bodemweerstand alleen worden hersteld wanneer de gehele breedte wordt aangepakt.
+ In het geval dat het materiaal in het midden en langs de kanten van het kanaal voldoende waterremmend is,
+ zodat het lijnenpatroon overeenkomt met dat in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:erosie-200pct"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ zou alleen in het midden weerstandbiedend materiaal moeten worden aangebracht.
+ In hoeverre dit het geval is kan worden aangetoond door de stijghoogte onder de kanaalbodem te meten midden in de erosiegeulen en langs de zijkanten van het kanaal.
+ Het golfpatroon van de stijghoogte op NAP -8.3 m in fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:verloop_D1_f2_C100"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat zien dat dan een stijghoogteverschil van ca.
+ 0.3 m mag worden verwacht.
+ Dit is een proef die mogelijk de moeite waard is.
 \end_layout
 
 \begin_layout Standard
@@ -814,6 +1704,217 @@ Situatie waarin de weerstandslaag in de geulen voor 200% is geërodeerd
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_verloop_op_vaste_z_x126311_y474187_D1.0_fd2.00_c100.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:verloop_D1_f2_C100"
+
+\end_inset
+
+Verloop van de stijghoogten en vaste overdruk op vaste diepten in de situatie waarin de geulen over een breedte vrij van waterremmend materiaal zijn (erosiefractie 200%)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:erosie-200pct-xlim1000"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ en fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:verloop_D1_f2_C100-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ zijn gelijk aan fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:erosie-200pct"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ en fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:verloop_D1_f2_C100"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ maar getekend in een 2000 m brede doorsnede in plaats een 500 m brede.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:verloop_D1_f2_C100-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat zien dat ook op grotere afstand van het kanaal situaties kunnen voorkomen waarin de overdrukratio kritisch is.
+ Dit wordt steeds veroorzaakt door de daar lagere maaiveldhoogte.
+ Verschillen in maaiveldhoogte zijn daarom belangrijk voor het inschatten van het risico op welvorming.
+ Zulke situaties verslechteren altijd wanneer de weerstand op de kanaalbodem vermindert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D1.0_fd2.00_c100_xlim1000.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:erosie-200pct-xlim1000"
+
+\end_inset
+
+Situatie waarin de weerstandslaag over een aanzienlijke breedte van de geulen is verdwenen (erosiefractie 200%).
+ Als fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:erosie-200pct"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ maar met doorsnede 2000 m breed in plaats van 500 m.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_verloop_op_vaste_z_x126311_y474187_D1.0_fd2.00_c100_xlim1000.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:verloop_D1_f2_C100-1"
+
+\end_inset
+
+Verloop van de stijghoogten en vaste overdruk op vaste diepten in de situatie waarin de weerstandslaag over een aanzienlijke breedte van de geulen is verdwenen (erosiefractie 200%).
+ Als fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:verloop_D1_f2_C100"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ maar nu 2000 m breed in plaats van 500 m.
+ 
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
