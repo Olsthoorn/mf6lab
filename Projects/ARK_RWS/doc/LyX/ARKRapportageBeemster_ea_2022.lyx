@@ -1,0 +1,2871 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% \lstdefinestyle{mystyle}{
+%   language=Python,
+%   numbers=left
+% }
+
+% Put lstset here, after lstdefinestyle
+% \lstset{style=mystyle}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement H
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=left,% line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Weerstand bodem ARK en wellen
+\end_layout
+
+\begin_layout Author
+T.N.Olsthoorn
+\end_layout
+
+\begin_layout Date
+29 april 2026
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Prof.dr.ir.T.N.Olsthoorn
+\end_layout
+
+\begin_layout Standard
+Hygea-consult
+\end_layout
+
+\begin_layout Standard
+Strawinskylaan 54
+\end_layout
+
+\begin_layout Standard
+2102 CR Heemstede
+\end_layout
+
+\begin_layout Standard
+tolsthoorn@xs4all.nl
+\end_layout
+
+\begin_layout Standard
+06-20440256
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Geohydrologisch onderzoek wellen langs ARK
+\end_layout
+
+\begin_layout Section
+Intro
+\end_layout
+
+\begin_layout Standard
+Deel 1 van dit rapport is een samenvatting van het geohydrologisch onderzoek wellen langs ARK van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ (Waternet).
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ publiceerden in 2022 een uitgebreid en diepgaand onderzoek naar de oorzaken van de wateroverlast door de vorming van wellen en van jaar tot jaar toenemend waterbezwaar van een aantal polders langs het Amsterdam Rijnkanaal.
+ Den naastgelegen polders Baambrugge-Oostzijds,
+ Hoeker en Garsten en Holland Stigt en Voorburg West malen sinds begin deze eeuw in toenemende mate kwelwater uit en ondervinden wateroverlast als gevolg van het ontstaan van wellen.
+ Dit leidt tot
+\end_layout
+
+\begin_layout Enumerate
+Toename draaiuren van gemalen
+\end_layout
+
+\begin_layout Enumerate
+Instabiliteit van oevers
+\end_layout
+
+\begin_layout Enumerate
+Natte plekken in percelen
+\end_layout
+
+\begin_layout Standard
+De oorzaak wordt gezocht in het relatief hooggelegen Amsterdam-Rijnkanaal (ARK) van waaruit water infiltreert naar de lager gelegen omliggende polders.
+ Het water zorgt daar voor een hogere waterdruk tegen de onderzijde van de van nature aanwezige,
+ ca.
+ 4 m dikke holocene waterremmende deklaag.
+ De lek vanuit het ARK is vanaf de eeuwwisseling toegenomen door erosie van de weerstandslaag op de kanaalbodem als gevolg van het opkomen van grotere binnenvaartschepen in dezelfde periode.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ onderzochten een aantal mogelijk oorzaken,
+ maar het eroderen van de weerstand in de kanaalbodem komt daarin naar voren als met verve dominant.
+ Voor het duiden van de gegroeide situatie is het rapport gezien zijn breedte en diepgang interessant en waardevol,
+ ook als historisch document.
+\end_layout
+
+\begin_layout Standard
+Tussen 1977 en 1981 is het ARK verbreed van 75 tot 100 m en verdiept van NAP -4.5 m tot NAP -6.4 m.
+ Doel was om grotere binnenvaartschepen te faciliteren.
+ Bij het verdiepen is de van nature tot ca.
+ NAP -6 m aanwezige waterremmende deklaag grotendeels verwijderd,
+ wat toen direct tot een versterkte infiltratie vanuit het kanaal leidde,
+ dat immers een peil heeft dat met NAP -0.4 m 1.5 tot 2 m hoger is dan het waterpeil in de de lagere naastgelegen polders.
+ Ondanks de nieuwe 12 m diepte damwanden langs het kanaal steeg de grondwaterstand langs het kanaal met ca.
+ 65 cm.
+ Tussen 1981 en ca.
+ 1990 herstelden de grondwaterstanden zich weer geleidelijk;
+ blijkbaar door dichtslibbing van de bodem.
+ Na een decennium stagnatie begonnen de grondwaterstanden en het waterbezwaar van de polders vanaf 2000 geleidelijk toe te nemen en doken ook steeds meer wellen op.
+ Het waterbezwaar bereikte een maximum rond 2015,
+ en bleef in elk geval tot 2022 (moment van rapportage van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+) verder constant,
+ terwijl de grondwaterstanden nog niet stabiel lijken.
+\end_layout
+
+\begin_layout Section
+Toename scheepvaart
+\end_layout
+
+\begin_layout Standard
+De toename van het waterbezwaar en de wellen en de vorming van de erosiegeulen vallen samen met de opkomst van grotere binnenvaarstschepen vanaf 2000.
+ Deltares heeft de geleidelijke toename van de scheepvaart met grotere en krachtiger scheeptypen vanaf 2000 gerapporteerd.
+ We zien aan de grafiek die Deltares daarover maakte,
+ dat er vanaf 2004 op het ARK een continue toename plaats vond van het aantal grote schepen,
+ met name die van het type M8,
+ M9 en M12.
+ Deze toename ging ten koste van schepen van schepen van het type M9.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/ScheepvaartARK.png
+	lyxscale 60
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ontwikkeling-scheepvaart-ARK"
+
+\end_inset
+
+Ontwikkeling van de scheepvaart op het ARK (terugblik in de tijd,
+ meest recente jaar links!).
+ We zien een toename van schepen van het type M8,
+ M9 en M12 ten kosten van kleinere schepen.
+ Het totaal aantal scheepsbewegingen is min of meer hetzelfde gebleven.
+ Met name de allergrootste schepen komen as vanaf 2007 in beeld.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Scheepstypen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ Overzicht van de grootte van de betreffende scheepstypen.
+ Schepen M8/Va zijn over de betreffende periode volgens fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ontwikkeling-scheepvaart-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ toegenomen maar voeren voorheen ook al frequent door het ARK,
+ maar met name de schepen van M9/Va en M12/VIa komen pas na de eeuwwisseling op.
+ Gezien de sprong in diepgang en vermogen mag worden verondersteld dat het met name schepen van type M12/VIa zullen zijn geweest die debet waren aan de bodemerosie in het ARK.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Scheepstypen"
+
+\end_inset
+
+Kenmerken van de diverse scheepstypen.
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RWS20"
+literal "false"
+
+\end_inset
+
+ tabel 8).
+ De schroefdiameters zijn van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ tabel 2.3.
+ De maximale vermogens gegeven in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RWS20"
+literal "false"
+
+\end_inset
+
+ tabel 2 in kW zijn hier omgerekend naar pk (delen door 0.75)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parameter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M7/IVa
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M8/Va schip
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M9/Va
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+M12/VIa schip
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lengte [m]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+105
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+110
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+135
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+135
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Breedte [m]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Diepgang [m]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hoofdschroef
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Max pk
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3200
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Diameter [m]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boegschroef
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Max pk
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+240
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+940
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1500
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Diameter [m]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met name de M12 schepen hebben een grotere diepgang en in potentie een veel groter schroefvermogen.
+ De schroefdiameter van M7/M8 schepen ligt in rond 2m;
+ schroefdiameters bij M12 schepen zijn vaak groter of worden in straalbuizen geplaatst om het rendement bij 4 m diepte te optimaliseren (Wikipedia).
+\end_layout
+
+\begin_layout Section
+Bodem weerstand in de loop van de tijd
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ geven een overzicht van de bodemweerstand van het ARK,
+ gebaseerd op onderzoek met een model dat geijkt is op basis van peilbuisreeksen.
+ Vóór de verruiming van het ARK was de waterdiepte 4.5 m.
+ Er was toen nog ca.
+ 1.5 m waterremmende veenlaag onder de bodem.
+ De weerstand van deze laag werd toen geraamd op 250 d.
+ Voor de situatie onmiddellijk na de verdieping tot NAP -6.4 m,
+ eind 1981,
+ werd de bodemweerstand geraamd op 40d in beide 20 m brede onderwatertaluds en 10 d in het midden van het kanaal (Steenkamp,
+ 1987).
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ pasten dit later aan tot 40 d in de taluds en 6.5 d in het midden van het kanaal (Beemster,
+ 1987),
+ nauwelijks verschillend.
+\end_layout
+
+\begin_layout Standard
+Op grond van deze informatie mag men veronderstellen dat
+\end_layout
+
+\begin_layout Enumerate
+Ook onder de taluds de oorspronkelijke waterremmende laag bij de verruiming is weggebaggerd.
+ Dit lijkt niet overigens niet noodzakelijk voor de verruiming.
+\end_layout
+
+\begin_layout Enumerate
+Dat onmiddellijk na de verruiming de bodemweerstand tenminste in het midden van het ARK zeer gering was.
+ Hieruit mag men concluderen dat de waterremmende laag daar in essentie geheel is weggegraven.
+\end_layout
+
+\begin_layout Standard
+Wat de weerstand bij deze verdeling over taluds en midden voor het gehele kanaal betekent,
+ is niet a priori helemaal duidelijk,
+ maar dat kan nooit veel zijn geweest.
+ Waarschijnlijk komt de weerstand voor het gehele kanaal direct na de verruiming uit ca.
+ 10 d.
+ Omdat dit gegevens zijn uit een (handmatige) modelkalibratie zonder dat bekend is hoeveel water in werkelijkheid vanuit het kanaal infiltreert,
+ zijn deze gegevens met een bepaalde onzekerheid omgeven.
+\end_layout
+
+\begin_layout Standard
+Uit het modelonderzoek van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ blijkt de weerstand van de bodem van het ARK rond 1990 te zijn opgelopen tot ca.
+ 70 d,
+ gerekend over de gehele kanaalbreedte.
+ Dit is nog altijd ruim beneden de weerstand van 250 d,
+ voorafgaand uit het verdieping in de periode 1977-1981.
+\end_layout
+
+\begin_layout Standard
+De weerstand van de kanaalbodem naam in de tien jaar na de verdieping geleidelijk toe tot een maximum van ca.
+ 70 dagen rond 1990.
+ De verstopping,
+ te wijten aan dichtslibbing van het zand waar de kanaalbodem uit bestaat door troebelheid uit het kanaalwater.
+ Deze 
+\begin_inset Quotes pld
+\end_inset
+
+natuurlijke
+\begin_inset Quotes prd
+\end_inset
+
+ verstopping blijkt een traag proces waar blijkbaar ook een maximum aan zit.
+ Deze verstopping vond onder gunstige omstandigheden plaats,
+ namelijk een verdiept kanaal waarin de opkomt van de grote schepen met meer diepgang nog tien jaar op zich liet wachten.
+ Uit het toenemende waterbezwaar van de naastgelegen polders,
+ kan worden geconcludeerd dat de erosie van de bodemlaag pas optrad vanaf ca.
+ 2000,
+ en dat deze samenviel met de komst van schepen van het type M9/Va en M12/VIa met diepgang van resp.
+ 3.5 en 4 m,
+ waar voorheen de maximum diepgang 3.0 m was.
+\end_layout
+
+\begin_layout Standard
+Inmiddels hebben zich in het kanaal twee erosiegeulen gevormd onder de vaarlijn van de schepen.
+ De geulen hebben een maximale diepte van ca.
+ 1.5 m onder het gemiddelde van over de kanaalbreedte (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Waterbezwaar in naastgelegen polders
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/gemaalafvoer_BBO+KC.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gemaalafvoer-BBO"
+
+\end_inset
+
+Gemaalafvoer van polders BBO en LC in m
+\begin_inset Formula $^{3}$
+\end_inset
+
+/d.
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na 2015 neemt het waterbezwaar van de naastgelegen polders niet meer toe (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemaalafvoer-BBO"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Het ligt voor de hand te veronderstellen dat er tegen die tijd een nieuw evenwicht is ontstaan in die zin dat de erosiegeulen hun uiteindelijke evenwichtsdiepte toen min of meer hadden bereikt.
+ Men zou dan verwachten dat de verstopping zich vanaf 2015,
+ dus zonder verdere bodemerosie,
+ opnieuw zou laten gelden.
+ Maar van afname van het waterbezwaar is tussen 2015 en 2020 nog niets te gebleken;
+ het verhoogde waterbezwaar van rond 2015 bleef sindsdien hetzelfde.
+\end_layout
+
+\begin_layout Standard
+Deze uitmalingstoename tussen 2000 en 2015 is groot:
+ de niet-neerslag-gerelateerde uitmaling van de HGP is in die periode ongeveer verzevenvoudigd;
+ die van de polder BBO is bij benadering verdrievoudigd en dat geldt ook voor de polders Holland,
+ Sticht en Voorburg en Honderd West.
+ Ten opzichte van de normale afvoer van het neerslagoverschot en kwel rond 2000,
+ is de uitmaling van deze polders verdubbeld tot verdrievoudigd.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ berekenen ook de infiltratie via de bodem van het ARK.
+ Voor hun modelgebied is dat tussen 2000 en 2020 ongeveer verviervoudigd (tabel 6.1).
+\end_layout
+
+\begin_layout Section
+Langjarige tijdreeksen van de stijghoogte
+\end_layout
+
+\begin_layout Standard
+Het geschetste verloop is in het rapport ook bestudeerd aan de hand van het langjarige verloop van de stijghoogte in een aantal Peilbuizen,
+ waarvan gegevens voorhanden zijn sinds ongeveer 1975.
+ In deze Peilbuizen,
+ voor zover vlak langs het ARK,
+ is de stijghoogte op het moment van de verruiming met maximaal ca.
+ 0.5 m gestegen.
+ In de 10 jaar daarna,
+ tot ca.
+ 1998 nam de stijghoogtes weer geleidelijk af tot iets boven wat ze waren voorafgaand aan de verruiming.
+ Vervolgens waren de stijghoogtes tussen ca.
+ 1990 en 1998  praktisch stabiel.
+ Daarna zette geleidelijk een stijging in,
+ die vanaf 2005 lijkt te versnellen.
+ Dat rond 2015 aan de stijging van de stijghoogte een eind zou zijn gekomen,
+ omdat dan ook de toename van het waterbezwaar stagneert,
+ blijkt niet uit het verloop van de stijghoogten getoond in Beemster e.a.
+ (2022):
+ Rond 2018 lijken de stijghoogten weer grotendeels overeen te komen met die direct na de verruiming in 1981.
+ De lange meetreeksen zijn weliswaar beperkt in aantal,
+ maar dit is de toch indruk die zij verschaffen op grond van fig.
+ 4.1 in Beemster e.a.
+ (2022).
+\end_layout
+
+\begin_layout Standard
+Het detailverloop in peilbuis E0166.2 gelegen dicht naast het ARK,
+ fig.4.3 in Beemster e.a.
+ (2022),
+ bevestigt de hiervoor uit de lange tijdreeksen beschreven indruk.
+ De acute verhoging in 1981 is voor peilbuis E0166.2 blijkt ca.
+ 0.65 m,
+ neemt vervolgens gestaag af tot ca.
+ 0.1 m in 1992.
+ Daar gaat de stijghoogte weer geleidelijk omhoog,
+ tot het einde van de grafiek in 2021.
+ Deze peilbuis geeft geen enkele blijk dat een eindstadium inmiddels (2022) zou zijn bereikt.
+ De uitgebreide tijdreeksanalyse die vervolgens op deze peilbuis wordt gedaan bevestigt deze bevindingen.
+\end_layout
+
+\begin_layout Section
+Reikwijdte van de verhoogde stijghoogte
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/dsnfig_35_beemster.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Grondwaterstanden-BBO-HG-dsn"
+
+\end_inset
+
+Grondwaterstanden zoals aangegeven in de titel.
+ Overgenomen van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+,
+ toegevoegd het verloop bij lek volgens 
+\begin_inset Formula $\lambda=1000$
+\end_inset
+
+ m vanaf het eerste meetpunt.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Het modelonderzoek van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ laat een afname van de verhoging van de stijghoogte zien van 50 cm direct naast het kanaal naar 5 cm op 2.5 km afstand.
+ Hier volgt een spreidingslengte uit van ca.
+ 1000 m:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta\phi_{0}}{\Delta\phi_{1}}=e^{\frac{x_{1}-x_{0}}{\lambda}}\rightarrow\lambda=\frac{(x_{1}-x_{0})}{\ln\left(\frac{\Delta\phi_{0}}{\Delta\phi_{1}}\right)}\to\lambda=\frac{2450}{2.3}\approx1000
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ geeft ook het gemiddelde van de stijghoogten over de in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Grondwaterstanden-BBO-HG-dsn"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ voor meetpunten in een raai peilbuizen loodrecht op het kanaal in de polders BBO en HGP.
+ Het berekende verloop voor 
+\begin_inset Formula $\lambda=1000$
+\end_inset
+
+ m is aan de figuur toegevoegd.
+ Dit is niet in tegenspraak met de metingen.
+\end_layout
+
+\begin_layout Standard
+De opbarstsituatie voor de locatie van deze peilbuizen is weergeven in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Opbarstberekening"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ voor verschillende getallen voor het soortelijk gewicht van het in de deklaag voorkomende veen.
+ De eerste kolom is de drukhoogte.
+ Dit is de stijghoogte minus de hoogte van de onderzijde van de deklaag bij de peilbuis.
+ De volgende kolommen geven het berekende gewicht van de deklaag ook uitgedrukt in mwk.
+ Hierbij is gebruik gemaakt van de dikte van de klei en van het veen uit de boringen die achterin 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ zijn opgenomen.
+ Het soortelijk gewicht kg/L van het veen dat is gebruikt staat in de tweede regel.
+ De vraag of de wateroverdruk onder de deklaag zo hoog is dat deze moet opdrijven hang dus sterk af van het soortelijk gewicht dan met kiest voor het veen.
+ In feite hangt het erom.
+ Men kan vermoeden dat in het veld de drukken nagenoeg gelijk zullen zijn en de grond dus in het hele gebied weer weinig draagkrachten,
+ in feite dat de draagkracht die er nog is geheel afhangt van de cohesie van het veen.
+ In een gebied met zand betekent 
+\begin_inset Formula $h=p$
+\end_inset
+
+ dat we drijfzand hebben.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Opbarstberekening"
+
+\end_inset
+
+Opbarstberekening voor de locaties van de peilputten in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Grondwaterstanden-BBO-HG-dsn"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ bij verschillende soortelijk gewicht voor veen (tweede regel).
+ h is de drukhoogte direct onder de deklaag,
+ p1,
+ p2 en p3 is het totale gewicht van de deklaag in mwk bij verschillende waarden voor het soortelijk gewicht van het veen.
+ phi[NAP] is de stijghoogte onder de deklaag,
+ mv[NAP] is de maaiveldhoogte,
+ zdek[NAP] is de hoogte van de onderzijde van de deklaag,
+ klei[m] is de dikte van de klei in de deklaag en veen[m] de dikte van het veen in de deklaag.
+ Dus voor K09-73 hebben we een deklaag bestaande uit 2 m veen en geen klei.
+ Dus de druk 
+\begin_inset Formula $p_{2}=2\times1.05=2.10$
+\end_inset
+
+ mwk.
+ De drukhoogte is onder deklaag bij deze buis is gelijk aan phi minus de hoogte van de onderzijde van de deklaag dus voor K09-73 is dit 
+\begin_inset Formula $h=-1.57-(-3.71)=2.14$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/tabel_overdruk.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Verloop van de grondwaterstanden in de tijd
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/beemfig4_1.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Trends_gws"
+
+\end_inset
+
+Verloop van de grondwaterstand in peilbuizen nabij het ARK met typerende trends 1975-2020 (uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Trends_gws"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het langjarig verloop van de grondwaterstand in een aantal peilbuizen nabij het ARK.
+ In een aantal is duidelijk het effect van de verdieping te zien gevolgd door een initieel steile en daarna geleidelijke terugval in de negentiger jaren.
+ Vanaf de eeuwwisseling lopen de grondwaterstanden weer op;
+ daaraan lijkt tot 2020 nog en einde te zijn gekomen.
+\end_layout
+
+\begin_layout Standard
+In fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:beemfig4_3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ is het verloop van peilbuis E0166.2 () in detail weergegeven (uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+) waarin het hiervoor geschetste verloop nog duidelijke tot uiting komt.
+ Er is een duidelijk opwaartse trend vanaf ongeveerd de eeuwwisseling,
+ maar de situatie is echter nog niet te vergelijken met die kort na de verdieping.
+ Het is duidelijk dat met name uitmalingscijfers tussen 1981 en 1999 interessant zouden zijn.
+ Die ontbreken in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ terwijl die er toch zouden moeten zijn.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/beemfig4)3.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:beemfig4_3"
+
+\end_inset
+
+Stijghoogtemetingen in peilbuis E0166.2 tegen de westkant van het ARK ter hoogte van Loenen a/d Vecht op y=469000 (uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Opbarstrisico - en wellen,
+ tegengaan van de kweldruk
+\end_layout
+
+\begin_layout Standard
+In het volgende deel van dit rapport zal in detail worden ingegaan on wellen.
+ Er is een heel duidelijk verband tussen het opbarstrisico en het ontstaan van wellen.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "beemfig6_4"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+laat dit goed zien.
+ Wellen zijn gebonden aan polders met opbarstrisico.
+ Bovendien is het opbarstrisico het grootst vlak naast het kanaal met zijn hoge peil.
+ Er is ook een verschil tussen de polder ten westen en die ten oosten van het kanaal.
+ Dit kan worden teruggevoerd op wat fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Grondwaterstanden-BBO-HG-dsn"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in doorsnede toont,
+ namelijk dat het maaiveld daar ten oosten van het ARK enkele decimeters hoger lig dan aan de westzijde.
+\end_layout
+
+\begin_layout Standard
+Risico van opbarsten ontstaat wanneer de waterdruk aan de onderzijde van de waterremmende deklaag groter wordt dan het gewicht van de deklaag zelf (inclusief water).
+ Omdat de deklaag onder watergangen lichter is is daar het risico groter dan in het veld ernaast.
+ Wat zeker niet wil zeggen dat in het land geen wellen ontstaan,
+ dat is namelijk wel zo,
+ zij het minder.
+ Wellen in cohesieve grond ontstaan en gedragen zich anders dan wellen in zand.
+ Hier hebben we te maken met wellen in cohesieve grond (zie verderop).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/beemfig6_4.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "beemfig6_4"
+
+\end_inset
+
+Opbarstrisico in de huidige situatie voor hoofdwatergangen AGV ('de legger') en perceelsloten,
+ met de waargenomen wellen in de watergangen (uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wellen zorgen voor drukontlasting,
+ waardoor ze zich aanpassen aan de stijghoogte in het pleistocene pakket onder de deklaag.
+ Bij stijgende druk gaan de wellen meer leveren en dat verband is vermoedelijk niet-lineair.
+ In elk kan de druk onder de deklaag niet groter worden dan het gewicht ervan,
+ omdat dan de deklaag met zekerheid opdrijft en de stroming door wellen sterk zal toenemen omdat er dan vrij water ontstaat tussen deklaag en pleistoceen zand,
+ waarin de stroming naar wellen niet meer geremd wordt.
+ De wellen gaan dan waarschijnlijk zoveel water geven dat het opdrijven teniet wordt gedaan.
+ Wanneer dat gebeurt onder de waterlopen,
+ waar het opdrijfvermogen het grootst is,
+ dan zal naast de waterlopen,
+ waar de deklaag zwaarder is,
+ van opdrijven geen sprake meer zijn.
+ Dus in plaats van opdrijven van de deklaag als geheel,
+ zoals 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ als mogelijkheid suggereren,
+ is het waarschijnlijk zo dat de waterdruk onder de deklaag,
+ door het drukontlastende effect van de wellen,
+ in evenwicht blijft met zijn gewicht.
+ Wanneer dat onder de hoofdsloten het geval is is de wateroverdruk ernaast niet wat kleiner.
+\end_layout
+
+\begin_layout Standard
+Er ligt vermoedelijk ook een verband tussen de de temperatuur van het kanaalwater en de lek via de wellen.
+ De hogere watertemperatuur in de zomer vermindert de intredeweerstand van de kanaalbodem waardoor de infiltratie en de druk naast het kanaal toenemen.
+ Het resultaat is dat de wellen zich dan meer openen en meer water doorlaten ook op afstand van het kanaal waar de temperatuur van het kanaalwater geen rol speelt.
+ We mogen ervan uitgaan dat de zelfregeling van bestaande wellen zeer gevoelig is voor veranderingen van de stijghoogte,
+ want de stijghoogte zelf varieert nauwelijks,
+ terwijl de wel daar wel sterk op reageert.
+\end_layout
+
+\begin_layout Standard
+De door Beemster e.a.
+ (2022) voorgestelde maatregelen om de 
+\series bold
+kweldruk
+\series default
+,
+ 
+\series bold
+wellen
+\series default
+ en het hoge 
+\series bold
+waterbezwaar
+\series default
+ tegen te gaan zijn als volgt:
+\end_layout
+
+\begin_layout Standard
+1) Percelen verhogen met klei (vergroten gewicht van de bovenlaag).
+\end_layout
+
+\begin_layout Standard
+2) Aanleg van brede teensloten die door de deklaag tot in het pleistoceen reiken.
+ Dus minimaal ca.
+ 4.5 m diep (Wegnemen druk naast het kanaal).
+\end_layout
+
+\begin_layout Standard
+3) Bevorderen van dichtslibben van de kanaalbodem door verlaging van de maximumsnelheid van schepen op kwetsbare trajecten (minder turbulentie,
+ minder erosie betere bezinking)
+\end_layout
+
+\begin_layout Standard
+4) Afdichting op de kanaalbodem aanbrengen met klei of bentoniet.
+\end_layout
+
+\begin_layout Standard
+De enige werkelijk maatschappelijk duurzame oplossing van deze problematiek is de weerstand van de kanaalbodem te vergroten,
+ dit is immers de oorzaak ook al spelen er in mindere mate ook andere factoren mee.
+ Zonder bodemweerstand neemt de problematiek bij de doorgaande bodemdaling uitsluitend toe.
+ 
+\end_layout
+
+\begin_layout Section
+Seizoenvariaties in de kwel
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ wijden een hoofdstuk aan seizoensvariaties in de stijghoogten en de waterbalans die uit hun metingen blijken.
+ Dit wordt geweten aan de temperatuur van het ARK-water waardoor de viscositeit door het jaar heen met een factor van ca.
+ 2 fluctueert en daarmee in potentie ook het infiltratiedebiet.
+ Ook de temperatuur van het water in Peilbuizen fluctueert door het jaar heen.
+ Het lijkt niet waarschijnlijk dat dit jaarlijkse temperatuurverloop te maken heeft met de temperatuur van het ARK water,
+ maar eerder aan de normale jaarlijkse gang van de temperatuur in de atmosfeer,
+ waarvan het effect in de bodem die reikt tot een diepte van 15-20 m..
+ Het temperatuurverloop Peilbuizen op enige afstand van het kanaal kunnen door verblijftijdsspreiding en vertraging door warmte-uitwisseling niet in fase zijn met het die in het kanaal noch met elkaar.
+ Warmtegeleiding vanaf het maaiveld lijkt hier de meest voor de hand liggende oorzaak.
+ 
+\end_layout
+
+\begin_layout Standard
+Hoe de kanaalwatertemperatuur de infiltratieflux door het jaar heen beïnvloedt hangt sterk af van de locatie van de weerstand die het water ondervindt.
+ Hoe meer de infiltratieweerstand is geconcentreerd in de kanaalbodem,
+ hoe directer de infiltratie samenhangt met de temperatuur van het kanaalwater.
+ Dit fenomeen kan gesimuleerd worden door het watertransport en zijn temperatuur,
+ met daaraan gekoppeld de viscositeit,
+ mee de modelleren.
+ Het is in elk geval duidelijk dat viscositeit hier de dominerende factor is.
+\end_layout
+
+\begin_layout Section
+Opdrijven van de waterremmende deklaag
+\end_layout
+
+\begin_layout Standard
+Een interessant aspect dat 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ naar voren brengen is dat het denkbaar zou zijn dat de deklaag in de zomer opdrijft wanneer die aan maaiveld droog en dus lichter van gewicht is.
+ Dit speelde ook bij het bezwijken van de veendijk in Wilnis in 2003.
+ Het is een interessante gedachte.
+ We moeten er immers vanuit gaan dat de toplaag opdrijft zodra de waterdruk eronder groter is dan het gewicht van de toplaag zelf.
+ Wateroverdruk kan in de betrokken polders gemakkelijk voorkomen;
+ en het de onvermijdelijke oorzaak van het ontstaan van wellen.
+ Maar opdrijven gaat gepaard met fluctuaties van het maaiveld,
+ wat meetbaar moet zijn.
+ Tegelijkertijd gaan wellen meer water leveren bij zelfs de geringste druktoename.
+ Juist onder waterlopen waar de deklaag inclusief water het lichtst is,
+ wil de grond het sterkst opdrijven en zullen zich de wellen die juist daar voorkomen zich het meest openen,
+ waardoor de toplaag ernaast op het pleistoceen blijft liggen,
+ zij het maar net.
+ De stijghoogte blijft onder de deklaag ongeveer gelijk aan het gewicht van de deklaag,
+ zou mijn stelling zijn.
+\end_layout
+
+\begin_layout Part
+Wellen,
+ analyse
+\end_layout
+
+\begin_layout Section
+Wellen in cohesieve lagen
+\end_layout
+
+\begin_layout Standard
+Dit deel mag gezien worden als een aanvulling op 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ gaan niet echt in op de fysica van wellen.
+ Daarom volgt hieronder volgt een poging om de vorming van wellen te beschrijven in zowel cohesieve slecht doorlatende toplaagen zoals die voorkomt langs het ARK en in niet-cohesieve zandige situaties,
+ de echte sand-boils,
+ zoals ook bekend van liquifactie en van piping.
+ De laatste zijn hier niet aan de orde.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:welvorming1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft schematisch de situatie onder een brede sloot weer.
+ Er zijn twee lagen,
+ een waterremmende laag bovenop,
+ en zand daaronder.
+ De top van de waterremmende laag is de waterbodem,
+ zodat er geen onverzadigde zone aanwezig is.
+ De verticale doorlatendheid van het zand is groot,
+ zodat de waterdruk in de zandlaag hydrostatisch mag worden beschouwd.
+ Het natte soortelijke gewicht van de waterremmende (veen) laag wordt gelijk verondersteld aan dat van water.
+ Deze aannamen ontdoen de analyse van nodeloze ballast,
+ maar vormen geen belemmering voor de validiteit ervan.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:welvorming1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de situatie in verticale doorsnede met horizontaal daarin uitgezet de drukken waar het om gaat.
+ We hebben allereerst de totale druk,
+ die gegeven wordt door de rode lijn ADBC.
+ AD is hydrostatisch,
+ DB eveneens vanwege het uitgangspunt dat het natte soortelijke gewicht van de waterremmende laag gelijk aan die van water is.
+ De zandlaag heeft echter een veel grotere verzadigde dichtheid zodat de lijn bij B een knik heeft waaronder de druk sneller met de diepte toeneemt.
+\end_layout
+
+\begin_layout Standard
+De waterdruk onder de waterremmende laag wordt gegeven door de daar heersende stijghoogte 
+\begin_inset Formula $\phi$
+\end_inset
+
+,
+ zoals aangegeven.
+ Deze druk wordt gegeven door punt E.
+ Hieronder neemt de waterdruk hydrostatisch toe vanwege de aanname dat de verticale doorlatendheid heel groot is.
+\end_layout
+
+\begin_layout Standard
+Boven punt E neemt de waterdruk af tot die bij punt D,
+ die daar wordt gegeven door de waterstand in de sloot.
+ De drukafname tussen punt E en D is beduidend groter dan de hydrostatische drukafname:
+ er is dus sprake van kwel.
+\end_layout
+
+\begin_layout Standard
+Boven het punt F is de waterdruk groter dan het totale natte gewicht boven punt F.
+ De wateroverdruk bereikt een maximum in punt E aan de onderzijde van de waterremmende laag en is daar gelijk aan BE.
+ Op elke diepte wordt de wateroverdruk gegeven door de breedte van het ingetekende lichtblauwe ruitvormige vlak.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/welvorming1.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:welvorming1"
+
+\end_inset
+
+Overdruk in cohesieve grond
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zou de samenhang van de grond in de waterremmende laag voldoende hoog zijn,
+ en die in de zandlaag praktisch nul,
+ dan zou de waterremmende laag als een schip worden opgetild.
+ Daar is dan geen ontkomen aan:
+ er kan immers geen sprake zijn van aan de zandlaag blijven plakken,
+ want er heerst wateroverdruk op het grensvlak van de twee lagen;
+ de lagen worden daar juist van elkaar gedrukt.
+ Op de plek waar als eerste de wateroverdruk de cohesie van de waterremmende laag overschrijdt,
+ ontstaat onvermijdelijk een scheur.
+ Immers wateroverdruk betekent negatieve effectieve spanning,
+ dus trek tussen de vezels van het veen.
+ Dit is iets dat onmogelijk is in ongeconsolideerd zand.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/welvorming2.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:welvorming2"
+
+\end_inset
+
+Scheurvorming door overdruk in cohesieve grond
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:welvorming2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft dezelfde situatie,
+ waarin zich nu een scheur ontwikkelt.
+ Deze scheur is onder punt A in de figuur als een aan de onderzijde opengedrukte wig weergegeven.
+ Wanneer de scheur zich begint te vormen,
+ terwijl het water dat deze nu open scheur instroomt een verwaarloosbare weerstand ondervindt,
+ dan is de waterdruk in de scheur hydrostatisch.
+ Terwijl de scheur zich ontwikkelt wandelt de waterdruk in de scheur van punt E,
+ naar E1,
+ dan naar E2 etc.
+ tot hij zich op de slootbodem manifesteert als wel.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:welvorming2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat zien dat de wateroverdruk toeneemt naarmate de scheur verder naar boven doordringt.
+ Hoe hoger in het profiel,
+ des te minder de cohesie,
+ en hoe makkelijker de scheur zich doorzet.
+ In fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:welvorming2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ is de wateroverdruk in de scheur overal gelijk aan die gegeven door BE.
+ Dit klopt bij de aanname dat de dichtheid van de waterremmende laag gelijk is aan die van water.
+ Is de dichtheid van de waterremmende laag echter groter dan water,
+ dan neemt de wateroverdruk juist verder toe met het naar boven doordringen van de scheur.
+ Uiteindelijk opent de scheur zich op de slootbodem en is er een wel ontstaan.
+ Er zal onderin de wel wat zand inspoelen,
+ maar veel hoeft dat niet te zijn.
+ Tijdens de vorming wordt de scheur open gedrukt omdat de waterdruk in de van boven nog gesloten scheur groter is dan in het materiaal ernaast (Lijn EE3-D) Wanneer de scheur oven is open gebarsten,
+ is de waterdruk in de scheur gelijk is de totale druk ernaast (lijn ED).
+ De scheur kan dan blijven meeademen met de druk onder de deklaag en zo als drukonlastende naad werken.
+ In cohesief materiaal hebben we met scheurvorminge wellen te maken ook al manifesteren de meeste wellen zich ogenschijnlijk niet zo.
+ (Dit lijkt bevestigt te worden uit het onderzoek van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Louw13"
+literal "false"
+
+\end_inset
+
+ naar het dichten van bestaande wellen in de Noordplas bij Leideen en de Haarlemmermeer).
+ Er zal wel wat inspoeling van zand plaats vinden onderin de scheur,
+ maar zand hoeft zich niet in de sloot te manifesteren,
+ tenzij het zo weinig en zo fijn is,
+ bijv.
+ kleideeltjes,
+ dat de korrels vanuit het pleistoceen of afkomstig van erosie van doorsneden kleilaagjes toch meegevoerd worden.
+\end_layout
+
+\begin_layout Section
+Wellen in zandlagen
+\end_layout
+
+\begin_layout Standard
+Het beschreven mechanisme gaat uit van een samenhangende (dus organische) waterremmende laag die onder de trekspanning ter hoogte van de lijn BE scheurt,
+ waarna de scheur zich steeds gemakkelijker een weg naar boven opent.
+ De welvorming begint dus aan de onderzijde van de waterremmende laag.
+ Er zijn ook andere wellen bekend,
+ in een zandlaag die zich kenmerken als kleine onderwatervulkaantjes van zand.
+ Dit zijn de echte sand-boils die veel beschreven zijn in de literatuur in de contxt van liquifactie,
+ drijfzand en piping.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:welvorming_zand"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft een situatie waarin welvorming in zand optreedt.
+ We hebben hier een laag zand op een laag grind met een zodanig grote verticale doorlatendheid dat de waterspanning in de grindlaag hydrostatisch verloopt.
+ De stijghoogte in het grind is hoog zoals aangegeven met 
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+ Het verloop van de waterspanning is aangegeven met de lijn ABCD.
+ De dichtheid van zand en grind zijn gelijk en veel groter dan die van water.
+ De totale spanning is gelijk aan het natte gewicht boven elk beschouwd punt en is aangegeven met de lijn BDE.
+ Bij voldoende grote stijghoogte in het grind,
+ zoals hier gemarkeerd door punt C,
+ heerst er tussen B en D een wateroverdruk die de onsamenhangende laag zand instabiel maakt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename wellenzand1.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:welvorming_zand"
+
+\end_inset
+
+Overdruk in niet cohesieve grond (los zand)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De waterdruk op het niveau van punt C tilt ook hier de hele zandlaag erboven op.
+ Alleen door het gebrek aan samenhang van het losse zand kan zich hier geen scheur vormen.
+ Wat wel kan is weergegeven in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:welvorming_zand2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Zodra het punt 
+\begin_inset Formula $C$
+\end_inset
+
+ rechts van punt 
+\begin_inset Formula $F$
+\end_inset
+
+ komt te liggen is de effectieve of korrelspanning nul.
+ Bij uniform zand is dat tussen B en C,
+ dus over de gehele zandlaag het geval.
+ Het is zand is instabiel,
+ het is drijfzand geworden en kan dus gemakkelijk lokaal worden opgetild.
+ Dat zal gebeuren waar de dikte van het zand lokaal minimaal of de stijghoogte maximaal dan wel de verticale doorlatendheid minimaal.
+ Onder de opgedrukte koepel is de waterdruk hydrostatisch waardoor punt C overgaat in punt C1 en dus de wateroverdruk toeneemt volgens de getekende lichte driehoek.
+ Het bovenliggende zand is dan al instabiel en,
+ voor zover er nog enige stabiliteit was,
+ stort deze door de toegenomen wateroverdruk verder in:
+ de wel zet zich (versneld) door tot een hele kolom zand als een vulkaan doorbreekt.
+ Op het moment van de doorbraak is het punt C1 verder langs de hydrostatische lijn omhoog gewandeld en de overdruk korte tijd maximaal wat de opwaartse beweging versnelt.
+ De wel breekt door als een onderwatervulkaan en stort vervolgens in omdat bij het doorbreken de wateroverdruk wegvalt.
+\end_layout
+
+\begin_layout Standard
+Een verticale kolom water in los zand kan niet stabiel zijn.
+ Immers de nu aan de bovenzijde open waterkolom heeft een verticaal verloop van de waterspanning die in de richting van het hydrostatische verloop is verschoven,
+ wat impliceert dat de waterdruk dan lager zou zijn dan de totale spanning en de kolom direct weer zou instorten.
+ Dit gebeurt dan ook ook niet,
+ wat er wel gebeurt is dat de kolom als een gefluïdiseerd bed gaat werken.
+ De waterkolom bevat nu zwevend zand,
+ zodanig de verticale drukgradiënt van het water-zandmengsel in de kolom samen overeenkomt met de totale drukgradiënt in het zand naast de wel.
+ De verticale drukgradiënt in de wel ontstaat door de frictie tussen het omhoog stromende water en het in de wel zwevende zand.
+ Anders gezegd:
+ het drukverloop in de wel is overeenkomstig het soortelijk gewicht van het gefluïdiseerde water-zandmengsel.
+ We krijgen zo wellen die voortdurend borrelen met daarin zwevend zand.
+ Een deel van het oorspronkelijke zand is uitgeworpen en ligt verspreid rond de wel,
+ die eruit ziet als een klein onderwatervulkaantje.
+ Echter,
+ een belangrijk deel van het zand blijft in de wel achter zwevend,
+ in dynamisch evenwicht met het omhoog stromende water.
+ Deze wellen zijn niet scheurvormig,
+ maar rond en zijn voortdurende in beweging.
+ Dergelijke processen en wellen zijn op veel plekken in de wereld te zien.
+ Maar ze treden ook op in zandfilters die gespoeld worden.
+ Een fluïde kolom van zandkorrels of van andersoortige zware korrels wordt veelvuldig toegepast in de industrie en bij de waterzuivering.
+ Dit zelfde gedrag heeft 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Louw13"
+literal "false"
+
+\end_inset
+
+ ervaren in zijn poging een zandwel te dichten.
+ Dat werkt niet om de gegeven redenen.
+ Vooral omdat de gedoseerde vloeistof gemaakt en in staat was om poriën af te sluiten,
+ terwijl een zandwel door zijn fluïdisatie geen poriën heeft.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Louw13"
+literal "false"
+
+\end_inset
+
+ we wel deels succesvol in wellen in cohesief materiaal (veen) wat met wat hij verder daarover nog bericht het scheurvormige karakter van wellen in cohesief materiaal bevestigt.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/welvorming_zand1.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:welvorming_zand2"
+
+\end_inset
+
+Welvorming in zand,
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:welvorming_zand3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de eindsituatie weer.
+ Er is een verticale kolom ontstaan met daarin het gefluïdiseerde zand.
+ Het drukverloop is daarin weer gelijk aan dat het oorspronkelijke situatie,
+ namelijk volgens de lijn ABC.
+ Te verwachten is natuurlijk,
+ dat door de vergrote afvoer die de wel mogelijk maakt ook de druk C wat zal afnemen door drukontlasting.
+ Het is ook te verwachten dat de wellen zullen meeademen met met de stijghoogte in het onderliggende grind.
+ Zulke wellen zullen een zeker permanent karakter krijgen omdat de fluïde stroming de fijne zandkorrels de kolom uitdrijft en de grotere korrels behoudt.
+ We krijgen dus ook bij daling van de waterdruk onder de zandlaag lokaal bij de wellen meer kwel dan ernaast ook al zouden die zijn ingestort.
+ In elk geval is een actieve wel een zelforganiserend systeem van een fluïde bed waarin de verticale drukgradiënt in het water-zandmengsel gelijk is aan de verticale totale druk-gradiënt in de grond naast de wel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename welvormingzand3.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:welvorming_zand3"
+
+\end_inset
+
+Ontstane wel in zand.
+ De wel is rond en bevat een gefluïdiseerd water-zand mengsel dat voortdurend in beweging is.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusies wellen
+\end_layout
+
+\begin_layout Standard
+De welvorming in onsamenhangende grond zal dus van een totaal ander karakter zijn dan in samenhangende grond.
+ Het idee dat de wel aan de bovenkant begint en vervolgens naar de diepte uitbreidt ligt niet voor de hand,
+ omdat daarbij een drukverloop gaat ontstaan richting de lijn B1C in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:welvorming_zand2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Daarbij neemt de waterspanning af ten opzichte van de totale druk en stort de kolom in.Wanneer de wel zich van boven ontwikkelt,
+ stroomt er bovendien uit alle richtingen water naartoe,
+ wat de wanden inherent instabiel maakt.
+ De kolom wordt dan een ronde kuil waardoor de dikte van de zandlaag eronder afneemt en de hiervoor beschreven ontwikkeling van onderop in gang gezet wordt.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Volgens ChatGPT:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Veen:
+\end_layout
+
+\begin_layout Standard
+Veen kan enige trek of schuifspanning opnemen;
+ dus het faalt niet meteen lokaal;
+ het faalt meer als geheel (stabiliteitsprobleem).
+ Je ziet dan
+\end_layout
+
+\begin_layout Itemize
+Diffuse kwelplekken
+\end_layout
+
+\begin_layout Itemize
+Scheuren waar water uit sijpelt
+\end_layout
+
+\begin_layout Itemize
+Soms 
+\begin_inset Quotes pld
+\end_inset
+
+blasen
+\begin_inset Quotes prd
+\end_inset
+
+ of zachte opbollingen van het maaiveld
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Zand (niet-cohesief,
+ goed doorlatend)
+\end_layout
+
+\begin_layout Standard
+Als de opwaartse stroming sterk genoeg is neemt de effectieve spanning af tot nul.
+ Bij effectieve spanning nul gaat het zand 
+\begin_inset Quotes pld
+\end_inset
+
+zweven
+\begin_inset Quotes prd
+\end_inset
+
+ (quick condtion).
+ Bij een lokale zwakke plek concentreert zich de stroming,
+ waarbij zand wordt meegevoerd.
+ Wat je dan ziet is:
+ de klassieke 
+\begin_inset Quotes pld
+\end_inset
+
+boil
+\begin_inset Quotes prd
+\end_inset
+
+.
+ Dit is lokaal hydraulisch falen,
+ geen globale stabilteitsbreuk.
+ Je ziet dan 
+\end_layout
+
+\begin_layout Itemize
+Een zandvoerende wel
+\end_layout
+
+\begin_layout Itemize
+Klein kraterachtig punt.
+\end_layout
+
+\begin_layout Itemize
+Opborrelend water.
+\end_layout
+
+\begin_layout Itemize
+Zandafzetting erom heen (mini-vulkaantje).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Tenslotte nog:
+\end_layout
+
+\begin_layout Standard
+De consequentie van welvorming is dat de waterdruk onder de deklaag niet duurzaam boven het gewicht van de deklaag kan uitkomen.
+ In de omgeving van de wellen is deze druk ongeveer gelijk aan dit gewicht.
+ Onder brede sloten is dit niet het gewicht van de deklaag maar het gewicht vanaf het waterpeil in de sloot tot aan de onderkant van de deklaag;
+ in smalle sloten ligt dat daar tussenin.
+ Het gewicht van de deklaag vormt een natuurlijk maximum voor de drukhoogte eronder.
+ Wanneer de deklaag te licht is,
+ vormen zich wellen die dit criterium weer herstellen.
+ Bij door het jaar heen variabele stijghoogte onder de deklaag past het debiet zich zodanig aan,
+ dat aan dit criterium blijft worden voldaan.
+ Dus de wellen geven daarbij meer of minder water,
+ maar de druk onder de deklaag varieert daarbij nauwelijks.
+\end_layout
+
+\begin_layout Standard
+Het punt dat 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ naar voren brengen over het in de zomer bij een wat uitgedroogde top van de deklaag opdrijven ervan,
+ zal in de praktijk vermoedelijk om aangedragen redenen niet optreden.
+ Eerder gaan de wellen meer water geven;
+ de wellen fungeren als drukontlasters,
+ gestuurd door het gewicht van de deklaag,
+ zowel in de zomer als in de winter.
+\end_layout
+
+\begin_layout Part
+Weerstand bodem ARK
+\end_layout
+
+\begin_layout Section
+Intro
+\end_layout
+
+\begin_layout Standard
+Uit het rapport 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+ bleek dat de van nature aanwezige weerstandbiedende laag van het ARK bij de verruiming en verdieping tussen 1977 en 1981 over flinke trajecten is weggegraven.
+ De infiltratie die dit veroorzaakte leidde tot een stijging van de grondwaterstand in de polders langs het kanaal.
+ De weerstand van de kanaalbodem die voor 1977 werd geraamd op 250 dagen,
+ was na de verdieping nog slechts enkele dagen (ca.
+ 6.5 d).
+ Gedurende de 10 jaar die volgde op de verruiming bleekt de weerstand weer toe te nemen tot uiteindelijk ca.
+ 70 dagen.
+ Dit wordt geweten aan natuurlijk dichtslibbing door infiltratie van deeltjes/troebelheid in het ARK-water.
+ Daarna bleef de weerstand een decennium lang min of meer constant.
+ Men kan hieruit concluderen dat deze natuurlijke weerstandsopbouw zijn maximum toen had bereikt.
+ Vanaf 2002 tot 2015 neemt de uitmaling van de naastgelegen polders jaar over jaar toe.
+ Ook ontstaan er steeds meer wellen,
+ wat voor de agrariërs in de polders tot overlast leidt.
+ Deze ontwikkeling valt samen met de groei vanaf ca.
+ 2000 van het aantal grote binnenvaartschepen van met name type M12,
+ met een duidelijk groter diepgang dan de schepen die het kanaal daarvoor bevoeren.
+ Voor deze grotere schepen was e oorspronkelijke verruiming de facto ook bedoeld.
+\end_layout
+
+\begin_layout Standard
+Bij het onderzoek naar de oorzaak van de wateroverlast in de naast het ARK gelegen polders,
+ bleek onder meer dat zich in de bodem van het ARK twee tot 1.5 m diepe erosiegeulen hadden gevormd onder de twee vaarlijnen.
+ Dit wijst in de richting van erosie van de gevormde weerstandslaag,
+ die zich in het decennium na de verruiming door dichtslibbing had opgebouwd.
+ Het geconstateerde feit dat de uitmaling van lekwater in de naastgelegen polders na 2015 niet wezenlijk meer is toegenomen,
+ lijkt erop te wijzen dat het bodemprofiel,
+ en dus de erosiegeulen in het ARK,
+ op dat moment hun evenwicht hadden bereikt.
+ Echter van een opnieuw inzetten van natuurlijke verstopping vanaf 2015 is tot het rapport van Beemster e.a.
+ (2022) nog niets gebleken.
+\end_layout
+
+\begin_layout Standard
+Uit het voorgaand kunnen we een aantal conclusies trekken:
+\end_layout
+
+\begin_layout Enumerate
+De oorspronkelijke natuurlijke weerstandslaag onder de kanaalbodem (basisveen) is volledig verdwenen over het grootste deel van het ARK.
+\end_layout
+
+\begin_layout Enumerate
+Door dichtslibbing kon zich in een decennium een bodemweerstand opbouwen tot in de orde van 70 dagen.
+\end_layout
+
+\begin_layout Enumerate
+De grotere schepen hebben vanaf 2002 erosiegeulen veroorzaakt in de kanaalbodem die tegen 2015 zijn evenwicht lijkt te hebben bereikt.
+\end_layout
+
+\begin_layout Enumerate
+Door deze erosie is de door dichtslibbing opbouwde weerstand geheel verdwenen.
+\end_layout
+
+\begin_layout Enumerate
+Van natuurlijk herstel was tot 2022 nog geen sprake.
+\end_layout
+
+\begin_layout Enumerate
+De lek via de kanaalbodem leidt tot overlast in de naastgelegen polders.
+\end_layout
+
+\begin_layout Enumerate
+Bodemdaling en aanpassing van het polderpeil spelen ook een rol,
+ maar die is bescheiden ten opzichte van de erosie van de bodemweerstand (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Weerstandsopbouw
+\end_layout
+
+\begin_layout Standard
+In de tien jaar na de verdieping bouwde zich door dichtslibbing een nieuwe bodemweerstand op.
+ Niet alleen kost deze opbouw tijd,
+ maar zij zal ook afhankelijk zijn van de concentratie partikels in het kanaalwater.
+ Er is geen garantie dat die concentratie nu hetzelfde is als in de jaren 80.
+ Immers de waterkwaliteit is sinds het Rijn Actie Plan eind jaren zeventig drastisch verbeterd.
+ Men kan redeneren dat er weinig slib in het ARK aanwezig kan zijn,
+ omdat het slib afkomstig moet zijn van de Waal en de Lek en dan grotendeels bezonken zal zijn voordat het water de traject bereikt waarlangs de kwetsbare polders liggen.
+ Ook treedt verstopping door algen nauwelijks op,
+ omdat het kanaal diep is en het water steeds door schepen wordt vermengd,
+ waardoor algengroei sterk gehinderd wordt.
+\end_layout
+
+\begin_layout Standard
+Voorts moet worden bedacht dat dichtslibbing in de periode na de verdieping werd bevorderd door een rustig milieu onderin het ARK,
+ omdat er tot 2000 nog nauwelijks nieuwe grote schepen van het type M12 waren,
+ terwijl het kanaal onder de romp van de oude schepen met 2 m was verdiept,
+ wat natuurlijke dichtslibbing zal hebben bevorderd.
+ In de huidige tijd met veel meer grote binnenvaartschepen,
+ heerst er (alleen al blijkens de erosiegeulen) geen luwte meer op de bodem van het ARK,
+ en bovendien is het ARK-water inmiddels een stuk schoner dan het destijds was.
+ Ergo,
+ er mag niet van worden uitgegaan dat dichtslibbing zoals die destijds optrad ook nu zal optreden,
+ noch dat daarmee de weerstand van de negentiger jaren,
+ van uiteindelijk 70 d,
+ zou worden behaald.
+\end_layout
+
+\begin_layout Standard
+Zeker is,
+ dat een waterdichte bodem de wateroverlast geheel zou wegnemen.
+ Er zijn natuurlijk verschillende maatregelen denkbaar die dit zouden benaderen:
+ bijv.
+ met een kleilaag op de bodem,
+ asfalt op de bodem,
+ of het aanbrengen van bentonietmatten.
+ Maar los van de kosten,
+ passen zulke maatregelen niet in het huidige tijdframe,
+ waarin gezocht wordt naar duurzame oplossingen die kosteneffectief zijn en geen hinder in de toekomst veroorzaken.
+ Er bestaat daardoor een voorkeur voor zachte oplossingen,
+ zoals het aanbrengen een laag zandbentoniet,
+ zoals dat succesvol op veel trajecten van de Twentekanalen is toegepast tussen 2020 en 2022.
+ Onderzoek in de watergrondgoot van Deltares in 2017 heeft uitgewezen,
+ dat met een zandbentonietlaag van 5 tot 10 cm dikte een weerstand tot rond 100 dagen kan worden gerealiseerd,
+ en dat zo'n laag mogelijk is op een onderwatertalud me een helling van 1:6.
+ De erosiegevoeligheid van de aangebrachte zandbentonietlaag moet zich de komende jaren voor de Twentekanalen verder bewijzen.
+\end_layout
+
+\begin_layout Section
+Bentoniet versproeien?
+\end_layout
+
+\begin_layout Standard
+Bentoniet wordt gebruikt om vijvers waterdicht te maken.
+ Ook bentonietmatten kunnen,
+ ondanks hun geringe dikte van maar enkele millimeters,
+ een zeer grote weerstand tegen lek leveren,
+ in de orde van 3000 d.
+ Deze hoge weerstand wordt doorgaans bereikt door het bentoniet of de matten met een laag zand te bedekken,
+ waardoor hij wordt samengedrukt en de kleiplaatjes vlakker op elkaar komen te liggen,
+ en zo meer weerstand tegen lek leveren.
+ Bij het uitstrooien van bentoniet of een zandbentonietmengsel op de kanaalbodem werkt dat minder.
+ Vandaar ook dat de zo te behalen weerstand minder hoog is.
+\end_layout
+
+\begin_layout Standard
+Uitgaande van de ervaring die is opgedaan met het ARK vanaf 1981 en het toepassen van bentoniet,
+ kan ook worden gedacht aan het op natuurlijke manier laten dichtslibben van de kanaalbodem met bentonietdeeltjes.
+ Dit zou kunnen door bentoniet te versproeien dicht boven de kanaalbodem,
+ zonder daarbij zand toe te voegen.
+ Waar de deeltjes bezinken worden zijn vastgezogen door de voortdurende infiltrerende kanaalbodem.
+ De wateroverdruk die de opgebouwde weerstand zal de bentonietdeeltjes steviger op elkaar drukken,
+ wat de weerstand maximaliseert.
+ De aanzuiging van de kanaalbodem zorgt ervoor dat de deeltjes overal terechtkomen en daar vast komen te zitten.
+ De dosering zou gebruik moeten maken van de natuurlijke stroming en de turbulentie in het kanaal om het bentoniet over de bodem te verdelen.
+ Het is dan uiteraard een onderzoeksvraag in hoeverre de bentonietdeeltjes als troebelheid worden meegevoerd voordat zij de kanaalbodem bereiken en daar worden gefixeerd door het infiltrerende water.
+ Een dergelijke aanpak heeft in potentie verschillende voordelen.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Dosering kan beperkt worden tot een aantal punten,
+ want de stroming neemt de deeltjes mee.
+\end_layout
+
+\begin_layout Enumerate
+Er vindt geen stremming van het scheepsverkeer plaats.
+\end_layout
+
+\begin_layout Enumerate
+De procedure kan gemakkelijk worden herhaald voor onderhoud.
+\end_layout
+
+\begin_layout Enumerate
+Een aanvankelijk lage concentratie zorgt voor diepere penetratie van de deeltjes in het onderliggende zand met uiteindelijk een dikkere weerstandslaag die beter bestand zal zijn tegen erosie.
+\end_layout
+
+\begin_layout Enumerate
+De sliblaag wordt en blijft stevig aangezogen zitten op en in de kanaalbodem.
+ Er kan een drukval over de weerstandslaag van 1 tot 2 m worden verwacht.
+\end_layout
+
+\begin_layout Section
+Erosie voorkomen
+\end_layout
+
+\begin_layout Standard
+Een laag bentoniet of zandbentoniet kan of zal onder omstandigheden kwetsbaar zijn voor erosie.
+ Metingen op en onder de aangebrachte bentonietlaag in de tak naar Almelo van het Twentekanaal heeft aangetoond dat de laag zandbentoniet behoorlijk tegen stroming bestand is.
+ Maar ook dat geldt vermoedelijk dat de enige tijd duurt dat de grotere schepen waarvoor het kanaal is verruimd het kanaal gaan bevaren.
+ Zodoende zijn die metingen geen echter garantie voor de toekomst en blijft monitoren van belang.
+\end_layout
+
+\begin_layout Standard
+Het zand van het zandbentonietmengsel heeft verschillende functies,
+ waaronder het vasthouden van bentoniet en bescherming tegen erosie.
+ Dat wordt bereikt door het mengsel met enkele tientallen parallele slangen over een breedte van 10 m op de waterbodem rustig te laten uitvloeien.
+ Bij het onderzoek in de watergrondgoot van Deltares in 2017 werd het mengsel nog uitgesproeid op ca.
+ 30 m boven de waterbodem.
+ Dit leidde tot een aanzienlijke segregatie van het mengsel en veel meer troebeling in het water.
+ Het gevolg is dan dat het zand hoofdzakelijk eerst op de bodem terecht komt en dan wordt afgedekt door de later bezinkende bentonietwolk.
+ Het bentoniet verspreidt zich dan ook verder dan grovere zand.
+ Het uit laten vloeien op de kanaalbodem was daarom een grote verbetering.
+\end_layout
+
+\begin_layout Standard
+Wat nog niet duidelijk is bij het zandbentonietmengsel wat de verhouding tussen zand en bentoniet betekent voor de uiteindelijke eigenschappen.
+ Teveel bentoniet impliceert waarschijnlijk dat het mengsel minder goed hecht op een onderwatertalud.
+ Te weinig bentoniet maakt het mengsel stugger,
+ moeilijker te verwerken waarbij het zand dan zorgt voor slijtage van de pompen.
+ Of hierdoor de weerstand van de laag minder wordt is vooralsnog onduidelijk.
+\end_layout
+
+\begin_layout Standard
+Een logische scheiding van functies van zand en bentoniet kan worden verkregen door de bodem eerst te voorzien van een laag grind,
+ grof genoeg om de bentonietdeeltjes niet tegen te houden,
+ en daarna pas bentoniet dicht boven het grind te versproeien.
+ Het bentoniet dringt dan tussen de grindkorrels door tot op de onderliggende zandbodem en vormt daar de weerstand,
+ terwijl het grind de bentonietlaag beschermt tegen erosie.
+\end_layout
+
+\begin_layout Standard
+De zand-bentoniet toepassing in de Twentekanalen was zeer succesvol;
+ het eerste kanaal waarnaast geen wateroverlast optrad.
+ Maar dat wil niet zeggen dat de methode niet verder kan worden verbeterd.
+ Daar is onderzoek voor nodig.
+ Tegelijk is kanaallek een typisch (maar zeker niet uniek) Nederlands fenomeen dat direct raakt aan maatschappelijke houdbaarheid omdat zwaardere scheepvaart botst met doorgaande bodemprocessen en bruikbaarheid van land in naastgelegen gebieden.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "De Louw (2013)"
+key "Louw13"
+literal "false"
+
+\end_inset
+
+De Louw,
+ P.
+ (2013) Saline seepage in deltaic areas.
+ Preferential groundwater discharge through soils a nd interactions between thin rainwater lenses and upward saline seepage.
+ PhD.
+ Free University Amsterdam.
+ ISBN/EAN 9789461085429
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Beemster e.a. (2022)"
+key "Beemster22"
+literal "false"
+
+\end_inset
+
+Beemster J.G.R,
+ S.J.
+ van der Linde,
+ M.R.L.
+ Ouboter (2022) Geohydrologisch onderzoek wellen langs ARK.
+ Waternet.
+ Projectnr.
+ 09.0005/004,
+ Kenmerk:
+ Corsa 22.010088.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "RWS (2020)"
+key "RWS20"
+literal "false"
+
+\end_inset
+
+RWS (2020) Richtlijnen vaarwegen 2020.
+ ISBN 978-90-9033423-3
+\end_layout
+
+\end_body
+\end_document
