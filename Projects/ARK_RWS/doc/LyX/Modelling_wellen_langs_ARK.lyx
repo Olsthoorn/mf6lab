@@ -148,7 +148,7 @@ C O N C E P T
 \end_layout
 
 \begin_layout Date
-19 april 2026
+19 april 2026 / 20 mei 2026 + temp effect
 \end_layout
 
 \begin_layout Standard
@@ -2523,6 +2523,323 @@ literal "false"
  De definitieve uitwerking valt niet zonder meer te voorspellen,
  vandaar dat een goed begeleide pilot van belang is.
  Maar de hydrologische situatie in het rond het ARK lijkt optimaal voor toepassing van zand-bentoniet als maatregel om de bodemweerstand te herstellen of te creëren.
+\end_layout
+
+\begin_layout Section
+Effect van temperatuur op de infiltratie en stijghoogten
+\end_layout
+
+\begin_layout Standard
+De invloed van de temperatuur op de stijghoogten en de infiltratiesnelheid op de kanaalbodem kan uiteraard worden gemodelleerd met een transportmodel waarin de viscositeit wordt meegenomen in de berekeningen.
+ Hieronder wordt een schatting gemaakt van de temperatuurinvloed zonde gebruik te maken van een transportmodel.
+ In plaats daarvan wordt een aantal punten gekozen op een stroombaan tussen het kanaal end de polder.
+ Op deze punten wordt de stijghoogte bepaald uit de uitkomsten van het stationaire numerieke model.
+ Uit dit model is ook het infiltratiedebiet bekend en daarmee ook de gemiddelde infiltratiesnelheid op de kanaalbodem.
+ Deze infiltratiesnelheid en de stijghoogten op de geselecteerde punten leveren een weerstand tussen deze punten in m/d.
+ Het bijbehorende totale stijghoogte verval is dat tussen kanaal en polderpeil.
+ We kunnen vervolgens berekenen hoe de stijghoogten veranderen wanneer een of meer van deze compartimenten bepaald door opeenvolgende punten van temperatuur veranderen.
+ Hierbij verandert de weerstand van het specifieke compartiment in evenredigheid met de verandering van de viscositeit.
+ Ook de totale weerstand tussen kanaal en polder verandert,
+ maar kanaalpeil en polderpeil blijven ongewijzigd.
+ Het infiltratiedebiet verandert wel.
+ Daar de verandering van het totale weerstand bekend is,
+ geldt dit ook voor het totale infiltratiedebiet of -snelheid.
+ Met de nieuwe infiltratiesnelheid en de aangepaste compartimentsweerstand kunnen de tussengelegen stijghoogten worden berekend.
+ Dit is hieronder gedaan voor temperaturen van 5,
+ 10,
+ 15,
+ 20 en 25 graden celcius in de eerste drie compartimenten:
+ 1) De waterbodem 2) het pakket onder de waterbodem tussen de damwanden en 3) het pakket buiten de damwanden tot de onderzijde van de deklaag.
+\end_layout
+
+\begin_layout Standard
+Deze berekeningen zijn uitgevoerd voor situaties die alleen verschillen in de kanaalbodemweerstand.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Doorsnede-voor-stroompad"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft een doorsnede met stijghoogtelijnen en stroomlijnen waar de punten in kunnen worden gekozen langs een stroombaan.
+ De coördinaten van de gekozen punten staan in de kop van de navolgende figuren.
+ (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Bijbehorend-verloop-van-phi-stroompad"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de stijghoogten op verschillende hoogten in deze doorsnede.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:phi-temp-compartiment1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:phi-temp-compartiment-1-2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ en volgende geven de stijghoogte tussen de gekozen punten,
+ verbonden met rechte lijnen.
+ Zij geven de stijghoogte voor verschillende kanaalbodemweerstanden (elke figuur is een bepaalde bodemweerstand) waarbij de temperatuur een een of meer gebieden tussen de gekozen punten (compartimenten) een van 10C afwijkende waarde heeft.
+ De figuren geven de situatie voor het aantal compartimenten met van 10C afwijkende temperatuur in resp.
+ 1,
+ 2 of 3 compartimenten.
+ De deelfiguren zijn voor verschillende bodemweerstanden (bij 10C).
+ Vooral de eerste twee deelfiguren zijn van belang.
+ De eerste is steeds een kanaalbodem zonder bodemweerstand en de tweede voor een kanaal met 100 dagen bodemweerstand.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_x126311_y474187_D1.0_fd2.00_c100_xlim250.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Doorsnede-voor-stroompad"
+
+\end_inset
+
+Doorsnede met sterk geërodeerde bodem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ARK_verloop_op_vaste_z_x126311_y474187_D1.0_fd2.00_c100_xlim250.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Bijbehorend-verloop-van-phi-stroompad"
+
+\end_inset
+
+Bijbehorend verloop van stijghoogte en overdruk
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temperatuur_effect_1_comp.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:phi-temp-compartiment1"
+
+\end_inset
+
+Verloop van de stijghoogte in een pad van ARK naar polder afhankelijk van de temperatuur van de waterbodem,
+ het eerste compartiment.
+ Zwart=10C,
+ de lijnen die niet zwart zijn corresponderen met de temperatuur in het compartiment.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temperatuur_effect_2_comp.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:phi-temp-compartiment-1-2"
+
+\end_inset
+
+Idem afhankelijk van de temperatuur van de waterbodem en het traject tussen de damwanden daaronder,
+ de twee eerste compartimenten.
+ De zwarte lijnen geven aan waar het water 10C is,
+ de gekleurde lijnen corresponderen met de temperatuur.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temperatuur_effect_3_comp.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:phi-temp-compartiment-1-3"
+
+\end_inset
+
+Idem tussen kanaal en onderzijde deklaag buiten het kanaal,
+ de eerste drie compartimenten.
+ De zwarte lijnen geven aan waar de temperatuur 10C is,
+ de gekleurde lijnen corresponderen met de temperatuur.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
