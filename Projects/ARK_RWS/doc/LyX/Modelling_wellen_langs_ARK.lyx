@@ -2842,6 +2842,101 @@ Idem tussen kanaal en onderzijde deklaag buiten het kanaal,
 
 \end_layout
 
+\begin_layout Subsection
+Eenvoudige situatie
+\end_layout
+
+\begin_layout Standard
+Stel we hebben uniforme stroming door twee compartimenten de een met weerstand 
+\begin_inset Formula $\rho$
+\end_inset
+
+ d/m en lengte 
+\begin_inset Formula $\alpha L$
+\end_inset
+
+.
+ De weerstand van het eerste compartiment is dan 
+\begin_inset Formula $R_{1}=\rho_{1}\alpha L$
+\end_inset
+
+ en de ander met weerstand 
+\begin_inset Formula $R_{2}=\rho_{2}\left(1-\alpha\right)L$
+\end_inset
+
+.
+ De stijghoogten aan het begin en einde van gehele traject zijn 
+\begin_inset Formula $\phi_{0}$
+\end_inset
+
+ en 
+\begin_inset Formula $\phi_{L}$
+\end_inset
+
+ respectievelijk.
+ De stijghoogteverandering in de twee compartimenten is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d\phi}{dx}=-q\rho_{1}\;\frac{d\phi}{dx}=-q\rho_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\phi_{0}-\phi_{1} & =q\rho_{1}\alpha L\\
+\phi_{1}-\phi_{2} & =q\rho_{2}\left(1-\alpha\right)L\\
+\phi_{0}-\phi_{2} & =q\left(\rho_{1}\alpha L+\rho_{2}\left(1-\alpha\right)L\right)\\
+q & =\frac{\phi_{0}-\phi_{2}}{\rho_{1}\alpha L+\rho_{2}\left(1-\alpha\right)L}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\phi_{1} & =\phi_{0}-q\rho_{1}\alpha L\\
+\phi_{1} & =\phi_{2}+q\rho_{2}\left(1-\alpha\right)L
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\phi_{1} & =\phi_{0}-\frac{\rho_{1}\alpha L}{\rho_{1}\alpha L+\rho_{2}\left(1-\alpha\right)L}\left(\phi_{0}-\phi_{2}\right)\\
+ & =\phi_{0}-\frac{1}{1+\frac{\rho_{2}}{\rho_{1}}\frac{1-\alpha}{\alpha}}\left(\phi_{0}-\phi_{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\frac{\partial\phi_{1}}{\partial\alpha}=\frac{\rho_{1}\rho_{2}(\phi_{0}-\phi_{2})}{\left[\rho_{1}\alpha+\rho_{2}(1-\alpha)\right]^{2}}}
+\]
+
+\end_inset
+
+]
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem

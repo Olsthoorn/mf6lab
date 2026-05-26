@@ -401,7 +401,7 @@ def set_ARK_xsec(xsec):
     gr.damwR_extent = np.array([b, b + xsec.d_damw, xsec.z_damw, 0])
 
     # --- Top boundary condition outside the ARK canal.
-    # ----We use DRN as top boundary condition.
+    # --- We use DRN as top boundary condition.
     # --- There is neither evaporation, nor recharge, just seepage from the ARK. So DRN is ok.
     # --- Drains are in the cells with (hpp - 0.25 <= zm <= hpp + 0.25) and outside ARK
     # --- hpp is surface water level outside the canal (Dutch: polder peil)
@@ -996,6 +996,34 @@ for ax, scen in zip(axs.flatten(), range(Nscen)):
     logo(fig, NOTEBOOK_NAME)
     fig.savefig(os.path.join(dirs.images, f"temperatuur_effect_{n}_comp.pdf"))
     
+    
+# %% Exercise with wellen along path
+phi0 = -0.4
+phie = -2.4
+
+c1, c2, c3, c4a, c4b = 100., 10., 10., 1000., 1000.
+c4 = (c4a * c4b) /(c4a + c4b)
+
+c = np.array([c1, c2, c2, c4])
+phi = np.zeros(len(c) + 1)
+x = np.linspace(0, len(phi), len(phi))
+
+q = 1
+phi[0] = phi0
+for i in range(len(c)):
+    phi[i+1] = phi[i] - c[i] * q
+# plt.plot(x, phi, 'x-', label=f"q={q}")
+q = (phi0 - phie) / (phi[0] - phi[-1])
+for i in range(len(c)):
+    phi[i+1] = phi[i] - c[i] * q
+
+plt.plot(x, phi, '.-', label=f"q={q:.2f}")
+plt.grid()
+plt.legend()
+plt.show()
+
+
+
 # %% === Abrasing of the resistance layer at the canal bottom
 
 # --- Set up plot
