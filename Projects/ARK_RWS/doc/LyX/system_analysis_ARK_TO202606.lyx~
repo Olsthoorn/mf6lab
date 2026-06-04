@@ -229,31 +229,5 @@ Ligging van de peilbuizen in de peilgebieden
 
 \end_layout
 
-\begin_layout Section
-Damplanken
-\end_layout
-
-\begin_layout Standard
-Op tekening Renovatie oevers ARK - Lekkanaall Pc:8459 van 2005,
- staat vermeld dat BELVAL BZ 155 profielen zijn gebruikt.
- Dit is volgens het Damwand Museum een historisch type stalen Z-damwandprofiel,
- oorspronkelijk geproduceerd door de Luxemburgse fabrikant TradeArbed (tegenwoordig ArcelorMittal) dat niet meer wordt geproduceerd.
-\end_layout
-
-\begin_layout Standard
-Verder blijkt uit het staatje op deze tekening dat de damplanken meestal 10 m lang zijn.
- Met de kop op NAP 0.6 komt de onderzijde dan op NAP -9.4 m.
- Op de dwarsdoorsnede voor km 13.370 staan einddieptes vermeld van NAP -9.10,
- -8.70 en -9.4.
- Een andere tekening van hetzelfde project bevestigt dit.
- Voor het model is hiermee NAP -9.0 een geschikte einddiepte voor de damwanden.
-\end_layout
-
-\begin_layout Standard
-De damplanken zullen in zekere mate lekken.
- Maar onbekend is hoeveel dit zal zijn.
- In het model kan hiervoor een kleine doorlatendheid worden aangenomen wanneer hierdoor de resultaten blijke.
-\end_layout
-
 \end_body
 \end_document

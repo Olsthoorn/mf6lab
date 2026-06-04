@@ -46,7 +46,7 @@
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children no
-\language english
+\language dutch
 \language_package default
 \inputencoding utf8
 \fontencoding auto
@@ -113,7 +113,7 @@
 \paragraph_indentation default
 \is_math_indent 0
 \math_numbering_side default
-\quotes_style english
+\quotes_style polish
 \dynamic_quotes 0
 \papercolumns 1
 \papersides 1
@@ -133,8 +133,129 @@
 
 \begin_body
 
-\begin_layout Standard
+\begin_layout Title
+Systeem analyse ARK
+\end_layout
 
+\begin_layout Author
+T.N.Olsthoorn
+\end_layout
+
+\begin_layout Section
+Intro
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ligging_dsn_Deltares.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/peilgeb_pb.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:peilgebieden"
+
+\end_inset
+
+Ligging van de peilbuizen in de peilgebieden
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Damplanken
+\end_layout
+
+\begin_layout Standard
+Op tekening Renovatie oevers ARK - Lekkanaall Pc:8459 van 2005,
+ staat vermeld dat BELVAL BZ 155 profielen zijn gebruikt.
+ Dit is volgens het Damwand Museum een historisch type stalen Z-damwandprofiel,
+ oorspronkelijk geproduceerd door de Luxemburgse fabrikant TradeArbed (tegenwoordig ArcelorMittal) dat niet meer wordt geproduceerd.
+\end_layout
+
+\begin_layout Standard
+Verder blijkt uit het staatje op deze tekening dat de damplanken meestal 10 m lang zijn.
+ Met de kop op NAP 0.6 komt de onderzijde dan op NAP -9.4 m.
+ Op de dwarsdoorsnede voor km 13.370 staan einddieptes vermeld van NAP -9.10,
+ -8.70 en -9.4.
+ Een andere tekening van hetzelfde project bevestigt dit.
+ Voor het model is hiermee NAP -9.0 een geschikte einddiepte voor de damwanden.
+\end_layout
+
+\begin_layout Standard
+De damplanken zullen in zekere mate lekken.
+ Maar onbekend is hoeveel dit zal zijn.
+ In het model kan hiervoor een kleine doorlatendheid worden aangenomen wanneer hierdoor de rekenresultaten beter met metingen overeen blijkten te komen.
+ Dit impliceert dat de einddiepte van de planken ca.
+ 4 m onder de bodem van het kanaal uitkomen,
+ waardoor hun betekenis voor de modeluitkomsten gering zullen zijn.
 \end_layout
 
 \end_body
