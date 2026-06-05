@@ -258,5 +258,78 @@ De damplanken zullen in zekere mate lekken.
  waardoor hun betekenis voor de modeluitkomsten gering zullen zijn.
 \end_layout
 
+\begin_layout Section
+Wellen
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:afst_wellen_tot_ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de afstand van wellen tot het midden van het ARK.
+ De 212 wellen zijn overgenomen van fig.
+ in Beemster e.a.
+ (2022).
+ Het is onbekend of dit alle wellen in het gebied zijn,
+ maar het waren wel de bekende.
+ Uit de figuur kan worden opgemaakt dat de bulk van de wellen zich tot 350 m van de hartlijn,
+ dus 300 m van de kanaaloever.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/hist_afstand_wellen_tot_ARK.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:afst_wellen_tot_ARK"
+
+\end_inset
+
+Afstand wellen tot hartlijn ARK (breedte ARK=50 m).
+ Wellen overgenomen uit Beemster e.a.
+ (2022)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

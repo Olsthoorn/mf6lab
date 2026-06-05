@@ -252,7 +252,77 @@ Verder blijkt uit het staatje op deze tekening dat de damplanken meestal 10 m la
 \begin_layout Standard
 De damplanken zullen in zekere mate lekken.
  Maar onbekend is hoeveel dit zal zijn.
- In het model kan hiervoor een kleine doorlatendheid worden aangenomen wanneer hierdoor de resultaten blijke.
+ In het model kan hiervoor een kleine doorlatendheid worden aangenomen wanneer hierdoor de rekenresultaten beter met metingen overeen blijkten te komen.
+ Dit impliceert dat de einddiepte van de planken ca.
+ 4 m onder de bodem van het kanaal uitkomen,
+ waardoor hun betekenis voor de modeluitkomsten gering zullen zijn.
+\end_layout
+
+\begin_layout Section
+Wellen
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:afst_wellen_tot_ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de afstand van wellen tot het midden van het ARK.
+ De 212 wellen zijn overgenomen va
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/hist_afstand_wellen_tot_ARK.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:afst_wellen_tot_ARK"
+
+\end_inset
+
+Afstand wellen tot hartlijn ARK (breedte ARK=50 m).
+ Wellen overgenomen uit Beemster e.a.
+ (2022)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
