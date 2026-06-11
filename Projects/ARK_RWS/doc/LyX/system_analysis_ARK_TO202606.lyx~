@@ -2398,6 +2398,251 @@ $
  We zullen zien dat deze factor onvoldoende is om het verschil in stijghoogte tussen zomer en winter te verklaren.
 \end_layout
 
+\begin_layout Standard
+De tweede figuur binnen fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Hoogste-en-laagste-gwst-gem-ber"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft tevens het berekende verloop voor de zomer.
+ De onderste figuur in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Hoogste-en-laagste-gwst-gem-ber"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft tevens het berekende verloop voor de winter.
+ De bijbehorende bodemparameters en weerstanden staan in de inzettabellen vermeld.
+ De inzettabellen laten zien dat het enige verschil tussen de winter- en de zomersituatie de weerstand is op de bodem van het ARK.
+ Deze gaat van 17 d in de zomer naar 35 d in de winter.
+ 
+\end_layout
+
+\begin_layout Standard
+De waterstand bovenin Boxtel zakt tussen zomer en winter van ca.
+ NAP -1.05 naar -1.45 terwijl het de infiltratiesnelheid afneemt van 31.6 tot 23.7 mm/d.
+\end_layout
+
+\begin_layout Standard
+We kunnen het altijd gelijke stijghoogteverschil tussen het ARK en de polder 
+\begin_inset Formula $\Delta\phi_{0}$
+\end_inset
+
+ in de zomer opdelen in het stuk 
+\begin_inset Formula $\Delta\phi_{za}$
+\end_inset
+
+ tussen ARK en Boxtel en en 
+\begin_inset Formula $\Delta\phi_{zb}$
+\end_inset
+
+ tussen Boxtel en het polder peil met infiltratiesnelheid 
+\begin_inset Formula $q_{z}$
+\end_inset
+
+ en in de winter met infiltratiesnelheid 
+\begin_inset Formula $q_{w}$
+\end_inset
+
+ in resp.
+ 
+\begin_inset Formula $\Delta\phi_{wa}$
+\end_inset
+
+ en 
+\begin_inset Formula $\Delta\phi_{wb}$
+\end_inset
+
+.
+ Na deling door 
+\begin_inset Formula $q_{z}$
+\end_inset
+
+ resp.
+ 
+\begin_inset Formula $q_{w}$
+\end_inset
+
+ krijgen we weerstanden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\Delta\phi_{0}}{q_{z}} & =\frac{\Delta\phi_{za}}{q_{z}}+\frac{\Delta\phi_{zb}}{q_{z}}\\
+\frac{\Delta\phi_{0}}{q_{w}} & =\frac{\Delta\phi_{1b}}{q_{w}}+\frac{\Delta\phi_{wb}}{q_{w}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Door het temperatuurverschil veranderen de totale weerstand en die over het traject ARK-Boxtel,
+ maar die over het traject Boxtel-polder blijft ongewijzigd,
+ zodat 
+\begin_inset Formula 
+\[
+\frac{\Delta\phi_{zb}}{q_{z}}=\frac{\Delta\phi_{wb}}{q_{w}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit geeft
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\Delta\phi_{0}}{q_{z}} & -\frac{\Delta\phi_{za}}{q_{z}}=\frac{\Delta\phi_{0}}{q_{w}}-\frac{\Delta\phi_{wa}}{q_{w}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en na herschikking
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(\frac{1}{q_{z}}-\frac{1}{q_{w}}\right) & =\frac{1}{q_{z}}\frac{\Delta\phi_{za}}{\Delta\phi_{0}}-\frac{1}{q_{w}}\frac{\Delta\phi_{wa}}{\Delta\phi_{0}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zodat het traject ARK-Boxtel in beide situaties in elkaar kunnen worden omgerekend
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\Delta\phi_{wa}}{\Delta\phi_{0}} & =\frac{q_{w}}{q_{z}}\frac{\Delta\phi_{za}}{\Delta\phi_{0}}-\left(\frac{q_{w}}{q_{z}}-1\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uit de metingen blijkt 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{q_{1}}{q_{0}}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_raaien_ARK_gemeten.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_xs_ARK_met_model_linear_zomer_r4-5-6.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_xs_ARK_met_model_linear_winter_r4-5-6.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Hoogste-en-laagste-gwst-gem-ber"
+
+\end_inset
+
+Hoogste en laagste grondwaterstanden (voor zover beschikbaar in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+) in de raaien 4,
+ 5 en 6,
+ met het door het model berekende op gegeven hoogtes inclusief de top van de Formatie van Boxtel.
+ Boven:
+ De hoogste en laagste grondwaterstanden.
+ Midden:
+ met berekend verloop voor de zomer.
+ Onder idem voor de winter.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem

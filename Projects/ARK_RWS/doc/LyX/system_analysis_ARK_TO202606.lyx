@@ -2435,14 +2435,53 @@ De waterstand bovenin Boxtel zakt tussen zomer en winter van ca.
 \end_layout
 
 \begin_layout Standard
-Wanneer we de weerstand en het stijghoogteverschil tussen het ARK en de polder opdelen in het stuk ARK-BX en BX-polder dan geldt
+We kunnen het altijd gelijke stijghoogteverschil tussen het ARK en de polder 
+\begin_inset Formula $\Delta\phi_{0}$
+\end_inset
+
+ in de zomer opdelen in het stuk 
+\begin_inset Formula $\Delta\phi_{za}$
+\end_inset
+
+ tussen ARK en Boxtel en en 
+\begin_inset Formula $\Delta\phi_{zb}$
+\end_inset
+
+ tussen Boxtel en het polder peil met infiltratiesnelheid 
+\begin_inset Formula $q_{z}$
+\end_inset
+
+ en in de winter met infiltratiesnelheid 
+\begin_inset Formula $q_{w}$
+\end_inset
+
+ in resp.
+ 
+\begin_inset Formula $\Delta\phi_{wa}$
+\end_inset
+
+ en 
+\begin_inset Formula $\Delta\phi_{wb}$
+\end_inset
+
+.
+ Na deling door 
+\begin_inset Formula $q_{z}$
+\end_inset
+
+ resp.
+ 
+\begin_inset Formula $q_{w}$
+\end_inset
+
+ krijgen we weerstanden:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\frac{\Delta\phi_{0}}{q_{0}} & =\frac{\Delta\phi_{1a}}{q_{0}}+\frac{\Delta\phi_{2a}}{q_{0}}=R_{1}+R_{2}\\
-\frac{\Delta\phi_{0}}{q_{1}} & =\frac{\Delta\phi_{1b}}{q_{1}}+\frac{\Delta\phi_{2b}}{q_{1}}
+\frac{\Delta\phi_{0}}{q_{z}} & =\frac{\Delta\phi_{za}}{q_{z}}+\frac{\Delta\phi_{zb}}{q_{z}}\\
+\frac{\Delta\phi_{0}}{q_{w}} & =\frac{\Delta\phi_{wa}}{q_{w}}+\frac{\Delta\phi_{wb}}{q_{w}}
 \end{align*}
 
 \end_inset
@@ -2451,21 +2490,42 @@ Wanneer we de weerstand en het stijghoogteverschil tussen het ARK en de polder o
 \end_layout
 
 \begin_layout Standard
+Door het temperatuurverschil veranderen de totale weerstand en die over het traject ARK-Boxtel,
+ maar die over het traject Boxtel-polder blijft ongewijzigd,
+ zodat 
+\begin_inset Formula 
+\[
+\frac{\Delta\phi_{zb}}{q_{z}}=\frac{\Delta\phi_{wb}}{q_{w}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit geeft
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\left(\frac{q_{1}}{q_{0}}\right)\Delta\phi_{0} & =\left(\frac{q_{1}}{q_{0}}\right)\Delta\phi_{1b}+\Delta\phi_{2}\\
-\Delta\phi_{0} & =\Delta\phi_{1a}+\Delta\phi_{2}
+\frac{\Delta\phi_{0}}{q_{z}} & -\frac{\Delta\phi_{za}}{q_{z}}=\frac{\Delta\phi_{0}}{q_{w}}-\frac{\Delta\phi_{wa}}{q_{w}}
 \end{align*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+en na herschikking
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left(\left(\frac{q_{1}}{q_{0}}\right)-1\right)\Delta\phi_{0}=\left(\frac{q_{1}}{q_{0}}\right)\Delta\phi_{1b}-\phi_{1a}
+\Delta\phi_{wa}=\frac{q_{w}}{q_{z}}\Delta\phi_{za}+\Delta\phi_{0}\left(1-\frac{q_{w}}{q_{z}}\right)
 \]
 
 \end_inset
@@ -2476,12 +2536,31 @@ Wanneer we de weerstand en het stijghoogteverschil tussen het ARK en de polder o
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Delta\phi_{1b}=\left(1-\frac{q_{0}}{q_{1}}\right)\Delta\phi_{0}-\frac{q_{0}}{q_{1}}\Delta\phi_{1a}
+\frac{\Delta\phi_{wa}}{\Delta\phi_{0}}=\frac{q_{w}}{q_{z}}\frac{\Delta\phi_{za}}{\Delta\phi_{0}}+\left(1-\frac{q_{w}}{q_{z}}\right)
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Delta\phi_{za} & =\frac{q_{z}}{q_{w}}\Delta\phi_{wa}+\Delta\phi_{0}\left(1-\frac{q_{z}}{q_{w}}\right)
+\end{align*}
+
+\end_inset
+
++
+\end_layout
+
+\begin_layout Standard
+Zodat het traject ARK-Boxtel in beide situaties in elkaar kunnen worden omgerekend
+\end_layout
+
+\begin_layout Standard
+Uit de metingen blijkt 
 \end_layout
 
 \begin_layout Standard
