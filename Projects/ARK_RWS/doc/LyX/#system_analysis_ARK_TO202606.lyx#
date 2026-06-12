@@ -2530,7 +2530,15 @@ De vlakdekkende weerstand van de wellen.
 \end_layout
 
 \begin_layout Standard
-Ook de drainage (of lekweerstand) van de deklaag kan worden aangepast (General Head Boundaries),
+Ook de drainage (of lekweerstand) van de deklaag kan worden aangepast (
+\begin_inset Quotes pld
+\end_inset
+
+General Head Boundaries
+\begin_inset Quotes prd
+\end_inset
+
+),
  maar het model voelt alleen de som van de verticale weerstand van de deklaag en deze drainageweerstand.
  Vandaar dat de drainageweerstand op 125 dagen is vastgehouden.
 \end_layout
@@ -2554,9 +2562,17 @@ nolink "false"
 \begin_layout Standard
 Per raai blijven dan 3 parameters om aan te passen:
  bodemweerstand ARK (bij 10C) (c [bodem ARK],
- de verticale doorlatendheid van de Formatie van Nieuwkoop (kv) en de vlakdekkende weerstand van de wellen (c [wellen]),
+ de verticale doorlatendheid van de Formatie van Nieuwkoop (
+\begin_inset Formula $kv$
+\end_inset
+
+) en de vlakdekkende weerstand van de wellen (
+\begin_inset Formula $c$
+\end_inset
+
+ [wellen]),
  zie beide inzet tabellen in de figuren.
- Per raai zijn de verticale doorlatendheid van de Formatie an Nieuwkoop en de vlakdekkende weerstand constant gehouden,
+ Per raai zijn de verticale doorlatendheid van de Formatie van Nieuwkoop en de vlakdekkende weerstand constant gehouden,
  dus geen verschil tussen zomer en winter.
 \end_layout
 
@@ -2586,36 +2602,44 @@ C tot 5.4d bij 25
 \begin_inset Formula $^{o}$
 \end_inset
 
-C,
- neemt 20d bij 10
+C (zie inzettabel).
+ Om dezelfde reden neemt 20d bodemweerstand bij 10
 \begin_inset Formula $^{o}$
 \end_inset
 
-C tot tot 22.8d bij 5
+C toe tot 22.8d bij 5
 \begin_inset Formula $^{o}$
 \end_inset
 
-C.
+C (zie inzettabel).
  Dit zijn de getallen die in de inzettabel zijn genoemd.
- Maar ook de de doorlatendheid van de zone direct onder het ARK is aan de temperatuur aangepast,
- maar staat niet afzonderlijk in de tabel;
- de doorlatendheden van de lagen in de inzettabel gelden als het ware voor 10
+ Maar ook de de doorlatendheid van de zone direct onder het ARK tot NAP -12 m is aan de temperatuur van het kanaal aangepast.
+ Dit staat echter niet afzonderlijk in de tabel;
+ de doorlatendheden van de lagen in de inzettabel gelden voor 10
 \begin_inset Formula $^{o}$
 \end_inset
 
-C.
+C en zijn buiten de genoemde zone dus altijd hetzelfde.
 \end_layout
 
 \begin_layout Standard
-De overeenkomst tussen de meetpunten en de berekening van de stijghoogte in de top van de Formatie van Boxtel blijkt zeer redelijk tot goed.
+De overeenkomst tussen de meetpunten en de berekening van de stijghoogte in de top van de Formatie van Boxtel blijkt voor raai 5 zeer redelijk tot goed.
  Van een echte ijking is echter geen sprake door onvoldoende waarnemingen op grotere afstanden van het ARK.
 \end_layout
 
 \begin_layout Standard
 De invloed van de wellen is belangrijk,
- die zorgen ervoor dat het verhang vlakbij het ARK belangrijk steiler is dan verderop.
- De spreidingslengte voor de zone met wellen en die daarbuiten is ook in een inzettabel opgenomen.
- Kleiner spreidingslengte impliceert meer lek en dus steiler verhang.
+ die zorgen ervoor dat het verhang vlakbij het ARK belangrijk steiler is verder van het kanaal.
+ De spreidingslengte voor de zone met wellen en die daarbuiten is ook in een inzettabel opgenomen (ca.
+ 900m en 2600m resp.).
+ Een kleinere spreidingslengte impliceert meer lek en dus een steiler verhang.
+\end_layout
+
+\begin_layout Standard
+Er staat veel informatie in de figuren,
+ namelijk ook die van andere raaien dan waarvoor de berekening is uitgevoerd.
+ Het is daarom van belang om de dik getekend lijn voor de top van de Formatie van Boxtel (net onder de deklaag) te vergelijken met de metingen van dezelfde raai.
+ Voor raai 5 zijn dat de paarse punten en voor rij zes de bruine.
 \end_layout
 
 \begin_layout Standard
@@ -2629,7 +2653,6 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_zomer.pdf
-	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -2640,7 +2663,6 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_winter.pdf
-	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -2674,6 +2696,7 @@ C.
 \end_inset
 
 C.
+ De getrokken lijnen moeten worden vergeleken met de paarse meetpunten van raai 5.
 \end_layout
 
 \end_inset
@@ -2702,22 +2725,30 @@ nolink "false"
 
 \end_inset
 
- geeft de handmatige geoptimaliseerde grafieken voor raai 6.
+ geeft de handmatige geoptimaliseerde grafieken van de berekende stijghoogte voor raai 6,
+ met de dik getrokken lijn voor de stijghoogte aan de top van de Formatie van Boxtel,
+ net onder de deklaag.
+ Deze getrokken lijnen moeten worden vergeleken met de bruine meetpunten van raai 6.
  Raai 6 heeft aan de westzijde van het ARK een bijzonder laag polderpeil van NAP -2.6 m.
  De hoogte van de zomer- en winterpunten op ca.
- 480 m ten westen van het ARK maakten het noodzakelijk om de doorlatendheid van het veen (Formatie van Nieuwkoop) belangrijk te verkleinen ten opzichte van de waarde in raai 5.
- De spreidingslengte buiten de raaien is hierdoor zeer groot (inzettabel).
- Ook de weerstand van de wellen is verhoogd van 250 d in raai 5 naar naar 1000 d in raai 6.
- De fit met de metingen is voor de zomer zo goed al perfect en voor de winter redelijk.
- Maar gebrek aan gegevens op grotere afstanden maken definitieve conclusies over de getalswaarden van de weerstanden enigszins hachelijk.
+ 480 m ten westen van het ARK maakten het noodzakelijk om de doorlatendheid van het veen (Formatie van Nieuwkoop) belangrijk te verkleinen ten opzichte van de waarde in raai 5 (zie inzettabel).
+ De spreidingslengte buiten de raaien wordt hierdoor zeer groot (zie tweede inzettabel rechts onder).
+ Ook de weerstand van de wellen is verhoogd van 250d in raai 5 naar naar 1000d in raai 6.
+ De fit met de metingen is voor de zomersituatie zo goed al perfect,
+ en voor de winter redelijk.
+ Maar gebrek aan gegevens op grotere afstanden maken definitieve conclusies over de getalwaarden van de weerstanden zeer betrekkelijk.
  De belangrijkste conclusie is,
- dat ook voor raai 6 het verschil in viscositeit tussen de zomer en winter onvoldoende is om het verschil in stijghoogte te verklaren.
- Ook hier is de zomerweerstand die de fit goed maakt in de zomer lager dan in de winter.
- In raai 6 is zomerwaarde van de kanaalbodemweerstand 20 d (13.5d bij 25
+ dat ook voor raai 6 het verschil in viscositeit tussen de zomer en winter onvoldoende is om het verschil in stijghoogte te verklaren;
+ ook voor raai 6 is de bodemweerstand (waarde bij 10
 \begin_inset Formula $^{o}$
 \end_inset
 
-C) en de winteraarde 32 d (=36.5 d bij 5
+C) die de fit goed maakt in de zomer lager dan in de winter nog afgezien van het effect van de viscositeit.
+ In raai 6 is zomerwaarde van de kanaalbodemweerstand 20 d (wordt 13.5d bij 25
+\begin_inset Formula $^{o}$
+\end_inset
+
+C) en de winteraarde 32 d (wordt 36.5d bij 5
 \begin_inset Formula $^{o}$
 \end_inset
 
@@ -2737,7 +2768,6 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai6_zomer.pdf
-	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -2748,7 +2778,6 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai6_winter.pdf
-	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -2766,10 +2795,12 @@ name "fig:fig:Gemeten-en_ber-hoogte-raai6"
 
 \end_inset
 
-Gemeten hoogte en laagste grondwaterstanden met de door het model berekende stijghoogte op horizontale vlakken inclusief de top van de Formatie van Boxtel aan de westkant van het ARK.
+Gemeten hoogte en laagste grondwaterstanden met de door het model berekende stijghoogte op horizontale vlakken,
+ inclusief de dik getrokken lijn voor de top van de Formatie van Boxtel,
+ alle aan de westkant van het ARK.
  Boven:
  Raai 6,
- zomer situatie,
+ zomersituatie,
  met ARK temperatuur 25
 \begin_inset Formula $^{o}$
 \end_inset
@@ -2782,6 +2813,7 @@ C.
 \end_inset
 
 C.
+ De getrokken lijnen moet worden vergeleken met de bruine meetpunten van raai 6.
 \end_layout
 
 \end_inset
@@ -2799,7 +2831,8 @@ C.
 \end_layout
 
 \begin_layout Standard
-We moeten dus evenals 
+Hier moet dus,
+ evenals 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "D25"
@@ -2807,8 +2840,19 @@ literal "false"
 
 \end_inset
 
-concluderen dat het consequente verschil tussen de hoogste en laagste stijghoogten in de raaien,
- ofschoon eenduidig aangedreven door de temperatuur van het ARK-water niet slechts deel kunnen worden verklaard met de viscositeit van het ARK-water die in de zomer bij 25
+ en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+ worden geconcludeerd,
+ dat het consequente verschil tussen de hoogste en laagste stijghoogten in de raaien,
+ ofschoon eenduidig aangedreven door de temperatuur van het ARK-water,
+ niet volledig wordt verklaard door de viscositeit van het ARK-water,
+ die in de zomer bij 25
 \begin_inset Formula $^{o}$
 \end_inset
 
@@ -2822,603 +2866,19 @@ C een factor 0.59 (
 
 C.
  Dit viscositeitsverschil maakt de doorlatendheid van de kanaalbodem in de zomer 1.7 maal zo groot als in de winter.
- Maar de infiltratiesnelheid is in de winter in raai 5 met mm/d maar een factor ..
- groter dan die in de winter met mm/d (zie inzettabel)
+ Maar de berekende infiltratiesnelheid is in raai 5 in de wintersituatie (begin februari) is 32 mm/d en de zomersituatie (rond 1 augustus) 47 mm/d (zie inzettabellen),
+ dus een factor 
+\begin_inset Formula $\approx1.5$
+\end_inset
+
+ groter dan in de winter,
+ maar die leidt naast het ARK in de zomer niet tot een stijghoogte in de Formatie van Boxtel boven het polderpeil die in de winter dan in de winter het geval is.
+ De berekende infiltratiesnelheid voor raai 6 is ca.
+ 42 mm/d in de zomer en 23 mm/d in de winter.
 \end_layout
 
 \begin_layout Section
 Analytische verificatie
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\phi & =A_{1}e^{-\frac{x}{\lambda_{1}}}+B_{1}e^{-\frac{L_{1}-x}{\lambda_{1}}}\;x<L_{1}\\
-\phi & =A_{2}e^{-\frac{x-L_{1}}{\lambda_{2}}}+B_{2}e^{-\frac{L_{2}-x}{\lambda_{2}}},\;L_{1}<x<L_{2}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\frac{Q}{kD} & =\frac{A_{1}}{\lambda_{1}}e^{-\frac{x}{\lambda_{1}}}-\frac{B_{1}}{\lambda_{1}}e^{-\frac{L_{1}-x}{\lambda_{1}}}\;x<L_{1}\\
-\frac{Q}{kD} & =\frac{A_{2}}{\lambda_{2}}e^{-\frac{x-L_{1}}{\lambda_{2}}}-\frac{B_{2}}{\lambda_{2}}e^{-\frac{L_{2}-x}{}},\;x>L_{2}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Randvoorwaarden,
- continuiteit van stijghoogte en stroming op 
-\begin_inset Formula $x=L$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\phi_{L_{2}} & =A_{1}e^{-\frac{L_{1}}{\lambda_{1}}}+B_{1}=A_{2}+B_{2}e^{-\frac{L_{2}-L_{1}}{\lambda_{2}}}\\
-\frac{Q_{L_{1}}}{kD} & =\frac{A_{1}}{\lambda_{1}}e^{-\frac{L_{1}}{\lambda_{1}}}-\frac{B_{1}}{\lambda_{1}}=\frac{A_{2}}{\lambda_{2}}-\frac{B_{2}}{\lambda_{2}}e^{-\frac{L_{2}-L_{1}}{\lambda_{2}}}\\
-\phi_{0} & =A_{1}+B_{1}e^{-\frac{L_{1}}{\lambda_{1}}}\\
-\frac{Q_{0}}{kD} & =\frac{A_{1}}{\lambda_{1}}-\frac{B_{1}}{\lambda_{1}}e^{-\frac{L_{1}}{\lambda_{1}}}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\phi_{L_{2}} & =A_{2}e^{-\frac{L_{2}-L_{1}}{\lambda_{2}}}+B_{2}\\
-\frac{Q_{L_{2}}}{kD} & =\frac{A_{2}}{\lambda}e^{-\frac{L_{2}-L_{1}}{\lambda_{2}}}-\frac{B_{2}}{\lambda_{2}}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Gelijk algemeen
-\end_layout
-
-\begin_layout Standard
-Laten we elk stuk zijn eigen 
-\begin_inset Formula $x$
-\end_inset
-
- hebben die steeds begint aan de linker kant van elke sectie/traject.
- We hebben dus 
-\begin_inset Formula $N$
-\end_inset
-
- trajecten begrensd door de coördinaten 
-\begin_inset Formula $X_{i},X_{i+1}$
-\end_inset
-
- met 
-\begin_inset Formula $0\le i\le N$
-\end_inset
-
-,
- met 
-\begin_inset Formula $L_{i}=X_{i+1}-X_{i}$
-\end_inset
-
-,
- 
-\begin_inset Formula $\lambda_{i}$
-\end_inset
-
- en coëfficiënten 
-\begin_inset Formula $A_{i}$
-\end_inset
-
- en 
-\begin_inset Formula $B_{i}$
-\end_inset
-
- bepaald door de lokale randvoorwaarden van elke sectie,
- dus de continuïteit van stijghoogte en stroming op elke punt 
-\begin_inset Formula $X_{i}$
-\end_inset
-
-.
- Op punten 
-\begin_inset Formula $X_{0}$
-\end_inset
-
- en 
-\begin_inset Formula $X_{N+1}$
-\end_inset
-
- gelden eind-randvoorwaarden,
- van ofwel de stijghoogte danwel de stroming daar.
- Het is geen enkel probleem om elke sectie zijn eigen 
-\begin_inset Formula $kD$
-\end_inset
-
- te geven en op de punten waar twee secties elkaar ontmoeten een extra injectie toe te voegen.
- We krijgen zo wat we destijds al ontwikkelden,
- als nsecn.
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "default"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-Traject 
-\begin_inset Formula $0<x_{0}<L_{0}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-De vergelijkingen geldend over traject 
-\begin_inset Formula $X_{i}<x<X_{i+1}$
-\end_inset
-
- of 
-\begin_inset Formula $0<x_{i}<L_{i}$
-\end_inset
-
- waarin 
-\begin_inset Formula $x_{i}=x-X_{i}$
-\end_inset
-
- en 
-\begin_inset Formula $L_{i}=X_{i+1}-X_{i}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{align*}
-\phi_{i} & =A_{i}e^{-\frac{x_{i}}{\lambda_{i}}}+B_{i}e^{-\frac{L_{i}-x_{i}}{\lambda_{i}}}\;0<x_{i}<L_{i}\,\text{or}\,X_{i}<x<X_{i+1}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{align*}
-\frac{Q_{i}}{kD_{i}} & =\frac{A_{i}}{\lambda_{i}}e^{-\frac{x_{i}}{\lambda_{i}}}-\frac{B_{i}}{\lambda_{i}}e^{-\frac{L_{i}-x_{i}}{\lambda_{i}}}\;0\le x_{i}<L_{i},X_{i}<x<X_{i+1}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-De randvoorwaarden op de verbindingspunten tussen trajecten 
-\begin_inset Formula $i$
-\end_inset
-
- en 
-\begin_inset Formula $i+1$
-\end_inset
-
- dus op punten 
-\begin_inset Formula $X_{i+1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\[
-\Phi_{i+1}=A_{i}e^{-\frac{L_{i}}{\lambda_{i}}}+B_{i}=A_{i+1}+B_{i+1}e^{-\frac{L_{i+1}}{\lambda_{i+1}}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\[
-\frac{Q_{i+1}}{kD}=\frac{A_{i}}{\lambda_{i}}e^{-\frac{L_{i}}{\lambda_{i}}}-\frac{B_{i}}{\lambda_{i}}=\frac{A_{i+1}}{\lambda_{i+1}}-\frac{B_{i+1}}{\lambda_{i+1}}e^{-\frac{L_{i+1}}{\lambda_{2}}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Het allereerste punt 
-\begin_inset Formula $x=X_{0}$
-\end_inset
-
- kan zowel opgegeven stijghoogte 
-\begin_inset Formula $\Phi_{0}$
-\end_inset
-
- als opgegeven 
-\begin_inset Formula $Q_{0}$
-\end_inset
-
- hebben
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\Phi_{0} & =A_{0}+B_{0}^{-\frac{L_{0}}{\lambda_{0}}}\\
-Q_{0} & =\frac{kD_{0}}{\lambda_{0}}A_{0}-\frac{kD_{0}}{\lambda_{0}}B_{0}e^{-\frac{L_{0}}{\lambda_{0}}}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Op dezelfde wijze aan de rechter zijde,
- waar 
-\begin_inset Formula $x=X_{i+1}$
-\end_inset
-
- of 
-\begin_inset Formula $x_{N}=L_{N}$
-\end_inset
-
- geldt een van deze twee voorwaarden.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\Phi_{N} & =A_{N}e^{-\frac{L_{N}}{\lambda_{N}}}+B_{N}\\
-\frac{Q_{N}}{kD} & =\frac{kD_{N}}{\lambda_{N}}A_{N}e^{-\frac{L_{N}}{\lambda_{N}}}+\frac{kD_{N}}{\lambda_{N}}B_{N}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De indices voor de nodes lopen van de 
-\begin_inset Formula $N+1$
-\end_inset
-
- nodes 0 tot 
-\begin_inset Formula $N-1$
-\end_inset
-
-Voor alle tussenpunten geldt,
- met 
-\begin_inset Formula $\kappa_{i}=\frac{kD_{i}}{\lambda_{i}}$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-A_{i}e^{-\frac{L_{i}}{\lambda_{i-1}}}+B_{i-1}-A_{i}-B_{i}e^{-\frac{L_{i}}{\lambda_{i}}} & =0\\
-\kappa_{i-1}A_{i-1}e^{-\frac{L_{i-1}}{\lambda_{i-1}}}-\kappa_{i-1}B_{i-1}-\kappa_{i}A_{i}+\kappa_{i}B_{i}e^{-\frac{L_{i}}{\lambda_{2}}} & =-Q_{i}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Uitgedrukt in matrixvorm,
- hier de kernel,
- voor vergelijkingen 
-\begin_inset Formula $i$
-\end_inset
-
- en 
-\begin_inset Formula $i+1$
-\end_inset
-
- waar 
-\begin_inset Formula $i$
-\end_inset
-
- en 
-\begin_inset Formula $i+1$
-\end_inset
-
- zowel de kolom- als de rij-indices zijn.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left[\begin{array}{cccc}
-e^{-\frac{L_{i-1}}{\lambda_{i-1}}} & 1 & -1 & -e^{-\frac{L_{i}}{\lambda_{i}}}\\
-\kappa_{i-1}e^{-\frac{L_{i-1}}{\lambda_{i-1}}} & -\kappa_{i-1} & -\kappa_{i} & \kappa_{i}e^{-\frac{L_{i}}{\lambda_{i}}}
-\end{array}\right]\times\left[\begin{array}{c}
-A_{i-1}\\
-B_{i-1}\\
-A_{i}\\
-B_{i}
-\end{array}\right]=\left[\begin{array}{c}
-0\\
--Q_{i}
-\end{array}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Randvoorwaarde op 
-\begin_inset Formula $x=0$
-\end_inset
-
- waar 
-\begin_inset Formula $i-1$
-\end_inset
-
- niet bestaat en 
-\begin_inset Formula $i=0$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\Phi_{0}$
-\end_inset
-
- op 
-\begin_inset Formula $x=X_{0}$
-\end_inset
-
- dus 
-\begin_inset Formula $x_{0}=0$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left[-\begin{array}{cc}
-1, & -e^{-\frac{L_{0}}{\lambda_{0}}}\end{array}\right]\times\left[\begin{array}{c}
-A_{0}\\
-B_{0}
-\end{array}\right]=\left[\begin{array}{c}
--\Phi_{0}\end{array}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{Q_{0}}{kD}$
-\end_inset
-
- op 
-\begin_inset Formula $x=X_{0},$
-\end_inset
-
-dus 
-\begin_inset Formula $x_{0}=0$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left[\begin{array}{cc}
--\kappa_{0}, & \kappa_{0}e^{-\frac{L_{0}}{\lambda_{0}}}\end{array}\right]\times\left[\begin{array}{c}
-A_{0}\\
-B_{0}
-\end{array}\right]=\left[-\begin{array}{c}
-Q_{0}\end{array}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Randvoorwaarde aan de rechterzijde waar 
-\begin_inset Formula $i=N$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\Phi_{N}$
-\end_inset
-
- op 
-\begin_inset Formula $x=X_{N}$
-\end_inset
-
- dus op 
-\begin_inset Formula $x_{N}=L_{N-1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left[\begin{array}{cc}
-e^{-\frac{L_{N-1}}{\lambda_{N-1}}} & 1\end{array}\right]\times\left[\begin{array}{c}
-A_{N-1}\\
-B_{N-1}
-\end{array}\right]=\left[\begin{array}{c}
-\Phi_{N}\end{array}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{Q_{N+1}}{kD}$
-\end_inset
-
- op 
-\begin_inset Formula $x=X_{N+1},$
-\end_inset
-
-dus 
-\begin_inset Formula $x_{N}=L_{N}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left[\begin{array}{cc}
-\kappa_{N-1}e^{-\frac{L_{N-1}}{\lambda_{N-1}}} & -\kappa_{N-1}\end{array}\right]\times\left[\begin{array}{c}
-A_{N-1}\\
-B_{N-1}
-\end{array}\right]=\left[-\begin{array}{c}
-Q_{N}\end{array}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-test
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\phi_{0} & =A+Be^{-L/\lambda}\\
-\phi_{1} & =Ae^{-L/\lambda}+B
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left[\begin{array}{cc}
-1 & e^{-L/\lambda}\\
-e^{-L/\lambda} & 1
-\end{array}\right]\times\left[\begin{array}{c}
-A\\
-B
-\end{array}\right]=\left[\begin{array}{c}
-\phi_{0}\\
-\phi_{1}
-\end{array}\right]
-\]
-
-\end_inset
-
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\backslash
-begin{array}{c}
-A
-\backslash
-
-\backslash
-
-B
-
-\backslash
-end{array}
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\nospellcheck default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-
-\backslash
-tim
 \end_layout
 
 \begin_layout Section
@@ -3426,11 +2886,275 @@ WEERSTANDEN
 \end_layout
 
 \begin_layout Standard
-We kunnen het altijd gelijke stijghoogteverschil tussen het ARK en de polder 
-\begin_inset Formula $\Delta\phi_{0}$
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Statistiek-temperatuur-ARK"
+
 \end_inset
 
- in de zomer opdelen in het stuk 
+Statistiek temperatuur ARK water 5/1/2025-5/1/2026 en bijbehorende viscositeit ten opzichte van die van 10
+\begin_inset Formula $^{o}$
+\end_inset
+
+C.
+ De winter- en zomertemperatuur zijn resp.
+ de 25% en 75% quantielen van de dagcijfers.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+min
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+winter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+gemiddeld
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+zomer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+max
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+temp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu\left(Temp\right)/\mu\left(10\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.90
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.79
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.69
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We kunnen het altijd gelijke stijghoogteverschil tussen het ARK en de naastgelegen polder 
+\begin_inset Formula $\Delta h_{0}=h_{ARK}-h_{pold}$
+\end_inset
+
+ opdelen in een deel waarin de viscositeit verandert door infiltrerend ARK-water en een deel waarin de jaarlijkse variatie van de watertemperatuur in de bodem te verwaarlozen is.
+ Bij een representatieve infiltratiesnelheid van 40 mm/d is de kolom water die in een half jaar infiltreert 7.2 m.
+ Bij porositeit van 1/3 en temperatuurretardatie van ca.
+ 2 in de indringdiepte van de temperatuur anderhalf maal zo groot dus ca.
+ 10 m,
+ dus tot ca.
+ NAP -16.5 m bij een bodemhoogte van NAP -6.5 m.
+ Gezien de getallen in de tabel kunnen we het effect van de zomertemperatuur meenemen door de zone onder het ARK tot NAP -17 m de zomer viscositeit te geven.
+ NAP -17 is 7 m onder de onderzijde van de damwand,
+ zodat het water vooral ook zijwaarts stroomt.
+ De zone met zomertemperatuur zullen we daarom zijdelings uitbreiden met 7 m.
+ Buiten deze zone is de temperatuur lager dan de zomertemperatuur,
+ en nog verder is er door afvlakking niet veel meer over van de jaarschommeling.
+ Om de situatie in de winter te simuleren geven we dezelfde zone de viscositeit behorend bij de gemiddelde wintertemperatuur,
+ zie tabel.
+ De viscositeitsverhouding tussen gemiddeld winter en gemiddeld zomer is 1.32,
+ die tussen min winter en gemiddeld winter is 1.71 (zie tabel).
+\end_layout
+
+\begin_layout Standard
+Voor de verandering van de grondwaterstand afhankelijk van de temperatuur is de zone waarover de temperatuur verandert van belang.
+ Immers,
+ wanneer de viscositeit overal in de bodem in dezelfde mate verandert,
+ verandert wel de grondwatersnelheid overal in evenredigheid met de gewijzigde viscositeit,
+ maar de stijghoogte blijft hetzelfde omdat het ARK-peil en het polderpeil niet meeveranderen.
+ 
+\end_layout
+
+\begin_layout Standard
+inklemmen door De gemiddelde temperatuur van het kanaalwater in de zomer is 19C.
+ en de winter van temperatuur in de zomer opdelen in het stuk 
 \begin_inset Formula $\Delta\phi_{za}$
 \end_inset
 
