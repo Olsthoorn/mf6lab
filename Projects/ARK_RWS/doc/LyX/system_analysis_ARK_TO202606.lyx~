@@ -2530,7 +2530,15 @@ De vlakdekkende weerstand van de wellen.
 \end_layout
 
 \begin_layout Standard
-Ook de drainage (of lekweerstand) van de deklaag kan worden aangepast (General Head Boundaries),
+Ook de drainage (of lekweerstand) van de deklaag kan worden aangepast (
+\begin_inset Quotes pld
+\end_inset
+
+General Head Boundaries
+\begin_inset Quotes prd
+\end_inset
+
+),
  maar het model voelt alleen de som van de verticale weerstand van de deklaag en deze drainageweerstand.
  Vandaar dat de drainageweerstand op 125 dagen is vastgehouden.
 \end_layout
@@ -2554,9 +2562,17 @@ nolink "false"
 \begin_layout Standard
 Per raai blijven dan 3 parameters om aan te passen:
  bodemweerstand ARK (bij 10C) (c [bodem ARK],
- de verticale doorlatendheid van de Formatie van Nieuwkoop (kv) en de vlakdekkende weerstand van de wellen (c [wellen]),
+ de verticale doorlatendheid van de Formatie van Nieuwkoop (
+\begin_inset Formula $kv$
+\end_inset
+
+) en de vlakdekkende weerstand van de wellen (
+\begin_inset Formula $c$
+\end_inset
+
+ [wellen]),
  zie beide inzet tabellen in de figuren.
- Per raai zijn de verticale doorlatendheid van de Formatie an Nieuwkoop en de vlakdekkende weerstand constant gehouden,
+ Per raai zijn de verticale doorlatendheid van de Formatie van Nieuwkoop en de vlakdekkende weerstand constant gehouden,
  dus geen verschil tussen zomer en winter.
 \end_layout
 
@@ -2586,36 +2602,44 @@ C tot 5.4d bij 25
 \begin_inset Formula $^{o}$
 \end_inset
 
-C,
- neemt 20d bij 10
+C (zie inzettabel).
+ Om dezelfde reden neemt 20d bodemweerstand bij 10
 \begin_inset Formula $^{o}$
 \end_inset
 
-C tot tot 22.8d bij 5
+C toe tot 22.8d bij 5
 \begin_inset Formula $^{o}$
 \end_inset
 
-C.
+C (zie inzettabel).
  Dit zijn de getallen die in de inzettabel zijn genoemd.
- Maar ook de de doorlatendheid van de zone direct onder het ARK is aan de temperatuur aangepast,
- maar staat niet afzonderlijk in de tabel;
- de doorlatendheden van de lagen in de inzettabel gelden als het ware voor 10
+ Maar ook de de doorlatendheid van de zone direct onder het ARK tot NAP -12 m is aan de temperatuur van het kanaal aangepast.
+ Dit staat echter niet afzonderlijk in de tabel;
+ de doorlatendheden van de lagen in de inzettabel gelden voor 10
 \begin_inset Formula $^{o}$
 \end_inset
 
-C.
+C en zijn buiten de genoemde zone dus altijd hetzelfde.
 \end_layout
 
 \begin_layout Standard
-De overeenkomst tussen de meetpunten en de berekening van de stijghoogte in de top van de Formatie van Boxtel blijkt zeer redelijk tot goed.
+De overeenkomst tussen de meetpunten en de berekening van de stijghoogte in de top van de Formatie van Boxtel blijkt voor raai 5 zeer redelijk tot goed.
  Van een echte ijking is echter geen sprake door onvoldoende waarnemingen op grotere afstanden van het ARK.
 \end_layout
 
 \begin_layout Standard
 De invloed van de wellen is belangrijk,
- die zorgen ervoor dat het verhang vlakbij het ARK belangrijk steiler is dan verderop.
- De spreidingslengte voor de zone met wellen en die daarbuiten is ook in een inzettabel opgenomen.
- Kleiner spreidingslengte impliceert meer lek en dus steiler verhang.
+ die zorgen ervoor dat het verhang vlakbij het ARK belangrijk steiler is verder van het kanaal.
+ De spreidingslengte voor de zone met wellen en die daarbuiten is ook in een inzettabel opgenomen (ca.
+ 900m en 2600m resp.).
+ Een kleinere spreidingslengte impliceert meer lek en dus een steiler verhang.
+\end_layout
+
+\begin_layout Standard
+Er staat veel informatie in de figuren,
+ namelijk ook die van andere raaien dan waarvoor de berekening is uitgevoerd.
+ Het is daarom van belang om de dik getekend lijn voor de top van de Formatie van Boxtel (net onder de deklaag) te vergelijken met de metingen van dezelfde raai.
+ Voor raai 5 zijn dat de paarse punten en voor rij zes de bruine.
 \end_layout
 
 \begin_layout Standard
@@ -2629,7 +2653,6 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_zomer.pdf
-	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -2640,7 +2663,6 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_winter.pdf
-	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -2674,6 +2696,7 @@ C.
 \end_inset
 
 C.
+ De getrokken lijnen moeten worden vergeleken met de paarse meetpunten van raai 5.
 \end_layout
 
 \end_inset
@@ -2702,13 +2725,17 @@ nolink "false"
 
 \end_inset
 
- geeft de handmatige geoptimaliseerde grafieken voor raai 6.
+ geeft de handmatige geoptimaliseerde grafieken van de berekende stijghoogte voor raai 6,
+ met de dik getrokken lijn voor de stijghoogte aan de top van de Formatie van Boxtel,
+ net onder de deklaag.
+ Deze getrokken lijnen moeten worden vergeleken met de bruine meetpunten van raai 6.
  Raai 6 heeft aan de westzijde van het ARK een bijzonder laag polderpeil van NAP -2.6 m.
  De hoogte van de zomer- en winterpunten op ca.
- 480 m ten westen van het ARK maakten het noodzakelijk om de doorlatendheid van het veen (Formatie van Nieuwkoop) belangrijk te verkleinen ten opzichte van de waarde in raai 5.
- De spreidingslengte buiten de raaien wordt hierdoor zeer groot (inzettabel).
- Ook de weerstand van de wellen is verhoogd van 250 d in raai 5 naar naar 1000 d in raai 6.
- De fit met de metingen is voor de zomer zo goed al perfect en voor de winter redelijk.
+ 480 m ten westen van het ARK maakten het noodzakelijk om de doorlatendheid van het veen (Formatie van Nieuwkoop) belangrijk te verkleinen ten opzichte van de waarde in raai 5 (zie inzettabel).
+ De spreidingslengte buiten de raaien wordt hierdoor zeer groot (zie tweede inzettabel rechts onder).
+ Ook de weerstand van de wellen is verhoogd van 250d in raai 5 naar naar 1000d in raai 6.
+ De fit met de metingen is voor de zomersituatie zo goed al perfect,
+ en voor de winter redelijk.
  Maar gebrek aan gegevens op grotere afstanden maken definitieve conclusies over de getalwaarden van de weerstanden zeer betrekkelijk.
  De belangrijkste conclusie is,
  dat ook voor raai 6 het verschil in viscositeit tussen de zomer en winter onvoldoende is om het verschil in stijghoogte te verklaren;
@@ -2716,12 +2743,12 @@ nolink "false"
 \begin_inset Formula $^{o}$
 \end_inset
 
-C) die de fit goed maakt in de zomer lager dan in de winter.
- In raai 6 is zomerwaarde van de kanaalbodemweerstand 20 d (13.5d bij 25
+C) die de fit goed maakt in de zomer lager dan in de winter nog afgezien van het effect van de viscositeit.
+ In raai 6 is zomerwaarde van de kanaalbodemweerstand 20 d (wordt 13.5d bij 25
 \begin_inset Formula $^{o}$
 \end_inset
 
-C) en de winteraarde 32 d (=36.5 d bij 5
+C) en de winteraarde 32 d (wordt 36.5d bij 5
 \begin_inset Formula $^{o}$
 \end_inset
 
@@ -2741,7 +2768,6 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai6_zomer.pdf
-	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -2752,7 +2778,6 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai6_winter.pdf
-	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -2770,10 +2795,12 @@ name "fig:fig:Gemeten-en_ber-hoogte-raai6"
 
 \end_inset
 
-Gemeten hoogte en laagste grondwaterstanden met de door het model berekende stijghoogte op horizontale vlakken inclusief de top van de Formatie van Boxtel aan de westkant van het ARK.
+Gemeten hoogte en laagste grondwaterstanden met de door het model berekende stijghoogte op horizontale vlakken,
+ inclusief de dik getrokken lijn voor de top van de Formatie van Boxtel,
+ alle aan de westkant van het ARK.
  Boven:
  Raai 6,
- zomer situatie,
+ zomersituatie,
  met ARK temperatuur 25
 \begin_inset Formula $^{o}$
 \end_inset
@@ -2786,6 +2813,7 @@ C.
 \end_inset
 
 C.
+ De getrokken lijnen moet worden vergeleken met de bruine meetpunten van raai 6.
 \end_layout
 
 \end_inset
@@ -2803,7 +2831,8 @@ C.
 \end_layout
 
 \begin_layout Standard
-We moeten dus evenals 
+Hier moet dus,
+ evenals 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "D25"
@@ -2811,9 +2840,18 @@ literal "false"
 
 \end_inset
 
-concluderen dat het consequente verschil tussen de hoogste en laagste stijghoogten in de raaien,
+ en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+ worden geconcludeerd,
+ dat het consequente verschil tussen de hoogste en laagste stijghoogten in de raaien,
  ofschoon eenduidig aangedreven door de temperatuur van het ARK-water,
- niet kunnen worden verklaard met uitsluitend de viscositeit van het ARK-water,
+ niet volledig wordt verklaard door de viscositeit van het ARK-water,
  die in de zomer bij 25
 \begin_inset Formula $^{o}$
 \end_inset
@@ -2828,11 +2866,15 @@ C een factor 0.59 (
 
 C.
  Dit viscositeitsverschil maakt de doorlatendheid van de kanaalbodem in de zomer 1.7 maal zo groot als in de winter.
- Maar de berekende infiltratiesnelheid is in raai 5 begin februari ca.
- 30 mm/d en midden zomer rond 1 augustus ca.
- 60 mm/d (zie inzettabellen),
- dus een factor 2 groter dan in de winter,
- maar die leidt naast het ARK in de zomer niet tot een tweemaal zo grote stijghoogte in de Formatie van Boxtel boven het polderpeil dan in de winter het geval is.
+ Maar de berekende infiltratiesnelheid is in raai 5 in de wintersituatie (begin februari) is 32 mm/d en de zomersituatie (rond 1 augustus) 47 mm/d (zie inzettabellen),
+ dus een factor 
+\begin_inset Formula $\approx1.5$
+\end_inset
+
+ groter dan in de winter,
+ maar die leidt naast het ARK in de zomer niet tot een stijghoogte in de Formatie van Boxtel boven het polderpeil die in de winter dan in de winter het geval is.
+ De berekende infiltratiesnelheid voor raai 6 is ca.
+ 42 mm/d in de zomer en 23 mm/d in de winter.
 \end_layout
 
 \begin_layout Section
@@ -2844,281 +2886,292 @@ WEERSTANDEN
 \end_layout
 
 \begin_layout Standard
-We kunnen het altijd gelijke stijghoogteverschil tussen het ARK en de polder 
-\begin_inset Formula $\Delta\phi_{0}$
-\end_inset
-
- in de zomer opdelen in het stuk 
-\begin_inset Formula $\Delta\phi_{za}$
-\end_inset
-
- tussen ARK en Boxtel en en 
-\begin_inset Formula $\Delta\phi_{zb}$
-\end_inset
-
- tussen Boxtel en het polder peil met infiltratiesnelheid 
-\begin_inset Formula $q_{z}$
-\end_inset
-
- en in de winter met infiltratiesnelheid 
-\begin_inset Formula $q_{w}$
-\end_inset
-
- in resp.
- 
-\begin_inset Formula $\Delta\phi_{wa}$
-\end_inset
-
- en 
-\begin_inset Formula $\Delta\phi_{wb}$
-\end_inset
-
-.
- Na deling door 
-\begin_inset Formula $q_{z}$
-\end_inset
-
- resp.
- 
-\begin_inset Formula $q_{w}$
-\end_inset
-
- krijgen we weerstanden:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\frac{\Delta\phi_{0}}{q_{z}} & =\frac{\Delta\phi_{za}}{q_{z}}+\frac{\Delta\phi_{zb}}{q_{z}}\\
-\frac{\Delta\phi_{0}}{q_{w}} & =\frac{\Delta\phi_{wa}}{q_{w}}+\frac{\Delta\phi_{wb}}{q_{w}}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We noemen 
-\begin_inset Formula $\Delta\phi/q$
-\end_inset
-
- [m/(m/d)] = [d] weerstand en kunnen bovenstaande relaties daarmee ook in de vorm van weerstanden schrijven:
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-R_{z} & =R_{za}+R_{zb}\\
-R_{w} & =R_{wa}+R_{wb}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De weerstand beneden de top van Formatie van Boxtel wordt constant verondersteld,
- dus 
-\begin_inset Formula $R_{zb}=R_{za}=R_{b}$
-\end_inset
-
-.
- Deze kan vervolgens uit de twee vergelijkingen worden geëlimineerd.
- We krijgen dan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{z}-R_{za}=R_{w}-R_{wa}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Ofwel
-\begin_inset Formula 
-\begin{align*}
-R_{wa} & =R_{za}+R_{w}-R_{z}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{wa}=\frac{\Delta\phi_{za}}{q_{z}}+\Delta\phi_{0}\left(\frac{1}{q_{w}}-\frac{1}{q_{z}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-En de zo berekende waarde 
-\begin_inset Formula $R_{wa}$
-\end_inset
-
- kan worden vergeleken met de metingen.
-\end_layout
-
-\begin_layout Standard
-Hier volgt een overzicht van de berekening
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
 
-----------------------------------------------
 \end_layout
 
 \begin_layout Plain Layout
-
-       winter        |        zomer        
-\end_layout
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-----------------------------------------------
-\end_layout
-
-\begin_layout Plain Layout
-
-cArkbodem_w =   35.0 | cArkbodem_z =   17.0  d 
-\end_layout
-
-\begin_layout Plain Layout
-
-----------------------------------------------
-\end_layout
-
-\begin_layout Plain Layout
-
-phi_ARK_w =     -0.4 | phi_ARK_z =     -0.4  m 
-\end_layout
-
-\begin_layout Plain Layout
-
-phi_Box_w =   -1.391 | phi_Box_z =   -1.126  m 
-\end_layout
-
-\begin_layout Plain Layout
-
-phi_Pol_w =     -2.3 | phi_pol_z =     -2.3  m 
-\end_layout
-
-\begin_layout Plain Layout
-
-----------------------------------------------
-\end_layout
-
-\begin_layout Plain Layout
-
-q_w =         0.0237 | q_z =         0.0306 m/d
-\end_layout
-
-\begin_layout Plain Layout
-
-----------------------------------------------
-\end_layout
-
-\begin_layout Plain Layout
-
-R_Ark-Box_w =   41.8 | R_Ark_Box_z =   30.6  d 
-\end_layout
-
-\begin_layout Plain Layout
-
-R_Box_pol_w =   38.4 | R_Box_pol_z =   38.4  d 
-\end_layout
-
-\begin_layout Plain Layout
-
--------------------------------------------  +
-\end_layout
-
-\begin_layout Plain Layout
-
-R_Ark-pol_w =   80.2 | R_Ark-pol_z =   62.1  d 
-\end_layout
-
-\begin_layout Plain Layout
-
-----------------------------------------------
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Statistiek-temperatuur-ARK"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Links staat de zomersituatie vermeld en rechts de wintersituatie.
- De getallen volgen uit de modelberekeningen die slechts verschillen in de keuze van de weerstand van de waterbodem van het ARK,
- waarmee de berekende stijghoogte bovenin de Formatie van Boxtel op het oog zo goed mogelijk overeenkwam met de meetwaarden in peilbuizen in de raaien 4,
- 5 en 6 aan de westzijde van het ARK.
- De volgende drie regels geven de betreffende stijghoogten:
- het ARK peil,
- de grondwaterstand net naast het ARK bovenin de Formatie van Boxtel en tenslotte het polderpeil.
- ARK_peil en polderpeil zijn in de zomer en winters hetzelfde.
- Dan volgt de door het model berekende infiltratiesnelheid voor de winter- en zomersituatie.
- Dan 3 regels met de berekende weerstanden (in dagen).
- Eerst tussen het ARK en de top van de Formatie van Boxtel,
- dan tussen de top van de Formatie van Boxtel en het polderpeil,
- en tenslotte,
- de som van beide,
- dus tussen ARK en polderpeil.
- De weerstand tussen Boxtel en polderpeil is het hele jaar door hetzelfde.
- Het enige verschil tussen winter en zomer in het model,
- is dat de weerstand van de ARK bodem in de zomer 17d is en in de winter 35d.
- De reductie van deze weerstand is daarmee 
-\begin_inset Formula $1-17/35=51$
+Statistiek temperatuur ARK water 5/1/2025-5/1/2026 en bijbehorende viscositeit ten opzichte van die van 10
+\begin_inset Formula $^{o}$
 \end_inset
 
-%,
- tussen ARK en top Boxtel 27% en tussen ARK en polderpeil 23%.
-\end_layout
-
-\begin_layout Standard
-De infiltratiesnelheid q volgt met deze uitgangspunten,
+C.
+ De winter- en zomertemperatuur zijn resp.
+ de 25% en 75% quantielen van de dagcijfers.
  
-\begin_inset Formula $R_{b}=constant$
-\end_inset
-
-,
- direct uit
 \end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-q=\frac{\Delta\phi_{b}}{R_{b}}=\frac{\Delta\phi_{a}}{R_{a}}
-\]
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\Delta\phi_{a}}{\Delta\phi_{b}}=\frac{R_{a}}{R_{b}}
-\]
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+min
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+winter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+gemiddeld
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+zomer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+max
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+temp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu\left(Temp\right)/\mu\left(10\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.90
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.79
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.69
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu\left(Temp\right)/\mu\left(14.1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.88
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.77
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -3126,27 +3179,227 @@ q=\frac{\Delta\phi_{b}}{R_{b}}=\frac{\Delta\phi_{a}}{R_{a}}
 \end_layout
 
 \begin_layout Standard
-Met 
-\begin_inset Formula $R_{b}$
+De temperatuur in de peilbuizen not onder de deklaag blijkt gemiddeld ca.
+ 14
+\begin_inset Formula $^{o}$
 \end_inset
 
- constant verkrijgen we hiermee onmiddellijk de weerstand 
-\begin_inset Formula $R_{a}$
+C (zie eerder figuren),
+ dus gelijk aan de gemiddelde temperatuur van het kanaalwater.
+ Dit gaat op voor alle peilbuizen tot ca.
+ 250 m vanaf het ARK.
+ Alleen peilbuizen op grotere afstand van het kanaal liggen hebben een wat lagere temperatuur,
+ ca.
+ 12C.
+ Dit duidt erop dat het ARK water over de afgelopen decennia tot op aanzienlijke afstand in het grondwater is voortgeschreden.We zouden er dus van uit moeten gaan dat het grondwater in de omgeving van het ARK beneden de deklaag 14 graden is.
+ Onder de laag van Waalre kan dit wat lager zijn,
+ 10-12 graden,
+ dichter bij wat in Nederland onder natuurlijke omstandigheden mag worden verwacht,
+ met correcties afhankelijk van de diepte van de weg die het water heeft afgelegd (de temperatuur in de ondergrond loopt gemiddeld op met 3 graden per 100 m).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/xs_ark_r4_zomer.pdf
+	lyxscale 200
+	width 80text%
+
 \end_inset
 
- uit de actuele verhouding 
-\begin_inset Formula $\Delta\phi_{a}/\Delta\phi_{b}$
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Halve-doorsnede-ARK"
+
+\end_inset
+
+Halve doorsnede met isohypsen en stroomlijnen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Halve-doorsnede-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft een doorgerekende halve doorsnede van het kanaal en de ondergrond met lijnen van gelijke stijghoogte en stroomlijnen.
+ De afvoer (
+\begin_inset Formula $d\psi=0.1$
+\end_inset
+
+m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d) tussen elk paar stroomlijnen is steeds gelijk evenals het stijghoogteverval (
+\begin_inset Formula $d\phi=0.02$
+\end_inset
+
+m) tussen elk paar stijghoogtelijnen de gemiddelde infiltratiesnelheid op de bodem van het kanaal bedraagt in deze doorsnede 
+\begin_inset Formula $q=63$
+\end_inset
+
+ mm/d (zie inzettabel).
+ Elke schijf tussen twee stijghoogtelijnen heeft dezelfde weerstand,
+ namelijk 
+\begin_inset Formula $c=0.02/0.063=3.17$
+\end_inset
+
+d.
+ Het doet er niet toe welke punt van de stijghoogtelijn we kiezen want de stijghoogte is op elke stijghoogtelijn overal hetzelfde.
+ Op deze wijzen kunnen we de hydraulische weerstand tussen elk paar punten in de ondergrond eenduidig berekenen,
+ namelijk als c=
+\begin_inset Formula $\left(\phi_{1}-\phi_{2}\right)/q$
+\end_inset
+
+ met 
+\begin_inset Formula $q$
+\end_inset
+
+ de infiltratiesnelheid.
+ Kiezen we het eerste punt in het kanaal,
+ het tweede bijv.
+ net buiten de kade zodat de lek tussen kanaal en punt verwaarloosbaar is en voor de temperatuur daarbuiten de jaargemiddelde waarde kan worden verondersteld,
+ dan kan het effect van de viscositeit op de stijghoogte op het bewuste punt eenvoudig worden berekend.
+\end_layout
+
+\begin_layout Standard
+Maar eerste dient de keuze van het punt onder de kade te worden verantwoord.
+ Bij een representatieve infiltratiesnelheid van 40 mm/d is de kolom water die in een half jaar infiltreert 7.2 m.
+ Bij porositeit van 1/3 en temperatuurretardatie van ca.
+ 2,
+ is de indringdiepte van de temperatuur anderhalf maal zo groot,
+ dus in een half jaar ca.
+ Bij een bodemhoogte van NAP -6.5 m,
+ betekent dit indringing van de temperatuur tot ca.
+ NAP -16.5 m.
+ De damwanden reiken echter slechts tot ca.
+ NAP -9.5 m,
+ zodat het infiltratiewater direct onder de damwanden naar opzij uitwaaiert zoals te zien in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Halve-doorsnede-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
 \end_inset
 
 .
- Bij vergelijking van de zomer situatie met de wintersituatie geeft dit
+ Dus wanneer we de zone die in een half jaar door de temperatuur van een seizoen wordt beïnvloed stellen op die tot NAP -16 onder het ARK en naast het ARK tot kadebreedte van 10 m,
+ dan zitten we behoorlijk in de richting van de zone waarin de viscositeit door zomer resp.
+ winter wordt beïnvloed door het kanaalwater in hetzelfde seizoen.
+ Daarbuiten mag worden verondersteld dat door geleiding en afvlakking de seizoeninvloed van de temperatuur kan worden verwaarloosd.
+ Dit verantwoordt de keuze van het vergelijkingspunt net onder de deklaag op de rand van de kade op 10 m buiten het kanaal.
+ Voor de stijghoogte op dit punt is alleen de infiltratiesnelheid van belang,
+ want op grotere afstand van het kanaal verandert de temperatuur niet.
+ En de infiltratiesnelheid wordt bepaald door de weerstand tussen kanaal en dit referentiepunt die echter wel verandert met de temperatuur (en eventueel de bodemweerstand van het kanaal).
+\end_layout
+
+\begin_layout Standard
+Noemen we de weerstand tussen kanaal en referentiepunt 
+\begin_inset Formula $c_{A}$
+\end_inset
+
+ [d] en tussen referentiepunt en polderpeil 
+\begin_inset Formula $c_{B}$
+\end_inset
+
+ [d] dan is 
+\begin_inset Formula $c_{B}$
+\end_inset
+
+ constant.
+ Maar ook het kanaalpeil 
+\begin_inset Formula $h_{A}$
+\end_inset
+
+ en het polderpeil 
+\begin_inset Formula $h_{p}$
+\end_inset
+
+ zijn constant.
+ De vraag is nu hoe de stijghoogte in het referentiepunt 
+\begin_inset Formula $h_{R}$
+\end_inset
+
+ verandert met de viscositeit van het kanaalwater.
+ De afleiding neemt een paar sprongen,
+ maar de uitkomst is bijkans triviaal.
+\end_layout
+
+\begin_layout Standard
+Het hebben de volgende relatie,
+ die zegt dat het vaste hoogste peil,
+ 
+\begin_inset Formula $h_{A}$
+\end_inset
+
+,
+ (in het kanaal) minus het vaste laagste peil,
+ 
+\begin_inset Formula $h_{p}$
+\end_inset
+
+,
+ (polder) gelijk is aan de infiltratieflux 
+\begin_inset Formula $q$
+\end_inset
+
+ [m/d] maal de som van de weerstand tussen kanaal en referentiepunt,
+ 
+\begin_inset Formula $c_{A}$
+\end_inset
+
+ [d],en de weerstand tussen referentiepunt en polderpeil,
+ 
+\begin_inset Formula $c_{B}$
+\end_inset
+
+ [d].
+ Alleen de infiltratieflux en de weerstand tussen kanaal en referentiepunt hangen van de temperatuur en dus van de viscositeit af:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\frac{\Delta\phi_{az}}{\Delta\phi_{bz}}=\frac{R_{az}}{R_{b}},\;\frac{\Delta\phi_{aw}}{\Delta\phi_{bw}}=\frac{R_{aw}}{R_{b}}
-\]
+\begin{equation}
+h_{A}-h_{p}=q\left(T\right)\left(c_{A}\left(T\right)+c_{B}\right)\label{eq:hA-hp}
+\end{equation}
 
 \end_inset
 
@@ -3154,11 +3407,8 @@ Met
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\Delta\phi_{az}}{\Delta\phi_{bz}}=\frac{R_{az}}{R_{aw}}\frac{\Delta\phi_{aw}}{\Delta\phi_{bw}}
-\]
-
+Deze relatie geldt ook voor een op zich willekeurige concrete referentietemperatuur 
+\begin_inset Formula $T_{r}$
 \end_inset
 
 
@@ -3166,20 +3416,9 @@ Met
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\frac{R_{az}}{R_{aw}}=\frac{\Delta\phi_{az}}{\Delta\phi_{bz}}\frac{\Delta\phi_{bw}}{\Delta\phi_{aw}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{b}=\frac{\Delta\phi_{0b}}{q_{0}}
-\]
+\begin{equation}
+h_{A}-h_{p}=q\left(T_{r}\right)\left(c_{A}\left(T_{r}\right)+c_{B}\right)\label{eq:hA-hp-woth-Tr}
+\end{equation}
 
 \end_inset
 
@@ -3192,9 +3431,9 @@ zodat
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\Delta\phi_{a}=\Delta\phi_{b}\frac{R_{a}}{R_{b}}
-\]
+\begin{equation}
+q_{T}\left(c_{A,T}+c_{B}\right)=q_{T_{r}}\left(c_{A,T_{r}}+c_{B}\right)\label{eq:qT-qTr}
+\end{equation}
 
 \end_inset
 
@@ -3203,185 +3442,9 @@ zodat
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\phi_{A}-\phi_{bx}=\left(\phi_{bx}-\phi_{p}\right)\frac{R_{a}}{R_{b}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi_{A}+\phi_{p}\frac{R_{a}}{R_{b}}=\phi_{bx}\left(1+\frac{R_{a}}{R_{b}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi_{A}-\phi_{p}+\phi_{p}+\phi_{p}\frac{R_{a}}{R_{b}}=\phi_{bx}\left(1+\frac{R_{a}}{R_{b}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi_{A}-\phi_{p}+\phi_{p}\left(1+\frac{R_{a}}{R_{b}}\right)=\phi_{bx}\left(1+\frac{R_{a}}{R_{b}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi_{A}-\phi_{p}=\left(\phi_{bx}-\phi_{p}\right)\left(1+\frac{R_{a}}{R_{b}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Delta\phi_{0}=\left(\phi_{bx}-\phi_{p}\right)\left(1+\frac{R_{a}}{R_{b}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Delta\phi_{0}=\left(\phi_{bx}-\phi_{p}\right)\left(\frac{R_{a}+R_{b}}{R_{b}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi_{bx}-\phi_{p}=\frac{R_{b}}{R_{a}+R_{b}}\Delta\phi_{0}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\boxed{\phi_{bx}=\phi_{p}+\left(\frac{R_{b}}{R_{a}+R_{b}}\right)\Delta\phi_{0}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\phi_{A}-\phi_{bx}=\left(\phi_{bx}-\phi_{p}\right)\frac{R_{a}}{R_{b}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{a}=\left(\frac{\Delta\phi_{0}}{\phi_{bx}-\phi_{p}}-1\right)R_{b}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $R_{b}$
-\end_inset
-
- kan worden verkregen uit een enkele concrete situatie,
- zoals de wintersituatie waarvoor de 
-\begin_inset Formula $q$
-\end_inset
-
- bekend wordt verondersteld,
- gelijk aan de corresponderende uitkomt van het model.
- Nemen we hiervoor 
-\begin_inset Formula $q=q_{w}$
-\end_inset
-
- dan volgt de 
-\begin_inset Formula $q_{z}$
-\end_inset
-
- uit
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-q_{z}=\frac{\Delta\phi_{zb}}{R_{b}}=\frac{\Delta\phi_{zb}}{\Delta\phi_{wb}}q_{w}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-q_{t}=\frac{\Delta\phi_{zb}}{R_{b}}=\frac{\Delta\phi_{tb}}{\Delta\phi_{wb}}q_{w}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-q_{t}=\frac{\Delta\phi_{ta}}{R_{ta}}=\frac{\Delta\phi_{tb}}{R_{b}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Delta\phi_{ta}=\Delta\phi_{tb}\frac{R_{ta}}{R_{b}}
-\]
+\begin{equation}
+\frac{q_{T}}{q_{T_{r}}}=q_{T_{r}}\left(\frac{c_{A,T_{r}}+c_{B}}{c_{A,T}+c_{B}}\right)\label{eq:qT}
+\end{equation}
 
 \end_inset
 
@@ -3390,66 +3453,221 @@ q_{t}=\frac{\Delta\phi_{ta}}{R_{ta}}=\frac{\Delta\phi_{tb}}{R_{b}}
 
 \begin_layout Standard
 De weerstand 
-\begin_inset Formula $R_{a}$
+\begin_inset Formula $c_{A,T}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{ta}=\frac{\Delta\phi_{ta}}{q_{t}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De kernvraag is hoeveel neemt de stijghoogte boven in Boxtel toe als functie van de weerstand 
-\begin_inset Formula $R_{ta}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-R_{ta}=\frac{\Delta\phi_{ta}}{q_{t}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dus,
- bij gegeven winterweerstand tussen ARK en Boxtel kan de zomer weerstand over hetzelfde traject worden berekend en worden vergeleken met de metingen.
-\end_layout
-
-\begin_layout Standard
-waarmee de weerstand in de winter tussen het ARK en de damwanden kan worden berekend met de beschikbare stijghoogten en de bijbehorende,
- door het model berekende infiltratiesnelheid.
- Gaan we uit van de winter weerstand tussen ARK en boxtel,
+ kan via de viscositeit,
  
-\begin_inset Formula $R_{za}$
+\begin_inset Formula $\mu$
 \end_inset
 
 ,
- dan volgt met de beschikbare getallen de 
+ worden omgerekend naar de referentie weerstand
 \end_layout
 
 \begin_layout Standard
-Door het temperatuurverschil veranderen de totale weerstand en die over het traject ARK-Boxtel,
- maar die over het traject Boxtel-polder blijft ongewijzigd,
- zodat 
+\begin_inset Formula 
+\begin{equation}
+c_{A,T}=c_{A}\frac{\mu_{T}}{\mu_{T_{r}}}\label{eq:cT}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ingevuld in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:qT"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ en het rechterlid boven en onder delen door de referentieweerstand 
+\begin_inset Formula $c_{A,T_{r}}$
+\end_inset
+
+ levert
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{q_{T}}{q_{T_{r}}}=\frac{1+c_{B}/c_{A,T_{r}}}{\frac{\mu_{T}}{\mu_{T_{r}}}+c_{B}/c_{A,T_{r}}}\label{eq:qT/qTr}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De verhouding tussen de constante 
+\begin_inset Formula $c_{B}$
+\end_inset
+
+ en de weerstand bij referentietemperatuur 
+\begin_inset Formula $c_{A,T_{r}}$
+\end_inset
+
+ is bekend.
+ Deze is namelijk gelijk aan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{c_{B}}{c_{A,T_{r}}}=\frac{h_{r,T_{r}}-h_{p}}{h_{a}-h_{r,T_{r}}}\label{eq:cB/cAr}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarin 
+\begin_inset Formula $h_{r,T_{r}}$
+\end_inset
+
+ de stijghoogte op het referentiepunt is bij de referentietemperatuur.
+\end_layout
+
+\begin_layout Standard
+De stijghoogte in het referentiepunt bij willekeurige temperatuur ,
+\begin_inset Formula $h_{R}$
+\end_inset
+
+,
+ is gelijk aan polderpeil maar 
+\begin_inset Formula $q_{T}c_{B}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+h_{R} & =h_{p}+q_{T}c_{B}\label{eq:hR}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit kan direct worden omgeschreven naar
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h_{R}=h_{p}+\frac{q_{T}}{q_{T_{r}}}\left(q_{T_{r}}c_{B}\right)\label{eq:hR1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarin 
+\begin_inset Formula $q_{T_{r}}c_{B}=h_{R,T_{r}}-h_{p}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h_{R}=h_{p}+\frac{q_{T}}{q_{T_{r}}}\left(h_{R,T_{r}}-h_{p}\right)\label{eq:hR2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We kunnen 
+\begin_inset Formula $q_{T}/q_{T_{r}}$
+\end_inset
+
+ in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:qT/qTr"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) direct uitdrukking in de stijghoogte want 
+\begin_inset Formula $c_{A,T_{r}}/c_{B}$
+\end_inset
+
+ is bekend uit de referentiesituatie
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{q_{T}}{q_{T_{r}}}=\frac{1+\frac{h_{r,T_{r}}-h_{p}}{h_{a}-h_{r,T_{r}}}}{\frac{\mu_{T}}{\mu_{T_{r}}}+\frac{h_{r,T_{r}}-h_{p}}{h_{a}-h_{r,T_{r}}}}\label{eq:qR/qTr-2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+zodat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{q_{T}}{q_{T_{r}}}=\frac{h_{a}-h_{p}}{\left(h_{a}-h_{r,T_{r}}\right)\frac{\mu_{T}}{\mu_{T_{r}}}+\left(h_{r,T_{r}}-h_{p}\right)}\label{eq:qT/qTr-3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Direct ingevuld in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:hR2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) geeft dit een gesloten vergelijking om 
+\begin_inset Formula $h_{R}$
+\end_inset
+
+ bij willekeurige temperatuur te kunnen berekenen
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{\Delta\phi_{zb}}{q_{z}}=\frac{\Delta\phi_{wb}}{q_{w}}
+h_{R}=h_{p}+\frac{h_{a}-h_{p}}{\left(\frac{h_{a}-h_{r,T_{r}}}{h_{R,T_{r}}-h_{p}}\right)\frac{\mu_{T}}{\mu_{T_{r}}}+1}
 \]
 
 \end_inset
@@ -3458,14 +3676,4358 @@ Door het temperatuurverschil veranderen de totale weerstand en die over het traj
 \end_layout
 
 \begin_layout Standard
-Dit geeft
+Tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Peilbuizen-effect_viscositeit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de resultaten van de berekening.
+ Het eerste cijfer (of eerste 2 cijfers) van de peilbuisnaam is het raainummer.
+ De gemeten winter dalstijghoogte wordt als referentie genomen.
+ Dus de stijghoogte neemt af van 
+\begin_inset Formula $h_{ARK}$
+\end_inset
+
+ over de gemeten winterstijghoogte 
+\begin_inset Formula $h_{w,gem}$
+\end_inset
+
+ naar het polderpeil 
+\begin_inset Formula $h_{pold}$
+\end_inset
+
+.
+ De gebuikte zomer- en wintertemperatuur,
+ de daaruit volgende verhouding tussen de zomer- en winterviscositeit en de met (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:qT/qTr-3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) berekende verhouding tussen de infiltratiesnelheid in de zomer en in de winter.
+ Vervolgens de op het referentiepunt berekende zomerstijghoogte naast de gemeten waarde (afgeleid uit de tijdstijghoogtelijn van de peilbuis).
+ Tenslotte het verschil tussen de gemeten zomerstijghoogte en de berekende.
+ Deze waarden zijn positief wanneer de gemeten stijghoogte hoger is dan de berekende.
+ De resultaten zijn ook weergegeven in fig.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\frac{\Delta\phi_{0}}{q_{z}} & -\frac{\Delta\phi_{za}}{q_{z}}=\frac{\Delta\phi_{0}}{q_{w}}-\frac{\Delta\phi_{wa}}{q_{w}}
-\end{align*}
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Peilbuizen-effect_viscositeit"
+
+\end_inset
+
+Berekening van de zomer grondwaterstand in de peilbuizen dicht bij het kanaal waarvoor de piekgrondwaterstand in de zomer en de dalgrondwaterstand in de winter grondwaterstand kon worden bepaald uit de tijdreeksen.
+ dist=afstand tot hartlijn ARK (trek 50 m af voor de afstand tot de damwand).
+ 
+\begin_inset Formula $h_{ARK}$
+\end_inset
+
+ =peil ARK,
+ 
+\begin_inset Formula $h_{w,gem}$
+\end_inset
+
+=gemeten winter grondwaterstand,
+ 
+\begin_inset Formula $h_{pold}$
+\end_inset
+
+= polderpeil,
+ 
+\begin_inset Formula $T_{z}$
+\end_inset
+
+=zomertemperatuur,
+ 
+\begin_inset Formula $T_{w}$
+\end_inset
+
+=wintertemperatuur,
+ 
+\begin_inset Formula $\mu$
+\end_inset
+
+ viscositeit,
+ 
+\begin_inset Formula $q_{z}/q_{w}$
+\end_inset
+
+= ratio infiltratiesnelheid zomer en winter,
+ 
+\begin_inset Formula $h_{z,ber}$
+\end_inset
+
+= berekende zomergrondwaterstand,
+ 
+\begin_inset Formula $h_{z,gem}$
+\end_inset
+
+=gemeten grondwaterstand,
+ en tenslotte de gemeten minus de berekende grondwaterstand.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="15" columns="12">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+p_buis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $dist$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $h_{ARK}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $h_{w,gem}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $h_{pold}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $T_{z}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $T_{w}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\mu_{T_{z}}/\mu_{T_{w}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $q_{z}/q_{w}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $h_{z,ber}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $h_{z,gem}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $h_{z,gem}-h_{z,ber}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb101
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+59.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.780
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.560
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.657
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.692
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.035
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb201
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+47.6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.684
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.502
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.525
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.481
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.044
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb302
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+58.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.556
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.339
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.304
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.235
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.069
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb406
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+53.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.490
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.314
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.236
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.998
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.238
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb505
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+164.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.622
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.366
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.374
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.285
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.089
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb603
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+73.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.485
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.258
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.197
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.196
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.001
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb702
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+72.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.424
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.240
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.141
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.036
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.105
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb802
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+89.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.524
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.330
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.320
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.266
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.341
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.075
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb902
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+119.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.551
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.350
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.307
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.395
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.088
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb903
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+65.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.531
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.342
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.285
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.325
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.040
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb1003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+114.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.423
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.289
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.170
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.193
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.023
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb1104
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+144.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.597
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.356
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.347
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.470
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.123
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb1203
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+69.7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.431
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-2.300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.292
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.177
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.251
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.074
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb1302
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+59.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.182
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-1.950
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.266
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.978
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.886
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.092
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -3473,14 +8035,58 @@ Dit geeft
 \end_layout
 
 \begin_layout Standard
-en na herschikking
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ber_vs_gem_zomer_stijghoogen_T4_24.pdf
+	width 60text%
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Delta\phi_{wa}=\frac{q_{w}}{q_{z}}\Delta\phi_{za}+\Delta\phi_{0}\left(1-\frac{q_{w}}{q_{z}}\right)
-\]
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gemeten-zomerstijghoogten-versus-berekende"
+
+\end_inset
+
+Gemeten zomerstijghoogten versus gemeten zomerstijghoogte in de beschikbare peilbuizen met data waaruit deze konden worden bepaald.
+ De gebruikte zomer- en wintertemperatuur staan in de titel vermeld.
+ Dit zijn dezelfde resultaten als in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Peilbuizen-effect_viscositeit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ Behalve de naam van de peilbuis is de afstand tot de hartlijn van het ARK bijgeschreven.
+ Trek 50 m af voor de afstand tot de damwand van het kanaal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -3488,10 +8094,100 @@ en na herschikking
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\Delta\phi_{wa}}{\Delta\phi_{0}}=\frac{q_{w}}{q_{z}}\frac{\Delta\phi_{za}}{\Delta\phi_{0}}+\left(1-\frac{q_{w}}{q_{z}}\right)
-\]
+In enkele raaien,
+ met name raai 4 is de gemeten grondwaterstand beduidend hoger dan de berekende.
+ Dit impliceert dat de gemeten zomergrondwaterstand niet kan worden verklaard uit het de invloed van de viscositeit.
+ Behalve de viscositeit zal ook de bodemweerstand zelf moten afnemen met de watertemperatuur.
+ We weten nog niet hoe dat mogelijk is en welke processen dit veroorzaken.
+ Met name wordt gedacht aan biologische,
+ maar het bewijs daarvoor is nog niet geleverd.
+\end_layout
+
+\begin_layout Standard
+Overigens blijkt dat niet voor alle peilbuizen geldt dat de gemeten zomergrondwaterstand hoger is dan de berekende,
+ waarbij de berekende uitsluitend rekening houdt met het viscositeitseffect tussen kanaal en referentiepunt (onder de deklaag op ca.
+ 10 m buiten het kanaal).
+ Waar de gemeten zomergrondwaterstand lager is dan de berekende is waarschijnlijk sprake van meer weerstand dieper onder de kanaalbodem,
+ waardoor daar de waar infiltratie relatief gering is en slechts een fractie van de weerstandbiedende lagen onderhevig is aan de jaarlijkse temperatuurvariatie.
+ Echter in alle gevallen die voldoen aan de uitgangspunten,
+ namelijk voldoende penetratiediepte gedurende het seizoen zou de berekening op fysische gronden moeten kloppen.
+\end_layout
+
+\begin_layout Standard
+Men kan nog opwerpen dat de gebruikte temperaturen te extreem zijn;
+ dat in plaats van de maximum zomertemperatuur en de minimum wintertemperatuur juist de gemiddelde zomer- en wintertemperatuur zou moeten worden gebruikt dus 8.5 en 18.8
+\begin_inset Formula $^{o}$
+\end_inset
+
+C.
+ De resultaten hiervan staan in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemeten-zomerstijghoogten-versus-berekende-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ We zien nu dat alle gemeten punten hoger liggen dan de berekende.
+ De reden is dat de meeste weerstand in de kanaalbodem is geconcentreerd,
+ die altijd direct de temperatuur heeft van het kanaalwater,
+ waardoor juist de extreme temperaturen in de praktijk dominant zijn.
+ Dit is als volgt te illustreren.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ber_vs_gem_zomer_stijghoogen_T8_19.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gemeten-zomerstijghoogten-versus-berekende-1"
+
+\end_inset
+
+Gemeten zomerstijghoogten versus gemeten zomerstijghoogte in de beschikbare peilbuizen met data waaruit deze konden worden bepaald.
+ De gebruikte zomer- en wintertemperatuur staan in de titel vermeld.
+ Dit zijn dezelfde resultaten als in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Peilbuizen-effect_viscositeit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ Behalve de naam van de peilbuis is de afstand tot de hartlijn van het ARK bijgeschreven.
+ Trek 50 m af voor de afstand tot de damwand van het kanaal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3499,48 +8195,48 @@ en na herschikking
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\Delta\phi_{za} & =\frac{q_{z}}{q_{w}}\Delta\phi_{wa}+\Delta\phi_{0}\left(1-\frac{q_{z}}{q_{w}}\right)
-\end{align*}
-
+De infiltratiesnelheid verschilt per situatie maar ligt volgens het model in de winter in de orde van 25 mm/d en in de zomer rond 50 mm/d.
+ Als we dit aannemen kunnen we de weerstand tussen kanaal en referentiepunt berekenen:
+ 
+\begin_inset Formula $c_{A,T_{z}}\approx\left(h_{ARK}-h_{R,T_{z}}\right)/0.05$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{q_{w}}{q_{z}}=\frac{\Delta\phi_{0}-\Delta\phi_{wa}}{\Delta\phi_{0}-\Delta\phi_{za}}
-\]
-
+ resp.
+ 
+\begin_inset Formula $c_{A,T_{w}}\approx\left(h_{ARK}-h_{R,T_{w}}\right)/0.025$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-+
-\end_layout
-
-\begin_layout Standard
-Zodat het traject ARK-Boxtel in beide situaties in elkaar kunnen worden omgerekend
-\end_layout
-
-\begin_layout Standard
-Uit de metingen blijkt 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{q_{1}}{q_{0}}=
-\]
-
+.
+ Dit levert voor de zomer weerstanden tussen 10 en 25 d weerstand op met een mediaan van 17d en voor de winter weerstanden tussen 30 en 55 met een mediaan 45 d op.
+ De weerstand van de lagen waarbinnen het kanaalwater in een seizoen penetreert (penetratiediepte ca.
+ 10 m) is voor de Formatie van Boxtel met 
+\begin_inset Formula $k_{v}=1.5$
 \end_inset
 
+ m/d in het model slechts 
+\begin_inset Formula $D/k_{v}=10/1.5=6$
+\end_inset
 
+ dagen bij bijv.
+ 10
+\begin_inset Formula $^{o}$
+\end_inset
+
+C en zou door de viscositeit bij gemiddelde seizoenstemperaturen tussen 8.5 en 18.8 variëren tussen 6.2d in de winter en 4.8d in de zomer.
+ In alle gevallen is dit slechts een klein deel van de totale weerstand (
+\begin_inset Formula $4.8/17\approx30$
+\end_inset
+
+% in de zomer en 
+\begin_inset Formula $6.2/45\approx11$
+\end_inset
+
+% in de winter).
+ Dit is de reden dat de piektemperatuur van groter belang voor de viscositeit is dan de gemiddelde zomer- of wintertemperatuur.
+\end_layout
+
+\begin_layout Standard
+Samenvattend blijft staan dat voor een deel van de peilbuizen de hogere zomergrondwaterstanden uit uitsluitend zijn te verklaren op basis van de viscositeit.
 \end_layout
 
 \begin_layout Bibliography
