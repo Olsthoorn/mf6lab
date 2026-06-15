@@ -2878,11 +2878,7 @@ C.
 \end_layout
 
 \begin_layout Section
-Analytische verificatie
-\end_layout
-
-\begin_layout Section
-WEERSTANDEN
+Zomer en winter grondwaterstanden
 \end_layout
 
 \begin_layout Standard
@@ -3361,6 +3357,107 @@ Noemen we de weerstand tussen kanaal en referentiepunt
  verandert met de viscositeit van het kanaalwater.
  De afleiding neemt een paar sprongen,
  maar de uitkomst is bijkans triviaal.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schema-berekening-stijghoogte"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het schema zoals hierna uitgelegd.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/schema_weerstand.pdf
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schema-berekening-stijghoogte"
+
+\end_inset
+
+Schema berekening stijghoogte 
+\begin_inset Formula $h_{R}$
+\end_inset
+
+ in de zomersituatie wanneer de wintersituatie bekend is.
+ 
+\begin_inset Formula $h_{ARK}$
+\end_inset
+
+=peil ARK,
+ 
+\begin_inset Formula $h_{R}$
+\end_inset
+
+=stijghoogte referentiepunt bij verschillende temperaturen,
+ 
+\begin_inset Formula $h_{p}$
+\end_inset
+
+=polderpeil.
+ 
+\begin_inset Formula $c$
+\end_inset
+
+=weerstand tussen de punten.
+ 
+\begin_inset Formula $c_{B}$
+\end_inset
+
+ is constant,
+ 
+\begin_inset Formula $c_{A}$
+\end_inset
+
+ hangt van de temperatuur af.
+ 
+\begin_inset Formula $q_{w}$
+\end_inset
+
+=infiltratiesnelheid in de winter,
+ 
+\begin_inset Formula $q_{z}$
+\end_inset
+
+=idem in de zomer.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

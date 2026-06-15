@@ -365,7 +365,7 @@ Waar ook de temperatuur gemeten in de peilbuizen beschikbaar is,
  zien we direct dat deze temperaturen niets te maken hebben met die van het ARK water.
  Dit is ook niet te verwachten omdat voor de meeste peilbuizen afstand tot het ARK daarvoor te groot is;
  de verblijftijd,
- de verblijftijdsverdeling en de warmtegeleiding in de grond zouden voordat het geïnfiltreerde ARK water deze peilbuizen zou bereiken tot een grote vertraging en afvlakking zorgen,
+ de spreiding van de verblijftijden in de grond en de warmtegeleiding zouden voordat het geïnfiltreerde ARK water deze peilbuizen zou bereiken voor een grote vertraging en afvlakking zorgen,
  waardoor het daar gemeten temperatuurverloop niet meer zou lijken op dat van het ARK.
  Als het ARK water zover zou komen dan mag bij zulke peilbuizen onder de deklaag waarin de peilbuizen staan een min of meer constante temperatuur worden verwacht die overeenkomt met de gemiddelde temperatuur van het ARK water,
  dus ongeveer 14-15 graden zoals blijkt het het verloop van de temperatuur van het kanaalwater.
@@ -418,7 +418,7 @@ status open
 
 \begin_layout Plain Layout
 Temperatuur van ARK water met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
- Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter ij-as voor de temperatuur.
+ Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter y-as voor de temperatuur.
  Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
 \end_layout
 
@@ -480,7 +480,7 @@ status open
 \begin_layout Plain Layout
 Temperatuur van ARK water,
  die in de peilbuizen (voor zover voorhanden) met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
- Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter ij-as voor de temperatuur.
+ Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter y-as voor de temperatuur.
  Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
 \end_layout
 
@@ -606,7 +606,7 @@ status open
 \begin_layout Plain Layout
 Temperatuur van ARK water,
  die in de peilbuizen (voor zover voorhanden) met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
- Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter ij-as voor de temperatuur.
+ Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter y-as voor de temperatuur.
  Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
 \end_layout
 
@@ -624,7 +624,7 @@ Temperatuur van ARK water,
 Sommige peilbuizen met name in raai 4 en 5 hebben een volledig afwijkend verloop.
  Dat geldt voor peilbuis pb406 op 3 m ten westen van het ARK,
  pb407 op 19 m ten oosten van het ARK,
- pb506 op 28 m ten westen van het ARK en pb508 op 24 m ten oosten van het ARK (en wellicht pbpb10 in raai 11,
+ pb506 op 28 m ten westen van het ARK en pb508 op 24 m ten oosten van het ARK (en wellicht pb10 in raai 11,
  binnen het ARK).
  Deze peilbuizen vertonen een sterk cyclisch verloop waarvan de karakteristieken zijn opgetekend in tabel 
 \begin_inset CommandInset ref
@@ -644,7 +644,7 @@ nolink "false"
  Dit wijst erop dat dit temperatuur verloop het gevolg is van infiltratiewater dat de peilbuizen passeert.
  Het temperatuur verloop is dus (door de bodempassage) zowel vertraagd,
  gladgestreken en gedempt ten opzichte van dat van het ARK-water zelf.
- De minimum temperatuur van het ARK water wordt bereikt rond 1 februari,
+ De minimum temperatuur van het ARK-water wordt bereikt rond 1 februari,
  terwijl de minimum temperatuur in zowel pb406,
  pb407 en pb506 rond 1 juli optreedt.
  Dit impliceert een verblijftijd (voor de vertraagde temperatuur) van 5 maanden en een verblijftijd van het water zelf van ongeveer 2.5 maanden (retardatie temperatuurfront is ca.
@@ -800,7 +800,10 @@ dist ARK [m]
 \uwave off
 \noun off
 \color none
-T_min
+\begin_inset Formula $T_{min}$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -823,7 +826,10 @@ T_min
 \uwave off
 \noun off
 \color none
-T_max
+\begin_inset Formula $T_{max}$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -846,7 +852,11 @@ T_max
 \uwave off
 \noun off
 \color none
-date_T_min
+datum 
+\begin_inset Formula $T_{min}$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -869,7 +879,11 @@ date_T_min
 \uwave off
 \noun off
 \color none
-date_T_max
+datum 
+\begin_inset Formula $T_{max}$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1907,7 +1921,7 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-Doorsnede model
+Doorsnede-model
 \end_layout
 
 \begin_layout Standard
