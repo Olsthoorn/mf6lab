@@ -7944,27 +7944,14 @@ nolink "false"
 
  is het totale infiltratiedebiet per m kanaallengte gedeeld door de kanaalbreedte in mm/d.
  De twee laatste regels laten het effect van deze viscositeitsaanpassing zien voor het infiltratiedebiet en de stijghoogte in de twee peilfilters.
- De infiltratiesnelheid neemt vanwege de viscositeit toe van 28 tot 36 mm/d en de stijghoogten in de peilbuizen stijgen met ca.
- 21 cm.
- In de werkelijkheid stijgt de stijghoogte in de zomer meer dan 21 cm,
- ongeveer het dubbele.,
- wat betekent dat er nog andere processen zijn die de bodemweerstand bepalen.
- 
-\end_layout
-
-\begin_layout Standard
-Waar het ons hierbij om gaat is de mismatch tussen de gemeten waarden in de peilbuizen net binnen het kanaal,
- 
+ Het infiltraDeze nemen Waar het om gaat is de mismatch tussen de gemeten waarden in de peilbuizen net binnen het kanaal 
 \begin_inset Formula $\phi_{1}$
 \end_inset
 
-,
- en net daarbuiten,
- 
+ en net daarbuiten 
 \begin_inset Formula $\phi_{2}$
 \end_inset
 
-,
  en de voor deze locaties door het model berekende waarden.
  De plaats van de peilbuisfilters is eveneens in fig.
 \begin_inset CommandInset ref
@@ -7993,11 +7980,10 @@ De tabel laat zien dat de infiltratiesnelheid door de aanpassingen nauwelijks ve
  komen we nog iets dichter bij de metingen.
  Door vervolgens de weerstand van de damwand te verlagen vermindert het stijghoogteverschil tussen de twee peilfilter van 19 tot 15 cm.
  Dit zijn dus allemaal marginale verschillen,
- plausibel maar,
- nog niet hard bewezen.
+ plausibel maar nog niet hard bewezen.
  In feite is het enige dat hier het verschil maakt,
  de aanwezigheid van het onderwatertalud,
- zoals dat ook in het echte kanaal aanwezig is;
+ zoals dat ook in het echte kanaal het geval is;
  de weerstand van de damwand maakt nauwelijks uit.
  Het is dus niet nodig om een sterk lekkende damwand te veronderstellen.
  Het is hoogstens zinvol om daarvoor de door 

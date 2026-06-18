@@ -1945,6 +1945,233 @@ literal "false"
 \end_layout
 
 \begin_layout Section
+Weerstand damwand
+\end_layout
+
+\begin_layout Standard
+Steeds weer duikt de vraag op hoe groot de doorlatendheid (via de slots) van de damwanden is.
+ Deltares heeft hier 1993 met ArcelorMittel onderzoek naar gedaan (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AM93"
+literal "false"
+
+\end_inset
+
+).
+ Men rekent met de 
+\begin_inset Quotes pld
+\end_inset
+
+inverse interlock resistance 
+\begin_inset Formula $\rho$
+\end_inset
+
+ [m/s] = [m
+\begin_inset Formula $^{3}$
+\end_inset
+
+ water/s per m slotlengte per m drukhoogteverval]
+\begin_inset Quotes prd
+\end_inset
+
+.
+ We kunnen dit omrekenen naar de in de geohydrologie gebruikelijke wandweerstand 
+\begin_inset Formula $c$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+c=\frac{b}{\rho}\;\text{[s]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met 
+\begin_inset Formula $b$
+\end_inset
+
+ de afstand tussen de slots.
+ Voor slots zonder weerstandsverhogende maatregelen of middelen gaat 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AM93"
+literal "false"
+
+\end_inset
+
+ uit van 
+\begin_inset Formula $\rho>10^{-7}$
+\end_inset
+
+ m/s dus 
+\begin_inset Formula $\rho>10^{-2}$
+\end_inset
+
+m/d.
+\end_layout
+
+\begin_layout Standard
+Langs het ARK zijn BELVAL BZ 155 damplanken gebruikt met 1 slot per 55 cm (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Langs-ARK-toegepaste-damplanken"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).De hydraulische weerstand van deze damwand wordt dan met de informatie uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AM93"
+literal "false"
+
+\end_inset
+
+ bij 
+\begin_inset Formula $b=0.55$
+\end_inset
+
+ m alsvolgt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+c<\frac{b}{\rho}=55\,\text{[d]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/DamwandARK_RWS-tek-76206-71661-68656-76207_Jaar1977.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Langs-ARK-toegepaste-damplanken"
+
+\end_inset
+
+Langs ARK toegepaste damwanden BELVAL BZ 195 (RWS-tek-76206-71661-68656-76207 van 1977).
+ Een slot per 55 cm.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dus,
+ 55 d of eigenlijk <55 d is niet heel veel.
+ Bij 0.5 m stijghoogteverval over de damwand is dit 10 mm/d,
+ wat we zouden moeten vergelijken met de infiltratie van het ARK,
+ van naar schatting met het model rond 25-50 mm/d.
+ Door corrosie en vervorming kan dit op termijn meer worden,
+ door verstopping juist minder.
+ Veel meer valt hier op dit moment niet van te zeggen.
+\end_layout
+
+\begin_layout Standard
+Tegelijkertijd beschikken we over recent met de sondeerwagen geplaatste peilbuizen direct binnen en buiten de damwanden van het ARK.
+ Dit zijn peilbuizen pb1 t/m pb 10,
+ waarvan de beschikbare gegevens in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stijgh-en-temp-ARK-raai-1-2--3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ t/m 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stijgh-en-temp-ARK-raai-10-11-12--13"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ zijn opgenomen.
+ Tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Overzicht-peilbuizen-in-en-naast-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ op pag.
+ 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "tab:Overzicht-peilbuizen-in-en-naast-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft een overzicht van de gegevens van deze peilbuizen met grondwaterstanden die in februari 2026 zijn opgetekend.
+\end_layout
+
+\begin_layout Standard
+@@
+\end_layout
+
+\begin_layout Section
 Doorsnede-model
 \end_layout
 
@@ -12485,7 +12712,7 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-Dit hele verhaal klopt niet.
+Dit hele verhaal klopt niet.@@@
 \end_layout
 
 \begin_layout Standard
@@ -12665,6 +12892,23 @@ Weerstand meten tijdens en na aanbrengen van bentoniet
 
 \begin_layout Section
 Turbulentie
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "ArcelorMittel (1993)"
+key "AM93"
+literal "false"
+
+\end_inset
+
+ArcelorMittel.
+ Impervious steel sheet-pile walls.
+ Design and Practical Approach.
+ Vindbaar op het Internet.
+ Commercieel document met conclusies uit onderzoek met Deltares (Destijds GeoDelft) uit 1993.
+ Verwijst naar drie verhalen van Sellmeijer (1993) ,waarvan er een officieel is gepubliceerd door ASCE in 1993.
 \end_layout
 
 \begin_layout Bibliography
