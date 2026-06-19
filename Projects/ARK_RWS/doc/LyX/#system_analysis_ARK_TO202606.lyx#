@@ -332,6 +332,76 @@ Afstand wellen tot hartlijn ARK (breedte ARK=50 m).
 \end_layout
 
 \begin_layout Section
+Temperatuur van het ARK water
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Temperatuur-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de temperatuur van het ARK-water te Maarssen over 2 jaar van 4-1-2024 tot 4-1-2026.
+ Er zijn minder frequente metingen beschikbaar voor Nieuwersluis maar die wijken niet wezenlijk af van die in Maarssen.
+ Op bases van het visuele verloop van de curve zijn percentielen 0.03 en 0.95 van de dagelijkse waarden gekozen voor de te hanteren maximum en minimum temperatuur,
+ 0.5 voor de gemiddelde temperatuur en0.25 en 0.75 voor de gemiddelde zomer en winter-temperatuur,
+ zoals aangegeven in de figuur.
+ Dit temperatuurverloop is ook weergeven in alle figuren van het volgende hoofdstuk,
+ waarin stijghoogten en temperaturen van peilbuizen gecombineerd worden weergegeven.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temp_ARK.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Temperatuur-ARK"
+
+\end_inset
+
+Temperatuur van het ARK-water over 2024 en 2025 met percentielen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Dynamiek van de stijghoogte
 \end_layout
 
@@ -1831,7 +1901,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_raaien_ARK_gemeten_all.pdf
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_gemeten_all.pdf
 	width 80text%
 
 \end_inset
@@ -1900,7 +1970,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_raaien_ARK_gemeten.pdf
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_gemeten.pdf
 	width 80text%
 
 \end_inset
@@ -1999,8 +2069,8 @@ met
 \begin_inset Formula $b$
 \end_inset
 
- de afstand tussen de slots.
- Voor slots zonder weerstandsverhogende maatregelen of middelen gaat 
+ de afstand tussen de sloten.
+ Voor sloten zonder weerstandsverhogende maatregelen of middelen gaat 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "AM93"
@@ -2043,7 +2113,7 @@ literal "false"
 \begin_inset Formula $b=0.55$
 \end_inset
 
- m alsvolgt:
+ m als volgt:
 \end_layout
 
 \begin_layout Standard
@@ -2223,7 +2293,7 @@ Overzicht peilbuizen met data binnen de damwanden (afstandcategorie cat=0),
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="32" columns="8">
+<lyxtabular version="3" rows="33" columns="8">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2234,7 +2304,7 @@ Overzicht peilbuizen met data binnen de damwanden (afstandcategorie cat=0),
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2257,7 +2327,7 @@ peilbuis
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2280,7 +2350,7 @@ raai
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2304,7 +2374,7 @@ afst.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2327,7 +2397,7 @@ cat
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2350,7 +2420,7 @@ WE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2376,7 +2446,7 @@ WE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2402,7 +2472,7 @@ WE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2421,6 +2491,80 @@ WE
 \noun off
 \color none
 Mediaan
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nr
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nr
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+m
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nr
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W|E
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+m NAP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+m
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+m
 \end_layout
 
 \end_inset
@@ -7791,21 +7935,15 @@ Stroming onder een 10 m brede ondoorlatende strook in een breed kanaal.
 \end_layout
 
 \begin_layout Subsection
-Peilverschil tussen peilbuizen binnen en net buiten de damwand
+Peilverschil tussen stijghoogte in de peilbuizen binnen en net buiten de damwand
 \end_layout
 
 \begin_layout Standard
-Het stijghoogteverlies over de damwand is met 0.1 m zeer gering.
- Het model rekent met ondoorlatende damwanden een verschil uit van ca.
- 0.5 m.
- We moeten dus concluderen dat de damwand lekt en zullen in het model voor de damwand een doorlatendheid kiezen die recht doet aan het gemeten peilverschil.
-\end_layout
-
-\begin_layout Standard
-Fig.
+Het gemeten stijghoogteverlies over de damwand,
+ zo blijkt uit tabel 
 \begin_inset CommandInset ref
-LatexCommand pageref
-reference "fig:Detail-dwarsdoorsnedemodel-met-stroming-rond-damwand"
+LatexCommand ref
+reference "tab:Overzicht-peilbuizen-binnen-buiten-ARK"
 plural "false"
 caps "false"
 noprefix "false"
@@ -7813,7 +7951,64 @@ nolink "false"
 
 \end_inset
 
- geeft het dwarsdoorsnede model vanaf het kanaalmidden naar het oosten met meer detail voor beter zicht op de stroming rond de damwand die hier ondoorlatend is..
+,
+ is met 0.1 m zeer gering.
+ Het in een navolgend hoofdstuk te beschrijven dwarsdoorsnedemodel rekende oorspronkelijk met ondoorlatende damwanden en zonder onderwatertalud (met daarin weerstand biedend materiaal).
+ In deze uitgangssituatie blijkt het verschil tussen de berekende stijghoogten in het peilfilter net binnen de damwand de die net daarbuiten ca.
+ 0.5 m (zie eerste inzettabel in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Detail-dwarsdoorsnedemodel-met-stroming-rond-damwand-bowt=0"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Bovendien zijn is de berekende stijghoogte in het peilbuisfilter net binnen de damwand met NAP ca.
+ -0.8 m m ca.
+ 50 cm hoger dan daar gemeten (de berekende stijghoogten staan onderin dezelfde inzettabel,
+ de gemeten waarden staan in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Overzicht-peilbuizen-binnen-buiten-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Hieruit zou men wellicht concluderen dat de damwand erg lekt,
+ maar waarschijnlijker is dat dit veroorzaakt wordt door het ontbreken van het slecht doorlatende onderwatertalud,
+ waardoor het fenomeen van fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stroming-onder-een-strook"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ in de uitgangssituatie ontbreekt.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Detail-dwarsdoorsnedemodel-met-stroming-rond-damwand-bowt=0"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het detail van het 10000 m brede dwarsdoorsnede model zonder onderwatertalud.
+ Het stijghoogte en stroomlijnenbeeld tonen de geconcenteerde stroming rond de damwand en maximale infiltratie tegen de damwand.
 \end_layout
 
 \begin_layout Standard
@@ -7826,7 +8021,99 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/xs_ark_r5_zomer_detail.pdf
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/xs_ark_r5_winter_owt0_detail.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Detail-dwarsdoorsnedemodel-met-stroming-rond-damwand-bowt=0"
+
+\end_inset
+
+Detail dwarsdoorsnedemodel met zicht op de stroming rond de damwand
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Detail-dwarsdoorsnedemodel-met-stroming-rond-damwand"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ toont het modelresultaat voor de situatie met een 10 m breed onderwatertalud.
+ Dat talud is in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Detail-dwarsdoorsnedemodel-met-stroming-rond-damwand"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ te zien als kleine grijze streep op de kanaalbodem vanaf de damwand over 10 m naar links.
+ Als we beide figuren met elkaar vergelijken,
+ de stroming rond de damwand is zonder onderwatertalud heel anders,
+ minder geconcentreerd.
+ De stroomlijnenconcentratie is verschoven naar het uiteinde van het onderwatertalud.
+ Het onderwatertalud verlaagt de stijghoogte in de peilbuis onder de kanaalbodem direct met ca.
+ 0.6 m.
+ Bovendien vermindert het stijghoogteverschil tussen peilbuis 1 en 2 hierdoor van 51 cm naar 17 cm.
+ De berekende stijghoogten komen nu goed overeen met de gemeten waarden.
+ Voor de verticale weerstand van het onderwatertalud is 100 d aangehouden,
+ wat redelijk lijkt,
+ maar verhoging naar 1000 d verlaagt de stijghoogte in pb1 met 8 cm en in pb2 met 4 cm,
+ dus niet veel.
+ Ook is de weerstand van de damwand is van 
+\begin_inset Formula $\infty$
+\end_inset
+
+ verlaagd naar 50 d;
+ ook dit blijkt maar heel weinig verschil te maken:
+ 1 cm voor pb1 en 2 cm voor pb2.
+ De essentie voor het stroombeeld is de aanwezigheid van een weerstandbiedend onderwatertalud.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/xs_ark_r5_winter_owt10_detail.pdf
 	width 80text%
 
 \end_inset
@@ -7852,45 +8139,62 @@ Detail dwarsdoorsnedemodel met zicht op de stroming rond de damwand
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Het model is vervolgens aangepast:
-\end_layout
+In het model is de gevoeligheid van de in pb1 en pb1 berekende stijghoogten 
+\begin_inset Formula $\phi_{1}$
+\end_inset
 
-\begin_layout Itemize
-Het onderwatertalud:
- In het model is dat een strook van 10 m breed langs de kanaaloever direct onder de kanaalbodem met gegeven weerstand.
- De strook is te zien als kleine grijze strook in figuur 
-\begin_inset CommandInset ref
-LatexCommand pageref
-reference "fig:Detail-dwarsdoorsnedemodel-met-stroming-rond-damwand"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
+ en 
+\begin_inset Formula $\phi_{2}$
+\end_inset
 
+ onderzocht voor voor 3 parameters de breedte van het onderwatertalud 
+\begin_inset Formula $b_{owt}$
+\end_inset
+
+ (0 of 10 m),
+ de weerstand van het onderwatertalud 
+\begin_inset Formula $c_{owt}$
+\end_inset
+
+ (
+\begin_inset Formula $\infty$
+\end_inset
+
+ of 100 d) ende weerstand van de damwand 
+\begin_inset Formula $c_{damw}$
+\end_inset
+
+ (
+\begin_inset Formula $\infty$
+\end_inset
+
+,
+ 100,
+ 50 en 10 d).
+ De bodemweerstand 
+\begin_inset Formula $c_{ARK}$
+\end_inset
+
+ van het kanaal is op 23 dagen aangehouden geldend bij de gemiddelde temperatuur van 
+\begin_inset Formula $14^{o}C$
 \end_inset
 
 .
-\end_layout
+ In de wintersituatie,
+ waarvoor de gegevens bekend zijn en de berekeningen gemaakt wordt dan vanwege de viscositeit verhoogd tot de 
+\begin_inset Formula $30.3$
+\end_inset
 
-\begin_layout Itemize
-Verder is de doorlatendheid van de damwand aangepast.
- 
-\end_layout
-
-\begin_layout Standard
-Tabel 
+ d.
+ Deze getallen staan in tabel 
 \begin_inset CommandInset ref
-LatexCommand pageref
+LatexCommand ref
 reference "tab:Aanpassingen-van-het-model-owt-damw"
 plural "false"
 caps "false"
@@ -7899,64 +8203,57 @@ nolink "false"
 
 \end_inset
 
- geeft het overzicht.
- Elke regels zijn de resultaten van een model aanpassing.
- Alleen de breedte van het onderwatertalud,
- 
-\begin_inset Formula $b_{owt}$
-\end_inset
+ met het overzicht van deze gevoeligheidsanalyse.
+\end_layout
 
-,
- de weerstand van het onderwatertalud,
- 
-\begin_inset Formula $c_{owt}$
-\end_inset
-
-,
- en de weerstand van de damwand 
-\begin_inset Formula $c_{damw}$
-\end_inset
-
- zijn aangepast.
- De weerstand van de ARK-bodem 
-\begin_inset Formula $c_{ARK}$
-\end_inset
-
- was overal 23 d bij de gemiddelde temperatuur van het ARK-water van 
-\begin_inset Formula $14^{o}C$
-\end_inset
-
-,
- maar wordt door de lage wintertemperatuur van 
-\begin_inset Formula $3.7^{o}C$
-\end_inset
-
- automatisch verhoogd tot de 30.3 d die in de tabel en inde figuur is opgenomen.
- De laatste regel geeft de resultaten berekend voor de hoogste watertemperatuur van 
-\begin_inset Formula $24.1^{o}C$
-\end_inset
-
-.
- Steeds wordt in de berekening de doorlatendheden tot NAP -17 m en onder het ARK en tot 10 m daarbuiten aangepast aan de watertemperatuur.
- 
+\begin_layout Standard
+Elke regel geeft de resultaten van een model aanpassing.
+ De viscositeit wordt in rekening gebracht door de doorlatendheden tot NAP -17 m vanaf het kanaalmidden tot 10 m daarbuiten buiten de damanden aan te passen aan kanaalwatertemperatuur.
+ De weergegeven parameter 
 \begin_inset Formula $q_{inf}$
 \end_inset
 
- is het totale infiltratiedebiet per m kanaallengte gedeeld door de kanaalbreedte in mm/d.
- De twee laatste regels laten het effect van deze viscositeitsaanpassing zien voor het infiltratiedebiet en de stijghoogte in de twee peilfilters.
- Het infiltraDeze nemen Waar het om gaat is de mismatch tussen de gemeten waarden in de peilbuizen net binnen het kanaal 
+ [mm/d] is het totale infiltratiedebiet per m kanaallengte gedeeld door de kanaalbreedte.
+\end_layout
+
+\begin_layout Standard
+De twee laatste regel is het resultaat van hetzelfde model als de voorlaatste regel,
+ maar doorgerekend voor een zomertemperatuur (kolom 
+\begin_inset Formula $T_{ARK}$
+\end_inset
+
+) De verschillen komen geheel voor rekening van geautomatiseerde viscositeitsaanpassing.
+ De infiltratiesnelheid neemt door de temperatuurverhoging (viscositeitsafname) toe van 28 tot 36 mm/d en de stijghoogten in de peilbuizen stijgen met ca.
+ 21 cm.
+ In de werkelijkheid stijgt de stijghoogte in de zomer meer dan 21 cm,
+ ongeveer het dubbele.,
+ wat betekent dat er nog andere processen zijn die de bodemweerstand bepalen.
+ 
+\end_layout
+
+\begin_layout Standard
+Waar het ons in dit hoofdstuk om gaat is oplossing van de mismatch tussen de gemeten waarden in de peilbuizen net binnen het kanaal,
+ 
 \begin_inset Formula $\phi_{1}$
 \end_inset
 
- en net daarbuiten 
+,
+ en net daarbuiten,
+ 
 \begin_inset Formula $\phi_{2}$
 \end_inset
 
+ (peilfilters zijn in de figuren met kleine blokjes aangegeven),
  en de voor deze locaties door het model berekende waarden.
- De plaats van de peilbuisfilters is eveneens in fig.
+ 
+\end_layout
+
+\begin_layout Standard
+Samenvattend:
+ Tabel 
 \begin_inset CommandInset ref
-LatexCommand pageref
-reference "fig:Detail-dwarsdoorsnedemodel-met-stroming-rond-damwand"
+LatexCommand ref
+reference "tab:Aanpassingen-van-het-model-owt-damw"
 plural "false"
 caps "false"
 noprefix "false"
@@ -7964,11 +8261,7 @@ nolink "false"
 
 \end_inset
 
- opgenomen.
-\end_layout
-
-\begin_layout Standard
-De tabel laat zien dat de infiltratiesnelheid door de aanpassingen nauwelijks verandert;
+ laat zien dat de infiltratiesnelheid door de aanpassingen nauwelijks verandert;
  wat wel verandert zijn de berekende stijghoogtes in de twee peilfilters.
  Alleen door het aanbrengen van de strook onderwatertalud springen zij van veel te hoge waarden naar waarden die direct in de buurt komen van de metingen.
  Dit is dus geheel de invloed van het 10 m brede ondoorlatende onderwatertalud op de Formatie van Boxtel.
@@ -7980,10 +8273,11 @@ De tabel laat zien dat de infiltratiesnelheid door de aanpassingen nauwelijks ve
  komen we nog iets dichter bij de metingen.
  Door vervolgens de weerstand van de damwand te verlagen vermindert het stijghoogteverschil tussen de twee peilfilter van 19 tot 15 cm.
  Dit zijn dus allemaal marginale verschillen,
- plausibel maar nog niet hard bewezen.
+ plausibel maar,
+ nog niet hard bewezen.
  In feite is het enige dat hier het verschil maakt,
  de aanwezigheid van het onderwatertalud,
- zoals dat ook in het echte kanaal het geval is;
+ zoals dat ook in het echte kanaal aanwezig is;
  de weerstand van de damwand maakt nauwelijks uit.
  Het is dus niet nodig om een sterk lekkende damwand te veronderstellen.
  Het is hoogstens zinvol om daarvoor de door 
@@ -9533,16 +9827,17 @@ nolink "false"
 
 ).
  De gebruikte verticale en horizontale doorlatendheden staan in de inzettabel.
- Dit levert ruimtelijke parameters of de watervoerende de slecht doorlatende lagen goeddeels in overeenstemming met het model van Beemster e.a.
+ De ruimtelijke parameters van de watervoerende en slecht doorlatende lagen zijn goeddeels in overeenstemming met het model van Beemster e.a.
  (2022).
 \end_layout
 
 \begin_layout Standard
 Het waterlichaam van het ARK is weergegeven samen met de geologische lagen (zie ook de rechter inzet-tabel).
  Ook is het gebied met drainage door 'sloten' en het gebied met extra drainage door 'wellen' aangegeven (zie legenda links onder).
- De sloten en wellen beginnen pas vanaf de kade op 10 m rechts van de damwanden,
- die tot NAP -9.4 reiken.
- De sloten zijn gemodelleerd met GHB (Modflow jargon voor 
+ De sloten en wellen beginnen pas vanaf de kade op 10 m buiten de damwanden,
+ die tot NAP -9.4 reiken (tekening 1977,
+ RWS).
+ De sloten zijn gemodelleerd met GHB randvoorwaarden (Modflow jargon voor 
 \begin_inset Quotes pld
 \end_inset
 
@@ -9550,7 +9845,8 @@ General Head Boundaries
 \begin_inset Quotes prd
 \end_inset
 
-) in de bovenste modellaag (Echteld) over de gehele breedte rechts van het kanaal.
+).
+ Dit in de bovenste modellaag (Echteld) over de gehele breedte rechts van het kanaal.
  De wellen zijn met DRN (Modflow jargon voor 
 \begin_inset Quotes pld
 \end_inset
@@ -9559,12 +9855,16 @@ Drain Boundaries
 \begin_inset Quotes prd
 \end_inset
 
-) gemodelleerd in de laag juist onder Nieuwkoop een breedte L_wellen=300 m werkzaam,
+) gemodelleerd in de laag juist onder het laagpakket van Nieuwkoop over een breedte 
+\begin_inset Formula $L_{wellen}=300$
+\end_inset
+
+ m,
  zoals in de figuur aangegeven met cirkels in de laag..
  De in de figuur met markers aangegeven drainage door sloten en wellen moet worden geïnterpreteerd als uniforme vlakdekkende weerstand,
  niet als de locatie van individuele sloten.
- De tekens staat op de middens van de rekencellen.
- De vlakdekkende weerstandswaarden van de Formatie van Nieuwkoop,
+ De tekens staat op de middens van de rekencellen die naar rechts toe breder worden.
+ De vlakdekkende weerstandswaarden van de Nieuwkoop laag,
  de 
 \begin_inset Quotes pld
 \end_inset
@@ -9573,7 +9873,11 @@ sloten
 \begin_inset Quotes prd
 \end_inset
 
- (c_drainage) en de 
+ (
+\begin_inset Formula $c_{drainage}$
+\end_inset
+
+) en de 
 \begin_inset Quotes pld
 \end_inset
 
@@ -9581,22 +9885,33 @@ wellen
 \begin_inset Quotes prd
 \end_inset
 
- staan samen met de gebruikte weerstand van de kanaalbodem in de middelste inzet-tabel van de figuur.
- Deze inzettabel geeft ook de spreidingslengte 
+ met 
+\begin_inset Formula $c_{wellen}$
+\end_inset
+
+ staan,
+ samen met de gebruikte weerstand van de kanaalbodem in de middelste inzet-tabel.
+ Deze tabel geeft ook de spreidingslengte 
 \begin_inset Formula $\lambda=\sqrt{kDc}$
 \end_inset
 
 .
- De 
+ Het doorlaatvermogen,
+ 
 \begin_inset Formula $kD$
 \end_inset
 
- is berekend over alle lagen beneden de Formatie van Nieuwkoop en voor de 
+,
+ is berekend over alle lagen beneden de Nieuwkoop laag en voor de weerstand 
 \begin_inset Formula $c$
 \end_inset
 
  zijn twee waarden gebruikt:
- 1) De drainageweerstand + de weerstand van de Formatie van Nieuwkoop en 2) de waarde van de weerstand door gelijktijdige lek via de drainageweerstand + Formatie van Nieuwkoop en via de weerstand door de wellen volgens 
+ 1) De drainageweerstand 
+\begin_inset Formula $c_{drainage}$
+\end_inset
+
+ + de weerstand van de Formatie van Nieuwkoop en 2) de waarde van de weerstand door gelijktijdige lek via enerzijds de drainageweerstand + de laag van Nieuwkoop en parallel daaraan via de weerstand door de wellen volgens 
 \begin_inset Formula $1/c=1/c_{1}+1/c_{2}$
 \end_inset
 
@@ -9607,9 +9922,36 @@ wellen
 \end_inset
 
  die in de inzettabel zijn opgenomen.
- Ten slotte zijn in deze inzettabel de berekende gemiddelde infiltratiesnelheid over de kanaalbodem opgenomen samen met het stijghoogteverschil over de weerstand in de kanaalbodem.
- In weergegeven berekening is de infiltratiesnelheid ruim ca.
- 42 mm/d en het genoemde stijghoogteverval 46 cm.
+ Verder staan in de inzettabel de weerstand van de damwand 
+\begin_inset Formula $c_{damw}$
+\end_inset
+
+,
+ de weerstand van het onderwatertalud 
+\begin_inset Formula $c_{owt}$
+\end_inset
+
+ en de breedte van het onderwatertalud 
+\begin_inset Formula $b_{owt}$
+\end_inset
+
+.
+ In deze berekening is de breedte van het onderwatertalud nul,
+ zodat de weerstand van het onderwatertalud er voor deze berekening niet toe doet.
+ Voorts zijn in deze inzettabel de berekende gemiddelde infiltratiesnelheid over de kanaalbodem 
+\begin_inset Formula $q_{inf}$
+\end_inset
+
+ [mm/d] opgenomen samen met het stijghoogteverschil,
+ 
+\begin_inset Formula $\Delta h$
+\end_inset
+
+,
+ over de weerstand in de kanaalbodem.
+ In weergegeven berekening is de infiltratiesnelheid bijna 30 mm/d en het genoemde stijghoogteverval 88 cm.
+ De laatste regel van de inzettabel geven het peil van het ARK en de berekende stijghoogte onder de waterbodem juist binnen en buiten de damwand.
+ De locatie van de peilfilters van deze peilbuizen zijn als kleine blokjes aangegeven (zie legenda).
 \end_layout
 
 \begin_layout Standard
@@ -9623,6 +9965,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/xs_ark_r5_basis.pdf
+	lyxscale 200
 	height 100text%
 
 \end_inset
@@ -9685,9 +10028,28 @@ nolink "false"
 \end_inset
 
  m zoals aangegeven in de titel van de figuur.
- De stroom- en stijghoogtelijn staan niet loodrecht op elkaar omdat de horizontale en verticale doorlatendheid van elkaar verschillen.
- Het patroon van lijnen laat zien dat de tot NAP -9.4 m reikende damwanden slechts een minimale invloed op de stroming uitoefenen ook al zijn zij als waterdicht gemodelleerd.
- In deze simulatie is de weerstand van de kanaalbodem 10 d.
+ De stroom- en stijghoogtelijn staan niet loodrecht op elkaar omdat de horizontale en verticale doorlatendheden van elkaar verschillen.
+ Het patroon van lijnen laat zien dat de tot NAP -9.4 m reikende damwanden slechts een minimale invloed op de stroming uitoefenen ook al hebben zij een behoorlijke weerstand.
+ In deze simulatie is de weerstand van de kanaalbodem 23 d bij 
+\begin_inset Formula $14^{o}C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Het model houdt automatisch rekening met de viscositeit van het water.
+ Daartoe worden de doorlatendheden tot een diepte van NAP 17 m tot 10 m buiten de damwanden vermenigvuldigd met de verhouding tussen de viscositeit bij de kanaalwatertemperatuur en die van de gemiddelde kanaalwatertemperatuur.
+ Daarom is de weerstand van de bodem van het ARK in de inzettabel niet 23 d zoals ingevoerd en geldend bij de gemiddelde watertemperatuur van 
+\begin_inset Formula $14^{o}C$
+\end_inset
+
+,
+ maar 29.2 dagen behorend bij de voor de modellering gebruikte temperatuur van 
+\begin_inset Formula $5.1^{o}C$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
