@@ -146,7 +146,17 @@ Intro
 \end_layout
 
 \begin_layout Standard
-Fig.
+Na 2003 ontstond wateroverlast in een aantal polders langs het ARK tussen Breukelen en Weesp bestaande uit jaarlijks toenemende uitmaling van polders en in samenhang daarmee het ontstaan van wellen in zones waar bij de verruiming en verbreding van het kanaal tussen 1973 en 1981 de restanten van de weerstandbiedende deklaag grotendeels of geheel waren weggebaggerd.
+ Hoewel de bodemweerstand zich tot ca.
+ 1993 weer geleidelijk herstelde,
+ trad tussen 2003 en 2015 een voortdurend toenemende kwel in de polder op,
+ waarna deze kwel zich stabiliseerde.
+ Deze situatie wordt in verband gebracht met de grootste schepen die de kanaalbodem erodeerden waardoor twee duidelijke erosiegeulen zijn ontstaan.
+ Deze erosie verwijderde de eerder genoemde geleidelijke verstopping na de verdieping en ook de laatste restanten deklaagmateriaal die er onder de kanaalbodem na het uitdiepen eventueel nog waren.
+ Dit onderzoek dient als wetenschappelijke onderbouwing van een praktijkproef waarin RWS zal trachten de bodemweerstand in de meest hiervoor gevoelige zone ten zuiden van Nigtevecht over een afstand van ca.
+ 1 km getracht met bentoniet te vergroten.
+ De test is voorzien in 2027.
+ Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
@@ -157,42 +167,8 @@ nolink "false"
 
 \end_inset
 
- laat het probleemgebied zien met de hartlijn van het Amsterdam-Rijnkanaal (ARK),
- de geconstateerde wellen en de geïnstalleerde peilbuisraaien.
- Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:peilgebieden"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- geeft voor hetzelfde regio de polderpeilen en peilgebieden.
- Verdere details zijn te vinden op de interactieve website van het waterschap Amstel-Gooi-en-Vecht.
- In Fig.1 zijn kaartjes gebruikt uit 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "De25b"
-literal "false"
-
-\end_inset
-
- en in Fig.2 uit 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Be22"
-literal "false"
-
-\end_inset
-
- waar de peilbuizen en wellen op zijn geprojecteerd.
- De wellen blijken zich te concentreren in de veenweidegebieden waarin het ARK door volledig door de deklaag snijdt.
- De wellen concentreren zich ook duidelijk in de omgeving van het ARK.
- Er zijn bovendien meer wellen ten westen van het ARK dan ten oosten daarvan.
- Dit is te relateren aan de wat dikkere deklaag ten oosten van het ARK.
+ toont het ARK ten noorden van Breukelen met daarin de aangetoonde wellen als zwarte puntjes en de voor dit onderzoek i.o.v.
+ Waternet en RWS geplaatste peilbuizen als rode rondjes.
 \end_layout
 
 \begin_layout Standard
@@ -223,7 +199,166 @@ name "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
 
 \end_inset
 
-Onderzoeksgebied met peilbuisraaien en in het veld geconstateerde wellen en de hartlijn van het Amsterdam-Rijnskanaal.
+Onderzoeksgebied met daarop geprojecteerd de in het veld vastgestelde wellen en de geïnstalleerde en in 13 raaien geordende peilbuizen.
+ De blauwe lijn is de hartlijn van het Amsterdam-Rijnkanaal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:afst_wellen_tot_ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de afstand van wellen tot het midden van het ARK.
+ De ruim 500 wellen zijn overgenomen uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+.
+ Het is onbekend of dit alle wellen in het gebied zijn,
+ maar het waren wel de bekende.
+ Uit de figuur kan worden opgemaakt dat de bulk van de wellen zich tot 350 m van de hartlijn,
+ dus 300 m van de kanaaloever.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/wellen_deltares_hist.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:afst_wellen_tot_ARK"
+
+\end_inset
+
+Afstand wellen tot hartlijn ARK (breedte ARK=50 m).
+ Wellen overgenomen uit Beemster e.a.
+ (2022)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Het Amsterdam Rijnkanaal ten noorden van Utrecht is tussen 1973 en 1981 verdiept van 4.5 tot 6 m en aan de oostzijde verbreed van 75 tot 100 m om passage van grotere schepen met een diepgang tot 4 mogelijk te maken.
+ Met alleen het uitdiepten en verbreden was het werk in 1981 nog niet gedaan:
+ tussen 1989 en 1994 werd het ARK verder klaar gemaakt voor deze diepere schepen van type M9 en M12 (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RWS02"
+literal "false"
+
+\end_inset
+
+,
+ p6),
+ waarna het ARK in oktober 1994 door koningin Beatrix voor deze schepen werd geopend.
+ Dus pas vanaf 1994 konden de grote binnenvaartschepen met diepgang tot 4 m van het kanaal gebruik maken.
+ Echter,
+ in 2002 was voorbereiding voor de verwijdering van de keersluis en schutsluis bij Zeeburg bij Amsterdam nog gaande.
+ Dus,
+ echt vrije doorgang naar Amsterdam voor de grote schepen was er pas daarna.
+ M9 en M12 schepen voeren voor 2004 nog niet op het ARK (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Scheepvaart-ARK-2003-2019"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ScheepvaartARK.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Scheepvaart-ARK-2003-2019"
+
+\end_inset
+
+Scheepvaart ARK van 2004 (rechts) tot 2019 (links).
+ Schepen van type M8 namen in deze periode sterk toe,
+ maar de grote schepen M9 t/m M15 voeren voor 2004 nog niet op het ARK (Fig.
+ uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+).
+ 
 \end_layout
 
 \end_inset
@@ -238,6 +373,253 @@ Onderzoeksgebied met peilbuisraaien en in het veld geconstateerde wellen en de h
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Dit correspondeert direct met de geschiedenis van de weerstand van de kanaalbodem beschreven in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+.
+ De reactie van de grondwaterstanden in de omgeving van het ARK toonde aan dat deze weerstand sterk was verminderd door de verdieping tussen 1973 en 1981,
+ waarbij over trajecten van het kanaal ook de weerstandbiedende deklaag geheel was weggegraven.
+ Vervolgens bleek de kanaalweerstand tot ca.
+ 1993 weer geleidelijk tot te nemen,
+ door verstopping van de bodem.
+ Vanaf 2003 bleek de uitmaling van een aantal polders langs het ARK jaarlijks toe te nemen en ontstond in naastgelegen lage polders overlast door wellen.
+ De toename van de uitmaling bereikte rond 2015 een evenwicht en is sindsdien min of meer constant 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemaalafvoer-BBO"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat deze ontwikkeling zien aan de hand van de gemaalafvoer van polder Braambrugge Oost.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/gemaalafvoer_BBO+KC.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gemaalafvoer-BBO"
+
+\end_inset
+
+Ontwikkeling van de gemaalafvoer in polder Braambrugge Oost.
+ (uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inmiddels is ook het ontstaan van erosiegeulen in de kanaalbodem aangetoond in de bathymetrie van het kanaal (zie de profielen verderop in dit rapport (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bodemprofiel-1-2-3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ t/m 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bodemprofiel-13"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ De erosiegeulen waren er in 2013al (2013 is het jaar van de eerste nu beschikbare bathymetrie) al en lijken tot 2025 nog nog niet geheel stabiel.
+ Hun vorming zal dus hebben plaatsgevonden tussen 2003 en 2013 nadat de flessenhals annex drempel bij Zeeburg was opgeruimd en de grootste en diepste schepen eindelijk onbelemmerde doorvaart naar Amsterdam kregen.
+\end_layout
+
+\begin_layout Standard
+Inmiddels is er al vanuit diverse kanten naar de problematiek gekeken.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ voorde een onderzoek uit naar bodemerosie in samenhang met de scheepvaart.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ deden een zeer breed en diepgaand onderzoek naar de mogelijke oorzaken van de wateroverlast en hebben ook veel gegevens bovenwater getild die voor het begrip van groot belang zijn,
+ met name hebben zijn ook om de ontwikkeling vanaf de zeventiger jaren tot 2020 goed in kaart gebracht.
+ Dit is ook van grote historische betekenis omdat het via het internet bijzonder lastig blijkt om concrete informatie te vinden van voor ca.
+ 2000.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+ hebben het grondwater ook uitgebreid gemodelleerd.
+ Enerzijds pasten zijn tijdreeksanalyse toe om verschillend oorzaken te onderscheiden en anderzijds gebruikten zijn numerieke grondwatermodellen om de situatie na te bootsen en hun inzichten te toetsen aan de gegevens.
+ Van belang is dat beide moesten vaststelen dat het in het model opnemen van de viscositeit van het voortdurend in de bodem infiltrerende ARK-water,
+ waarvan de temperatuur door het jaar heen fluctueert tussen ca.
+ 5 en 25
+\begin_inset Formula $^{o}$
+\end_inset
+
+C,
+ niet de gemeten jaarlijkse verhoging van de grondwaterstand in de zomer kan verklaren.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+ maakte een uitgebreide systeemanalyse voor het grondwater in de gebieden langs de betreffende kanaalzones.
+ Het rapport van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+ geeft ook een overzicht van de gegevens die inmiddels zijn verzameld in het recent sterk uitgebreide peilbuizen netwerk,
+ dat momenteel uit 13 raaien bestaat (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:peilgebieden"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Maar hoe dan ook,
+ we dan weten nog niet wat de oorzaak van de discrepantie tussen de gemeten en berekende hogere zomergrondwaterstanden is.
+ Een diepergaande analyse van de metingen is daarom gevraagd.
+ Dit rapport probeert hierin te voorzien het bouwt voort op 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26a"
+literal "false"
+
+\end_inset
+
+ een analyse op basis van een model van een geotopdoorsnede over raai4,
+ en op 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26b"
+literal "false"
+
+\end_inset
+
+,
+ o.a.
+ een analyse van wellen.
+\end_layout
+
+\begin_layout Standard
+De overlast moet steeds worden gezien in relatie tot de specifiek bodemopbouw en het peilregime van de betreffende polders.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de betreffende peilgebieden met daarop de wellen en peilbuizen geprojecteerd.
+ Verdere details van het peilregime zijn te vinden op de interactieve website van het waterschap Amstel-Gooi-en-Vecht.
+ De wellen blijken zich te concentreren in de veenweidegebieden waarin het ARK door volledig door de deklaag snijdt.
+ De wellen concentreren zich ook duidelijk in de omgeving van het ARK.
+ Er zijn bovendien meer wellen ten westen van het ARK dan ten oosten daarvan.
+ Dit is te relateren aan de wat dikkere deklaag ten oosten van het ARK.
 \end_layout
 
 \begin_layout Standard
@@ -268,7 +650,16 @@ name "fig:peilgebieden"
 
 \end_inset
 
-Ligging van de peilbuizen in de peilgebieden
+Ligging van de peilbuizen in de peilgebieden met daarop geprojecteerd de vastgestelde wellen en de geïnstalleerde peilbizen.
+ Het peilgebiedenkaartje komt uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -282,7 +673,7 @@ Ligging van de peilbuizen in de peilgebieden
 \end_layout
 
 \begin_layout Section
-Profiel ARK
+Profielen ARK en erosiegeulen
 \end_layout
 
 \begin_layout Subsection
@@ -290,9 +681,32 @@ De profielen
 \end_layout
 
 \begin_layout Standard
-Michel Ruiter heeft jaarlijkse bathymetriën van het ARK kanaal beschikbaar gemaakt over de periode 2013-2025,
+Michel Ruiter (RWS) heeft jaarlijkse bathymetriën van het ARK kanaal beschikbaar gemaakt over de periode 2013-2025,
  waaruit onder andere nauwkeurige dwarsprofielen te trekken zijn.
- In de figuren hierna zijn de profielen weergegeven voor 2013 en 2025 voor alle grondwater raaien 1 t/m 13).
+ In de figuren 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bodemprofiel-1-2-3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ t/m 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bodemprofiel-13"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geven de uit de bathymetriëen getrokken dwarsprofielen weer voor 2013 en 2025,
+ voor alle grondwater peilbuisraaien (1 t/m 13).
  Van 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -302,7 +716,8 @@ literal "false"
 \end_inset
 
  is het ontwerpprofiel van het huidige ARK overgenomen en over de bathymetrieprofielen gelegd.
- Voor de duidelijkheid zijn ook de profielen van een M08-type en M12-type binnenvaartschip ingetekend die volgens 
+ Voor de duidelijkheid zijn ook de profielen van een binnenschip van het M08-type (3.5 m diepgang) en een van het M12-type (4.0 m diepgang) ingetekend,
+ die volgens 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De25a"
@@ -310,8 +725,8 @@ literal "false"
 
 \end_inset
 
- maatgevend zijn.
- De plaatsing is volgens de mediaan van AIS transponders,
+ maatgevend zijn voor de erosie.
+ De plaatsing van deze schepen in de profielen is overeenkomstig de mediaan van AIS transponders van een groot aantal grotere schepen,
  zie 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -325,18 +740,82 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Het ontwerpprofiel reikt tot 6 m onder het kanaalpeil (tot NAP -6.4 m) en heeft onderwatertaluds die 19.2 m breed en 2.6 m hoog zijn.
- Het kan natuurlijk zijn dat de aangelegde diepte bijv.
- NAP -6.5 m is,
- met met variatie in het peil van het kanaal rekening te houden.
- Maar dat weet ik nu niet.
+Het ontwerpprofiel reikt tot 6 m onder het kanaalpeil (van NAP -0.4 tot NAP -6.4 m) en heeft onderwatertaluds die 19.2 m breed en 2.6 m hoog zijn.
+ Of de aanlegdiepte exact overeenkwam met dit ontwerpprofiel is nu niet bekend.
+ Dit maakt het hachelijk om een stevige uitspraak te doen over het verdwijnen van bodemmateriaal tussen 1981 en 2013,
+ maar de bathymetriëen door de tijd heen geven blijk van het verdwijnen van bodemmateriaal met een snelheid van rond 6 mm/jaar (tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Analyse-bodemhoogte-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
-Praktisch alle profielen zijn tussen 2013 en 2025 op hun diepste punten dieper geworden en liggen aanzienlijk dieper dan het ontwerpprofiel.
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Analyse-bodemhoogte-ARK"
+
+\end_inset
+
+Analyse bodemhoogte ARK op basis van bathymetriëen 2013-2015 ter bepaling van de erosie van de waterbodem (Michel Ruijter (RWS) en Timon Smeets (RWS).
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/erosie_ARK_bodem2013-2025.png
+	lyxscale 60
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Praktisch alle profielen zijn tussen 2013 en 2025 op hun diepste punten dieper geworden;
+ zij liggen voorts aanzienlijk dieper dan het ontwerpprofiel.
  Verder blijkt dat de erosiegeulen al in 2013 prominent aanwezig waren.
- Het zou daarom de zeer interessant zijn om de gemeten profielen beschikbaar te maken zoals die waren direct aan de verdieping en verruiming,
- hun ontwikkeling tijdens de jaren 80-90 toen de weerstand van de kanaalbodem toenam en constant bleef en vanaf 2003 toen de weerstand systematisch daalde en een evenwicht bereikte omstreeks 2015 (
+ Het zou daarom de zeer interessant zijn om de gemeten profielen beschikbaar te krijgen zoals die waren direct na de verdieping en verruiming tot aan 2013.
+ Die profielen zouden licht laten schijnen op de op de bodemontwikkeling tijdens de jaren 80-90 toen de weerstand van de kanaalbodem toenam en constant bleef,
+ en die vanaf 2003,
+ toen de weerstand systematisch daalde en een evenwicht bereikte omstreeks 2015 (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Be22"
@@ -345,17 +824,39 @@ literal "false"
 \end_inset
 
 ).
- Dit zou een directe relatie kunnen leggen tussen de erosie van de dwarsprofielen,
- de toegenomen scheepvaart (gegevens reeks beschikbaar in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "De25a"
-literal "false"
+ Met deze profielen zou een directe relatie te leggen zijn tussen de erosie van de dwarsprofielen,
+ de toegenomen scheepvaart (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Scheepvaart-ARK-2003-2019"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
 ) en de ontwikkeling van de bodemweerstand,
- respectievelijk het toenemende waterbezwaar van de naastgelegen polders.
+ respectievelijk het toenemende waterbezwaar van de naastgelegen polders (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemaalafvoer-BBO"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) (meer gegeven daarover in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -383,17 +884,19 @@ nolink "false"
 \end_inset
 
  met het oorspronkelijke niet geërodeerde bodemprofiel direct inzicht in het materiaaltransport.
- Is het oorspronkelijke materiaal qua volume nog ergens in het profiel aanwezig of is dit afgevoerd?
+ Is het oorspronkelijke materiaal qua volume nog ergens in het ARK aanwezig (waar het kanaal breder is),
+ of is dit afgevoerd,
+ en ligt dit materiaal nu in het IJ?
+ Aan de hand van zeefprofielen van monsters uit de kanaalbodem en van de top van het laagpakket van de Boxtel (net onder de deklaag) kan men bepalen of met name de fijne fractie is verdwenen en de boden nu vooral bestaat uit de grovere fracties van het oorspronkelijke bodemmateriaal.
  Hier valt nog het nodige inzicht te winnen.
 \end_layout
 
 \begin_layout Standard
 Verder valt op dat de diepste punten in alle profielen ca.
  NAP -7 m zijn.
- Is dat het huidige evenwicht,
+ Komt dat overeen met het huidige evenwicht,
+ de huidige stabiele uitmaling van de polders,
  of schrijdt de erosie verder voort?
- Op basis van het verschil tussen het ontwerpprofiel en de huidige profielen valt te concluderen dat er veel materiaal is verdwenen.
- Dit zou dan terug te vinden moeten zijn voor de uitmonding van het ARK in het IJ.
 \end_layout
 
 \begin_layout Standard
@@ -411,15 +914,211 @@ literal "false"
 \end_inset
 
  melden ook dat de onderwatertaluds wegeroderen,
- wat een risico vormt voor de stabiliteit van de damwanden.
+ wat op den duur een risico vormt voor de stabiliteit van de damwanden.
  De profielen laten zien dat deze onderwatertaluds inderdaad deels aan erosie onderhevig zijn,
- maar dat is niet overal het geval en niet volledig.
+ maar dat is niet overal het geval en is ook niet volledig het geval.
 \end_layout
 
 \begin_layout Standard
-Als we de mediaan van de vaarlijn van de schepen vergelijken met de plekken met de erosie valt op dat die niet overeen komen.
- Mogelijk zijn voor de erosie vooral de schepen van belang die wat verder dan de mediaan van de vaarlijnen uit het midden van het kanaal varen.
- Mogelijk is de retourstroom dan sterker.
+Als we de mediaan van de vaarlijn van de schepen vergelijken met de plekken met ligging van het centrum van de erosiegeulen,
+ valt op dat die niet met elkaar overeenstemmen.
+ Mogelijk zijn voor de erosie vooral de schepen van belang die wat verder dan de mediaan van de vaarlijnen uit het midden van het kanaal varen;
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ wijst er op,
+ dat bij het inhalen het ingehaalde (vaak zwaarder belanden) schip een stuk dichter langs de oever vaart (ca.
+ 11 m) dan de gemiddelde vaarlijn (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Inhalen-op-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ en laat vervolgens ook zien dat de retourstroom bij het ingehaalde schip door de geringere diepte van de kiel boven het onderwatertalud dan aanmerkelijk sterker,
+ is dan bij varen op de gemiddelde vaarlijn,
+ die is aangehouden in de figuren 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bodemprofiel-1-2-3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ t/m 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bodemprofiel-13"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Retourstroming-bij-inhalen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Het overzicht van de scheepvaart op het ARK tussen 2004 en 2015 (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Scheepvaart-ARK-2003-2019"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ liet al zien dat M8 schepen al in 2004 een behoorlijk deel van de scheepsbewegingen uitmaakten en dat dat aandeel tot 2015 verdubbelde.
+ Echter de grootste schepen van type M9 t/m M12 komen pas nadien op en blijken in 2015 nog maar een klein deel van de scheepsbewegingen uit te maken.
+ Zo kan het zijn dat voor het ontstaan van de erosiegeulen het inhalen van groter belang is dan gedacht.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/inhalen_op_ARK.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+I
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Inhalen-op-ARK"
+
+\end_inset
+
+Inhalen op het ARK;
+ duwcombinatie vaart dicht langs oever (uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ afkomstig van Google Earth 2011)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Delt12_fig3_2Retorustroming_injalen_ARK.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Retourstroming-bij-inhalen"
+
+\end_inset
+
+Retourstroming bij inhalen op ARK uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -659,7 +1358,8 @@ Oorspronkelijke bodemlagen in het resterende onderwatertalud
 \end_layout
 
 \begin_layout Standard
-Wat nog wel van belang kan zijn is de mate waarin oorspronkelijke bodemlagen nog onder de onderwatertaluds aanwezig zullen zijn.
+Zoals verderop bij de analyse van de grondwaterstanden net binnen en net buiten het kanaal zal blijken,
+ is van belang in welke mate de oorspronkelijke holocene bodemlagen nog onder de onderwatertaluds aanwezig zijn.
  Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -671,20 +1371,23 @@ nolink "false"
 
 \end_inset
 
- geeft een detail van de Geotopdoorsnede ter plaatse van peilbuisraai 5 (Y=475100) met daarop het profiel uit de bathymetrie geprojecteerd.
+ geeft een detail van de Geotopdoorsnede ter plaatse van peilbuisraai 5 (Y=475100) met daarop het profiel de bathymetrie uit 2025 geprojecteerd.
  Ook de damwanden zijn op schaal ingetekend.
- De lagen zijn binnen het ARK doorgetrokken tot de bodemprofiel.
+ De bodemlagen lagen zijn binnen het ARK doorgetrokken tot het huidige bodemprofiel.
  Dit laat zien dat aan de westzijde over ca.
- 10 m nog oorspronkelijke slechtdoorlatende lagen aanwezig moeten zijn wanneer het Geotopprofiel voldoende nauwkeurig is.
+ 10 m nog oorspronkelijke slechtdoorlatende lagen aanwezig moeten zijn,
+ voor zover het Geotopprofiel uit dinoloket.nl voldoende nauwkeurig is.
  Dit is niet zeker,
- omdat de Geotop nu op een schaal wordt gebruikt waarvoor het niet bedoeld is.
+ aangezien de Geotop hier op een detailschaal wordt gebruikt waar het niet voor bedoeld is.
  Tegelijkertijd blijkt dat het ARK hier over ca.
  85% van zijn breedte in de onderliggende zandlaag dringt.
- Deze slecht doorlatende lagen onder het talud hebben geen betekenis voor de weerstand over de kanaalbodem,
- daarvoor is de zone veel te klein.
+ Deze slecht doorlatende lagen in het onderwatertalud hebben geen betekenis voor de weerstand over de kanaalbodem als geheel,
+ daarvoor is de taludzone veel te small ten opzichte van de kanaalbreedte.
  Het geeft wel aan dat bij het plaatsen met de sondeerwagen van peilbuizen binnen de damwanden,
- deze lagen in het sonderingsprofiel worden gevonden.
- Verder zal de stijghoogte direct onder deze lagen wat lager zijn dan op dezelfde diepte midden onder het kanaal.
+ de oorspronkelijke holocene lagen in het sonderingsprofiel worden aangetroffen.
+ Verder zal de stijghoogte langs de damwand,
+ direct onder deze resterende holocene lagen,
+ wat lager zijn dan op dezelfde diepte midden onder het kanaal.
 \end_layout
 
 \begin_layout Standard
@@ -732,7 +1435,7 @@ Detail van Geotop doorsnede ARK ter plaatse van peilbuisraai Nr.
 \end_layout
 
 \begin_layout Standard
-Aan de tijdstijghoogtelijnen en temperatuurlijnen in figuren 
+Aan de verderop getoonde tijdstijghoogtelijnen en temperatuurlijnen in figuren 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Stijgh-en-temp-ARK-raai-1-2--3"
@@ -778,7 +1481,7 @@ nolink "false"
 
 \end_inset
 
- viel al op dat niet alle stijghoogtelijnen een duidelijke verhoging van de grondwaterstanden in de zomer vertonen.
+ valt op dat niet alle stijghoogtelijnen een duidelijke verhoging van de grondwaterstanden in de zomer vertonen.
  Dezelfde peilbuizen laten ook geen wezenlijke jaarschommeling van de temperatuur zien.
  Dit is met name het geval in raai 11 (fig.
 \begin_inset CommandInset ref
@@ -792,12 +1495,14 @@ nolink "false"
 \end_inset
 
 ).
- Door ook voor deze raai het profiel van de bodemhoogte van 2025 op de ingezoomde Getopdoorsnede te projecteren wordt inderdaad duidelijk dat hier nog oorspronkelijk slechtdoorlatend materiaal van de deklaag aanwezig zal zijn.
- Wat opvalt is de grote diepte van dit profiel,
- maximaal bijna NAP -8.0 m.
+ Door ook voor deze raai het profiel van de bodemhoogte van 2025 op de ingezoomde Getopdoorsnede te projecteren,
+ wordt inderdaad duidelijk dat hier nog oorspronkelijk slechtdoorlatend materiaal van de deklaag aanwezig zal zijn.
+ Wat opvalt,
+ is de grote diepte van dit profiel,
+ maximaal tot bijna NAP -8.0 m.
  Ook hier is het zinvol om dit profiel met de oorspronkelijke bodemhoogte te vergelijken.
- Indien dit NAP -6.5m zou zijn,
- dan is hier heel veel materiaal door erosie verdwenen.
+ Indien dit hier inderdaad NAP -6.5m zou zijn,
+ dan is hier veel materiaal door erosie uit dit profiel verdwenen.
  De doorsnede laat bovendien zien dat het diepste punt weldra ook hier de restanten van de deklaag volledig penetreert.
  Dat hier,
  met name aan de oostzijde van voortgaande erosie sprake is,
@@ -873,9 +1578,10 @@ nolink "false"
 
 \end_inset
 
- geeft een overzicht van de gegevens van de peilbuizen die middels sondeerwagen net binnen en net buiten de damwanden zijn geplaatst.
- Ook in deze tabel is te zien dat de ondezijde van de deklaag in raai 11 veel dieper zit dan in de meer noordelijke raaien zoals 4 en 5.
- De diepte van NAP -7.25 m van de onderzijde van de deklaag impliceert inderdaad dat de erosie van de restanten van de deklaag zover is voortgeschreden dat de ook hier op het diepste punt van het profiel zo goed als verdwenen is.
+ geeft een overzicht van de gegevens van de peilbuizen die middels een sondeerwagen net binnen en net buiten de damwanden zijn geplaatst.
+ Ook in deze tabel is te zien dat de onderzijde van de deklaag in raai 11 veel dieper zit dan in de meer noordelijke,
+ zoals raai 4 en raai 5.
+ De diepte van NAP -7.25 m van de onderzijde van de deklaag in raai 11 impliceert inderdaad dat de erosie van de restanten van de deklaag zover is voortgeschreden dat deze restanten zelfs in raai 11 op het diepste punt van het profiel zo goed als verdwenen zijn.
 \end_layout
 
 \begin_layout Standard
@@ -4404,1762 +5110,6 @@ W
 \end_layout
 
 \begin_layout Section
-Wellen
-\end_layout
-
-\begin_layout Standard
-Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:afst_wellen_tot_ARK"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- geeft de afstand van wellen tot het midden van het ARK.
- De 212 wellen zijn overgenomen van fig.
- in Beemster e.a.
- (2022).
- Het is onbekend of dit alle wellen in het gebied zijn,
- maar het waren wel de bekende.
- Uit de figuur kan worden opgemaakt dat de bulk van de wellen zich tot 350 m van de hartlijn,
- dus 300 m van de kanaaloever.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/wellen_deltares_hist.pdf
-	width 60text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:afst_wellen_tot_ARK"
-
-\end_inset
-
-Afstand wellen tot hartlijn ARK (breedte ARK=50 m).
- Wellen overgenomen uit Beemster e.a.
- (2022)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Temperatuur van het ARK water
-\end_layout
-
-\begin_layout Standard
-Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Temperatuur-ARK"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- geeft de temperatuur van het ARK-water te Maarssen over 2 jaar van 4-1-2024 tot 4-1-2026.
- Er zijn minder frequente metingen beschikbaar voor Nieuwersluis maar die wijken niet wezenlijk af van die in Maarssen.
- Op bases van het visuele verloop van de curve zijn percentielen 0.03 en 0.95 van de dagelijkse waarden gekozen voor de te hanteren maximum en minimum temperatuur,
- 0.5 voor de gemiddelde temperatuur en0.25 en 0.75 voor de gemiddelde zomer en winter-temperatuur,
- zoals aangegeven in de figuur.
- Dit temperatuurverloop is ook weergeven in alle figuren van het volgende hoofdstuk,
- waarin stijghoogten en temperaturen van peilbuizen gecombineerd worden weergegeven.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temp_ARK.pdf
-	width 70text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Temperatuur-ARK"
-
-\end_inset
-
-Temperatuur van het ARK-water over 2024 en 2025 met percentielen
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Dynamiek van de stijghoogte
-\end_layout
-
-\begin_layout Standard
-De stijghoogten onder de deklaag tonen een consequent jaar patroon dat de temperatuur van het ARK water volgt.
- Dit blijkt uit alle grafieken van de peilbuizen waarvan de gegevens in Deltares (2025) zijn gepubliceerd.
- Deze grafieken zijn overgenomen en hieronder weergegeven voor elk van de 13 raaien,
- afzonderlijk voor de raai links en rechts van het ARK.
- Alle grafieken zijn op dezelfde schaal getekend.
- Met een dikke punt zijn de waarden aangegeven rond 1 augustus waarop de hoogste waterstanden worden bereikt en rond 1 februari met de laagste waterstanden.
- Tevens is in elke figuur de temperatuur van het ARK water opgenomen en,
- voor zover beschikbaar in Deltares (2026) ook die van de peilbuizen zelf,
- zoals geregistreerd met de daarin aanwezig loggers.
- Ook de schaal van de temperatuur,
- zoals weergegeven op de rechter ij-as is in alle grafieken hetzelfde,
- waardoor zij direct met elkaar vergelijkbaar zijn
-\end_layout
-
-\begin_layout Standard
-Aan de hand van deze gegevens kan worden geconcludeerd dat het stijghoogteverloop dat van de temperatuur van het ARK volgt en niet andersom,
- wat ook fysisch onlogisch zou zijn.
- We zien dit aan het feit dat lijn van de grondwaterstanden waar zij de die van de temperatuur van het ARK snijdt bij de stijgende tak van de temperatuur consequent lager zijn dan bij de dalende tak.
- Omdat het temperatuurverloop van het ARK praktisch symmetrisch is ten opzichte van 1 augustus,
- betekent dit dat alle stijghoogtegrafieken wat vertraagd zijn ten opzichte van de temperatuur van het kanaalwater.
-\end_layout
-
-\begin_layout Standard
-Waar ook de temperatuur gemeten in de peilbuizen beschikbaar is,
- namelijk in raaien 4,
- 5 en 11,
- zien we direct dat deze temperaturen niets te maken hebben met die van het ARK water.
- Dit is ook niet te verwachten omdat voor de meeste peilbuizen afstand tot het ARK daarvoor te groot is;
- de verblijftijd,
- de spreiding van de verblijftijden in de grond en de warmtegeleiding zouden voordat het geïnfiltreerde ARK water deze peilbuizen zou bereiken voor een grote vertraging en afvlakking zorgen,
- waardoor het daar gemeten temperatuurverloop niet meer zou lijken op dat van het ARK.
- Als het ARK water zover zou komen dan mag bij zulke peilbuizen onder de deklaag waarin de peilbuizen staan een min of meer constante temperatuur worden verwacht die overeenkomt met de gemiddelde temperatuur van het ARK water,
- dus ongeveer 14-15 graden zoals blijkt het het verloop van de temperatuur van het kanaalwater.
- Dit is ook wat we in de meeste peilbuizen zien.
- De temperatuur is vaak iets lager dan 14 graden wat geweten kan worden aan de temperatuur in de grond op de diepte waarop de logger in de peilbuis hangt.
- Dit zal vaak boven het peilfilter zelf zijn,
- ergens ter hoogte van de deklaag waar een mer jaargemiddelde luchttemperatuur van rond 10-12 C mag worden verwacht.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai1.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai2.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai3.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Stijgh-en-temp-ARK-raai-1-2--3"
-
-\end_inset
-
-Temperatuur van ARK water met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
- Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter y-as voor de temperatuur.
- Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai4.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai5.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai6.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Stijgh-en-temp-ARK-raai-4-5--6"
-
-\end_inset
-
-Temperatuur van ARK water,
- die in de peilbuizen (voor zover voorhanden) met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
- Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter y-as voor de temperatuur.
- Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai7.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai8.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai9.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Stijgh-en-temp-ARK-raai-7-8--9"
-
-\end_inset
-
-Temperatuur van ARK water,
- die in de peilbuizen (voor zover voorhanden) met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
- Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter ij-as voor de temperatuur.
- Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai10.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai11.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai12.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai13.pdf
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Stijgh-en-temp-ARK-raai-10-11-12--13"
-
-\end_inset
-
-Temperatuur van ARK water,
- die in de peilbuizen (voor zover voorhanden) met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
- Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter y-as voor de temperatuur.
- Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Sommige peilbuizen met name in raai 4 en 5 hebben een volledig afwijkend verloop.
- Dat geldt voor peilbuis pb406 op 3 m ten westen van het ARK,
- pb407 op 19 m ten oosten van het ARK,
- pb506 op 28 m ten westen van het ARK en pb508 op 24 m ten oosten van het ARK (en wellicht pb10 in raai 11,
- binnen het ARK).
- Deze peilbuizen vertonen een sterk cyclisch verloop waarvan de karakteristieken zijn opgetekend in tabel 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Karakteristieken-peilbuizen-met-temp"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- Dit zijn peilbuizen vlak naast het ARK en de amplitude bestrijkt een groot deel van die van de temperatuur van het ARK water zelf.
- Bovendien zijn de curves in de tijd verschoven ten opzichte van het verloop van de temperatuur in het ARK.
- Ook is de ruis volledig uit deze curves verdwenen.
- Dit wijst erop dat dit temperatuur verloop het gevolg is van infiltratiewater dat de peilbuizen passeert.
- Het temperatuur verloop is dus (door de bodempassage) zowel vertraagd,
- gladgestreken en gedempt ten opzichte van dat van het ARK-water zelf.
- De minimum temperatuur van het ARK-water wordt bereikt rond 1 februari,
- terwijl de minimum temperatuur in zowel pb406,
- pb407 en pb506 rond 1 juli optreedt.
- Dit impliceert een verblijftijd (voor de vertraagde temperatuur) van 5 maanden en een verblijftijd van het water zelf van ongeveer 2.5 maanden (retardatie temperatuurfront is ca.
- een factor 2).
- We kunnen de plausibiliteit hiervan berekenen.
-\end_layout
-
-\begin_layout Standard
-Het verloop van pb508 is ook cyclisch maar tegengesteld aan dat van de eerder genoemde 3 peilbuizen.
- De verblijftijd moet voor deze buis langer zijn,
- namelijk ca.
- 9 maanden voor de minimum temperatuur en ca.
- 11 maanden voor de maximum temperatuur.
- Het aantal dagen van maximum naar minimum temperatuur 127 dagen,
- wat behoorlijk afwijkt van de verwachte 180 dagen die behoort bij een jaarcyclus van de water temperatuur in het kanaal.
- Een dergelijk van de zuivere sinus afwijkend verloop zien we ook in peilbuis p407,
- met 135 dagen afstand van de momenten van minimum tot maximum temperatuur.
- Dit van de zuivere sinus afwijkende verloop hangt waarschijnlijk samen met de grotere infiltratiesnelheid in de zomer veroorzaakt door de dan hogere temperatuur van het kanaalwater.
- Hierdoor hebben we een diepere penetratie van het geïnfiltreerde water in de zomer dan in de winter.
- Hoe het precies zit is op dit moment niet helemaal duidelijk.
- De grafieken laten zien dat het verloop van minimum tot maximum temperatuur in pb406 ruim 5 maanden duurt en in pb407 maar vier maanden,
- terwijl omgekeerde verloop van maximum tot minimum temperatuur in pb508 ook slechts vier maanden duurt,
- terwijl dit 8 maanden zou moeten zijn om consistent te zijn met het verloop in pb407.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Karakteristieken-peilbuizen-met-temp"
-
-\end_inset
-
-Karakteristieken peilbuizen met een bijzonder temperatuurverloop
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="8">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-pb
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-zijde v ARK
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-dist ARK [m]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\begin_inset Formula $T_{min}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\begin_inset Formula $T_{max}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-datum 
-\begin_inset Formula $T_{min}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-datum 
-\begin_inset Formula $T_{max}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-dagen
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-pb406
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-W
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-12.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-17.00
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-2025-06-28
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-2025-12-08
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-163
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-pb407
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-E
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-19
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-12
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-19.00
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-2025-06-28
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-2025-11-09
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-135
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-pb506
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-W
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-28
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-12.8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-#N/A
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-2025-06-26
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-2025-01-17
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-#N/A
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-pb508
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-E
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-24
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-14.2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-17.40
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-2025-11-12
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-2025-07-08
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
--127
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Een ander fenomeen is het temperatuurverloop in de gesondeerde peilbuizen binnen en net buiten de damwand van het ARK.
- Dit zijn de beschikbare temperatuur reeksen in raai 5 voor pb4,
- pb5 en pb6.
- Deze reeksen zijn nog kort omdat de buizen later zijn geplaatst met sonderingen,
- maar wel blijkt dat zij de temperatuur van het ARK volgen met een vertraging van 1/2 tot 1 maand.
- De berekende gemiddelde infiltratiesnelheid op de bodem van het ARK is in de orde van 50 mm/d.
- Rekening houdend met de porositeit komt dit op 150 mm/d waterverplaatsing.
- In een jaar is dit ca.
- 50 m.
- Door de uitwaaiering van de stroomlijnen naar het westen en oosten hoofdzakelijk boven de slecht doorlatende laag van de Formatie van Waalre met een dikte van ca.
- 45 m is de de verplaatsing naar het westen en oosten ongeveer gelijk aan de verticale verplaatsing direct onder het kanaal.
- Dit impliceert een verbreiding vanuit het kanaal over in de orde van 50 m per jaar naar oost en west.
- De verplaatsing van het temperatuurfront is daarvan ca.
- de helft.
- Dit correspondeert redelijk met de geconstateerde vertraging van het temperatuurfront.
-\end_layout
-
-\begin_layout Standard
-We zien dat het verloop van de stijghoogte in alle raaien het verloop van de temperatuur van het ARK water volgt.
- We zien voorts dat er geen relatie is tussen het verloop van de stijghoogte en de temperatuur gemeten in dezelfde peilbuizen.
- Kortom de temperatuur van het ARK water is de enige factor die het jaarlijkse verloop van de stijghoogte in de peilbuizen aandrijft.
- Te bezien is in welke mate dit al dan niet te verklaren is door de viscositeit van het water.
-\end_layout
-
-\begin_layout Standard
-Uit het voorgaande en de grafieken van zowel de stijghoogte als de temperaturen kunnen we het volgende concluderen:
-\end_layout
-
-\begin_layout Itemize
-Het jaarlijkse stijghoogteverloop wordt gedreven door de temperatuur in het ARK water.
-\end_layout
-
-\begin_layout Itemize
-Het verloop van de stijghoogte in overeenstemming met de temperatuur van het kanaalwater zien we in alle peilbuizen in de (ruime) buurt van het kanaal terug voor uiteenlopende afstanden tot het kanaal.
-\end_layout
-
-\begin_layout Itemize
-Dit verloop is volstrekt onafhankelijk van de temperatuur gemeten in de peilbuis,
- er is dus alleen een relatie tussen het jaarlijkse verloop van de stijghoogte met de temperatuur van het ARK-water.
- De verloop van de temperatuur in de peilbuis heeft hier niets mee te maken.
-\end_layout
-
-\begin_layout Itemize
-Het afwijkende verloop van de temperatuur in peilbuizen pb406,
- pb407,
- pb506 en pb508 kan worden verklaard door langsstromend ARK water waarvan de temperatuurverloop door het ondergrondse transport is vertraagd,
- gladgestreken en qua amplitude gedempt.
-\end_layout
-
-\begin_layout Itemize
-De temperatuur van peilbuizen direct onder de kanaalbodem laten een vertraging zien in de orde van 1 maand.
- Maar de reeksen zijn nog te kort voor een definitieve conclusie.
-\end_layout
-
-\begin_layout Itemize
-De analyse is beperkt tot de gegevens die zijn gepubliceerd in met name het rapport van Deltares (2026).
- Er moeten meer gegevens zijn,
- die tegen dezelfde achtergrond zouden moeten worden geïnterpreteerd.
-\end_layout
-
-\begin_layout Section
-Stijghoogten in ruimtelijk verband
-\end_layout
-
-\begin_layout Standard
-We hebben gezien dat het jaarverloop van de stijghoogte in alle peilbuizen de temperatuur van het ARK-water volgt.
- Het verloop stijghoogte is de weerspiegeling van het verloop van de infiltratiesnelheid.
- Immers een hogere infiltratiesnelheid verhoogt de stijghoogte onder het kanaal die zich ruimtelijk over een groot gebied uitbreidt overeenkomstig de spreidingslengte 
-\begin_inset Formula $\lambda=\sqrt{kDc}$
-\end_inset
-
-.
- Dit is de reden waarom het jaarlijkse verloop van de stijghoogte in alle peilbuizen een overeenkomstig patroon laat zien,
- dat op geen enkele wijze correspondeert met de temperatuur ter plekke van de peilbuizen.
- We zien dan ook de verhoging van de grondwaterstand in de zomer ten opzichte van de laagste grondwaterstand in de winter afnemen met de afstand tot het kanaal.
- De amplitude verschilt ook per raai,
- omdat de infiltratie niet overal langs het kanaal even groot is want samenhangt met de plaatselijk nog aanwezige resten van de oorspronkelijk aanwezige slecht doorlatende deklaag.
- Niettemin zorgt de spreidingslengte ervoor dat ook in een raai waar de infiltratie gering is de zomerse verhoging toch gevoeld wordt door zones van het kanaal meer noordelijk of zuidelijk waar de bodem wel goed doorlatend is.
- Raai 9 is vermoedelijk zo'n raai.
- Er is daar nauwelijks een verband tussen grondwaterstand en afstand tot het kanaal,
- dus weinig infiltratie,
- maar we zien het het karakteristieke jaarverloop van de stijghoogte (zie figuren).
-\end_layout
-
-\begin_layout Standard
-Overigens is de interpretatie van de stijghoogten ten oosten van het ARK complexer dan die ten westen daarvan als gevolg van nabij breder open water aan de oostzijde,
- waardoor de stijghoogte wordt beïnvloed.
- Dit is het geval in raai 5,
- oostzijde,
- waar de stijghoogte in pb508 op 24 ten oosten van het kanaal lager is dan die van peilbuis 511 op 340 m ten oosten van het kanaal.
- Dit soort verschillen kunnen alleen met een ruimtelijk model kwantitatief worden opgelost.
-\end_layout
-
-\begin_layout Standard
-In de figuren met het verloop van de stijghoogten zijn de waarden van de piek rond 1 augustus en het dal rond 1 februari met een dikke punt aangegeven om ze de stijghoogte in ruimtelijk verband met elkaar te kunnen vergelijken en te gezien hoe de situatie in de zomer zich verhoudt tot die in de winter.
-\end_layout
-
-\begin_layout Standard
-Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Vergelijking-zomerpiek-en-winterdal"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- geeft deze dikke punten voor elke raai van functie van de afstand tot de hartlijn van het ARK.
- Dit zijn alle gegevens die beschikbaar zijn in Deltares (2026).
- Het zou enorm helpen om deze gegevens uit te breiden met de reeksen voor alle peilbuizen zodat een beter verloop kan worden afgeleid tot op grotere afstanden tot het kanaal.
- In de grafiek zijn de punten voor de zomersituatie binnen elke raai met elkaar verbonden (stippellijn) en hetzelfde is gedaan voor de punten die de wintersituatie weergeven (getrokken lijnen).
- Dit zijn de punten waar een grondwatermodel op zou moeten worden geijkt,
- met het is direct duidelijk dat dit niet eenvoudig zal zijn.
- We zien bijvoorbeeld dat de stijghoogte in een aantal peilbuizen aan de oostzijde niet afneemt met de afstand tot het kanaal.
- De reden,
- breder oppervlaktewater aan de oostzijde,
- is hiervoor besproken.
- Verder blijkt dat de stijghoogte in peilbuis 13 op ca.
- -2.5 m uitkomt,
- dus lager dan het polderpeil en dus ook geheel onder de eerder getoonde grafieken valt en daarin niet zichtbaar is.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_gemeten_all.pdf
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Vergelijking-zomerpiek-en-winterdal"
-
-\end_inset
-
-Vergelijking zomerpiek en winterdal van de stijghoogten in de raaien 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Met andere woorden voor het vergelijking van deze metingen met bijvoorbeeld een (eenvoudig) dwarsdoorsnede model dat niet nauwkeurig rekening houdt met de complexere randvoorwaarden aan de oostzijde van het ARK zullen we ons concentreren op vergelijkbare raaien aan de westzijde voor de qua hydrologische omstandigheden vergelijkbare raaien 4,
- 5 en 6.
- De piek- en dalstijghoogten zijn in fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Verloop-van-de-stijghoogten-logschaal"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "D26"
-literal "false"
-
-\end_inset
-
- geeft geen meetreeksen voor raai 4 aan de westzijde van het ARK.
- Het rapport geeft wel de winterstand net binnen en buiten de damwand (rode punten).
- De punten aan de kanaalzijde van de damwand geven direct het verschil met de eveneens weergegeven waterstand in het kanaal zelf.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_gemeten.pdf
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Zomerpiek-en-winterdal-4-5-6"
-
-\end_inset
-
-Hoogste (zomer piek) en laagste (winterdal) grondwaterstanden (voor zover beschikbaar in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "D26"
-literal "false"
-
-\end_inset
-
-) in de raaien 4,
- 5 en 6.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 Damwanden
 \end_layout
 
@@ -6353,10 +5303,6 @@ Langs ARK toegepaste damwanden BELVAL BZ 195 (RWS-tek-76206-71661-68656-76207 va
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -6475,7 +5421,7 @@ Overzicht peilbuizen met data binnen de damwanden (afstandcategorie cat=0),
 \end_inset
 
  mediaan van dit verval per afstandscategorie.
- (Van de meeste peilbuizen was geen zomerwaterstand bekend omdat de reeksen te kort waren.) 
+ (Van de meeste peilbuizen was geen zomerwaterstand bekend omdat de reeksen te kort waren.)
 \end_layout
 
 \end_inset
@@ -11961,10 +10907,6 @@ W
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -12118,6 +11060,1708 @@ Stroming onder een 10 m brede ondoorlatende strook in een breed kanaal.
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Temperatuur van het ARK water
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Temperatuur-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de temperatuur van het ARK-water te Maarssen over 2 jaar van 4-1-2024 tot 4-1-2026.
+ Er zijn minder frequente metingen beschikbaar voor Nieuwersluis maar die wijken niet wezenlijk af van die in Maarssen.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ geeft ook het verloop over 2020 en 2021 (zie Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Temp-head-ARK-K70C-serie"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) Op bases van het visuele verloop van de curve zijn 0.03 en 0.95 kwantielen van de dagelijkse waarden gekozen voor de te hanteren maximum en minimum temperatuur,
+ het 0.5 kwantiel voor de gemiddelde temperatuur en de 0.25 en 0.75 kwantielen voor de gemiddelde zomer en winter-temperatuur,
+ zoals aangegeven in de figuur.
+ Dit temperatuurverloop is ook weergeven in alle figuren van het volgende hoofdstuk,
+ waarin stijghoogten en temperaturen van peilbuizen gecombineerd worden weergegeven.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temp_ARK.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Temperatuur-ARK"
+
+\end_inset
+
+Temperatuur van het ARK-water over 2024 en 2025 met percentielen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Dynamiek van de stijghoogte
+\end_layout
+
+\begin_layout Standard
+De stijghoogten onder de deklaag tonen een consequent jaar patroon dat de temperatuur van het ARK water volgt.
+ Dit blijkt uit alle grafieken van de peilbuizen waarvan de gegevens in Deltares (2025) zijn gepubliceerd.
+ Deze grafieken zijn overgenomen en hieronder weergegeven voor elk van de 13 raaien,
+ afzonderlijk voor de raai links en rechts van het ARK.
+ Alle grafieken zijn op dezelfde schaal getekend.
+ Met een dikke punt zijn de waarden aangegeven rond 1 augustus waarop de hoogste waterstanden worden bereikt en rond 1 februari met de laagste waterstanden.
+ Tevens is in elke figuur de temperatuur van het ARK water opgenomen en,
+ voor zover beschikbaar in Deltares (2026) ook die van de peilbuizen zelf,
+ zoals geregistreerd met de daarin aanwezig loggers.
+ Ook de schaal van de temperatuur,
+ zoals weergegeven op de rechter y-as is in alle grafieken hetzelfde,
+ waardoor zij direct met elkaar vergelijkbaar zijn
+\end_layout
+
+\begin_layout Standard
+Aan de hand van deze gegevens kan worden geconcludeerd dat het stijghoogteverloop dat van de temperatuur van het ARK volgt en niet andersom,
+ wat ook fysisch onlogisch zou zijn.
+ We zien dit aan het feit dat lijn van de grondwaterstanden waar zij de die van de temperatuur van het ARK snijdt bij de stijgende tak van de temperatuur consequent lager zijn dan bij de dalende tak.
+ Omdat het temperatuurverloop van het ARK praktisch symmetrisch is ten opzichte van 1 augustus,
+ betekent dit dat alle stijghoogtegrafieken wat vertraagd zijn ten opzichte van de temperatuur van het kanaalwater.
+\end_layout
+
+\begin_layout Standard
+Waar ook de temperatuur gemeten in de peilbuizen beschikbaar is,
+ namelijk in raaien 4,
+ 5 en 11,
+ zien we direct dat deze temperaturen niets te maken hebben met die van het ARK water.
+ Dit is ook niet te verwachten omdat voor de meeste peilbuizen afstand tot het ARK daarvoor te groot is;
+ de verblijftijd,
+ de spreiding van de verblijftijden in de grond en de warmtegeleiding zouden voordat het geïnfiltreerde ARK water deze peilbuizen zou bereiken voor een grote vertraging en afvlakking zorgen,
+ waardoor het daar gemeten temperatuurverloop niet meer zou lijken op dat van het ARK.
+ Als het ARK water zover zou komen dan mag bij zulke peilbuizen onder de deklaag waarin de peilbuizen staan een min of meer constante temperatuur worden verwacht die overeenkomt met de gemiddelde temperatuur van het ARK water,
+ dus ongeveer 14-15 graden zoals blijkt het het verloop van de temperatuur van het kanaalwater.
+ Dit is ook wat we in de meeste peilbuizen zien.
+ De temperatuur is vaak iets lager dan 14 graden wat geweten kan worden aan de temperatuur in de grond op de diepte waarop de logger in de peilbuis hangt.
+ Dit zal vaak boven het peilfilter zelf zijn,
+ ergens ter hoogte van de deklaag waar een mer jaargemiddelde luchttemperatuur van rond 10-12 C mag worden verwacht.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai1.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai2.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai3.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stijgh-en-temp-ARK-raai-1-2--3"
+
+\end_inset
+
+Temperatuur van ARK water met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
+ Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter y-as voor de temperatuur.
+ Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai4.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai5.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai6.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stijgh-en-temp-ARK-raai-4-5--6"
+
+\end_inset
+
+Temperatuur van ARK water,
+ die in de peilbuizen (voor zover voorhanden) met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
+ Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter y-as voor de temperatuur.
+ Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai7.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai8.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai9.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stijgh-en-temp-ARK-raai-7-8--9"
+
+\end_inset
+
+Temperatuur van ARK water,
+ die in de peilbuizen (voor zover voorhanden) met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
+ Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter ij-as voor de temperatuur.
+ Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai10.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai11.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai12.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai13.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stijgh-en-temp-ARK-raai-10-11-12--13"
+
+\end_inset
+
+Temperatuur van ARK water,
+ die in de peilbuizen (voor zover voorhanden) met stijghoogte peilbuizen per raai met links de raai west van het ARK en rechts die links van het ARK.
+ Alle grafieken hebben dezelfde verticale schaal zowel voor de stijghoogte als op de rechter y-as voor de temperatuur.
+ Met dikke punten zijn de stijghoogten rond 1 augustus (moment van de hoogste waarde) en 1 februari (moment van de laagste waarde) aangegeven.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sommige peilbuizen met name in raai 4 en 5 hebben een volledig afwijkend verloop.
+ Dat geldt voor peilbuis pb406 op 3 m ten westen van het ARK,
+ pb407 op 19 m ten oosten van het ARK,
+ pb506 op 28 m ten westen van het ARK en pb508 op 24 m ten oosten van het ARK (en wellicht pb10 in raai 11,
+ binnen het ARK).
+ Deze peilbuizen vertonen een sterk cyclisch verloop waarvan de karakteristieken zijn opgetekend in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Karakteristieken-peilbuizen-met-temp"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Dit zijn peilbuizen vlak naast het ARK en de amplitude bestrijkt een groot deel van die van de temperatuur van het ARK water zelf.
+ Bovendien zijn de curves in de tijd verschoven ten opzichte van het verloop van de temperatuur in het ARK.
+ Ook is de ruis volledig uit deze curves verdwenen.
+ Dit wijst erop dat dit temperatuur verloop het gevolg is van infiltratiewater dat de peilbuizen passeert.
+ Het temperatuur verloop is dus (door de bodempassage) zowel vertraagd,
+ gladgestreken en gedempt ten opzichte van dat van het ARK-water zelf.
+ De minimum temperatuur van het ARK-water wordt bereikt rond 1 februari,
+ terwijl de minimum temperatuur in zowel pb406,
+ pb407 en pb506 rond 1 juli optreedt.
+ Dit impliceert een verblijftijd (voor de vertraagde temperatuur) van 5 maanden en een verblijftijd van het water zelf van ongeveer 2.5 maanden (retardatie temperatuurfront is ca.
+ een factor 2).
+ We kunnen de plausibiliteit hiervan berekenen.
+\end_layout
+
+\begin_layout Standard
+Het verloop van pb508 is ook cyclisch maar tegengesteld aan dat van de eerder genoemde 3 peilbuizen.
+ De verblijftijd moet voor deze buis langer zijn,
+ namelijk ca.
+ 9 maanden voor de minimum temperatuur en ca.
+ 11 maanden voor de maximum temperatuur.
+ Het aantal dagen van maximum naar minimum temperatuur 127 dagen,
+ wat behoorlijk afwijkt van de verwachte 180 dagen die behoort bij een jaarcyclus van de water temperatuur in het kanaal.
+ Een dergelijk van de zuivere sinus afwijkend verloop zien we ook in peilbuis p407,
+ met 135 dagen afstand van de momenten van minimum tot maximum temperatuur.
+ Dit van de zuivere sinus afwijkende verloop hangt waarschijnlijk samen met de grotere infiltratiesnelheid in de zomer veroorzaakt door de dan hogere temperatuur van het kanaalwater.
+ Hierdoor hebben we een diepere penetratie van het geïnfiltreerde water in de zomer dan in de winter.
+ Hoe het precies zit is op dit moment niet helemaal duidelijk.
+ De grafieken laten zien dat het verloop van minimum tot maximum temperatuur in pb406 ruim 5 maanden duurt en in pb407 maar vier maanden,
+ terwijl omgekeerde verloop van maximum tot minimum temperatuur in pb508 ook slechts vier maanden duurt,
+ terwijl dit 8 maanden zou moeten zijn om consistent te zijn met het verloop in pb407.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Karakteristieken-peilbuizen-met-temp"
+
+\end_inset
+
+Karakteristieken peilbuizen met een bijzonder temperatuurverloop
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="8">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+zijde v ARK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+dist ARK [m]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $T_{min}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $T_{max}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+datum 
+\begin_inset Formula $T_{min}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+datum 
+\begin_inset Formula $T_{max}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+dagen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb406
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+W
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+12.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+17.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2025-06-28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2025-12-08
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+163
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb407
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+E
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+19.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2025-06-28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2025-11-09
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+135
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb506
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+W
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+12.8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+#N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2025-06-26
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2025-01-17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+#N/A
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+pb508
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+E
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+14.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+17.40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2025-11-12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2025-07-08
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-127
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Een ander fenomeen is het temperatuurverloop in de gesondeerde peilbuizen binnen en net buiten de damwand van het ARK.
+ Dit zijn de beschikbare temperatuur reeksen in raai 5 voor pb4,
+ pb5 en pb6.
+ Deze reeksen zijn nog kort omdat de buizen later zijn geplaatst met sonderingen,
+ maar wel blijkt dat zij de temperatuur van het ARK volgen met een vertraging van 1/2 tot 1 maand.
+ De berekende gemiddelde infiltratiesnelheid op de bodem van het ARK is in de orde van 50 mm/d.
+ Rekening houdend met de porositeit komt dit op 150 mm/d waterverplaatsing.
+ In een jaar is dit ca.
+ 50 m.
+ Door de uitwaaiering van de stroomlijnen naar het westen en oosten hoofdzakelijk boven de slecht doorlatende laag van de Formatie van Waalre met een dikte van ca.
+ 45 m is de de verplaatsing naar het westen en oosten ongeveer gelijk aan de verticale verplaatsing direct onder het kanaal.
+ Dit impliceert een verbreiding vanuit het kanaal over in de orde van 50 m per jaar naar oost en west.
+ De verplaatsing van het temperatuurfront is daarvan ca.
+ de helft.
+ Dit correspondeert redelijk met de geconstateerde vertraging van het temperatuurfront.
+\end_layout
+
+\begin_layout Standard
+We zien dat het verloop van de stijghoogte in alle raaien het verloop van de temperatuur van het ARK water volgt.
+ We zien voorts dat er geen relatie is tussen het verloop van de stijghoogte en de temperatuur gemeten in dezelfde peilbuizen.
+ Kortom de temperatuur van het ARK water is de enige factor die het jaarlijkse verloop van de stijghoogte in de peilbuizen aandrijft.
+ Te bezien is in welke mate dit al dan niet te verklaren is door de viscositeit van het water.
+\end_layout
+
+\begin_layout Standard
+Uit het voorgaande en de grafieken van zowel de stijghoogte als de temperaturen kunnen we het volgende concluderen:
+\end_layout
+
+\begin_layout Itemize
+Het jaarlijkse stijghoogteverloop wordt gedreven door de temperatuur in het ARK water.
+\end_layout
+
+\begin_layout Itemize
+Het verloop van de stijghoogte in overeenstemming met de temperatuur van het kanaalwater zien we in alle peilbuizen in de (ruime) buurt van het kanaal terug voor uiteenlopende afstanden tot het kanaal.
+\end_layout
+
+\begin_layout Itemize
+Dit verloop is volstrekt onafhankelijk van de temperatuur gemeten in de peilbuis,
+ er is dus alleen een relatie tussen het jaarlijkse verloop van de stijghoogte met de temperatuur van het ARK-water.
+ De verloop van de temperatuur in de peilbuis heeft hier niets mee te maken.
+\end_layout
+
+\begin_layout Itemize
+Het afwijkende verloop van de temperatuur in peilbuizen pb406,
+ pb407,
+ pb506 en pb508 kan worden verklaard door langsstromend ARK water waarvan de temperatuurverloop door het ondergrondse transport is vertraagd,
+ gladgestreken en qua amplitude gedempt.
+\end_layout
+
+\begin_layout Itemize
+De temperatuur van peilbuizen direct onder de kanaalbodem laten een vertraging zien in de orde van 1 maand.
+ Maar de reeksen zijn nog te kort voor een definitieve conclusie.
+\end_layout
+
+\begin_layout Itemize
+De analyse is beperkt tot de gegevens die zijn gepubliceerd in met name het rapport van Deltares (2026).
+ Er moeten meer gegevens zijn,
+ die tegen dezelfde achtergrond zouden moeten worden geïnterpreteerd.
+\end_layout
+
+\begin_layout Section
+Stijghoogten in ruimtelijk verband
+\end_layout
+
+\begin_layout Standard
+We hebben gezien dat het jaarverloop van de stijghoogte in alle peilbuizen de temperatuur van het ARK-water volgt.
+ Het verloop stijghoogte is de weerspiegeling van het verloop van de infiltratiesnelheid.
+ Immers een hogere infiltratiesnelheid verhoogt de stijghoogte onder het kanaal die zich ruimtelijk over een groot gebied uitbreidt overeenkomstig de spreidingslengte 
+\begin_inset Formula $\lambda=\sqrt{kDc}$
+\end_inset
+
+.
+ Dit is de reden waarom het jaarlijkse verloop van de stijghoogte in alle peilbuizen een overeenkomstig patroon laat zien,
+ dat op geen enkele wijze correspondeert met de temperatuur ter plekke van de peilbuizen.
+ We zien dan ook de verhoging van de grondwaterstand in de zomer ten opzichte van de laagste grondwaterstand in de winter afnemen met de afstand tot het kanaal.
+ De amplitude verschilt ook per raai,
+ omdat de infiltratie niet overal langs het kanaal even groot is want samenhangt met de plaatselijk nog aanwezige resten van de oorspronkelijk aanwezige slecht doorlatende deklaag.
+ Niettemin zorgt de spreidingslengte ervoor dat ook in een raai waar de infiltratie gering is de zomerse verhoging toch gevoeld wordt door zones van het kanaal meer noordelijk of zuidelijk waar de bodem wel goed doorlatend is.
+ Raai 9 is vermoedelijk zo'n raai.
+ Er is daar nauwelijks een verband tussen grondwaterstand en afstand tot het kanaal,
+ dus weinig infiltratie,
+ maar we zien het het karakteristieke jaarverloop van de stijghoogte (zie figuren).
+\end_layout
+
+\begin_layout Standard
+Overigens is de interpretatie van de stijghoogten ten oosten van het ARK complexer dan die ten westen daarvan als gevolg van nabij breder open water aan de oostzijde,
+ waardoor de stijghoogte wordt beïnvloed.
+ Dit is het geval in raai 5,
+ oostzijde,
+ waar de stijghoogte in pb508 op 24 ten oosten van het kanaal lager is dan die van peilbuis 511 op 340 m ten oosten van het kanaal.
+ Dit soort verschillen kunnen alleen met een ruimtelijk model kwantitatief worden opgelost.
+\end_layout
+
+\begin_layout Standard
+In de figuren met het verloop van de stijghoogten zijn de waarden van de piek rond 1 augustus en het dal rond 1 februari met een dikke punt aangegeven om ze de stijghoogte in ruimtelijk verband met elkaar te kunnen vergelijken en te gezien hoe de situatie in de zomer zich verhoudt tot die in de winter.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vergelijking-zomerpiek-en-winterdal"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft deze dikke punten voor elke raai van functie van de afstand tot de hartlijn van het ARK.
+ Dit zijn alle gegevens die beschikbaar zijn in Deltares (2026).
+ Het zou enorm helpen om deze gegevens uit te breiden met de reeksen voor alle peilbuizen zodat een beter verloop kan worden afgeleid tot op grotere afstanden tot het kanaal.
+ In de grafiek zijn de punten voor de zomersituatie binnen elke raai met elkaar verbonden (stippellijn) en hetzelfde is gedaan voor de punten die de wintersituatie weergeven (getrokken lijnen).
+ Dit zijn de punten waar een grondwatermodel op zou moeten worden geijkt,
+ met het is direct duidelijk dat dit niet eenvoudig zal zijn.
+ We zien bijvoorbeeld dat de stijghoogte in een aantal peilbuizen aan de oostzijde niet afneemt met de afstand tot het kanaal.
+ De reden,
+ breder oppervlaktewater aan de oostzijde,
+ is hiervoor besproken.
+ Verder blijkt dat de stijghoogte in peilbuis 13 op ca.
+ -2.5 m uitkomt,
+ dus lager dan het polderpeil en dus ook geheel onder de eerder getoonde grafieken valt en daarin niet zichtbaar is.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_gemeten_all.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Vergelijking-zomerpiek-en-winterdal"
+
+\end_inset
+
+Vergelijking zomerpiek en winterdal van de stijghoogten in de raaien 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met andere woorden voor het vergelijking van deze metingen met bijvoorbeeld een (eenvoudig) dwarsdoorsnede model dat niet nauwkeurig rekening houdt met de complexere randvoorwaarden aan de oostzijde van het ARK zullen we ons concentreren op vergelijkbare raaien aan de westzijde voor de qua hydrologische omstandigheden vergelijkbare raaien 4,
+ 5 en 6.
+ De piek- en dalstijghoogten zijn in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Verloop-van-de-stijghoogten-logschaal"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+ geeft geen meetreeksen voor raai 4 aan de westzijde van het ARK.
+ Het rapport geeft wel de winterstand net binnen en buiten de damwand (rode punten).
+ De punten aan de kanaalzijde van de damwand geven direct het verschil met de eveneens weergegeven waterstand in het kanaal zelf.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_gemeten.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Zomerpiek-en-winterdal-4-5-6"
+
+\end_inset
+
+Hoogste (zomer piek) en laagste (winterdal) grondwaterstanden (voor zover beschikbaar in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+) in de raaien 4,
+ 5 en 6.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -15354,7 +15998,6 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/xs_ark_r4_zomer.pdf
-	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -15445,7 +16088,7 @@ d.
 \begin_layout Standard
 Maar eerste dient de keuze van het punt onder de kade te worden verantwoord.
  Bij een representatieve infiltratiesnelheid van 40 mm/d is de kolom water die in een half jaar infiltreert 7.2 m.
- Bij porositeit van 1/3 en temperatuurretardatie van ca.
+ Bij porositeit van 1/3 en retardatie van de temperatuur van ca.
  2,
  is de indringdiepte van de temperatuur anderhalf maal zo groot,
  dus in een half jaar ca.
@@ -20486,6 +21129,635 @@ Samenvattend blijft staan dat voor een deel van de peilbuizen de hogere zomergro
 \end_layout
 
 \begin_layout Section
+Verband tussen stijghoogten en temperatuur
+\end_layout
+
+\begin_layout Standard
+Hiermee is het verhaal niet af.
+ We zoeken nog steeds de reden waarom de grondwaterstand in de zomer meer stijgt dan wordt berekend wanneer we volledig rekening houden met de viscositeit van het infiltrerende kanaalwater.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Temp-head-ARK-K70C-serie"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ is een uitermate intrigerende grafiek uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ waarin de stijghoogte van drie peilbuizen is opgenomen samen met het temperatuurverloop van het ARK en dat in dezelfde drie drie peilbuizen.
+ De peilbuizen bevinden zich op verschillende afstanden ten oosten van het ARK (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Raai-peilbuizen-uit-Beemster2022-nu-raai4"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) en maken deel uit van raai 4 gelegen in de zone met de grootste dichtheid aan wellen (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Het stijghoogte verloop is aangegeven met getrokken lijnen (linker y-as),
+ de temperaturen met streepjeslijnen (rechter y-as).
+ Bij heel precieze inspectie van deze figuren blijkt dat de stijghoogten het temperatuurverloop van het ARK één-op-één volgen,
+ zodat de temperatuur van het ARK hier het stijghoogteverloop aandrijft.
+ Dit is wat we eerder uit het verloop van de andere peilbuizen hebben vastgesteld.
+ Wat hier echter ook blijkt,
+ en dat is nieuw,
+ is dat temperatuurverloop in de drie peilbuizen oploopt zolang de temperatuur van het ARK hoger is dan de temperatuur in de peilbuizen,
+ en weer gaat dalen zodra de temperatuur van het ARK-water lager is dan dat in de peilbuizen.
+ En het gebeurt in alle drie de peilbuizen praktisch op hetzelfde moment,
+ ongeacht hun verschillende afstand tot het kanaal.
+ Dit gedrag kan nooit door grondwaterstroming worden verklaard;
+ bij grondwaterstroming zou er altijd een aanzienlijke vertraging van het temperatuurverloop optreden tussen kanaal en peilbuis K75C en vervolgens verder tussen K75C en K74C en tenslotte tussen K74C en K73C.
+ Bovendien zou de jaarfluctuatie met de afstand tot het kanaal ook steeds verder zijn afgevlakt.
+ Ook dat is hier niet het geval.
+ Wat is hier aan de hand?
+\end_layout
+
+\begin_layout Standard
+Het verklaring lijkt gegeven door 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+,
+ die hem alleen suggereren,
+ maar waar ik me op de basis van nu beschikbare gegevens tot nader order achter ga scharen,
+ namelijk stroming door de spleet die ontstaat doordat de veenlaag op het Boxtelzand,
+ door de verhoogde waterdruk in de zomer,
+ wordt opgedrukt.
+ Het effect is sterker in de dalende tak van de ARK-temperatuur dan bij stijgende,
+ wat erop wijst dat de spleet in de zomer groter is dan in de winter.
+ Ik neem daarom hierna in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fig.9.3-uit-Beemster"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ de figuur uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ integraal over.
+ De de situatie waarin er een dergelijke speelt ontstaat kan het ARK water heel snel de peilbuizen bereiken.
+ Immers bij een snelheid in zo'n spleet van slechts 1 cm/s stroomt het water al 1000 m/d.
+\end_layout
+
+\begin_layout Standard
+Poiseuille-stroming door een spleet met hoogte 
+\begin_inset Formula $b$
+\end_inset
+
+ kan voor water worden geschreven als
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v\approx8175b^{2}i
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Een speelt met 
+\begin_inset Formula $b=0.01$
+\end_inset
+
+ m en een gradiënt van ca.
+ 0.1m/100m levert dan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v\approx1e^{4}\times1e^{-4}\times1e^{-3}=0.001\,\text{m/s}\approx100\,\text{m/d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Een spleet van 1 cm hoogte is dus ruim voldoende om de afstand van kanaal tot de peilbuizen zonder wezenlijke vertraging te overbruggen.
+\end_layout
+
+\begin_layout Standard
+Bovendien,
+ met de stroom de spleet 
+\begin_inset Formula $Q$
+\end_inset
+
+ in m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/s geschreven als 
+\begin_inset Formula $kDi$
+\end_inset
+
+ met 
+\begin_inset Formula $kD$
+\end_inset
+
+ in m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/s krijgen we
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q=vbi\approx1e^{4}b^{3}i=kD\,i
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dus 
+\begin_inset Formula $kD$
+\end_inset
+
+ van de spleet in m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d krijgen door vermenigvuldiging met het aantal seconden per dag (
+\begin_inset Formula $\approx1e^{5})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+kD=1e^{4}1e^{-5}1e^{5}\approx1e^{4}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De equivalente 
+\begin_inset Formula $kD\approx10^{9}b^{3}$
+\end_inset
+
+m/d.
+ Overzichtje
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+spleetdikte [mm]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+equivalente 
+\begin_inset Formula $kD$
+\end_inset
+
+ [m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De 
+\begin_inset Formula $kD$
+\end_inset
+
+ die ontstaat door een spleet van slechts 1 cm tussen de top van het Boxtel zand en de onderzijde van de slecht doorlatende veenlaag van Nieuwkoop overschrijdt de gehele grondwater 
+\begin_inset Formula $kD$
+\end_inset
+
+ tussen de top van Boxtel en de basis van Peize op NAP -160 m.
+ Bovendien blijkt dat het gemak waarmee het water zich kan verspreiden enorm toeneemt met de grootte van de spleet,
+ die ongetwijfeld in de zomer groter is dan in de winter.
+ De spleet past zich aan de druk aan,
+ en wellicht is dat voor de wellen ook het geval.
+ En de benodigde mate van opdrukken om het water over veel wellen te verdelen is zo gering dat het aan maaiveld niet merkbaar is,
+ temeer ook omdat het opdrukken zich zal concentreren waar de deklaag licht is,
+ dus onder sloten en vaarten.
+ Dit verschijnsel,
+ het opdrukken van de deklaag met slechts 1 cm kan de optredende verschijnselen geheel verklaren:
+\end_layout
+
+\begin_layout Itemize
+De drukverhoging die in de zomer groter is dan berekend met uitsluitend het viscositeitseffect van het kanaalwater.
+\end_layout
+
+\begin_layout Itemize
+De extra wateruitslag in de zomer,
+ die afkomstig moet zijn van de wellen.
+\end_layout
+
+\begin_layout Itemize
+Het gemeten verloop van stijghoogte en temperatuur in peilbuizen
+\end_layout
+
+\begin_layout Itemize
+Het ontstaan van wellen tot op aanzienlijke afstand van het kanaal
+\end_layout
+
+\begin_layout Itemize
+Moeilijk goed te krijgen in het model,
+ want het is het belangrijk toenemen van de 
+\begin_inset Formula $kD$
+\end_inset
+
+ in de zomer.
+\end_layout
+
+\begin_layout Itemize
+Het is ook consistent met de vaststelling dat de waterdruk onder de deklaag veelal groter is dan het gewicht van de deklaag,
+ die in de zomer nog eens afneemt.
+\end_layout
+
+\begin_layout Standard
+Hoe zit het dan met die wellen.
+ Ik denk dat wellen in cohesieve bodem zoals de veenlagen die hier de deklaag vormen ontstaan doordat de deklaag initieel wordt opgetild en dan scheurt,
+ en daarna mogelijk terugzakt.
+ De deklaag is met name licht ter plekke van sloten en vaarten waar hij ontgraven is.
+ Dus dat wellen bij voorkeur,
+ maar niet uitsluitend,
+ in sloten optreden hoeft niet te verbazen.
+ Maar er wordt ook gezegd,
+ het gebeurt waar de deklaag zwak is.
+ Ik vermoed echter eerder dat het de variatie van de dikte van de deklaag is die bepaal of er op bepaalde plekken en zones in de ontgraven sloten wellen optreden.
+ Immers de top van het Boxelzand was de top van het pleistocene stuifzandlandschap,
+ zoals we dat nog in delen van Overijssel en Brabant kunnen zien,
+ waar dit tot nu toe nog niet ontgonnen is.
+ Dit landschap wordt gekenmerkt door windgedreven oneffenheden,
+ waarin zich later het veen ontwikkelde.
+ De onderzijde van de veenlaag is dus verre van vlak,
+ zoals ook te constateren is aan de hand van de boringen die o.a voor dit project zijn gemaakt.
+ Er zijn dus,
+ kortom,
+ tal van plekken waar de veenlaag aanmerkelijk dunner is dan elders,
+ plekken die voorkeurslocaties zijn voor het ontstaan van een wel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temp_head_beemster_fig91.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Temp-head-ARK-K70C-serie"
+
+\end_inset
+
+Temperatuur ARK en stijghoogte en temperatuur van 3 waarnemingsputten in raai 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/raai_K70Cserie.png
+	lyxscale 60
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Raai-peilbuizen-uit-Beemster2022-nu-raai4"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+Raai peilbuizen uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+.
+ Deze peilbuizen maken nu deel uit van raai 4.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat zien dat raai 4 in de zone ligt met de grootste dichtheid aan wellen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/spleet_opdrijven_deklaag.png
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fig.9.3-uit-Beemster"
+
+\end_inset
+
+Fig.9.3 uit Beemster e.a.
+ (2022)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Monitoring
 \end_layout
 
@@ -20679,469 +21951,11 @@ nolink "false"
 \end_layout
 
 \begin_layout Section
-BEEMSTER e.a.
- 2022
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../../images/Beemster22_fig9_2.png
-	lyxscale 50
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Fig.9.1 uit 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Be22"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Oude profielen ARK (ChatGPT)
-\end_layout
-
-\begin_layout Standard
-Ja,
- daar is verrassend veel over bekend,
- maar het zit nogal verspreid over oude rapporten van Rijkswaterstaat en het Waterloopkundig Laboratorium.
-\end_layout
-
-\begin_layout Standard
-## 1.
- Het oorspronkelijke profiel (1952)
-\end_layout
-
-\begin_layout Standard
-Bij de opening in 1952 was het Amsterdam-Rijnkanaal ongeveer:
-\end_layout
-
-\begin_layout Standard
-* bodembreedte circa 40–50 m,
-\end_layout
-
-\begin_layout Standard
-* waterspiegelbreedte circa 58,5 m,
-\end_layout
-
-\begin_layout Standard
-* vaardiepte ongeveer 4 m,
-\end_layout
-
-\begin_layout Standard
-* flauwe onderwatertaluds (geen damwanden),
-\end_layout
-
-\begin_layout Standard
-* grondtaluds die geleidelijk overgingen in de dijken.
-\end_layout
-
-\begin_layout Standard
-Het kanaal had dus een klassiek trapeziumprofiel.
-\end_layout
-
-\begin_layout Standard
-## 2.
- Eerste verbreding (1961-1963)
-\end_layout
-
-\begin_layout Standard
-De waterspiegelbreedte werd vergroot tot ongeveer 70 m.
- ([Oudhouten][1])
-\end_layout
-
-\begin_layout Standard
-## 3.
- Grote verbreding (1965-1979)
-\end_layout
-
-\begin_layout Standard
-Juist deze fase is interessant.
- Men wilde het kanaal geschikt maken voor duwvaart en grotere schepen.
- De uiteindelijke afmetingen werden:
-\end_layout
-
-\begin_layout Standard
-* breedte 100–130 m,
-\end_layout
-
-\begin_layout Standard
-* diepte 5–6 m,
-\end_layout
-
-\begin_layout Standard
-* plaatselijk nog breder bij bochten,
-\end_layout
-
-\begin_layout Standard
-* veel bruggen moesten worden vervangen.
- ([Oudhouten][1])
-\end_layout
-
-\begin_layout Standard
-De verbreding werd in 1979 voltooid.
-\end_layout
-
-\begin_layout Standard
----
-\end_layout
-
-\begin_layout Standard
-# Studiegroep dwarsprofiel kanalen
-\end_layout
-
-\begin_layout Standard
-Er bestond zelfs een speciale **Studiegroep Dwarsprofiel Kanalen in verband met Duwvaart**,
- ingesteld in 1961.
- De aanleiding was expliciet de verbreding van het Amsterdam-Rijnkanaal.
- De groep bestond uit:
-\end_layout
-
-\begin_layout Standard
-* Rijkswaterstaat,
-\end_layout
-
-\begin_layout Standard
-* Waterloopkundig Laboratorium,
-\end_layout
-
-\begin_layout Standard
-* Nederlands Scheepsbouwkundig Proefstation,
-\end_layout
-
-\begin_layout Standard
-* TH Delft.
- ([Rijkswaterstaat Publicatie Platform][2])
-\end_layout
-
-\begin_layout Standard
-Hun rapporten bevatten precies de soort informatie waarnaar u vraagt:
-\end_layout
-
-\begin_layout Standard
-* profielvormen;
-\end_layout
-
-\begin_layout Standard
-* taludhellingen;
-\end_layout
-
-\begin_layout Standard
-* bodemdiepte;
-\end_layout
-
-\begin_layout Standard
-* effecten van passerende schepen;
-\end_layout
-
-\begin_layout Standard
-* benodigde kanaalbreedtes.
-\end_layout
-
-\begin_layout Standard
-Er zijn diverse deelrapporten uit 1970 beschikbaar.
- Een ervan behandelt expliciet een kanaal van ongeveer 100 m breed en 5 à 6 m diep,
- rechtstreeks afgestemd op de mogelijkheden van het Amsterdam-Rijnkanaal.
- ([Rijkswaterstaat Publicatie Platform][3])
-\end_layout
-
-\begin_layout Standard
----
-\end_layout
-
-\begin_layout Standard
-# Demkabocht en Goyerbrug
-\end_layout
-
-\begin_layout Standard
-Ook de bochten zijn in schaalmodellen onderzocht.
- Het rapport
-\end_layout
-
-\begin_layout Standard
-**"Amsterdam-Rijnkanaal:
- Demkabocht en Goyerbrug"**
-\end_layout
-
-\begin_layout Standard
-beschrijft de beperkingen door:
-\end_layout
-
-\begin_layout Standard
-* breedte,
-\end_layout
-
-\begin_layout Standard
-* kromming,
-\end_layout
-
-\begin_layout Standard
-* zichtlijnen,
-\end_layout
-
-\begin_layout Standard
-en geeft tekeningen van de bestaande situatie rond 1970.
- ([Rijkswaterstaat Publicatie Platform][4])
-\end_layout
-
-\begin_layout Standard
----
-\end_layout
-
-\begin_layout Standard
-# Zijn er dwarsprofielen van Rijkswaterstaat?
-\end_layout
-
-\begin_layout Standard
-Ja.
-\end_layout
-
-\begin_layout Standard
-De huidige legger van Rijkswaterstaat bevat tientallen dwarsprofielen met nummers als
-\end_layout
-
-\begin_layout Standard
-* MN_ARKA_10,
-\end_layout
-
-\begin_layout Standard
-* MN_ARKA_35,
-\end_layout
-
-\begin_layout Standard
-enzovoort.
- Daarin staan breedten en bodemhoogten.
- ([etl.rijkswaterstaat.nl][5])
-\end_layout
-
-\begin_layout Standard
-Daarnaast zijn er afzonderlijke profieltekeningen van dijken en damwanden beschikbaar.
- ([downloads.rijkswaterstaatdata.nl][6])
-\end_layout
-
-\begin_layout Standard
----
-\end_layout
-
-\begin_layout Standard
-# Pomper (Wageningen)
-\end_layout
-
-\begin_layout Standard
-Ik heb geen directe verwijzing naar publicaties van **H.
- Pomper (WUR)** over het dwarsprofiel van het Amsterdam-Rijnkanaal kunnen vinden.
-\end_layout
-
-\begin_layout Standard
-Dat verbaast mij enigszins,
- want Pomper heeft veel gewerkt aan de invloed van het kanaal op grondwaterstanden en ontwatering van de Betuwe en Kromme Rijnstreek.
- Mogelijk heeft hij daarover geschreven in:
-\end_layout
-
-\begin_layout Standard
-* Cultuurtechnisch Tijdschrift,
-\end_layout
-
-\begin_layout Standard
-* Landinrichting,
-\end_layout
-
-\begin_layout Standard
-* Wageningen-rapporten uit de jaren zestig en zeventig.
-\end_layout
-
-\begin_layout Standard
-Daar zou ik nog gerichter naar moeten zoeken.
-\end_layout
-
-\begin_layout Standard
----
-\end_layout
-
-\begin_layout Standard
-# Wat ik sterk vermoed
-\end_layout
-
-\begin_layout Standard
-Vóór de verbreding van 1973–1981 was het profiel ongeveer:
-\end_layout
-
-\begin_layout Standard
-```
-\end_layout
-
-\begin_layout Standard
-waterlijn ±70 m
-\end_layout
-
-\begin_layout Standard
-___________________
-\end_layout
-
-\begin_layout Standard
-/ 
-\backslash
-
-\end_layout
-
-\begin_layout Standard
-/ 
-\backslash
-
-\end_layout
-
-\begin_layout Standard
-/ 
-\backslash
-
-\end_layout
-
-\begin_layout Standard
-____/_________________________
-\backslash
-____
-\end_layout
-
-\begin_layout Standard
-diepte ≈5 m
-\end_layout
-
-\begin_layout Standard
-```
-\end_layout
-
-\begin_layout Standard
-Na de verbreding:
-\end_layout
-
-\begin_layout Standard
-```
-\end_layout
-
-\begin_layout Standard
-waterlijn 100-120 m
-\end_layout
-
-\begin_layout Standard
-___________________________________
-\end_layout
-
-\begin_layout Standard
-
-\backslash
- /
-\end_layout
-
-\begin_layout Standard
-
-\backslash
- /
-\end_layout
-
-\begin_layout Standard
-
-\backslash
-___________________________/
-\end_layout
-
-\begin_layout Standard
-diepte 5-6 m
-\end_layout
-
-\begin_layout Standard
-```
-\end_layout
-
-\begin_layout Standard
-met taluds ergens tussen ongeveer 1:3 en 1:5,
- afhankelijk van het traject.
-\end_layout
-
-\begin_layout Standard
----
-\end_layout
-
-\begin_layout Standard
-Ik denk dat er een goede kans is dat er in de oude verbredingsrapporten van Rijkswaterstaat uit circa 1973-1981 zelfs complete standaarddwarsprofielen met maatvoering staan.
- Die rapporten zijn vaak als PDF beschikbaar via het Rijkswaterstaat Open Archief.
-\end_layout
-
-\begin_layout Standard
-Dat zou een mooi zoekproject zijn;
- ik vermoed dat daar precies de onderwatertaluds en de oorspronkelijke profielen vóór en na de verbreding in te vinden zijn.
-\end_layout
-
-\begin_layout Standard
-[1]:
- https://www.oudhouten.nl/recente-tijd/infrastructuur/amsterdam-rijnkanaal/?utm_source=chatgpt.com "Amsterdam-Rijnkanaal | geschiedenis Houten"
-\end_layout
-
-\begin_layout Standard
-[2]:
- https://open.rijkswaterstaat.nl/%40102812/studiegroep-dwarsprofiel-kanalen-verband/?utm_source=chatgpt.com "Studiegroep dwarsprofiel kanalen in verband met duwvaart :
- eindverslag - Rijkswaterstaat Publicatie Platform"
-\end_layout
-
-\begin_layout Standard
-[3]:
- https://open.rijkswaterstaat.nl/%4083262/amsterdam-rijnkanaal-passeermanoeuvres/?utm_source=chatgpt.com "Amsterdam-Rijnkanaal :
- passeermanoeuvres :
- verslag modelonderzoek | Rijkswaterstaat Publicatie Platform"
-\end_layout
-
-\begin_layout Standard
-[4]:
- https://open.rijkswaterstaat.nl/%40230129/amsterdam-rijnkanaal-demkabocht/?utm_source=chatgpt.com "Amsterdam-Rijnkanaal :
- Demkabocht en Goyerbrug :
- verslag modelonderzoek | Rijkswaterstaat Publicatie Platform"
-\end_layout
-
-\begin_layout Standard
-[5]:
- https://etl.rijkswaterstaat.nl/rws_legger/MN/08%20Amsterdam-Rijnkanaal/05_dwo_Amsterdam-Rijnkanaal_v1.pdf?utm_source=chatgpt.com "Kenmerken dwarsprofielen oppervlaktewaterlichamen"
-\end_layout
-
-\begin_layout Standard
-[6]:
- https://downloads.rijkswaterstaatdata.nl/rws_legger/dwarsprofielen/MN_ARK_dp_38.750_West.pdf?utm_source=chatgpt.com "Beschrijving van de waterkering"
-\end_layout
-
-\begin_layout Section
 Weerstand meten tijdens en na aanbrengen van bentoniet
+\end_layout
+
+\begin_layout Standard
+Bodem slib
 \end_layout
 
 \begin_layout Section
@@ -21168,7 +21982,7 @@ ArcelorMittel.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Beemster e.a. (2922)"
+label "Beemster e.a. (2022)"
 key "Be22"
 literal "false"
 
@@ -21184,6 +21998,23 @@ literal "false"
  Kenmerk 22.010088.
  Projectnr.
  09.0005/004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2012)"
+key "De12"
+literal "false"
+
+\end_inset
+
+Deltares (2012) Onderzoek bodemerosie Amsterdam-Rijnkanaal.
+ Auteurs:
+ Henk Verheij,
+ Hans van Meerten en Ssanjay Giri.
+ Project1205317-000.
+ Opdracht RWS.
 \end_layout
 
 \begin_layout Bibliography
@@ -21242,6 +22073,56 @@ Deltares (2026) Systeemanalyse metingen ARK.
  78pp.
  Auteur:
  Jorijn Holstvoogd.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Olsthoorn (2026a)"
+key "Olst26a"
+literal "false"
+
+\end_inset
+
+Olsthoorn T.N.
+ (2026) Infiltratie,
+ erosiegeulen,
+ kweldruk en welvorming in het rond het Amsterdam-Rijnkanaal:
+ Analyse op basis van een Geotop-doorsnede door het gebied met overlast (concept).
+ Hygea-consult,
+ Heemstede,
+ 19-04-2026.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Olsthoorn (2026b)"
+key "Olst26b"
+literal "false"
+
+\end_inset
+
+Olsthoorn T.N.
+ (2026b) Weerstand bodem ARK en wellen.
+ Hygea-constult,
+ Heemstede,19-04-26
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Rijkswaterstaat (2002)"
+key "RWS02"
+literal "false"
+
+\end_inset
+
+RWS (2002) 50 jaar Amsterdam-Rijnkanaal.
+ Ongekend veelzijdig.
+ Ministerie van Verkeer en Waterstaat.
+ Directoraat Generaal Rijkswaterstaat.
 \end_layout
 
 \end_body
