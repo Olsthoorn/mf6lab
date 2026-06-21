@@ -146,6 +146,56 @@ Intro
 \end_layout
 
 \begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat het probleemgebied zien met de hartlijn van het Amsterdam-Rijnkanaal (ARK),
+ de geconstateerde wellen en de geïnstalleerde peilbuisraaien.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:peilgebieden"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft voor hetzelfde regio de polderpeilen en peilgebieden.
+ Verdere details zijn te vinden op de interactieve website van het waterschap Amstel-Gooi-en-Vecht.
+ In Fig.1 zijn kaartjes gebruikt uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25b"
+literal "false"
+
+\end_inset
+
+ en in Fig.2 uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ waar de peilbuizen en wellen op zijn geprojecteerd.
+ De wellen blijken zich te concentreren in de veenweidegebieden waarin het ARK door volledig door de deklaag snijdt.
+ De wellen concentreren zich ook duidelijk in de omgeving van het ARK.
+ Er zijn bovendien meer wellen ten westen van het ARK dan ten oosten daarvan.
+ Dit is te relateren aan de wat dikkere deklaag ten oosten van het ARK.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement document
 alignment document
@@ -155,8 +205,8 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/ligging_dsn_Deltares.png
-	width 80text%
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/peilb+wellen.png
+	width 100theight%
 
 \end_inset
 
@@ -167,7 +217,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
 
+\end_inset
+
+Onderzoeksgebied met peilbuisraaien en in het veld geconstateerde wellen en de hartlijn van het Amsterdam-Rijnskanaal.
 \end_layout
 
 \end_inset
@@ -195,7 +251,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/peilgeb_pb.png
-	width 80text%
+	width 100theight%
 
 \end_inset
 
@@ -220,10 +276,6 @@ Ligging van de peilbuizen in de peilgebieden
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -233,13 +285,57 @@ Ligging van de peilbuizen in de peilgebieden
 Profiel ARK
 \end_layout
 
+\begin_layout Subsection
+De profielen
+\end_layout
+
 \begin_layout Standard
 Michel Ruiter heeft jaarlijkse bathymetriën van het ARK kanaal beschikbaar gemaakt over de periode 2013-2025,
  waaruit onder andere nauwkeurige dwarsprofielen te trekken zijn.
  In de figuren hierna zijn de profielen weergegeven voor 2013 en 2025 voor alle grondwater raaien 1 t/m 13).
- Praktisch alle profielen zijn tussen 2013 en 2025 op hun diepste punten dieper geworden.
+ Van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+ is het ontwerpprofiel van het huidige ARK overgenomen en over de bathymetrieprofielen gelegd.
+ Voor de duidelijkheid zijn ook de profielen van een M08-type en M12-type binnenvaartschip ingetekend die volgens 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+ maatgevend zijn.
+ De plaatsing is volgens de mediaan van AIS transponders,
+ zie 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+.
+ Hierbij is aangenomen dat de transponders overeenkomen met het midden van het schip.
+\end_layout
+
+\begin_layout Standard
+Het ontwerpprofiel reikt tot 6 m onder het kanaalpeil (tot NAP -6.4 m) en heeft onderwatertaluds die 19.2 m breed en 2.6 m hoog zijn.
+ Het kan natuurlijk zijn dat de aangelegde diepte bijv.
+ NAP -6.5 m is,
+ met met variatie in het peil van het kanaal rekening te houden.
+ Maar dat weet ik nu niet.
+\end_layout
+
+\begin_layout Standard
+Praktisch alle profielen zijn tussen 2013 en 2025 op hun diepste punten dieper geworden en liggen aanzienlijk dieper dan het ontwerpprofiel.
  Verder blijkt dat de erosiegeulen al in 2013 prominent aanwezig waren.
- Het zou daarom de zeer interessant zijn om de profielen beschikbaar te maken zoals die waren direct aan de verdieping en verruiming,
+ Het zou daarom de zeer interessant zijn om de gemeten profielen beschikbaar te maken zoals die waren direct aan de verdieping en verruiming,
  hun ontwikkeling tijdens de jaren 80-90 toen de weerstand van de kanaalbodem toenam en constant bleef en vanaf 2003 toen de weerstand systematisch daalde en een evenwicht bereikte omstreeks 2015 (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -250,12 +346,44 @@ literal "false"
 
 ).
  Dit zou een directe relatie kunnen leggen tussen de erosie van de dwarsprofielen,
- de toegenomen scheepvaart (gegevens reeks beschikbaar in Deltares rapport) en de ontwikkeling van de bodemweerstand respectievelijk het toenemende waterbezwaar van de naastgelegen polders.
+ de toegenomen scheepvaart (gegevens reeks beschikbaar in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+) en de ontwikkeling van de bodemweerstand,
+ respectievelijk het toenemende waterbezwaar van de naastgelegen polders.
 \end_layout
 
 \begin_layout Standard
-Ook geeft een vergelijking met het oorspronkelijke niet geërodeerde bodemprofiel direct inzicht in het materiaaltransport.
- Is het oorspronkelijk materiaal qua volume nog in het profiel aanwezig of is dit afgevoerd.
+Ook geeft een vergelijking van fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bodemprofiel-1-2-3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ t/m 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bodemprofiel-7-8-9"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ met het oorspronkelijke niet geërodeerde bodemprofiel direct inzicht in het materiaaltransport.
+ Is het oorspronkelijke materiaal qua volume nog ergens in het profiel aanwezig of is dit afgevoerd?
  Hier valt nog het nodige inzicht te winnen.
 \end_layout
 
@@ -264,13 +392,34 @@ Verder valt op dat de diepste punten in alle profielen ca.
  NAP -7 m zijn.
  Is dat het huidige evenwicht,
  of schrijdt de erosie verder voort?
+ Op basis van het verschil tussen het ontwerpprofiel en de huidige profielen valt te concluderen dat er veel materiaal is verdwenen.
+ Dit zou dan terug te vinden moeten zijn voor de uitmonding van het ARK in het IJ.
 \end_layout
 
 \begin_layout Standard
-Voor de weerstand van de kanaalbodem maakt diepere erosie weinig meer uit.
+Voor de huidige weerstand van de kanaalbodem maakt diepere erosie weinig meer uit.
  Wanneer eenmaal het slechtdoorlatende natuurlijke bodemmateriaal van de oorspronkelijke holocene deklaag is weggeërodeerd,
  maakt diepere erosie voor de bodemweerstand weinig verschil.
- 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ melden ook dat de onderwatertaluds wegeroderen,
+ wat een risico vormt voor de stabiliteit van de damwanden.
+ De profielen laten zien dat deze onderwatertaluds inderdaad deels aan erosie onderhevig zijn,
+ maar dat is niet overal het geval en niet volledig.
+\end_layout
+
+\begin_layout Standard
+Als we de mediaan van de vaarlijn van de schepen vergelijken met de plekken met de erosie valt op dat die niet overeen komen.
+ Mogelijk zijn voor de erosie vooral de schepen van belang die wat verder dan de mediaan van de vaarlijnen uit het midden van het kanaal varen.
+ Mogelijk is de retourstroom dan sterker.
 \end_layout
 
 \begin_layout Standard
@@ -353,6 +502,8 @@ ARK bodemprofiel in 2013 en 2025 ter plaatse van de aangegeven raaien.
 \end_inset
 
  vanaf de westelijke damwand.
+ Ook is aangegeven het ontwerpprofiel ca.
+ 1980 en het waterniveau.
 \end_layout
 
 \end_inset
@@ -501,6 +652,10 @@ ARK bodemprofiel in 2013 en 2025 ter plaatse van de aangegeven raaien.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Oorspronkelijke bodemlagen in het resterende onderwatertalud
 \end_layout
 
 \begin_layout Standard
@@ -4249,35 +4404,6 @@ W
 \end_layout
 
 \begin_layout Section
-Damplanken
-\end_layout
-
-\begin_layout Standard
-Op tekening Renovatie oevers ARK - Lekkanaall Pc:8459 van 2005,
- staat vermeld dat BELVAL BZ 155 profielen zijn gebruikt.
- Dit is volgens het Damwand Museum een historisch type stalen Z-damwandprofiel,
- oorspronkelijk geproduceerd door de Luxemburgse fabrikant TradeArbed (tegenwoordig ArcelorMittal) dat niet meer wordt geproduceerd.
-\end_layout
-
-\begin_layout Standard
-Verder blijkt uit het staatje op deze tekening dat de damplanken meestal 10 m lang zijn.
- Met de kop op NAP 0.6 komt de onderzijde dan op NAP -9.4 m.
- Op de dwarsdoorsnede voor km 13.370 staan einddieptes vermeld van NAP -9.10,
- -8.70 en -9.4.
- Een andere tekening van hetzelfde project bevestigt dit.
- Voor het model is hiermee NAP -9.0 een geschikte einddiepte voor de damwanden.
-\end_layout
-
-\begin_layout Standard
-De damplanken zullen in zekere mate lekken.
- Maar onbekend is hoeveel dit zal zijn.
- In het model kan hiervoor een kleine doorlatendheid worden aangenomen wanneer hierdoor de rekenresultaten beter met metingen overeen blijkten te komen.
- Dit impliceert dat de einddiepte van de planken ca.
- 4 m onder de bodem van het kanaal uitkomen,
- waardoor hun betekenis voor de modeluitkomsten gering zullen zijn.
-\end_layout
-
-\begin_layout Section
 Wellen
 \end_layout
 
@@ -4313,7 +4439,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/hist_afstand_wellen_tot_ARK.pdf
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/wellen_deltares_hist.pdf
 	width 60text%
 
 \end_inset
@@ -5804,6 +5930,55 @@ Een ander fenomeen is het temperatuurverloop in de gesondeerde peilbuizen binnen
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temp_head_beemster_fig91.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Temp-head-ARK-K70C-serie"
+
+\end_inset
+
+Temperatuur ARK en stijghoogte en temperatuur van 3 waarnemingsputten in raai 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 We zien dat het verloop van de stijghoogte in alle raaien het verloop van de temperatuur van het ARK water volgt.
  We zien voorts dat er geen relatie is tussen het verloop van de stijghoogte en de temperatuur gemeten in dezelfde peilbuizen.
  Kortom de temperatuur van het ARK water is de enige factor die het jaarlijkse verloop van de stijghoogte in de peilbuizen aandrijft.
@@ -6034,11 +6209,54 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-Weerstand damwand
+Damwanden
+\end_layout
+
+\begin_layout Subsection
+Situatie,
+ diepte
 \end_layout
 
 \begin_layout Standard
-Steeds weer duikt de vraag op hoe groot de doorlatendheid (via de slots) van de damwanden is.
+Op tekening Renovatie oevers ARK - Lekkanaal Pc:8459 van 2005,
+ staat vermeld dat BELVAL BZ 155 profielen zijn gebruikt.
+ Dit is volgens het 
+\begin_inset Quotes pld
+\end_inset
+
+Damwand Museum
+\begin_inset Quotes prd
+\end_inset
+
+ een historisch type stalen Z-damwandprofiel,
+ oorspronkelijk geproduceerd door de Luxemburgse fabrikant TradeArbed (tegenwoordig ArcelorMittal) dat niet meer wordt geproduceerd.
+\end_layout
+
+\begin_layout Standard
+Verder blijkt uit het staatje op deze tekening dat de damplanken meestal 10 m lang zijn.
+ Met de kop op NAP 0.6 komt de onderzijde dan op NAP -9.4 m.
+ Op de dwarsdoorsnede voor km 13.370 staan einddieptes vermeld van NAP -9.10,
+ -8.70 en -9.4.
+ Een andere tekening van hetzelfde project bevestigt dit.
+ Voor het model is hiermee NAP -9.0 een geschikte einddiepte voor de damwanden.
+\end_layout
+
+\begin_layout Standard
+De damplanken zullen in zekere mate lekken.
+ Maar onbekend is hoeveel dit zal zijn.
+ Daar zal hierna op in worden gegaan.
+ Het voorgaande impliceert dat de einddiepte van de planken ca.
+ 4 m onder de bodem van het kanaal uitkomt,
+ waardoor hun betekenis voor de modeluitkomsten beperkt zijn.
+\end_layout
+
+\begin_layout Subsection
+Weerstand van de damwand,
+ lek
+\end_layout
+
+\begin_layout Standard
+Steeds weer duikt de vraag op hoe groot de doorlatendheid (via de sloten) van de damwanden is.
  Deltares heeft hier 1993 met ArcelorMittel onderzoek naar gedaan (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -6202,6 +6420,10 @@ Dus,
  Door corrosie en vervorming kan dit op termijn meer worden,
  door verstopping juist minder.
  Veel meer valt hier op dit moment niet van te zeggen.
+\end_layout
+
+\begin_layout Subsubsection
+Metingen
 \end_layout
 
 \begin_layout Standard
@@ -11815,7 +12037,7 @@ Het stijghoogteverval tussen peilbuizen net naast het kanaal en peilbuizen tot o
 \end_layout
 
 \begin_layout Subsection
-Peilverschil tussen kanaal en peilbuizen binnen de damwand
+Invloed van het onderwatertalud
 \end_layout
 
 \begin_layout Standard
@@ -11901,7 +12123,7 @@ We zien aan het plaatje dat de stijghoogte bovenin de hoek onder de ondoorlatend
  dus 0.35 m onder het kanaalpeil.
  Dit peilverval tussen kanaalpeil en peilbuis van 35 cm treedt dus onder het slecht doorlatende onderwatertalud op bij 50 mm/d infiltratie,
  zonder enige bodemweerstand.
- Uiteraard bij de gebruikte doorlatendheiden (zie tabel in de figuur).
+ Uiteraard bij de gebruikte doorlatendheden (zie tabel in de figuur).
  Men kan heel lang discussiëren over de exacte waarden van de infiltratiesnelheid (afgeleid uit berekeningen met het dwarsdoorsnedemodel) en de gebruikte doorlatendheden van het zand direct onder de kanaalbodem,
  maar dat laat onverlet de conclusie dat de peilbuis in de hoek geen zuivere maat is voor de bodemweerstand.
 \end_layout
@@ -11954,7 +12176,7 @@ Stroming onder een 10 m brede ondoorlatende strook in een breed kanaal.
 \end_layout
 
 \begin_layout Subsection
-Peilverschil tussen stijghoogte in de peilbuizen binnen en net buiten de damwand
+Modellering van de stijghoogte in de peilbuizen binnen en net buiten de damwand
 \end_layout
 
 \begin_layout Standard
@@ -14809,7 +15031,7 @@ Hier moet dus,
  evenals 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "D25"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -14852,7 +15074,9 @@ C.
 \end_layout
 
 \begin_layout Section
-Zomer en winter grondwaterstanden
+Grondwaterstanden in de zomer t.o.v.
+ die in de winter,
+ invloed van de viscositeit (analytisch)
 \end_layout
 
 \begin_layout Standard
@@ -20504,6 +20728,468 @@ nolink "false"
 \end_layout
 
 \begin_layout Section
+BEEMSTER e.a.
+ 2022
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Beemster22_fig9_2.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fig.9.1 uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Oude profielen ARK (ChatGPT)
+\end_layout
+
+\begin_layout Standard
+Ja,
+ daar is verrassend veel over bekend,
+ maar het zit nogal verspreid over oude rapporten van Rijkswaterstaat en het Waterloopkundig Laboratorium.
+\end_layout
+
+\begin_layout Standard
+## 1.
+ Het oorspronkelijke profiel (1952)
+\end_layout
+
+\begin_layout Standard
+Bij de opening in 1952 was het Amsterdam-Rijnkanaal ongeveer:
+\end_layout
+
+\begin_layout Standard
+* bodembreedte circa 40–50 m,
+\end_layout
+
+\begin_layout Standard
+* waterspiegelbreedte circa 58,5 m,
+\end_layout
+
+\begin_layout Standard
+* vaardiepte ongeveer 4 m,
+\end_layout
+
+\begin_layout Standard
+* flauwe onderwatertaluds (geen damwanden),
+\end_layout
+
+\begin_layout Standard
+* grondtaluds die geleidelijk overgingen in de dijken.
+\end_layout
+
+\begin_layout Standard
+Het kanaal had dus een klassiek trapeziumprofiel.
+\end_layout
+
+\begin_layout Standard
+## 2.
+ Eerste verbreding (1961-1963)
+\end_layout
+
+\begin_layout Standard
+De waterspiegelbreedte werd vergroot tot ongeveer 70 m.
+ ([Oudhouten][1])
+\end_layout
+
+\begin_layout Standard
+## 3.
+ Grote verbreding (1965-1979)
+\end_layout
+
+\begin_layout Standard
+Juist deze fase is interessant.
+ Men wilde het kanaal geschikt maken voor duwvaart en grotere schepen.
+ De uiteindelijke afmetingen werden:
+\end_layout
+
+\begin_layout Standard
+* breedte 100–130 m,
+\end_layout
+
+\begin_layout Standard
+* diepte 5–6 m,
+\end_layout
+
+\begin_layout Standard
+* plaatselijk nog breder bij bochten,
+\end_layout
+
+\begin_layout Standard
+* veel bruggen moesten worden vervangen.
+ ([Oudhouten][1])
+\end_layout
+
+\begin_layout Standard
+De verbreding werd in 1979 voltooid.
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+# Studiegroep dwarsprofiel kanalen
+\end_layout
+
+\begin_layout Standard
+Er bestond zelfs een speciale **Studiegroep Dwarsprofiel Kanalen in verband met Duwvaart**,
+ ingesteld in 1961.
+ De aanleiding was expliciet de verbreding van het Amsterdam-Rijnkanaal.
+ De groep bestond uit:
+\end_layout
+
+\begin_layout Standard
+* Rijkswaterstaat,
+\end_layout
+
+\begin_layout Standard
+* Waterloopkundig Laboratorium,
+\end_layout
+
+\begin_layout Standard
+* Nederlands Scheepsbouwkundig Proefstation,
+\end_layout
+
+\begin_layout Standard
+* TH Delft.
+ ([Rijkswaterstaat Publicatie Platform][2])
+\end_layout
+
+\begin_layout Standard
+Hun rapporten bevatten precies de soort informatie waarnaar u vraagt:
+\end_layout
+
+\begin_layout Standard
+* profielvormen;
+\end_layout
+
+\begin_layout Standard
+* taludhellingen;
+\end_layout
+
+\begin_layout Standard
+* bodemdiepte;
+\end_layout
+
+\begin_layout Standard
+* effecten van passerende schepen;
+\end_layout
+
+\begin_layout Standard
+* benodigde kanaalbreedtes.
+\end_layout
+
+\begin_layout Standard
+Er zijn diverse deelrapporten uit 1970 beschikbaar.
+ Een ervan behandelt expliciet een kanaal van ongeveer 100 m breed en 5 à 6 m diep,
+ rechtstreeks afgestemd op de mogelijkheden van het Amsterdam-Rijnkanaal.
+ ([Rijkswaterstaat Publicatie Platform][3])
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+# Demkabocht en Goyerbrug
+\end_layout
+
+\begin_layout Standard
+Ook de bochten zijn in schaalmodellen onderzocht.
+ Het rapport
+\end_layout
+
+\begin_layout Standard
+**"Amsterdam-Rijnkanaal:
+ Demkabocht en Goyerbrug"**
+\end_layout
+
+\begin_layout Standard
+beschrijft de beperkingen door:
+\end_layout
+
+\begin_layout Standard
+* breedte,
+\end_layout
+
+\begin_layout Standard
+* kromming,
+\end_layout
+
+\begin_layout Standard
+* zichtlijnen,
+\end_layout
+
+\begin_layout Standard
+en geeft tekeningen van de bestaande situatie rond 1970.
+ ([Rijkswaterstaat Publicatie Platform][4])
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+# Zijn er dwarsprofielen van Rijkswaterstaat?
+\end_layout
+
+\begin_layout Standard
+Ja.
+\end_layout
+
+\begin_layout Standard
+De huidige legger van Rijkswaterstaat bevat tientallen dwarsprofielen met nummers als
+\end_layout
+
+\begin_layout Standard
+* MN_ARKA_10,
+\end_layout
+
+\begin_layout Standard
+* MN_ARKA_35,
+\end_layout
+
+\begin_layout Standard
+enzovoort.
+ Daarin staan breedten en bodemhoogten.
+ ([etl.rijkswaterstaat.nl][5])
+\end_layout
+
+\begin_layout Standard
+Daarnaast zijn er afzonderlijke profieltekeningen van dijken en damwanden beschikbaar.
+ ([downloads.rijkswaterstaatdata.nl][6])
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+# Pomper (Wageningen)
+\end_layout
+
+\begin_layout Standard
+Ik heb geen directe verwijzing naar publicaties van **H.
+ Pomper (WUR)** over het dwarsprofiel van het Amsterdam-Rijnkanaal kunnen vinden.
+\end_layout
+
+\begin_layout Standard
+Dat verbaast mij enigszins,
+ want Pomper heeft veel gewerkt aan de invloed van het kanaal op grondwaterstanden en ontwatering van de Betuwe en Kromme Rijnstreek.
+ Mogelijk heeft hij daarover geschreven in:
+\end_layout
+
+\begin_layout Standard
+* Cultuurtechnisch Tijdschrift,
+\end_layout
+
+\begin_layout Standard
+* Landinrichting,
+\end_layout
+
+\begin_layout Standard
+* Wageningen-rapporten uit de jaren zestig en zeventig.
+\end_layout
+
+\begin_layout Standard
+Daar zou ik nog gerichter naar moeten zoeken.
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+# Wat ik sterk vermoed
+\end_layout
+
+\begin_layout Standard
+Vóór de verbreding van 1973–1981 was het profiel ongeveer:
+\end_layout
+
+\begin_layout Standard
+```
+\end_layout
+
+\begin_layout Standard
+waterlijn ±70 m
+\end_layout
+
+\begin_layout Standard
+___________________
+\end_layout
+
+\begin_layout Standard
+/ 
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+/ 
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+/ 
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+____/_________________________
+\backslash
+____
+\end_layout
+
+\begin_layout Standard
+diepte ≈5 m
+\end_layout
+
+\begin_layout Standard
+```
+\end_layout
+
+\begin_layout Standard
+Na de verbreding:
+\end_layout
+
+\begin_layout Standard
+```
+\end_layout
+
+\begin_layout Standard
+waterlijn 100-120 m
+\end_layout
+
+\begin_layout Standard
+___________________________________
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+ /
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+ /
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+___________________________/
+\end_layout
+
+\begin_layout Standard
+diepte 5-6 m
+\end_layout
+
+\begin_layout Standard
+```
+\end_layout
+
+\begin_layout Standard
+met taluds ergens tussen ongeveer 1:3 en 1:5,
+ afhankelijk van het traject.
+\end_layout
+
+\begin_layout Standard
+---
+\end_layout
+
+\begin_layout Standard
+Ik denk dat er een goede kans is dat er in de oude verbredingsrapporten van Rijkswaterstaat uit circa 1973-1981 zelfs complete standaarddwarsprofielen met maatvoering staan.
+ Die rapporten zijn vaak als PDF beschikbaar via het Rijkswaterstaat Open Archief.
+\end_layout
+
+\begin_layout Standard
+Dat zou een mooi zoekproject zijn;
+ ik vermoed dat daar precies de onderwatertaluds en de oorspronkelijke profielen vóór en na de verbreding in te vinden zijn.
+\end_layout
+
+\begin_layout Standard
+[1]:
+ https://www.oudhouten.nl/recente-tijd/infrastructuur/amsterdam-rijnkanaal/?utm_source=chatgpt.com "Amsterdam-Rijnkanaal | geschiedenis Houten"
+\end_layout
+
+\begin_layout Standard
+[2]:
+ https://open.rijkswaterstaat.nl/%40102812/studiegroep-dwarsprofiel-kanalen-verband/?utm_source=chatgpt.com "Studiegroep dwarsprofiel kanalen in verband met duwvaart :
+ eindverslag - Rijkswaterstaat Publicatie Platform"
+\end_layout
+
+\begin_layout Standard
+[3]:
+ https://open.rijkswaterstaat.nl/%4083262/amsterdam-rijnkanaal-passeermanoeuvres/?utm_source=chatgpt.com "Amsterdam-Rijnkanaal :
+ passeermanoeuvres :
+ verslag modelonderzoek | Rijkswaterstaat Publicatie Platform"
+\end_layout
+
+\begin_layout Standard
+[4]:
+ https://open.rijkswaterstaat.nl/%40230129/amsterdam-rijnkanaal-demkabocht/?utm_source=chatgpt.com "Amsterdam-Rijnkanaal :
+ Demkabocht en Goyerbrug :
+ verslag modelonderzoek | Rijkswaterstaat Publicatie Platform"
+\end_layout
+
+\begin_layout Standard
+[5]:
+ https://etl.rijkswaterstaat.nl/rws_legger/MN/08%20Amsterdam-Rijnkanaal/05_dwo_Amsterdam-Rijnkanaal_v1.pdf?utm_source=chatgpt.com "Kenmerken dwarsprofielen oppervlaktewaterlichamen"
+\end_layout
+
+\begin_layout Standard
+[6]:
+ https://downloads.rijkswaterstaatdata.nl/rws_legger/dwarsprofielen/MN_ARK_dp_38.750_West.pdf?utm_source=chatgpt.com "Beschrijving van de waterkering"
+\end_layout
+
+\begin_layout Section
 Weerstand meten tijdens en na aanbrengen van bentoniet
 \end_layout
 
@@ -20552,8 +21238,28 @@ literal "false"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Deltares (2025)"
-key "D25"
+label "Deltares (2025a)"
+key "De25a"
+literal "false"
+
+\end_inset
+
+Deltares (2025) Belasting door scheepvaart in Amsterdam-Rijnkanaal.
+ Maatregelen wateroverlast kanalen - SITO programmasubsidie lenW 2024.
+ Auteurs:
+ Iris Hartstra,
+ Arne van der Hout.
+ Projectnr.
+ 11210303-018,
+ document id:
+ 11210303-018-GEO-0007
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2025b)"
+key "De25b"
 literal "false"
 
 \end_inset
