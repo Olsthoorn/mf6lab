@@ -134,11 +134,170 @@
 \begin_body
 
 \begin_layout Title
-Systeem analyse ARK
+Aanvullende systeem analyse ARK
+\begin_inset Newline newline
+\end_inset
+
+C O N C E P T
 \end_layout
 
 \begin_layout Author
 T.N.Olsthoorn
+\end_layout
+
+\begin_layout Date
+24-06-2026
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Prof.dr.T.N.Olsthoorn
+\end_layout
+
+\begin_layout Standard
+Hygea-consult
+\end_layout
+
+\begin_layout Standard
+Strawinskylaan 54
+\end_layout
+
+\begin_layout Standard
+2102 CR Heemstede
+\end_layout
+
+\begin_layout Standard
+06-20440256
+\end_layout
+
+\begin_layout Standard
+tolsthoorn@xs4all.nl
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+De samenvatting ontbreekt nog.
+ Dit is een werkdocument voor zover vandaag gereed,
+ 1 dag voor mijn vakantie.
+\end_layout
+
+\begin_layout Abstract
+Ik heb gepoogd om zoveel mogelijk aspecten van het grondwater rond het ARK en zijn bodemweerstand op een rij te krijgen en te kwantificeren.
+ Ik heb daarbij gebruik gemaakt van de documenten in het literatuuroverzicht aan het eind van dit rapport.
+ Ik heb nog niet alle rapporten volledig uitgeplozen.
+ Verder heb ik dankbaar gebruik gemaakt van de tweejaarlijkse bathymetriëen van de kanaalbodem van 2013-2025,
+ die ik van Michel Ruijter (RWS) kreeg toegezonden in de vorm van een 8 tiff files.
+ Hoewel de erosiegeulen er in 2013 al waren,
+ blijkt de bodem nog altijd niet in evenwicht.
+ Zij bathymetriëen zijn belangrijk vanwege voortgaande erosie en voor de grondwaterberekeningen ook vanwege het onderwatertalud.
+ De door 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ beschreven ontwikkeling tussen 1981 en 2015 past geheel bij de geschiedenis van het verruimen van het ARK en de ontwikkeling van de scheepvaart.
+ Veel aandacht was gewijd aan het interpreteren van de grondwaterreeksen die ik uit de Systeemanalyse van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+ heb getrokken met 
+\begin_inset Quotes pld
+\end_inset
+
+webplotdigitzer
+\begin_inset Quotes prd
+\end_inset
+
+.
+ Niet alle beschikbare gegevens zijn in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+ terug te vinden,
+ waardoor ik minder ver kwam dan ik wilde.
+ Veel aandacht ging uit naar de invloed van de temperatuur van het kanaalwater op de grondwaterstanden en naar wellen.
+ De van de temperatuur afhankelijke viscositeit wordt nu automatisch in het toegepaste dwarsdoorsnedemodel verwerkt.
+ Het blijkt mogelijk om voor raaien ten westen van het ARK de zomer- en wintermetingen passend te krijgen met het dwarsdoorsnede model,
+ maar aan de parameters veel waarde hechten is hachelijk,
+ omdat er voor dit doel meer parameters zijn dan metingen.
+ Het lijkt alsof de damwanden nauwelijks weerstand hebben,
+ maar dat is schijn.
+ Het relatief geringe peilverval over de damwand wordt veroorzaakt door de aanwezigheid van onderwatertaluds,
+ waarin zich nog resten van de oorspronkelijke deklaag bevinden.
+ Bij nauwgezette bestudering van een raai peilbuizen (die nu deel uitmaken van raai 4) uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ lijkt het zo goed als onontkoombaar dat de deklaag wordt opgedrukt waardoor kanaalwater in de daarbij ontstane spleet praktisch zonder vertraging de peilbuizen tot op 250 m van het kanaal bereikt.
+ Spleetvorming is consistent met het temperatuurgedrag van deze peilbuizen en met de wateroverdruk onder de sloten bij deze buizen.
+ Bij nadere analyse blijkt een spleet van slechts enkele mm hoogte het doorlaatvermogen van het gehele watervoerend pakket tot 160 m diep gemakkelijk te kunnen overschrijden (zie analyse).
+ Spleetvorming leidt tot verhoging van de grondwaterstand in de zomer boven het het effect van viscositeit alleen,
+ maar het is niet voldoende als verklaring.
+ De weerstand van de kanaalbodem blijft in de zomer op verschillende plaatsen lager dan in de winter in een mate die maar voor ongeveer de helft door viscositeit wordt verklaard.
+ Biologische processen is gesuggereerd,
+ wellicht moet daarbij ook aan gasvorming in de sliblaag worden bedacht waardoor de laag in de zomer veel lichter en losser zou zijn dan in de winter.
+ Aan het einde is nog wat gefilosofeerd over het slib op de huidige bodem,
+ het gedrag van dit slib en het zand bij omwoelen door diepgaande schepen,
+ en de interactie met het aanbrengen van (zand)-bentoniet en de bescherming tegen erosie ervan.
+ Omwoelen leidt onvermijdelijk tot segregatie waarbij de fijne fracties bovenop en de grove fracties onderop komen te liggen.
+ Dit kan ook een belangrijk erosiemechanisme blijken,
+ waarbij de fijne fractie uit het natuurlijke bodemmateriaal wordt gespoeld/gewoeld en geleidelijk wordt afgevoerd richting het IJ.
+ De eigenschappen en het gedrag van het aanwezig slib zijn van belang bij het aanbrengen van een zand-bentoniet mengsel.
+ Een zware laag deponeren op een slappe,
+ losse,
+ lichter sliblaag kan ertoe leiden dat deze als glijlaag werkt waarna het slib en de aangebrachte bentoniet in luttele minuten de erosiegeulen in glijdt.
+ De meest kanshebbende aanpak zorgt voor het stoppen van de erosie zoals door aanbrengen van gebroken grind,
+ waartussen het bentoniet als slurrie de bodem verstopt beschermd door het grind tegen opwoelen en wegspoelen.
+ Bij geschikte eigenschappen van het huidige slib is het aanbrengen van een grindbed op zichzelf wellicht voldoende omdat daarbij dezelfde processen optreden.
+ In de jaren 1980 is al gebleken dat natuurlijke verstopping mogelijk is,
+ mits,
+ blijkt uit de geschiedenis van het kanaal (zie intro) er rust heerst op de bodem.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -182,7 +341,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/peilb+wellen.png
-	width 100theight%
+	width 80theight%
 
 \end_inset
 
@@ -633,7 +792,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/peilgeb_pb.png
-	width 100theight%
+	width 80theight%
 
 \end_inset
 
@@ -1080,6 +1239,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../../images/Delt12_fig3_2Retorustroming_injalen_ARK.png
+	width 60text%
 
 \end_inset
 
@@ -1402,7 +1562,7 @@ status open
 \begin_inset Graphics
 	filename ../../images/Xsec_raai5_detail_profiel.png
 	lyxscale 60
-	width 80cm
+	width 60text%
 
 \end_inset
 
@@ -1534,7 +1694,7 @@ status open
 \begin_inset Graphics
 	filename ../../images/Xsec_raai11_detail_profiel.png
 	lyxscale 60
-	width 80text%
+	width 60text%
 
 \end_inset
 
@@ -1642,7 +1802,7 @@ nolink "false"
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="11" columns="14">
-<features tabularvalignment="middle">
+<features tabularvalignment="middle" tabularwidth="80text%">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1768,7 +1928,25 @@ raai
 \uwave off
 \noun off
 \color none
-in ARK
+in 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ARK
 \end_layout
 
 \end_inset
@@ -1838,7 +2016,24 @@ dist
 \noun off
 \color none
 bk.
- deklaag
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+deklaag
 \end_layout
 
 \end_inset
@@ -1862,7 +2057,24 @@ bk.
 \noun off
 \color none
 ok.
- deklaag
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+deklaag
 \end_layout
 
 \end_inset
@@ -1963,7 +2175,25 @@ WP
 \uwave off
 \noun off
 \color none
-h(01-02-26)
+h
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+(01-02-26)
 \end_layout
 
 \end_inset
@@ -5277,7 +5507,7 @@ status open
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/DamwandARK_RWS-tek-76206-71661-68656-76207_Jaar1977.png
 	lyxscale 50
-	width 70text%
+	width 60text%
 
 \end_inset
 
@@ -11032,7 +11262,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stroming_onder_strook_10m.png
-	width 70text%
+	width 60text%
 
 \end_inset
 
@@ -11123,7 +11353,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temp_ARK.pdf
-	width 70text%
+	width 60text%
 
 \end_inset
 
@@ -11158,6 +11388,12 @@ Temperatuur van het ARK-water over 2024 en 2025 met percentielen
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Dynamiek-van-de-stijghoogte"
+
+\end_inset
+
 Dynamiek van de stijghoogte
 \end_layout
 
@@ -11222,7 +11458,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai2.pdf
-	width 100text%
+	width 80text%
 
 \end_inset
 
@@ -11289,7 +11525,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai5.pdf
-	width 100text%
+	width 80text%
 
 \end_inset
 
@@ -11353,7 +11589,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai8.pdf
-	width 100text%
+	width 80text%
 
 \end_inset
 
@@ -11407,7 +11643,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_temp_raai10.pdf
-	width 100text%
+	width 80text%
 
 \end_inset
 
@@ -12589,35 +12825,69 @@ Stijghoogten in ruimtelijk verband
 
 \begin_layout Standard
 We hebben gezien dat het jaarverloop van de stijghoogte in alle peilbuizen de temperatuur van het ARK-water volgt.
- Het verloop stijghoogte is de weerspiegeling van het verloop van de infiltratiesnelheid.
- Immers een hogere infiltratiesnelheid verhoogt de stijghoogte onder het kanaal die zich ruimtelijk over een groot gebied uitbreidt overeenkomstig de spreidingslengte 
+ Dit verloop stijghoogte wordt niet veroorzaakt doordat het ARK water de peilfilters bereikt,
+ maar is de weerspiegeling van het verloop van de infiltratiesnelheid.
+ Immers een hogere infiltratiesnelheid verhoogt de stijghoogte onder het kanaal,
+ die zich direct ruimtelijk over een groot gebied uitbreidt overeenkomstig de spreidingslengte 
 \begin_inset Formula $\lambda=\sqrt{kDc}$
 \end_inset
 
-.
+ van het grondwatersysteem.
  Dit is de reden waarom het jaarlijkse verloop van de stijghoogte in alle peilbuizen een overeenkomstig patroon laat zien,
- dat op geen enkele wijze correspondeert met de temperatuur ter plekke van de peilbuizen.
- We zien dan ook de verhoging van de grondwaterstand in de zomer ten opzichte van de laagste grondwaterstand in de winter afnemen met de afstand tot het kanaal.
+ dat op geen enkele wijze correspondeert met de temperatuur ter plekke van de peilbuizen (uitzonderingen daargelaten,
+ zie verderop).
+ We zien dan ook dat de verhoging van de grondwaterstand in de zomer,
+ ten opzichte van de laagste grondwaterstand in de winter,
+ afneemt met de afstand tot het kanaal.
  De amplitude verschilt ook per raai,
- omdat de infiltratie niet overal langs het kanaal even groot is want samenhangt met de plaatselijk nog aanwezige resten van de oorspronkelijk aanwezige slecht doorlatende deklaag.
- Niettemin zorgt de spreidingslengte ervoor dat ook in een raai waar de infiltratie gering is de zomerse verhoging toch gevoeld wordt door zones van het kanaal meer noordelijk of zuidelijk waar de bodem wel goed doorlatend is.
+ omdat de infiltratie niet overal langs het kanaal even groot is,
+ omdat die samenhangt met de plaatselijk nog aanwezige resten van de oorspronkelijk aanwezige slecht doorlatende deklaag.
+ Niettemin zorgt de spreidingslengte ervoor dat ook in een raai waar de infiltratie gering is de zomerse verhoging toch gevoeld wordt in het grondwater meer noordelijk of zuidelijk daarvan,
+ waar de kanaalbodem wel goed doorlatend is.
  Raai 9 is vermoedelijk zo'n raai.
- Er is daar nauwelijks een verband tussen grondwaterstand en afstand tot het kanaal,
+ Er is daar nauwelijks een verband tussen het verloop van de grondwaterstand en de afstand tot het kanaal,
  dus weinig infiltratie,
- maar we zien het het karakteristieke jaarverloop van de stijghoogte (zie figuren).
+ maar we zien desondanks het het karakteristieke jaarverloop van de stijghoogte (zie figuren 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stijgh-en-temp-ARK-raai-1-2--3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ t/m 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stijgh-en-temp-ARK-raai-10-11-12--13"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
-Overigens is de interpretatie van de stijghoogten ten oosten van het ARK complexer dan die ten westen daarvan als gevolg van nabij breder open water aan de oostzijde,
+Overigens is de interpretatie van de stijghoogten ten oosten van het ARK complexer dan die ten westen daarvan.
+ Dit is het gevolg van meer nabij breder open water aan de oostzijde,
  waardoor de stijghoogte wordt beïnvloed.
  Dit is het geval in raai 5,
  oostzijde,
- waar de stijghoogte in pb508 op 24 ten oosten van het kanaal lager is dan die van peilbuis 511 op 340 m ten oosten van het kanaal.
+ waar de stijghoogte in pb508 op slechts 24 m ten oosten van het kanaal lager is dan die van peilbuis 511 op 340 m ten oosten van het kanaal.
  Dit soort verschillen kunnen alleen met een ruimtelijk model kwantitatief worden opgelost.
 \end_layout
 
 \begin_layout Standard
-In de figuren met het verloop van de stijghoogten zijn de waarden van de piek rond 1 augustus en het dal rond 1 februari met een dikke punt aangegeven om ze de stijghoogte in ruimtelijk verband met elkaar te kunnen vergelijken en te gezien hoe de situatie in de zomer zich verhoudt tot die in de winter.
+In de figuren met het verloop van de stijghoogten zijn de waarden van de hoogste grondwaterstand,
+ rond 1 augustus,
+ en de laagste,
+ rond 1 februari,
+ met een dikke punt aangegeven om de stijghoogte in ruimtelijk verband met elkaar te kunnen vergelijken en te zien hoe de situatie in de zomer zich verhoudt tot die in de winter.
 \end_layout
 
 \begin_layout Standard
@@ -12633,18 +12903,50 @@ nolink "false"
 \end_inset
 
  geeft deze dikke punten voor elke raai van functie van de afstand tot de hartlijn van het ARK.
- Dit zijn alle gegevens die beschikbaar zijn in Deltares (2026).
- Het zou enorm helpen om deze gegevens uit te breiden met de reeksen voor alle peilbuizen zodat een beter verloop kan worden afgeleid tot op grotere afstanden tot het kanaal.
- In de grafiek zijn de punten voor de zomersituatie binnen elke raai met elkaar verbonden (stippellijn) en hetzelfde is gedaan voor de punten die de wintersituatie weergeven (getrokken lijnen).
+ Dit zijn alle gegevens die beschikbaar zijn in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+.
+ Het zou de analyse helpen om deze gegevens uit te breiden met de reeksen van alle peilbuizen,
+ zodat een beter verloop kan worden afgeleid tot op grotere afstanden van het kanaal.
+ In de grafiek van Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vergelijking-zomerpiek-en-winterdal"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ zijn de punten voor de zomersituatie binnen elke raai met elkaar verbonden met een stippellijn;
+ de punten die de wintersituatie weergeven zijn door een getrokken lijnen met elkaar verbonden.
  Dit zijn de punten waar een grondwatermodel op zou moeten worden geijkt,
- met het is direct duidelijk dat dit niet eenvoudig zal zijn.
+ maar het is direct duidelijk dat dit niet eenvoudig zal zijn:
  We zien bijvoorbeeld dat de stijghoogte in een aantal peilbuizen aan de oostzijde niet afneemt met de afstand tot het kanaal.
- De reden,
- breder oppervlaktewater aan de oostzijde,
- is hiervoor besproken.
- Verder blijkt dat de stijghoogte in peilbuis 13 op ca.
- -2.5 m uitkomt,
- dus lager dan het polderpeil en dus ook geheel onder de eerder getoonde grafieken valt en daarin niet zichtbaar is.
+ De waarschijnlijke reden is zojuist genoemd:
+ breder oppervlaktewater aan de oostzijde.
+ Verder blijkt dat de stijghoogte in raai 13 op ca.
+ NAP -2.5 m uitkomt.
+ Dat is lager dan het polderpeil en valt hierdoor geheel onder de eerder getoonde grafieken,
+ raden waarom de betreffende peilbuis in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stijgh-en-temp-ARK-raai-10-11-12--13"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ niet zichtbaar is.
 \end_layout
 
 \begin_layout Standard
@@ -12658,7 +12960,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_gemeten_all.pdf
-	width 80text%
+	width 70text%
 
 \end_inset
 
@@ -12689,7 +12991,11 @@ Vergelijking zomerpiek en winterdal van de stijghoogten in de raaien
 \end_layout
 
 \begin_layout Standard
-Met andere woorden voor het vergelijking van deze metingen met bijvoorbeeld een (eenvoudig) dwarsdoorsnede model dat niet nauwkeurig rekening houdt met de complexere randvoorwaarden aan de oostzijde van het ARK zullen we ons concentreren op vergelijkbare raaien aan de westzijde voor de qua hydrologische omstandigheden vergelijkbare raaien 4,
+Met andere woorden,
+ voor het vergelijken van deze metingen met bijvoorbeeld een (eenvoudig) dwarsdoorsnedemodel dat niet nauwkeurig rekening houdt met de complexere randvoorwaarden aan de oostzijde van het ARK,
+ zijn de punten aan de oostzijde minder geschikt voor verificatie.
+ We zullen ons daarom concentreren op raaien aan de westzijde,
+ met name de qua hydrologische omstandigheden vergelijkbare raaien 4,
  5 en 6.
  De piek- en dalstijghoogten zijn in fig.
 \begin_inset CommandInset ref
@@ -12702,7 +13008,7 @@ nolink "false"
 
 \end_inset
 
-.
+ te zien.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -12711,8 +13017,16 @@ literal "false"
 
 \end_inset
 
- geeft geen meetreeksen voor raai 4 aan de westzijde van het ARK.
- Het rapport geeft wel de winterstand net binnen en buiten de damwand (rode punten).
+ geeft geen meetreeksen voor raai 4 aan de westzijde van het ARK,
+ maar 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "D26"
+literal "false"
+
+\end_inset
+
+ geeft wel de winterstand net binnen en buiten de damwand (de rode punten van raai 4).
  De punten aan de kanaalzijde van de damwand geven direct het verschil met de eveneens weergegeven waterstand in het kanaal zelf.
 \end_layout
 
@@ -12726,8 +13040,8 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_gemeten.pdf
-	width 80text%
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_gemeten4_5_6.pdf
+	width 60text%
 
 \end_inset
 
@@ -12770,6 +13084,456 @@ literal "false"
 
 \end_layout
 
+\begin_layout Section
+Doorsnede-model
+\end_layout
+
+\begin_layout Standard
+Hierna gebruiken we een doorsnede model om diverse samenhangen te kunnen toetsen aan de beschikbare gegevens.
+ Een model is een hulpmiddel om het model ons hooft,
+ ons begrip,
+ van de de samenhang tussen gegevens consistent te toetsen en te kwantificeren.
+ Een dwarsdoorsnede model is hiervoor geschikt omdat de doorsnede dominant is in dit grondwatersysteem.
+ Dit numerieke model,
+ eindige differenties zoals het bekende Modflow,
+ wordt hier in essenties beschreven.
+\end_layout
+
+\begin_layout Standard
+Omdat de stroming in de meeste raaien min of meer symmetrisch is,
+ is slechts de helft van de doorsnede gemodelleerd.
+ Figuur 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stroomlijnen-en-isohypsen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de uitvoer als plaatje.
+ De figuur geeft slechts 600 m van het model weer;
+ de gemodelleerde breedte is 10000 m,
+ ruim voldoende om effecten van de rechter model rand te voorkomen (zie fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:model-stijgh-10000m"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ De gebruikte verticale en horizontale doorlatendheden staan in de inzettabel.
+ De ruimtelijke parameters van de watervoerende en slecht doorlatende lagen zijn goeddeels in overeenstemming met het model van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Het waterlichaam van het ARK is in blauw weergegeven;
+ de geologische lagen (zie ook de rechter inzet-tabel) hebben elk een eigen kleur.
+ Ook is het gebied met drainage door 'sloten' en het gebied met extra drainage door 'wellen' aangegeven (zie legenda links onder).
+ De sloten en wellen beginnen pas vanaf de kade op 10 m buiten de damwanden,
+ die tot NAP -9.4 reiken (in overeenstemming met tekening 1977,
+ RWS).
+ De sloten zijn gemodelleerd met GHB randvoorwaarden (dit is Modflow jargon voor 
+\begin_inset Quotes pld
+\end_inset
+
+General Head Boundaries
+\begin_inset Quotes prd
+\end_inset
+
+).
+ Deze randvoorwaarden zijn aangebracht in de bovenste modellaag (Formatie van Echteld),
+ over de gehele breedte rechts van het kanaal.
+ De wellen zijn met DRNs gemodelleerd (Modflow jargon voor 
+\begin_inset Quotes pld
+\end_inset
+
+Drain Boundaries
+\begin_inset Quotes prd
+\end_inset
+
+).
+ Deze DRNs zitten in de laag juist onder het laagpakket van Nieuwkoop,
+ en alleen over een hier gekozen breedte 
+\begin_inset Formula $L_{wellen}=300$
+\end_inset
+
+ m,
+ zij zijn in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stroomlijnen-en-isohypsen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ aangegeven met cirkel-markers in de top van de Boxtel zandlaag.
+ De in de figuur met markers aangegeven drainage door sloten en wellen moet worden geïnterpreteerd als uniforme vlakdekkende weerstanden en niet als de locatie van individuele sloten.
+ De markers zijn getekend in de middens van de rekencellen,
+ die naar rechts toe breder worden.
+ De vlakdekkende weerstandswaarden van de Nieuwkoop laag,
+ de 
+\begin_inset Quotes pld
+\end_inset
+
+sloten
+\begin_inset Quotes prd
+\end_inset
+
+ (
+\begin_inset Formula $c_{drainage}$
+\end_inset
+
+) en de 
+\begin_inset Quotes pld
+\end_inset
+
+wellen
+\begin_inset Quotes prd
+\end_inset
+
+ met 
+\begin_inset Formula $c_{wellen}$
+\end_inset
+
+ staan,
+ samen,
+ samen met de gebruikte weerstand van de kanaalbodem,
+ in de middelste inzet-tabel.
+ Deze tabel geeft ook de spreidingslengte 
+\begin_inset Formula $\lambda=\sqrt{kDc}$
+\end_inset
+
+.
+ Het doorlaatvermogen,
+ 
+\begin_inset Formula $kD$
+\end_inset
+
+,
+ is berekend over alle lagen beneden de Nieuwkoop laag.
+ Voor de weerstand 
+\begin_inset Formula $c$
+\end_inset
+
+ zijn twee waarden gebruikt:
+ 1) De drainageweerstand 
+\begin_inset Formula $c_{drainage}$
+\end_inset
+
+ + de weerstand van de laag van Nieuwkoop en 2) de waarde van de weerstand door gelijktijdige lek via enerzijds de drainageweerstand + de laag van Nieuwkoop en anderzijds,
+ parallel daaraan,
+ via de weerstand door de wellen volgens 
+\begin_inset Formula $1/c=1/c_{1}+1/c_{2}$
+\end_inset
+
+.
+ Vandaar dat deze weerstand lager is dan die van elk van de twee afzonderlijk.
+ Dit leidt tot de twee waarden voor 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ die in de inzettabel zijn opgenomen.
+ Verder staan in de inzettabel de weerstand van de damwand 
+\begin_inset Formula $c_{damw}$
+\end_inset
+
+,
+ de weerstand van het onderwatertalud 
+\begin_inset Formula $c_{owt}$
+\end_inset
+
+ en de breedte van het onderwatertalud 
+\begin_inset Formula $b_{owt}$
+\end_inset
+
+.
+ In deze berekening is de breedte van het onderwatertalud nul,
+ zodat de weerstand van het onderwatertalud er voor deze berekening niet toe doet.
+ Voorts zijn in deze inzettabel de berekende gemiddelde infiltratiesnelheid over de kanaalbodem 
+\begin_inset Formula $q_{inf}$
+\end_inset
+
+ [mm/d] opgenomen samen met het stijghoogteverschil,
+ 
+\begin_inset Formula $\Delta h$
+\end_inset
+
+,
+ over de weerstand in de kanaalbodem.
+ In de weergegeven berekening is de infiltratiesnelheid bijna 30 mm/d en het genoemde stijghoogteverval 88 cm.
+ De laatste regel van de inzettabel geven het peil van het ARK en de berekende stijghoogte onder de waterbodem juist binnen en buiten de damwand.
+ De locatie van de peilfilters van deze peilbuizen zijn als kleine blokjes aangegeven (zie legenda).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/xs_ark_r5_basis.pdf
+	lyxscale 200
+	width 80text%
+	height 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stroomlijnen-en-isohypsen"
+
+\end_inset
+
+Stroomlijnen en isohypsen (stijghoogtelijnen) in dwarsdoorsnedemodel.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stroomlijnen-en-isohypsen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het patroon van stroom- en stijghoogtelijnen.
+ Tussen elk paar stroomlijnen stroomt dezelfde hoeveelheid water,
+ namelijk 
+\begin_inset Formula $d\psi=0.1$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d,
+ terwijl het stijghoogteverschil tussen opeenvolgende isohypsen gelijk is aan 
+\begin_inset Formula $d\phi=0.02$
+\end_inset
+
+ m,
+ beide zoals aangegeven in de titel van de figuur.
+ De stroom- en stijghoogtelijnen staan niet loodrecht op elkaar,
+ omdat de horizontale en verticale doorlatendheden van elkaar verschillen.
+ Het patroon van lijnen laat zien dat de tot NAP -9.4 m reikende damwanden slechts een beperkte invloed op de stroming ook al hebben zij een behoorlijke weerstand.
+ In deze simulatie is de weerstand van de kanaalbodem 23 dagen bij een gemiddelde watertemperatuur van 
+\begin_inset Formula $14^{o}C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Het model houdt automatisch rekening met de viscositeit van het water.
+ Daartoe worden de doorlatendheden tot een diepte van NAP 17 m en tot 10 m buiten de damwanden vermenigvuldigd met de verhouding tussen de viscositeit bij de kanaalwatertemperatuur en die van de gemiddelde kanaalwatertemperatuur.
+ Daarom is de weerstand van de bodem van het ARK in de inzettabel niet 23 d zoals ingevoerd en geldend bij de gemiddelde watertemperatuur van 
+\begin_inset Formula $14^{o}C$
+\end_inset
+
+,
+ maar hij is 29.2 dagen bij de voor de modellering gebruikte temperatuur van 
+\begin_inset Formula $5.1^{o}C$
+\end_inset
+
+.
+ Beide weerstanden staan in de inzettabel.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:model-stijgh-1000m"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft tot op 1000 m vanaf de hartlijn van het kanaal het verloop van de stijghoogte op enkele horizontale niveaus zoals aangegeven in de legenda.
+ De inzettabellen zijn dezelfde als in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stroomlijnen-en-isohypsen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:model-stijgh-10000m"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft hetzelfde verloop maar over de volle breedte van het model,
+ waaruit blijkt dat het model breed genoeg is om invloed van de rechter rand te vermijden.
+ Ook is in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:model-stijgh-10000m"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ goed te zien dat de wellen maar over een beperkte breedte zijn gemodelleerd.
+\end_layout
+
+\begin_layout Standard
+Het kanaalpeil is in blauw weergegeven en de stijghoogte direct onder de kanaalbodemweerstand in lichtblauw.
+ De dikke bruine lijn is de stijghoogte direct onder de laag van Nieuwkoop (top Boxtel).
+ De rode lijn is in de Formatie van Echteld (feitelijk direct boven het veen in de deklaag) en de markers voor de sloten en wellen zijn getekend op het niveau van het polderpeil (NAP -2.3 m).
+ De stijghoogte net boven en onder de slechtdoorlatende laag van Waalre zijn opgenomen net als die aan de basis van de Formatie van Peize.
+ Dit geeft zo een totaal inzicht in de stijghoogte en komt overeen met de isohypsen in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stroomlijnen-en-isohypsen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_basis.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:model-stijgh-1000m"
+
+\end_inset
+
+Verloop van de stijghoogte op enkele horizontale niveaus over de eerste 1000 m vanaf de hartlijn van het kanaal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_basis_10000.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:model-stijgh-10000m"
+
+\end_inset
+
+Verloop van de stijghoogte op enkele horizontale niveaus over de volle breedte van het model.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Modellering van de stijghoogte in de peilbuizen binnen en net buiten de damwand
 \end_layout
@@ -12789,9 +13553,10 @@ nolink "false"
 
 ,
  is met 0.1 m zeer gering.
- Het in een navolgend hoofdstuk te beschrijven dwarsdoorsnedemodel rekende oorspronkelijk met ondoorlatende damwanden en zonder onderwatertalud (met daarin weerstand biedend materiaal).
+ Het beschreven dwarsdoorsnedemodel rekende oorspronkelijk met ondoorlatende damwanden en zonder onderwatertalud (met daarin weerstand biedend materiaal).
  In deze uitgangssituatie blijkt het verschil tussen de berekende stijghoogten in het peilfilter net binnen de damwand de die net daarbuiten ca.
- 0.5 m (zie eerste inzettabel in fig.
+ 0.5 m is,
+ veel meer dan gemeten (zie eerste inzettabel in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Detail-dwarsdoorsnedemodel-met-stroming-rond-damwand-bowt=0"
@@ -12804,8 +13569,8 @@ nolink "false"
 
 ).
  Bovendien zijn is de berekende stijghoogte in het peilbuisfilter net binnen de damwand met NAP ca.
- -0.8 m m ca.
- 50 cm hoger dan daar gemeten (de berekende stijghoogten staan onderin dezelfde inzettabel,
+ -0.8 m ca.
+ 50 cm hoger is dan daar gemeten (de berekende stijghoogten staan onderin dezelfde inzettabel,
  de gemeten waarden staan in tabel 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -12831,7 +13596,7 @@ nolink "false"
 
 \end_inset
 
- in de uitgangssituatie ontbreekt.
+ in de uitgangssituatie ontbrak.
  Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -12844,7 +13609,7 @@ nolink "false"
 \end_inset
 
  geeft het detail van het 10000 m brede dwarsdoorsnede model zonder onderwatertalud.
- Het stijghoogte en stroomlijnenbeeld tonen de geconcenteerde stroming rond de damwand en maximale infiltratie tegen de damwand.
+ Het stijghoogte en stroomlijnenbeeld tonen de geconcentreerde stroming rond de damwand en tonen dat infiltratie tegen de damwand het grootst is.
 \end_layout
 
 \begin_layout Standard
@@ -12904,7 +13669,7 @@ nolink "false"
 
 \end_inset
 
- toont het modelresultaat voor de situatie met een 10 m breed onderwatertalud.
+ toont het modelresultaat voor de situatie met een 10 m breed onderwatertalud met 100 d weerstand.
  Dat talud is in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -12919,22 +13684,22 @@ nolink "false"
  te zien als kleine grijze streep op de kanaalbodem vanaf de damwand over 10 m naar links.
  Als we beide figuren met elkaar vergelijken,
  de stroming rond de damwand is zonder onderwatertalud heel anders,
- minder geconcentreerd.
+ namelijk veel minder geconcentreerd rond de onderzijde van de damwand.
  De stroomlijnenconcentratie is verschoven naar het uiteinde van het onderwatertalud.
  Het onderwatertalud verlaagt de stijghoogte in de peilbuis onder de kanaalbodem direct met ca.
  0.6 m.
  Bovendien vermindert het stijghoogteverschil tussen peilbuis 1 en 2 hierdoor van 51 cm naar 17 cm.
- De berekende stijghoogten komen nu goed overeen met de gemeten waarden.
+ De berekende stijghoogten komen met 10 m breed onderwatertalud wel goed overeen met de gemeten waarden.
  Voor de verticale weerstand van het onderwatertalud is 100 d aangehouden,
  wat redelijk lijkt,
- maar verhoging naar 1000 d verlaagt de stijghoogte in pb1 met 8 cm en in pb2 met 4 cm,
+ maar verhoging naar 1000 d verlaagt de stijghoogte in pb1 (net binnen de damwand) met 8 cm en in pb2 (net buiten het kanaal) met 4 cm,
  dus niet veel.
  Ook is de weerstand van de damwand is van 
 \begin_inset Formula $\infty$
 \end_inset
 
- verlaagd naar 50 d;
- ook dit blijkt maar heel weinig verschil te maken:
+ verlaagd naar 50 d,
+ maar ook dit blijkt maar heel weinig verschil te maken:
  1 cm voor pb1 en 2 cm voor pb2.
  De essentie voor het stroombeeld is de aanwezigheid van een weerstandbiedend onderwatertalud.
 \end_layout
@@ -13002,7 +13767,7 @@ In het model is de gevoeligheid van de in pb1 en pb1 berekende stijghoogten
 \begin_inset Formula $\infty$
 \end_inset
 
- of 100 d) ende weerstand van de damwand 
+ of 100 d) en de weerstand van de damwand 
 \begin_inset Formula $c_{damw}$
 \end_inset
 
@@ -13023,7 +13788,9 @@ In het model is de gevoeligheid van de in pb1 en pb1 berekende stijghoogten
 
 .
  In de wintersituatie,
- waarvoor de gegevens bekend zijn en de berekeningen gemaakt wordt dan vanwege de viscositeit verhoogd tot de 
+ waarvoor de gegevens bekend zijn,
+ en waarvoor deze berekeningen zijn gemaakt,
+ wordt dan vanwege de viscositeit verhoogd tot de 
 \begin_inset Formula $30.3$
 \end_inset
 
@@ -13039,11 +13806,11 @@ nolink "false"
 
 \end_inset
 
- met het overzicht van deze gevoeligheidsanalyse.
+ samen met het overzicht van deze gevoeligheidsanalyse.
 \end_layout
 
 \begin_layout Standard
-Elke regel geeft de resultaten van een model aanpassing.
+Elke tabelregel geeft de resultaten van een modelaanpassing.
  De viscositeit wordt in rekening gebracht door de doorlatendheden tot NAP -17 m vanaf het kanaalmidden tot 10 m daarbuiten buiten de damanden aan te passen aan kanaalwatertemperatuur.
  De weergegeven parameter 
 \begin_inset Formula $q_{inf}$
@@ -13053,22 +13820,48 @@ Elke regel geeft de resultaten van een model aanpassing.
 \end_layout
 
 \begin_layout Standard
-De twee laatste regel is het resultaat van hetzelfde model als de voorlaatste regel,
- maar doorgerekend voor een zomertemperatuur (kolom 
+De laatste regel in de tabel is het resultaat van hetzelfde model als de voorlaatste regel,
+ maar doorgerekend voor een zomertemperatuur (zie kolom 
 \begin_inset Formula $T_{ARK}$
 \end_inset
 
-) De verschillen komen geheel voor rekening van geautomatiseerde viscositeitsaanpassing.
- De infiltratiesnelheid neemt door de temperatuurverhoging (viscositeitsafname) toe van 28 tot 36 mm/d en de stijghoogten in de peilbuizen stijgen met ca.
+).
+ De verschillen komen dus geheel voor rekening van geautomatiseerde viscositeitsaanpassing.
+ De infiltratiesnelheid neemt door de temperatuurverhoging (viscositeitsafname) toe van 28 tot 36 mm/d,
+ en de stijghoogten in de peilbuizen stijgen met ca.
  21 cm.
- In de werkelijkheid stijgt de stijghoogte in de zomer meer dan 21 cm,
- ongeveer het dubbele.,
- wat betekent dat er nog andere processen zijn die de bodemweerstand bepalen.
+ In de werkelijkheid stijgt de stijghoogte in de zomer met meer dan 21 cm,
+ namelijk met ongeveer het dubbele,
+ wat betekent dat er nog andere processen zijn die de bodemweerstand bepalen (zie sectie ..
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Verband-tussen-stijghoogten-temperatuur"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ pagina 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "sec:Verband-tussen-stijghoogten-temperatuur"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
  
 \end_layout
 
 \begin_layout Standard
-Waar het ons in dit hoofdstuk om gaat is oplossing van de mismatch tussen de gemeten waarden in de peilbuizen net binnen het kanaal,
+Waar het ons in dit hoofdstuk om gaat,
+ is oplossing van de mismatch tussen de gemeten waarden in de peilbuizen net binnen het kanaal,
  
 \begin_inset Formula $\phi_{1}$
 \end_inset
@@ -13079,8 +13872,7 @@ Waar het ons in dit hoofdstuk om gaat is oplossing van de mismatch tussen de gem
 \begin_inset Formula $\phi_{2}$
 \end_inset
 
- (peilfilters zijn in de figuren met kleine blokjes aangegeven),
- en de voor deze locaties door het model berekende waarden.
+ (peilfilters zijn in de figuren met kleine blokjes aangegeven) en de voor deze locaties door het model berekende waarden.
  
 \end_layout
 
@@ -13097,9 +13889,10 @@ nolink "false"
 
 \end_inset
 
- laat zien dat de infiltratiesnelheid door de aanpassingen nauwelijks verandert;
- wat wel verandert zijn de berekende stijghoogtes in de twee peilfilters.
- Alleen door het aanbrengen van de strook onderwatertalud springen zij van veel te hoge waarden naar waarden die direct in de buurt komen van de metingen.
+ laat zien dat de infiltratiesnelheid door de aanpassingen nauwelijks verandert.
+ Maar wat wel verandert zijn de berekende stijghoogtes in de twee peilfilters.
+ Enkel door het aanbrengen van de strook onderwatertalud,
+ springen zij van veel te hoge waarden naar waarden die direct in de buurt komen van de metingen.
  Dit is dus geheel de invloed van het 10 m brede ondoorlatende onderwatertalud op de Formatie van Boxtel.
  Door de weerstand van de strook te verlagen van 
 \begin_inset Formula $\infty$
@@ -14582,7 +15375,8 @@ Peilverschil tussen peilbuizen pal buiten de damwand en peilbuizen tot 30 m vana
 \end_layout
 
 \begin_layout Standard
-Dat het peilverschil tussen peilbuizen pal naast het kanaal en die tot 30 m van het kanaal is begrijpelijk wanneer dit wordt bekeken tegen de achtergrond van de spreidingslengte die in de orde van 1000 m ligt (
+Dat het peilverschil tussen peilbuizen pal naast het kanaal en die tot 30 m van het kanaal zeer klein is,
+ is begrijpelijk wanneer dit wordt bekeken tegen de achtergrond van de spreidingslengte die in de orde van 1000 m ligt (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Be22"
@@ -14593,8 +15387,7 @@ literal "false"
 ).
  Een verval van ca.
  1.1 m ten opzichte van het peil in het ARK,
- impliceert bij een polderpeil van NAP -2.3 m nog een stijghoogte van ca.
- 0.8 m boven het polderpeil.
+ impliceert bij een polderpeil van NAP -2.3 dat er nog 0.8 m stijghoogteverval is tot het polderpeil.
  Het peilverval over 30 m is dan
 \end_layout
 
@@ -14610,7 +15403,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Wat binnen de nauwkeurigheid van deze analyse als verwaarloosbaar mag worden beschouwd.
+Binnen de nauwkeurigheid van deze analyse mag dit als verwaarloosbaar worden beschouwd.
  Vandaar dat er geen wezenlijk verschil is tussen de mediaan van cat=1 en cat=2 in tabel 
 \begin_inset CommandInset ref
 LatexCommand pageref
@@ -14625,448 +15418,29 @@ nolink "false"
 .
 \end_layout
 
-\begin_layout Section
-Doorsnede-model
-\end_layout
-
-\begin_layout Standard
-Voor een helderder inzicht in de samenhang tussen de stroming en de stijghoogte kan gebruik worden gemaakt van een dwarsdoorsnede model waarvan de resultaten in fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Stroomlijnen-en-isohypsen"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- zijn weergegeven.
- Dit model is hiervoor reeds aangeroerd maar wordt hier in meer detail beschreven.
-\end_layout
-
-\begin_layout Standard
-Omdat de stroming in de meeste raaien min of meer symmetrisch is,
- is slechts de helft van de doorsnede gemodelleerd.
- De figuur geeft slechts 600 m van het model weer;
- de gemodelleerde breedte is 10000 m,
- ruim voldoende om effecten van de rechter model rand te voorkomen (zie fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:model-stijgh-10000m"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-).
- De gebruikte verticale en horizontale doorlatendheden staan in de inzettabel.
- De ruimtelijke parameters van de watervoerende en slecht doorlatende lagen zijn goeddeels in overeenstemming met het model van Beemster e.a.
- (2022).
-\end_layout
-
-\begin_layout Standard
-Het waterlichaam van het ARK is weergegeven samen met de geologische lagen (zie ook de rechter inzet-tabel).
- Ook is het gebied met drainage door 'sloten' en het gebied met extra drainage door 'wellen' aangegeven (zie legenda links onder).
- De sloten en wellen beginnen pas vanaf de kade op 10 m buiten de damwanden,
- die tot NAP -9.4 reiken (tekening 1977,
- RWS).
- De sloten zijn gemodelleerd met GHB randvoorwaarden (Modflow jargon voor 
-\begin_inset Quotes pld
-\end_inset
-
-General Head Boundaries
-\begin_inset Quotes prd
-\end_inset
-
-).
- Dit in de bovenste modellaag (Echteld) over de gehele breedte rechts van het kanaal.
- De wellen zijn met DRN (Modflow jargon voor 
-\begin_inset Quotes pld
-\end_inset
-
-Drain Boundaries
-\begin_inset Quotes prd
-\end_inset
-
-) gemodelleerd in de laag juist onder het laagpakket van Nieuwkoop over een breedte 
-\begin_inset Formula $L_{wellen}=300$
-\end_inset
-
- m,
- zoals in de figuur aangegeven met cirkels in de laag..
- De in de figuur met markers aangegeven drainage door sloten en wellen moet worden geïnterpreteerd als uniforme vlakdekkende weerstand,
- niet als de locatie van individuele sloten.
- De tekens staat op de middens van de rekencellen die naar rechts toe breder worden.
- De vlakdekkende weerstandswaarden van de Nieuwkoop laag,
- de 
-\begin_inset Quotes pld
-\end_inset
-
-sloten
-\begin_inset Quotes prd
-\end_inset
-
- (
-\begin_inset Formula $c_{drainage}$
-\end_inset
-
-) en de 
-\begin_inset Quotes pld
-\end_inset
-
-wellen
-\begin_inset Quotes prd
-\end_inset
-
- met 
-\begin_inset Formula $c_{wellen}$
-\end_inset
-
- staan,
- samen met de gebruikte weerstand van de kanaalbodem in de middelste inzet-tabel.
- Deze tabel geeft ook de spreidingslengte 
-\begin_inset Formula $\lambda=\sqrt{kDc}$
-\end_inset
-
-.
- Het doorlaatvermogen,
- 
-\begin_inset Formula $kD$
-\end_inset
-
-,
- is berekend over alle lagen beneden de Nieuwkoop laag en voor de weerstand 
-\begin_inset Formula $c$
-\end_inset
-
- zijn twee waarden gebruikt:
- 1) De drainageweerstand 
-\begin_inset Formula $c_{drainage}$
-\end_inset
-
- + de weerstand van de Formatie van Nieuwkoop en 2) de waarde van de weerstand door gelijktijdige lek via enerzijds de drainageweerstand + de laag van Nieuwkoop en parallel daaraan via de weerstand door de wellen volgens 
-\begin_inset Formula $1/c=1/c_{1}+1/c_{2}$
-\end_inset
-
-.
- Vandaar dat deze weerstand lager is dan die van elk van de twee afzonderlijk.
- Dit leidt tot de twee waarden voor 
-\begin_inset Formula $\lambda$
-\end_inset
-
- die in de inzettabel zijn opgenomen.
- Verder staan in de inzettabel de weerstand van de damwand 
-\begin_inset Formula $c_{damw}$
-\end_inset
-
-,
- de weerstand van het onderwatertalud 
-\begin_inset Formula $c_{owt}$
-\end_inset
-
- en de breedte van het onderwatertalud 
-\begin_inset Formula $b_{owt}$
-\end_inset
-
-.
- In deze berekening is de breedte van het onderwatertalud nul,
- zodat de weerstand van het onderwatertalud er voor deze berekening niet toe doet.
- Voorts zijn in deze inzettabel de berekende gemiddelde infiltratiesnelheid over de kanaalbodem 
-\begin_inset Formula $q_{inf}$
-\end_inset
-
- [mm/d] opgenomen samen met het stijghoogteverschil,
- 
-\begin_inset Formula $\Delta h$
-\end_inset
-
-,
- over de weerstand in de kanaalbodem.
- In weergegeven berekening is de infiltratiesnelheid bijna 30 mm/d en het genoemde stijghoogteverval 88 cm.
- De laatste regel van de inzettabel geven het peil van het ARK en de berekende stijghoogte onder de waterbodem juist binnen en buiten de damwand.
- De locatie van de peilfilters van deze peilbuizen zijn als kleine blokjes aangegeven (zie legenda).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/xs_ark_r5_basis.pdf
-	lyxscale 200
-	height 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Stroomlijnen-en-isohypsen"
-
-\end_inset
-
-Stroomlijnen en isohypsen (stijghoogtelijnen) in dwarsdoorsnedemodel.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Stroomlijnen-en-isohypsen"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- geeft het patroon van stroom- en stijghoogtelijnen.
- Tussen elk paar stroomlijnen stroomt dezelfde hoeveelheid water,
- namelijk 
-\begin_inset Formula $d\psi=0.1$
-\end_inset
-
- m
-\begin_inset Formula $^{2}$
-\end_inset
-
-/d,
- terwijl het stijghoogteverschil tussen opeenvolgende isohypsen gelijk is aan 
-\begin_inset Formula $d\phi=0.02$
-\end_inset
-
- m zoals aangegeven in de titel van de figuur.
- De stroom- en stijghoogtelijn staan niet loodrecht op elkaar omdat de horizontale en verticale doorlatendheden van elkaar verschillen.
- Het patroon van lijnen laat zien dat de tot NAP -9.4 m reikende damwanden slechts een minimale invloed op de stroming uitoefenen ook al hebben zij een behoorlijke weerstand.
- In deze simulatie is de weerstand van de kanaalbodem 23 d bij 
-\begin_inset Formula $14^{o}C$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Het model houdt automatisch rekening met de viscositeit van het water.
- Daartoe worden de doorlatendheden tot een diepte van NAP 17 m tot 10 m buiten de damwanden vermenigvuldigd met de verhouding tussen de viscositeit bij de kanaalwatertemperatuur en die van de gemiddelde kanaalwatertemperatuur.
- Daarom is de weerstand van de bodem van het ARK in de inzettabel niet 23 d zoals ingevoerd en geldend bij de gemiddelde watertemperatuur van 
-\begin_inset Formula $14^{o}C$
-\end_inset
-
-,
- maar 29.2 dagen behorend bij de voor de modellering gebruikte temperatuur van 
-\begin_inset Formula $5.1^{o}C$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:model-stijgh-1000m"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- en geeft top op 1000 m vanaf de hartlijn van het kanaal het verloop van de stijghoogte op enkele horizontale niveaus zoals aangegeven in de legenda.
- De inzettabellen zijn dezelfde als in fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Stroomlijnen-en-isohypsen"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:model-stijgh-10000m"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- geeft hetzelfde verloop maar over de volle breedte van het model,
- waaruit blijkt dat het model breed genoeg is om invloed van de rechter rand te vermijden.
- Ook is in fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:model-stijgh-10000m"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- goed te zien dat de wellen maar over een beperkte breedte zijn gemodelleerd.
-\end_layout
-
-\begin_layout Standard
-Het kanaalpeil is in blauw weergegeven en de stijghoogte direct onder de kanaalbodemweerstand in lichtblauw.
- De dikke bruine lijn is de stijghoogte direct onder de Formatie van Nieuwkoop (top Boxtel).
- De rode lijn is in de Formatie van Echteld (feitelijk direct boven het veen in de deklaag) en de markers voor de sloten en wellen zijn getekend op het niveau van het polderpeil (NAP -2.3 m).
- De stijghoogte net boven en onder de slechtdoorlatende laag van Waalre zijn opgenomen net als die aan de basis van de Formatie van Peize.
- Dit geeft zo een totaal inzicht in de stijghoogte dat overeenkomt met de isohypsen in fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Stroomlijnen-en-isohypsen"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_basis.pdf
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:model-stijgh-1000m"
-
-\end_inset
-
-Verloop van de stijghoogte op enkele horizontale niveaus over de eerste 1000 m vanaf de hartlijn van het kanaal.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_basis_10000.pdf
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:model-stijgh-10000m"
-
-\end_inset
-
-Verloop van de stijghoogte op enkele horizontale niveaus over de volle breedte van het model.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Wellen
+\begin_layout Subsection
+Implementatie van wellen
 \end_layout
 
 \begin_layout Standard
 De implementatie van de voorkomende wellen staat uiteraard open voor discussie.
- Een bruikbare suggestie was om deze te implementeren via DRN randvoorwaarden net onder de deklaag (Formatie van Nieuwkoop).
+ Een bruikbare suggestie was om wellen te implementeren via DRN randvoorwaarden net onder de deklaag (Formatie van Nieuwkoop).
  De cellen met deze DRNs lekken dan zodra de stijghoogte onder de deklaag boven het polderpeil reikt,
  terwijl de weerstand naar wens kan worden ingesteld.
  Deze wellen veroorzaken een parallelle lekstroom die de totale lekweerstand vermindert.
  Door de wellen over een beperkte breedte op deze wijze te implementeren,
- ontstaat in het model over deze zone een gebied met de gecombineerde lekweerstand van wellen en deklaag+sloten en daarbuiten een gebied met lekweerstand die alleen door de deklaag+sloten wordt veroorzaakt.
+ ontstaat in het model over deze zone een gebied met de gecombineerde lekweerstand van wellen en deklaag+sloten,
+ en daarbuiten een gebied met lekweerstand die alleen door de deklaag+sloten wordt veroorzaakt.
 \end_layout
 
 \begin_layout Standard
-Dit laatste impliceert dat het verloop van de logaritme van stijghoogte onder de deklaag minus het polderpeil ,
+Dit laatste impliceert dat het verloop van de logaritme van stijghoogte onder de deklaag minus het polderpeil,
  als functie van de afstand zowel lineair verloopt,
  maar binnen zone met wellen steiler dan daarbuiten,
  met een knik op de grens van de twee gebieden.
- Lineair is het verloop in het wellengebied echter toch niet,
+ Lineair blijkt het verloop in het model binnen het wellengebied echter toch niet,
  omdat het kanaal niet alle watervoerende pakketten over hun gehele dikte penetreert.
- De rechte lijn gaan we over het wellen gebied dus niet krijgen.
+ De theoretisch rechte lijn gaan we over het wellengebied dus niet krijgen.
  Daarbuiten wel,
  wat tenminste calibratie van de deklaag zonder wellen mogelijk maakt.
 \end_layout
@@ -15083,32 +15457,9 @@ nolink "false"
 
 \end_inset
 
- illustreert dat het logaritmische verloop van de stijghoogte ten opzichte van het polderpeil niet lineair is over het traject van de wellen tussen 60 en 360 m vanaf het kanaal.
- Dit is het gevolg van de geringe insnijding van het ARK in het 160 m diepe grondwatersysteem dat bovendien verticaal anisotroop is.
- Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Verloop-van-de-stijghoogten-logschaal"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- is dezelfde grafiek als fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:model-stijgh-1000m"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- maar in plaats van de stijghoogte is de stijghoogte minus polderpeil weergegeven om positieve waarden te krijgen die noodzakelijk zijn voor de logaritmische verticale schaal.
+ illustreert dat het logaritmische verloop van de stijghoogte ten opzichte van het polderpeil niet lineair is over het traject van de wellen tussen 60 en 360 m vanaf de hartlijn van het kanaal.
+ Het effect van de geringe insnijding van het ARK in het 160 m diepe grondwatersysteem dat bovendien verticaal anisotroop is voorbij zo'n 500 m van de hartlijn van het kanaal volledig verdwenen.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -15122,6 +15473,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_log_xs_ark_raai5_basis.pdf
+	width 80text%
 
 \end_inset
 
@@ -15138,7 +15490,7 @@ name "fig:Verloop-van-de-stijghoogten-logschaal"
 
 \end_inset
 
-Verloop van de stijghoogte (logaritmische verticale schaal) op enkele horizontale niveaus over de eerste 1000 m vanaf de hartlijn van het kanaal.
+Berekend verloop van de stijghoogte minus polderpeil op logaritmische verticale schaal op enkele horizontale niveaus over de eerste 1000 m vanaf de hartlijn van het kanaal van het kanaal.
 \end_layout
 
 \end_inset
@@ -15179,14 +15531,15 @@ literal "false"
 
 \end_inset
 
- als functie van de afstand tot het kanaal.
- De getrokken lijnen geven de wintersituatie (rond 1 februari,
+) als functie van de afstand tot de hartlijn van het kanaal.
+ De getrokken lijnen geven de wintersituatie weer (rond 1 februari,
  wanneer de temperatuur van het ARK-water met 5
 \begin_inset Formula $^{o}$
 \end_inset
 
 C het laagst is;
- de streepjeslijnen geven de wintersituatie rond 1 augustus,
+ de streepjeslijnen geven de zomersituatie weer,
+ rond 1 augustus,
  wanneer de ARK-temperatuur met 25
 \begin_inset Formula $^{o}$
 \end_inset
@@ -15195,7 +15548,7 @@ C het hoogst is .
  Door de metingen over het model te leggen kan iets gezegd worden over de minimale en maximale bodemweerstand van het kanaal,
  want,
  zoals hiervoor aangetoond,
- de intredeweerstand hangt alleen van de temperatuur van het ARK-water af.
+ de intredeweerstand hangt (althans in het model) alleen van de temperatuur van het ARK-water af.
 \end_layout
 
 \begin_layout Standard
@@ -15226,46 +15579,62 @@ De waterstand bovenin Boxtel zakt tussen zomer en winter van ca.
  24 mm/d (precieze cijfers staan in de afzonderlijke figuren vermeld).
  Deels is dit te verklaren door de hogere viscositeit van het ARK-water in de winter.
  Zeker is dat de weerstand van de bodem zo goed als gelijke tred houdt met de viscositeit en dus de temperatuur van het ARK water,
- omdat er maar weinig tijd nodig is voor het geïnfiltreerde water om de weerstandslaag op de ARK-bodem te passeren.
- Een infiltratiesnelheid van 25 mm/d impliceert met een porositeit van ca.
- 1/3 en en temperatuur retardatie van ca.
- 2 een penetratiesnelheid van de temperatuur van ca.
+ omdat er voor het geïnfiltreerde water maar weinig tijd nodig is om de weerstandslaag op de ARK-bodem te passeren.
+ Een infiltratiesnelheid van 25 mm/d impliceert,
+ met een porositeit van ca.
+ 1/3 en een temperatuurretardatie van ca.
+ 2,
+ een penetratiesnelheid van de temperatuur van ca.
  40 mm/d,
  dus 1.2 m/maand.
  Dit is op zich voldoende om de hiervoor geconstateerde vertraging van het stijghoogteverloop ten opzichte van het temperatuurverloop van het ARK-water te verklaren.
  Maar over het tijdsbestek van bijv.
- een half jaar is de penetratiediepte van het temperatuur front ca.
- 7 m en reikt dus,
- gerekend vanaf de bodem van het ARK op NAP -6.5 m tot NAP -13.5 m,
- dus ruim onder basis van de damwanden op NAP -9.4 m.
+ een half jaar is de penetratiediepte van het temperatuurfront ca.
+ 7 m,
+ en reikt dus,
+ gerekend vanaf de bodem van het ARK op NAP -6.5 m,
+ tot ca.
+ NAP -13.5 m.
+ Dit is ruim onder basis van de damwanden op NAP -9.4 m.
  Het is dus niet uitsluitend de kanaalbodem waarvan de viscositeit volledig het jaarverloop van temperatuur van het ARK volgt;
  dit geldt ook voor de zone onder het kanaal tot ruim onder de damwanden.
- Daarbuiten spelen verblijftijdspreiding en afvlakking door geleiding een steeds belangrijker rol waardoor op afstanden van meer dan enkele tientallen meters het jaarverloop van de temperatuur nauwelijks meer een rol speelt.
- Bovendien zorgt de vertraging op zulke afstanden ervoor dat de afname van de viscositeit door de verhoging van de temperatuur onder de kanaalbodem in de zomer wordt gecompenseerd door verlaging van de viscositeit verderop waar door de vertraging de water temperatuur juist in de winter het hoogst is.
- Om deze reden kan in het model met de zomer en wintertemperatuur rekening worden gehouden door in de gehele zone onder het ARK tot een diepte van zeg 14 m de doorlatendheden aan de zomer- respectievelijk wintertemperaturen aan de passen door deling door 
-\begin_inset Formula $\mu_{T}/\mu_{10C}$
+ Daarbuiten spelen verblijftijdspreiding en afvlakking door geleiding een steeds belangrijker rol,
+ waardoor op afstanden van meer dan enkele tientallen meters het jaarverloop van de temperatuur nauwelijks meer een rol speelt.
+ Bovendien zorgt de vertraging op zulke afstanden ervoor dat de afname van de viscositeit,
+ omdat de verhoging van de temperatuur onder de kanaalbodem in de zomer wordt gecompenseerd door verlaging van de viscositeit verderop,
+ waar,
+ door de vertraging,
+ de watertemperatuur juist in de winter het hoogst is.
+ Om deze reden kan in het model met de zomer en wintertemperatuur rekening worden gehouden door in de gehele zone onder het ARK tot een diepte van zeg 14 m alle doorlatendheden aan de zomer- respectievelijk wintertemperaturen aan de passen.
+ Dit gebeurt door deling door 
+\begin_inset Formula $\mu_{T}/\mu_{M}$
 \end_inset
 
  waarin 
 \begin_inset Formula $\mu_{T}$
 \end_inset
 
- te viscositeit bij 
+ de viscositeit bij 
 \begin_inset Formula $T$
 \end_inset
 
  graden en 
-\begin_inset Formula $\mu_{10}$
+\begin_inset Formula $\mu_{M}$
 \end_inset
 
- die bij 10 graden Celsius is.
- Dit is gedaan in alle berekeningen waarbij in de titel figuur de temperatuur van het ARK-water staat vermeld.
+ die bij 
+\begin_inset Formula $14^{o}C,$
+\end_inset
+
+ is.
+ Deze aanpassing gebeurt automatisch in alle berekeningen waarbij in de titel figuur de temperatuur van het ARK-water staat vermeld.
 \end_layout
 
 \begin_layout Standard
 Terwijl de op fysische gronden noodzakelijke aanpassing van de doorlatendheden aan de ARK-temperatuur in de genoemde zone noodzakelijk is,
- blijkt dit onvoldoende om het verschil tussen de zomerpiek en winterdal stijghoogten te overbruggen.
- Een goede match tussen deze uiterste grondwaterstanden vergt dat de bodemweerstand van het kanaal apart wordt aangepast,
+ blijkt dit onvoldoende om het verschil tussen de zomerpiek- en winterdalstijghoogten te overbruggen.
+ Een goede match tussen deze uiterste grondwaterstanden vergt meer,
+ bijvoorbeeld dat de bodemweerstand van het kanaal apart wordt aangepast,
  bovenop de aanpassing van de viscositeit.
 \end_layout
 
@@ -15282,25 +15651,25 @@ nolink "false"
 
 \end_inset
 
- laat zien dat het verloop van de uiterste zomer en winterstijghoogten als functie van de afstand tot het ARK voor veel raaien lastig zijn te interpreteren.
- Voor een goed interpretatie zijn alle peilbuizen noodzakelijk,
- met name ook buizen verder van het ARK.
- Het verloop van de zomer en winter standen blijkt vooral lastig aan de oostkant van het ARK,
- vermoedelijk om meer complexe randvoorwaarden door meer groot open water,
- waar in het doorsnede model geen rekening mee is gehouden.
+ laat zien dat het verloop van de uiterste zomer- en winterstijghoogten als functie van de afstand tot het ARK voor veel raaien lastig zijn te interpreteren.
+ Voor een goede interpretatie zijn alle peilbuizen van de raaien nodig,
+ met name die op grotere afstanden van het ARK.
+ Het verloop van de zomer- en winterstanden blijkt vooral lastig aan de oostkant van het ARK,
+ waarschijnlijk als gevolg van complexe randvoorwaarden door aanwezigheid van meer en groter open water,
+ waar in het doorsnedemodel geen rekening mee is gehouden.
  Vandaar dat we ons hier concentreren op de beste reeksen,
  die van raaien 5 en 6 aan de westzijde van het ARK,
- waarin de beschikbare buizen vaan raai 4 vlakbij het ARK kunnen worden meegenomen omdat deze bij raai 5 passen.
- Raai 4,
- 5 verschilt van raai 6 in die zin dat raai 6 aan de westzijde van het kanaal een lager polderpeil van NAP -2.6 in plaats van NAP -2.3 heeft.
- De verschillen tussen de randvoorwaarden aan beide kanaalzijden zullen er vermoedelijk toe leiden dat meer water naar het westen dan naar het oosten stroomt;
+ waarin de beschikbare buizen vaan raai 4 vlakbij het ARK kunnen worden meegenomen,
+ omdat deze goed bij raai 5 passen.
+ Raaien 4 en 5 verschillen gezamenlijk van raai 6 in die zin dat raai 6 aan de westzijde van het kanaal een lager polderpeil heeft van NAP -2.6 in plaats van NAP -2.3 m.
+ De verschillen tussen de randvoorwaarden aan beide kanaalzijden zullen er vermoedelijk toe leiden dat in raai 6 in de werkelijkheid meer water naar het westen dan naar het oosten stroomt;
  hiermee is in het model nog geen rekening gehouden.
 \end_layout
 
 \begin_layout Standard
 Om de berekende grondwaterstand aan de top van de Formatie van Boxtel passend te krijgen op de zomer- resp.
  de winterstijghoogten,
- kan aan een aantal knoppen worden gedraaid:
+ kan aan een aantal modelknoppen worden gedraaid:
 \end_layout
 
 \begin_layout Itemize
@@ -15321,7 +15690,7 @@ De vlakdekkende weerstand van de wellen.
 \end_layout
 
 \begin_layout Standard
-Ook de drainage (of lekweerstand) van de deklaag kan worden aangepast (
+Ook de drainage (of lekweerstand) van de deklaag kan worden aangepast (geïmplementeerd met 
 \begin_inset Quotes pld
 \end_inset
 
@@ -15352,8 +15721,8 @@ nolink "false"
 
 \begin_layout Standard
 Per raai blijven dan 3 parameters om aan te passen:
- bodemweerstand ARK (bij 10C) (c [bodem ARK],
- de verticale doorlatendheid van de Formatie van Nieuwkoop (
+ bodemweerstand ARK (bij 14C) (c [bodem ARK],
+ de verticale doorlatendheid van de laag van Nieuwkoop (
 \begin_inset Formula $kv$
 \end_inset
 
@@ -15363,13 +15732,13 @@ Per raai blijven dan 3 parameters om aan te passen:
 
  [wellen]),
  zie beide inzet tabellen in de figuren.
- Per raai zijn de verticale doorlatendheid van de Formatie van Nieuwkoop en de vlakdekkende weerstand constant gehouden,
+ Per raai zijn de verticale doorlatendheid van de laag van Nieuwkoop en de vlakdekkende weerstand constant gehouden,
  dus geen verschil tussen zomer en winter.
 \end_layout
 
 \begin_layout Standard
-Voor een echt goede calibratie zijn ruim meer punten nodig.
- Nu hebben we teveel parameters voor de metingen.
+Voor een echt goede calibratie zijn meer punten nodig.
+ Voor ijking van het model per raai hebben we nu teveel parameters ten opzichte van de metingen.
  Maar een plausibel beeld kan wel verkregen worden.
  Fig.
 \begin_inset CommandInset ref
@@ -15384,7 +15753,18 @@ nolink "false"
 
  geeft het resultaat van de metingen en berekening voor de parameters van raai 5.
  De bovenste figuur voor de zomer en de onderste voor de winter.
- De viscositeit is in het model verdisconteerd maar daarboven op is een aanpassing van de kanaalbodemweerstand nodig (bij 10C) van 8d in de zomer naar 20d in de winter.
+\end_layout
+
+\begin_layout Standard
+@@Check aan de nieuwste berekeningen!!!
+\end_layout
+
+\begin_layout Standard
+De viscositeit is in het model verdisconteerd maar daarboven op bleek een aanpassing van de kanaalbodemweerstand nodig (bij 
+\begin_inset Formula $14^{o}C$
+\end_inset
+
+) van 8d in de zomer naar 20d in de winter.
  Door de verwerking van de viscositeit vermindert 8d bij 10
 \begin_inset Formula $^{o}$
 \end_inset
@@ -15404,13 +15784,8 @@ C toe tot 22.8d bij 5
 
 C (zie inzettabel).
  Dit zijn de getallen die in de inzettabel zijn genoemd.
- Maar ook de de doorlatendheid van de zone direct onder het ARK tot NAP -12 m is aan de temperatuur van het kanaal aangepast.
- Dit staat echter niet afzonderlijk in de tabel;
- de doorlatendheden van de lagen in de inzettabel gelden voor 10
-\begin_inset Formula $^{o}$
-\end_inset
-
-C en zijn buiten de genoemde zone dus altijd hetzelfde.
+ Maar ook de doorlatendheid van de zone direct onder het ARK tot NAP -17 m en tot 10 m buiten het kanaal is aan de temperatuur van het kanaal aangepast (zie inzettabel);
+ de doorlatendheden buiten de genoemde zone dus altijd hetzelfde.
 \end_layout
 
 \begin_layout Standard
@@ -15444,6 +15819,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_zomer.pdf
+	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -15454,6 +15830,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai5_winter.pdf
+	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -15530,7 +15907,7 @@ nolink "false"
  Maar gebrek aan gegevens op grotere afstanden maken definitieve conclusies over de getalwaarden van de weerstanden zeer betrekkelijk.
  De belangrijkste conclusie is,
  dat ook voor raai 6 het verschil in viscositeit tussen de zomer en winter onvoldoende is om het verschil in stijghoogte te verklaren;
- ook voor raai 6 is de bodemweerstand (waarde bij 10
+ ook voor raai 6 is de bodemweerstand (waarde bij 14
 \begin_inset Formula $^{o}$
 \end_inset
 
@@ -15544,7 +15921,7 @@ C) en de winteraarde 32 d (wordt 36.5d bij 5
 \end_inset
 
 C,
- zie inzettabel).
+ zie inzettabel) @@check de getallen.
  
 \end_layout
 
@@ -15559,6 +15936,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai6_zomer.pdf
+	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -15569,6 +15947,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/stijgh_xs_ark_raai6_winter.pdf
+	lyxscale 200
 	width 80text%
 
 \end_inset
@@ -15657,13 +16036,14 @@ C een factor 0.59 (
 
 C.
  Dit viscositeitsverschil maakt de doorlatendheid van de kanaalbodem in de zomer 1.7 maal zo groot als in de winter.
- Maar de berekende infiltratiesnelheid is in raai 5 in de wintersituatie (begin februari) is 32 mm/d en de zomersituatie (rond 1 augustus) 47 mm/d (zie inzettabellen),
+ Maar de berekende infiltratiesnelheid is in raai 5 in de wintersituatie (begin februari) is 32 mm/d en de zomersituatie (rond 1 augustus) 47 mm/d (zie inzettabellen)@@,
  dus een factor 
 \begin_inset Formula $\approx1.5$
 \end_inset
 
  groter dan in de winter,
- maar die leidt naast het ARK in de zomer niet tot een stijghoogte in de Formatie van Boxtel boven het polderpeil die in de winter dan in de winter het geval is.
+ maar die leidt naast het ARK in de zomer niet tot een stijghoogte in de Formatie van Boxtel boven het polderpeil @@zin???
+ dan in de winter het geval is.
  De berekende infiltratiesnelheid voor raai 6 is ca.
  42 mm/d in de zomer en 23 mm/d in de winter.
 \end_layout
@@ -15702,7 +16082,7 @@ Statistiek temperatuur ARK water 5/1/2025-5/1/2026 en bijbehorende viscositeit t
 
 C.
  De winter- en zomertemperatuur zijn resp.
- de 25% en 75% quantielen van de dagcijfers.
+ de 25% en 75% kwantielen van de dagcijfers.
  
 \end_layout
 
@@ -15735,7 +16115,7 @@ C.
 \begin_inset Text
 
 \begin_layout Plain Layout
-min
+min.
 \end_layout
 
 \end_inset
@@ -15771,7 +16151,7 @@ zomer
 \begin_inset Text
 
 \begin_layout Plain Layout
-max
+max.
 \end_layout
 
 \end_inset
@@ -15968,7 +16348,7 @@ temp
 \end_layout
 
 \begin_layout Standard
-De temperatuur in de peilbuizen not onder de deklaag blijkt gemiddeld ca.
+De temperatuur in de peilbuizen net onder de deklaag blijkt gemiddeld ca.
  14
 \begin_inset Formula $^{o}$
 \end_inset
@@ -15977,10 +16357,14 @@ C (zie eerder figuren),
  dus gelijk aan de gemiddelde temperatuur van het kanaalwater.
  Dit gaat op voor alle peilbuizen tot ca.
  250 m vanaf het ARK.
- Alleen peilbuizen op grotere afstand van het kanaal liggen hebben een wat lagere temperatuur,
+ Alleen peilbuizen die op grotere afstand van het kanaal liggen hebben een wat lagere temperatuur,
  ca.
- 12C.
- Dit duidt erop dat het ARK water over de afgelopen decennia tot op aanzienlijke afstand in het grondwater is voortgeschreden.We zouden er dus van uit moeten gaan dat het grondwater in de omgeving van het ARK beneden de deklaag 14 graden is.
+ 
+\begin_inset Formula $12^{o}C$
+\end_inset
+
+.
+ Dit duidt erop dat het ARK water over de afgelopen decennia tot op aanzienlijke afstand in het grondwater is voortgeschreden.We gaan er zodoende van uit dat het grondwater in de omgeving van het ARK beneden de deklaag 14 graden is.
  Onder de laag van Waalre kan dit wat lager zijn,
  10-12 graden,
  dichter bij wat in Nederland onder natuurlijke omstandigheden mag worden verwacht,
@@ -16053,7 +16437,8 @@ m
 \begin_inset Formula $^{2}$
 \end_inset
 
-/d) tussen elk paar stroomlijnen is steeds gelijk evenals het stijghoogteverval (
+/d) tussen elk paar stroomlijnen is steeds gelijk,
+ evenals het stijghoogteverval (
 \begin_inset Formula $d\phi=0.02$
 \end_inset
 
@@ -16078,20 +16463,22 @@ d.
 \begin_inset Formula $q$
 \end_inset
 
- de infiltratiesnelheid.
+ de de gemiddelde infiltratiesnelheid op de kanaalbodem.
  Kiezen we het eerste punt in het kanaal,
  het tweede bijv.
- net buiten de kade zodat de lek tussen kanaal en punt verwaarloosbaar is en voor de temperatuur daarbuiten de jaargemiddelde waarde kan worden verondersteld,
+ net buiten de kade,
+ zodat de lek tussen het kanaal en het gekozen punt verwaarloosbaar is en voor deze buitenzone de temperatuur op de jaargemiddelde waarde kan worden gesteld,
  dan kan het effect van de viscositeit op de stijghoogte op het bewuste punt eenvoudig worden berekend.
 \end_layout
 
 \begin_layout Standard
-Maar eerste dient de keuze van het punt onder de kade te worden verantwoord.
+Maar eerst dient de keuze van het punt onder de kade te worden verantwoord.
  Bij een representatieve infiltratiesnelheid van 40 mm/d is de kolom water die in een half jaar infiltreert 7.2 m.
  Bij porositeit van 1/3 en retardatie van de temperatuur van ca.
  2,
  is de indringdiepte van de temperatuur anderhalf maal zo groot,
  dus in een half jaar ca.
+ 10 m.
  Bij een bodemhoogte van NAP -6.5 m,
  betekent dit indringing van de temperatuur tot ca.
  NAP -16.5 m.
@@ -16109,8 +16496,8 @@ nolink "false"
 \end_inset
 
 .
- Dus wanneer we de zone die in een half jaar door de temperatuur van een seizoen wordt beïnvloed stellen op die tot NAP -16 onder het ARK en naast het ARK tot kadebreedte van 10 m,
- dan zitten we behoorlijk in de richting van de zone waarin de viscositeit door zomer resp.
+ Dus wanneer we de zone die in een half jaar door de temperatuur van een seizoen wordt beïnvloed stellen op die tot NAP -17 onder het ARK en naast het ARK tot kadebreedte van 10 m,
+ dan zitten we behoorlijk in de richting van de zone waarbinnen de viscositeit door zomer resp.
  winter wordt beïnvloed door het kanaalwater in hetzelfde seizoen.
  Daarbuiten mag worden verondersteld dat door geleiding en afvlakking de seizoeninvloed van de temperatuur kan worden verwaarloosd.
  Dit verantwoordt de keuze van het vergelijkingspunt net onder de deklaag op de rand van de kade op 10 m buiten het kanaal.
@@ -16253,7 +16640,7 @@ Schema berekening stijghoogte
 \end_layout
 
 \begin_layout Standard
-Het hebben de volgende relatie,
+We hebben de volgende relatie,
  die zegt dat het vaste hoogste peil,
  
 \begin_inset Formula $h_{A}$
@@ -16433,11 +16820,11 @@ De stijghoogte in het referentiepunt bij willekeurige temperatuur ,
 \end_inset
 
 ,
- is gelijk aan polderpeil maar 
+ is gelijk aan polderpeil maal 
 \begin_inset Formula $q_{T}c_{B}$
 \end_inset
 
-
+:
 \end_layout
 
 \begin_layout Standard
@@ -16501,7 +16888,8 @@ nolink "false"
 
 \end_inset
 
-) direct uitdrukking in de stijghoogte want 
+) direct uitdrukken in de stijghoogte want,
+ 
 \begin_inset Formula $c_{A,T_{r}}/c_{B}$
 \end_inset
 
@@ -16535,7 +16923,7 @@ zodat
 \end_layout
 
 \begin_layout Standard
-Direct ingevuld in (
+Ingevuld in (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:hR2"
@@ -16550,7 +16938,7 @@ nolink "false"
 \begin_inset Formula $h_{R}$
 \end_inset
 
- bij willekeurige temperatuur te kunnen berekenen
+ op het referentiepunt bij willekeurige temperatuur te kunnen berekenen
 \end_layout
 
 \begin_layout Standard
@@ -16578,7 +16966,13 @@ nolink "false"
 
  geeft de resultaten van de berekening.
  Het eerste cijfer (of eerste 2 cijfers) van de peilbuisnaam is het raainummer.
- De gemeten winter dalstijghoogte wordt als referentie genomen.
+ De gemeten winterdal-stijghoogte,
+ 
+\begin_inset Formula $h_{w,gem}$
+\end_inset
+
+,
+ wordt als referentie genomen.
  Dus de stijghoogte neemt af van 
 \begin_inset Formula $h_{ARK}$
 \end_inset
@@ -16592,8 +16986,20 @@ nolink "false"
 \end_inset
 
 .
- De gebuikte zomer- en wintertemperatuur,
- de daaruit volgende verhouding tussen de zomer- en winterviscositeit en de met (
+ De gebuikte zomertemperatuur 
+\begin_inset Formula $T_{z}$
+\end_inset
+
+ en wintertemperatuur 
+\begin_inset Formula $T_{w}$
+\end_inset
+
+,
+ de daaruit volgende verhouding tussen de zomer- en winterviscositeit 
+\begin_inset Formula $\mu_{T_{z}}/\mu_{T_{w}}$
+\end_inset
+
+en de met (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:qT/qTr-3"
@@ -16604,11 +17010,34 @@ nolink "false"
 
 \end_inset
 
-) berekende verhouding tussen de infiltratiesnelheid in de zomer en in de winter.
- Vervolgens de op het referentiepunt berekende zomerstijghoogte naast de gemeten waarde (afgeleid uit de tijdstijghoogtelijn van de peilbuis).
- Tenslotte het verschil tussen de gemeten zomerstijghoogte en de berekende.
+) berekende verhouding tussen de infiltratiesnelheid in de zomer en in de winter 
+\begin_inset Formula $q_{z}/q_{w}$
+\end_inset
+
+.
+ Vervolgens wordt de berekende zomerstijghoogte 
+\begin_inset Formula $h_{z,ber}$
+\end_inset
+
+ op het referentiepunt vergeleken met de gemeten zomerstijghoogte 
+\begin_inset Formula $h_{z,gem}$
+\end_inset
+
+ (die was afgeleid uit de tijdstijghoogtelijn van de peilbuis).
+ De laatste kolom geeft het verschil tussen de gemeten zomerstijghoogte en de berekende.
  Deze waarden zijn positief wanneer de gemeten stijghoogte hoger is dan de berekende.
- De resultaten zijn ook weergegeven in fig.
+ De resultaten zijn ook weergegeven in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemeten-zomerstijghoogten-versus-berekende"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -16633,8 +17062,12 @@ name "tab:Peilbuizen-effect_viscositeit"
 
 \end_inset
 
-Berekening van de zomer grondwaterstand in de peilbuizen dicht bij het kanaal waarvoor de piekgrondwaterstand in de zomer en de dalgrondwaterstand in de winter grondwaterstand kon worden bepaald uit de tijdreeksen.
- dist=afstand tot hartlijn ARK (trek 50 m af voor de afstand tot de damwand).
+Berekening van de zomer grondwaterstand in de peilbuizen dicht bij het kanaal waarvoor de piekgrondwaterstand in de zomer en de dalgrondwaterstand in de winter kon worden bepaald uit de tijdreeksen.
+ 
+\begin_inset Formula $dist$
+\end_inset
+
+=afstand tot hartlijn ARK (trek 50 m af voor de afstand tot de damwand).
  
 \begin_inset Formula $h_{ARK}$
 \end_inset
@@ -20984,35 +21417,17 @@ nolink "false"
 
 \begin_layout Standard
 In enkele raaien,
- met name raai 4 is de gemeten grondwaterstand beduidend hoger dan de berekende.
- Dit impliceert dat de gemeten zomergrondwaterstand niet kan worden verklaard uit het de invloed van de viscositeit.
- Behalve de viscositeit zal ook de bodemweerstand zelf moten afnemen met de watertemperatuur.
- We weten nog niet hoe dat mogelijk is en welke processen dit veroorzaken.
- Met name wordt gedacht aan biologische,
+ met name raai 4,
+ is de gemeten grondwaterstand beduidend hoger dan de berekende.
+ Dit impliceert dat de gemeten zomergrondwaterstand niet kan worden verklaard uit enkel de invloed van de viscositeit.
+ Behalve de viscositeit spelen blijkbaar andere processen een rol.
+ We weten nog niet hoe dat mogelijk is en welke processen dit veroorzaken,
+ wellicht biologische,
  maar het bewijs daarvoor is nog niet geleverd.
-\end_layout
-
-\begin_layout Standard
-Overigens blijkt dat niet voor alle peilbuizen geldt dat de gemeten zomergrondwaterstand hoger is dan de berekende,
- waarbij de berekende uitsluitend rekening houdt met het viscositeitseffect tussen kanaal en referentiepunt (onder de deklaag op ca.
- 10 m buiten het kanaal).
- Waar de gemeten zomergrondwaterstand lager is dan de berekende is waarschijnlijk sprake van meer weerstand dieper onder de kanaalbodem,
- waardoor daar de waar infiltratie relatief gering is en slechts een fractie van de weerstandbiedende lagen onderhevig is aan de jaarlijkse temperatuurvariatie.
- Echter in alle gevallen die voldoen aan de uitgangspunten,
- namelijk voldoende penetratiediepte gedurende het seizoen zou de berekening op fysische gronden moeten kloppen.
-\end_layout
-
-\begin_layout Standard
-Men kan nog opwerpen dat de gebruikte temperaturen te extreem zijn;
- dat in plaats van de maximum zomertemperatuur en de minimum wintertemperatuur juist de gemiddelde zomer- en wintertemperatuur zou moeten worden gebruikt dus 8.5 en 18.8
-\begin_inset Formula $^{o}$
-\end_inset
-
-C.
- De resultaten hiervan staan in fig.
+ Een vermoeden wordt hierna uitgewerkt in hoofdstuk 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Gemeten-zomerstijghoogten-versus-berekende-1"
+reference "sec:Verband-tussen-stijghoogten-temperatuur"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21021,11 +21436,17 @@ nolink "false"
 \end_inset
 
 .
- We zien nu dat alle gemeten punten hoger liggen dan de berekende.
- De reden is dat de meeste weerstand in de kanaalbodem is geconcentreerd,
- die altijd direct de temperatuur heeft van het kanaalwater,
- waardoor juist de extreme temperaturen in de praktijk dominant zijn.
- Dit is als volgt te illustreren.
+\end_layout
+
+\begin_layout Standard
+Overigens blijkt dat niet voor alle peilbuizen geldt dat de gemeten zomergrondwaterstand hoger is dan de berekende,
+ waarbij de berekende grondwaterstand uitsluitend rekening houdt met het viscositeitseffect tussen kanaal en referentiepunt onder de deklaag op ca.
+ 10 m buiten het kanaal.
+ Waar de gemeten zomergrondwaterstand lager is dan de berekende is waarschijnlijk sprake van meer weerstand dieper onder de kanaalbodem,
+ waardoor daar de waar infiltratie relatief gering is en slechts een fractie van de weerstandbiedende lagen onderhevig is aan de jaarlijkse temperatuurvariatie.
+ Echter in alle gevallen die voldoen aan de uitgangspunten,
+ namelijk voldoende penetratiediepte van het kanaalwater gedurende het seizoen,
+ zou de berekening op fysische gronden moeten kloppen.
 \end_layout
 
 \begin_layout Standard
@@ -21084,6 +21505,32 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
+Men kan nog opwerpen dat de gebruikte temperaturen te extreem zijn;
+ dat in plaats van de maximum zomertemperatuur en de minimum wintertemperatuur juist de gemiddelde zomer- en wintertemperatuur zou moeten worden gebruikt dus 8.5 en 18.8
+\begin_inset Formula $^{o}$
+\end_inset
+
+C.
+ De resultaten hiervan staan in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemeten-zomerstijghoogten-versus-berekende-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ We zien nu dat alle gemeten punten hoger liggen dan de berekende.
+ De reden is dat de meeste weerstand in de kanaalbodem is geconcentreerd,
+ die altijd direct de temperatuur heeft van het kanaalwater,
+ waardoor juist de extreme temperaturen in de praktijk dominant zijn.
+ Dit is als volgt te illustreren.
+\end_layout
+
+\begin_layout Standard
 De infiltratiesnelheid verschilt per situatie maar ligt volgens het model in de winter in de orde van 25 mm/d en in de zomer rond 50 mm/d.
  Als we dit aannemen kunnen we de weerstand tussen kanaal en referentiepunt berekenen:
  
@@ -21096,7 +21543,7 @@ De infiltratiesnelheid verschilt per situatie maar ligt volgens het model in de 
 \end_inset
 
 .
- Dit levert voor de zomer weerstanden tussen 10 en 25 d weerstand op met een mediaan van 17d en voor de winter weerstanden tussen 30 en 55 met een mediaan 45 d op.
+ Dit levert voor de zomer weerstanden tussen 10 en 25 d weerstand op met een mediaan van 17d en voor de winter weerstanden tussen 30 en 55 met een mediaan 45 d.
  De weerstand van de lagen waarbinnen het kanaalwater in een seizoen penetreert (penetratiediepte ca.
  10 m) is voor de Formatie van Boxtel met 
 \begin_inset Formula $k_{v}=1.5$
@@ -21111,7 +21558,7 @@ De infiltratiesnelheid verschilt per situatie maar ligt volgens het model in de 
 \begin_inset Formula $^{o}$
 \end_inset
 
-C en zou door de viscositeit bij gemiddelde seizoenstemperaturen tussen 8.5 en 18.8 variëren tussen 6.2d in de winter en 4.8d in de zomer.
+C en zou door de viscositeit bij gemiddelde seizoenstemperaturen tussen 8.5 en 18.8 variëren tussen 6.2 d in de winter en 4.8 d in de zomer.
  In alle gevallen is dit slechts een klein deel van de totale weerstand (
 \begin_inset Formula $4.8/17\approx30$
 \end_inset
@@ -21125,16 +21572,24 @@ C en zou door de viscositeit bij gemiddelde seizoenstemperaturen tussen 8.5 en 1
 \end_layout
 
 \begin_layout Standard
-Samenvattend blijft staan dat voor een deel van de peilbuizen de hogere zomergrondwaterstanden uit uitsluitend zijn te verklaren op basis van de viscositeit.
+Samenvattend blijft staan dat voor een deel van de peilbuizen de hogere zomergrondwaterstanden niet uitsluitend zijn te verklaren op basis van de viscositeit.
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Verband-tussen-stijghoogten-temperatuur"
+
+\end_inset
+
 Verband tussen stijghoogten en temperatuur
 \end_layout
 
 \begin_layout Standard
 Hiermee is het verhaal niet af.
  We zoeken nog steeds de reden waarom de grondwaterstand in de zomer meer stijgt dan wordt berekend wanneer we volledig rekening houden met de viscositeit van het infiltrerende kanaalwater.
+ De suggestie dat hier biologische processen een rol spelen,
+ is denkbaar maar niet bewezen.
  Fig.
  
 \begin_inset CommandInset ref
@@ -21147,7 +21602,8 @@ nolink "false"
 
 \end_inset
 
- is een uitermate intrigerende grafiek uit 
+ is een uitermate intrigerende grafiek,
+ overgenomen uit 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Be22"
@@ -21155,7 +21611,8 @@ literal "false"
 
 \end_inset
 
- waarin de stijghoogte van drie peilbuizen is opgenomen samen met het temperatuurverloop van het ARK en dat in dezelfde drie drie peilbuizen.
+,
+ waarin het verloop van de stijghoogte in drie peilbuizen is te zien samen met hun temperatuur en de temperatuur van het ARK.
  De peilbuizen bevinden zich op verschillende afstanden ten oosten van het ARK (Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21179,45 +21636,14 @@ nolink "false"
 \end_inset
 
 ).
- Het stijghoogte verloop is aangegeven met getrokken lijnen (linker y-as),
+ Het stijghoogteverloop is aangegeven met getrokken lijnen (linker y-as),
  de temperaturen met streepjeslijnen (rechter y-as).
  Bij heel precieze inspectie van deze figuren blijkt dat de stijghoogten het temperatuurverloop van het ARK één-op-één volgen,
  zodat de temperatuur van het ARK hier het stijghoogteverloop aandrijft.
- Dit is wat we eerder uit het verloop van de andere peilbuizen hebben vastgesteld.
- Wat hier echter ook blijkt,
- en dat is nieuw,
- is dat temperatuurverloop in de drie peilbuizen oploopt zolang de temperatuur van het ARK hoger is dan de temperatuur in de peilbuizen,
- en weer gaat dalen zodra de temperatuur van het ARK-water lager is dan dat in de peilbuizen.
- En het gebeurt in alle drie de peilbuizen praktisch op hetzelfde moment,
- ongeacht hun verschillende afstand tot het kanaal.
- Dit gedrag kan nooit door grondwaterstroming worden verklaard;
- bij grondwaterstroming zou er altijd een aanzienlijke vertraging van het temperatuurverloop optreden tussen kanaal en peilbuis K75C en vervolgens verder tussen K75C en K74C en tenslotte tussen K74C en K73C.
- Bovendien zou de jaarfluctuatie met de afstand tot het kanaal ook steeds verder zijn afgevlakt.
- Ook dat is hier niet het geval.
- Wat is hier aan de hand?
-\end_layout
-
-\begin_layout Standard
-Het verklaring lijkt gegeven door 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Be22"
-literal "false"
-
-\end_inset
-
-,
- die hem alleen suggereren,
- maar waar ik me op de basis van nu beschikbare gegevens tot nader order achter ga scharen,
- namelijk stroming door de spleet die ontstaat doordat de veenlaag op het Boxtelzand,
- door de verhoogde waterdruk in de zomer,
- wordt opgedrukt.
- Het effect is sterker in de dalende tak van de ARK-temperatuur dan bij stijgende,
- wat erop wijst dat de spleet in de zomer groter is dan in de winter.
- Ik neem daarom hierna in Fig.
+ Dit is wat we hiervoor al uit het verloop van de andere peilbuizen hebben vastgesteld in hoofdstuk 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Fig.9.3-uit-Beemster"
+reference "sec:Dynamiek-van-de-stijghoogte"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21225,370 +21651,20 @@ nolink "false"
 
 \end_inset
 
- de figuur uit 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Be22"
-literal "false"
-
-\end_inset
-
- integraal over.
- De de situatie waarin er een dergelijke speelt ontstaat kan het ARK water heel snel de peilbuizen bereiken.
- Immers bij een snelheid in zo'n spleet van slechts 1 cm/s stroomt het water al 1000 m/d.
-\end_layout
-
-\begin_layout Standard
-Poiseuille-stroming door een spleet met hoogte 
-\begin_inset Formula $b$
-\end_inset
-
- kan voor water worden geschreven als
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-v\approx8175b^{2}i
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Een speelt met 
-\begin_inset Formula $b=0.01$
-\end_inset
-
- m en een gradiënt van ca.
- 0.1m/100m levert dan
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-v\approx1e^{4}\times1e^{-4}\times1e^{-3}=0.001\,\text{m/s}\approx100\,\text{m/d}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Een spleet van 1 cm hoogte is dus ruim voldoende om de afstand van kanaal tot de peilbuizen zonder wezenlijke vertraging te overbruggen.
-\end_layout
-
-\begin_layout Standard
-Bovendien,
- met de stroom de spleet 
-\begin_inset Formula $Q$
-\end_inset
-
- in m
-\begin_inset Formula $^{2}$
-\end_inset
-
-/s geschreven als 
-\begin_inset Formula $kDi$
-\end_inset
-
- met 
-\begin_inset Formula $kD$
-\end_inset
-
- in m
-\begin_inset Formula $^{2}$
-\end_inset
-
-/s krijgen we
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-Q=vbi\approx1e^{4}b^{3}i=kD\,i
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Dus 
-\begin_inset Formula $kD$
-\end_inset
-
- van de spleet in m
-\begin_inset Formula $^{2}$
-\end_inset
-
-/d krijgen door vermenigvuldiging met het aantal seconden per dag (
-\begin_inset Formula $\approx1e^{5})$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-kD=1e^{4}1e^{-5}1e^{5}\approx1e^{4}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De equivalente 
-\begin_inset Formula $kD\approx10^{9}b^{3}$
-\end_inset
-
-m/d.
- Overzichtje
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="6">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-spleetdikte [mm]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-10
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-equivalente 
-\begin_inset Formula $kD$
-\end_inset
-
- [m
-\begin_inset Formula $^{2}$
-\end_inset
-
-/d
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.001
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-10
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1000
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-De 
-\begin_inset Formula $kD$
-\end_inset
-
- die ontstaat door een spleet van slechts 1 cm tussen de top van het Boxtel zand en de onderzijde van de slecht doorlatende veenlaag van Nieuwkoop overschrijdt de gehele grondwater 
-\begin_inset Formula $kD$
-\end_inset
-
- tussen de top van Boxtel en de basis van Peize op NAP -160 m.
- Bovendien blijkt dat het gemak waarmee het water zich kan verspreiden enorm toeneemt met de grootte van de spleet,
- die ongetwijfeld in de zomer groter is dan in de winter.
- De spleet past zich aan de druk aan,
- en wellicht is dat voor de wellen ook het geval.
- En de benodigde mate van opdrukken om het water over veel wellen te verdelen is zo gering dat het aan maaiveld niet merkbaar is,
- temeer ook omdat het opdrukken zich zal concentreren waar de deklaag licht is,
- dus onder sloten en vaarten.
- Dit verschijnsel,
- het opdrukken van de deklaag met slechts 1 cm kan de optredende verschijnselen geheel verklaren:
-\end_layout
-
-\begin_layout Itemize
-De drukverhoging die in de zomer groter is dan berekend met uitsluitend het viscositeitseffect van het kanaalwater.
-\end_layout
-
-\begin_layout Itemize
-De extra wateruitslag in de zomer,
- die afkomstig moet zijn van de wellen.
-\end_layout
-
-\begin_layout Itemize
-Het gemeten verloop van stijghoogte en temperatuur in peilbuizen
-\end_layout
-
-\begin_layout Itemize
-Het ontstaan van wellen tot op aanzienlijke afstand van het kanaal
-\end_layout
-
-\begin_layout Itemize
-Moeilijk goed te krijgen in het model,
- want het is het belangrijk toenemen van de 
-\begin_inset Formula $kD$
-\end_inset
-
- in de zomer.
-\end_layout
-
-\begin_layout Itemize
-Het is ook consistent met de vaststelling dat de waterdruk onder de deklaag veelal groter is dan het gewicht van de deklaag,
- die in de zomer nog eens afneemt.
-\end_layout
-
-\begin_layout Standard
-Hoe zit het dan met die wellen.
- Ik denk dat wellen in cohesieve bodem zoals de veenlagen die hier de deklaag vormen ontstaan doordat de deklaag initieel wordt opgetild en dan scheurt,
- en daarna mogelijk terugzakt.
- De deklaag is met name licht ter plekke van sloten en vaarten waar hij ontgraven is.
- Dus dat wellen bij voorkeur,
- maar niet uitsluitend,
- in sloten optreden hoeft niet te verbazen.
- Maar er wordt ook gezegd,
- het gebeurt waar de deklaag zwak is.
- Ik vermoed echter eerder dat het de variatie van de dikte van de deklaag is die bepaal of er op bepaalde plekken en zones in de ontgraven sloten wellen optreden.
- Immers de top van het Boxelzand was de top van het pleistocene stuifzandlandschap,
- zoals we dat nog in delen van Overijssel en Brabant kunnen zien,
- waar dit tot nu toe nog niet ontgonnen is.
- Dit landschap wordt gekenmerkt door windgedreven oneffenheden,
- waarin zich later het veen ontwikkelde.
- De onderzijde van de veenlaag is dus verre van vlak,
- zoals ook te constateren is aan de hand van de boringen die o.a voor dit project zijn gemaakt.
- Er zijn dus,
- kortom,
- tal van plekken waar de veenlaag aanmerkelijk dunner is dan elders,
- plekken die voorkeurslocaties zijn voor het ontstaan van een wel.
+.
+ Wat bij inspectie van de grafieken echter ook uit blijkt,
+ en dat is nieuw,
+ is dat de temperatuur in de drie peilbuizen oploopt zolang de temperatuur van het ARK hoger is dan de temperatuur in de peilbuizen,
+ en pas weer gaat dalen zodra de temperatuur van het ARK-water lager wordt dan dat in de peilbuizen.
+ Bovendien gebeurt dit in alle drie de peilbuizen praktisch op hetzelfde moment,
+ ongeacht hun verschillende afstand tot het kanaal.
+ Dit gedrag kan nooit door grondwaterstroming worden verklaard;
+ bij grondwaterstroming zou er altijd een aanzienlijke vertraging van het temperatuurverloop optreden tussen kanaal en peilbuis K75C en vervolgens tussen peilbuis K75C en K74C en tenslotte tussen peilbuis K74C en K73C.
+ Bovendien zou de jaarfluctuatie,
+ bij grondwaterstroming als oorzaak,
+ met de afstand tot het kanaal steeds verder zijn afgevlakt.
+ Ook dat is hier niet het geval.
+ Wat is hier aan wel de hand?
 \end_layout
 
 \begin_layout Standard
@@ -21726,7 +21802,7 @@ status open
 \begin_inset Graphics
 	filename ../../images/spleet_opdrijven_deklaag.png
 	lyxscale 50
-	width 90text%
+	width 80text%
 
 \end_inset
 
@@ -21744,7 +21820,9 @@ name "fig:Fig.9.3-uit-Beemster"
 \end_inset
 
 Fig.9.3 uit Beemster e.a.
- (2022)
+ (2022).
+ De spleet treedt op buiten de kades,
+ want die zijn veel zwaarder dan het land ernaast.
 \end_layout
 
 \end_inset
@@ -21755,6 +21833,1257 @@ Fig.9.3 uit Beemster e.a.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Het verklaring lijkt gegeven door 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+,
+ die hem alleen suggereren,
+ maar waar ik me op de basis van nu beschikbare gegevens tot nader order achter ga scharen,
+ namelijk dat er stroming plaats vindt door een spleet die ontstaat doordat de veenlaag op het Boxtelzand,
+ door de verhoogde waterdruk in de zomer,
+ wat wordt opgedrukt.
+ Het effect is sterker in de dalende tak van de ARK-temperatuur dan bij stijgende,
+ wat erop wijst dat de spleet in de zomer groter is dan in de winter.
+ Ik neem daarom hierna in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fig.9.3-uit-Beemster"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ de figuur uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ integraal over,
+ waar dit fenomeen in is gevisualiseerd.
+ Wanneer een dergelijke spleet ontstaat kan het ARK-water heel snel de peilbuizen bereiken.
+ Dit zal hierna kwantitatief plausibel worden gemaakt.
+\end_layout
+
+\begin_layout Standard
+Beschouw stroming door een spleet met hoogte 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ We gaan uit van Poiseuille-stroming.
+ Daarvoor geldt de gemiddelde snelheid 
+\begin_inset Formula $\overline{u}$
+\end_inset
+
+ [m/s] van
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{u}=-\frac{1}{12\mu}b^{2}\left(\frac{dp}{dx}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarin:
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\overline{u}$
+\end_inset
+
+ [m/s] de gemiddelde snelheid in de spleet
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\mu$
+\end_inset
+
+ [Ns/m
+\begin_inset Formula $^{2}$
+\end_inset
+
+] de viscositeit van het water 
+\begin_inset Formula $\mu=1.0\times10^{-3}$
+\end_inset
+
+ Ns/m
+\begin_inset Formula $^{2}$
+\end_inset
+
+ bij 
+\begin_inset Formula $20^{o}C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $b$
+\end_inset
+
+ [m] de spleethoogte
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $p$
+\end_inset
+
+ [N/m
+\begin_inset Formula $^{2}$
+\end_inset
+
+] druk
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $x$
+\end_inset
+
+ [m] horizontale afstand.
+\end_layout
+
+\begin_layout Standard
+Bij horizontale stroming met 
+\begin_inset Formula $p=\rho gh$
+\end_inset
+
+ met 
+\begin_inset Formula $h$
+\end_inset
+
+ de drukhoogte geldt 
+\begin_inset Formula $\frac{dp}{dx}=\rho g\frac{dh}{dx}$
+\end_inset
+
+ zodat
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{u}=-\left(\frac{1}{12}\frac{\rho g}{\mu}b^{2}\right)\left(\frac{dh}{dx}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarin:
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\rho$
+\end_inset
+
+ [kg/m
+\begin_inset Formula $^{3}$
+\end_inset
+
+] dichtheid van water 
+\begin_inset Formula $\rho=1000$
+\end_inset
+
+ kg/m
+\begin_inset Formula $^{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $g$
+\end_inset
+
+ [N/kg] gravitatieconstante 
+\begin_inset Formula $g\approx10$
+\end_inset
+
+ N/kg
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $h$
+\end_inset
+
+ [m] de drukhoogte
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{u}$
+\end_inset
+
+ is direct te schrijven als
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{u}=-k\frac{dh}{dx}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarin:
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $k$
+\end_inset
+
+ [m/s] de equivalente doorlatendheid
+\end_layout
+
+\begin_layout Standard
+Voorts krijgen we het equivalente doorlaatvermogen 
+\begin_inset Formula $kb$
+\end_inset
+
+ in m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/s door 
+\begin_inset Formula $k$
+\end_inset
+
+ te vermenigvuldigen met de spleethoogte 
+\begin_inset Formula $b$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+kb=\frac{1}{12}\frac{\rho g}{\mu}b^{3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ingevuld wordt dit
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+kb=\frac{1}{12}\times\frac{10^{3}\times10}{10^{-3}}b^{3}\approx8\times10^{5}b^{3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We rekenen dit om van m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/s naar m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d door vermenigvuldiging met 80400 s/d.
+ Dit geeft
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+kD\approx7\times10^{10}b^{3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarin:
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $kD$
+\end_inset
+
+ [m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d] het in geohydrologische termen uitgedrukte equivalente doorlaatvermogen van een horizontale spleet met hoogte 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ Onderstaand tabelletje geeft het equivalente doorlaatvermogen voor spleten met verschillende hoogtes
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="8">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+spleetdikte 
+\begin_inset Formula $b$
+\end_inset
+
+ [mm]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+equivalente 
+\begin_inset Formula $kD$
+\end_inset
+
+ [m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.07
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Het is dus bijkans 
+\begin_inset Quotes pld
+\end_inset
+
+waanzinnig
+\begin_inset Quotes prd
+\end_inset
+
+ hoe groot het equivalente doorlaatvermogen is van een spleet van slechts enkele mm dikte.
+ Bij een spleethoogte van slechts 3 mm is dat doorlaatvermogen al groter dan het totale doorlaatvermogen van het watervoerend pakket dat hier zo'n 150 m dik is.
+ Bovendien blijkt dat het gemak waarmee het water zich kan verspreiden enorm toeneemt met de grootte van de spleet,
+ die ongetwijfeld in de zomer groter is dan in de winter.
+ De spleet past zich aan de druk aan.
+ De spleet hoeft daarbij nauwelijks groter te worden om het kanaalwater ver onder de veenlaag te verspreiden.
+ Het is niet onwaarschijnlijk dat de wellen zich daarbij ook (enigszins) aanpassen,
+ maar in elk geval neemt zo de de uitmaling in de zomer aanmerkelijk toe ten opzichte van die in de winter.
+\end_layout
+
+\begin_layout Standard
+In de voorliggende situatie kunnen we de snelheid van de waterdeeltjes plausibel maken door een spleet van 3 mm te veronderstellen.
+ De gradiënt van de stijghoogte tussen peilbuis K75C en K74C ca.
+ 0.7 m/km (zie legenda fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Temp-head-ARK-K70C-serie"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+:
+ 
+\begin_inset Formula $dh/dx=1000\times(-1.41-(-1.48)/(139-39))=0.7$
+\end_inset
+
+ m/km]).
+ Die tussen peilbuis K74C en K73C is 0.96 m/km.
+ De equivalente doorlatendheid 
+\begin_inset Formula $k=kD/b=2000/0.003\approx7\times10^{5}$
+\end_inset
+
+m/d of 
+\begin_inset Formula $k\approx5$
+\end_inset
+
+ m/s en met een gradiënt 
+\begin_inset Formula $dh/dx\approx0.8\times10^{-3}$
+\end_inset
+
+ geeft dit voor de watersnelheid in de spleet 
+\begin_inset Formula $\overline{u}\approx6$
+\end_inset
+
+ mm/s ofwel bijna 500 m/d.
+ Met andere woorden,
+ onder de gegeven omstandigheden van deze raai peilbuizen kan het water in een spleet van 3 mm dikte binnen een halve dag van peilbuis K75C naar peilbuis K75C 250 m verderop stromen.
+ Dit is op de schaal van de grafieken in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemeten-zomerstijghoogten-versus-berekende-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ dus zonder enige vertraging.
+ En dat is precies wat het verloop van het temperatuurverloop in deze peilbuizen laat zien.
+\end_layout
+
+\begin_layout Standard
+De benodigde mate van opdrukken of opdrijven van de veenlaag om het water over veel wellen te verdelen is zo gering,
+ dat dat aan het maaiveld niet merkbaar is.
+ Dit opdrukken zal met name optreden waar de deklaag licht is,
+ dus onder de sloten en de vaarten.
+ De hier uitgelichte peilbuizen staan ook dicht langs een sloot.
+ Sloten is ook waarin verreweg het leeuwendeel van de wellen zich bevindt.
+\end_layout
+
+\begin_layout Standard
+Wellen in cohesieve bodem zoals de veenlagen,
+ ontstaan vermoedelijk doordat de cohesieve deklaag initieel wordt opgetild en dan scheurt (opbarsten is een algemeen toegepast begrip bij bouwkuipen).
+ Na het vormen van een scheur met wel kan of zal de laag door de daarbij optredende drukontlasting weer terugzakken.
+ De deklaag is met name licht ter plekke van sloten en vaarten waar hij is ontgraven.
+ Dat wellen bij voorkeur,
+ maar niet uitsluitend,
+ in sloten optreden hoeft dan ook niet te verbazen (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26b"
+literal "false"
+
+\end_inset
+
+).
+ Maar er wordt ook vaak gezegd,
+ dat wellen optreden waar de deklaag zwak is.
+ En het blijkt dat er ook wellen buiten de sloten voorkomen,
+ zogenoemde landwellen (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+).
+ Daarbij speelt waarschijnlijk ook het oorspronkelijke pleistocene oppervlak een rol,
+ dat zich onder periglaciale omstandigheden ontstond waarbij de wind enorme hoeveelheden zand opblies tot dekzanden,
+ zoals we die nu nog in onontgonnen (want onvruchtbare) delen van Overijssel en Brabant kunnen zien.
+ Dit landschap wordt gekenmerkt door windgedreven oneffenheden,
+ waarin zich later gedurende het Holoceen het veen ontwikkelde.
+ De onderzijde van de veenlaag is daarom verre van vlak,
+ zoals ook te constateren is aan de hand van de boringen die o.a voor dit project zijn gemaakt.
+ (Onderzijde deklaag in K73,
+ K74 en K75 is resp.
+ NAP -3.71,
+ -4.86,
+ -4.47 m terwijl de buizen zich op slechts 100-250 m van elkaar bevinden,
+ bedenk ook dat de top van het Boxtel-zand niet zet en dus in de tijd stabiel is).
+ Er zijn dus,
+ kortom,
+ tal van plekken waar de veenlaag aanmerkelijk dunner is dan elders,
+ plekken die voorkeurslocaties vormen voor het ontstaan van wellen.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Drukoverzicht-peilbuis-K75C"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft een constructie van de drukken en de wateroverdruk onder en op afstand van de sloot bij peilbuis K73C.
+ De tekst onder de figuur geeft een nadere beschrijven van de werkwijze en de keuzes.
+ De essentie is dat ook met conservatieve aanname van het verzadigde gewicht van de veenlaag en rekening houdend met het lagere gewicht van de onverzadigde zone,
+ over de gehele dikte van de veenlaag onder de sloot wateroverdruk aanwezig is.
+ Deze kan uitsluitend een uitweg vinden door opdrukken van de deklaag of door ontlasting via wellen.
+ De situatie op afstand van de sloten is ook ingetekend.
+ Deze is gunstiger dan direct onder de sloot,
+ maar ook hier ontstaat wateroverdruk rond het grensvlak tussen het veen van de Naaldwijk formatie en het zand van Boxtel,
+ die de laag zou doen opdrijven als er geen wellen zouden zijn.
+ De veronderstelling dat de lagen in het wellengebied opdrijven,
+ zeker in de zomer kan niet worden weggewoven,
+ zo blijkt uit de analyse van stijghoogtemetingen en uit de analyse van de drukken.
+ Dezelfde constructie kan natuurlijk worden gemaakt voor de overige peilbuizen.
+ Het is waarschijnlijk dat de deklaag wordt opgedrukt over aanzienlijke lengtes onder sloten en vaarten,
+ zoals de daar voorkomende wellen ook suggereren.
+ 
+\end_layout
+
+\begin_layout Standard
+Wanneer de veenlaag dezelfde dichtheid heeft als water of zelfs nog iets minder zie Hollandveen in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Soortelijke-gewichten-grondsoort"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ dan maakt de dikte van de veenlaag niet eens uit voor het opdrijven,
+ en zal een dikkere veenlaag zelfs nog beter opdrijven.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Soortelijke-gewichten-grondsoort"
+
+\end_inset
+
+Soortelijke gewichten grondsoorten in opbarstberekeningen (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ tabel B6.4).
+ De waarden 980 kg/m
+\begin_inset Formula $^{3}$
+\end_inset
+
+voor Hollandveen zijn de gemiddelde dichtheiden in het veld bepaald op basis van 6 boringen en 38 grondmonsters.
+ BBO=Polder 
+\begin_inset Quotes pld
+\end_inset
+
+Braambrugge Oostzijde
+\begin_inset Quotes prd
+\end_inset
+
+,
+ HGP is +Hoeker- en Garsterpolder
+\begin_inset Quotes prd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Grondsoort
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Soortelijk gewicht kg/m
+\begin_inset Formula $^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ophooglaag stedelijk gebied
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1900
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kleiige afz.
+ F.
+ van Echteld
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hoolandveen (F.van Naaldwijk)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+980 in BBO en HGP
+\end_layout
+
+\begin_layout Plain Layout
+1050 elders in het gebied
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wormer klei (F.v.Naaldwijk)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Basisveen (F.v.Naaldwijk)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/K75C_drukken.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Drukoverzicht-peilbuis-K75C"
+
+\end_inset
+
+Drukoverzicht peilbuis K75C.
+ Het rode vlakje geeft de wateroverdruk in de zomer op voldoende afstand van de sloot.
+ Het blauwe vlak geeft de overdruk in de zomer direct onder de sloot.
+ Laagdiepten en materiaal uit boorstaat (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+),
+ Naaldwijk verzadigd 1.05kg/m
+\begin_inset Formula $^{3}$
+\end_inset
+
+ (hoge waarde volgens 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+;
+ onverzadigd Naaldwijk 850 kg/m
+\begin_inset Formula $^{3}$
+\end_inset
+
+ (aangenomen),
+ freatisch vlak zomer gelijk gesteld aan polderpeil;
+ de stippellijn erboven is de gemeten gemiddelde freatische grondwaterstand.
+ De twee lijnen die aan maaiveld beginnen zijn de totale gronddruk in zomer resp.
+ winter.
+ De onverzadigde zone in de zomer veroorzaakt het verschil.
+ Blauwe lijn is de waterdruk in de zomer.
+ Snijpunt met top Boxtel is de gemeten stijghoogte in de zomer onder de deklaag.
+ De donkere lijn vanaf het slootpeil is de totale druk onder de sloot.
+ Ik heb die met de diepte geleidelijk laten overgaan in de totale druk naast de sloten.
+ Deze stijghoogte (drukhoogte) heb ik lineair laten overgaan naar het polderpeil.
+ Zo ontstaat het blauwe vlak voor de wateroverdruk in de sloot en op dezelfde wijze het rode voor die onder het land.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Een wel zonder toevoerende spleet is een puntonttrekking of,
+ bij een scheur een lijnonttrekking bovenin de Formatie van Boxtel.
+ Dit geeft lokaal extra verlaging door de contractie van de stroomlijnen die bij de wel uitkomen.
+ Is er sprake van een horizontale spleet zoals hier besproken,
+ dan is er van puntonttrekking en contractie van stroomlijnen geen sprake.
+ De spleet kan het water gemakkelijk aanvoeren.
+ Als er in de winter geen spleet en in de zomer wel een spleet is,
+ dan neemt de druk aan de onderzijde van de wel veel meer toe dan alleen door de hogere stijghoogte,
+ dit aangezien de weerstand als gevolg van contractie van stroomlijnen dan geheel wegvalt.
+\end_layout
+
+\begin_layout Standard
+Wellen die gekoppeld zijn aan een horizontale spleet leveren geen zand.
+ Dit omdat er geen contractie van stroomlijnen is en omdat de snelheid van het water in de spleet relatief laag is en niet in staat om zand mee te slepen (zie snelheidsberekeningen hiervoor).
+\end_layout
+
+\begin_layout Standard
+We onderzoeken nu wat de gezamenlijke invloed op de stijghoogte onder deklaag is van de temperatuur van het kanaalwater en spleetvorming.
+ Om dit te kwantificeren gebruiken we een stationair,
+ 1-dimensionaal analytisch éénlaagsmodel bestaande uit een aantal secties waarbij elke sectie een semi-gespannen watervoerend pakket is met eigen 
+\begin_inset Formula $kD$
+\end_inset
+
+,
+ afdekkende laag met weerstand 
+\begin_inset Formula $c$
+\end_inset
+
+ en daarboven een polderpeil 
+\begin_inset Formula $h_{pold}$
+\end_inset
+
+.
+ De secties zijn aan elkaar geplakt waarbij op hun contactvlakken zowel de stijghoogte als horizontale stroming in het pakket continu zijn.
+ De gekozen uiterste randen op 
+\begin_inset Formula $x=0$
+\end_inset
+
+ en 
+\begin_inset Formula $x=10000$
+\end_inset
+
+ m blijven in deze berekeningen gesloten.
+ Het model heeft 3 secties.
+ De eerste is 50 m breed en stelt het ARK voor.
+ Het polderpeil is hier het kanaalpeil en de bodemweerstand is hier de in te voeren 
+\begin_inset Formula $c$
+\end_inset
+
+ van het afdekkend pakket.
+ De tweede sectie stelt de zone met wellen voor.
+ Deze is 300 m breed.
+ Het polderpeil is NAP -2.1 m (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ voor het gebied met buizen K73C t/m K75C).
+ De weerstand is hier op 
+\begin_inset Formula $c=250$
+\end_inset
+
+ d gezet,
+ belangrijk lager dan het gebied verderop waar geen wellen in worden verondersteld.
+ Dit is de derde zone,
+ met weerstand 
+\begin_inset Formula $c=1000$
+\end_inset
+
+ d,
+ wat het gebied voorstelt zonder wellen.
+\end_layout
+
+\begin_layout Standard
+Bij de berekeningen waarbij alleen de viscositeit verandert is de 
+\begin_inset Formula $u_{ratio}=\mu_{T}/\mu_{14}$
+\end_inset
+
+ van belang,
+ de verhouding tussen de viscositeit behorend bij de actuele kanaaltemperatuur en die bij de gemiddelde kanaaltemperatuur.
+ De aanpassing aan de temperatuur bestaat daarin dat de weerstand van de eerste sectie,
+ de kanaalbodem voorstellende,
+ met de 
+\begin_inset Formula $u_{ratio}$
+\end_inset
+
+wordt vermenigvuldigd en het doorlaatvermogen van de eerste sectie door de 
+\begin_inset Formula $u_{ratio}$
+\end_inset
+
+ wordt gedeeld.
+ De overige parameters blijven onaangeroerd.
+ Het resultaat is te zien in het bovenste plaatje van Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Invloed-viscositeit-en-spleetvormin"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ De stijghoogten nemen toe met de temperatuur doordat het kanaalwater bij hogere temperaturen gemakkelijker infiltreert en uit de eerste sectie afstroomt.
+ Dit toegenomen debiet moet afstromen door de twee secties waarin niets is verandert en dat verhoogt de stijghoogte tot op grote afstand van het kanaal.
+\end_layout
+
+\begin_layout Standard
+Wat gebeurt er met de stijghoogten wanneer we de spleetvorming meenemen in de berekening?
+ Het enige dat we daarvoor aanpassen is het doorlaatvermogen van de sectie met de wellen.
+ We zagen al dat een spleet van slechts 3 mm het doorlaatvermogen gemakkelijk kan verdubbelen.
+ Om het effect te illustreren laten we het doorlaatvermogen van de tweede sectie lineair met de temperatuur toenemen door deze 
+\begin_inset Formula $kD$
+\end_inset
+
+ te vermenigvuldigen met een factor die oploopt van 
+\begin_inset Formula $1$
+\end_inset
+
+ bij 
+\begin_inset Formula $5^{o}C$
+\end_inset
+
+ tot 
+\begin_inset Formula $2$
+\end_inset
+
+ bij 
+\begin_inset Formula $25^{o}C$
+\end_inset
+
+.
+ Het resultaat is te zien in het tweede plaatje van Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Invloed-viscositeit-en-spleetvormin"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Behalve direct onder het ARK neemt de stijghoogte over de gehele zone hierdoor toe ten opzichte van het enkele viscositeitseffect.
+ De toename is maximaal rond 350 m uit het hart van het kanaal.
+ Het viscositeitseffect is daar zo'n 15 cm,
+ met spleetvorming is dit 25 cm.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/impact_visc.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/impact_visc_and_kD.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Invloed-viscositeit-en-spleetvormin"
+
+\end_inset
+
+Bovenste plaatje:
+ Invloed van alleen de viscositeit op de stijghoogte.
+ Onderste plaatje:
+ Invloed van viscositeit en spleetvorming op de stijghoogte.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit verschijnsel,
+ het opdrukken van de deklaag met slechts enkele millimeters kan een deel van de optredende extra temperatuurgerelateerde stijghoogtetoename in de zomer verklaren.
+ Of dit een volledige verklaring is valt nog te bezien,
+ want de gemeten 50 cm verhoging krijgen we hiermee nog niet.
+ Wat wel deze uitwerking wel verklaard wordt is het volgende:
+\end_layout
+
+\begin_layout Itemize
+De drukverhoging die in de zomer groter is dan berekend met uitsluitend het viscositeitseffect van het kanaalwater.
+\end_layout
+
+\begin_layout Itemize
+Er is hierdoor extra wateruitslag in de zomer,
+ die vooral afkomstig moet zijn van de wellen.
+\end_layout
+
+\begin_layout Itemize
+Het verloop door de tijd van de stijghoogten in de peilbuizen volgt bij deze mechanismen nauwkeurig het verloop van het ARK water zoals dat ook uit de metingen blijkt.
+\end_layout
+
+\begin_layout Itemize
+Het wellen kunnen ontstaan tot op aanzienlijke afstand van het kanaal,
+ vooral,
+ maar niet uitsluitend in sloten en vaarten.
+\end_layout
+
+\begin_layout Itemize
+Spleetvorming is consistent met het ontstaan van wellen in cohesieve grond.
+ Spleetvoming verklaart de directe,
+ praktisch onvertraagde respons de temperatuur in de peilbuizen K73C t/m K75C op de temperatuur van het kanaalwater
+\end_layout
+
+\begin_layout Itemize
+Spleetvorming is consistent met de wateroverdruk onder de deklaag,
+ die veelal groter is dan het gewicht van de deklaag,
+ en die in de zomer nog iets afneemt..
+\end_layout
+
+\begin_layout Itemize
+Spleetvorming kan het doorlaatvermogen enorm vergroten,
+ ook al staat zo'n vlakke spleet maar enkele millimeters open.
+\end_layout
+
+\begin_layout Itemize
+Zo'n spleetopening zal ademen met de seizoenen,
+ met de variatie in van de druk in de aquifer die ontstaat door het temperatuugedreven infiltratiedebiet.
+\end_layout
+
+\begin_layout Itemize
+Spleetvorming is zo ook consistent met de constatering dat de uitslag van kwelwater van de polders in de zomer groter is dan in de winter.
 \end_layout
 
 \begin_layout Section
@@ -21785,10 +23114,10 @@ nolink "false"
 \end_inset
 
  waaraan de kades en de peilbuizen onder de deklaag zijn toegevoegd.
- Ook is de zand-bentonietlaag op de kanaalbodem weergegeven.
- De peilbuizen zijn in net binnen en net buiten de damwanden geplaatst en verderop (D,
+ Ook is de zand-bentonietlaag op de kanaalbodem is weergegeven.
+ De peilbuizen zijn net binnen en net buiten de damwanden geplaatst en tevens verderop (D,
  zie raaien).
- De peilbuizen A en C zijn voor een deel aanwezig (pb1 t/m pb10,
+ De peilbuizen A en C zijn voor een deel reeds aanwezig (zie pb1 t/m pb10,
  tabel 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21802,10 +23131,46 @@ nolink "false"
 
 ).
  De peilbuizen in het kanaal vlak langs de damplanken zitten onder het onderwatertalud en dus ook onder het daar nog aanwezige slechtdoorlatende materiaal van de oorspronkelijke deklaag.
- De afstand horizontaal tot waar het profiel onder de oorspronkelijke deklaag reikt is zo'n 10 meter,
- afhankelijk van de locatie.
+ De afstand horizontaal tot waar het profiel onder de oorspronkelijke deklaag reikt is zo'n 19.2 m in het ontwerp van het profiel,
+ maar door erosie vaak water minder,
+ bijv.
+ 10 meter,
+ afhankelijk van de locatie (zie fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bodemprofiel-1-2-3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ t/m 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Detail-van-Geotop-met-profiel-raai5"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
  De horizontale stroming tussen het punt waar het profiel onder de oorspronkelijke deklaag reikt en peilbuis A zorgt voor een verlaging van de stijghoogte ten opzichte van het kanaal,
- ook al heeft de middenstrook van het kanaal tussen de onderwatertaluds geen enkele weerstand.
+ ook al heeft de middenstrook van het kanaal tussen de onderwatertaluds geen enkele weerstand (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stroming-onder-een-strook"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
  Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21824,36 +23189,40 @@ nolink "false"
  m/d.
  De doorlatendheden zijn redelijk voor de Formatie van Boxtel.
  Het plaatje toont dat de op locatie A te verwachten stijghoogte ongeveer 35 cm lager is dan het kanaalpeil.
-\end_layout
-
-\begin_layout Standard
-Dit hele verhaal klopt niet.@@@
+ Peilbuis in A meet hier als het ware op een aantal meters diepte onder het kanaal.
+ Men kan de stijghoogte voor dit effect corrigeren om tot een zuiverder schatting van de weerstand van de eigenlijke waterbodem te komen.
 \end_layout
 
 \begin_layout Standard
 Ergo,
- peilbuis A meet op die plaats de facto het stijghoogteverval over de kanaalbodem plus het effect van de horizontale stroming onder het onderwatertalud.
- Dit verschil varieert met het infiltratiedebiet en de temperatuur van het water.
- Met nog een peilbuis langs de damplanken op grotere diepte,
+ geen van de getekende peilbuizen meten het exacte verval over de waterbodem,
+ want daarvoor zou die buiten de taludzone moeten staan.
+ Dat is niet direct mogelijk,
+ maar men zou daar wel een paar loggers kunnen aanbrengen en laten registreren zolang ze het doen.
+\end_layout
+
+\begin_layout Standard
+Met nog een peilbuis langs de damplanken op grotere diepte,
  met filter net naast de onderzijde van de damwand (B),
  kunnen we het stijghoogteverval over het Boxtel zand meten (tussen A en B).
  Hiervan mag worden aangenomen het stijghoogteverval tussen A en B rechtevenredig is met het infiltratiedebiet tussen de damplanken.
  We hebben hiermee een maat voor het infiltratiedebiet.
- Omdat we met dit verval en de temperatuur tussen de peilfilters het relatieve infiltratiedebiet weten,
- meten we de facto ook of de weerstand op of van de kanaalbodem van meer afhangt dan dan alleen de viscositeit van het water in de weerstandslaag.
+ Met dit verval en de temperatuur tussen de peilfilters weten we het relatieve infiltratiedebiet.
+ Hiermee meten we ook in hoeverre de weerstand van de kanaalbodem van meer afhangt dan alleen de viscositeit van het water in de weerstandslaag.
 \end_layout
 
 \begin_layout Standard
-Dan zijn er peilbuizen dichtbij het kanaal maar wel buiten de kades (C en D),
- waar (op basis van de temperatuur in de peilbuis) verwacht mag worden dat de jaarfluctuatie van de temperatuur van het kanaalwater daar verwaarloosbaar is.
- Dit betekent dat de stijghoogte in deze peilbuizen een ook directe maat zijn voor het infiltratiedebiet vanuit het kanaal.
+In staan ook peilbuizen dichtbij het kanaal maar wel buiten de kades (C en D),
+ waar (op basis van de temperatuur in de peilbuis) verwacht mag worden dat de jaarfluctuatie van de temperatuur van het kanaalwater daar gering is.
+ Dit zou betekenen dat de stijghoogte in deze peilbuizen ook een directe maat zijn voor het infiltratiedebiet vanuit het kanaal.
+ Spleetvorming kan een streep door de rekening halen,
+ maar spleetvorming treedt alleen buiten de kades op.
  Variatie in de tijd van het infiltratiedebiet zou dan nog kunnen komen doordat de lek van de wellen afhankelijk is van de stijghoogte onder de deklaag.
  Dit weten we nu niet,
- maar we kunnen de situatie in raaien met veel wellen vergelijken met raaien met weinig wellen waar zo'n wellen-effect niet speelt.
+ maar we kunnen de situatie in raaien met veel wellen vergelijken met raaien met weinig wellen waarin zo'n eventueel wellen-effect niet speelt.
  Bij zorgvuldige monitoring hebben we met deze peilbuizen de mogelijkheid om de variatie in de infiltratiesnelheid te bepalen,
  te meten of de weerstand van de kanaalbodem door meer dan alleen de viscositeit wordt beïnvloed,
- en om na te gaan of het gedrag van de wellen in de tijd varieert als functie van de stijghoogte onder de deklaag.
- We hebben hiermee ook het instrumentarium om goed te bepalen wat de weerstand van de kanaalbodem is.
+ en kunnen we nagaan of het gedrag van de wellen in de tijd varieert als functie van de stijghoogte onder de deklaag.
 \end_layout
 
 \begin_layout Standard
@@ -21867,6 +23236,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../../images/Xsec_raai5_detail_profiel_monitoring.pdf
+	width 70text%
 
 \end_inset
 
@@ -21912,54 +23282,160 @@ nolink "false"
 
 \end_layout
 
-\begin_layout Standard
-Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:model-stijgh-1000m"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- laat zien dat de zomer stijghoogten in het kanaal ca.
- 0.5 m onder het kanaalpeil zitten en de winterstijghoogten ca.
- 1.1 m.
- Tabel 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Overzicht-peilbuizen-in-en-naast-ARK"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- lat zien dat het verschil tussen de peilbuizen in het kanaal (A) en net daarbuiten (C) voor raai4 24 cm is,
- voor raai 5 is dat 12 cm en voor raai 9 slechts 8 cm.
- Dit doet vermoeden dat de damwand lekt,
- want het model rekent hiervoor 40 cm uit.
- Een sterk lekkende damwand verstoort het beeld.
- Het is aantoonbaar aan de hand van de tijdsvertraging van de temperatuur.
- Peilbuis 5 en 6 lijken inderdaad de temperatuur van het ARK water met weinig vertraging te volgen,
- maar de reeksen zijn nog te kort om hierover een definitief oordeel te vellen.
- Bovendien zouden all reeksen beschikbaar moeten zijn.
- Volledig lekke damwanden verstoren aanmerkelijk de opgezette redeneertrant.
-\end_layout
-
 \begin_layout Section
 Weerstand meten tijdens en na aanbrengen van bentoniet
 \end_layout
 
 \begin_layout Standard
-Bodem slib
+De weerstand van de kanaalbodem is niet verwaarloosbaar.
+ We zomerstijghoogte in en direct naast het kanaal is ca.
+ NAP -1.0 m en de winterstijghoogten schommelen rond NAP -.15 m.
+ Dat is resp.
+ 0.6 en 1.1 m onder het kanaalpeil (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vergelijking-zomerpiek-en-winterdal"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) De hierbij met het dwarsdoorsnede model berekende infiltratiesnelheden (Infiltratiedebiet gedeeld door kanaalbreedte) leveren resp.
+ rond 40 en 30 mm/d op (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemeten-en_ber-hoogte-raai5"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig:Gemeten-en_ber-hoogte-raai6"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Dit impliceert in de een zomer een bodemweerstand van rond 15d en in de winter rond 35 d wat consistent is met wat 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+ geven.
+ Voor de verruiming tussen 19973 en 1982,
+ met een 4.5 m diep kanaal werd de weerstand op 250 d geraamd.
 \end_layout
 
-\begin_layout Section
-Turbulentie
+\begin_layout Standard
+De vraag moet feitelijk worden gesteld,
+ welke weerstand is nodig om het probleem van de wellen en de wateroverlast op te lossen.
+ Wanneer de bodemweerstand heel groot is,
+ dan verdwijnt de problematiek geheel,
+ want dan zakt ook de stijghoogte richting polderpeil.
+ Nu zit dat er nog ca.
+ 0.8 m boven.
+ Dus hoever moet deze stijghoogte omlaag?
+\end_layout
+
+\begin_layout Standard
+Omdat de huidige weerstand niet verwaarloosbaar is,
+ zal het min gemakkelijk zijn om de bodemweerstand belangrijk te vergroten.
+ In het onderzoek in de water-stroomgoot uit 2017 bleek 60 dagen weerstand haalbaar (@@nakijken),
+ en door het aanbrengen van zandbentoniet direct na het verruimen van de Twentekanalen kwamen we ook in die richting (@@nakijken).
+ Echter de omstandigheden in het ARK zijn door de hoge frequentie van grote en zwaarbeladen diepgaande schepen veel ruwer dan bij het onderzoek.
+ Dit blijkt ook uit het feit dat de jaarlijkse bathymetriëen van de kanaalbodem aantonen dat deze nog niet tot een evenwichtstoestand heeft geleid.
+ Doorgaande erosie zal vermoedelijk ook de aangebrachte weerstandslaag niet intact laten.
+\end_layout
+
+\begin_layout Standard
+Als we nu direct zanbentoniet of bentoniet op de bodem aanbrengen,
+ komt dat op de aanwezige sliblaag terecht,
+ die 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ op 20 cm dikte raamde.
+ Hoe gedraagt deze laag zich nu.
+ Wordt de laag slib en de bovenste laag zand bij elk passerend schip geheel opgewoeld,
+ of is die stabiel?
+ En waar bestaat dat slib uit?
+\end_layout
+
+\begin_layout Standard
+Hoe het zand en het slib op de bodem van het ARK zich onder de huidige omstandigheden gedragen is nog een open vraag.
+ 
+\end_layout
+
+\begin_layout Standard
+Wanneer de huidige sliblaag slechts een geringe samenhang heeft,
+ dus uit losse deeltjes bestaat,
+ bestaat het risico dat wanneer een laag met hogere dichtheid,
+ zoals zand-bentoniet,
+ er overheen wordt gelegd de aanwezige sliblaag als glijlaag gaat functioneren en deze binnen luttele minuten samen met het zand-bentoniet onderin de erosiegeulen terecht komt.
+ De methode van aanbrengen,
+ de samenstelling en het gedrag van het bentonietmengsel in samenhang met het aanwezige slib,
+ zijn dus van groot belang.
+\end_layout
+
+\begin_layout Standard
+De constatering dat de weerstand van de bodemlaag in de zomer aanzienlijk lager is dan in de winter hangt nog boven de markt.
+ De verklaring die boven is uitgewerkt,
+ werkt in die richting maar is niet afdoende.
+ Dus we moeten stellig beter kijken naar verschillen tussen zomer en winter.
+ Biologische processen zijn denkbaar,
+ zeker als die gepaard gaan met gasvorming in de sliblaag.
+ Dat maakt de sliblaag in de zomer los en licht en in de winter zwaar en vast.
+ Maar gasvorming in slib is doorgaans een zwaar anaeroob proces dat zich slecht verdraagt met het voortdurend omwoelen van de laag,
+ want dat voegt zuurstof toe.
+ Met voldoende organisch materiaal dieper in het zand zou daar wel anaerobie en gasvorming kunnen optreden,
+ maar die zo de poriën eerder verstoppen.
+ We zijn er nog niet uit.
+ 
+\end_layout
+
+\begin_layout Standard
+De bodem lijkt of blijkt nog voortdurend in beweging te worden gebracht door de scheepvaart.
+ Dat maakt het voor slib moeilijk om een weerstand op te bouwen.
+ Immers het slib (althans zonder samenhang) zal eerder en verder worden opgewoeld dan het grovere zand.
+ Het zal ook later bezinken.
+ Hierdoor zullen de fijne en grove fracties van een laag slibhoudend zand van elkaar worden gescheiden,
+ zodanig dat het slib bovenop komt te liggen en het grovere zand onderop.
+ Wanneer het zand van nature slibhoudend was,
+ zoals ook voor de Formatie van Boxtel het geval is,
+ zal de fijne fractie uit het voortdurend opgewoelde zand verdwijnen en geleidelijk met de waterstroom richting IJ worden meegevoerd.
+ Dit is mogelijk wat er gebeurt en wat de erosie verklaart.
+ Onderzoek van het bodemzand in het kanaal en van het Boxtelzand ernaast kan hier licht op laten schijnen.
+ Dit mechanisme heeft ook consequenties voor de aan te brengen weerstandslaag.
+ Wanneer deze niet bestand is tegen de erosie door de schepen,
+ komt er van weerstandsopbouw mogelijk weinig terecht.
+ Een methode zou dan kunnen zijn om de bodem te stabiliseren met (gebroken) grind (van het soort waarmee de treinbielzen worden gefixeerd) dat niet wordt omgewoeld,
+ en waartussen het gedoseerde bentoniet kruipt en daar de bodem verstopt,
+ terwijl het tussen het grind beschermd is tegen erosie.
+ Er is dan geen reden dat dit geen duurzame oplossing zou kunnen zijn die,
+ los van de kosten van het grind,
+ relatief eenvoudig is te realiseren in de bestaande situatie.
+ Bij zo'n oplossing met men denken aan het onder water aanbrengen van bentoniet als slurrie in plaats van zand-bentoniet als mengsel,
+ omdat het zand de penetratie van het bentoniet tussen het grind voorkomt.
+ Het is zelfs de vraag of gezien het aanwezige slib,
+ alleen het aanbrengen van een dergelijke grindlaag al voldoende is om de gewenste weerstand te realiseren.
+ Maar dat hangt van het slib af.
 \end_layout
 
 \begin_layout Bibliography
