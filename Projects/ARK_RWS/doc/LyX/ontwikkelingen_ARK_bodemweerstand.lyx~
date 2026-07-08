@@ -1,0 +1,1604 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% \lstdefinestyle{mystyle}{
+%   language=Python,
+%   numbers=left
+% }
+
+% Put lstset here, after lstdefinestyle
+% \lstset{style=mystyle}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement h
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=left,% line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Ontwikkeling ARK en het grondwater onder de naastliggende polders
+\end_layout
+
+\begin_layout Standard
+Het Amsterdam Rijnkanaal ten noorden van Utrecht is tussen 1973 en 1981 verdiept van 4.5 tot 6 m en aan de oostzijde verbreed van 75 tot 100 m om passage van grotere schepen met een diepgang tot 4 mogelijk te maken.
+ Met alleen het uitdiepten en verbreden was het werk in 1981 nog niet gedaan:
+ tussen 1989 en 1994 werd het ARK verder klaar gemaakt voor deze diepere schepen van type M9 en M12 (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RWS02"
+literal "false"
+
+\end_inset
+
+,
+ p6),
+ waarna het ARK in oktober 1994 door koningin Beatrix voor deze schepen werd geopend.
+ Dus pas vanaf 1994 konden de grote binnenvaartschepen met diepgang tot 4 m van het kanaal gebruik maken.
+ Echter,
+ in 2002 was voorbereiding voor de verwijdering van de keersluis en schutsluis bij Zeeburg bij Amsterdam nog gaande.
+ Dus,
+ echt vrije doorgang naar Amsterdam voor de grote schepen was er pas daarna.
+ M9 en M12 schepen voeren voor 2004 nog niet op het ARK (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Scheepvaart-ARK-2003-2019"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+De hier beschreven geschiedenis van het ARK tussen Utrecht en Amsterdam is in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Verloop-van-de-grondwaterstanden"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ genoteerd naast de langjarige meetreeksen van de grondwaterstanden onder de deklaag on de omgeving van het ARK (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+) Dit verloop weerspiegelt tegelijk direct de ontwikkeling van de bodemweerstand van het kanaal.
+ Deze ontwikkeling is schetsmatig weergegeven met de dikke zwarte lijn.
+ Het lijkt nauwelijks gewaagd om te stellen dat de hoge piek direct na het baggeren in 1979 de opheffing van de deklaag weerspiegelt direct gevolgd door zijn bezwijken waarbij de meeste van de huidige wellen zullen zijn ontstaan.
+ Daarna volgt een natuurlijke heropbouw van de bodemweerstand die echter nooit de oorspronkelijke waarde bereikt.
+ Deze heropbouw vindt plaats in een rustig milieu op de bodem van het kanaal,
+ dat is uitgediept zonder dat de verwachte grote schepen er gebruik van maken.
+ Dit laatste gebeurt pas nadat de resterende drempel bij Zeeburg te Amsterdam rond 2003 is verwijderd.
+ Tussen ca.
+ 1993 en 2003 heerst er dus relatieve rust op de kanaalbodem,
+ die dan de maximale,
+ middels natuurlijke dichtslibbing bereikte bodemweerstand heeft.
+ Vanaf 2003 maken de grootste M9 en M12 binnenvaartschepen gebruik van het kanaal (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Scheepvaart-ARK-2003-2019"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Het is ook vanaf dat moment dat de grondwaterstanden onder de deklaag weer toenemen (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Verloop-van-de-grondwaterstanden"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Tegelijk hiermee neemt de jaarlijkse uitslag van kwelwater door naastliggende polders ook toe (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Scheepvaart-ARK-2003-2019"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Zowel de grondwaterstanden als deze kweluitslag bereiken een nieuw evenwicht rond 2015.
+ Het is vanaf 2013 dat erosiegeulen in de bodem van het ARK worden geconstateerd,
+ die tot 2025 nog niet volledig tot rust zijn gekomen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/beemster_fig9_1_met_trend_en_comments.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Verloop-van-de-grondwaterstanden"
+
+\end_inset
+
+Verloop van de grondwaterstanden vanaf 1975 tot 2021 (Beemster e.a.
+ Fig.9.1) voorzien van trendlijn grondwaterstanden,
+ episodes waarin de bodemweerstand veranderde en voor het ARK relevante gebeurtenissen.
+ Relevant is dat de natuurlijke verstopping tussen 1981 en 1993 niet de weerstand bereikte die voor de verruiming aanwezig was.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/gemaalafvoer_BBO+KC.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gemaalafvoer-BBO"
+
+\end_inset
+
+Ontwikkeling van de gemaalafvoer in polder Braambrugge Oost.
+ (uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/ScheepvartARK.png
+	lyxscale 80
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Scheepvaart-ARK-2003-2019"
+
+\end_inset
+
+Scheepvaart ARK van 2004 (rechts) tot 2019 (links).
+ Schepen van type M8 namen in deze periode sterk toe,
+ maar de grote schepen M9 t/m M15 voeren voor 2004 nog niet op het ARK (Fig.
+ uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+).
+ Dit is vermoedelijk vanwege de tot ca.
+ 2002/03 nog aanwezige drempel bij Zeeburg.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tussen 1981 en 2000 heerst er rust op de bodem van het ARK.
+ Het kanaal was reeds op diepte voor de grote schepen,
+ maar die konden pas rechtstreeks naar Amsterdam varen vanaf ca.
+ 2002/03.
+\end_layout
+
+\begin_layout Section
+Opdrukken deklaag
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/temp_head_beemster_fig91.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Temp-head-ARK-K70C-serie"
+
+\end_inset
+
+Temperatuur ARK en stijghoogte en temperatuur van 3 waarnemingsputten in raai 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/raai_K70Cserie.png
+	lyxscale 60
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Raai-peilbuizen-uit-Beemster2022-nu-raai4"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+Raai peilbuizen uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+.
+ Deze peilbuizen maken nu deel uit van raai 4.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Onderzoeksgebied-met-peilbuizen-en-wellen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat zien dat raai 4 in de zone ligt met de grootste dichtheid aan wellen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/spleet_opdrijven_deklaag.png
+	lyxscale 25
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fig.9.3-uit-Beemster"
+
+\end_inset
+
+Fig.9.3 uit Beemster e.a.
+ (2022).
+ De spleet treedt op buiten de kades,
+ want die zijn veel zwaarder dan het land ernaast.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Erosie deklaag
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/dsnModelMetSpleet.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Doorsnedemodel-met-spleet"
+
+\end_inset
+
+Doorsnedemodel met spleet tussen onder de deklaag over de wellenzone als aangegeven.
+ De spleet is 1 cm dik en heeft een doorlaatvermogen van 1000 m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/d.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Kwantificeer de spleet in termen van waterbalans ten opzichte van de totale infiltratie door de ARK bodem
+\end_layout
+
+\begin_layout Standard
+Teken de kade en het onderwatertalud goed.
+\end_layout
+
+\begin_layout Section
+Erosie
+\end_layout
+
+\begin_layout Standard
+Gegeven de retourstroomsnelheid van 2.
+ 0 tot 2.6 m/s aan de teen van de damwand en van 2.6 m/s onder de schepen kan erosie van bodemmateriaal over de gehele bodem van het ARK optreden (Deltares,
+ 2012,
+ p15).
+ Op dezelfde pagina wordt vermeld dat er ca.
+ 20 cm bodemslib aanwezig was.
+ Het rapport houdt verder een kritieke stroomsnelheid van 0.2 m/s aan.
+ Dit impliceert dat de retourstroom het materiaal op de bodem van het kanaal bij elke scheepspassage sterk en tot zekere diepte in beweging brengt,
+ wat logischerwijze de geconstateerde erosieprofielen veroorzaakt.
+ Hoewel het profiel na ca.
+ 25 jaar zijn eindvorm min of meer heeft bereikt,
+ impliceert dit in geen enkel opzicht dat het materiaal uiteindelijk bij scheepspassages rustig op de bodem blijft liggen.
+ Integendeel,
+ de beweging van het bodemmateriaal hangt uitsluitend af van de sterkte van de retourstroom in de relatie tot de korrelgrootte en die zijn,
+ ook na 25 jaar de factor ongewijzigd:
+ het uiteindelijke profiel moet worden opgevat als een statistische profiel dat ontstaat bij voortdurende opwarreling en herbezinking dat altijd door zal gaan zolang de retourstroom zo sterk blijft.
+ Met andere woorden het profiel blijft dynamische en zal derhalve blijven veranderen rond een statistisch evenwichtsprofiel dat min of meer stabiel is.
+ Dit laat de mogelijkheid overeind,
+ dat op den duur de hoogte van de onderwatertaluds tegen de damwanden kan verminderen door verplaatsing van materiaal naar het lagere midden van het kanaal.
+ Deltares (2012,
+ p16) concludeert dat het realistisch is te veronderstellen 
+\begin_inset Quotes pld
+\end_inset
+
+dat een groot deel van de onderwatertaluds zal eroderen,
+ wat ook daadwerkelijk is vastgesteld
+\begin_inset Quotes prd
+\end_inset
+
+.
+ Dit is een punt om de blijven monitoren.
+ Deltares (2012) toont op pagina 15 ook een foto van een door ontgronding stuk damwand langs het ARK dat voorover is gekanteld,
+ echter zonder erbij te vermelden of de oorzaak ontgronding van het onderwatertalud is.
+ Wat in elk geval zeker is dat een dergelijk falen van de damwand leidt tot achterloopsheid en vergroot risico van backward piping vanuit de naastliggende polder richting bezweken damwand.
+ 
+\end_layout
+
+\begin_layout Standard
+Deltares behandelt los gestorte breuksteen als een van de methoden om de bodem stabiel te maken.
+ Voor een retourstroomsnelheid van 2.0 m/s en van 2.6 m/s komt Deltares (2012,
+ tabel ..
+ ) op resp.
+ 0.07 en 0.11 m.
+ In de huidige situatie is vooral open ruimte tussen de stenen van belang om het afpleisterende materiaal op tussen via deze open ruimte op de zandbodem zijn werk te laten doen en dat vooral in rust,
+ zonder wezenlijke turbulentie en stroming.
+ Dit vergt hoekigheid,
+ gebroken steenslag.
+ Verder gaat het niet om het gewicht van de stenen om individueel de stroming te weerstaan,
+ maar om hun onderlinge verankering zodat ze als laag deze stroming weerstaan,
+ ook dit vergt hoekige korrels,
+ en tenslotte gaat het om grip op de onderliggende zandbodem zodat de laag stabiel op het onderwatertalud blijft liggen;
+ ook dit vergt hoekige steenslag (Fig.).
+ Al met al kunnen hierdoor de afzonderlijke korrels kleiner zijn dan berekend volgens Deltares,
+ maar moeten ze vooral hoekig zijn,
+ precies zoals de steenslag die de spoorwegen gebruiken voor hun ballastbed.
+ Voor de laagdikte zou men de D-waarde van 11 cm die Deltares in tabel 5.1 noemt kunnen handhaven maar nu als laagdikte in plaats van korreldiameter,
+ onder voorwaarde dat de turbulentie op de zandbodem voldoende is gedempt.
+ Dit kan middels labonderzoek worden vastgesteld.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/foto_ballastbed_NS.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/foto_steenslag_NS.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Steenslag-ballastbed-NS"
+
+\end_inset
+
+Steenslag ballastbed NS (Foto's Internetsite SpoorPro)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deltares vermeldt op p27 dat in 2010 90000 m
+\begin_inset Formula $^{3}$
+\end_inset
+
+ slib uit het ARK is verwijderd.
+ We zien daarvan echter niets terug in de grondwaterstanden (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Verloop-van-de-grondwaterstanden"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) en evenmin in de afvoer van kwelwater door de gemalen van de naastliggende polders (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemaalafvoer-BBO"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Los slib heeft blijkbaar geen directe betekenis voor de weerstand van de kanaalbodem.
+ Dat zal anders zijn voor slib dat zandbodem binnendringt en eventueel slib dat op de kanaalbodem kan consolideren,
+ als het daarvoor de kans krijgt gezien de prohibitief hoge retourstroomsnelheid op de kanaalbodem.
+ De inventarisatie van de weerstand van slib in Deltares (2012) blijkt geen betekenis te hebben voor het ARK.
+ Dit versterkt het idee dat voor weerstandopbouw consolidatie op en/of indringing van slib in de zandbodem van het kanaal het kernpunt is,
+ twee processie die effectief door de hoge retourstroomsnelheden wordt teniet gedaan.
+ Deltares (2012) voert tenslotte nog een aantal berekeningen uit om het effect van erosie van het onderwatertalud en de sliblaag te laten zien.
+ Terwijl het onderwatertalud van belang is,
+ omdat zich daarin nog restanten van de oorspronkelijke deklaag bevinden,
+ die Deltares niet meeneemt,
+ is de sliblaag dat veel minder omwille van de hier benadrukte turbulente omstandigheden op de kanaalbodem waardoor de weerstandsopbouw van het slib uiterst beperkt blijft blijkens de ontwikkeling van de bodemweerstand over de periode vanaf ca.
+ 2000 (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Verloop-van-de-grondwaterstanden"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemaalafvoer-BBO"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Stabiliteit van de damwanden
+\end_layout
+
+\begin_layout Standard
+De damwanden langs het ARK reiken tot ca.
+ NAP -9.5 m.
+ Dat is 3 m onder de ontwerpbodem in het midden van het kanaal en 5.4 m onder het ontwerptalud tegen de damwand.
+ Wanneer het onderwatertalud wegerodeert vermindert de stabiliteit van de damwand mogelijk tot onder een acceptabel niveau.
+ Een ander stabiliteitsrisico ontstaat door 
+\begin_inset Quotes pld
+\end_inset
+
+backward piping
+\begin_inset Quotes prd
+\end_inset
+
+ als gevolg van plaatselijke opheffing van de deklaag.
+ Eerder is op basis van de metingen plausibel gemaakt dat optreedt onder en langs sloten die loodrecht op het kanaal lopen.
+ De horizontale spleet die hierbij ontstaat heeft in potentie en enorm doorlaatvermogen dat zelfs bij enkele mm dikte dat van all watervoerende lagen tot 160 m diepte kan overschrijden.
+ De spleet door de opheffing begint oorspronkelijk naast de kade,
+ want het gewicht van de kade voorkomt opheffing ter plekke.
+ Maar juist aan het begin van de spleet concentreert zich het toestromende grondwater,
+ dat backward piping initieert onder de kade door tot aan de damwand.
+ Lekken in de damwand worden door het water onverbiddelijk gevonden.
+ Verder,
+ bij geërodeerde talud buiten de damwand kan zo het kanaalwater rechtstreeks in contact komen met de spleet,
+ maar ook,
+ kan hierdoor versterkte stroming onder de damwand door optreden met uitspoeling aan de binnenzijde.
+\end_layout
+
+\begin_layout Standard
+In conclusie:
+ De huidige situatie met een lichte deklaag,
+ die deels kan worden opgeheven en lek is geraakt met wellen,
+ kan gegeven de erosie van het talud en corrosie van de damwanden niet als duurzaam worden beschouwd.
+ De enige meest duurzame maatregel is het aanmerkelijk vergroten van de weerstand van de bodem van het ARK.
+\end_layout
+
+\begin_layout Section
+Alternatieve maatregelen
+\end_layout
+
+\begin_layout Standard
+Het aanbrengen van voldoende bodemweerstand lost de wellenproblematiek rond het ARK op,
+ omdat de stijghoogte dan zakt naar dat van het polderpeil zelf.
+ Bij het zoeken naar reële alternatieven (waarbij het aanbrengen van een meter grond van elders over vierkante kilometers veengrond al bij voorbaat kan worden uitgesloten),
+ komt met op drainage om het peil onder de deklaag te verlagen.
+ Verlagen van het polderpeil helpt in elk geval niet,
+ want dat versterkt de druk onder de deklaag alleen maar.
+ Hetzelfde geldt voor het aanbrengen van drains of meer sloten.
+ Wat wel de stijghoogte onder de deklaag verlaagt is meer (kunstmatige) wellen.
+ Met andere woorden sloten parallel aan het ARK die de deklaag volledig doorgraven.
+ Wat technisch ook kan is een moeraszone creëren langs het ARK met daarin voldoende wellen om de stijghoogte onder de deklaag te verlagen tot ongeveer het polderpeil.
+ Beide zijn varianten van hetzelfde principe en leiden tot een aanzienlijke kwelstroom die aan het einde van de moeraszone weer naar de boezem moet worden uitgemalen.
+\end_layout
+
+\begin_layout Standard
+Of drainage in de een of andere vorm duurzaam is,
+ valt zeer te betwijfelen.
+ En eeste kost de extra uitmaling kost voortdurend energie.
+ Ten tweede veroorzaakt de zo bevorderde kwel het risico van piping en dus het instabiel worden van de kanaalkade.
+ Dat laatste zal prohibitief zijn voor de oplossing met drainage.
+ Vermoedelijk treedt een vorm van piping nu reeds op (zie elders in dit document).
+ Maar op plekken waar de damwand lekt door niet goed in het slot zitten of corrosie,
+ is dit een reëel risico.
+ Dit is ook het geval op trajecten waar het onderwatertalud op den duur wegerodeert.
+\end_layout
+
+\begin_layout Section
+Bereiken van duurzame bodemweerstand
+\end_layout
+
+\begin_layout Standard
+Voor wat betreft erosie is de retourstroom bij scheepspassage de belangrijkste factor.
+ De retourstroom langs de bodem is groter dan de stroming die wordt opgewekt door de scheepsschroeven.
+ Wellicht een extra factor is de retourstroom die optreedt wanneer schepen elkaar passeren en het gepasseerde schip dichter langs de kanaaloever vaart met,
+ vanwege het onderwatertalud minimale vrije ruimte tussen kiel een bodem aan de oeverzijde (Deltares,
+ 20212@@).
+ Dit erodeert het onderwatertalud.
+\end_layout
+
+\begin_layout Standard
+Deltares (1016) onderzocht de weerstandsopbouw bij verschillende combinaties van zand,
+ bentoniet,
+ klei en bodemslib en de daarbij optredende erosie wanneer onderworpen aan een retourstroom die overeen komt met wat maximaal langs de kanaalbodem te verwachten is.
+ Het zich daarbij om een aantal proeven met genoemde combinaties gevolgd door een drietal experimenten waarbij de weerstandslaag werd beschermd tegen de eroderende retourstroom door hem af te dekken met een ca 30 cm dikke laag zand en tenslotte met een ca.
+ 10 cm dikke laag grind.
+\end_layout
+
+\begin_layout Standard
+Uit de uitgevoerde experimenten kan een aantal zaken worden geconcludeerd:
+\end_layout
+
+\begin_layout Itemize
+De bereikte weerstand viel tegen,
+ 10-20 d en was lager dan in experimenten uitgevoerd in de water-grond goed in 2017 (60-100 d).
+\end_layout
+
+\begin_layout Itemize
+Bentoniet werkt anders en beter dan slib en klei.
+ Bentoniet vormt een samenhangende gel die goed water afsluitend is.
+ Klei en slib vormen geen samenhangende gel.
+ Bij klei en slib hangt de weerstand af van de consolidatie van het materiaal.
+ Bentoniet dringt beter de bodem in dan klein of slib.
+ Ook dit is een factor van betekenis.
+\end_layout
+
+\begin_layout Itemize
+De combinaties van bentoniet,
+ zand-bentoniet,
+ klei en slib zijn niet bestand tegen de retourstroom.
+ Deze lagen zullen dus altijd eroderen tenzij ze expliciet tegen erosie beschermd worden.
+\end_layout
+
+\begin_layout Itemize
+Een manier om de aangebrachte laag te beschermen is hem af te dekken met een laag van bijv.
+ 30 cm zand.
+ Dit bevordert de consolidatie en verhoogt zo de weerstand,
+ maar beschermt is niet duurzaam omdat de beschermende zandlaag zelf erodeert.
+ Bij opwerveling van zand met fijner materiaal,
+ bentoniet,
+ klei,
+ slib,
+ zoals dat bij erosie door de sterke retourstroom onvermijdelijk is,
+ sorteert het terugbezinkende materiaal uit waarbij de grofste korrels onder en de fijnste korrels boven liggen en door de erosie door voortdurende passerende schepen nooit tot rust zullen komen.
+ Hierdoor verdwijnt de aangebrachte weerstand.
+\end_layout
+
+\begin_layout Itemize
+Het enige wat helpt,
+ is rust op de kanaalbodem.
+ De benodigde rust kan worden verkregen,
+ blijkt ook uit de proeven van Deltares,
+ door grind op de kanaalbodem aan te brengen dat zelf niet door de retourstroom in beweging kan worden gebracht.
+ Dit aspect verdient extra aandacht:
+\end_layout
+
+\begin_layout Standard
+Vanuit fysisch inzicht dient het grind
+\end_layout
+
+\begin_layout Itemize
+voldoende grof te zijn.
+ Spreekt vanzelf.
+ Maar niet grover dan nodig.
+ De grofheid is ook van belang omdat het weerstandbiedende bentoniet of slib gemakkelijk tussen de grindkorrels door de fijnzandige kanaalbodem moet kunnen bereiken en die afpleisteren,
+ en daar door de zuigspanning in rust consolideren.
+\end_layout
+
+\begin_layout Itemize
+hoekig te zijn.
+ De eis van hoekigheid van het grind heeft een aantal redenen.
+ In de eerste plaats garandeert dit dat het grind in de zandbodem haakt en niet verschuift naar het centrum van de aanwezige erosiegeulen.
+ In de tweede plaats zorgt de hoekigheid ervoor dat de korrels in elkaar haken en daarmee de laag veel erosiebestendiger zal zijn dan bij toepassing van afgerond grind.
+ De benodigde laagdikte is hierdoor geringer.
+ Deze zou kunnen worden geschat op driemaal de korreldikte.
+ De hoekigheid geeft ook meer ruimte tussen de grindkorrels waardoor het fijne afpleisterende materiaal gemakkelijker tussen de korrels door de eigenlijke kanaalbodem kan bereiken.
+ Korrels die niet verschuiven garanderen dat de afpleisterlaag duurzaam intact blijft.
+ Een a priori inschatting is dat het grind dat de NS gebruikt voor het fixeren van bielsen ideaal is.
+\end_layout
+
+\begin_layout Itemize
+de laag voldoende dik te zijn.
+ Een inschatting is dat de laag minimaal drie grindkorrels dik zal moeten zijn.
+ Dit komt neer op 10 tot 15 cm.
+\end_layout
+
+\begin_layout Standard
+Grind is duur,
+ maar hoekig grind is via de NS in het hele land beschikbaar dus niet moeilijk te verkrijgen.
+ Het grind garandeert de duurzaamheid van de afpleisterende laag,
+ maar reduceert tegelijk ook de hoeveelheid bentoniet die nodig zal zijn om de afpleisterende werking te garanderend.
+ Men kan inschatten dat een laag van 5 cm tussen de grindkorrels voldoende is.
+ Rekening houdend met de porositeit van het grind komt dit neer op vlakdekkend ca.
+ 2-3 cm.
+ Een dikkere laag maakt de bovenkant daarvan onderhevig aan erosie wegens te weinig grinddekking.
+ Bentoniet met zand mengen is hierbij uit den boze,
+ want vermindert de afpleisterende werking.
+ De inschatting hierbij is dat een bentoniet laag meer weerstand biedt dan een even dikke zand-bentonietlaag.
+\end_layout
+
+\begin_layout Standard
+Op basis van intuïtie geschikt grind lijkt grind dat de spoorwegen gebruiken voor hun ballastbed.
+ De belangrijkste kenmerken daarvan zijn
+\end_layout
+
+\begin_layout Itemize
+Materiaalsoorten:
+ De gebruikte steenslag is vaak hard stollingsgesteente zoals basalt,
+ graniet,
+ porfier of gneis (https://www.railpro.online/nl_NL/steenslag/15/).
+\end_layout
+
+\begin_layout Itemize
+Scherpe randen:
+ In tegenstelling tot glad riviergrind,
+ grijpen de hoekige stenen van steenslag stevig in elkaar.
+ Dit verdeelt de druk van de trein optimaal over de ondergrond en voorkomt dat de rails verschuiven (https://www.infrasite.nl/glossary/ballastbed/?gdpr=accept).
+\end_layout
+
+\begin_layout Itemize
+Formaat:
+ Er worden vaste gradaties gebruikt.
+ Voor de hoofdsporen ligt dit doorgaans tussen de 30 en 60 mm,
+ en bij wissels tussen de 20 en 40 mm.
+\end_layout
+
+\begin_layout Itemize
+Belangrijke functie:
+ Naast het dragen van de last en het fixeren van het spoor,
+ zorgt de steenslag ervoor dat trillingen worden gedempt en overtollig regenwater snel wordt afgevoerd.
+\end_layout
+
+\begin_layout Itemize
+Veiligheid:
+ Vroeger werd er vaak kwartshoudend gesteente gebruikt,
+ maar ProRail is overgestapt op andere steensoorten omdat kwartsstof bij bewerking gezondheidsrisico's kan opleveren voor spoorwerkers (https://www.bnnvara.nl/zembla/artikelen/dit-is-ons-dossier-over-kankerverwekkende-stenen-op-het-treinspoor).
+ Veel van de moderne steenslag wordt gewonnen uit bergen in Noorwegen.
+\end_layout
+
+\begin_layout Standard
+Het is niet uitgesloten dat alleen het aanbrengen van de grindlaag voldoende is om de weerstand van het kanaal voldoende te vergroten,
+ aangezien het slib vanzelf tussen de grindkorrels kruipt.
+ Dit moet uiteraard worden uitgezocht.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/bodembedekking_ARK_voorgesteld.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Wenselijke-bodemsituatie-ARK,"
+
+\end_inset
+
+Wenselijke bodemsituatie ARK,
+ ca.
+ 10-12 cm hoekige steenslag (materiaal ballastbed NS) met daartussen bentoniet (evt.
+ natuurlijk bodemslib) dat consolideert op de geërodeerde zandbodem.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deltares (2012) geeft aan dat zich een laag van ca.
+ 20 cm slib op de kanaalbodem bevindt of althans bij baggerwerkzaamheden in 2010 is verwijderd.
+ Met een dergelijke sliblaag aanwezig wordt het aanbrengen van bentoniet op de kanaalbodem vrijwel onmogelijk:
+ Het fijne bentoniet kan de kanaalbodem via en door het aanwezige bodemslib eenvoudig niet bereiken.
+ Het zal bij elke scheepspassage eenvoudig worden opgewoeld en weer at random bezinken zonder ooit de gelstatus te kunnen ontwikkelen.
+ En zelfs als het bentoniet iets van een gel zou kunnen vormen,
+ zal de laag zo dun zijn,
+ dat het door de onderdruk die de retourstroom creëert aan stukken worden gereten.
+ De situatie op de bodem van het ARK is nu eenmaal heel anders en hydraulisch veel ruwer dan die in de Twentekanalen vers na uitbaggering en verruiming.
+ Ook van zand-bentoniet versproeien of met slangen op de bodem (dat betekent in dit geval op het aanwezige bodemslib) leggen,
+ zoals gebeurd in de Twentekanalen,
+ kan men om dezelfde reden geen weerstandopbouw verwachten,
+ wat in feite ook is aangetoond door Deltares (2026@@).
+ Wellicht kan bentoniet als slurrie onder de aanwezige sliblaag worden geïnjecteerd op de wijze waarop tegenwoordig overal in ons land vloeibare mest wordt verspreid.
+ Dat vergt een aparte ontwikkeling die ook getest moet worden onder praktijkomstandigheden.
+ Aangezien bij elke scheepspassage waarschijnlijk de gehele sliblaag wordt opgewoeld (er vindt in de huidige situatie immers geen consolidatie plaats),
+ zal het ook bij de laatste,
+ kansrijke methode,
+ nog steeds essentieel zijn om het ingebrachte bentoniet de voor consolidatie benodigde rust te garanderen,
+ namelijk door het aanbrengen van steenslag.
+ Wellicht kan steenslag worden weggelaten wanneer de benthoniet-slurrie op voldoende diepte onder de zandbodem kan worden geïnjecteerd,
+ onder het niveau dat niet mer door de retourstroom in beweging wordt gebracht.
+ De zo via injectie aangebrachte bentonietlaag mag niet gaan schuiven als bij liquifactie en daarbij samen met de zeg 20 of 30 cm bodemzand erboven als mudflow de erosiegeulen in glijdt en daarbij het onderwatertalud met 30 cm verlaagt.
+ Ook kan de verse slurrie onder de zandlaag omhoog worden geperst,
+ met slurriefonteintjes tot gevolg,
+ waardoor en geen continue bentonietlaag meer gevormd wordt.
+ Kortom,
+ de omstandigheden in het ARK maken het aanbrengen van een duurzame weerstandslaag bijzonder lastig,
+ met name door de hoge retourstroomsnelheid ten opzichte van het bodemmateriaal en de aanwezigheid van slib.
+ Vandaar dat het essentieel is om de situatie op de kanaalbodem te kennen,
+ en de wijze van aanbrengen van de afpleisterende laag te ontwerpen zodat die succes kan hebben.
+ Een hamvraag is:
+ moet eerst het slib worden verwijderd,
+ of kunnen we het laten liggen en volstaan met alleen een laag hoekige steenslag aan te brengen met korrels die zelf door het slib naar de kanaalbodem zakken,
+ en zich daar aan elkaar en aan de bodem verankeren,
+ waarna het slib tussen de korrels rustig kan consolideren en weerstand kan opbouwen (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Aanbrengen-(zand)-bentoniet-op-slib"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Is de zo bereikte weerstand dan voldoende?
+ Een risico hierbij is dat het grind de sliblaag vloeibaar maakt en de stenen samen met het slib het talud afglijden voordat de stenen zich voldoende in het zand en in elkaar kunnen vasthaken.
+ Het alternatief zou zijn,
+ eerst slib wegzuigen,
+ dan grind aanbrengen en daar direct bentoniet overheen versproeien zonder zandbijmenging,
+ zodat het bentoniet tussen de korrels dringt,
+ het zandoppervlak tussen de grindkorrels afpleistert door daar een gel te vormen,
+ en vervolgens consolideert op de zuigende kanaalbodem nog voordat het grind later weer door slib wordt bedekt.
+ Dat slib heeft dan geen betekenis voor de weerstand van de kanaalbodem,
+ maar zal wel kunnen bijdragen aan de bescherming van de bentonietlaag eronder.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/Aanbrengen_grind.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Aanbrengen-(zand)-bentoniet-op-slib"
+
+\end_inset
+
+Aanbrengen (zand)-bentoniet op een slibbodem?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+CST-tests
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ heeft met groot aantal labtests onderzocht hoe bentoniet,
+ klei en slib bodemweerstand opbouwen en behouden,
+ waarbij het weerstandbiedende materiaal al dan niet was gemengd met zand,
+ tegen erosie beschermd met een toplaag van enkele decimeters zand,of beschermd door een laag van 10 cm niet-erodeerbaar grind.
+ Bij een eerste serie proeven werd gekeken welke grootte de weerstand van de verschillende materialen zelf zou kunnen bereiken.
+ De waarden liepen uiteen van ca.
+ 50 d voor opgebaggerd slib tot 300 d voor een zand-bentoniet mengsel.
+ Opvallen was dat pure klei en puur opgebaggerd slib,
+ dus niet achteraf met zand bijgemengd,
+ beide ruim 100 dagen haalde,
+ een getal dat ook als het doel van de maatregel kan worden beschouwd.
+\end_layout
+
+\begin_layout Standard
+Van praktisch belang is uiteraard hoe de verschillende materialen zich gedragen wanneer ze na een zekere consolidatie worden onderworpen aan erosie die vergelijkbaar is met het passeren van grote binnenvaartschepen,
+ die een retourstroom langs de bodem opwekken tot ca.
+ 2.5 m/s.
+ Deze proeven zijn uitgevoerd in een perspex kolom van 19 cm diameter,
+ met 30 cm zand op de bodem met een korrelverdeling die overeen komt met die van het Boxtel-zand op de bodem van het ARK,
+ waarop vervolgens het weerstandbiedende materiaal is geplaatst onder een voortdurend neerwaarts stijghoogteverval van 1.5 m,
+ zoals dat ook ongeveer het geval is op de kanaalbodem langs trajecten met veel overlast door wellen.
+ Het water even boven de bodem van de perspex kolom werd in beweging gebracht door een rotor met verticale as,
+ met aan de onderzijde 4 haaks op elkaar staande verticale bladen van 20 cm hoog en een totale diameter van 17 cm,
+ dus 1 cm ruimte rondom latend.
+ De snelheid van de rotor werd tijdens elke proef een aantal keer trapsgewijs opgevoerd tot de gewenste snelheid,
+ gevolgd door een rustperiode.
+ De snelheid aan het einde van de rotor werd als maatgevend beschouwd voor de snelheid aan van het water vlakbij de bodem.
+ Het is duidelijk dat de snelheid naar de hartlijn van de kolom naar nul terugloopt.
+ De middelpunt vliedende krachten en spanningen die bij deze opzet optreden worden niet gesproken maar kunnen aanzienlijke consequenties hebben voor de interpretatie.
+ Deze krachten zorgen op gelijke hoogte,
+ dus ook op het materieeloppervlak,
+ voor een aanzienlijk hogere druk tegen de perspex wand ten opzichte van het hart van de kolom.
+ Dit is niet allen het geval binnen de waterkolom,
+ maar ook daaronder.
+ Hierdoor ontstaat onder het oppervlak van het materiaal in de kolom ook een circulatiestroom opwaarts in het midden en neerwaarts langs de wand van de kolom,
+ die groter kan zijn dan de neerwaartse stroom ten gevolge van het aangehouden verticale peilverval.
+ Het gevolg kan en mogelijk zal zijn dat tijdens het roteren van de rotor materiaal in het midden van de kolom omhoog wordt gezogen en daar een kuil vorm,
+ die volledig onzichtbaar blijft voor de observator die van de zijkant naar de kolom kijkt.
+ De laag of menglaag weerstandbiedend materiaal wordt zo geheel vanuit het hart van de kolom uit elkaar gezogen door de in de kolom opgewekte tornado.
+ Hierdoor zal de weerstandbiedende laag op een bepaald moment in het midden geheel zijn verdwenen en doorbreken,
+ terwijl hij langs de wand nog deels in tact is.
+ Dit lijkt gebeuren in verreweg de meeste van de kolomexperimenten.
+ Het is daarom van belang dit aspect mee te nemen in de interpretatie,
+ want die wijkt af van wat er in werkelijkheid gebeurt.
+\end_layout
+
+\begin_layout Standard
+Het mengen van weerstandbiedend materiaal met zand helpt niet de weerstand te vergroten,
+ in tegendeel.
+ De essentie is en dat blijkt uit de proeven ook dat de fijne deeltjes tegen elkaar kunnen drukken zonder zandkorrels ertussen die de consolidatiedruk beperken en daarmee ook de bereikbare weerstand.
+\end_layout
+
+\begin_layout Standard
+Klei en slib tonen beide een toenemende weerstand met consolidatie (excess weight).
+ De dikte van de laag zelf minder belangrijk dan de mate van consolidatie.
+ Dat blijkt uit de proeven met slib 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+,
+ 
+\lang english
+p39:
+ 
+\begin_inset Quotes pld
+\end_inset
+
+This suggests that the effective layer still had sufficient thickness to seal the bottom despite the onset of erosion in the upper section of the mixture
+\begin_inset Quotes prd
+\end_inset
+
+
+\lang dutch
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Self-healing is een veel geroemd aspect van het aanbrengen van een zand-bentoniet laag.
+ Maar ook voor self-healing wijkt de stiautie in het ARK drastisvh a van die in de Twentekanalen.
+ De redenering dat scheuren die zich in de zand-bentonietlaag vormen zich vanzelf vullen met los bentoniet dat in de omgeving aanwezig is,
+ lijkt hier op los zand gebaseerd.
+ Bij steeds herhaalde sterke opwoeling van bodemmateriaal,
+ zoals op de ARK-bodem,
+ kan dat niet het geval zijn.
+ Immers,
+ bij elke opwoeling,
+ dus bij elk groot passerend binnenvaart schip komt door de erosie van de retourstroom zowel zand als slib in de waterkolom terecht.
+ Het zijn dan altijd de veel sneller bezinkende zandkorrels die de scheuren als eerste vullen.
+ De scheuren zullen hierdoor doorlatend blijven.
+\end_layout
+
+\begin_layout Standard
+De weerstand van rond 10 dagen die in veel van de experimenten wordt bereikt is voor het ARK volstrekt onvoldoende,
+ die weerstand is er immers nu al.
+ Om een significant verschil te maken moet worden gestreefd naar 100 dagen of meer.
+ De weerstand voor de verruiming eind jaren 1970 werd geraamd op 250 d (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+),
+ maar die was gebaseerd op nog een zekere dikte aan oorspronkelijk weerstand biedende deklaag onder de kanaalbodem.
+ Die gaan we niet zomaar terugbrengen,
+ maar naar 100 dagen moeten we zeker streven.
+\end_layout
+
+\begin_layout Standard
+Uit de proeven blijkt steeds dat segregatie van grof en fijn materiaal door opwoeling is a kernfactor is waardoor de grovere korrels onder en de kwetsbare fijne korrels boven komen te liggen,
+ of in de werkelijkheid onder de drukte van de scheepvaart zelfs nooit meer bezinken of in elk geval tot rust komen om te kunnen consolideren.
+ Segregatie is alleen te vermijden door de opwoeling te voorkomen.
+\end_layout
+
+\begin_layout Standard
+Fig.4.15 typisch verloop.
+ De weerstand breekt als de erosie (in het hart van de kolom) tot aan de bodem van de gemengde laag is doorgedrongen.
+ Dat gebeurt door opzuigen van gemengd materiaal in het midden van de kolom waar de druk en dus ook de stijghoogte lager is dan aan de wanden.
+ Door de kolom is er ook een circulatiestroming in het midden omhoog en langs de wanden omlaag.
+ Langs de wanden kan je dus helemaal niet zien wat er in het midden gebeurd door de rotatiestroming.
+ Het bentoniet wordt zo uit de kolom gezogen de watermassa boven het materiaal in.
+ Je ziet hetzelfde voor de klei-zand laag Fig.
+ 4.19.
+ Uiteindelijk is de weerstand 5 d.
+ Het weerstandbiedende materiaal blijkt alleen beschermd onder de diepte waarop de vane kan eroderen.
+ Dus bij voldoende beschermlaagdikte blijft de laag intact,
+ ook al beweegt het materiaal erboven bij elke scheepspassage.
+ Dit bewegende materiaal dempt de turbulentie zodanig dat beneden een bepaalde diepte rust heerst.
+ Dat is wat deze proef uitwijst.
+ Ze de vane nog harder draaien of zou de beschermlaag dunner zijn,
+ dan was de hele beschermlaag verdwenen.
+\end_layout
+
+\begin_layout Standard
+We zien progressief doorbreken van de menglaag ook voor het mengsel slib en zand.
+\end_layout
+
+\begin_layout Standard
+Weerstandbiedende laag met beschermlaag erboven op.
+ Dat kan je in de praktijk niet aanbrengen.
+\end_layout
+
+\begin_layout Standard
+p46:
+ Uiteindelijk blijken zuur klei den bagger het beste te consolideren onder druk met beschermlaag.
+ Ook al is hun dikte maar 2-3 cm.
+ Hier zal ook geen scheurvomring optreden.
+ 
+\end_layout
+
+\begin_layout Standard
+Gravel:
+ Steenslag van de NS zou nog beter moeten werken.
+ Maar de kolom verstoort door een groot randeffect.
+ Daar is weinig aan te doen.
+ De test moest worden afgebroken omdat een steen tegen de vane kwam en de hele perspex proefkolom verbrijzelde.
+ Dit werd veroorzaakt doordat het door de agitatie bewegende bentoniet ook de stenen in beweging bracht.
+ Dit laatste is in de praktijk een voordeel;
+ het impliceert dat de stenen beter met elkaar verankerd raken en de laag stabiliseren.
+ Dus feitelijk was de proef met grind de meest succesvolle.
+ Aan fig.
+ 4.35 is te zien dat de stapeling van het grind in de kolom verre van optimaal was,
+ wat in de praktijk wel het geval zal zijn.
+ De weerstand blijft hoog gedurende de gehele test (tot bezwijken van de kolom).
+ Het is nu van belang de proeven te herhalen met optimaal grind en modder uit het ARK zelf.
+\end_layout
+
+\begin_layout Standard
+p33.
+ Wat is 
+\begin_inset Quotes pld
+\end_inset
+
+the scale's drift compensation thershold
+\begin_inset Quotes prd
+\end_inset
+
+ (kan geen kleine trend in verloop van de druk meten).
+\end_layout
+
+\begin_layout Standard
+Conclusie:
+ Bescherming van het weerstandbiedende materiaal door het te bedekken met een laag zand levert een veel grotere weerstand.
+ In de eerste plaats consolideert het materiaal dan beter en in de tweede plaats bereikte de opgewekte erosie de onderste cm van het slecht doorlatende materiaal niet.
+ Bij meer erosie of minder diep beschermen zal dat wel zo zijn en kan een duurzame weerstand worden verkregen.
+ Tegelijkertijd is deze oplossing in den natte in het drukke ARK met slib op de bodem nauwelijks realiseerbaar.
+ Zand op de bestaande sliblaag aanbrengen lijkt a priori weinig succesvol te kunnen zijn omdat het slib dan onder het zand voeibaar wordt en ontsnapt en dan alsnog voor een groot deel onbeschermd bovenop komt te liggen.
+ In alle gevallen veroorzaakt de agitatie een opwoeling van gemend materiaal dat in de waterkolom segregeert,
+ en dat bij elke scheepspassage.
+ Het weerstandbiedende materiaal komt nooit tot rust,
+ kan geen weerstand opbouwen en zal van lieverlee als troebelheid naar het IJ worden getransporteerd.
+ De meest succesvolle proef was die waarbij het weerstandbiedende materiaal tegen erosie beschermd was door grind dat zelf ongevoelig is voor de door de schepen opgewekte retourstroom.
+ De essentie is dat de functies van weerstand bieden tegen infiltratie en weerstand bieden tegen erosie hier worden gescheiden,
+ waardoor wel doorgaande consolisatie kan optreden en het bodemprofiel duurzaam in tact wordt gehouden.
+ Het scheiden van deze twee kernprocessen is belangrijker dan het weerstandbiedende materiaal zelf;
+ het werk met klei of bestaand slib op principieel dezelfde wijze als met bentoniet,
+ zonder dat daar bentoniet voor nodig is.
+ Daarom zou uiteindelijk al met het aanbrengen van een laag ballastgrind de weerstand van de bodem van het ARK op natuurlijke wijze tot de gewenste of noodzakelijke hoogte moeten toenemen.
+ Het aanbrengen van de de steenslag is een zachte,
+ no-regretmaatregel die altijd kan worden toegepast zonder de bevaarbaarheid wezenlijk te storen,
+ zonder het profiel wezenlijk te verkleinen,
+ die geen nabehandeling behoeft,
+ die ook de erosie van de onderwater taluds verder voorkomt en die ook altijd zonder probleem kan worden verwijderd of aan de kant gezet bijvoorbeeld bij een verdere verruiming in de toekomst.
+ Slib kan nog altijd worden gebaggerd met intact laten van de laag steenslag.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "ArcelorMittel (1993)"
+key "AM93"
+literal "false"
+
+\end_inset
+
+ArcelorMittel.
+ Impervious steel sheet-pile walls.
+ Design and Practical Approach.
+ Vindbaar op het Internet.
+ Commercieel document met conclusies uit onderzoek met Deltares (Destijds GeoDelft) uit 1993.
+ Verwijst naar drie verhalen van Sellmeijer (1993) ,waarvan er een officieel is gepubliceerd door ASCE in 1993.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Beemster e.a. (2022)"
+key "Be22"
+literal "false"
+
+\end_inset
+
+ Beemster.
+ J.G.R,
+ S.J.
+ van der Linde en M.R.L.
+ Ouboter (2022) Geohydrologisch onderzoek wellen langs ARK.
+ Waternet Amsterdam,
+ 25-07-2022.
+ Kenmerk 22.010088.
+ Projectnr.
+ 09.0005/004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2012)"
+key "De12"
+literal "false"
+
+\end_inset
+
+Deltares (2012) Onderzoek bodemerosie Amsterdam-Rijnkanaal.
+ Auteurs:
+ Henk Verheij,
+ Hans van Meerten en Ssanjay Giri.
+ Project1205317-000.
+ Opdracht RWS.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2025a)"
+key "De25a"
+literal "false"
+
+\end_inset
+
+Deltares (2025) Belasting door scheepvaart in Amsterdam-Rijnkanaal.
+ Maatregelen wateroverlast kanalen - SITO programmasubsidie lenW 2024.
+ Auteurs:
+ Iris Hartstra,
+ Arne van der Hout.
+ Projectnr.
+ 11210303-018,
+ document id:
+ 11210303-018-GEO-0007
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2025b)"
+key "De25b"
+literal "false"
+
+\end_inset
+
+Deltares (2025) Overzicht testmodellering geohydrologie Amsterdam-Rijnkanaal,
+ ter verklaring van de seizoenale verschillen in stijghoogte.
+ 17-05-2025.
+ Projectnr.
+ 11211511-014.
+ 53p.
+ Auteurs:
+ Teun van Woerkom,
+ Peter Vermeulen,
+ Guilherme Emidio Horta Nogueira.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2026a)"
+key "De26a"
+literal "false"
+
+\end_inset
+
+Deltares (2026) Experiments seepage reducing measures canal bed;
+ Column tests and CST permeability tests.
+ Authors:
+ Lynyrd de Wit and Qilong Bi.
+ Docuyment Id:
+ 11211511-033-GEO-0005,
+ 2026-03-026,
+ Deltares,
+ Utrecht.
+ 66 p.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2026b)"
+key "D26b"
+literal "false"
+
+\end_inset
+
+Deltares (2026) Systeemanalyse metingen ARK.
+ Concept 17-04-2026.
+ Projectnummer 11212749-008.
+ 78pp.
+ Auteur:
+ Jorijn Holstvoogd.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Olsthoorn (2026a)"
+key "Olst26a"
+literal "false"
+
+\end_inset
+
+Olsthoorn T.N.
+ (2026) Infiltratie,
+ erosiegeulen,
+ kweldruk en welvorming in het rond het Amsterdam-Rijnkanaal:
+ Analyse op basis van een Geotop-doorsnede door het gebied met overlast (concept).
+ Hygea-consult,
+ Heemstede,
+ 19-04-2026.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Olsthoorn (2026b)"
+key "Olst26b"
+literal "false"
+
+\end_inset
+
+Olsthoorn T.N.
+ (2026b) Weerstand bodem ARK en wellen.
+ Hygea-constult,
+ Heemstede,19-04-26
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Rijkswaterstaat (2002)"
+key "RWS02"
+literal "false"
+
+\end_inset
+
+RWS (2002) 50 jaar Amsterdam-Rijnkanaal.
+ Ongekend veelzijdig.
+ Ministerie van Verkeer en Waterstaat.
+ Directoraat Generaal Rijkswaterstaat.
+\end_layout
+
+\end_body
+\end_document
