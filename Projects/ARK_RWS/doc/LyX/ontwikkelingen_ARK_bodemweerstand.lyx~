@@ -882,6 +882,256 @@ Of drainage in de een of andere vorm duurzaam is,
 \end_layout
 
 \begin_layout Section
+Laboratoriumonderzoek bodemweerstand ter vermindering van de lek
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ heeft met groot aantal labtests onderzocht hoe bentoniet,
+ klei en slib bodemweerstand opbouwen en behouden,
+ waarbij het weerstandbiedende materiaal al dan niet was gemengd met zand,
+ tegen erosie beschermd met een toplaag van enkele decimeters zand,of beschermd door een laag van 10 cm niet-erodeerbaar grind.
+ Bij een eerste serie proeven werd gekeken welke grootte de weerstand van de verschillende materialen zelf zou kunnen bereiken.
+ De waarden liepen uiteen van ca.
+ 50 d voor opgebaggerd slib tot 300 d voor een zand-bentoniet mengsel.
+ Opvallen was dat pure klei en puur opgebaggerd slib,
+ dus niet achteraf met zand bijgemengd,
+ beide ruim 100 dagen haalde,
+ een getal dat ook als het doel van de maatregel kan worden beschouwd.
+\end_layout
+
+\begin_layout Standard
+Van praktisch belang is uiteraard hoe de verschillende materialen zich gedragen wanneer ze na een zekere consolidatie worden onderworpen aan erosie die vergelijkbaar is met het passeren van grote binnenvaartschepen,
+ die een retourstroom langs de bodem opwekken tot ca.
+ 2.5 m/s.
+ Deze proeven zijn uitgevoerd in een perspex kolom van 19 cm diameter,
+ met 30 cm zand op de bodem met een korrelverdeling die overeen komt met die van het Boxtel-zand op de bodem van het ARK,
+ waarop vervolgens het weerstandbiedende materiaal is geplaatst onder een voortdurend neerwaarts stijghoogteverval van 1.5 m,
+ zoals dat ook ongeveer het geval is op de kanaalbodem langs trajecten met veel overlast door wellen.
+ Het water even boven de bodem van de perspex kolom werd in beweging gebracht door een rotor met verticale as,
+ met aan de onderzijde 4 haaks op elkaar staande verticale bladen van 20 cm hoog en een totale diameter van 17 cm,
+ dus 1 cm ruimte rondom latend.
+ De snelheid van de rotor werd tijdens elke proef een aantal keer trapsgewijs opgevoerd tot de gewenste snelheid,
+ gevolgd door een rustperiode.
+ De snelheid aan het einde van de rotor werd als maatgevend beschouwd voor de snelheid aan van het water vlakbij de bodem.
+ Het is duidelijk dat de snelheid naar de hartlijn van de kolom naar nul terugloopt.
+ De middelpunt vliedende krachten en spanningen die bij deze opzet optreden worden niet gesproken maar kunnen aanzienlijke consequenties hebben voor de interpretatie.
+ Deze krachten zorgen op gelijke hoogte,
+ dus ook op het materieeloppervlak,
+ voor een aanzienlijk hogere druk tegen de perspex wand ten opzichte van het hart van de kolom.
+ Dit is niet allen het geval binnen de waterkolom,
+ maar ook daaronder.
+ Hierdoor ontstaat onder het oppervlak van het materiaal in de kolom ook een circulatiestroom opwaarts in het midden en neerwaarts langs de wand van de kolom,
+ die groter kan zijn dan de neerwaartse stroom ten gevolge van het aangehouden verticale peilverval.
+ Het gevolg kan en mogelijk zal zijn dat tijdens het roteren van de rotor materiaal in het midden van de kolom omhoog wordt gezogen en daar een kuil vorm,
+ die volledig onzichtbaar blijft voor de observator die van de zijkant naar de kolom kijkt.
+ De laag of menglaag weerstandbiedend materiaal wordt zo geheel vanuit het hart van de kolom uit elkaar gezogen door de in de kolom opgewekte tornado.
+ Hierdoor zal de weerstandbiedende laag op een bepaald moment in het midden geheel zijn verdwenen en doorbreken,
+ terwijl hij langs de wand nog deels in tact is.
+ Dit lijkt gebeuren in verreweg de meeste van de kolomexperimenten.
+ Het is daarom van belang dit aspect mee te nemen in de interpretatie,
+ want die wijkt af van wat er in werkelijkheid gebeurt.
+\end_layout
+
+\begin_layout Standard
+Fig.4.15 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ geeft een typisch verloop van de weerstand tijdens de erosieproeven.
+ De weerstand breekt als de erosie (in het hart van de kolom) tot aan de bodem van de gemengde laag is doorgedrongen.
+ Het bentoniet wordt zo uit de kolom gezogen.
+ Je ziet hetzelfde voor de klei-zand laag Uit Fig.
+ 4.19 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ blijkt de weerstand uiteindelijk slechts 5 d.
+ Het weerstandbiedende materiaal blijkt alleen beschermd onder de diepte tot waar de rotor het de laag kan eroderen.
+ Dus bij voldoende beschermlaagdikte blijft de weerstandslaag intact,
+ ook al beweegt het materiaal erboven bij elke scheepspassage.
+ Dit bewegende materiaal dempt de turbulentie zodanig dat beneden een bepaalde diepte rust heerst.
+ Dat is wat deze proef uitwijst.
+ Zo de rotor nog sneller draaien of zou de beschermlaag dunner zijn,
+ dan was de hele beschermlaag verdwenen.
+\end_layout
+
+\begin_layout Standard
+Het mengen van weerstandbiedend materiaal met zand helpt niet om de weerstand te vergroten,
+ in tegendeel.
+ De essentie is,
+ en dat blijkt uit de proeven,
+ dat de fijne deeltjes tegen elkaar kunnen drukken,
+ zonder zandkorrels ertussen die de consolidatiedruk beperken en daarmee ook de bereikbare weerstand.
+\end_layout
+
+\begin_layout Standard
+Klei en slib tonen beide een toenemende weerstand met consolidatie (excess weight).
+ De dikte van de laag zelf minder belangrijk dan de mate van consolidatie.
+ Dat blijkt uit de proeven met slib 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+,
+ 
+\lang english
+p39:
+ 
+\begin_inset Quotes pld
+\end_inset
+
+This suggests that the effective layer still had sufficient thickness to seal the bottom despite the onset of erosion in the upper section of the mixture
+\begin_inset Quotes prd
+\end_inset
+
+
+\lang dutch
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Self-healing is een veel geroemd aspect van het aanbrengen van een zand-bentoniet laag.
+ Maar ook voor self-healing wijkt de stiautie in het ARK drastisvh a van die in de Twentekanalen.
+ De redenering dat scheuren die zich in de zand-bentonietlaag vormen zich vanzelf vullen met los bentoniet dat in de omgeving aanwezig is,
+ lijkt hier op los zand gebaseerd.
+ Bij steeds herhaalde sterke opwoeling van bodemmateriaal,
+ zoals op de ARK-bodem,
+ kan dat niet het geval zijn.
+ Immers,
+ bij elke opwoeling,
+ dus bij elk groot passerend binnenvaart schip komt door de erosie van de retourstroom zowel zand als slib in de waterkolom terecht.
+ Het zijn dan altijd de veel sneller bezinkende zandkorrels die de scheuren als eerste vullen.
+ De scheuren zullen hierdoor doorlatend blijven.
+\end_layout
+
+\begin_layout Standard
+De weerstand van rond 10 dagen die in veel van de experimenten wordt bereikt is voor het ARK volstrekt onvoldoende,
+ die weerstand is er immers nu al.
+ Om een significant verschil te maken moet worden gestreefd naar 100 dagen of meer.
+ De weerstand voor de verruiming eind jaren 1970 werd geraamd op 250 d (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+),
+ maar die was gebaseerd op nog een zekere dikte aan oorspronkelijk weerstand biedende deklaag onder de kanaalbodem.
+ Die gaan we niet zomaar terugbrengen,
+ maar naar 100 dagen moeten we zeker streven.
+ Weerstandbiedende laag met beschermlaag erboven op,
+ werkt wel,
+ maar die kan je in de praktijk zo niet aanbrengen.
+\end_layout
+
+\begin_layout Standard
+Uit de proeven blijkt steeds dat segregatie van grof en fijn materiaal door opwoeling een kernfactor is,
+ waardoor de grovere korrels onder komen te liggen en de kwetsbare fijne korrels boven.
+ In werkelijkheid zullen gezien de drukte van de scheepvaart in het ARK de fijne deeltjes wellicht nooit meer bezinken of in elk geval tot rust komen om te kunnen consolideren.
+ Segregatie is alleen te vermijden door de opwoeling te voorkomen.
+\end_layout
+
+\begin_layout Standard
+Uit p46 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ dat puur klei den opgebaggerd slib het beste te consolideren onder de druk van een beschermlaag.
+ Ook al is de laagdikte na erosie nog maar effectief 2-3 cm.
+ In tegenstelling tot bij bentoniet zal bij klei en slib geen scheurvomring optreden.
+ 
+\end_layout
+
+\begin_layout Standard
+De proeven laten zien dat de hoogste weerstand wordt bereikt door de weerstanbiedende laag (in dit geval bentoniet) af de dekken met grind dat zelf niet aan erosie onderhevig is.
+ Steenslag van de NS zou waarschijnlijk nog beter moeten werken,
+ want de foto laat zien dat de perspex kolom verstoort door een groot randeffect.
+ Daar is in de kolom weinig aan te doen.
+ De test moest worden afgebroken omdat een steen tegen de rotor kwam die vervolgens de hele perspex proefkolom verbrijzelde.
+ Dit werd veroorzaakt doordat het door de agitatie bewegende bentoniet ook de stenen in beweging bracht.
+ Dit laatste is in de praktijk juist een voordeel;
+ het impliceert immers dat de stenen door aanvankelijk nog te bewegen beter met elkaar verankerd raken en de laag stabiliseren.
+ Dus feitelijk was de proef met grind de meest succesvolle.
+ Aan fig.
+ 4.35 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+is te zien dat de stapeling van het grind in de kolom verre van optimaal was;
+ in de praktijk zonder storende kolomwand zal de stapeling veel beter zijn.
+ De weerstand in de proef met grind bleef hoog gedurende de gehele test (tot bezwijken van de kolom).
+ Het is nu van belang de proeven te herhalen met optimaal grind en modder uit het ARK zelf.
+\end_layout
+
+\begin_layout Standard
+Ik wil mijn conclusies uit het rapport als volgt samenvatten:
+ Bescherming van het weerstandbiedende materiaal door het te bedekken met een laag zand levert een veel grotere weerstand.
+ Op de eerste plaats consolideert het materiaal dan beter en op de tweede plaats bereikte de opgewekte erosie de onderste cm van het slecht doorlatende materiaal niet.
+ Bij meer erosie of minder diep beschermen zal dat wel zo zijn en kan geen duurzame weerstand worden verkregen.
+ Tegelijkertijd is deze oplossing (zand op bentoniet,
+ klei of slib) nauwelijks realiseerbaar in den natte,
+ in het druk bevaren ARK en met een laag slib op de bodem.
+ Zand op de bestaande sliblaag aanbrengen lijkt a priori weinig succesvol te kunnen zijn omdat het slib dan onder het zand vloeibaar zal worden,
+ 
+\begin_inset Quotes pld
+\end_inset
+
+ontsnapt
+\begin_inset Quotes prd
+\end_inset
+
+ en dan alsnog voor een groot deel onbeschermd bovenop komt te liggen.
+ In alle gevallen veroorzaakt de agitatie een opwoeling van gemend materiaal dat in de waterkolom segregeert,
+ en dat bij elke scheepspassage.
+ Het resultaat is zand onder en slib boven.
+ Het weerstandbiedende materiaal komt nooit tot rust,
+ kan geen weerstand opbouwen en zal van lieverlee als troebelheid naar het IJ worden getransporteerd.
+ De meest succesvolle proef was die waarbij het weerstandbiedende materiaal tegen erosie beschermd was door grind dat zelf ongevoelig is voor de door de schepen opgewekte retourstroom.
+ De essentie van deze oplossing is dat de functies van a) weerstand bieden tegen infiltratie en b) weerstand bieden tegen erosie hier worden gescheiden,
+ waardoor wel doorgaande consolidatie wel kan optreden terwijl het kanaalbodemprofiel duurzaam in tact wordt gehouden.
+ Het scheiden van deze twee kernprocessen is belangrijker dan het weerstandbiedende materiaal zelf;
+ het werkt met klei of bestaand slib op principieel dezelfde wijze als met bentoniet,
+ zonder dat daar bentoniet voor nodig is.
+ Daarom zou mogelijk enkel met het aanbrengen van een laag hoekige steenslag (NS ballastgrind) de weerstand van de bodem van het ARK op natuurlijke wijze tot de gewenste of noodzakelijke hoogte van rond 100 d moeten kunnen toenemen.
+ Het aanbrengen van de de steenslag is een zachte,
+ no-regretmaatregel die altijd kan worden toegepast zonder de bevaarbaarheid wezenlijk te storen,
+ zonder het profiel wezenlijk te verkleinen,
+ die geen nabehandeling behoeft,
+ die ook verdere erosie van de onderwatertaluds voorkomt en in de toekomst zonder probleem kan worden verwijderd of aan de kant gezet,
+ bijvoorbeeld een nieuwe verruiming aan de orde komt.
+ Slib kan bovendien nog altijd worden gebaggerd met het intact laten van de laag steenslag.
+ Dankzij het door Deltares uitgevoerde onderzoek kan met enkele aanvullende proeven de nodige zekerheid worden verkregen.
+\end_layout
+
+\begin_layout Section
 Bereiken van duurzame bodemweerstand
 \end_layout
 
@@ -895,7 +1145,14 @@ Voor wat betreft erosie is de retourstroom bij scheepspassage de belangrijkste f
 \end_layout
 
 \begin_layout Standard
-Deltares (1016) onderzocht de weerstandsopbouw bij verschillende combinaties van zand,
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ onderzocht de weerstandsopbouw bij verschillende combinaties van zand,
  bentoniet,
  klei en bodemslib en de daarbij optredende erosie wanneer onderworpen aan een retourstroom die overeen komt met wat maximaal langs de kanaalbodem te verwachten is.
  Het zich daarbij om een aantal proeven met genoemde combinaties gevolgd door een drietal experimenten waarbij de weerstandslaag werd beschermd tegen de eroderende retourstroom door hem af te dekken met een ca 30 cm dikke laag zand en tenslotte met een ca.
@@ -995,6 +1252,12 @@ Grind is duur,
 \end_layout
 
 \begin_layout Standard
+Het is niet uitgesloten dat alleen het aanbrengen van de grindlaag voldoende is om de weerstand van het kanaal voldoende te vergroten,
+ aangezien het slib vanzelf tussen de grindkorrels kruipt.
+ Dit moet uiteraard worden uitgezocht.
+\end_layout
+
+\begin_layout Standard
 Op basis van intuïtie geschikt grind lijkt grind dat de spoorwegen gebruiken voor hun ballastbed.
  De belangrijkste kenmerken daarvan zijn
 \end_layout
@@ -1004,6 +1267,7 @@ Materiaalsoorten:
  De gebruikte steenslag is vaak hard stollingsgesteente zoals basalt,
  graniet,
  porfier of gneis (https://www.railpro.online/nl_NL/steenslag/15/).
+ Veel van de moderne steenslag wordt gewonnen uit bergen in Noorwegen.
 \end_layout
 
 \begin_layout Itemize
@@ -1018,25 +1282,6 @@ Formaat:
  Er worden vaste gradaties gebruikt.
  Voor de hoofdsporen ligt dit doorgaans tussen de 30 en 60 mm,
  en bij wissels tussen de 20 en 40 mm.
-\end_layout
-
-\begin_layout Itemize
-Belangrijke functie:
- Naast het dragen van de last en het fixeren van het spoor,
- zorgt de steenslag ervoor dat trillingen worden gedempt en overtollig regenwater snel wordt afgevoerd.
-\end_layout
-
-\begin_layout Itemize
-Veiligheid:
- Vroeger werd er vaak kwartshoudend gesteente gebruikt,
- maar ProRail is overgestapt op andere steensoorten omdat kwartsstof bij bewerking gezondheidsrisico's kan opleveren voor spoorwerkers (https://www.bnnvara.nl/zembla/artikelen/dit-is-ons-dossier-over-kankerverwekkende-stenen-op-het-treinspoor).
- Veel van de moderne steenslag wordt gewonnen uit bergen in Noorwegen.
-\end_layout
-
-\begin_layout Standard
-Het is niet uitgesloten dat alleen het aanbrengen van de grindlaag voldoende is om de weerstand van het kanaal voldoende te vergroten,
- aangezien het slib vanzelf tussen de grindkorrels kruipt.
- Dit moet uiteraard worden uitgezocht.
 \end_layout
 
 \begin_layout Standard
@@ -1088,7 +1333,14 @@ Wenselijke bodemsituatie ARK,
 \end_layout
 
 \begin_layout Standard
-Deltares (2012) geeft aan dat zich een laag van ca.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ geeft aan dat zich een laag van ca.
  20 cm slib op de kanaalbodem bevindt of althans bij baggerwerkzaamheden in 2010 is verwijderd.
  Met een dergelijke sliblaag aanwezig wordt het aanbrengen van bentoniet op de kanaalbodem vrijwel onmogelijk:
  Het fijne bentoniet kan de kanaalbodem via en door het aanwezige bodemslib eenvoudig niet bereiken.
@@ -1100,7 +1352,15 @@ Deltares (2012) geeft aan dat zich een laag van ca.
  Ook van zand-bentoniet versproeien of met slangen op de bodem (dat betekent in dit geval op het aanwezige bodemslib) leggen,
  zoals gebeurd in de Twentekanalen,
  kan men om dezelfde reden geen weerstandopbouw verwachten,
- wat in feite ook is aangetoond door Deltares (2026@@).
+ wat in feite ook is aangetoond door 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+.
  Wellicht kan bentoniet als slurrie onder de aanwezige sliblaag worden geïnjecteerd op de wijze waarop tegenwoordig overal in ons land vloeibare mest wordt verspreid.
  Dat vergt een aparte ontwikkeling die ook getest moet worden onder praktijkomstandigheden.
  Aangezien bij elke scheepspassage waarschijnlijk de gehele sliblaag wordt opgewoeld (er vindt in de huidige situatie immers geen consolidatie plaats),
@@ -1109,19 +1369,23 @@ Deltares (2012) geeft aan dat zich een laag van ca.
  nog steeds essentieel zijn om het ingebrachte bentoniet de voor consolidatie benodigde rust te garanderen,
  namelijk door het aanbrengen van steenslag.
  Wellicht kan steenslag worden weggelaten wanneer de benthoniet-slurrie op voldoende diepte onder de zandbodem kan worden geïnjecteerd,
- onder het niveau dat niet mer door de retourstroom in beweging wordt gebracht.
- De zo via injectie aangebrachte bentonietlaag mag niet gaan schuiven als bij liquifactie en daarbij samen met de zeg 20 of 30 cm bodemzand erboven als mudflow de erosiegeulen in glijdt en daarbij het onderwatertalud met 30 cm verlaagt.
+ onder het niveau dat nog door de retourstroom in beweging wordt gebracht.
+ De zo via injectie aangebrachte bentonietlaag mag niet gaan schuiven als bij liquifactie;
+ daarbij zou de laag samen met de zeg 20 of 30 cm dikke laag bodemzand erboven,
+ als mudflow de erosiegeulen inglijden en daarbij het onderwatertalud met 30 cm verlagen.
  Ook kan de verse slurrie onder de zandlaag omhoog worden geperst,
  met slurriefonteintjes tot gevolg,
- waardoor en geen continue bentonietlaag meer gevormd wordt.
+ waardoor er geen continue bentonietlaag gevormd wordt.
  Kortom,
  de omstandigheden in het ARK maken het aanbrengen van een duurzame weerstandslaag bijzonder lastig,
  met name door de hoge retourstroomsnelheid ten opzichte van het bodemmateriaal en de aanwezigheid van slib.
  Vandaar dat het essentieel is om de situatie op de kanaalbodem te kennen,
- en de wijze van aanbrengen van de afpleisterende laag te ontwerpen zodat die succes kan hebben.
+ en de wijze van aanbrengen van de afpleisterende laag zo te ontwerpen dat die succes kan hebben.
  Een hamvraag is:
  moet eerst het slib worden verwijderd,
- of kunnen we het laten liggen en volstaan met alleen een laag hoekige steenslag aan te brengen met korrels die zelf door het slib naar de kanaalbodem zakken,
+ of kan het blijven liggen?
+ Kan worden volstaan met alleen het aanbrengen van een laag hoekige steenslag,
+ waarvan de stenen zelf door het slib naar de kanaalbodem zakken,
  en zich daar aan elkaar en aan de bodem verankeren,
  waarna het slib tussen de korrels rustig kan consolideren en weerstand kan opbouwen (Fig.
 \begin_inset CommandInset ref
@@ -1134,15 +1398,16 @@ nolink "false"
 
 \end_inset
 
-).
+)?
  Is de zo bereikte weerstand dan voldoende?
  Een risico hierbij is dat het grind de sliblaag vloeibaar maakt en de stenen samen met het slib het talud afglijden voordat de stenen zich voldoende in het zand en in elkaar kunnen vasthaken.
  Het alternatief zou zijn,
  eerst slib wegzuigen,
  dan grind aanbrengen en daar direct bentoniet overheen versproeien zonder zandbijmenging,
  zodat het bentoniet tussen de korrels dringt,
- het zandoppervlak tussen de grindkorrels afpleistert door daar een gel te vormen,
- en vervolgens consolideert op de zuigende kanaalbodem nog voordat het grind later weer door slib wordt bedekt.
+ daar het zandoppervlak tussen de grindkorrels afpleistert door gelvorming,
+ gevolgd door consolidatie op de zuigende kanaalbodem,
+ en dit nog voordat het grind zelf weer door slib wordt bedekt.
  Dat slib heeft dan geen betekenis voor de weerstand van de kanaalbodem,
  maar zal wel kunnen bijdragen aan de bescherming van de bentonietlaag eronder.
 \end_layout
@@ -1192,228 +1457,12 @@ Aanbrengen (zand)-bentoniet op een slibbodem?
 
 \end_layout
 
-\begin_layout Section
-CST-tests
-\end_layout
-
 \begin_layout Standard
-\begin_inset CommandInset citation
-LatexCommand cite
-key "De26a"
-literal "false"
-
-\end_inset
-
- heeft met groot aantal labtests onderzocht hoe bentoniet,
- klei en slib bodemweerstand opbouwen en behouden,
- waarbij het weerstandbiedende materiaal al dan niet was gemengd met zand,
- tegen erosie beschermd met een toplaag van enkele decimeters zand,of beschermd door een laag van 10 cm niet-erodeerbaar grind.
- Bij een eerste serie proeven werd gekeken welke grootte de weerstand van de verschillende materialen zelf zou kunnen bereiken.
- De waarden liepen uiteen van ca.
- 50 d voor opgebaggerd slib tot 300 d voor een zand-bentoniet mengsel.
- Opvallen was dat pure klei en puur opgebaggerd slib,
- dus niet achteraf met zand bijgemengd,
- beide ruim 100 dagen haalde,
- een getal dat ook als het doel van de maatregel kan worden beschouwd.
-\end_layout
-
-\begin_layout Standard
-Van praktisch belang is uiteraard hoe de verschillende materialen zich gedragen wanneer ze na een zekere consolidatie worden onderworpen aan erosie die vergelijkbaar is met het passeren van grote binnenvaartschepen,
- die een retourstroom langs de bodem opwekken tot ca.
- 2.5 m/s.
- Deze proeven zijn uitgevoerd in een perspex kolom van 19 cm diameter,
- met 30 cm zand op de bodem met een korrelverdeling die overeen komt met die van het Boxtel-zand op de bodem van het ARK,
- waarop vervolgens het weerstandbiedende materiaal is geplaatst onder een voortdurend neerwaarts stijghoogteverval van 1.5 m,
- zoals dat ook ongeveer het geval is op de kanaalbodem langs trajecten met veel overlast door wellen.
- Het water even boven de bodem van de perspex kolom werd in beweging gebracht door een rotor met verticale as,
- met aan de onderzijde 4 haaks op elkaar staande verticale bladen van 20 cm hoog en een totale diameter van 17 cm,
- dus 1 cm ruimte rondom latend.
- De snelheid van de rotor werd tijdens elke proef een aantal keer trapsgewijs opgevoerd tot de gewenste snelheid,
- gevolgd door een rustperiode.
- De snelheid aan het einde van de rotor werd als maatgevend beschouwd voor de snelheid aan van het water vlakbij de bodem.
- Het is duidelijk dat de snelheid naar de hartlijn van de kolom naar nul terugloopt.
- De middelpunt vliedende krachten en spanningen die bij deze opzet optreden worden niet gesproken maar kunnen aanzienlijke consequenties hebben voor de interpretatie.
- Deze krachten zorgen op gelijke hoogte,
- dus ook op het materieeloppervlak,
- voor een aanzienlijk hogere druk tegen de perspex wand ten opzichte van het hart van de kolom.
- Dit is niet allen het geval binnen de waterkolom,
- maar ook daaronder.
- Hierdoor ontstaat onder het oppervlak van het materiaal in de kolom ook een circulatiestroom opwaarts in het midden en neerwaarts langs de wand van de kolom,
- die groter kan zijn dan de neerwaartse stroom ten gevolge van het aangehouden verticale peilverval.
- Het gevolg kan en mogelijk zal zijn dat tijdens het roteren van de rotor materiaal in het midden van de kolom omhoog wordt gezogen en daar een kuil vorm,
- die volledig onzichtbaar blijft voor de observator die van de zijkant naar de kolom kijkt.
- De laag of menglaag weerstandbiedend materiaal wordt zo geheel vanuit het hart van de kolom uit elkaar gezogen door de in de kolom opgewekte tornado.
- Hierdoor zal de weerstandbiedende laag op een bepaald moment in het midden geheel zijn verdwenen en doorbreken,
- terwijl hij langs de wand nog deels in tact is.
- Dit lijkt gebeuren in verreweg de meeste van de kolomexperimenten.
- Het is daarom van belang dit aspect mee te nemen in de interpretatie,
- want die wijkt af van wat er in werkelijkheid gebeurt.
-\end_layout
-
-\begin_layout Standard
-Het mengen van weerstandbiedend materiaal met zand helpt niet de weerstand te vergroten,
- in tegendeel.
- De essentie is en dat blijkt uit de proeven ook dat de fijne deeltjes tegen elkaar kunnen drukken zonder zandkorrels ertussen die de consolidatiedruk beperken en daarmee ook de bereikbare weerstand.
-\end_layout
-
-\begin_layout Standard
-Klei en slib tonen beide een toenemende weerstand met consolidatie (excess weight).
- De dikte van de laag zelf minder belangrijk dan de mate van consolidatie.
- Dat blijkt uit de proeven met slib 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "De26a"
-literal "false"
-
-\end_inset
-
-,
- 
-\lang english
-p39:
- 
-\begin_inset Quotes pld
-\end_inset
-
-This suggests that the effective layer still had sufficient thickness to seal the bottom despite the onset of erosion in the upper section of the mixture
-\begin_inset Quotes prd
-\end_inset
-
-
-\lang dutch
-.
- 
-\end_layout
-
-\begin_layout Standard
-Self-healing is een veel geroemd aspect van het aanbrengen van een zand-bentoniet laag.
- Maar ook voor self-healing wijkt de stiautie in het ARK drastisvh a van die in de Twentekanalen.
- De redenering dat scheuren die zich in de zand-bentonietlaag vormen zich vanzelf vullen met los bentoniet dat in de omgeving aanwezig is,
- lijkt hier op los zand gebaseerd.
- Bij steeds herhaalde sterke opwoeling van bodemmateriaal,
- zoals op de ARK-bodem,
- kan dat niet het geval zijn.
- Immers,
- bij elke opwoeling,
- dus bij elk groot passerend binnenvaart schip komt door de erosie van de retourstroom zowel zand als slib in de waterkolom terecht.
- Het zijn dan altijd de veel sneller bezinkende zandkorrels die de scheuren als eerste vullen.
- De scheuren zullen hierdoor doorlatend blijven.
-\end_layout
-
-\begin_layout Standard
-De weerstand van rond 10 dagen die in veel van de experimenten wordt bereikt is voor het ARK volstrekt onvoldoende,
- die weerstand is er immers nu al.
- Om een significant verschil te maken moet worden gestreefd naar 100 dagen of meer.
- De weerstand voor de verruiming eind jaren 1970 werd geraamd op 250 d (
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Be22"
-literal "false"
-
-\end_inset
-
-),
- maar die was gebaseerd op nog een zekere dikte aan oorspronkelijk weerstand biedende deklaag onder de kanaalbodem.
- Die gaan we niet zomaar terugbrengen,
- maar naar 100 dagen moeten we zeker streven.
-\end_layout
-
-\begin_layout Standard
-Uit de proeven blijkt steeds dat segregatie van grof en fijn materiaal door opwoeling is a kernfactor is waardoor de grovere korrels onder en de kwetsbare fijne korrels boven komen te liggen,
- of in de werkelijkheid onder de drukte van de scheepvaart zelfs nooit meer bezinken of in elk geval tot rust komen om te kunnen consolideren.
- Segregatie is alleen te vermijden door de opwoeling te voorkomen.
-\end_layout
-
-\begin_layout Standard
-Fig.4.15 typisch verloop.
- De weerstand breekt als de erosie (in het hart van de kolom) tot aan de bodem van de gemengde laag is doorgedrongen.
- Dat gebeurt door opzuigen van gemengd materiaal in het midden van de kolom waar de druk en dus ook de stijghoogte lager is dan aan de wanden.
- Door de kolom is er ook een circulatiestroming in het midden omhoog en langs de wanden omlaag.
- Langs de wanden kan je dus helemaal niet zien wat er in het midden gebeurd door de rotatiestroming.
- Het bentoniet wordt zo uit de kolom gezogen de watermassa boven het materiaal in.
- Je ziet hetzelfde voor de klei-zand laag Fig.
- 4.19.
- Uiteindelijk is de weerstand 5 d.
- Het weerstandbiedende materiaal blijkt alleen beschermd onder de diepte waarop de vane kan eroderen.
- Dus bij voldoende beschermlaagdikte blijft de laag intact,
- ook al beweegt het materiaal erboven bij elke scheepspassage.
- Dit bewegende materiaal dempt de turbulentie zodanig dat beneden een bepaalde diepte rust heerst.
- Dat is wat deze proef uitwijst.
- Ze de vane nog harder draaien of zou de beschermlaag dunner zijn,
- dan was de hele beschermlaag verdwenen.
-\end_layout
-
-\begin_layout Standard
-We zien progressief doorbreken van de menglaag ook voor het mengsel slib en zand.
-\end_layout
-
-\begin_layout Standard
-Weerstandbiedende laag met beschermlaag erboven op.
- Dat kan je in de praktijk niet aanbrengen.
-\end_layout
-
-\begin_layout Standard
-p46:
- Uiteindelijk blijken zuur klei den bagger het beste te consolideren onder druk met beschermlaag.
- Ook al is hun dikte maar 2-3 cm.
- Hier zal ook geen scheurvomring optreden.
- 
-\end_layout
-
-\begin_layout Standard
-Gravel:
- Steenslag van de NS zou nog beter moeten werken.
- Maar de kolom verstoort door een groot randeffect.
- Daar is weinig aan te doen.
- De test moest worden afgebroken omdat een steen tegen de vane kwam en de hele perspex proefkolom verbrijzelde.
- Dit werd veroorzaakt doordat het door de agitatie bewegende bentoniet ook de stenen in beweging bracht.
- Dit laatste is in de praktijk een voordeel;
- het impliceert dat de stenen beter met elkaar verankerd raken en de laag stabiliseren.
- Dus feitelijk was de proef met grind de meest succesvolle.
- Aan fig.
- 4.35 is te zien dat de stapeling van het grind in de kolom verre van optimaal was,
- wat in de praktijk wel het geval zal zijn.
- De weerstand blijft hoog gedurende de gehele test (tot bezwijken van de kolom).
- Het is nu van belang de proeven te herhalen met optimaal grind en modder uit het ARK zelf.
-\end_layout
-
-\begin_layout Standard
-p33.
- Wat is 
-\begin_inset Quotes pld
-\end_inset
-
-the scale's drift compensation thershold
-\begin_inset Quotes prd
-\end_inset
-
- (kan geen kleine trend in verloop van de druk meten).
-\end_layout
-
-\begin_layout Standard
-Conclusie:
- Bescherming van het weerstandbiedende materiaal door het te bedekken met een laag zand levert een veel grotere weerstand.
- In de eerste plaats consolideert het materiaal dan beter en in de tweede plaats bereikte de opgewekte erosie de onderste cm van het slecht doorlatende materiaal niet.
- Bij meer erosie of minder diep beschermen zal dat wel zo zijn en kan een duurzame weerstand worden verkregen.
- Tegelijkertijd is deze oplossing in den natte in het drukke ARK met slib op de bodem nauwelijks realiseerbaar.
- Zand op de bestaande sliblaag aanbrengen lijkt a priori weinig succesvol te kunnen zijn omdat het slib dan onder het zand voeibaar wordt en ontsnapt en dan alsnog voor een groot deel onbeschermd bovenop komt te liggen.
- In alle gevallen veroorzaakt de agitatie een opwoeling van gemend materiaal dat in de waterkolom segregeert,
- en dat bij elke scheepspassage.
- Het weerstandbiedende materiaal komt nooit tot rust,
- kan geen weerstand opbouwen en zal van lieverlee als troebelheid naar het IJ worden getransporteerd.
- De meest succesvolle proef was die waarbij het weerstandbiedende materiaal tegen erosie beschermd was door grind dat zelf ongevoelig is voor de door de schepen opgewekte retourstroom.
- De essentie is dat de functies van weerstand bieden tegen infiltratie en weerstand bieden tegen erosie hier worden gescheiden,
- waardoor wel doorgaande consolisatie kan optreden en het bodemprofiel duurzaam in tact wordt gehouden.
- Het scheiden van deze twee kernprocessen is belangrijker dan het weerstandbiedende materiaal zelf;
- het werk met klei of bestaand slib op principieel dezelfde wijze als met bentoniet,
- zonder dat daar bentoniet voor nodig is.
- Daarom zou uiteindelijk al met het aanbrengen van een laag ballastgrind de weerstand van de bodem van het ARK op natuurlijke wijze tot de gewenste of noodzakelijke hoogte moeten toenemen.
- Het aanbrengen van de de steenslag is een zachte,
- no-regretmaatregel die altijd kan worden toegepast zonder de bevaarbaarheid wezenlijk te storen,
- zonder het profiel wezenlijk te verkleinen,
- die geen nabehandeling behoeft,
- die ook de erosie van de onderwater taluds verder voorkomt en die ook altijd zonder probleem kan worden verwijderd of aan de kant gezet bijvoorbeeld bij een verdere verruiming in de toekomst.
- Slib kan nog altijd worden gebaggerd met intact laten van de laag steenslag.
+Er zijn,
+ kortom,
+ tal van overwegingen aan te voeren die volledig op fysisch gedrag zijn gebaseerd en waarvan het succes van de maatregel kan afhangen.
+ De op dit moment meest praktische haalbare zou zijn het simpelweg aanbrengen van een laag van 10-15 cm steenslag van het soort dat de NS gebruikt als ballastbed voor het fixeren van bielzen en rails.
+ Maar een dergelijke methode moet wel van tevoren worden getest onder laboratoriumomstandigheden.
 \end_layout
 
 \begin_layout Bibliography

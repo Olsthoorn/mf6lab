@@ -1465,6 +1465,33 @@ Er zijn,
  Maar een dergelijke methode moet wel van tevoren worden getest onder laboratoriumomstandigheden.
 \end_layout
 
+\begin_layout Section
+Direkt monitoren kanaalbodemweerstand
+\end_layout
+
+\begin_layout Standard
+De kanaalbodemweerstand kan worden afgeleid uit het stijghoogteverval over de kanaalbodem.
+ Probleem daarbij is dat het verval dat men meet ter plaatse van het onderwatertalud onderscheid zou moeten maken tussen de weerstand van de eigenlijke kanaalbodem en die van de restanten van de oorspronkelijke deklaag in het onderwatertalud.
+ Bovendien wordt het beeld van de verdeling van de bodemweerstand verder verstoord doordat de stroming grotendeels om het onderwatertalud is en veel minder er doorheen.
+ De beste mogelijkheid is om de druk onder de kanaalbodem te meten daar waar de erosie maximaal is.
+ Dit kan door grondwaterloggers ter plekke op enkele decimeters onder de kanaalbodem te installeren en het signaal met een (verzwaarde) kabel naar de kanaaloever te brengen om te kunnen uitlezen.
+ Dit kan op meerdere plaatsen worden gedaan.
+ Problemen met de scheepvaart zijn niet te verwachten omdat de afstand tussen kanaalbodem en schip voldoende groot is,
+ mits de kabel dusdanig is verzwaard of in de bodem is gelegd dat hij tegen de retourstroom is beschermd.
+\end_layout
+
+\begin_layout Standard
+Een vraag hierbij is,
+ hoe maatgevend is een dergelijk meetpunt indien alleen een stuk van het kanaal ter lengte van de kanaalbreedte is behandeld ter vergroting van de bodemweerstand.
+ Wanneer zulke metingen eenduidig kunnen worden geïnterpreteerd is het mogelijk om de pilot in kortere stukken op te delen en zo meerdere methoden met elkaar te vergelijken.
+\end_layout
+
+\begin_layout Standard
+De eenvoudigste manier om hierop een duidelijk antwoord te krijgen is een model te maken van de situatie,
+ in feite een doorsnedemodel loodrecht op de hartlijn vanaf het midden van het kanaal dat in de lengte van de hartlijn wordt uitgebreid tot bijv.
+ twee of driemaal de kanaalbreedte.
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
