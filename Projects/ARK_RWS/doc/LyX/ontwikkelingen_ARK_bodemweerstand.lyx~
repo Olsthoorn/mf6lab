@@ -2040,25 +2040,22 @@ Met aanbrengen van steenslag scheidt de functie van het afpleisteren van de bode
 \end_layout
 
 \begin_layout Standard
-Vanuit fysisch inzicht:
+Aan het grind of de steenslag zijn verschillende eisen te stellen:
 \end_layout
 
 \begin_layout Itemize
-Moet het grind voldoende grof zijn.
- Maar niet grover dan nodig.
- De grofheid is ook van belang omdat het weerstandbiedende bentoniet of slib gemakkelijk tussen de grindkorrels door de fijnzandige kanaalbodem moet kunnen bereiken om die te kunnen afpleisteren,
+Het grind moet voldoende grof zijn,
+ om ervoor te zorgen dat het weerstandbiedende bentoniet of het slib gemakkelijk tussen de grindkorrels door de fijnzandige kanaalbodem kan bereiken om die te kunnen afpleisteren,
  door consolideren in rust op de zuigende kanaalbodem.
 \end_layout
 
 \begin_layout Itemize
-Moeten de grindkorrels hoekig zijn.
- De eis van hoekigheid van het grind heeft een aantal redenen.
- In de eerste plaats garandeert dit dat het grind in de zandbodem haakt en niet verschuift naar het centrum van de aanwezige erosiegeulen.
- In de tweede plaats zorgt de hoekigheid ervoor dat de korrels in elkaar haken en daarmee de laag een stuk erosiebestendiger wordt dan bij toepassing van afgerond grind.
+De korrels of stenen moeten hoekig zijn om te garanderen dat het grind in de zandbodem haakt en niet kan afglijden naar het centrum van de aanwezige erosiegeulen.
+ Hoekigheid is ook nodig om ervoor te zorgen dat de korrels in elkaar haken en daarmee de laag gezamenlijk een stuk erosiebestendiger maken dan bij toepassing van afgerond grind.
  De benodigde laagdikte is hierdoor geringer.
- De hoekigheid biedt ook maximaal ruimte tussen de grindkorrels waardoor het fijne afpleisterende materiaal gemakkelijker tussen de korrels de eigenlijke kanaalbodem kan bereiken.
- Korrels die niet verschuiven garanderen dat de afpleisterlaag duurzaam intact blijft.
- Het grind dat de NS gebruikt in zijn ballastbed voor het fixeren van bielsen lijkt voor hier ideaal.
+ De hoekigheid biedt bovendien maximaal ruimte tussen de grindkorrels voo rhet afpleisterende slib.
+ Korrels die niet verschuiven garanderen tevens dat de afpleisterlaag duurzaam intact blijft.
+ Het grind dat de NS gebruikt in zijn ballastbed voor het fixeren van bielsen lijkt voor deze toepassing ideaal.
 \end_layout
 
 \begin_layout Itemize
@@ -2071,20 +2068,14 @@ De laag moet voldoende dik zijn.
 Grind is duur,
  maar hoekig grind is via de NS in het hele land beschikbaar en dus niet moeilijk te verkrijgen.
  Het grind garandeert de duurzaamheid van de afpleisterende laag,
- maar reduceert tegelijk ook de hoeveelheid bentoniet die in theorie nodig zal zijn om de afpleisterende werking te garanderen.
- Men kan inschatten dat een laag bentoniet van 5 cm hoogte tussen de grindkorrels voldoende is.
- Rekening houdend met de porositeit van het grind komt dit neer op vlakdekkend ca.
- 2-3 cm.
- Een dikkere laag maakt de bovenkant daarvan onderhevig aan erosie wegens te weinig grinddekking.
- Bentoniet met zand mengen is hierbij uit den boze,
- want vermindert de afpleisterende werking.
- Het is te verwachten dat een laag pure bentoniet meer weerstand biedt dan een even dikke laag zand-bentoniet.
+ maar reduceert tegelijk ook de hoeveelheid bentoniet die in theorie nodig zal zijn om de afpleisterende werking te garanderen,
+ vermoedelijk is bentoniet helemaal niet meer nodig.
+ Bentoniet of slib met zand mengen vermindert de afpleisterende werking.
 \end_layout
 
 \begin_layout Standard
-Het is niet uitgesloten dat alleen het aanbrengen van de grindlaag voldoende is om de weerstand van het kanaal voldoende te vergroten,
- aangezien het slib vanzelf tussen de grindkorrels kruipt.
- Dit moet uiteraard worden uitgezocht.
+Of het aanbrengen van een laag steenslag voldoende is om de weerstand van de kanaal voldoende te vergroten moet worden uitgezocht.
+ In elk geval is dit een duurzame oplossing om de bodemerosie te stoppen zonder dat onderhoud nodig zal zijn.
 \end_layout
 
 \begin_layout Standard
@@ -2107,7 +2098,18 @@ backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
-Op basis van intuïtie geschikt grind lijkt grind dat de spoorwegen gebruiken voor hun ballastbed.
+Op basis van intuïtie geschikt grind lijkt grind dat de spoorwegen gebruiken voor hun ballastbed (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Steenslag-ballastbed-NS"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
  De belangrijkste kenmerken daarvan zijn
 \end_layout
 

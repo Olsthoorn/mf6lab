@@ -2098,7 +2098,18 @@ backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
-Op basis van intuïtie geschikt grind lijkt grind dat de spoorwegen gebruiken voor hun ballastbed.
+Op basis van intuïtie geschikt grind lijkt grind dat de spoorwegen gebruiken voor hun ballastbed (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Steenslag-ballastbed-NS"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
  De belangrijkste kenmerken daarvan zijn
 \end_layout
 
@@ -2174,12 +2185,44 @@ Wenselijke bodemsituatie ARK,
 \end_layout
 
 \begin_layout Section
-Direkt monitoren kanaalbodemweerstand
+Direct monitoren kanaalbodemweerstand
 \end_layout
 
 \begin_layout Standard
 De kanaalbodemweerstand kan worden afgeleid uit het stijghoogteverval over de kanaalbodem.
- Probleem daarbij is dat het verval dat men meet ter plaatse van het onderwatertalud onderscheid zou moeten maken tussen de weerstand van de eigenlijke kanaalbodem en die van de restanten van de oorspronkelijke deklaag in het onderwatertalud.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stijghoogte-onder-de-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de stijghoogte onder de kanaalbodem op NAP _7.25 m over de dwarsdoorsnede tussen de hartlijn van het kanaal en de kanaaloever.
+ De berekeningen zijn uitgevoerd voor een kanaalbodemweerstand van resp.
+ 20,
+ 100 en 250 d.
+ De huidige situatie komt ongeveer overeen met 20 d en de situatie voor de verruiming in 1980 met 250 d.
+ De huidige doelstelling zou zijn de bodemweerstand te verhogen tot ca.
+ 100 d.
+ Hoe dichter de stijghoogte onder de kanaalbodem bij het polderpeil komt,
+ hoe minder problemen de naastliggende polders ondervinden.
+ In de huidige situatie zijn er veel wellen,
+ voor 1980 waren die er waarschijnlijk nauwelijks,
+ wat blijkt uit de berekening met de hoge bodemweerstand van 250 d;
+ er was toen nauwelijks overdruk onder de deklaag.
+ De weerstand van 100 dagen verlaagt de stijghoogte onder het kanaal met ca.
+ 70 cm bij de hartlijn en met ca.
+ 60 cm bij de oever.
+ De damwand veroorzaakt een sprong in de stijghoogte op NAP -7.25.
+ 
+\end_layout
+
+\begin_layout Standard
+Probleem daarbij is dat het verval dat men meet ter plaatse van het onderwatertalud onderscheid zou moeten maken tussen de weerstand van de eigenlijke kanaalbodem en die van de restanten van de oorspronkelijke deklaag in het onderwatertalud.
  Bovendien wordt het beeld van de verdeling van de bodemweerstand verder verstoord doordat de stroming grotendeels om het onderwatertalud is en veel minder er doorheen.
  De beste mogelijkheid is om de druk onder de kanaalbodem te meten daar waar de erosie maximaal is.
  Dit kan door grondwaterloggers ter plekke op enkele decimeters onder de kanaalbodem te installeren en het signaal met een (verzwaarde) kabel naar de kanaaloever te brengen om te kunnen uitlezen.
@@ -2198,6 +2241,158 @@ Een vraag hierbij is,
 De eenvoudigste manier om hierop een duidelijk antwoord te krijgen is een model te maken van de situatie,
  in feite een doorsnedemodel loodrecht op de hartlijn vanaf het midden van het kanaal dat in de lengte van de hartlijn wordt uitgebreid tot bijv.
  twee of driemaal de kanaalbreedte.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_onder_bodem_20_20.pdf
+	width 30text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_onder_bodem_100_100.pdf
+	width 30text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_onder_bodem_250_250.pdf
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stijghoogte-onder-de-ARK"
+
+\end_inset
+
+Stijghoogte onder de kanaalbodem op NAP -7.25 m bij 20,
+ 100 en 250 d kanaalbodemweerstand
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_onder_bodem_20_100.pdf
+	width 45text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_onder_bodem_20_250.pdf
+	width 45text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_y_onder_bodem_20_100.pdf
+	width 45text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_y_onder_bodem_20_250.pdf
+	width 45text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
