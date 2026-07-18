@@ -2185,30 +2185,501 @@ Wenselijke bodemsituatie ARK,
 \end_layout
 
 \begin_layout Section
-Direct monitoren kanaalbodemweerstand
+Kanaalbodemweerstand wat is nodig en hoe monitoren
+\end_layout
+
+\begin_layout Subsection
+Benodigde kanaalbodemweerstand
 \end_layout
 
 \begin_layout Standard
 De kanaalbodemweerstand kan worden afgeleid uit het stijghoogteverval over de kanaalbodem.
- Probleem daarbij is dat het verval dat men meet ter plaatse van het onderwatertalud onderscheid zou moeten maken tussen de weerstand van de eigenlijke kanaalbodem en die van de restanten van de oorspronkelijke deklaag in het onderwatertalud.
- Bovendien wordt het beeld van de verdeling van de bodemweerstand verder verstoord doordat de stroming grotendeels om het onderwatertalud is en veel minder er doorheen.
- De beste mogelijkheid is om de druk onder de kanaalbodem te meten daar waar de erosie maximaal is.
- Dit kan door grondwaterloggers ter plekke op enkele decimeters onder de kanaalbodem te installeren en het signaal met een (verzwaarde) kabel naar de kanaaloever te brengen om te kunnen uitlezen.
- Dit kan op meerdere plaatsen worden gedaan.
- Problemen met de scheepvaart zijn niet te verwachten omdat de afstand tussen kanaalbodem en schip voldoende groot is,
- mits de kabel dusdanig is verzwaard of in de bodem is gelegd dat hij tegen de retourstroom is beschermd.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stijghoogte-onder-de-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de berekende stijghoogte onder de kanaalbodem op NAP -7.25 m over de dwarsdoorsnede tussen de hartlijn van het kanaal en de kanaaloever bij peilbuisraai 5.
+ De berekeningen zijn uitgevoerd voor een kanaalbodemweerstand van resp.
+ 20,
+ 100,
+ 250 en 1000 d.
+ De huidige situatie komt ongeveer overeen met 20 d;
+ de situatie van vóór de verruiming in 1980 met 250 d.
+ De berekening met 1000 d kanaalbodemweerstand is als referentie gedacht voor het theoretisch maximaal haalbare.
+ De huidige doelstelling zou zijn de bodemweerstand te verhogen tot minimaal ca.
+ 100 d.
+ Hoe dichter de stijghoogte onder de kanaalbodem bij het polderpeil komt,
+ hoe minder problemen de naastliggende polders ondervinden,
+ hoe lager de lek door wellen.
+ In de huidige situatie zijn er veel wellen 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+,
+ voor 1980 waren die er waarschijnlijk nauwelijks,
+ wat kan worden geconcludeerd uit de berekening met de corresponderende hoge bodemweerstand van 250 d:
+ er was toen nauwelijks overdruk onder de deklaag.
+ Bij een weerstand van 1000 d is er de facto geen invloed meer van het ARK op het grondwater in de omgeving.
 \end_layout
 
 \begin_layout Standard
-Een vraag hierbij is,
- hoe maatgevend is een dergelijk meetpunt indien alleen een stuk van het kanaal ter lengte van de kanaalbreedte is behandeld ter vergroting van de bodemweerstand.
- Wanneer zulke metingen eenduidig kunnen worden geïnterpreteerd is het mogelijk om de pilot in kortere stukken op te delen en zo meerdere methoden met elkaar te vergelijken.
+De 
+\begin_inset Quotes pld
+\end_inset
+
+huidige
+\begin_inset Quotes prd
+\end_inset
+
+ weerstand van ca.
+ 20 d verlaagt de stijghoogte direct buiten het kanaal tot ca.
+ NAP -1.4;
+ een weerstand van 100 d tot om en nabij NAP -1.9 m,
+ 250 d tot NAP -2.1 m en 1000 d tot NAP -2.25 m,
+ alle bij een huidige polderpeil van NAP -2.3 m.
+ Uitgedrukt in stijghoogte onder de deklaag ten opzichte van het polderpeil is dit resp.
+ 0.9,
+ 0.4 en 0.2,
+ 0.05 m.
+ Nemen we aan dat de lek door wellen evenredig is met deze overdruk dan reduceert verhogen van de kanaalbodemweerstand van 20 tot 100 d de uitslag van de kwel met een factor 2.25 en verhogen van 20 tot 250 d met een factor 4.5.
+ De factor 2.25 zou de kweluitslag in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemaalafvoer-BBO"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ van na 2015 terugbrengen tot die van 2003.
+ Een kwelreductiefactor 4.5 zou de uitslag van kwelwater in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemaalafvoer-BBO"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ terugbrengen tot de situatie van vóór 2000,
+ want Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Verloop-van-de-grondwaterstanden"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat zien dat de grondwaterstanden nooit meer zijn gedaald tot die in de periode voor de verruiming ca.
+ 1980.
+ Van een weerstand van 100 d mag een aanzienlijke verbetering worden verwacht,
+ maar deze brengt de situatie niet terug tot die van voor 2000,
+ de periode voordat de grote schepen met een diepgang van 4.5 m het ARK gingen bevaren.
 \end_layout
 
 \begin_layout Standard
-De eenvoudigste manier om hierop een duidelijk antwoord te krijgen is een model te maken van de situatie,
- in feite een doorsnedemodel loodrecht op de hartlijn vanaf het midden van het kanaal dat in de lengte van de hartlijn wordt uitgebreid tot bijv.
- twee of driemaal de kanaalbreedte.
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_onder_bodem_20_20.pdf
+	width 45text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_onder_bodem_100_100.pdf
+	width 45text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_onder_bodem_250_250.pdf
+	width 45text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_onder_bodem_1000_1000.pdf
+	width 45cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stijghoogte-onder-de-ARK"
+
+\end_inset
+
+Stijghoogte onder de kanaalbodem op NAP -7.25 m bij 20,
+ 100,
+ 250 en 1000 d kanaalbodemweerstand
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Monitoring van de kanaalbodemweerstand in de pilot
+\end_layout
+
+\begin_layout Standard
+Het vergroten van de bodemweerstand heeft tot doel de stijghoogte onder de deklaag voldoende zodanig verlagen dat de lek door de wellen tot een aanvaardbaar niveau wordt teruggebracht,
+ zo mogelijk tot de situatie zoals die was rond 2000.
+ Het directe doel van de pilot is om met een proef over een beperkte lengte 
+\begin_inset Formula $L_{p}$
+\end_inset
+
+ aan te tonen dat de bodemweerstand van het ARK tot de gewenste waarde kan worden vergroot,
+ en dat daarmee de gewenste stijghoogteverlaging onder de deklaag kan worden bereikt.
+\end_layout
+
+\begin_layout Standard
+Hiervoor is berekend wat bij verschillende waarden voor de verhoogde bodemweerstand de maximale verlaging van de stijghoogte is bij vlakdekkende toepassing (dat wil in de praktijk zeggen over alle stukken van het kanaal waar de bodemweerstand door bodemerosie lager is dan de minimaal gewenste waarde van zeg 100 d).
+ Omdat de lengte van de pilot beperkt is,
+ zal de bodemweerstand tijdens de proef maar over een beperkt traject worden verhoogd.
+ De kanaalbodem ten noorden en ten zuiden van de pilot blijft echter onverminderd lekken en doet daardoor een (groot) deel van het effect van de weerstandsverhoging teniet.
+ Hierdoor kan de pilot wel een succes worden als de gewenste bodemweerstand wordt gerealiseerd,
+ maar hij gaat niet de stijghoogte in de naastgelegen polders tot het gewenste niveau verlagen;
+ daarvoor is de lengte van de pilot al snel te kort.
+ Dit hoeft voor de pilot geen bezwaar te zijn,
+ mits men zich ervan bewust is dat bij de definitieve toepassing de bodemweerstand over de trajecten met lage waarden wel vlakdekkend wordt vergroot.
+ De interpretatie van de pilot moet hier rekening mee houden om teleurstelling te voorkomen.
+\end_layout
+
+\begin_layout Standard
+We kunnen het effect van de beperkte pilotlengte laten zien met het dwarsdoorsnedemodel 3D is gemaakt door het loodrecht op de doorsnede uit te breiden tot een lengte van 1000 m.
+ Het model is aan noord- en zuidzijde dicht zodat deze als spiegelvlakken werken.
+ Wanneer overal de bodemweerstand van het kanaal op de huidie uitgangswaarde wordt gezet zijn de uitkomsten van het dwarsdoorsnedemodel en het 3D model exact gelijk.
+ We kunnen nu de pilot in het model brengen door de bodemweerstand over een lengte 
+\begin_inset Formula $L_{p}$
+\end_inset
+
+ vanaf de noordrand te vergroten tot de gewenste waarde,
+ terwijl de bodemweerstand over de resterende lengte 
+\begin_inset Formula $1000-L_{p}$
+\end_inset
+
+ ongewijzigd blijft.
+ Door de spiegelwerking van de dichte noordrand van het model stelt 
+\begin_inset Formula $L_{p}$
+\end_inset
+
+ de halve lengte van de pilot voor en de noordrand door doorsnede onder het midden van de pilot.
+ De spiegelwerking van de dichte zuidrand van het model maakt de ongewijzigde bodem over een lengte 
+\begin_inset Formula $1000-L_{p}$
+\end_inset
+
+ voorbij de zuidrand doorloopt.
+ Deze opzet is adequaat om de invloed van de lengte van de pilot op de stijghoogte onder de deklaag te berekenen en te laten zien.
+\end_layout
+
+\begin_layout Standard
+We zullen direct de extreme situatie beschouwen,
+ waarbij de bodemweerstand over de pilot wordt verhoogd van de uitgangswaarde van 20 d tot 1000 d,
+ wat voor het doel praktisch ondoorlatend is.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situatie-pilotlengte-400"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het resultaat voor een 400 m lange pilot waarin de bodemweerstand is verhoogd tot 1000 d.
+ De bovenste figuur geeft de stijghoogten loodrecht op de kanaal as op NAP -7.25 m.
+ De groene lijn is de stijghoogte midden onder de pilot en de rode de oorspronkelijke situatie met ongewijzigde bodemweerstand waarvoor de stijghoogte in de doorsnede op de zuidrand van het model is genomen.
+ De stijghoogte onder het midden van de pilot is verlaagd met 0.45 m onder het midden van het kanaal en met ca.
+ 0.2 m onder de deklaag.
+ Bij vlakdekkende weerstandsverhoging tot 1000 d zou dit een verlaging van 1.2 m onder het midden van het kanaal zijn (van NAP -1.05 naar NAP -2.25 m,
+ zie boven Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stijghoogte-onder-de-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ met 
+\begin_inset Formula $c=20$
+\end_inset
+
+ d en met 
+\begin_inset Formula $c=1000$
+\end_inset
+
+ d voor 
+\begin_inset Formula $x=0$
+\end_inset
+
+) en met 0.85 m onder de deklaag (van NAP -1.4 m naar NAP -2.25 m,
+ zie Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stijghoogte-onder-de-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ voor 
+\begin_inset Formula $x=100$
+\end_inset
+
+ m).
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situatie-pilotlengte-400"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft voor dezelfde berekening de stijghoogte op NAP -7.25 m langs de hartlijn van het kanaal vanaf het midden van de pilot tot de zuidrand van het model.
+ De groene lijn is het traject onder de pilot en de rode het traject buiten de pilot.
+ De stijghoogte van de groene lijn op 
+\begin_inset Formula $y=0$
+\end_inset
+
+ is gelijk aan die van de groene lijn op 
+\begin_inset Formula $x=0$
+\end_inset
+
+ in de bovenste figuur.
+ De stijghoogte van de rode lijn op 
+\begin_inset Formula $y=1000$
+\end_inset
+
+ is gelijk aan de rode lijn in de bovenste figuur op 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_L1000.0_ymid-200_NAP-725cm_20_1000.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_y_L1000.0_ymid-200_NAP-725cm_20_1000.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Situatie-pilotlengte-400"
+
+\end_inset
+
+Situatie pilotlengte 400 m en weerstand verhoogd tot 1000 d.
+ Boven:
+ De stijghoogte loodrecht op de kanaal as op NAP -7.25 m aan de noordzijde van het model,
+ midden onder de pilot (in groen) en aan de zuidzijde van het model op 800 m van de rand van de pilot (in rood).
+ Onder:
+ De stijghoogte op NAP -7.25 m onder de hartlijn van het ARK vanaf het midden van de pilot tot 800 m voorbij de rand ervan.
+ De stijghoogte links komt overeen met de groene lijn in de bovenste figuur.
+ De stijghoogte rechts met die van de rode lijn in de bovenste figuur.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_x_L1000.0_ymid-200_NAP-725cm_20_100.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/h_y_L1000.0_ymid-200_NAP-725cm_20_100.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Situatie-pilotlengte-400-1"
+
+\end_inset
+
+Situatie pilotlengte 400 m en weerstand verhoogd tot 100 d.
+ Boven:
+ De stijghoogte loodrecht op de kanaal as op NAP -7.25 m aan de noordzijde van het model,
+ midden onder de pilot (in groen) en aan de zuidzijde van het model op 800 m van de rand van de pilot (in rood).
+ Onder:
+ De stijghoogte op NAP -7.25 m onder de hartlijn van het ARK vanaf het midden van de pilot tot 800 m voorbij de rand ervan.
+ De stijghoogte links komt overeen met de groene lijn in de bovenste figuur.
+ De stijghoogte rechts met die van de rode lijn in de bovenste figuur.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor de haalbaar geachte doelweerstand van 100 d is het effect uiteraard nog minder.
+ Het resultaat is weergegeven in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situatie-pilotlengte-400-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Bij vlakdekkende verhoging van de bodemweerstand van 20 tot 100 d daalt de stijghoogte onder het ARK met 0.7 m van NAP -1.05 m naar NAP -1.75 m en onder de deklaag met 0.5 m van NAP -1.05 m naar NAP -1.9 m.
+ Echter met een pilot van 400 m daalt de stijghoogte met 0.4 m van NAP -1.05 naar NAP -1.45 m en onder de deklaag met slechts 0.1 m van NAP -1.4 m naar NAP -1.
+ 5 m.
+ Dit zal de situatie met de wellen nauwelijks veranderen.
+ Vlakdekkende weerstandsverhoging zal in de definitieve situatie echt noodzakelijk.
+\end_layout
+
+\begin_layout Standard
+Het verschil tussen de stijghoogte met en zonder pilot is ook van belang voor monitoring.
+ Bij een weerstandsverhoging tot 100 d en een pilotlengte van 400 m mag men in de peilbuizen de verlaging verwachten die in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situatie-pilotlengte-400-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ boven wordt gegeven door het verschil tussen de groene en de rode lijn.
+ De gevoeligheid van de verlaging voor de weerstand is overigens niet groot.
+ Deels omdat de extra verlaging niet lineair is met de weerstand en deels omdat alleen naast het kanaal kan worden gemeten,
+ waar de gevoeligheid van de verlaging voor de weerstandstoename een stuk minder is dan in het midden van het kanaal.
+\end_layout
+
+\begin_layout Standard
+@@ injecteren onder het grind
 \end_layout
 
 \begin_layout Bibliography
