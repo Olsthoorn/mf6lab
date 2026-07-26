@@ -312,7 +312,7 @@ zachte,
  Dankzij het door 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1098,7 +1098,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-De retourstroom bij scheepspassage blijkt de belangrijkste erosiefactor 
+Het rapport 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De12"
@@ -1106,13 +1106,127 @@ literal "false"
 
 \end_inset
 
-,
+ is een advies om erosie van de onderwatertaluds van het ARK tegen te gaan;
+ door de geconstateerde bodemerosie voldoen damwanden deels niet meer aan de veiligheidsnorm,
+ zo het rapport.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ wijdt zich voorts aan het berekenen van de retourstroomsnelheid,
+ met name langs de teen van de damwand.
+ De retourstroom bij scheepspassage blijkt de belangrijkste erosiefactor 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ (Deltares 2025/6?@@),
  p15.
- De retourstroom langs de bodem is groter dan de stroming die wordt opgewekt door de scheepsschroeven.
- Wellicht is een extra factor bij de bodemerosie de retourstroom die optreedt wanneer schepen elkaar passeren en het gepasseerde schip daarbij dichter langs de kanaaloever vaart met,
- waar,
- vanwege het onderwatertalud,
- minimale vrije ruimte tussen kiel een bodem aanwezig is 
+ De retourstroom langs de bodem resp.
+ de damwand is groter dan de stroming die wordt opgewekt door de scheepsschroeven en door golven.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ modelleert de retourstroom met het programma Delft3D,
+ dus driedimensionaal.
+\end_layout
+
+\begin_layout Standard
+De kanaaldoorsnede is van grote invloed,
+ zowel zijn oppervlak (breedte en diepte) als de vraag of er wel of geen onderwatertalud aanwezig is.
+ De berekeningen worden dan ook voor verschillende doorsneden uitgevoerd.
+\end_layout
+
+\begin_layout Standard
+Voor de erosie worden M8 en M12 schepen als maatgevend beoordeeld.
+ Het M8 schip (Groot Rijnschip) is 110x11.4x3.5 m (lengte breedte,
+ maximum diepgang),
+ het M12 schip is 135x17x4.0 m.
+\end_layout
+
+\begin_layout Standard
+Hoewel de maximale toegestane snelheid in het ARK 5 m/s (18 km/h) is,
+ varen volgeladen schepen minder snel,
+ vanwege de grenssnelheid,
+ de maximale snelheid die fysisch mogelijk is voor een combinatie van kanaaldoorsnede en grootspantdoorsnede.
+ Hierdoor zijn zulke snelheden voor volgeladen schepen niet haalbaar.
+ Een simulatie met een volgeladen schip dat in het midden van het kanaal vaart leverde een grenssnelheid van 4.45 m/s.
+ Een realistische vaarsnelheid werd daarom door 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ gesteld op 90% van de grenssnelheid en 21.5 m uit de as van het kanaal resulteerde in 3.75 m/s.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ beschrijft registraties tussen 11 en 20 juni 2025,
+ van stroomsnelheid,
+ waterspiegeldaling en sedimentopwoeling middels zakkingde metingen van vaarsnelheid,
+ met een ADCP,
+ een ADV en druksensoren gemonteerd op een meetframe lop ca.
+ 
+\begin_inset Formula $yRD=475500$
+\end_inset
+
+,
+ net ten zuiden van de fietsbrug bij Nigtevegt,
+ op ca.
+ 20 m ten westen van de kanaalas (30 m van de linkeroever).
+ De afstand tot de kanaalas komt overeen met de piek van de scheepsintensiteit in de AIS-data van maatgevende scheepsklassen M8 en M12 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+.
+ In genoemde periode waren er 1669 scheepspassages (richting zuiden) waarvan 157 met een waterspiegeldaling van meer dan 25 cm.
+ De gegevens van deze 157 scheepspassages zijn door 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ gerapporteerd samen met de vaarsnelheid,
+ scheepstype en diepgang.
+\end_layout
+
+\begin_layout Standard
+Het is nu mogelijk om de gemeten retourstroomsnelheden uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ te vergelijken met de simulaties van 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De12"
@@ -1121,7 +1235,46 @@ literal "false"
 \end_inset
 
 .
- Dit erodeert het onderwatertalud.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ heeft verschillende simulaties uitgevoerd waarvan 1 voor een enkel volbeladen M12 schip,
+ met 4 m diepgang en een vaarsnelheid van 3.75 m/s.
+ De andere simulaties betreffen een M12 schip dat een M8 schip inhaalt of een M12 schip dat een andere M12 schip inhaalt.
+ Er zijn geen aanwijzingen dan een dergelijke inhaalmanoeuvre met het meetframe is geregistreerd.
+\end_layout
+
+\begin_layout Standard
+Tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Geregistreerde-passages-M12"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de geregistreerde passages van volbeladen M12 schepen.
+ De hoogste snelheid is 3.7 m/s en de mediaan is 3.4 m/s dus net wat lager dan wat 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ veronderstelde.
+ De hoogste retourstroomsnelheid zal behoren bij het schipl dat precies over het meetinstrument voer.
+ Dat is hier 1.3 m/s.
 \end_layout
 
 \begin_layout Standard
@@ -1133,9 +1286,200 @@ literal "false"
 \end_inset
 
 ,
- p15,
- komt op retourstroomsnelheden van 2.0 tot 2.6 m/s aan de teen van de damwand en van 2.6 m/s onder de schepen.
- Hierdoor kan erosie van bodemmateriaal over de gehele bodem van het ARK optreden.
+ fig.3.3,
+ komt voor dit schip bij 3.75 m/s op ca.
+ 1.4 m/s tussen schip en oever.
+ Uit de metingen met 2 druksondes op het meetframe en een langs de oever,
+ bleek dat de waterspiegeldaling op deze punten in essentie gelijk was en daarmee ook de retourstroom.
+ We moeten derhalve concluderen dat de simulatie van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ voor het volbeladen M12 schip goed overeen komt met de metingen in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26b"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Geregistreerde-passages-M12"
+
+\end_inset
+
+Geregistreerde passages M12 schepen met diepgang 
+\begin_inset Formula $>=3.9$
+\end_inset
+
+ m.
+ Event=passagenummer,
+ draft [m]=diepgang,
+ 
+\begin_inset Formula $dh$
+\end_inset
+
+ [m] = waterspiegeldaling,
+ 
+\begin_inset Formula $v_{s}$
+\end_inset
+
+ [m/s] = snelheid schip,
+ 
+\begin_inset Formula $v_{r}$
+\end_inset
+
+ [m/s] = gemeten retourstroom boven meetframe,
+ 
+\begin_inset Formula $v_{r2}$
+\end_inset
+
+ [m/s] = berekende retourstroom [m/s] op basis van 
+\begin_inset Formula $v_{s}$
+\end_inset
+
+ en 
+\begin_inset Formula $dh$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/M12shipsEvents.png
+	width 0.5text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De verdere retourstroomsimulaties in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ betreffen twee passerende,
+ volbelanden M12 schepen,
+ waarvan een de ander inhaalt.
+ Dit leidt logischer wijze tot hogere retourstroomsnelheden dan bij een enkel schip het geval is.
+ De doorsnede met ingekleurde snelheden geeft tussen schip en oever ruim 2 m/s (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Retourstroming-bij-inhalen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Onder het schip worden snelheden tot 3 m/s berekend boven het onderwatertalud,
+ maar 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ schrijft ook dat de berekening daar onnauwkeurig is,
+ zodat een topsnelheid van ruim 2 m/s moet worden aangehouden.
+ De doorsnede toont ook dat de kiel van het ingelopen schip heel dicht bij het onderwatertalud komt,
+ zodat daar gevaar bestaat dat het er tegenaan wordt gezogen (squat effect) en de erosie van het talud bij inhalen reëel is.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Delt12_fig3_2Retorustroming_injalen_ARK.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Retourstroming-bij-inhalen"
+
+\end_inset
+
+Retourstroming bij inhalen op ARK uit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hierdoor kan erosie van bodemmateriaal over de gehele bodem van het ARK optreden.
  Op dezelfde pagina wordt vermeld,
  dat er ca.
  20 cm bodemslib aanwezig was.
@@ -1372,7 +1716,7 @@ Op opbouw van de weerstand van de kanaalbodem na de verruiming in 1980 tot ca.
 Laboratoriumonderzoek bodemweerstand ter vermindering van de lek 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1384,7 +1728,7 @@ literal "false"
 Met een aantal kolomproeven onderzocht 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1422,7 +1766,7 @@ literal "false"
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1467,7 +1811,7 @@ Een kanttekening die bij de proeven kan worden geplaatst,
  Deze wordt echter niet door 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1554,7 +1898,7 @@ Ingevuld blijkt dat de druk uitgedrukt in meters waterkolom nabij de kolomwand 3
 \begin_layout Standard
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1637,7 +1981,7 @@ Je ziet hetzelfde voor de 40 cm dikke klei-zand-laag resp.
  4.19 in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1686,7 +2030,7 @@ name "fig:Fig.4.22-uit-De26a"
 Fig.4.22 uit 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1796,7 +2140,7 @@ Klei en slib tonen beide een toenemende weerstand met consolidatie door belastin
  Dat blijkt uit de proeven met slib 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1841,7 +2185,7 @@ Self-healing is een veel geroemd aspect tijdens discussies over het gedrag van d
 De weerstand van rond 10 dagen die in veel van de experimenten in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1888,7 +2232,7 @@ Een weerstandbiedende laag met een beschermlaag van voldoende dikte erboven op,
 Uit de verschillende proeven van 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1905,7 +2249,7 @@ literal "false"
 Uit p46 in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1920,7 +2264,7 @@ literal "false"
 \begin_layout Standard
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1955,7 +2299,7 @@ nolink "false"
  Dit werd volgens 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -1970,7 +2314,7 @@ literal "false"
  4.35 in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -2097,7 +2441,7 @@ zachte,
  Dankzij het door 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -2246,7 +2590,7 @@ Met al deze methoden blijft het feit bestaan,
  is in feite aangetoond door 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -2283,7 +2627,7 @@ Kortom,
  Net als in de betreffende proef van 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -2422,7 +2766,7 @@ Bereiken van duurzame bodemweerstand
 De tijdens de kolomproeven van 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -2471,7 +2815,7 @@ De laag moet voldoende dik zijn.
  Een inschatting is dat de laag de dikte moet krijgen die 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "De26a"
+key "De25b"
 literal "false"
 
 \end_inset
@@ -3227,8 +3571,26 @@ Deltares (2025) Overzicht testmodellering geohydrologie Amsterdam-Rijnkanaal,
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Deltares (2026a)"
+label "Deltares(2026a)"
 key "De26a"
+literal "false"
+
+\end_inset
+
+Deltares (2026a) Analyse metingen scheepvaart Amsterdam-Rijnkanaal.
+ Maatregelen ter reductie wateroverlast langs kanalen - SITO Programmasubsidie IenW 2025.
+ Auteurs:
+ Femke Bisschip en Lynyerd de Wit.
+ Datum 13-02-2026,
+ document Id 11211511-026-GEO-0001,
+ 41pp.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2026a)"
+key "De26b"
 literal "false"
 
 \end_inset
@@ -3248,8 +3610,8 @@ Deltares (2026) Experiments seepage reducing measures canal bed;
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Deltares (2026b)"
-key "D26b"
+label "Deltares (2026c)"
+key "De26c"
 literal "false"
 
 \end_inset
