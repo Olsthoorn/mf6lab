@@ -1184,18 +1184,16 @@ literal "false"
 
  beschrijft registraties tussen 11 en 20 juni 2025,
  van stroomsnelheid,
- waterspiegeldaling en sedimentopwoeling middels zakkingde metingen van vaarsnelheid,
- met een ADCP,
- een ADV en druksensoren gemonteerd op een meetframe lop ca.
+ waterspiegeldaling en sedimentopwoeling middels metingen een ADCP,
+ een ADV en druksensoren gemonteerd op een meetframe op ca.
  
 \begin_inset Formula $yRD=475500$
 \end_inset
 
 ,
- net ten zuiden van de fietsbrug bij Nigtevegt,
- op ca.
- 20 m ten westen van de kanaalas (30 m van de linkeroever).
- De afstand tot de kanaalas komt overeen met de piek van de scheepsintensiteit in de AIS-data van maatgevende scheepsklassen M8 en M12 
+ net ten zuiden van de fietsbrug bij Nigtevegt.
+ Het maatframe lag op ca.
+ 20 m ten westen van de kanaalas (30 m van de linkeroever) wat overeenkomt met de piek van de scheepsintensiteit in de AIS-data van de maatgevende scheepsklassen M8 en M12 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De25a"
@@ -1213,12 +1211,12 @@ literal "false"
 
 \end_inset
 
- gerapporteerd samen met de vaarsnelheid,
- scheepstype en diepgang.
+ met afzonderlijke grafieken gerapporteerd samen met de vaarsnelheid,
+ het scheepstype en diepgang van het passerende schip.
 \end_layout
 
 \begin_layout Standard
-Het is nu mogelijk om de gemeten retourstroomsnelheden uit 
+De metingen van de retourstroomsnelheden uit 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De26a"
@@ -1226,7 +1224,7 @@ literal "false"
 
 \end_inset
 
- te vergelijken met de simulaties van 
+ kunnen worden vergeleken met de simulaties van 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De12"
@@ -1235,9 +1233,7 @@ literal "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De12"
@@ -1248,7 +1244,72 @@ literal "false"
  heeft verschillende simulaties uitgevoerd waarvan 1 voor een enkel volbeladen M12 schip,
  met 4 m diepgang en een vaarsnelheid van 3.75 m/s.
  De andere simulaties betreffen een M12 schip dat een M8 schip inhaalt of een M12 schip dat een andere M12 schip inhaalt.
- Er zijn geen aanwijzingen dan een dergelijke inhaalmanoeuvre met het meetframe is geregistreerd.
+ Er zijn geen aanwijzingen dan dergelijke inhaalmanoeuvres met het meetframe is geregistreerd.
+ De voor de simulaties gebruikte doorsnede komt overeen met die langs grote trajecten van het ARK,
+ zonder rekening te houden met erosiegeulen (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dwarsprofiel-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Dwarsprofiel_ARK.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dwarsprofiel-ARK"
+
+\end_inset
+
+Dwarsprofiel ARK (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1263,8 +1324,17 @@ nolink "false"
 
 \end_inset
 
- geeft de geregistreerde passages van volbeladen M12 schepen.
- De hoogste snelheid is 3.7 m/s en de mediaan is 3.4 m/s dus net wat lager dan wat 
+ geeft de geregistreerde passages van volbeladen M12 schepen uit de gegevens van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+.
+ De hoogste snelheid blijkt 3.7 m/s en de mediaan is 3.4 m/s,
+ dus net wat lager dan wat 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De12"
@@ -1273,8 +1343,19 @@ literal "false"
 \end_inset
 
  veronderstelde.
- De hoogste retourstroomsnelheid zal behoren bij het schipl dat precies over het meetinstrument voer.
- Dat is hier 1.3 m/s.
+ De hoogste retourstroomsnelheid zal behoren bij het schip dat precies over het meetinstrument voer.
+ In tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Geregistreerde-passages-M12"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ bijkt dat 1.3 m/s te zijn.
 \end_layout
 
 \begin_layout Standard
@@ -1287,10 +1368,30 @@ literal "false"
 
 ,
  fig.3.3,
- komt voor dit schip bij 3.75 m/s op ca.
- 1.4 m/s tussen schip en oever.
+ komt voor het volbeladen M12 schip varend met een snelheid van 3.75 m/s uit op ca.
+ 1.4 m/s nabij de damwand (tussen schip en oever,
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Deltares12_fig3.3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
  Uit de metingen met 2 druksondes op het meetframe en een langs de oever,
- bleek dat de waterspiegeldaling op deze punten in essentie gelijk was en daarmee ook de retourstroom.
+ bleek dat de waterspiegeldaling op deze punten in essentie gelijk was en daarmee ook de retourstroom 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+.
  We moeten derhalve concluderen dat de simulatie van 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1308,6 +1409,72 @@ literal "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+ geeft voor de grenssnelheid van een M8 resp.
+ M12 schip voor de actuele doorsnede bij 
+\begin_inset Formula $yRD=474500$
+\end_inset
+
+,
+ nabij het meetframe resp.
+ 4.25 en 3.6 m/s.
+ Dit klopt goed met wat voor M12 schepen is gemeten (tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Geregistreerde-passages-M12"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ rapporteert alleen de simulatieresultaten voor de situatie waarin een M12 schip een M8 schip inhaalt en waarin een M12 schip een M12 schip inhaalt.
+ Het snelheidsveld voor de retourstroom van de laatste situatie is te zien in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Retourstroming-bij-inhalen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Uiteraard is de restourstroom in deze situatie groter dan die bij een enkel schip,
+ gemeten met het meetframe:
+ Voor de situatie waarin een M12 schip een ander M12 schip inhaalt wordt langs de oever een retourstroomsnelheid berekend van 2.3 m/s (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Retourstroming-bij-inhalen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+);
+ voor een enkel M12 schip is dit 1.4 m/s.
 \end_layout
 
 \begin_layout Standard
@@ -1390,7 +1557,18 @@ Geregistreerde passages M12 schepen met diepgang
 \end_layout
 
 \begin_layout Standard
-De verdere retourstroomsimulaties in 
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Deltares12_fig3.3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de door 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De12"
@@ -1398,11 +1576,57 @@ literal "false"
 
 \end_inset
 
- betreffen twee passerende,
- volbelanden M12 schepen,
- waarvan een de ander inhaalt.
- Dit leidt logischer wijze tot hogere retourstroomsnelheden dan bij een enkel schip het geval is.
- De doorsnede met ingekleurde snelheden geeft tussen schip en oever ruim 2 m/s (Fig.
+gesimuleerde retourstroomsnelheid nabij de damwand voor een enkel M12 schip en een M12 dat een M8 schip inhaalt en voor een M12 schip dat een M12 schip inhaalt.
+ Deze snelheidsprofielen weerspiegelen duidelijk de kanaaldiepte van slechts 3.6 m langs de damwand.
+ De andere simulaties in dezelfde figuur gelden voor een ander dwarsdoorsnedeprofiel.
+\end_layout
+
+\begin_layout Standard
+De doorsnede met ingekleurde snelheden geeft onder het schip dat langs de oever vaart nog hogere retoursnelheden aan.
+ Deze zijn echter niet betrouwbaar omdat het gebruikte Delt3D model deze niet correct berekent 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ (onder fig3.4 op p12).
+ Op basis van de vaststelling in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ dat de gemeten drukdaling (waterspiegeldaling) onder het schip de facto gelijk was aan die langs de oever,
+ kan worden gesteld dat de retourstroomsnelheid onder het schip in essentie gelijk is aan die langs de oever en dus overeenkomt met die in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Deltares12_fig3.3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ De retourstroomsnelheid tussen schip en oever bij inhaalmanoeuvres kan dus wel ruim 2 m/s bedragen,
+ maar is niet gemeten in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Retourstroming-bij-inhalen"
@@ -1413,20 +1637,16 @@ nolink "false"
 
 \end_inset
 
-).
- Onder het schip worden snelheden tot 3 m/s berekend boven het onderwatertalud,
- maar 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "De12"
-literal "false"
-
-\end_inset
-
- schrijft ook dat de berekening daar onnauwkeurig is,
- zodat een topsnelheid van ruim 2 m/s moet worden aangehouden.
- De doorsnede toont ook dat de kiel van het ingelopen schip heel dicht bij het onderwatertalud komt,
- zodat daar gevaar bestaat dat het er tegenaan wordt gezogen (squat effect) en de erosie van het talud bij inhalen reëel is.
+ toont wel dat de kiel van het ingelopen schip heel dicht bij het onderwatertalud komt,
+ zodat daar gevaar bestaat dat het er tegenaan wordt gezogen (squat effect) waardoor extra erosie van het talud bij inhalen kan optreden.
+ Inhaalmanoeuvres waarbij volbeladen M8 en M12 schepen volbeladen M12 schepen passeren zullen niet heel veel voorkomen,
+ maar inhalen gebeurt voortdurend,
+ omdat vooral de minder diepgaande schepen beduidend sneller varen.
+ Van alle geregistreerde schepen die 5.0 m/s of sneller over het meetframe voeren,
+ was de mediane diepgang 1.6 m en de maximale 2.6 m.
+ Hoewel schepen met grote diepgang bij voorkeur dichter bij de as van het kanaal varen,
+ zullen zijn dichter langs de oever varen wanneer zijn worden ingehaald,
+ waarbij de kiel aan stuurboordkant dichter bij he tonderwatertalud komt en dan bodemerosie kan bevorderen.
 \end_layout
 
 \begin_layout Standard
@@ -1439,8 +1659,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../../images/Delt12_fig3_2Retorustroming_injalen_ARK.png
-	width 60text%
+	filename ../../images/Delt12_fig3_2Retorustroming_injalen_ARK.pdf
 
 \end_inset
 
@@ -1465,7 +1684,8 @@ literal "false"
 
 \end_inset
 
-
+,
+ geannoteerd.
 \end_layout
 
 \end_inset
@@ -1479,14 +1699,176 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Hierdoor kan erosie van bodemmateriaal over de gehele bodem van het ARK optreden.
- Op dezelfde pagina wordt vermeld,
- dat er ca.
- 20 cm bodemslib aanwezig was.
- Het rapport houdt verder een kritieke stroomsnelheid van 0.2 m/s aan waarboven het aanwezige bodemmateriaal wordt meegesleept.
- Dit impliceert dat de retourstroom het materiaal op de bodem van het kanaal bij elke scheepspassage sterk in beweging brengt en tot zekere hoogte opwoelt,
- wat logischerwijze de geconstateerde erosiegeulen in de dwarsprofielen veroorzaakt.
- Nu,
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Fig33_Deltares12_snelheidsprofielen.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Deltares12_fig3.3"
+
+\end_inset
+
+Door 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ berekende retourstroom-snelheidsprofielen nabij de damwand,
+ waar de waterdiepte 3.6 m is (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dwarsprofiel-ARK"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ 
+\begin_inset Formula $A_{c}=518$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+) voor de situatie met een passerend M12 schip,
+ een M8 schip (vaarsnelheid 
+\begin_inset Formula $V_{s}=2.75$
+\end_inset
+
+ m/s) ingelopen door een M12-schip (
+\begin_inset Formula $V_{s}=3.75$
+\end_inset
+
+ m/s) en twee M12 schepen (
+\begin_inset Formula $V_{s}=3.25$
+\end_inset
+
+ m/s en 
+\begin_inset Formula $V_{s}=2.25$
+\end_inset
+
+ m/s).
+ Simulatie 4,
+ 5 en 6 zijn voor twee M12 schepen maar voor andere vormen van het dwarsprofiel.
+ Simulatie 4 en 5 hebben en dwarsprofiel met 
+\begin_inset Formula $A_{c}=598$
+\end_inset
+
+ en 532 m
+\begin_inset Formula $^{2}$
+\end_inset
+
+ zonder onderwatertalud;
+ simulatie 6 heeft een dwarsprofiel van 674 m
+\begin_inset Formula $^{2}$
+\end_inset
+
+ met onderwatertalud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De bemonstering van de bodem van het ARK ter hoogte van het meetframe en direct ten noorden van genoemde fietsbrug liet zien dat er geen slib op de bodem aanwezig is 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+.
+ Terwijl volgens 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ 20 cm slib op de bodem aanwezig zou zijn.
+ De zeefcurven van de genomen bodemmonsters liet ook zien dat het bodemzand geen slib bevat (geen deeltjes kleiner dan 60 mu),
+ terwijl monsters van het Boxtelzand naast het kanaal wel 1 tot enkele procenten fijn materiaal bevat.
+ We mogen hieruit concluderen dat het fijne materiaal voor zover dat oorspronkelijk in het bodemzand aanwezig was is uitgewassen en afgevoerd richting het IJ.
+\end_layout
+
+\begin_layout Standard
+Redenen om dit te veronderstellen is de hoge retourstroomsnelheid;
+ deze is veel hoger dan de ca.
+ 0.2 m/s die nodig is om dit zand te verplaatsen 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+.
+ De hoge retourstroom maakt dat het bodemmateriaal (fijn zand) bij elke scheepspassage over een zekere diepte sterk in beweging komt,
+ en opwervelt in de waterkolom.
+ Dit opwoelen wordt afgeleid uit de signaal-ruisverhouding van de ADV op het meetframe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+.
+ Deeltjes in het water vergroten de signaal-ruisverhouding.
+ Na elke scheepspassage neemt deze toe;
+ het duur vervolgens een aantal minuten alvorens de signaal-ruisverhouding weer is teruggezakt tot zijn basisniveau.
+ Deze beperkte tijd duidt erop dat de opwerveling zand betreft en geen slib,
+ waarvoor het veel langer zou duren om naar de bodem terug te zakken 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+.
+ Het is te verwachten dat slibdeeltjes en kleideeltjes helemaal niet meer zouden uitzakken gezien het grote aantal schepen op het ARK en de retourstroom die zijn teweeg brengen.
+\end_layout
+
+\begin_layout Standard
+Nu,
  ruim 20 jaar nadat de grootste binnenvaartschepen het ARK tussen Utrecht en Amsterdam zijn gaan gebruiken,
  lijkt het bodemprofiel zijn eindvorm min of te hebben bereikt.
  Dit impliceert echter geenszins dat het bodemmateriaal nu of zelfs ooit bij scheepspassages rustig op de bodem blijft liggen.

@@ -1249,6 +1249,53 @@ literal "false"
  met 4 m diepgang en een vaarsnelheid van 3.75 m/s.
  De andere simulaties betreffen een M12 schip dat een M8 schip inhaalt of een M12 schip dat een andere M12 schip inhaalt.
  Er zijn geen aanwijzingen dan een dergelijke inhaalmanoeuvre met het meetframe is geregistreerd.
+ De gebruikte doorsnede is..
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Dwarsprofiel_ARK.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dwarsprofiel ARK (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1308,6 +1355,59 @@ literal "false"
 \end_inset
 
 .
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+ geeft voor de grenssnelheid van een M8 resp.
+ M12 schip voor de actuele doorsnede bij 
+\begin_inset Formula $yRD=474500$
+\end_inset
+
+,
+ nabij het meetframe resp.
+ 4.25 en 3.6 m/s.
+ Dit klopt goed met wat voor M12 schepen is gemeten (tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Geregistreerde-passages-M12"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ rapporteert alleen de simulatieresultaten voor de situatie waarin een M12 schip een ander M12 schip inhaalt (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Retourstroming-bij-inhalen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Uiteraard is de restourstroom in deze situatie groter dan die bij een enkel schip,
+ zoals steeds gemeten met het meetframe.
+ Voor de situatie waarbij het ene M12 schip een ander M12 schip inhaalt wordt een snelheidsverticaal tussen schip en oever berekend van ca.
+ 2.3 m/s.
+ Voor een enkel M12 schip is dit 1.4 m/s.
 \end_layout
 
 \begin_layout Standard
@@ -1402,7 +1502,18 @@ literal "false"
  volbelanden M12 schepen,
  waarvan een de ander inhaalt.
  Dit leidt logischer wijze tot hogere retourstroomsnelheden dan bij een enkel schip het geval is.
- De doorsnede met ingekleurde snelheden geeft tussen schip en oever ruim 2 m/s.
+ De doorsnede met ingekleurde snelheden geeft tussen schip en oever ruim 2 m/s (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Retourstroming-bij-inhalen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
  Onder het schip worden snelheden tot 3 m/s berekend boven het onderwatertalud,
  maar 
 \begin_inset CommandInset citation
@@ -1419,23 +1530,33 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Wellicht is een extra factor bij de bodemerosie de retourstroom die optreedt wanneer schepen elkaar passeren en het gepasseerde schip daarbij dichter langs de kanaaloever vaart met,
- waar,
- vanwege het onderwatertalud,
- minimale vrije ruimte tussen kiel een bodem aanwezig is 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "De12"
-literal "false"
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Delt12_fig3_2Retorustroming_injalen_ARK.pdf
 
 \end_inset
 
-.
- Dit erodeert het onderwatertalud.
+
 \end_layout
 
-\begin_layout Standard
-De retourstroomsnelheden van 2.0 en 2.6 m/s die 
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Retourstroming-bij-inhalen"
+
+\end_inset
+
+Retourstroming bij inhalen op ARK uit 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "De12"
@@ -1444,9 +1565,17 @@ literal "false"
 \end_inset
 
 ,
- p15,
- respectievelijk geeft aan de teen van de damwand en onder de schepen komt niet overeen met de metingen die van 7 t/m 20 juni 2025 zijn uitgevoerd met een meetframe op de bodem van het ARK iets ten zuiden van de fietsbrug bij Nigtevegt (Deltares,
- 2025b@@).
+ geannoteerd.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
