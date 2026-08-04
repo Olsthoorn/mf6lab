@@ -1,0 +1,1683 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% \lstdefinestyle{mystyle}{
+%   language=Python,
+%   numbers=left
+% }
+
+% Put lstset here, after lstdefinestyle
+% \lstset{style=mystyle}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement H
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=left,% line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Ontwikkeling bodemweerstand ARK
+\end_layout
+
+\begin_layout Author
+T.N.Olsthoorn
+\end_layout
+
+\begin_layout Date
+04-08-2026
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Prof.dr.T.N.Olsthoorn
+\end_layout
+
+\begin_layout Standard
+Hygea-consult
+\end_layout
+
+\begin_layout Standard
+Strawinskylaan 54
+\end_layout
+
+\begin_layout Standard
+2102 CR Heemstede
+\end_layout
+
+\begin_layout Standard
+06-20440256
+\end_layout
+
+\begin_layout Standard
+tolsthoorn@xs4all.nl
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Vragen van Joyce van 20-07-2026
+\end_layout
+
+\begin_layout Section
+Vergelijking met het Twentekanaal:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+De vergelijking met het Twentekanaal verdient naar mijn mening nadere onderbouwing.
+ De hydraulische belasting in het ARK ligt aanzienlijk hoger,
+ onder andere door retourstroming en scheepvaartintensiteit.
+ Daardoor zijn de resultaten niet zonder meer één-op-één te vertalen.
+ In document 11211511 wordt gesteld dat de retourstroming vergelijkbaar is met het Twentekanaal,
+ maar dat er beduidend meer scheepvaartverkeer is (met risico op onvoldoende consolidatie en opwerveling).
+ Tegelijkertijd vraag ik mij af of dit risico van opwerveling niet juist wordt beperkt doordat in één keer een grotere hoeveelheid fijne fractie wordt toegevoegd.
+ Ik stel voor expliciet te toetsen welke onderdelen van de Twentekanaal-casus wel en niet representatief zijn voor het ARK.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Het genoemde document geeft een gedegen samenvatting over de verschillende rapporten heen van er ervaring is opgedaan met bodemafdichting middels een zand-bentonietlaag.
+\end_layout
+
+\begin_layout Itemize
+De laag ZBM in de watergrond-goot (WWG) is aangebracht door versproeiing op 20-30 cm boven de bodem,
+ waarbij segregatie van zand en bentoniet optrad.
+ Het ZBM in het Twentekanaal is met slangen direct op de bodem gelegd,
+ waarbij geen segregatie optrad.
+ In de WGG is het effect van segregatie gecompenseerd door het later versproeiien van een extra laag ZBM.
+ Zowel in de WGG als later in het Twentekanaal kreeg de ZBM-laag de tijd en de rust om zijn gel- of pasta-eigenschappen te ontwikkelen en weerstand op te bouwen voordat het belast werd door sterke stroming.
+ Dit is een fundamenteel verschil met het ARK,
+ tenzij daarin de scheepvaart voor meerdere dagen na aanbrengen van de ZBM-laag stilgelegd kan worden.
+\end_layout
+
+\begin_layout Itemize
+Scheurvorming van de ZBM-laag treedt na enkele dagen op,
+ maar wanneer er voldoende fijn materiaal (bentoniet) in de waterkolom kan worden gebracht,
+ dat bij bezinking in de zuigende scheuren kan worden gezogen treedt zelf-herstel op.
+ Zelf-herstel mag niet worden verwacht wanneer de scheuren met zand in plaats van bentoniet worden gevuld.
+ Als de ARK-bodem vlakdekkend wordt belegd met een ZBM-laag is al het bodemzand bedekt en is er alleen nog 
+\begin_inset Quotes pld
+\end_inset
+
+fluffy
+\begin_inset Quotes prd
+\end_inset
+
+ bentoniet beschikbaar om de scheuren te vullen.
+ Wordt de ARK-bodem maar voor een deel van een ZBM-laag voorzien dan is wel zand aanwezig.
+ Is de turbulentie in het ARK zo hoog dat het bentoniet feitelijk niet kan bezinken dan valt zelf-herstel mogelijk tegen.
+ Dit zou technisch oplosbaar kunnen zijn door na enkele dagen bentoniet te doseren.
+\end_layout
+
+\begin_layout Itemize
+ZBM als gerijpte laag blijkt bestand tegen erosie.
+ In welke mate en voor hoelang weten we nog niet precies,
+ maar de weerstandslaag in het Twentekanaal was na twee jaar nog aanwezig.
+ Dit was ook zo nadat het kanaal toegankelijk werd voor schepen met 2.8 m diepgang in plaats van 2.1 m.
+ De ZBM-laag zal slijten,
+ op termijn van jaren,
+ maar we weten niet op welke termijn.
+\end_layout
+
+\begin_layout Section
+Huidige bodemopbouw ARK:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Op basis van de waarnemingen van Michel lijkt de bodem momenteel grotendeels zandig en is de aanwezige sliblaag beperkt.
+ Dit past niet direct bij het beeld dat een omvangrijke slibvoorraad nog steeds bepalend is voor het functioneren van het systeem en dat aangebrachte ZBM niet goed zou hechten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+,
+ p15,
+ staat expliciet dat er 20 cm slib op de bodem van het ARK aanwezig was.
+ Dat punt is alleen onderbouwd met de mededeling op p27 dat 
+\begin_inset Quotes pld
+\end_inset
+
+in 2010 een baggerproject is beëindigd waarbij in totaal 900000 m
+\begin_inset Formula $^{3}$
+\end_inset
+
+ slib is verwijderd
+\begin_inset Quotes prd
+\end_inset
+
+.
+ Het rapport bevat geen verdere referentie of onderbouwing of referentie daarvan.
+\end_layout
+
+\begin_layout Standard
+Het rapport van 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ doet,
+ behalve van de metingen met een ADCP,
+ 2 ADV's en 3 druksensoren,
+ verslag van 2 series van 5 bodemmonsters nabij de fietsbrug over de gehele breedte van het ARK.
+ Er is geen slib gevonden.
+ Het bodemzand dat de bemonstering boven water tilde komt qua korrelgrootte overeen met dat van het zand van de bodem op dezelfde hoogte uit boringen naast het kanaal,
+ maar het zand uit de boringen naast het kanaal bevatten 1-4 % slib (deeltjes < 63 mu),
+ maar de bodemmonsters van de kanaalbodem hadden geen slib.
+\end_layout
+
+\begin_layout Standard
+De analyse in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26c"
+literal "false"
+
+\end_inset
+
+ maakt plausibel dat al het slib uit het kanaal is gespoeld door uitsluitend het mechanisme van opwoeling,
+ segregatie en meevoer met de stroming in het ARK noordwaarts naar het IJ.
+\end_layout
+
+\begin_layout Standard
+Slibdeeltjes die nu in het kanaalwater aanwezig moeten derhalve met name afkomstig zijn uit De Waal en de Lek,
+ van lozingen,
+ van erosie van onderwatertalud waarin de oorspronkelijke deklaag nog aanwezig is en van algen,
+ voor zover die in het kanaal groeien.
+ Vermoedelijk is deze hoeveelheid verwaarloosbaar,
+ maar kan is niet bewezen.
+\end_layout
+
+\begin_layout Section
+Resultaten kolomproeven en belastingproeven
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+De kolomproeven en de destijds uitgevoerde scheepvaartbelastingproeven bij het Twentekanaal laten zien (zie bijlagen) dat materiaal onder veelal beter bestand is tegen stroming dan eerder berekend.
+ Ik stel voor deze resultaten expliciet mee te nemen bij het formuleren van de hypothesen voor de pilot.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De proeven (WGG en kolomproeven) destijds bij de voorbereiding van de ZBM-toepassing in het Twentekanaal laten zien dat het materiaal beter bestand was tegen erosie dan wellicht van tevoren gedacht (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De20"
+literal "false"
+
+\end_inset
+
+).
+ De recente kolomproeven bij Deltares ter voorbereiding van de pilot in het ARK laten zien dat het materiaal niet bestand is tegen erosie 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26b"
+literal "false"
+
+\end_inset
+
+.
+ Het verschil tussen de proevenseries is,
+ dat het materiaal bij de recente kolomproeven niet kon rijpen en consolideren en in 2019 in de WGG wel.
+\end_layout
+
+\begin_layout Standard
+Bij de recente proeven bleek de laatste proeve met ZBM met daarop steenslag de grootste weerstand te ontwikkelen en te behouden onder belasting 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26b"
+literal "false"
+
+\end_inset
+
+.
+ Vermoedelijk omdat het ZBM door afdekkende stenen werd behoed voor erosie.
+\end_layout
+
+\begin_layout Section
+Arcadis-studie (WVP):
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Het lijkt mij zinvol om de Arcadis-studie naar de invloed van passerende schepen op het waterspanningsverloop (1 WVP) opnieuw mee te nemen.
+ Dit kan aanvullende inzichten geven in de werkelijke belasting van het systeem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+De Arcadis studie toont een grafiek met de hoogfrequent gemeten grondwaterstijghoogte naast het kanaal waarin de drukdalingen te zien zijn die overeenkomen met passerende (grote) schepen.
+ Het is plausibel dat de waterspiegeldaling die zulke schepen bij passage in het ARK veroorzaken doorwerken naar de stijghoogte direct naast het kanaal.
+ De reden is dat het grondwatersysteem gespannen is (geheel onder een weerstandbiedende laag zit) en dat de randvoorwaarde (het peil in het ARK) plotseling (bij scheepspassage) over een groot oppervlak in zijn geheel decimeters wordt verlaagd.
+ De tijdkarakteristiek van een gespannen grondwatersysteem is heel klein wat leidt tot een snelle reactie die ook behoorlijk ver kan doorwerken voordat hij is uitgedempt.
+ Zonder bodemweerstand is dit het effect van snelle verandering van de grondwaterstroming door de waterspiegeldaling,
+ met bodemweerstand zou dit ook het effect van compressie door verandering van het gewicht van het boven de bodem bij de waterspiegeldaling (waar dat gewicht dan zo snel blijft is me op dit moment overigens niet duidelijk).
+\end_layout
+
+\begin_layout Itemize
+Arcadis schrijft dat bij scheepspassage juist een drukverhoging te verwachten,
+ maar dat is fysisch onjuist;
+ de hoge retourstroom langs de bodem verlaagt de druk op de kanaalbodem tijdens de scheepspassage.
+\end_layout
+
+\begin_layout Subsection*
+Belasting door scheepspassages
+\end_layout
+
+\begin_layout Standard
+Zowel in 2020 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RWS22"
+literal "false"
+
+\end_inset
+
+ als in 2025 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+ is een meetcampagne uitgevoerd waarbij met een meetframe met sensoren op de kanaalbodem de belasting van scheepspassages was.
+ Van 25/10 tot 01/11/2021 lag het meetframe op 10 cm ZBM op de bodem van de Zijtak Almelo van de Twentekanalen.
+ Van 11-20/06/2025 lag hetzelfde meetframe op de bodem van het ARK net ten zuiden van de fietsbrug bij Nigtevegt.
+ In beide situaties werd de watersnelheid boven het frame tijdens scheepspassage gemeten samen met de druk die de waterspiegelverlaging registreert.
+ Alleen in het Twentekanaal werd ook de waterdruk op 30 cm onder de bodem (20 cm onder het ZBM) gemeten.
+\end_layout
+
+\begin_layout Standard
+Het meest opvallende van deze twee meetcampagnes is dat de sterkste gemeten retourstroom,
+ veroorzaakt door passerende (grote) schepen,
+ ondanks het verschil in scheepsgrootte,
+ kanaalafmetingen en vaarsnelheid,
+ in beide situatie rond 1 m/s bedroeg.
+ Verschillen zullen er zijn,
+ maar de grootte van de retourstroom loopt in beide situaties niet ver uiteen.
+ Vermoedelijk omdat in beide situaties,
+ scheepsgrootte,
+ kanaalafmetingen en snelheid op elkaar zijn afgestemd.
+ Een beperking moet genoemd worden,
+ en dat is dat wanneer een groot schip door een ander groot schip wordt ingehaald de retourstroom volgens 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ tot boven 2 m/s kan oplopen,
+ maar deze situaties zijn in de meetcampagnes,
+ voor zover ik kan nagaan,
+ niet voorgekomen.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25a"
+literal "false"
+
+\end_inset
+
+ geeft ook berekeningen (geen metingen) van de retourstroomsterkte en komt daarin hoger uit dan de metingen.
+ De metingen spreken echter voor zich.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ARC16"
+literal "false"
+
+\end_inset
+
+ mat op 19/12/2016 van 12:40 tot 13:10 hoog frequent de stijghoogte onder de deklaag in de teensloot naast het ARK en hield met een camera op de kade bij welke schepen voorbij voeren.
+ Bij de passage van grote schepen bleek de stijghoogte onder de teensloot scherp met 20 tot 30 cm te dalen,
+ ongeveer evenveel als gemeten met het meetframe.
+ De waterspiegeldaling door passerende schepen zet zich dus onder de deklaag door tot enige afstand buiten het kanaal.
+ Dit is niet per se vreemd omdat het grondwatersysteem buiten het kanaal gespannen is met weinig berging en de waterspiegeldaling een plotseling daling van de randvoorwaarde impliceert over een aanzienlijk kanaaloppervlak.
+\end_layout
+
+\begin_layout Standard
+De metingen met het meetframe in de Zijtak Almelo van 2021 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RWS22"
+literal "false"
+
+\end_inset
+
+ toonden ook aan dat de 10 cm dikke laag ZBM bestand is tegen erosie door de retourstroom van passerende schepen.
+ De ZBM-laag was in tact en er was een verticaal verval van ca.
+ 50 cm over deze laag (zie deel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "part:Veiligheid-ZBM-tegen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ op pagina 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "fig:Gemeten-(water)druk-in,"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ De klodders ZBM die bij het ophalen van het meetframe aan de pootjes bleven hangen voelden aan als een stevige,
+ zware,
+ cohesieve kleiige pasta (persoonlijke ervaring).
+ In 2024 (ik heb het rapport niet) is nogmaals met druksensoren gemeten,
+ waarbij bleek dat ook toen de ZBM laag nog in tact was,
+ hoewel enige reductie van de weerstand niet kon worden uitgesloten.
+ Kortom,
+ een ZBM laag is taai en cohesief en goed bestand tegen erosie (al weten we nog niet voor hoeveel jaren),
+ vooropgesteld dat hij op de bodem kan rijpen om zijn pasta-eigenschappen te ontwikkelen 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De20"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Consistentie in de redeneerlijn
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+De huidige redeneerlijn vind ik nog niet geheel consistent.
+ Enerzijds stellen we dat in het verleden voldoende slib aanwezig was,
+ wat heeft bijgedragen aan het zelfherstellend vermogen.
+ Anderzijds constateren we dat dit slib grotendeels verdwenen is,
+ terwijl de bodem nu relatief homogeen/stabiel lijkt.
+ Dit roept de vraag op of sprake is van een stabiele situatie of een dynamisch evenwicht (balans tussen erosie en sedimentatie).
+ Ik stel voor om deze hypothese expliciet te formuleren en te toetsen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Afgezien van de vraag of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De12"
+literal "false"
+
+\end_inset
+
+ ten onrechte dacht dat er op de bodem van het ARK 20 cm slib aanwezig was,
+ is nu duidelijk dat het er niet is.
+ Ook is plausibel gemaakt dat slib door de dynamiek op de kanaalbodem richting IJ verdwijnt 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26c"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Voorts is aan de hand van de bathymetriëen van 2011-2025 en dezelfde soort berekening als voor het slib helder gemaakt dat er voortdurend er onvermijdelijk zand richting IJ wordt afgevoerd 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26c"
+literal "false"
+
+\end_inset
+
+.
+ Onduidelijk is tot nu toe waar dat zand precies in het IJ is gedumpt en of er bij Nigtevecht,
+ waar het ARK breed en de transportsnelheid gering is,
+ niet het een en ander is blijven liggen.
+ Het lijkt goed om hiernaar te zoeken met beschikbare bathymetriëen.
+\end_layout
+
+\begin_layout Standard
+Een dwarsdoorsnede (bij km 475500) in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26c"
+literal "false"
+
+\end_inset
+
+ laat aan de hand van de bathymetrëen van 2011-2025 in een doorsnede op 
+\begin_inset Formula $y_{RD}=475500$
+\end_inset
+
+ zien dat de bodem van jaar tot jaar verandert en dus niet stabiel is.
+ Ook laten deze dwarsdoorsneden zien dat het onderwatertalud aan de rechteroever lager is dan volgens het ontwerpprofiel.
+ Dit zou logischerwijze het gevolg van bodemerosie kunnen zijn.
+ Om dat te bewijzen ontbreken tot nu toe bathymetriën van voor 2011.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26c"
+literal "false"
+
+\end_inset
+
+ laat die zien voor een enkele doorsnede,
+ maar hetzelfde geldt vermoedelijk voor zo goed als elke doorsnede langs het gehele kanaal.
+ Analyses van bathymetriëen van het gehele ARK door Timon Smeets en Michel Ruijter laten zien dat jaarlijks zand verdwijnt wat ook met berekening plausibel is te maken 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26c"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Kortom:
+ De bodem van het ARK is niet stabiel,
+ maar verschilt van jaar tot jaar ook niet heel veel.
+ Man kan dus zeggen dat de bodem tegenwoordig stabiel is in statistische zin.
+ Dat het profiel inclusie erosiegeulen en onderwatertalud min of meer van jaar tot jaar hetzelfde zijn,
+ maar dat geldt niet voor de bovenste 10-20 cm van de kanaalbodem.
+ Dat zand beweegt voortdurend.
+\end_layout
+
+\begin_layout Subsection
+Dwarsprofielen pilotlocatie:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Smeets,
+ Timon (RWS WVL) zou jij aub voor de pilotlocatie om de 100 meter een dwarsprofiel kunnen genereren met de actuele bodemligging en de verschillen ten opzichte van eerdere lodingen?
+ Dit helpt om de ruimtelijke variatie binnen de 600 meter beter inzichtelijk te maken en de bovenstaande hypothesen te toetsen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Voor het beoordelen van de dynamiek kunnen de verschillen van jaar tot jaar worden beschouwd.
+\end_layout
+
+\begin_layout Itemize
+Voor het beoordelen van de erosie zijn de erosiegeulen en afwijkingen van het ontwerpprofiel de huidige getuigen Maar voor het beoordelen wanneer of beter,
+ in welke periode,
+ de erosiegeulen zijn gevormd zijn oudere bathymetrëen of bodemhoogtemetingen noodzakelijk.
+ Wat zou helpen is de bathymetrie direct na de in 1980 afgeronde verruimingswerkzaamheden.
+ Overigens is deze vraag voor de huidige pilot minder belangrijk dan de verschillen van de bodemhoogte van jaar tot jaar.
+\end_layout
+
+\begin_layout Section
+Vervolg en uitgangspunten pilot:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Overall zie ik dat we een aantal rekenkundige verklaringen hebben,
+ maar ook nog verschillende aannames doen.
+ Het lijkt mij belangrijk om gezamenlijk vast te stellen:
+\end_layout
+
+\begin_layout Subsection*
+Welke hypothesen we willen toetsen?
+\end_layout
+
+\begin_layout Standard
+Voor mijn is het grootste vraagpunt deze:
+ 
+\end_layout
+
+\begin_layout Itemize
+Hoe krijgen we een gerijpte,
+ erosiebestendige ZBM laag op de bodem van het ARK,
+ zonder daarvoor de scheepvaart dagen lange te hoeven stilleggen?
+\end_layout
+
+\begin_layout Standard
+Want:
+\end_layout
+
+\begin_layout Itemize
+Zonder rijping (en consolidatie) hebben we los ZBM op de bodem dat bij de eerste scheepspassage volledig wordt opgewoeld en segregeert waarna het losgewoelde bentoniet in zijn geheel naar het IJ wordt afgevoerd.
+\end_layout
+
+\begin_layout Itemize
+Een uitgerijpte ZBM laag voelt als een dikke vette kleiige pasta en is bestand tegen erosie door de retourstroom van passerende schepen.
+ Hoe lang deze laag tegen erosie bestand is weten we nog niet,
+ maar minimaal een aantal jaren,
+ gezien de (bewezen) ervaring bij het Twentekanaal.
+\end_layout
+
+\begin_layout Subsection*
+Welke aannames voldoende onderbouwd zijn.
+\end_layout
+
+\begin_layout Part
+Vragen van Roel
+\end_layout
+
+\begin_layout Subsection*
+Hoeveel bodemweerstand hebben we nu?
+\end_layout
+
+\begin_layout Standard
+De grootte van de bodemweerstand kan bepaald of (geschat) worden op basis van het gekalibreerde grondwatermodel.
+ Mits het grondwatermodel in overeenstemming is met alle beschikbare metingen,
+ is de bodemweerstand die je uit het grondwatermodel kan berekenen de beste schatting die we hebben.
+\end_layout
+
+\begin_layout Standard
+Een tweede mogelijkheid is om deze te schatten met metingen onder de kanaalbodem.
+ Pal onder de bodem en dieper onder de bodem en daarbij gebruik te maken van de beste schatting van de verticale doorlatendheid van het zand onder de kanaalbodem.
+ Dit werkt wanneer de stroming onder het kanaal uniform en verticaal is.
+ Het laatste is niet het geval door de aanwezigheid van onderwatertaluds waar nog stukken weerstandbiedende deklaag in voorkomen,
+ en door de geringe diepte van de damwanden ten opzichte van de kanaalbreedte.
+ Bovendien is de benodigde schatting van de verticale doorlatendheid onzeker.
+\end_layout
+
+\begin_layout Subsection*
+Hoeveel weerstand hebben we nodig?
+\end_layout
+
+\begin_layout Enumerate
+Een criterium kan zijn,
+ zo groot dat de situatie met de wellen en het waterbezwaar van de naastliggende polders terug gaan naar de situatie van 2000,
+ voordat dit waterbezwaar ging oplopen en in 2015 zijn maximum tot nu toe haalde.
+\end_layout
+
+\begin_layout Enumerate
+Een ander criterium kan zijn:
+ To de waarde die de bodemweerstand hand voor de verruiming eind jaren zeventig van vorige eeuw.
+ Toen waren er geen problemen en was de grondwaterstand een stuk lager dan nu.
+\end_layout
+
+\begin_layout Enumerate
+Een derde criterium kan zijn 100 d want dat bleek haalbaar voor de Twentekanalen.
+\end_layout
+
+\begin_layout Enumerate
+Een volgend criterium kan zijn:
+ tot de waarde waarbij geen opbarsten van de deklaag meer mogelijk is (grensspanning)
+\end_layout
+
+\begin_layout Enumerate
+Of tot de waarbij waarbij de toename van het kwelwaterbezwaar van de naastliggende polders met 50% is teruggebracht.
+\end_layout
+
+\begin_layout Standard
+Het is duidelijk dat op elk criterium kritiek zal komen.
+ Maar het belangrijkste is dat de weerstand in de praktijk haalbaar zal moeten zijn en dat het de wateroverlast substantieel zal moeten verlagen.
+\end_layout
+
+\begin_layout Standard
+Zoals voorgerekend in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olst26c"
+literal "false"
+
+\end_inset
+
+ is het voor het uiteindelijke succes in de praktijk het belangrijkste dat de lekkende trajecten van de bodem van het ARK vlakdekkend worden gedicht.
+ Zo niet dan doen de naastgelegen stukken zonder weerstandsverhoging het effect van het traject met weerstandsverhoging grotendeels teniet.
+\end_layout
+
+\begin_layout Subsection*
+Hoeveel weerstand is haalbaar?
+\end_layout
+
+\begin_layout Itemize
+Uit het onderzoek in de WGG bleek een weerstand van 100-200 dagen haalbaar,
+ mits de scheuren,
+ die onvermijdelijk na een aantal dagen in de ZBM-laag gaan ontstaan (door krimp),
+ opgevuld kunnen worden door aanwezig los bentoniet of door nabeslibbing 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De19b"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+De experimenten met kolomproeven vielen tegen,
+ bereikte weerstanden waren rond 40-60 d.
+ Er ging veel mis bij de proeven 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De19a"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+In de Twentekanalen was het doel 60 dagen weerstand en dat is ook gehaald (evaluatierapport?).
+\end_layout
+
+\begin_layout Itemize
+De voorwaarde is dat het ZBM niet segregeert en wordt opgewoeld voordat het zijn pasta-eigenschappen heeft kunnen ontwikkelen.
+ Dat vergt een aantal dagen rust op de bodem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De19b"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Wellicht kunnen we een hogere weerstand bereiken dan deze 60 dagen.
+ De proeven in de WGG lieten zien dat dat kan 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De20"
+literal "false"
+
+\end_inset
+
+,
+ ondanks de wat ongelukkige dosering van het ZBM door middel van versproeiien boven de bodem.
+ De kolomproeven die in 2019 zijn uitgevoerd mislukten door de scheurvorming,
+ maar filterpress proeven en k0CRS proeven in Gent toonden dat hogere weerstanden tot honderden dagen mogelijk moeten zijn 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De20"
+literal "false"
+
+\end_inset
+
+.
+ De recente kolomproeven lieten zien dat de weerstand tegenvalt (orde 10-30 d) en de weerstandslaag niet erosiebestendig 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26b"
+literal "false"
+
+\end_inset
+
+,
+ althans wanneer geen rijping van het ZBM kan plaats vinden.
+ De laatste proef waarbij het ZBM werd bedekt door grind/steenslag bleek wel hoge weerstanden van rond 300d op te leveren en bestand te zijn tegen erosie,
+ dit omdat de steenslag het bentoniet beschermt tegen de retourstroom en zo tussen de stenen ongestoord kan consolideren (en rijpen).
+\end_layout
+
+\begin_layout Subsection*
+Hoeveel weerstand hebben we nu?
+\end_layout
+
+\begin_layout Standard
+De weerstand van de kanaalbodem ik gekalibreerd met het opgestelde ruimtelijke model 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25b"
+literal "false"
+
+\end_inset
+
+.
+ Deze weerstand blijkt afhankelijk van de temperatuur van het ARK-water maar deze afhankelijkheid blijkt sterker dan op basis van de viscositeit van het ARK-water kan worden verklaard.
+ De geoptimaliseerde weerstand van de ARK-bodem varieert van 30 tot 200 dagen 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De25b"
+literal "false"
+
+\end_inset
+
+,
+ fig 3-13.
+ met de laagste weerstand in de zomer en de hoogste in de winter.
+\end_layout
+
+\begin_layout Standard
+Het verschil tussen het kanaalpeil en de stijghoogte in peilbuizen onder het kanaal binnen de damwand is gerapporteerd door 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26c"
+literal "false"
+
+\end_inset
+
+ fig.4-7,
+ over de toen nog korte meetreeks van 15/12/2025-05/02/2026.
+ Het gemiddelde van raai 4 en raai 5,
+ ca.
+ 
+\begin_inset Formula $y_{RD}=475500$
+\end_inset
+
+ m,
+ ten zuiden van de fietsbrug ca.
+ 0.8 m.
+ Dit is meer dan over de ZBM-laag in de Twentekanalen (zie Deel 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "part:Veiligheid-ZBM-tegen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ hierna).
+ Bij een geschatte infiltratie van 30-50 mm/d (eigen modellering) komt dit neer op rond 15-25 d.
+ Dit is in elk geval niet nul.
+ We hebben vastgesteld dat het bodemzand geen slib bevat,
+ zodat we deze weerstand moeten wijten aan fijne deeltjes op een diepte die buiten de erosiezone valt.
+\end_layout
+
+\begin_layout Part
+\begin_inset CommandInset label
+LatexCommand label
+name "part:Veiligheid-ZBM-tegen"
+
+\end_inset
+
+Veiligheid ZBM tegen bezwijken bij scheepspassages
+\end_layout
+
+\begin_layout Standard
+Het rapport 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RWS22"
+literal "false"
+
+\end_inset
+
+ legt de nadruk op de veiligheid van de ZBM laag tegen lostrekken door de drukverlaging die optreedt bij scheepspassages.
+ Deze drukverlaging is an 25/10 tot 01/11/2021 gemeten met behulp van een meetframe van 3x1 m op de bodem van het Twentekanaal (Zijtak Almelo).
+ Op dit meetframe waren een ADVC sensor gemonteerd voor meting van de watersnelheid,
+ en 2 druksensoren die hoogfrequent te waterdruk registreerden.
+ Verder waren twee druksensoren ingegraven om de druk onder de 10 cm dikke laag ZBM vast te leggen.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Plaatsing-druksensoren-meetframe"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het drukverloop van 4 druksensoren gedurende de eerste minuten (12:08 tot 12:14) nadat het meetframe op de kanaalbodem was geplaatst en waarin de duiker druksonde p2 ingroef op 30 cm onder de bodem.
+ De bodem,
+ dus de top van de ZBM-laag,
+ bevindt zich op 3.9 m diepte beneden de waterspiegel in het kanaal en sondes p1,
+ p3 en p4 lagen op het meetframe op 10 cm boven de bodem (geregistreerde druk 3.8 mWk).
+ Om 12:09:20 pakt de duiker de sonde op en legt hem om 12:10:31 even op de bodem.
+ Hij heeft dan inmiddels een gat gegraven van 30 cm diep en plaatst vervolgens de druksonde om 12:11:00 uur in dat gat.
+ De maximum (hydrostatische) waterdruk is dan 4.2 mWk,
+ wat impliceert dat de sonde 30 cm in de bodem zit,
+ 40 cm onder sonde p1,
+ die 10 cm boven de bodem zit.
+ Van hieraf registreren de sondes tussen 25/10 en 01/11/2021 o.a.
+ de drukveranderingen door voorbij varende schepen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/MeetFrame2021_platsing_druksensoren.png
+	lyxscale 30
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Plaatsing-druksensoren-meetframe"
+
+\end_inset
+
+Plaatsing druksensoren meetframe 25/10/2021 in Twentekanaal,
+ tak Almelo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Drukververloop-in-sonde"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ toont o.a.
+ het drukverloop in de twee genoemde sondes,
+ p1 en p2,
+ tijdens een voorbijvarend schip.
+ De waterspiegeldaling die het schip veroorzaakt zet in om 15:46:46,
+ de tijd in de titel van de figuur.
+ De blauwe grafiek,
+ p1,
+ is feitelijk de waterdiepte boven druksonde p1.
+ Die is rond de tijd van deze passage ca.
+ 3.75 m en daalt tot 3.45 m tijdens de passage,
+ dus met ca.
+ 0.30 m.
+ De druk gemeten met p2 op 30 cm onder de bodem,
+ 20 cm onder de ZBM-laag,
+ daalt ook,
+ maar met ca.
+ 0.23 m van 3.67 tot 3.44 m.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/Twentekanaal_schip_20211028_meetframe.png
+	lyxscale 30
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Drukververloop-in-sonde"
+
+\end_inset
+
+Drukververloop in sonde p1 en p2 (op rechter as) samen met gemeten stroomsnelheden (op linker as).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Gedurende de passage is de druk gemeten met sonde p2 in de bodem heel even hoger dan die in p1 boven de bodem.
+ De auteurs vroegen zich af of dit een risico voor lostrekken van de ZBM-laag zou kunnen zijn,
+ waarvan overigens niets is gebleken.
+ Dat risico is er niet,
+ omdat voor een vergelijking van de druk die nodig is om het ZBM van de bodem te drukken,
+ gekeken moet worden naar de druk direct onder de ZBM,
+ die moet worden afgezet tegen het totale gewicht van wat boven dat vlak aanwezig is.
+ De ZBM-laag is 10 cm dik,
+ de onderkant daarvan bevindt zich op 4.0 m beneden de rustwaterspiegel,
+ de sonde p2 bevindt zich op 4.2 m onder de waterspiegel,
+ 30 cm onder de kanaalbodem.
+ Bij verwaarlozing van het drukverlies door verticale stroming in het zand onder de ZBM-laag,
+ dus bij aanname van een hydrostatisch drukverloop onder de ZBM-laag,
+ moet 20 cmWk van de druk van p2 worden afgetrokken.
+\end_layout
+
+\begin_layout Standard
+Voor het totale gewicht van wat zich boven de basis van de ZBM-laag bevindt,
+ moet bij de druk van sonde p1 (die zich op 10 cm boven de bodem bevindt) eerst 10 cmWk worden opgeteld dan dan nog het waterkolom-equivalent van 10 cm verzadigd ZBM.
+ Hiervoor 20 cmWk zettend (2000 kg/m
+\begin_inset Formula $^{3}$
+\end_inset
+
+) moeten we dus in totaal 30 cmWk bij p1 tellen.
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemeten-(water)druk-in,"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft het door sondes p1 en p2 gemeten verloop van de waterdruk (dezelfde als in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Drukververloop-in-sonde"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ maar nu is het ook drukverloop in p1 weergegeven na omrekening naar totale druk in mWk aan de onderzijde van de ZBM laag (blauwe stippellijn).
+ Tevens is de druk van p2 ingetekend,
+ maar nu omgerekend naar de onderzijde van de ZBM-laag (oranje stippellijn).
+ Alleen wanneer de op deze wijze teruggerekende druk van p2 (oranje stippellijn) groter is dan de naar dit vlak teruggerekende druk van sonde p1 (blauwe stippellijn) kan en zal de ZBM-laag worden losgedrukt van de bodem.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemeten-(water)druk-in,"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat zien dat hier geen schijn van kans op is.
+ De bentonietlaag blijft onder alle scheepspassages stevig op de kanaalbodem liggen.
+\end_layout
+
+\begin_layout Standard
+Wanneer de oranje stippellijn bij de scheepspassage helemaal niet zou zakken,
+ komen de blauwe en oranje lijn dichter bij elkaar,
+ maar dan nog komt de oranje stippellijn niet boven de blauwe.
+ De reden hiervoor is dat stijghoogte,
+ in de heersende infiltrerende situatie,
+ door de weerstand van het ZBM,
+ onder de ZBM-laag behoorlijk lager is dan erboven.
+ Om dit stijghoogteverval uit te rekenen moeten we p1 en p2 hydrostatisch naar dezelfde hoogte terugrekenen,
+ of moeten we eenvoudig de stijghoogtes uitrekenen gegeven de plaatshoogte van sondes.
+ Voor sonde p1:
+ 
+\begin_inset Formula $z_{1}=-3..8$
+\end_inset
+
+ m (3.8 m onder de waterspiegel) en van sonde p2:
+ 
+\begin_inset Formula $z_{2}=-4.2$
+\end_inset
+
+ m (4.2 m onder de waterspiegel,
+ of 30 cm onder de bodem op -3.9 m,
+ of 0.4 m onder het niveau van 
+\begin_inset Formula $z_{1}$
+\end_inset
+
+).
+ Met de waarden van p1 en p2 uit Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gemeten-(water)druk-in,"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ om 15:41:00 uur):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\phi & =z+\frac{p}{\rho_{w}g}\\
+\phi_{1} & =-3.80+3.75=-0.05\\
+\phi_{2} & =-4.20+3.67=-0.53\\
+\phi_{1}-\phi_{2} & =+0.48\,\text{m}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met andere woorden het stijghoogteverval over de ZBM-laag is ca.
+ 50 cm.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/Druk_P1P2_20211021T15416_corrected.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gemeten-(water)druk-in,"
+
+\end_inset
+
+Gemeten (water)druk in,
+ mWk,
+ in sonde p1 op 10 cm boven de bodem en p2 op 30 cm onder de bodem samen met het drukverloop in sonde p1 maar teruggerekend naar totale druk aan onderzijde ZBM-laag en de waterdruk van sonde p2,
+ eveneens teruggerekend naar onderzijde van de ZBM-laag.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Arcadis (2016)"
+key "ARC16"
+literal "false"
+
+\end_inset
+
+Arcadis (2016) Aanvullend geotechnische onderzoek welmetingen Amsterdam-Rijnkanaal.
+ Hoofdstuk 3:
+ Waterveiligheid profiel 14.15.
+ Met veldmetingen.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Beemster e.a. (2022)"
+key "Be22"
+literal "false"
+
+\end_inset
+
+ Beemster.
+ J.G.R,
+ S.J.
+ van der Linde en M.R.L.
+ Ouboter (2022) Geohydrologisch onderzoek wellen langs ARK.
+ Waternet Amsterdam,
+ 25-07-2022.
+ Kenmerk 22.010088.
+ Projectnr.
+ 09.0005/004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2019a)"
+key "De19a"
+literal "false"
+
+\end_inset
+
+Deltares (2019) Afpleistering kanaalbodem.
+ (Auteur:
+ Arno Talmon).
+ Document ID:
+ 11203424-002-ZKS-0002.
+ 16pp.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2019b)"
+key "De19b"
+literal "false"
+
+\end_inset
+
+Deltares (2019b),
+ Arno Talmon,
+ Beslibbingproef kanaalpand WGG t.b.v.
+ project Opwaardering Twentekanalen,
+ Deltares,
+ 11204174-000-ZKS-0002,
+ december 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2020)"
+key "De20"
+literal "false"
+
+\end_inset
+
+Deltares (2020) Geotechnische en geochemische proeven t.b.v.
+ Twentekanalen.
+ (Auteurs A.Talmon en A.Bezuijen).
+ Document ID:
+ 11205061-000-ZKS-0002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2012)"
+key "De12"
+literal "false"
+
+\end_inset
+
+Deltares (2012) Onderzoek bodemerosie Amsterdam-Rijnkanaal.
+ Auteurs:
+ Henk Verheij,
+ Hans van Meerten en Ssanjay Giri.
+ Project1205317-000.
+ Opdracht RWS.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2025a)"
+key "De25a"
+literal "false"
+
+\end_inset
+
+Deltares (2025) Belasting door scheepvaart in Amsterdam-Rijnkanaal.
+ Maatregelen wateroverlast kanalen - SITO programmasubsidie lenW 2024.
+ Auteurs:
+ Iris Hartstra,
+ Arne van der Hout.
+ Projectnr.
+ 11210303-018,
+ document id:
+ 11210303-018-GEO-0007
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2025b)"
+key "De25b"
+literal "false"
+
+\end_inset
+
+Deltares (2025) Overzicht testmodellering geohydrologie Amsterdam-Rijnkanaal,
+ ter verklaring van de seizoenale verschillen in stijghoogte.
+ 17-05-2025.
+ Projectnr.
+ 11211511-014.
+ 53p.
+ Auteurs:
+ Teun van Woerkom,
+ Peter Vermeulen,
+ Guilherme Emidio Horta Nogueira.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares(2026a)"
+key "De26a"
+literal "false"
+
+\end_inset
+
+Deltares (2026a) Analyse metingen scheepvaart Amsterdam-Rijnkanaal.
+ Maatregelen ter reductie wateroverlast langs kanalen - SITO Programmasubsidie IenW 2025.
+ Auteurs:
+ Femke Bisschip en Lynyerd de Wit.
+ Datum 13-02-2026,
+ document Id 11211511-026-GEO-0001,
+ 41pp.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2026a)"
+key "De26b"
+literal "false"
+
+\end_inset
+
+Deltares (2026) Experiments seepage reducing measures canal bed;
+ Column tests and CST permeability tests.
+ Authors:
+ Lynyrd de Wit and Qilong Bi.
+ Docuyment Id:
+ 11211511-033-GEO-0005,
+ 2026-03-026,
+ Deltares,
+ Utrecht.
+ 66 p.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2026c)"
+key "De26c"
+literal "false"
+
+\end_inset
+
+Deltares (2026) Systeemanalyse metingen ARK.
+ Concept 17-04-2026.
+ Projectnummer 11212749-008.
+ 78pp.
+ Auteur:
+ Jorijn Holstvoogd.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Elverhoi et al. (2000)"
+key "Eea2000"
+literal "false"
+
+\end_inset
+
+Elverhoi,
+ A.,
+ Harbitz,
+ CB,
+ Dimakis,
+ P,
+ Mohrig D,
+ Marr,
+ J and Parker G.
+ (2000) On the dynamics of subaquious debris flows.
+ Oceanography,
+ Vol13,
+ Nr.3p 109-117.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Olsthoorn (2026a)"
+key "Olst26a"
+literal "false"
+
+\end_inset
+
+Olsthoorn T.N.
+ (2026) Infiltratie,
+ erosiegeulen,
+ kweldruk en welvorming in het rond het Amsterdam-Rijnkanaal:
+ Analyse op basis van een Geotop-doorsnede door het gebied met overlast (concept).
+ Hygea-consult,
+ Heemstede,
+ 19-04-2026.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Olsthoorn (2026b)"
+key "Olst26b"
+literal "false"
+
+\end_inset
+
+Olsthoorn T.N.
+ (2026b) Weerstand bodem ARK en wellen.
+ Hygea-consult,
+ Heemstede,19-04-26
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Olsthoorn (2026c)"
+key "Olst26c"
+literal "false"
+
+\end_inset
+
+Olsthoorn T.N.
+ (2026c) Vergroten bodemweerstand ARK.
+ Update:
+ Geen slib op de kanaalbodem.
+ Hygea-consult 30/07/2026.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Rijkswaterstaat (2002)"
+key "RWS02"
+literal "false"
+
+\end_inset
+
+RWS (2002) 50 jaar Amsterdam-Rijnkanaal.
+ Ongekend veelzijdig.
+ Ministerie van Verkeer en Waterstaat.
+ Directoraat Generaal Rijkswaterstaat.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Rijkswaterstaat (2022)"
+key "RWS22"
+literal "false"
+
+\end_inset
+
+RWS (2022) Memo Analyse meetdata kanaalafdichting met ZBM.
+ (Auteur Louise-Anne Zaat,
+ RWS).
+ Uitwerking meetcampagne 25/10-01/11/2021 waarbij retourstroomsterktes en drukveranderingen boven en onder de 10 cm dikke ZBM-laag zijn gemeten tijdens scheepspassages zijn gemeten in het Twentekanaal (tak Almelo).
+ 16pp.
+ RWS-GPO,
+ 19/01/2022.
+ 
+\end_layout
+
+\end_body
+\end_document
