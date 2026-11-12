@@ -1,0 +1,1002 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% \lstdefinestyle{mystyle}{
+%   language=Python,
+%   numbers=left
+% }
+
+% Put lstset here, after lstdefinestyle
+% \lstset{style=mystyle}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement H
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=left,% line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Stabiliteit kanaalbodem bij Infiltratie
+\begin_inset Newline newline
+\end_inset
+
+Pilot ARK
+\begin_inset Newline newline
+\end_inset
+
+Kolomexperimenten bij Deltares op 19-09-2026 en 01-10-2026
+\end_layout
+
+\begin_layout Author
+T.N.Olsthoorn
+\end_layout
+
+\begin_layout Date
+05-10-2026
+\end_layout
+
+\begin_layout Section
+Samenvatting
+\end_layout
+
+\begin_layout Standard
+Op 19 sept.
+ en 1 okt.
+ 2026 zijn bij Deltares enkele experimenten uitgevoerd in een verticale kolom met 20 cm diameter gevuld met 30 cm zand,
+ een zand-bentoniet laag en water tot ca.
+ 2 m boven het zandniveau.
+ Het stijghoogteverschil over het zand-bentoniet bed kon worden ingesteld en gehandhaafd.
+ Water werd van boven in de kolom gevoerd waarbij het peil in de kolom constant werd gehouden.
+ De verticale doorstroming hing af van het stijghoogteverval en de weerstand van het zand en de (zand-)bentoniet laag voor zover die tijdens de experimenten nog aanwezig was.
+ Met een verticale van van 20 cm hoogte,
+ ca.
+ 5 cm boven het zandbed kon de watersnelheid worden opgelegd.
+ Tijdens de experimenten varieerde deze van 5 cm/s tot 1.4 m/s tegen de kolomwand.
+ De experimenten van 1 oktober zijn op video vastgelegd door Michel Ruijter en voorzien van mondeling commentaar,
+ zodat de experimenten aan de hand van de serie video's te volgen zijn.
+\end_layout
+
+\begin_layout Standard
+Het meest opvallende was dat de top van het zand (resp.
+ zand-bentoniet) voor zover bij de afzonderlijke proeven nog aanwezig,
+ stabiel bleef zolang een infiltratiestroom aanwezig was.
+ Dat wil zeggen,
+ bij 1.4 m/s bleef de zandbodem (ZB) bodem intact,
+ stabiel zonder dat deeltjes werden meegesleept.
+ Dit was steeds het geval bij neerwaartse waterstroom,
+ met en zonder een zichtbaar (zand-)bentonietlaagje op het schone basiszand.
+ Zonder neerwaartse waterstroom,
+ resp.
+ wanneer het stijghoogteverval,
+ dat oorspronkelijk ca.
+ 150 cm bedroeg,
+ over de kolom was verlaagd tot minder dan ca.
+ 20 cm was het zandoppervlak instabiel.
+\end_layout
+
+\begin_layout Standard
+Tijdens de proeven kon de lek onderuit de kolom worden waargenomen.
+ Wanneer de weerstandbiedende toplaag was bezweken,
+ herstelde zich een aanzienlijke weerstand zodra de roterende waterstroom in de kolom tot rust was gekomen.
+\end_layout
+
+\begin_layout Standard
+Ik heb eerder een aanzet tot analyse gegeven die ik hieronder herhaal.
+ De essentie daarvan is dat ik stabiliteit toeschrijf aan de toename van de effectieve (korrel) spanning met de diepte in het korrelmedium.
+ Dus niet met de absolute korrelspanning,
+ die immers tot nul nadert wanneer de diepte onder het zandbed 
+\begin_inset Formula $z\to0$
+\end_inset
+
+.
+ De waterstroom geeft een extra verticale drukval over de korrels die fysisch 
+\begin_inset Quotes pld
+\end_inset
+
+aanvoelt
+\begin_inset Quotes prd
+\end_inset
+
+ als extra soortelijk gewicht.
+ 
+\begin_inset Quotes pld
+\end_inset
+
+Het is alsof de korrels van lood worden
+\begin_inset Quotes prd
+\end_inset
+
+,
+ waardoor de stabiliteit ontstaat.
+ De afname van de stijghoogte met de diepte bepaalt dit 
+\begin_inset Quotes pld
+\end_inset
+
+extra soortelijk gewicht
+\begin_inset Quotes prd
+\end_inset
+
+,
+ hoe dunner de weerstandslaag en hoe groter de weerstand,
+ des te groter dit effect.
+ Dit is eenduidig kwantificeerbaar.
+\end_layout
+
+\begin_layout Standard
+Dit 
+\begin_inset Quotes pld
+\end_inset
+
+extra soortelijk gewicht
+\begin_inset Quotes prd
+\end_inset
+
+ leidt tot een schijnbaar bulk soortelijk gewicht dat rechtstreeks in de bekende erosieformules kan worden toegepast om de erosiebestendigheid van het zandbed of weerstandsbed onder infiltratieomstandigheden te kwantificeren.
+\end_layout
+
+\begin_layout Standard
+Dit is hoe ik er nu tegenaan kijk.
+ Ik zou graag de betere analyse van echte erosie experts zien,
+ want dat ben ik niet.
+\end_layout
+
+\begin_layout Section
+Analyse (aanzet)
+\end_layout
+
+\begin_layout Standard
+Het is om van wat we met deze proeven constateerden een analyse te maken.
+ Centraal staat Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situatie-analyse-bodemstabiliteit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Deze figuur geeft de situatie op de kanaalbodem weer.
+ Drie lagen zijn ingetekend,
+ t.w.
+ de waterlaag (blauw) een laag met weerstand (oranje) en een laag zand met een zodanig hoge doorlatendheid dat de waterdruk daarin hydrostatisch mag worden verondersteld.
+ De infiltratie zorgt voor een stijghoogteverval 
+\begin_inset Formula $\Delta\phi$
+\end_inset
+
+ over de dikte 
+\begin_inset Formula $d$
+\end_inset
+
+ van de weerstandslaag.
+ De stijghoogte boven de weerstandslaag is gelijk aan het waterniveau;
+ de stijghoogte onder de weerstandslaag is,
+ vanwege het hydrostatische drukverloop,
+ ook constant en wordt gemeten door de getekende peilbuis.
+ Door deze veronderstellingen verloopt de waterspanning 
+\begin_inset Formula $\sigma_{w}$
+\end_inset
+
+ zowel boven als onder de weerstandslaag hydrostatisch.
+ Aangezien we de verticale doorlatendheid 
+\begin_inset Formula $k$
+\end_inset
+
+ in de weerstandslaag constant veronderstellen,
+ verloopt de waterspanning daarin van 
+\begin_inset Formula $B$
+\end_inset
+
+ naar 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ De waterspanning loopt dus van 
+\begin_inset Formula $A$
+\end_inset
+
+ naar 
+\begin_inset Formula $B$
+\end_inset
+
+ naar 
+\begin_inset Formula $C$
+\end_inset
+
+ naar 
+\begin_inset Formula $E$
+\end_inset
+
+.
+ Zonder weerstand (of zonder infiltratie) zou de waterspanning in de oranje laag van 
+\begin_inset Formula $B$
+\end_inset
+
+ naar 
+\begin_inset Formula $D$
+\end_inset
+
+ verlopen.
+ De totale spanning 
+\begin_inset Formula $\sigma_{t}$
+\end_inset
+
+ is gelijk aan het bovenliggende totale gewicht.
+ Deze verloopt over de diepte van 
+\begin_inset Formula $A$
+\end_inset
+
+ naar 
+\begin_inset Formula $B$
+\end_inset
+
+ naar 
+\begin_inset Formula $E$
+\end_inset
+
+ en naar 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ De effectieve spanning of korrelspanning,
+ 
+\begin_inset Formula $\sigma_{e}$
+\end_inset
+
+,
+ is gelijk aan de totale spanning minus de waterspanning en is aangegeven in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situatie-analyse-bodemstabiliteit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Als bij de gegeven infiltratie de waterspanning aan de onderzijde van de oranje laag wordt aangegeven door punt C,
+ dan wandelt punt C naar punt D bij afname van de infiltratie tot nul.
+ Hoe groter de infiltratie hoe meer het punt C naar links verschuift en dus hoe groter op elke diepte de effectieve spanning is.
+\end_layout
+
+\begin_layout Standard
+De stabiliteit van de bodem tegen erosie wordt niet bepaald door de effectieve spanning,
+ maar door de verticale gradiënt van de effectieve spanning.
+\end_layout
+
+\begin_layout Standard
+Eenvoudig uitgelegd zit dat zo.
+ De verticale gradiënt van de effectieve spanning is zonder infiltratie gelijk aan het onderwatergewicht van de laag.
+ Door infiltratie neemt de verticale gradiënt van de effectieve spanning toe en daarmee het 
+\begin_inset Quotes pld
+\end_inset
+
+schijnbare
+\begin_inset Quotes prd
+\end_inset
+
+ onderwatergewicht.
+ Het is alsof de korrels door infiltratie zwaarder worden,
+ waardoor hun stabiliteit tegen erosie toeneemt..
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/bodem_stabiliteit_spanningen.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Situatie-analyse-bodemstabiliteit"
+
+\end_inset
+
+Situatie analyse bodemstabiliteit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Om dit ook wiskundig uit te werken,
+ hoeven we alleen binnen de oranje laag te kijken.
+\end_layout
+
+\begin_layout Standard
+Het totale gewicht op diepte 
+\begin_inset Formula $z$
+\end_inset
+
+ met 
+\begin_inset Formula $\rho_{w}$
+\end_inset
+
+ de dichtheid van het water en 
+\begin_inset Formula $\rho_{b}$
+\end_inset
+
+ bulkdichtheid van de grond met water is 
+\begin_inset Formula $\sigma_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Zonder infiltratie geldt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\sigma_{t} & =\rho_{w}gh+\rho_{b}gz\\
+\sigma_{w} & =\rho_{w}gh+\rho_{w}gz
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zodat de effectieve spanning 
+\begin_inset Formula $\sigma_{e}$
+\end_inset
+
+ binnen de oranje laag gelijk is aan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{e}=\left(\rho_{b}-\rho_{w}\right)gz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De toename van de effectieve spanning met de diepte 
+\begin_inset Formula $z$
+\end_inset
+
+,
+ dus 
+\begin_inset Formula $d\sigma_{e}/dz$
+\end_inset
+
+ is gelijk aan het onderwatergewicht van de laag:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d\sigma_{e}}{dz}=\left(\rho_{b}-\rho_{w}\right)g
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De infiltratie veroorzaakt een stijghoogtegradiënt waardoor de waterspanning relatief afneemt ten opzichte van het hydrostatische verloop.
+ De waterspanning wordt dan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{w}=\rho_{w}gh+\rho_{w}gz+\rho_{w}g\frac{d\phi}{dz}z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Merk op dat 
+\begin_inset Formula $d\phi/dz$
+\end_inset
+
+ hier negatief is door de keuze van de richting van de 
+\begin_inset Formula $z$
+\end_inset
+
+-as.
+\end_layout
+
+\begin_layout Standard
+De effectieve spanning in de oranje laag wordt met infiltratie
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{e}=\left(\rho_{b}-\rho_{w}\right)gz-\rho_{w}g\frac{d\phi}{dz}z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Net als hiervoor kunnen we de toename van de korrelspanning met de diepte berekenen.
+ (Merk op dat 
+\begin_inset Formula $d\phi/dz$
+\end_inset
+
+ hier gewoon een constante is (binnen de oranje laag) en daarom geen rol speelt in de afgeleide).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d\sigma_{e}}{dz}=\left(\rho_{b}-\rho_{w}\right)g-\rho_{w}g\frac{d\phi}{dz}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We kunnen dit als volgt schrijven
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d\sigma_{e}}{dz}=\left(\left[\rho_{b}+\rho_{w}\left(-\frac{d\phi}{dz}\right)\right]-\rho_{w}\right)g
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De term tussen de rechte haken kan worden gezien als de schijnbare 
+\begin_inset Quotes pld
+\end_inset
+
+bulk dichtheid
+\begin_inset Quotes prd
+\end_inset
+
+ van het laagmateriaal onder infiltratieomstandigheden (merk op dat 
+\begin_inset Formula $-d\phi/dz$
+\end_inset
+
+ een positief getal is bij infiltratie).
+\end_layout
+
+\begin_layout Section
+Met getallen
+\end_layout
+
+\begin_layout Standard
+In de bijgewoond kolom experimenten was de oranje laag aanvankelijk ca.
+ 2 cm dik.
+ De gradiënt was,
+ bij verwaarlozing van het stijghoogteverval in de 30 cm dikke laag schoon zand onderin de kolom,
+ ca.
+ 1 m over deze 2 cm dus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{d\phi}{dz}=50
+\]
+
+\end_inset
+
+ingevuld
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d\sigma_{e}}{dz}=\left[\left(\rho_{b}+50\rho_{w}\right)-\rho_{w}\right]g
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met andere woorden,
+ de bulkdichtheid wordt in dit voorbeeld verhoogd met 50 maal de dichtheid van water.
+ Dit lijkt een bijna waanzinnige schijnbare toename van het 
+\begin_inset Quotes pld
+\end_inset
+
+bulkgewicht
+\begin_inset Quotes prd
+\end_inset
+
+.
+ Deze schijnbare toename van het bulkgewicht is uiteraard ook de schijnbare toename van dichtheid van de korrels die dit bulkgewicht uitmaken.
+ Door de infiltratie is het alsof de korrels 
+\begin_inset Formula $x$
+\end_inset
+
+ maal zo zwaar worden.
+\end_layout
+
+\begin_layout Standard
+Dit lijkt heel groot ten opzichte van het plaatje in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situatie-analyse-bodemstabiliteit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Maar laten we deze figuur opvatten alsof die op schaal is bij gegeven 
+\begin_inset Formula $\Delta\phi=1$
+\end_inset
+
+ m.
+ Dan is de waterdiepte ca.
+ 1.5 m en de laagdikte eveneens ca.
+ 0.5 m.
+ De gradiënt 
+\begin_inset Formula $d\phi/dz$
+\end_inset
+
+ is dan ca.
+ -2.
+ Waardoor de formule met deze waarde als volgt wordt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d\sigma_{e}}{dz}=\left[\left(\rho_{b}+2\rho_{w}\right)-\rho_{w}\right]g
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Daar in de praktijk 
+\begin_inset Formula $\rho_{b}\approx2\rho_{w}$
+\end_inset
+
+ neemt het schijnbare bulkgewicht van de grond hierdoor toe met een factor 2.
+ Dit is precies wat fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Situatie-analyse-bodemstabiliteit"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ laat zien.
+ De afstand 
+\begin_inset Formula $DE$
+\end_inset
+
+ neemt met een factor 2 toe tot 
+\begin_inset Formula $CE$
+\end_inset
+
+.
+ Verklein je de dikte van de oranje laag in de figuur,
+ dan blijkt vanzelf hoezeer de gradiënt van de effectieve spanning toeneemt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/bodem_stabiliteit_spanningen5cm.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Als-boven-met-5cm-dikke-laag"
+
+\end_inset
+
+Als boven met dikte van de oranje weerstandslaag 5 cm in plaats van 50 cm.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Als-boven-met-5cm-dikke-laag"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ is de dikte van de oranje laag verkleind van 50 tot 5 cm.
+ We hebben dan een gradiënt van 
+\begin_inset Formula $1/0.05=20$
+\end_inset
+
+.
+ En dus,
+ ingevuld,
+ wordt de gradiënt van de effectieve spanning
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d\sigma_{e}}{dz}=\left[\left(\rho_{b}+20\rho_{w}\right)-\rho_{w}\right]g
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met 
+\begin_inset Formula $\rho_{w}\approx0.5\rho_{b}$
+\end_inset
+
+ levert de situatie in fig.
+ een schijnbaar onderwatergewicht van 
+\begin_inset Formula $\approx11\rho_{b}$
+\end_inset
+
+ op.
+ Dus 
+\begin_inset Formula $CD\approx11ED$
+\end_inset
+
+,
+ zoals in de figuur ook is te zien.
+\end_layout
+
+\begin_layout Standard
+Dus,
+ door de infiltratie neemt de effectieve spanning met de diepte toe als waren de korrels 
+\begin_inset Formula $x$
+\end_inset
+
+ maal zo zwaar.
+ In het laatste voorbeeld is 
+\begin_inset Formula $x=11$
+\end_inset
+
+.
+ Dat is alsof de bodem uit loden korrels zou bestaan in plaats van zandkorrels.
+ Dit geeft dus een enorme vergroting van de stabiliteit,
+ aanzien deze 
+\begin_inset Quotes pld
+\end_inset
+
+verzwaarde korrels
+\begin_inset Quotes prd
+\end_inset
+
+ in de standaard erosieformule moet worden ingevuld voor de dichtheid.
+\end_layout
+
+\begin_layout Section
+Erosie
+\end_layout
+
+\begin_layout Standard
+De meest gebruikte formule voor erosie van een zandbed door waterstroming is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U_{s}=\sqrt{\frac{\theta_{c}}{C_{F}}\frac{\rho_{s}-\rho_{w}}{\rho_{w}}gd}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\theta_{c}$
+\end_inset
+
+ kritische Shields parameter [-]
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $d$
+\end_inset
+
+ korreldiameter
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $C_{f}$
+\end_inset
+
+ 
+\begin_inset Formula $\tau=/\left(\rho U^{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\tau_{c}$
+\end_inset
+
+ 
+\begin_inset Formula $=\theta_{c}\left(\rho_{c}-\rho_{w}\right)gd$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $U$
+\end_inset
+
+ watersnelheid [m/s]
+\end_layout
+
+\begin_layout Description
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Verband tussen kritische erosiesnelheid en korreldiameter (gegenereerd door ChatGPT)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/tabel_Uc.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tabel 1 geeft een overzicht van de kritische erosiesnelheid afhankelijk van de korreldiameter.
+ Deze zal voor de ARK bodem variëren rond 0.25 m/s.
+ Voeren we dit terug naar de kolomproef bij Deltares met een verval van ruim 1 m over 2 cm,
+ 
+\begin_inset Formula $d\phi/dz=-50$
+\end_inset
+
+,
+ zodat de schijnbare bulkdichtheid toeneemt van 
+\begin_inset Formula $\rho_{b}$
+\end_inset
+
+ tot 
+\begin_inset Formula $\rho_{b}+50\rho_{w}\approx26\rho_{b}$
+\end_inset
+
+,
+ dan gaat de kritische snelheid met een factor 
+\begin_inset Formula $\sqrt{26}\approx5$
+\end_inset
+
+ omhoog.
+ Dit is van ca..
+ 25 cm/s naar 1.25 m/s.
+ De kanaalbodem zij dan bij de in 2025 in het ARK gemeten retourstroomsnelheden van de schepen van maximaal ca.
+ 1 m/s feitelijk stabiel zijn (dat is de bodem nu niet).
+\end_layout
+
+\end_body
+\end_document

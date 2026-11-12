@@ -1,0 +1,3272 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ZBM-pilot ARK
+\begin_inset Newline newline
+\end_inset
+
+Erosie onder infiltratie en bodemstabiliteit
+\end_layout
+
+\begin_layout Author
+Theo Olsthoorn
+\end_layout
+
+\begin_layout Date
+November 5,
+ 2026
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\size small
+Prof.
+ dr.ir.
+ T.N.Olsthoorn
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\size small
+Hygea-Consult
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\size small
+Strawinskylaan 54
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\size small
+2102 CR Heemstede
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\size small
+tolsthoorn@gmail.com
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\size small
+06-20440256
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Intro
+\end_layout
+
+\begin_layout Standard
+Wegens overlast door wellen in laaggelegen polders langs het Amsterdam-Rijnkanaal te verminderen,
+ onderzoekt Rijkswaterstaat om de lek vanuit het Amsterdam-Rijnkanaal te reduceren door de kanaalbodem te bedekken met een laag zand-bentoniet van ca.
+ 6 cm dikte.
+ Voor dit doel wordt momenteel een pilot voorbereid.
+\end_layout
+
+\begin_layout Standard
+Een belangrijk aspect van dit project is het risico van erosie van de opgebrachte laag door de sterke stroming die wordt veroorzaakt door passerende diepgaande schepen.
+ De te verwachten erosiebestendigheid is onderzocht door Deltares in kolomproeven waarin een basis zandlaag,
+ voorstellende de kanaalbodem,
+ met de afdeklaag werd belegd en vervolgens onderworpen aan een stroming die overeenkomt met de gemeten sterkte van de retourstroom van schepen in het kanaal.
+ In de proefkolom werd de waterstroom langs de bodem opgewekt met een van bestaande uit twee haaks op elkaar gelaste rechthoekige bladen aan een as,
+ die met de gewenste snelheid op ca.
+ 5 cm boven de afdeklaag in de kolom roteerden.
+\end_layout
+
+\begin_layout Standard
+Op twee momenten is aan het einde van een kolomproef met nog iets van de aangebrachte laag aanwezig gekeken hoe stabiel het oppervlak in de kolom was in afhankelijkheid van de neerwaartse drukval die over de kolom werd gehandhaafd,
+ om de infiltrerende situatie op de kanaalbodem te imiteren.
+ Opgevallen was dat deze bodem bijzonder stabiel was,
+ zelfs onder watersnelheden van 2.5 m/s langs de bodem,
+ ca.
+ 2x de maximum retourstroomsnelheid die in het kanaal is gemeten.
+ Telkens bleek de bodem stabiel tijdens en na het roteren van de vaan in de kolom,
+ behalve wanneer de drukval praktisch nul was,
+ zeg kleiner dan ca.
+ 10 cm.
+ Dit effect was onverwacht sterk en kan een grote rol spelen bij het stabiel houden van de zandbodem van het kanaal,
+ omdat erosie de opgebrachte laag ander gemakkelijk zou kunnen wegspoelen.
+\end_layout
+
+\begin_layout Standard
+In dit rapport wordt getracht het mechanisme onder de ervaren bodemstabiliteit door infiltratie te analyseren en te begrijpen.
+\end_layout
+
+\begin_layout Standard
+Op de bodem spelen twee processen
+\end_layout
+
+\begin_layout Enumerate
+Bodemerosie van de laag door met name de retourstroom van passerende schepen
+\end_layout
+
+\begin_layout Enumerate
+De afpleistering van de bodem door 
+\begin_inset Quotes pld
+\end_inset
+
+plugging
+\begin_inset Quotes prd
+\end_inset
+
+ en consolidatie van fijne deeltjes.
+\end_layout
+
+\begin_layout Standard
+Dit zijn processen die zich op de kanaalbodem afspelen,
+ waarbij de afpleistering afhankelijk is van de aanwezigheid van voldoende fijne deeltjes.
+ Wanneer er onvoldoende fijne deeltjes aanwezig zijn,
+ is de erosie dominant,
+ wordt bij elke scheepspassage bodemzand opgewoeld en wordt het fijne materiaal uitgespoeld en afgevoerd.
+ Dit is de huidige bodemsituatie op delen van het kanaal waar oorspronkelijke slecht doorlatende lagen geheel zijn weggebaggerd.
+ Het aanbrengen van een laag (zand)bentoniet verandert de situatie.
+ De bentonietdeeltjes vormen een slecht doorlatende tapijt op de bodem,
+ die mogelijk stabiel blijft als gevolg van de lage grondwaterstanden langs het kanaal,
+ waardoor de bodem dit fijne materiaal vastzuigt en vasthoudt.
+\end_layout
+
+\begin_layout Standard
+Het is mogelijk om erosie en afdichten (afpleisteren) van de kanaalbodem van elkaar te scheiden door een laag grind aan te brengen dat niet wegspoelt en bentoniet in de poriën daarvan te laten dringen,
+ waardoor dit bentoniet,
+ in de luwte tussen de grindkorrels,
+ de bodem kan afpleisteren zonder risico te worden weggespoeld.
+ Maar wellicht is de stabiliteit van een zuigende bodem met een laagje bentoniet op zichzelf al voldoende stabiel,
+ zoals de proeven met de kolom bij Deltares suggereren.
+ Hieronder wordt een poging gedaan het mechanisme te beschrijven,
+ te kwantificeren en te begrijpen.
+\end_layout
+
+\begin_layout Section
+Twee theoretische aanzetpunten
+\end_layout
+
+\begin_layout Standard
+Er zijn twee wezenlijk verschillende manieren waarop de situatie kan worden geanalyseerd.
+\end_layout
+
+\begin_layout Enumerate
+Het bentoniet vormt een laag fijne korrels op de oorspronkelijke zandige kanaalbodem.
+ Deze korrels zijn kleiner dan de onderliggende zandkorrels en worden daardoor gemakkelijker weggespoeld,
+ maar wanneer hun diameter maar klein genoeg is worden zij door de infiltratie ook op elkaar gedrukt,
+ waardoor zij juist moeilijker wegspoelen.
+ De vraag is of er een korrelgrootte bestaat waar beneden de laag fijne korrels bestand is tegen erosie door de retourstroom van passerende schepen (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Links:bodem-mete-fijne-deeltjes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Het bentoniet verstopt (plugt) de poriën van de bovenste laag zandkorrels.
+ Dit nog voordat zich een laag bentoniet op het zand heeft afgezet.
+ De toplaag van het zand met de door bentonietdeeltjes opgevulde ruimte krijgt hierdoor een aanzienlijke verticale weerstand waardoor hij op het onderliggende zand wordt gedrukt dat daardoor een weerstand krijgt tegen erosie (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bodem-top-verstopt-met-bentoniet"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/theo/Development/python/2026_ARK/images/Kanaalbodem_zand_plus_fijnekorrels.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Links:bodem-mete-fijne-deeltjes"
+
+\end_inset
+
+Links:
+ oorspronkelijke zandbodem.
+ Rechts zandbodem bedekt door een laag met dikte 
+\begin_inset Formula $\delta$
+\end_inset
+
+ bestaande uit fijne korrels.
+ Pijlen geven de stroming aan.
+ De blauwe lijn is de waterdruklijn.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/theo/Development/python/2026_ARK/images/Kanaalbodem_top_plugged.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:bodem-top-verstopt-met-bentoniet"
+
+\end_inset
+
+Ruimtes tussen de korrels van de bovenste zandlaag zijn hier verstopt door door fijne (bentoniet)deeltjes.
+ De infiltratie is daardoor sterk verminderd.
+ Pijlen geven de stroming aan.
+ De geknikte curve is de waterdruklijn en 
+\begin_inset Formula $\Delta H$
+\end_inset
+
+ is de drukval (stijghoogteverval) over de verstopte top van de zandbodem.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bij het eerste mechanisme is het de vraag of het zo is dat een laag fijne deeltjes op de zandbodem,
+ met infiltratie,
+ een stabiele bodemlaag kan vormen op basis van zijn weerstand tegen erosie en zijn weerstand tegen verticale stroming door de infiltratie.
+ Dat blijkt niet zo te zijn.
+\end_layout
+
+\begin_layout Standard
+Bij het tweede mechanisme verstoppen de fijne deeltjes direct de bovenzijde van de poriën van de bovenste laag korrels van de zandbodem.
+ Dat heeft twee effecten:
+\end_layout
+
+\begin_layout Enumerate
+Er ontstaat direct een drukval over de bovenste laag zandkorrels waarin de verticale stroming door bentoniet sterk wordt geremd.
+\end_layout
+
+\begin_layout Enumerate
+De bodem wordt door de opvullen van de ruimte tussen de bovenste korrels van het bodemzand gladder,
+ waardoor de horizontale waterstroming er minder vat op heeft.
+ Deze situatie komt overeen met die van een (praktisch) ondoorlatend vlies op de bodem.
+\end_layout
+
+\begin_layout Standard
+Het uitgangspunt is dat de zandbodem uniform is en dat er infiltratie is,
+ zodanig dat de total drukval tussen kanaal met peil NAP 
+\begin_inset Formula $\unit[-0.4]{m}$
+\end_inset
+
+ en de wijdere omgeving met peil ca.
+ NAP 
+\begin_inset Formula $\unit[-1.9]{m}$
+\end_inset
+
+ vast is.
+ Voor het ARK geldt dan ongeveer 
+\begin_inset Formula $\Delta H\approx\unit[1.5]{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Bij een volledig ondoorlatende bodem zou de stijghoogte onder het ARK naar die van de wijde omgeving zakken omdat de infiltratie dan nul zou zijn.
+ Praktische waarden voor de weerstand van het grondwatersysteem vanaf de bodem van het ARK is ongeveer 
+\begin_inset Formula $R_{0}\approx\unit[20]{d}$
+\end_inset
+
+;
+ de op basis van laboratorium onderzoek bij Deltares is de verwachte weerstand van een laag (zand)bentoniet op de bodem is ongeveer 
+\begin_inset Formula $R_{t}\approx\unit[100]{d}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Laag fijn materiaal op de grovere zandbodem
+\end_layout
+
+\begin_layout Subsection
+Drukval over de fijnkorrelige toplaag
+\end_layout
+
+\begin_layout Standard
+De drukval over de fijnkorrelige toplaag is:
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta h=q_{0}R_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarbij
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\Delta h$
+\end_inset
+
+ stijghoogteval (stijghoogte kanaal minus stijghoogte onder de fijnkorrelige laag) [m]
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ infiltratieflux [m/s]
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $R_{t}$
+\end_inset
+
+ hydraulische weerstand van de fijnkorrelige toplaag [s]
+\end_layout
+
+\begin_layout Standard
+De weerstand van de toplaag is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R_{t}=\frac{\delta}{K}=\frac{\delta}{Cd^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarbij
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $K$
+\end_inset
+
+ de doorlatendheid van de toplaag [m/s]
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $d$
+\end_inset
+
+ de korrel diameter in de toplaag [m]
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $C$
+\end_inset
+
+ de coëfficiënt in de formule van Carman-Kozeny [m
+\begin_inset Formula $^{-1}$
+\end_inset
+
+s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Met 
+\begin_inset Formula $C$
+\end_inset
+
+ uit de van Carman-Kozeny-relatie:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+K\left(d\right)=\frac{g}{180\nu}\frac{n^{3}}{\left(1-n\right)^{2}}d^{2}=Cd^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Waarbij
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $g$
+\end_inset
+
+ gravitatie-consante [N/kg] of [m/s
+\begin_inset Formula $^{2}$
+\end_inset
+
+]
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\nu$
+\end_inset
+
+ kinematische viscositeit van water [m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/s]
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $n$
+\end_inset
+
+ porositeit [-]
+\end_layout
+
+\begin_layout Plain Layout
+Voor porositeit 
+\begin_inset Formula $n=0.4$
+\end_inset
+
+ en 
+\begin_inset Formula $\nu=\unit[10^{-6}]{m^{2}/s}$
+\end_inset
+
+ bij 
+\begin_inset Formula $20^{o}C$
+\end_inset
+
+ volgt 
+\begin_inset Formula $C\approx\unit[9700]{m^{-1}s^{-1}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hoe klein moet de diameter van de korrels in de toplaag zijn om de gewenste weerstand 
+\begin_inset Formula $R_{t}$
+\end_inset
+
+ te krijgen bij een laagdikte 
+\begin_inset Formula $\delta$
+\end_inset
+
+?
+ De formule hiervoor is volgt direct uit het voorgaande:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d=\sqrt{\frac{\delta}{CR_{t}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ingevuld voor een redelijke dikte 
+\begin_inset Formula $\delta=\unit[0.05]{m}$
+\end_inset
+
+:
+ 
+\begin_inset Formula $R_{t}=\unit[100]{d}=\unit[86.4\ 10^{5}]{s}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $C=\unit[9700]{m^{-1}s^{-1}}$
+\end_inset
+
+volgt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d=\unit[7.72\ 10^{-7}]{m=\unit[0.8]{\mu m}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dat zijn dus korrels van de grootte van kleiplaatjes.
+\end_layout
+
+\begin_layout Subsection
+Toename effectieve spanning met de diepte
+\end_layout
+
+\begin_layout Standard
+Het stijghoogteverval over de toplaag volgt uit de verdeling van de weerstanden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta h_{t}=\Delta h\frac{R_{t}}{R_{t}+R_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dus de uniform veronderstelde gradiënt in de toplaag is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+i_{t}\left(d\right) & =\frac{\Delta h_{t}}{\delta}=\frac{\Delta h}{\delta}\frac{R_{t}}{R_{t}+R_{0}}\\
+ & =\frac{\Delta h}{\delta}\frac{\frac{\delta}{Cd^{2}}}{\frac{\delta}{Cd^{2}}+R_{0}}\\
+ & =\Delta h\frac{1}{\delta+R_{0}Cd^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De neerwaartse effectieve spanning door de infiltratie per volume-eenheid is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{i}\left(z\right)=\rho_{w}gi_{t}z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De neerwaartse effectieve spanning door het onderwatergewicht van de korrels is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{s}\left(z\right)=\left(\rho_{s}-\rho_{w}\right)gz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De totale neerwaartse effectieve spanning is dan:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\sigma_{s}\left(z\right) & =gz\left[\left(\rho_{s}-\rho_{w}\right)+\rho_{w}i_{t}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We zie hier dat het effect van de infiltratie in potentie groot is,
+ namelijk afhankelijk van 
+\begin_inset Formula $i_{t}$
+\end_inset
+
+ maar dat die pas op diepte van belang wordt.
+\end_layout
+
+\begin_layout Subsection
+Erosiebestendigheid
+\end_layout
+
+\begin_layout Standard
+Voor losse,
+ bolvormige korrels kan de Shields-relatie worden gebruikt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{c,0}=\theta_{c}\left(\rho_{s}-\rho_{w}\right)gd
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voor zulke kleine diameters (hier 
+\begin_inset Formula $\unit[0.8]{\mu m}$
+\end_inset
+
+is de gebruikelijke Shields-parameter niet constant.
+ De korrels bevinden zich in het viskeuze gebied.
+ Als eerste schatting kan 
+\begin_inset Formula $\theta_{c}=0.05$
+\end_inset
+
+ [-] worden genomen.
+ Invullen geeft dan:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{c,0}\approx\unit[0.05\times\left(2650-1000\right)9.81\times0.8\ 10^{-6}=6.3\ 10^{-4}]{Pa}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit is veel lager dan de schuifspanning die de retourstroom op de bodem uitoefent.
+ Zulke kleine korrels worden in beginsel dus direct weggespoeld.
+\end_layout
+
+\begin_layout Standard
+Maar de korrels worden ook naar beneden gedrukt door de infiltratie.
+ De formule boven laat zien dat het effect van de infiltratie op diepte 
+\begin_inset Formula $z=0$
+\end_inset
+
+ ook nul is.
+ Maar we kunnen ook de druk bekijken op de diepte van een korrel,
+ dus 
+\begin_inset Formula $z=d$
+\end_inset
+
+.
+ De Shields relatie met de verticale druk door het eigen gewicht vermeerderd met dat door de infiltratie wordt dan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau\left(z\right)=\theta_{c}gd\left[\left(\rho_{s}-\rho_{w}\right)+\rho_{w}i\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i=\frac{q}{K}=\frac{q}{Cd^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Invullen geeft:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{c}\left(q\right)=\theta_{c}gd\left[\left(\rho_{s}-\rho_{w}\right)+\rho_{w}\frac{q}{Cd^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De kritische schuifspanning bestaat zo uit twee bijdragen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{c}=\tau_{c,0}+\Delta\tau_{c}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarbij de eerste term door het onderwatergewicht van de korrels en het tweede door de extra neerwaartse druk die het gevolg is van de infiltratie.
+\end_layout
+
+\begin_layout Standard
+De verhouding tussen de kritische schuifspanning met en zonder infiltratie is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\tau_{c}\left(q\right)}{\tau_{c,0}}=1+\frac{\rho_{w}}{\left(\rho_{s}-\rho_{w}\right)}\frac{q}{Cd^{2}}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Voor het ARK met 
+\begin_inset Formula $R_{t}=\unit[100]{d}$
+\end_inset
+
+ en 
+\begin_inset Formula $R_{0}=\unit[20]{d}$
+\end_inset
+
+ en 
+\begin_inset Formula $\Delta H=\unit[1.5]{m}$
+\end_inset
+
+ volgt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q=\frac{\Delta H}{R_{t}+R_{0}}=\frac{1.5}{100+20}=\unit[0.0125]{m/d=\unit[12.5]{mm/d}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met 
+\begin_inset Formula $K=\frac{\delta}{R_{t}}=\frac{0.05}{100}=\unit[5\ 10^{-4}]{m/d}$
+\end_inset
+
+ volgt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{t}\approx\frac{q}{K}=\frac{0.0125}{5\ 10^{-4}}=25
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De verhouding tussen de kritieke schuifspanning met en zonder infiltratie is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\tau_{c}}{\tau_{c,0}}=1+\frac{1000}{1650}\times25\approx16.2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en met de hiervoor berekende waarde van 
+\begin_inset Formula $\tau_{c,0}=\unit[6.3\ 10^{-4}]{Pa}$
+\end_inset
+
+ volgt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{c}\approx\unit[0.01]{Pa}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit is nog steeds een zeer kleine absolute schuifspanning,
+ maar wel honderd zestien zo groot als zonder infiltratie.
+ Zoals we verderop zullen zien is de schuifspanning op de bodem als gevolg van de retourstroom van de passerende schepen veel groter.
+ Ergo,
+ dit mechanisme levert geen enkele weerstand tegen erosie op.
+ Dit laatste is begrijpelijk,
+ omdat een zandbodem die zou bestaan uit zulke kleine korrels (zonder cohesie) niet bestand kan zijn tegen erosie.
+ We komen zo tot het tweede mechanisme.
+\end_layout
+
+\begin_layout Section
+De poriën tussen de bovenste zandkorrels verstoppen
+\end_layout
+
+\begin_layout Subsection
+Grensgeval:
+ de open ruimtes tussen de bovenste korrels van het kanaalbodemzand verstoppen
+\end_layout
+
+\begin_layout Standard
+We kunnen de laag me dikte 
+\begin_inset Formula $\delta$
+\end_inset
+
+ bestaande uit fijnkorrelig materiaal of bentoniet doortrekken naar een grensgeval,
+ namelijk de situatie waarin de fijne deeltjes de ruimtes tussen de bovenste zandkorrels van de kanaalbodem verstoppen.
+ Dit geeft door de infiltratie onmiddellijk een drukval over de bovenste zandkorrels en bovendien wordt de bodem door de opvulling vlak.
+ Dit grensgeval is equivalent aan die waarin de zandbodem wordt afgedekt door een (zo goed als) ondoorlatend en gewichtsloos folie met dikte nul.
+ We zullen hierna steeds het woord folie gebruiken voor de verstopte toplaag,
+ maar met beide wordt hier hetzelfde bedoeld.
+\end_layout
+
+\begin_layout Standard
+Met zo'n (denkbeeldig ondoorlatend) folie weten we direct de drukval 
+\begin_inset Formula $\Delta H$
+\end_inset
+
+;
+ deze is gelijk aan de druk waarmee dit vlies op de zandbodem wordt gedrukt.
+ Bij een folie is bekend bij welke schuifspanning het gaat bewegen.
+ Mechanisch is dit hetzelfde als een folie toegepast in de afdekking van bijvoorbeeld een vuilstort,
+ waar de afdeklaag voor de verticale druk zorgt en de helling voor de afschuiving.
+ Voor deze situaties zijn normen bekend uit de geotechniek.
+ De schuifweerstanden wordt daarbij uitgedrukt in de hoek van de spanning waarbij het vlies gaat schuiven.
+ Tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Eigenschappen-geotechnische-foli"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de afschuifsterkte van enkele folies gebruikt in de geotechniek.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Eigenschappen-geotechnische-foli"
+
+\end_inset
+
+Eigenschappen geotechnische folies
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Materiaalcombinaties
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wrijvingshoek 
+\begin_inset Formula $\phi_{i}$
+\end_inset
+
+ in graden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Glad HDPE-geomembraan / zand
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18-26
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PVC-folie / zand
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29028
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Glad HDPE-geomembraan / klei
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12-19
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nieg-geweven geotextiel / klei
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14-22
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De verticale druk op de folie is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{n}=\rho_{w}g\Delta H
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De weerstand tegen verschuiven volgt uit de wrijving tussen folie en zand:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{\text{crit}}=\sigma_{n}\tan\phi_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bij 
+\begin_inset Formula $\Delta H=\unit[1.5]{m}$
+\end_inset
+
+en een grenswrijvingshoek van bijvoorbeeld 
+\begin_inset Formula $18-26^{o}$
+\end_inset
+
+ komen we op een kritische schuifspanning van ongeveer 
+\begin_inset Formula $\unit[4800-7200]{Pa}$
+\end_inset
+
+.
+ We zullen dit straks vergelijken met de schuifspanning die de retoustroom op zo'n vlies uitoefent.
+\end_layout
+
+\begin_layout Subsection
+Het bentonietlaagje als folie met een eindige dikte en doorlatendheid
+\end_layout
+
+\begin_layout Standard
+We hoeven niet te eisen dat het laagje letterlijk een folie is.
+ Het kan een laagje van enkele mm dikte zijn,
+ met eindige hydraulische weerstand.
+ Zolang de drukval over die laag voldoende groot is,
+ wordt er een aanzienlijke kracht op het onderliggende zand overgebracht.
+\end_layout
+
+\begin_layout Standard
+Met voor het ARK representatieve waarden
+\end_layout
+
+\begin_layout Itemize
+weerstand grondwatersysteem 
+\begin_inset Formula $R_{0}=\unit[20]{d}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+weerstand toplaag 
+\begin_inset Formula $R_{t}=\unit[100]{d}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+beschikbaar verval 
+\begin_inset Formula $\Delta H=\unit[1.5]{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+wordt de drukval over de toplaag:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta H_{t}=\Delta H\frac{R_{t}}{R_{t}+R_{0}}=1.5\frac{100}{100+20}=\unit[1.25]{m}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit is 
+\begin_inset Formula $83\%$
+\end_inset
+
+van de drukbelasting in het ideale foliegeval.
+ De dikte van de laag bepaalt wel de verdeling van de drukval over de laag,
+ maar niet de totale drukval zelf.
+ De overgang van een folie naar een dunne,
+ enigszins doorlatende cohesieve laag verandert dus niet wezenlijk het mechanische uitgangspunt.
+ De drukval kan een grote normaalspanning op het onderliggende zand veroorzaken.
+\end_layout
+
+\begin_layout Subsection
+Een andere verklaring voor de erosieweerstand
+\end_layout
+
+\begin_layout Standard
+We hebben hiervoor vooral gedacht aan korrels die los op het oppervlak liggen en door de stroming worden meegenomen.
+ Maar als fijne deeltjes massaal over de zandbodem worden versproeid,
+ lopen zij vast in de poriën van de bovenste laag zandkorrels.
+ De situatie verandert daarbij fundamenteel,
+ waarbij drie effecten kunnen optreden:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Vastwiggen.
+
+\series default
+ Fijne deeltjes vullen de nauwe ruimten tussen de zandkorrels.
+ Daardoor worden de korrels onderling mechanisch opgesloten.
+ Ze kunnen niet meer zo makkelijk rollen of kantelen.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Een gladder oppervlak.
+
+\series default
+ De fijne deeltjes vullen de ruimtes tussen de uitstekende zandkorrels.
+ Het oppervlak wordt daardoor vlakker,
+ zodat de stroming minder aangrijpingspunten en kleinere hefboomarmen heeft om zandkorrels los te werken.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Drukbelasting door infiltratie.
+
+\series default
+ De drukval over de toplaag levert een neerwaartse kracht op het korrelskelet die de effectieve belasting en daarmee de weerstand tegen beweging vergroot.
+\end_layout
+
+\begin_layout Standard
+De drie effecten moeten fundamenteel uit elkaar worden gehouden.
+ Het vastwiggen is een verandering van de korrelstructuur (bovenste laag van het bodemzand);
+ de drukbelasting is een gevolg van de hydraulische toestand;
+ de gladder geworden kanaalbodem beïnvloedt de hydrodynamische belasting.
+\end_layout
+
+\begin_layout Standard
+Als de ruimtes tussen de korrels aan de top van het zand opgevuld zijn raken met fijne deeltjes (formaat sub-micrometer),
+ dan kan het oppervlak als vlak worden beschouwd.
+ Via dit oppervlak wordt kracht uitgeoefend op het onderliggende grondskelet.
+\end_layout
+
+\begin_layout Subsection
+De kracht op het korrelskelet
+\end_layout
+
+\begin_layout Standard
+Ter illustratie kunnen we de effectieve spanning door ontstaat door de infiltratie vergelijken met die welke ontstaat door het onderwatergewicht van de zandkorrels.
+ De door het onderwatergewicht van de korrels is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta\sigma_{ns}=\left(\rho_{s}-\rho_{w}\right)\left(1-n\right)gz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De bijdrage aan de effectieve spanning door de infiltratie,
+ dus de drukgradiënt ten gevolge van de infiltratie is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta\sigma_{nw}=i\rho_{w}gz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De resulterende effectieve spanning wordt dus:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{n}=g\left[\left(1-n\right)\left(\rho_{s}-\rho_{w}\right)+i\rho_{w}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De verhouding tussen de kracht per volume-eenheid door de stroming en door het ondergedompelde eigen gewicht is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta\sigma_{nw}}{\sigma_{n}}=\frac{i\rho_{w}}{\left(1-n\right)\left(\rho_{s}-\rho_{w}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bij 
+\begin_inset Formula $n=0.4$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\rho_{s}=2650$
+\end_inset
+
+ en 
+\begin_inset Formula $i$
+\end_inset
+
+ bijvoorbeeld 1.5 m over 1.5 cm dikte 
+\begin_inset Formula $i=100$
+\end_inset
+
+ is die verhouding ongeveer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta\sigma_{w}}{\sigma_{b}}\approx\frac{100\times1000}{\left(1-0.4\right)(2650-1000)}\approx101
+\]
+
+\end_inset
+
+De neerwaartse spanning door de infiltratie domineert dus ruimschoots.
+ Dit is nog meer het geval naarmate de verstopte laag dunner is bij dezelfde weerstand.
+\end_layout
+
+\begin_layout Subsection
+Afschuiven van een grondmassa (bezwijken van het oppervlak)
+\end_layout
+
+\begin_layout Standard
+We beschouwen nu het denkbeeldige afschuifvlak onder het gladde oppervlak.
+ De grondmassa boven dat afschuifvlak wordt door de resulterende kracht belast:
+\end_layout
+
+\begin_layout Itemize
+Horizontaal:
+ de schuifspanning van het stromende kanaalwater
+\end_layout
+
+\begin_layout Itemize
+Verticaal neerwaarts:
+ de extra neerwaartse effectieve spanning door de infiltratie,
+ plus het ondergedompelde eigen gewicht van het zand.
+\end_layout
+
+\begin_layout Itemize
+Weerstand:
+ de inwendige wrijving van het zand langs een mogelijk horizontaal afschuifvlak.
+\end_layout
+
+\begin_layout Standard
+Voor een laag zand met een dikte 
+\begin_inset Formula $z$
+\end_inset
+
+,
+ bij een uniforme neerwaartse spanningsgradiënt 
+\begin_inset Formula $i$
+\end_inset
+
+,
+ is de effectieve normaalspanning per oppervlakte-eenheid op een horizontaal vlak:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{n}^{\prime}=z\left[\left(1-n\right)\left(\rho_{s}-\rho_{w}\right)g\right]+\Delta H_{t}\rho_{w}g
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als we de cohesie verwaarlozen,
+ wordt de schuifweerstand:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{\text{weerstand}}\left(z\right)=\sigma_{n}^{\prime}\left(z\right)\tan\phi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit een gewone grondmechanische benadering van de stabiliteit van het zand onder de verstopte toplaag.
+\end_layout
+
+\begin_layout Standard
+Omdat de afschuifweerstand toeneemt met de diepte 
+\begin_inset Formula $z$
+\end_inset
+
+,
+ is 
+\begin_inset Formula $z=0^{+}$
+\end_inset
+
+ maatgevend.
+ De afschuifweerstand op 
+\begin_inset Formula $z=0^{+}$
+\end_inset
+
+,
+ net onder het grensvlak,
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{\text{weerstand}}=\sigma_{n}^{\prime}\left(0\right)\tan\phi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deze afschuifweerstand moet worden afgezet tegen de schuifspanning 
+\begin_inset Formula $\tau_{w}$
+\end_inset
+
+ die het langsstromende water op het (glad veronderstelde) oppervlak veroorzaakt,
+ met 
+\begin_inset Formula $\sigma_{n}^{\prime}(0)=\Delta p_{\text{top}}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{w}\le\Delta p_{\text{top}}\tan\phi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+of uitgedrukt als veiligheidsfactor:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{s}=\frac{\Delta p_{\text{top}}\tan\phi}{\tau_{w}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bezwijken van de verstopte toplaag (de 
+\begin_inset Quotes pld
+\end_inset
+
+folie
+\begin_inset Quotes prd
+\end_inset
+
+) treedt op wanneer 
+\begin_inset Formula $F\le0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Schuifspanning door stroming langs het oppervlak
+\end_layout
+
+\begin_layout Standard
+De schuifspanning langs een glad oppervlak door stationaire,
+ uniforme stroming is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{w}=\rho_{w}gR_{h}i
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $R_{h}$
+\end_inset
+
+ De hydraulische straal (nagenoeg de waterdiepte bij een brede,
+ ondiepe stroming)
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $i$
+\end_inset
+
+ Verhang van de waterspiegel.
+\end_layout
+
+\begin_layout Standard
+Voor brede,
+ ondiepe stroming geldt dan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{w}=\rho_{w}ghi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Een andere,
+ hier beter van toepassing zijnde,
+ formulering gaat via de wrijvingscoëfficiënt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{w}=\frac{1}{2}\rho_{w}v^{2}C_{f}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+waarbij 
+\begin_inset Formula $v$
+\end_inset
+
+ de gemiddelde stroomsnelheid en 
+\begin_inset Formula $C_{f}$
+\end_inset
+
+ de skin-friction-coëfficiënt.
+ Afschuiving treedt op bij 
+\begin_inset Formula $v=v_{\text{crit}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\rho_{w}v_{\text{crit}}^{2}C_{f}=\sigma_{n}^{\prime}\tan\phi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uit het bezwijkcriterium volgt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{v_{\text{crit}}=\sqrt{\frac{2\sigma_{n}^{\prime}\tan\phi}{\rho_{w}C_{f}}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C_{f}$
+\end_inset
+
+ is afhankelijk van het Reynoldsgetal veroorzaakt door de langsstroming.
+\end_layout
+
+\begin_layout Subsection
+Amsterdam-Rijnkanaal
+\end_layout
+
+\begin_layout Standard
+Tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Amsterdam-Rijnkanaal"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft de getallen die de situatie in het Amsterdam-Rijnkanaal kenmerken.
+ Hiermee kunnen we de theoretisch uitgewerkte fysische relaties kwantificeren.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Amsterdam-Rijnkanaal"
+
+\end_inset
+
+Amsterdam-Rijnkanaal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Situatie
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Waarde
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scheepsdiepgang
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T=\unit[4]{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Waterdiepte
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H=\unit[6.5]{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vrije ruimte onder het schip
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $h=\unit[2.5]{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vaarsnelheid
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $v=\unit[4.5]{m/s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Retourstroomsnelheid langs de kanaalbodem
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $v_{b}=\unit[1.25]{m/s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Retourstroomsnelheid extreem (in kolomproef)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $v_{b}=\unit[2.5]{m/s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De dynamische druk bij extreme retourstroomsnelheid onder het schip 
+\begin_inset Formula $v=\unit[2.5]{m/s}$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\rho_{w}v_{b}^{2}=\frac{1}{2}\times1000\times2.5^{2}=\unit[3125]{Pa}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit is equivalent aan 31 cm waterkolom.
+\end_layout
+
+\begin_layout Standard
+Hoe groot is 
+\begin_inset Formula $\tau_{w}$
+\end_inset
+
+ bij een kanaalwatertemperatuur ca.
+ 
+\begin_inset Formula $20^{o}C$
+\end_inset
+
+.
+ Het Reynoldsgetal voor de stroming langs de bodem bepaalt of de stroming daar laminair of turbulent is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Re_{b}=\frac{v_{b}h}{\nu}=\frac{2.5\times2.5}{10^{-6}}=6.25\ 10^{6}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bij 
+\begin_inset Formula $R_{e}>2000$
+\end_inset
+
+ is de stroming turbulent.
+ Dit is hier overduidelijk het geval.
+\end_layout
+
+\begin_layout Standard
+Voor de hydraulisch gladde wand kunnen we de Prandtl-von Kármán-relatie gebruiken (afleiding hier weggelaten):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\sqrt{C_{f}/2}}=2.5\ln\left(Re_{b}\sqrt{C_{f}/2}\right)+5.5
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dit levert met het gevonden Reynoldsgetal 
+\begin_inset Formula $C_{f}=0.0015$
+\end_inset
+
+ (dimensieloos).
+ En dus wordt de schuifspanning door de retourstroom van 
+\begin_inset Formula $v=\unit[2.5]{m/s}$
+\end_inset
+
+langs de gladde bodem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{w}\approx\frac{1}{2}\rho_{w}v_{b}^{2}C_{f}=\frac{1}{2}\times1000\times2.5^{2}\times0.0015=3125\times0.0015=\unit[4.7]{Pa}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De 
+\begin_inset Formula $\unit[3125]{Pa}$
+\end_inset
+
+ is de dynamische druk,
+ die is equivalent aan 
+\begin_inset Formula $\unit[31]{cm}$
+\end_inset
+
+waterkolom.
+ 
+\end_layout
+
+\begin_layout Standard
+Door deze schuifspanning door de retourstroom langs de bodem te vergelijken met de schuifspanning waarbij het zand onder de folie afschuift,
+ krijgen we een fysisch interpreteerbaar criterium voor de erosiebestendigheid van de verstopte toplaag.
+\end_layout
+
+\begin_layout Standard
+Het stabiliteits-criterium van de verstopte kanaalbodem wordt dus nu:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{w}\le\Delta p_{\text{top}}\tan\phi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dus wordt de vereiste drukval over de folie om bezwijken te voorkomen als volgt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta p_{\text{top}}\ge\frac{4.7}{\tan\phi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Eigenschappen-geotechnische-foli"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ geeft voor enkele hoeken van inwendige wrijving de kritische drukval over de folie.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Kritische drukval bij verschillende hoeken van inwendige wrijving
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\phi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tan\phi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kritische drukval
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.35
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta p_{\text{top}}>\unit[12.9]{Pa}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.44
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta p_{\text{top}}>\unit[10.1]{Pa}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.52
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta p_{\text{top}}>\unit[8.1]{Pa}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.61
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta p_{\text{top}}>\unit[6.7]{Pa}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta p_{\text{top}}>\unit[5.6]{Pa}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+45
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.79
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta p_{\text{top}}>\unit[4.7]{Pa}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De drukval over de verstopte toplaag (folie) die nodig is om het zand tegen de retourstroom te beschermen is dus verrassend klein zeg rond 
+\begin_inset Formula $\unit[8]{Pa}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Een stijghoogte verval van 
+\begin_inset Formula $\Delta H_{t}=\unit[1]{m}$
+\end_inset
+
+ over de toplaag levert een afschuifweerstand voor bijv.
+ 
+\begin_inset Formula $\phi=30^{o}$
+\end_inset
+
+ op gelijk aan:
+\begin_inset Formula 
+\[
+\tau_{\text{weerstand}}=\Delta p_{\text{top}}\tan\phi=\Delta H_{t}\rho_{w}g\tan\phi=1\times1000\times9.81\times0.52=\unit[5660]{Pa}
+\]
+
+\end_inset
+
+De drukval van 
+\begin_inset Formula $\unit[1]{m}$
+\end_inset
+
+ levert dus een schuifweerstand die ongeveer 500 keer groter is dan de schuifspanning die door de retourstroom wordt opgewekt.
+ De schuifstroom door de retourstroming,
+ 
+\begin_inset Formula $\unit[4.7]{Pa}$
+\end_inset
+
+ is dus gelijk aan de schuifweerstand die wordt opgewekt door de folie te belasten met een drukval van ca.
+ 
+\begin_inset Formula $\unit[8]{Pa}$
+\end_inset
+
+ (Tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Eigenschappen-geotechnische-foli"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) dit is het equivalent van een waterlaag van 0.8 mm dikte ( 
+\begin_inset Formula $\unit[1]{mm\,water}=\unit[1]{L/m^{2}=\unit[1]{kgf/m^{2}}\approx\unit[10]{N/m^{2}}=\unit[10]{Pa}}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Dit lijkt waanzinnig weinig.
+ Tegelijk moeten we bedenken dat we een wel heel ideale situatie hebben beschouwd met een volkomen vlakke kanaalbodem.
+ Dat laatste is wel een heel grove benadering,
+ niet zozeer omdat de bodem door het bentoniet in de poriën niet glad zou zijn,
+ maar vooral omdat de bodem zelf niet glad is:
+ Deze bevat tal van oneffenheden zoals bijvoorbeeld stroomribbels.
+ Hierdoor zal de feitelijke hydraulische belasting van de retourstroom langs de bodem groter tot veel groter zijn dan bij een volledig vlakke bodem.
+ Als we dan schuifspanning langs de bodem honderd keer zo groot maken,
+ dan nog is de benodigde drukval om het de folie stabiel te houden klein,
+ namelijk ca.
+ 8 cm.
+ Dit laatste strookt met wat we bij de kolomexperimenten hebben gezien,
+ namelijk dat een drukval van meer dan 10 cm de bodem in de proefkolom stabiel hield.
+ In het ARK ligt de beschikbare drukval in de orde van 1 m.
+\end_layout
+
+\begin_layout Subsection
+Check
+\end_layout
+
+\begin_layout Standard
+Het is goed om dit extreme,
+ wellicht verrassende resultaat invoelbaar te maken.
+ De hoge afschuifsterkte bij een drukval equivalent met 1 m waterkolom is niet moeilijk te begrijpen.
+ Het is hetzelfde als een folie op een droge zandbodem belast met 1000 kg/m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.
+ Stel men zich voor onder deze omstandigheden een vierkante meter folie zou te willen verschuiven door eraan te trekken,
+ zal direct duidelijk zijn dat men daarvoor een kracht moet uitoefenen van zo'n 6000 N,
+ het equivalent van een gewicht van 600 kg op de weegschaal.
+ Dat de frictie tussen folie en onderliggende zandkorrels zeer hoog is,
+ is hiermee direct duidelijk.
+\end_layout
+
+\begin_layout Standard
+Maar de schuifspanning van 
+\begin_inset Quotes pld
+\end_inset
+
+slechts
+\begin_inset Quotes prd
+\end_inset
+
+ 4.7 Pa door de retourstroom?
+ Neem de Rijn als voorbeeld.
+ De schuifspanning op de bodem is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{wR}=\rho_{w}ghi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarbij 
+\begin_inset Formula $h$
+\end_inset
+
+ de waterdiepte (bij Lobith ca.
+ 5.5 m),
+ 
+\begin_inset Formula $i$
+\end_inset
+
+ het verhang (bij Lobith ca.
+ 0.1 m/km).
+ Dit geeft
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tau_{wR}=1000\times9.81\times5.5\times0.1\ 10^{-3}=\unit[5.5]{Pa}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De bijbehorende gemiddelde snelheid is kan worden berekend met de formule van De Chézy:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v=C\sqrt{hi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met een geschatte 
+\begin_inset Formula $C=\unit[45]{\sqrt{m}/s}$
+\end_inset
+
+ volgt dan 
+\begin_inset Formula $v\approx45\times\sqrt{5.5\times0.1\ 10^{-3}}=\unit[1.06]{m/s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dit strookt goed met de eerder gevonden waarden voor de retourstroom.
+\end_layout
+
+\begin_layout Standard
+Laten we eens kijken naar de wrijving tussen de romp van een groot binnenvaartschip en het water.
+ Afmetingen M12 schip:
+ 
+\begin_inset Formula $L\times B\times D=135\times17\times4$
+\end_inset
+
+ m.
+ Snelheid ten opzichte van het water in het ARK (vaarsnelheid + retourstroomsnelheid) 
+\begin_inset Formula $4.5+1.25=\unit[5.75]{m/s}$
+\end_inset
+
+.
+ Maximum vermogen 
+\begin_inset Formula $\unit[\ensuremath{2400\ 10^{3}}]{W=J/s=Nm/s}$
+\end_inset
+
+ waarvan 50% gebruikt tijdens het varen met deze snelheid,
+ dus 1200 kW afgegeven vermogen.
+ Dit vermogen wordt vooral verbruikt door de wrijving tussen schip en water:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+P & =Fv=\tau L(B+2D)v\\
+\tau & =\frac{P}{L(B+2D)v}=\frac{1200\times10^{3}}{134\times(17+2\times4)\times5.75}\approx\unit[60]{Pa}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dus ca.
+ tienmaal zo groot als dat door de retourstroom.
+ Dit is redelijk omdat de schuifspanning langs de romp van het schip over een veel groter stuk bodem wordt verdeeld.
+\end_layout
+
+\begin_layout Standard
+Dus de berekende noodzakelijke drukval om de folie niet te laten verschuiven is inderdaad ca.
+ 
+\begin_inset Formula $\unit[8]{Pa}$
+\end_inset
+
+.
+ Een belasting van 
+\begin_inset Formula $\unit[800]{gf/m^{2}}$
+\end_inset
+
+ om een schuifkracht door de retourstroom van 
+\begin_inset Formula $\unit[470]{gf/m^{2}}$
+\end_inset
+
+ te kunnen weerstaan.
+ Maar zelfs als de schuifkracht in werkelijkheid honderd maal zo groot is omdat de bodem niet vlak is,
+ dan nog is de benodigde belasting van de folie niet meer dan een drukval equivalent met ca.
+ 10 cm.
+\end_layout
+
+\begin_layout Section
+Aanzanding door drainage
+\end_layout
+
+\begin_layout Standard
+Er blijkt een octrooi te bestaan getiteld:
+\end_layout
+
+\begin_layout Standard
+Werkwijze voor het bevorderen van aanzanding of het voorkomen van ontgronding in in beweging zijnd water door middel van drainage
+\begin_inset Quotes prd
+\end_inset
+
+.
+ Nederlands octrooi aanvraagnr.
+ 7205562.
+ Ingediend 25/04/1972,
+ vervallen 01/11/1978.
+ Aanvrager ir.
+ Jan Nepomücky Svasek,
+ Adviesbureau voor Watervoorziening IWACO N.V.,
+ te Rotterdam.
+\end_layout
+
+\begin_layout Standard
+De werkwijze raakt aan de mechanismen die ook bij aan de orde zijn bij het beleggen van de een infiltrerende kanaalbodem met een weerstandbiedende laag,
+ de mechanismen die in dit document zijn uitgewerkt.
+\end_layout
+
+\begin_layout Standard
+De vraag is of bevorderen van aanzanding door drainage kan werken.
+\end_layout
+
+\begin_layout Standard
+De aanzanding wordt bevorderd wanneer door de drainage de erosie wordt beperkt,
+ respectievelijk de een situatie op de bodem zodanig verandert dat door het water meegevoerd zand na bezinking niet meer wordt geërodeerd.
+ Wanneer we aannemen dat het aangevoerde zand dezelfde korrelafmetingen heeft als het reeds aanwezig bodemzand,
+ dan is de mechanica dezelfde als besproken bij het eerste mechanisme in dit document.
+ Daarbij wordt door de opgewekte neerwaartse hydraulisch gradiënt een extra effectieve spanning opgewekt die erosie vermindert.
+ De kritische schuifspanning bij de infiltratie die door de drainage wordt opgewekt 
+\begin_inset Formula $\tau_{c}\left(q\right)$
+\end_inset
+
+ ten opzichte van die zonder drainage 
+\begin_inset Formula $\tau_{c,0}$
+\end_inset
+
+ is hiervoor reeds afgeleid:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\tau_{c}\left(q\right)}{\tau_{c,0}}=1+\frac{\rho_{w}}{\left(\rho_{s}-\rho_{w}\right)}\frac{q}{K}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarbij
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $q$
+\end_inset
+
+ de infiltratieflux [m/d]
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $K$
+\end_inset
+
+ de doorlatendheid van het zand [m/d]
+\end_layout
+
+\begin_layout Standard
+Het effect van de drainage wordt gegeven door de tweede term.
+ De tweede term is gelijk aan het stijghoogteverval tussen buitenwater en de drainage (gedacht als drainage vlak onder de bodem):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta H=\frac{q}{K}z
+\]
+
+\end_inset
+
+ met 
+\begin_inset Formula $z$
+\end_inset
+
+ de diepte van de drainage.
+ Dus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{q}{K}=\frac{\Delta H}{z}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bij een redelijke waarde van 
+\begin_inset Formula $\Delta H=z=\unit[1]{m}$
+\end_inset
+
+volgt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\tau_{c}}{\tau_{c,0}} & =1+\frac{1000}{2650-1000}\times1\\
+ & =1+0.61
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Met andere woorden,
+ de kritische schuifspanning neemt wel toe,
+ maar het effect is zeer bescheiden en zal vermoedelijk voor de praktijk weinig uitmaken.
+\end_layout
+
+\begin_layout Standard
+Bij het tweede mechanisme dat in dit document is uitgewerkt,
+ met verstopping van de ruimte tussen de bovenste korrels met fijne (bentoniet) deeltjes,
+ wordt het reeds aanwezige bodemzand gestabiliseerd en dus erosie voorkomen,
+ maar het gaat geen aanzanding bevorderen;
+ omdat de infiltratie door de verstopping vermindert zullen nieuwe zandkorrels die door het water worden aangevoerd op de verstopte bodem juist minder goed blijven liggen.
+\end_layout
+
+\begin_layout Section
+Conclusies
+\end_layout
+
+\begin_layout Standard
+Een zandbodem wordt door infiltratie erosiebestendig worden wanneer deze wordt bedekt door een ondoorlatend folie of wanneer de poriën van de bovenste zandkorrels worden gedicht door fijne deeltjes zoals bentoniet.
+ Het vullen en dichtpluggen van de ruimtes tussen de bovenste laag zandkorrels is vermoedelijk het cruciale mechanisme.
+ Cohesie speelt hierbij vermoedelijk geen rol van betekenis.
+\end_layout
+
+\begin_layout Standard
+Deze conclusie stemt overeen met kolomexperimenten bij Deltares,
+ waarbij de kolom was gevuld met een laag van ca.
+ 30 cm fijn zand terwijl ook bentoniet aanwezig was.
+ Wanneer het water in de kolom door een roterende vaan op ca.
+ 5 cm in beweging werd gebracht tot een snelheid van 2.5 m/s,
+ blijf de bodem stabiel zolang het neerwaartse verval over de kolom op meer dan ca.
+ 10 cm werd gehandhaafd.
+ De waarschijnlijke reden is het verstoppen van de bovenste zandkorrels door de na opwerveling neerdalende bentonietdeeltjes.
+ Het effect was onmiddellijk,
+ zodat consolidatie geen rol speelde.
+ 
+\end_layout
+
+\begin_layout Standard
+Verdere bedekking van de bodem met kleiachtige deeltjes,
+ als een laag óp de bodem,
+ die vervolgens weerstand biedt die toeneemt door consolidatie,
+ zal helpen,
+ maar is mogelijk niet essentieel.
+ Voor het blijven liggen van zo'n laag op de bodem is vorming van cohesie cruciaal,
+ want een laag fijne deeltjes op de bodem zonder cohesie is altijd minder bestand tegen erosie dan het grovere oorspronkelijke bodemzand.
+ Hierdoor ontstaat verschil in gedrag tussen zogenoemde Noorse klei (fijne graniet partikels zonder cohesie) en bentoniet (wel cohesie).
+\end_layout
+
+\begin_layout Standard
+De rol van zand bij toepassing van zand-bentoniet is niet geheel duidelijk.
+ Het mengsel laag zich in de praktijk gemakkelijker op de kanaalbodem uitspreiden.
+ Mogelijk vormt het zand-bentoniet door de gelvorming van het bentoniet een samenhangende cohesieve laag dat ook door zijn gewicht een grote weerstand heeft tegen erosie,
+ echter de neerwaartse druk veroorzaakt doordat het kanaalpeil hoger is dan van het grondwater eronder,
+ blijft de belangrijkste factor in de stabiliteit van de laag,
+ terwijl zonder cohesie deze laag zou desintegreren en eroderen.
+\end_layout
+
+\begin_layout Standard
+Tenslotte,
+ het bevorderen van aanzanding door middel van drainage is zo beperkt dat het voor de praktijk als regel weinig tot geen betekenis zal hebben,
+ tenzij de aangewende stijghoogte in de drainage vele meters lager het peil van het oppervlaktewater.
+\end_layout
+
+\begin_layout Part*
+Appendices
+\end_layout
+
+\begin_layout Standard
+Hoe groot is de doorlatendheid van een pak kleideeltjes?
+\end_layout
+
+\begin_layout Standard
+De Carmen-Kozeny-relatie voorspelt de doorlatendheid van deeltjes als
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+K=\Phi^{2}\frac{g}{180\nu}\frac{n^{3}}{\left(1-n\right)^{2}}d^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alle parameters zijn hiervoor reeds benoemd,
+ behalve 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ de maat voor de afwijking van de bolvorm.
+ Voor de phericity 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ geldt 
+\begin_inset Formula $0\le\Phi\le1$
+\end_inset
+
+ waarbij 
+\begin_inset Formula $1$
+\end_inset
+
+ geldt voor bolvormige deeltjes en 0 voor platte deeltjes.
+ Voor kleideeltes die een platte vorm hebben zou 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ waarden tussen 0.1 en 0.4 aannemen.
+ Dit betekent dat de doorlatendheid van klei door consolidatie een factor 100 kleiner kan zijn dan bij partikels die bolvormig zijn.
+ Bij een meer kaartenhuis structuur van de kleiplaatjes,
+ met 
+\begin_inset Formula $\Phi=0.4$
+\end_inset
+
+ wordt de doorlatendheid gereduceerd tot 6% van die van bolvormige deeltjes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Doorlatendheid (berekend met Carman-Kozeny-relatie) en weerstand van platte deeltjes (kleiplaatjes) met grootste diameter gelijk aan 
+\begin_inset Formula $\unit[1]{\mu m}$
+\end_inset
+
+ bij verschillende waarden van de sfericiteit 
+\begin_inset Formula $\Phi$
+\end_inset
+
+.
+ De onderste rij is de weerstand in dagen die een laag van 1 mm dikte met zulke deeltjes teweeg zou brengen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Phi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[d]{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10^{-6}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10^{-6}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10^{-6}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[K]{m/s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $9.6\ 10^{-9}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.6\ 10^{-9}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $9.7\ 10^{-11}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[K]{m/d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8.4\ 10^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.3\ 10^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8.3\ 10^{-6}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[c]{d/mm}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $7.4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $119$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als deze cijfers reëel zijn,
+ en we hebben initieel een niet optimale stapeling van kleiplaatjes,
+ dan lijkt een weerstand van 100 dagen onbereikbaar door verstopping van de ruimte tussen de bovenste laag korrels.
+ Een laag in de orde van 15 mm zou dan daarvoor nodig zijn.
+\end_layout
+
+\begin_layout Standard
+De bovenste laag zandkorrels op de bodem van het ARK heeft een dikte van rond 
+\begin_inset Formula $\unit[0125]{mm}$
+\end_inset
+
+,
+ dus beduidend kleiner dan 1 mm.
+ Bovendien gaat het bij het opvullen van de ruimte tussen de korrels over een diepte van een halve korreldiameter.
+ Het vullen van deze ruimte met bentonietdeeltjes kan dus niet de benodigde weerstand opleveren;
+ er is een dikkere laag voor nodig.
+ Omdat bij de proeven met de Water-Stroom-Goot in 2017 is gebleken dat het bentoniet niet het bodemzand in dringt,
+ is voor de weerstand een laag bentoniet op de bodem noodzakelijk.
+ De laag op de bodem is kwetsbaar voor erosie,
+ tenminste zolang die niet is geconsolideerd,
+ wat wil zeggen gedurende de eerste 24 uur na depositie.
+\end_layout
+
+\end_body
+\end_document

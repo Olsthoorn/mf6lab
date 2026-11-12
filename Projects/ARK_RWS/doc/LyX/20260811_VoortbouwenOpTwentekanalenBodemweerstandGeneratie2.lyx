@@ -1,0 +1,1133 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+%\usepackage{epstopdf} % to include .eps graphics files with pdfLaTeX
+\usepackage{flafter}   % Don't place floats before their definition
+%\usepackage{topcapt}  % Define \topcation for placing captions above tables (not in gwTeX)
+
+\usepackage{xurl}      % better URL setting, uses old url package
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+\usepackage[]{hyperref} % Generates all cross references
+\hypersetup{            % Setting options for hyperref package
+	breaklinks=true,    % break line with long hyperlinks
+	colorlinks=true,    % coloured links
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=darkblue,
+	citecolor=blue,
+	backref=page
+} 
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{memhfixc}  % remove conflict between the memoir class & hyperref
+\usepackage{pdfsync}   % enable tex source and pdf output syncronicity
+
+\usepackage{alltt}
+
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% \lstdefinestyle{mystyle}{
+%   language=Python,
+%   numbers=left
+% }
+
+% Put lstset here, after lstdefinestyle
+% \lstset{style=mystyle}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\float_placement H
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\biblio_options hyperref=true, backref=true, backrefstyle=three,backreffloats=true,indexing=bib,date=year
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style polish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Python,extendedchars=false,frameround=fttt,numbers=left,% line numbers use none,numberstyle={\tiny},stepnumber=2,% line numbers only every so many,numbersep=9pt,% how far line numbers from text?,showspaces=false,showstringspaces=false,showtabs=false,tab={\rightarrowfill},basicstyle={\small},keywordstyle={\color{blue}},commentstyle={\color{green}},stringstyle={\ttfamily \color{magenta}},identifierstyle={\color{black}}"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Voortbouwen op Twentekanalen:
+\begin_inset Newline newline
+\end_inset
+
+Bodemweerstand Generatie 2.0,
+\begin_inset Newline newline
+\end_inset
+
+ voor kanaal met sterk dynamische zandbodem
+\begin_inset Newline newline
+\end_inset
+
+CONCEPT 11-08-2025
+\end_layout
+
+\begin_layout Author
+Werkgroep uitgangspunten Pilot ARK
+\end_layout
+
+\begin_layout Abstract
+De werkgroep bereidt een pilot van 600 meter voor op het Amsterdam-Rijnkanaal (ARK) ten zuiden van Nigtevegt voor 2027.
+ Het doel is om wateroverlast in de omliggende veenweidegebieden te verminderen door de lekweerstand van de kanaalbodem te verhogen.
+ De eerdere toepassing van een zand-bentonietmengsel (ZBM) in de Twentekanalen (Generatie 1.0) bewees dat deze 'zachte' methode het grondwater effectief beheerst en bestand is tegen erosie.
+ De uitdaging voor de pilot op het ARK is de intense scheepvaartdynamiek;
+ de ZBM-laag mag kort na het aanbrengen niet door de sterke retourstroom van passerende schepen opwervelen.
+ Dit wordt nu uitgewerkt voortbouwend op de ervaring in Twente.
+ De hier voorgestelde innovatieve Generatie 2.0-methode lijkt een robuust alternatief die de uitvoering in twee deelfuncties opsplitst:
+ eerst wordt met een laag hoekig grind de dynamische zandbodem stil gelegd.
+ Vervolgens wordt pure bentoniet-slurrie vanaf de oever over de kanaalbreedte verspreid als dichtheidsstroming,
+ waarbij het in de grindporiën dringt,
+ waarin het,
+ beschermd voor retourstroming,
+ rustig kan rijpen tot een weerstandbiedende pasta.
+ Hoewel dit Generatie 2.0-concept nog in de kinderschoenen staat,
+ verdient het aanbeveling het concept,
+ dat zeker potentie heeft,
+ mee te nemen in de aanstaande stroomgootproeven van Deltares.
+\end_layout
+
+\begin_layout Section
+Intro
+\end_layout
+
+\begin_layout Standard
+Nederlandse kanalen met een hoog peil lekken naar de lagere omgeving,
+ wat na baggeren of verruimen leidt tot wateroverlast,
+ verhoogde grondwaterstanden en welvorming.
+ Waar voorheen rigide methoden zoals klei,
+ bentonietmatten of asfalt werden gebruikt,
+ zoekt Rijkswaterstaat (RWS) nu naar 'zachte',
+ milieuvriendelijke en obstakelvrije oplossingen in den natte.
+ De succesvolle toepassing van een 10 cm dikke zand-bentonietlaag (ZB) in de Twentekanalen (2020-2022) bewees deze effectiviteit en vormt 
+\begin_inset Quotes pld
+\end_inset
+
+bodemweerstand Generatie 1.0
+\begin_inset Quotes prd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+De bodem van het intensief bevaren Amsterdam-Rijnkanaal (ARK) (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ARK-bij-Breukelen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+) ging na verbredingen en verdiepingen veel meer lekken;
+ door herhaalde opwerveling door schepen erodeert de zandbodem,
+ waardoor de lek naar sommige naastliggende polders tussen 2003 en 2015 verzesvoudigd (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Bodem-ARK-bij-fetsbrug"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jaarlijkse-gemaalafvoer-polder-BBO"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+RWS bereidt voor 2027 een pilot uitgaande van de Twente-methode voor om deze lek aan te pakken.De grote uitdaging op het ARK is dat de ZB-laag dagen nodig heeft om te rijpen tot een cohesieve pasta.
+ De extreme scheepvaartdynamiek dreigt het mengsel direct op te wervelen en te ontmengen,
+ waardoor het bentoniet zou wegspoelen naar het IJ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Opwerveling-zand-en-afvoer"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Terwijl Deltares deze herfst stroomgootproeven zak uitvoeren om de huidige pilotplannen te testen,
+ wordt nagedacht over doorontwikkeling naar Generatie 2.0:
+ een robuuste methode die de erosie direct stopt en bodemweerstand opbouwt,
+ zonder de scheepvaart te hinderen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/inhalen_op_ARK.png
+	lyxscale 60
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ARK-bij-Breukelen"
+
+\end_inset
+
+Amsterdam Rijnkanaal bij Breukelen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/gemaalafvoer_BBO+KC.png
+	lyxscale 50
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Jaarlijkse-gemaalafvoer-polder-BBO"
+
+\end_inset
+
+Jaarlijkse gemaalafvoer polder Braambrugge Oost langs ARK 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Be22"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/bodemARK2011-25_y475500.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Bodem-ARK-bij-fetsbrug"
+
+\end_inset
+
+Bodem ARK bij 
+\begin_inset Formula $y_{RD}=475500$
+\end_inset
+
+ ten zuiden van fietsbrug bij Nigtevegt.
+ Ontwerpprofiel.
+ Bathymetrie van de verschillende jaren.
+ Standaardafwijking van de bodemhoogte periode 2013-2025 en de ontstane erosiegeulen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Het waarschijnlijke mechanisme is steeds herhaalde opwerveling door passerende schepen en meevoer richting IJ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Opwerveling-zand-en-afvoer"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Opwerveling_door_retourstroom.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Opwerveling-zand-en-afvoer"
+
+\end_inset
+
+Opwerveling zand door de retourstroom bij elke scheepspassage.
+ De opgewervelde zandkorrels worden stroomafwaarts verplaatst tijdens bezinking.
+ Stroomsnelheid ARK gemiddeld 6 cm/s,
+ verplaatsing zandkorrel na opwerveling over 0.5 m is gemiddelde 2 m per opwerveling (per passerend groot schip).
+ Gemiddeld passeerden van 11-20 juni bijna 8 schepen per uur,
+ waarvan een groot schip per 1.5 uur met waterspiegeldaling van mer dan 0.25 m (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De26a"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Voortbouwen op de ervaring met de Twentekanalen.
+ Generatie 2.0
+\end_layout
+
+\begin_layout Standard
+Voortbouwend op de succesvolle ZB-laag (Generatie 1.0) uit de Twentekanalen,
+ richt de pilot op het Amsterdam-Rijnkanaal (ARK) zich op een robuustere Generatie 2.0 die bestand is tegen hogere dynamiek door scheepvaartdruk in het ARK.
+ Functioneel betekent dit het direct stilleggen van de bodemerosie (opwerveling),
+ gevolgd door het aanbrengen van puur bentoniet waarbij het kan rijpen tot een weerstand biedende en erosiebestendige klei-pasta.
+\end_layout
+
+\begin_layout Subsection*
+Stilleggen bodemerosie
+\end_layout
+
+\begin_layout Standard
+De bodemerosie zou kunnen worden stilgelegd door het aanbrengen van een laag steenslag/grind
+\end_layout
+
+\begin_layout Enumerate
+met korrels die groot genoeg zijn om de retourstroom van ca.
+ 1.3 m/s te weerstaan,
+\end_layout
+
+\begin_layout Enumerate
+die pal op de zandbodem de retourstroom zoveel remt dat het bodemzand tussen de grindkorrels blijft liggen en
+\end_layout
+
+\begin_layout Enumerate
+met korrels die voldoende porieruimte overlaten om met bentoniet te vullen en
+\end_layout
+
+\begin_layout Enumerate
+met korrels die in elkaar haken zodat de benodigde laagdikte minimaal is.
+\end_layout
+
+\begin_layout Standard
+Dit vergt hoekige stenen van het type waarmee de NS de bielsen vastlegt.
+ De benodigde laagdikte zal in de orde van 3 korrels zijn,
+ naar schatting zo'n 10-12 cm (te onderzoeken en beproeven).
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Laag-hoekig-grind-op-bodem-met-bentnoiet"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/Theo/Development/python/mf6_tools/mf6lab/Projects/ARK_RWS/images/bodembedekking_ARK_voorgesteld.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Laag-hoekig-grind-op-bodem-met-bentnoiet"
+
+\end_inset
+
+Laag hoekig grind (steenslag) op de kanaalbodem ter stoplegging van de erosie.
+ Daartussen bentoniet voor de afpleistering en verzorgen van de gewenste bodemweerstand.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Aanbrengen van bentoniet
+\end_layout
+
+\begin_layout Standard
+In de Twentse ZB-laag diende zand voor stabiliteit,
+ volumevergroting,
+ gewicht tegen erosie en nauwkeurige plaatsing.
+ Als de kanaalbodem bedekt is met open grind,
+ is dit zand overbodig.
+ Men kan dan pure bentoniet-slurrie aanbrengen als een onderwater-modderstroom (turbidity current) door dosering langs de oever.
+ Het bentoniet verdeelt zich hierbij vanzelf over de kanaalbreedte (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Turbidity-current"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Moddelstroom_WGG__sep2019.png
+	lyxscale 60
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Mudflow_WahUniv.png
+	lyxscale 25
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Turbidity-current"
+
+\end_inset
+
+Turbidity current in Water-Grond-Goot Deltares Delft (sept.
+ 20219) en in het lab van Western Washington University.
+ Geology Dept.
+ On Youtube.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WG24"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onderwater-modderstromen (turbidity currents) kunnen in een kanaal gemakkelijk snelheden bereiken rond 0,5 m/s en steken dan de kanaalbodem in de breedte over in circa 20 seconden Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Turbidity-current"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ De stroom laat bentoniet achter in de poriën van de grindlaag,
+ waar het de onderliggende zandbodem afpleistert en beschermt tegen retourstromen Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dosering-bentonietslurrie"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Na rijping vormt dit een stevige kleipasta tussen de grindkorrels.
+ Het bezinken duurt vermoedelijk 10 minuten,
+ terwijl de dosering vanuit een duwbak enkele tientallen minuten vergt.
+ Gootproeven moeten deze grove inschattingen aanscherpen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Bentoniet_dosering.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dosering-bentonietslurrie"
+
+\end_inset
+
+Dosering bentonietslurrie vanaf de kanaaloever
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De slurrie zou vanuit een duwbak kunnen worden verpompt via een doseerbuis die langzaam langs de damwand beweegt Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dosering-bentonietslurrie"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Deze procedure wordt vanaf de andere oever herhaald en kan eventueel ook in het kanaalmidden plaatsvinden voor een gelijkmatige laagdikte Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Verdeling-slurrie-langs_3lijnen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Voor de uitvoering moeten de dosering,
+ slurrie-dichtheid,
+ het debiet en de vaarsnelheid van de doseerbuis nog exact worden gedimensioneerd en getest.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Bentoniet_dosering_3lijnen.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Verdeling-slurrie-langs_3lijnen"
+
+\end_inset
+
+Verdeling slurrie door dosering vanaf rechter oever,
+ dan (indien nodig) vanaf linker oever en tenslotte vanaf hartlijn kanaal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bij deze aanbrengmethode ondervindt de scheepvaart naar verwachting nauwelijks hinder.
+ Omdat het verspreiden via dichtheidsstroming slechts tientallen minuten duurt,
+ kan dit gebeuren tijdens rustige vaarmomenten of in tijdvakken van bijvoorbeeld dertig minuten tussen passerende schepen.
+ Enige waterbeweging is hierbij juist gunstig,
+ omdat dit helpt het bezonken bentoniet dieper in de poriën van de grindlaag te drukken.
+\end_layout
+
+\begin_layout Section
+Weerstandsopbouw
+\end_layout
+
+\begin_layout Standard
+De hydraulische weerstand wordt primair geleverd door fijn bentoniet en niet door zand,
+ zo blijkt uit onderzoek in de Water-Grond-Goot (WGG) van Deltares 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De19"
+literal "false"
+
+\end_inset
+
+.
+ Door versproeiing boven de bodem van de WGG ontmengde de slurrie,
+ waarbij traag bezinkend bentoniet zich over sneller bezonken zand afzette Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Turbidity-current"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ De eerste beslibbingsronde resulteerde in een weerstandsopbouw van 1 d/h gedurende de eerste 24 uur,
+ de tweede in een weerstandstoename van ca.
+ 2 d/h over een periode van 80 uur 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "De19"
+literal "false"
+
+\end_inset
+
+.
+ In de Twentekanalen werd het doel van 60 d gehaald.
+\end_layout
+
+\begin_layout Section
+Na plaatsing grind wordt zand afgevangen
+\end_layout
+
+\begin_layout Standard
+De grindlaag stabiliseert de zandbodem direct tegen retourstromen.
+ Stroomopwaarts van de beoogde pilot opgewerveld zand,
+ dat met de basisstroming (6 cm/s) richting het IJ beweegt,
+ bezinkt over een zone van circa 10 meter in de lege grindporiën aan de stroomopwaartse kant van het grindbed (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Opgewerveld-zand-wordt-gevangen"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Omdat dit opvullen tijd kost,
+ zijn de poriën tijdens het doseren van het bentoniet nog vrij van zand.
+ Het bentoniet kan hierdoor ongehinderd doordringen tot de zandbodem voor de afpleistering.
+ Zolang de bodem stroomopwaarts van de pilot zandig blijft,
+ lopen resterende poriën uiteindelijk vol met zand;
+ overtollig zand transporteert daarna via herhaalde opwerveling verder richting het IJ.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../images/Sand_trap_door_grind.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Opgewerveld-zand-wordt-gevangen"
+
+\end_inset
+
+Opgewerveld zand wordt tijdens bezinking gevangen op de zuidelijke kop van de grindlaag.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Duurzaamheid
+\end_layout
+
+\begin_layout Standard
+De methode splitst de aanpak op in twee deelfuncties:
+ 1) de bodem fixeren met grind en 2) bodemweerstand inbrengen met bentoniet.
+ Dit scheiden vereenvoudigt de uitvoering aanzienlijk en hindert de scheepvaart nauwelijks.
+ Het resultaat is een 'zachte',
+ permanent slijtvaste bescherming,
+ zonder fysieke obstakels voor toekomstige werkzaamheden.
+ Grind verplaatst niet en bentoniet ligt gefixeerd in de poriën.
+ Eventuele ankerschade is op het ARK verwaarloosbaar.
+\end_layout
+
+\begin_layout Standard
+Ervaringen in Twente tonen aan dat de methode het bodemleven niet schaadt.
+ Of bioturbatie de dunne bentonietlaag aantast is een ecologische onzekerheid die praktijkervaring vergt;
+ dit risico vervalt vermoedelijk zodra de poriën later alsnog vollopen met zand.
+ Zolang deze poriën zandvrij zijn,
+ is naderhand extra bentoniet toevoegen eenvoudig.
+ Mocht de grindlaag door langere tijd na aanleg wel volgelopen zijn met zand,
+ dan moet dit er eerst met een (aan te passen) schip worden uitgezogen.
+ Bij een direct vlakdekkende uitvoering waarbij stroomopwaartse bodemerosie is uitgesloten speelt dit zandprobleem niet.
+\end_layout
+
+\begin_layout Section
+Conclusie
+\end_layout
+
+\begin_layout Standard
+In het verleden zijn klei,
+ bentonietmatten en soms asfalt toegepast om de bodem af te dichten en zo hinderlijke kanaallek te stoppen.
+ De inzet van zand-bentonietmengsels in de Twentekanalen (Generatie 1.0) is het eerste voorbeeld van een duurzame,
+ obstakelvrije methode voor kanaalverruiming,
+ maar de toepassing op drukke vaarwegen zoals het Amsterdam-Rijnkanaal vraagt om verdere innovatie.
+ De pilot die nu wordt voorbereid voor het ARK bouwt direct voort op de ervaring in Twente (Generatie 1.5).
+ Dit document vormt de aanzet voor nog verdere en robuustere doorontwikkeling,
+ (Generatie 2.0).
+ Stroomgootproeven zijn hiervoor noodzakelijk net als het benutten van mogelijk interne en externe expertise.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Beemster e.a. (2022)"
+key "Be22"
+literal "false"
+
+\end_inset
+
+ Beemster.
+ J.G.R,
+ S.J.
+ van der Linde en M.R.L.
+ Ouboter (2022) Geohydrologisch onderzoek wellen langs ARK.
+ Waternet Amsterdam,
+ 25-07-2022.
+ Kenmerk 22.010088.
+ Projectnr.
+ 09.0005/004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2019)"
+key "De19"
+literal "false"
+
+\end_inset
+
+Deltares (2019) Beslibbingsproef kanaalpand WGG (Water Grond Goot).
+ Deltares.
+ (Auteur:
+ Arno Talmon)Document Id.
+ 112041 74-000-ZKS-0002
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2025a)"
+key "De25a"
+literal "false"
+
+\end_inset
+
+Deltares (2025) Belasting door scheepvaart in Amsterdam-Rijnkanaal.
+ Maatregelen wateroverlast kanalen - SITO programmasubsidie lenW 2024.
+ Auteurs:
+ Iris Hartstra,
+ Arne van der Hout.
+ Projectnr.
+ 11210303-018,
+ document id:
+ 11210303-018-GEO-0007
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares(2026a)"
+key "De26a"
+literal "false"
+
+\end_inset
+
+Deltares (2026a) Analyse metingen scheepvaart Amsterdam-Rijnkanaal.
+ Maatregelen ter reductie wateroverlast langs kanalen - SITO Programmasubsidie IenW 2025.
+ Auteurs:
+ Femke Bisschip en Lynyerd de Wit.
+ Datum 13-02-2026,
+ document Id 11211511-026-GEO-0001,
+ 41pp.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Deltares (2026a)"
+key "De26b"
+literal "false"
+
+\end_inset
+
+Deltares (2026) Experiments seepage reducing measures canal bed;
+ Column tests and CST permeability tests.
+ Authors:
+ Lynyrd de Wit and Qilong Bi.
+ Docuyment Id:
+ 11211511-033-GEO-0005,
+ 2026-03-026,
+ Deltares,
+ Utrecht.
+ 66 p.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Elverhoi et al. (2000)"
+key "Eea2000"
+literal "false"
+
+\end_inset
+
+Elverhoi,
+ A.,
+ Harbitz,
+ CB,
+ Dimakis,
+ P,
+ Mohrig D,
+ Marr,
+ J and Parker G.
+ (2000) On the dynamics of subaquious debris flows.
+ Oceanography,
+ Vol13,
+ Nr.3p 109-117.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Univ Washington (2024)"
+key "WG24"
+literal "false"
+
+\end_inset
+
+Western University of Whastington,
+ Geology:
+ https://youtu.be/8gYJJjxY8g0?si=Eg7WF_eWQhYkgOn3
+\end_layout
+
+\end_body
+\end_document
